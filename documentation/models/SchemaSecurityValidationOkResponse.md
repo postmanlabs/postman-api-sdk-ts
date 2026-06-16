@@ -1,0 +1,7 @@
+# SchemaSecurityValidationOkResponse
+
+**Properties**
+
+| Name     | Type  | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| :------- | :---- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| warnings | any[] | ❌       | Information about each issue discovered in the analysis. Each object includes the violation's severity and category, the location of the issue, data paths, and other information. This returns an empty object if there are no issues present in the schema. If there are issues, this returns the `possibleFixUrl` response in each warning object. This provides a link to documentation you can use to resolve the warning. |
