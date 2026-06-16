@@ -1,0 +1,104 @@
+name: Release
+on:
+  push:
+    branches: ['main']
+    paths:
+      - '.manifest.json'
+      - '.github/workflows/release.yml'
+  workflow_dispatch:
+    inputs:
+      publish_to_package_manager:
+        description: 'Override PUBLISH_TO_PACKAGE_MANAGER for this run'
+        type: boolean
+        default: false
+
+env:
+  # Toggle to enable package-manager publishing on push to base.
+  # The workflow_dispatch input above overrides this on manual runs.
+  # Quoted so the value is always compared as a string (see the gate step below).
+  PUBLISH_TO_PACKAGE_MANAGER: 'false'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read SDK version from .manifest.json
+        id: version
+        run: |
+          if [ ! -f .manifest.json ]; then
+            echo "::notice::No .manifest.json found at repo root, skipping tag"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          VERSION=$(jq -r '.config.sdkVersion // empty' .manifest.json)
+          if [ -z "$VERSION" ]; then
+            echo "::notice::config.sdkVersion missing from .manifest.json, skipping tag"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if ! echo "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+([-+].+)?$'; then
+            echo "::notice::config.sdkVersion '$VERSION' is not a valid semver, skipping tag"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+      - name: Create tag if it does not exist
+        if: steps.version.outputs.skip == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          if gh api "repos/${{ github.repository }}/git/refs/tags/$TAG" >/dev/null 2>&1; then
+            echo "::notice::Tag $TAG already exists, nothing to do"
+            exit 0
+          fi
+          gh api -X POST "repos/${{ github.repository }}/git/refs" \
+            -f ref="refs/tags/$TAG" \
+            -f sha="${{ github.sha }}"
+          echo "::notice::Created tag $TAG at ${{ github.sha }}"
+      - name: Compute publish gate
+        id: gate
+        run: |
+          if [ "${{ steps.version.outputs.skip }}" = "true" ]; then
+            # No valid version/tag was resolved, so never publish without a matching release.
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "ok=${{ inputs.publish_to_package_manager }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=$PUBLISH_TO_PACKAGE_MANAGER" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-node@v4
+        if: steps.gate.outputs.ok == 'true'
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        if: steps.gate.outputs.ok == 'true'
+        run: npm install --no-audit --no-fund
+      - name: Publish to npm
+        if: steps.gate.outputs.ok == 'true'
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          PUBLISHED=$(npm view "$(node -p "require('./package.json').name")@$VERSION" version 2>/dev/null || echo "")
+          if [ -z "$PUBLISHED" ]; then
+            npm publish --access public
+          else
+            echo "Version $VERSION already published, skipping."
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Create GitHub release
+        if: steps.gate.outputs.ok == 'true' && steps.version.outputs.skip == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "::notice::Release $TAG already exists"
+          else
+            gh release create "$TAG" --title "$TAG" --generate-notes
+          fi

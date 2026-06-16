@@ -1,0 +1,269 @@
+import { Request } from '../transport/request';
+import { ResponseDefinition } from '../transport/types';
+import { ZodUndefined } from 'zod';
+import { ContentType, HttpResponse, RequestHandler } from '../types';
+import { ResponseMatcher } from '../utils/response-matcher';
+
+/**
+ * Request handler that validates and decodes HTTP response bodies.
+ * Supports multiple content types including JSON, XML, binary, form data, and event streams.
+ */
+export class ResponseValidationHandler implements RequestHandler {
+  /** Next handler in the chain */
+  next?: RequestHandler;
+
+  /**
+   * Handles a standard HTTP request and validates its response.
+   * @template T - The expected response data type
+   * @param request - The HTTP request to process
+   * @returns A promise that resolves to the validated HTTP response
+   */
+  async handle<T>(request: Request): Promise<HttpResponse<T>> {
+    const response = await this.next!.handle<T>(request);
+
+    return this.decodeBody<T>(request, response);
+  }
+
+  /**
+   * Handles a streaming HTTP request and validates response chunks.
+   * @template T - The expected response data type for each chunk
+   * @param request - The HTTP request to process
+   * @returns An async generator that yields validated HTTP responses
+   * @throws Error if response headers are enabled (streaming not supported with headers)
+   */
+  async *stream<T>(request: Request): AsyncGenerator<HttpResponse<T>> {
+    const stream = this.next!.stream<T>(request);
+
+    for await (const response of stream) {
+      const responseChunks = this.splitByDataChunks<T>(response);
+      for (const chunk of responseChunks) {
+        yield this.decodeBody<T>(request, chunk);
+      }
+    }
+  }
+
+  private splitByDataChunks<T>(response: HttpResponse<T>): HttpResponse<T>[] {
+    if (!response.metadata.headers['content-type']?.includes('text/event-stream')) {
+      return [response];
+    }
+
+    const text = new TextDecoder().decode(response.raw);
+    const encoder = new TextEncoder();
+    return text
+      .split('\n')
+      .filter((line) => line.startsWith('data: '))
+      .map((part) => ({
+        ...response,
+        raw: encoder.encode(part).buffer,
+      }));
+  }
+
+  private decodeBody<T>(request: Request, response: HttpResponse<T>): HttpResponse<T> {
+    const responseMatcher = new ResponseMatcher(request.responses);
+    const responseDefinition = responseMatcher.getResponseDefinition(response);
+
+    if (!responseDefinition || !this.hasContent(responseDefinition, response)) {
+      return response;
+    }
+
+    const contentType = responseDefinition.contentType;
+    const contentTypeHandlers: {
+      [key: string]: (
+        req: Request,
+        resDef: ResponseDefinition,
+        res: HttpResponse<T>,
+      ) => HttpResponse<T>;
+    } = {
+      [ContentType.Binary]: this.decodeFile,
+      [ContentType.Image]: this.decodeFile,
+      [ContentType.MultipartFormData]: this.decodeMultipartFormData,
+      [ContentType.Text]: this.decodeText,
+      [ContentType.Xml]: this.decodeText,
+      [ContentType.FormUrlEncoded]: this.decodeFormUrlEncoded,
+      [ContentType.EventStream]: this.decodeEventStream,
+    };
+
+    if (contentTypeHandlers[contentType]) {
+      return contentTypeHandlers[contentType].call(this, request, responseDefinition, response);
+    }
+
+    if (response.metadata.headers['content-type']?.includes('text/event-stream')) {
+      return this.decodeEventStream(request, responseDefinition, response);
+    }
+
+    return this.decodeJson(request, responseDefinition, response);
+  }
+
+  private decodeFile<T>(
+    request: Request,
+    responseDefinition: ResponseDefinition,
+    response: HttpResponse<T>,
+  ): HttpResponse<T> {
+    return {
+      ...response,
+      data: this.validate<T>(request, responseDefinition, response.raw),
+    };
+  }
+
+  private decodeMultipartFormData<T>(
+    request: Request,
+    responseDefinition: ResponseDefinition,
+    response: HttpResponse<T>,
+  ): HttpResponse<T> {
+    const formData = this.fromFormData(response.raw);
+    return {
+      ...response,
+      data: this.validate<T>(request, responseDefinition, formData),
+    };
+  }
+
+  private decodeText<T>(
+    request: Request,
+    responseDefinition: ResponseDefinition,
+    response: HttpResponse<T>,
+  ): HttpResponse<T> {
+    const decodedBody = new TextDecoder().decode(response.raw);
+    return {
+      ...response,
+      data: this.validate<T>(request, responseDefinition, decodedBody),
+    };
+  }
+
+  private decodeFormUrlEncoded<T>(
+    request: Request,
+    responseDefinition: ResponseDefinition,
+    response: HttpResponse<T>,
+  ): HttpResponse<T> {
+    const decodedBody = new TextDecoder().decode(response.raw);
+    const urlEncoded = this.fromUrlEncoded(decodedBody);
+    return {
+      ...response,
+      data: this.validate<T>(request, responseDefinition, urlEncoded),
+    };
+  }
+
+  private decodeEventStream<T>(
+    request: Request,
+    responseDefinition: ResponseDefinition,
+    response: HttpResponse<T>,
+  ): HttpResponse<T> {
+    let decodedBody = new TextDecoder().decode(response.raw);
+    if (decodedBody.startsWith('data: ')) {
+      decodedBody = decodedBody.substring(6);
+    }
+    if (decodedBody.trim().length === 0) {
+      return { ...response, data: undefined as T };
+    }
+    // Note: this assumes that the content of data is a valid JSON string
+    return {
+      ...response,
+      data: this.validate<T>(request, responseDefinition, this.parseJson(decodedBody)),
+    };
+  }
+
+  private decodeJson<T>(
+    request: Request,
+    responseDefinition: ResponseDefinition,
+    response: HttpResponse<T>,
+  ): HttpResponse<T> {
+    const decodedBody = new TextDecoder().decode(response.raw);
+    if (decodedBody.trim().length === 0) {
+      return { ...response, data: undefined as T };
+    }
+    return {
+      ...response,
+      data: this.validate<T>(request, responseDefinition, this.parseJson(decodedBody)),
+    };
+  }
+
+  /**
+   * Parses a JSON response body, rethrowing parse failures as a plain Error
+   * so callers don't have to special-case SyntaxError.
+   */
+  private parseJson(decodedBody: string): unknown {
+    try {
+      return JSON.parse(decodedBody);
+    } catch (e) {
+      const message = e instanceof Error ? e.message : String(e);
+      throw new Error(`Failed to parse JSON response body: ${message}`);
+    }
+  }
+
+  /**
+   * Validates response data against the expected schema if validation is enabled.
+   * @template T - The expected data type
+   * @param request - The HTTP request containing validation settings
+   * @param response - The response definition with schema
+   * @param data - The data to validate
+   * @returns The validated data (parsed if validation enabled, raw otherwise)
+   */
+  private validate<T>(request: Request, response: ResponseDefinition, data: any): T {
+    if (request.config.validation?.responseValidation ?? true) {
+      return response.schema.parse(data);
+    }
+    return data;
+  }
+
+  /**
+   * Checks if a response should contain data based on its schema and status.
+   * @template T - The response data type
+   * @param responseDefinition - The response definition
+   * @param response - The HTTP response
+   * @returns True if the response should have content, false otherwise
+   */
+  private hasContent<T>(
+    responseDefinition: ResponseDefinition,
+    response: HttpResponse<T>,
+  ): boolean {
+    return (
+      !!responseDefinition.schema &&
+      !(responseDefinition.schema instanceof ZodUndefined) &&
+      response.metadata.status !== 204
+    );
+  }
+
+  /**
+   * Parses URL-encoded data into an object.
+   * @param urlEncodedData - The URL-encoded string
+   * @returns An object with decoded key-value pairs
+   */
+  private fromUrlEncoded(urlEncodedData: string): object {
+    const pairs = urlEncodedData.split('&');
+    const result: Record<string, string> = {};
+
+    pairs.forEach((pair) => {
+      const [key, value] = pair.split('=');
+      if (key && value !== undefined) {
+        result[decodeURIComponent(key)] = decodeURIComponent(value);
+      }
+    });
+
+    return result;
+  }
+
+  /**
+   * Parses multipart form data into an object.
+   * @param arrayBuffer - The raw form data as ArrayBuffer
+   * @returns An object with form field names and values
+   */
+  private fromFormData(arrayBuffer: ArrayBuffer): Record<string, string> {
+    const decoder = new TextDecoder();
+    const text = decoder.decode(arrayBuffer);
+
+    const boundary = text.split('\r\n')[0];
+    const parts = text.split(boundary).slice(1, -1);
+
+    const formDataObj: Record<string, string> = {};
+
+    parts.forEach((part) => {
+      const [header, value] = part.split('\r\n\r\n');
+      const nameMatch = header.match(/name="([^"]+)"/);
+      if (nameMatch) {
+        const name = nameMatch[1].trim();
+        formDataObj[name] = value?.trim() || '';
+      }
+    });
+
+    return formDataObj;
+  }
+}
