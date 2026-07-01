@@ -20,7 +20,7 @@ env:
   # SDK identity baked in at generation time from the in-memory build context,
   # so the workflow never reads .manifest.json or package.json at runtime.
   SDK_VERSION: '1.43.0'
-  SDK_PACKAGE_NAME: 'postman-postman-api-sdk'
+  SDK_PACKAGE_NAME: 'postman-api-sdk'
   RELEASE_TAG: 'v1.43.0'
 
 jobs:

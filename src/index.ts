@@ -64,7 +64,7 @@ export * from './services/common';
 export * from './http';
 export { Environment } from './http/environment';
 
-export class PostmanPostmanApiSdk {
+export class PostmanApiSdk {
   public readonly billing: BillingService;
 
   public readonly analytics: AnalyticsService;

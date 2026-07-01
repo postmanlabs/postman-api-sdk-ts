@@ -39,14 +39,14 @@ Gets all active mock servers. By default, this endpoint returns only mock server
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.mocks.getMocks({
+  const data = await postmanApiSdk.mocks.getMocks({
     teamId: '1b96f65f-8d23-4e1d-b5e2-055992c3b8cbd2567dfa09a9',
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
@@ -76,10 +76,10 @@ Creates a mock server in a collection. **Note:** - You cannot create mocks for c
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateMock, CreateMockMock, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { CreateMock, CreateMockMock, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -94,7 +94,7 @@ import { CreateMock, CreateMockMock, PostmanPostmanApiSdk } from 'postman-postma
     mock: createMockMock,
   };
 
-  const data = await postmanPostmanApiSdk.mocks.createMock(createMock, {
+  const data = await postmanApiSdk.mocks.createMock(createMock, {
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 
@@ -122,14 +122,14 @@ Gets information about a mock server.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.mocks.getMock('e3d951bf-873f-49ac-a658-b2dcb91d3289');
+  const data = await postmanApiSdk.mocks.getMock('e3d951bf-873f-49ac-a658-b2dcb91d3289');
 
   console.log(data);
 })();
@@ -156,15 +156,10 @@ Updates a mock server's properties, such as its name or collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  PostmanPostmanApiSdk,
-  UpdateMock,
-  UpdateMockMock,
-  UpdateMockMockConfig,
-} from 'postman-postman-api-sdk';
+import { PostmanApiSdk, UpdateMock, UpdateMockMock, UpdateMockMockConfig } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -186,7 +181,7 @@ import {
     mock: updateMockMock,
   };
 
-  const data = await postmanPostmanApiSdk.mocks.updateMock(
+  const data = await postmanApiSdk.mocks.updateMock(
     'e3d951bf-873f-49ac-a658-b2dcb91d3289',
     updateMock,
   );
@@ -215,14 +210,14 @@ Deletes a mock server.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.mocks.deleteMock('e3d951bf-873f-49ac-a658-b2dcb91d3289');
+  const data = await postmanApiSdk.mocks.deleteMock('e3d951bf-873f-49ac-a658-b2dcb91d3289');
 
   console.log(data);
 })();
@@ -259,33 +254,29 @@ Gets a mock server's call logs. You can get a maximum of 6.5MB of call logs or a
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const mockSortServedAt = 'servedAt';
   const ascDesc = 'asc';
 
-  const data = await postmanPostmanApiSdk.mocks.getMockCallLogs(
-    'e3d951bf-873f-49ac-a658-b2dcb91d3289',
-    {
-      limit: 3,
-      cursor:
-        'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
-      until: '2022-06-15T00:00:00.000Z',
-      since: '2022-06-01T00:00:00.000Z',
-      responseStatusCode: 500,
-      responseType: 'success',
-      requestMethod: 'post',
-      requestPath: '/animals?type=Dog',
-      sort: mockSortServedAt,
-      direction: ascDesc,
-      include: 'request.headers,request.body,response.headers,response.body',
-    },
-  );
+  const data = await postmanApiSdk.mocks.getMockCallLogs('e3d951bf-873f-49ac-a658-b2dcb91d3289', {
+    limit: 3,
+    cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
+    until: '2022-06-15T00:00:00.000Z',
+    since: '2022-06-01T00:00:00.000Z',
+    responseStatusCode: 500,
+    responseType: 'success',
+    requestMethod: 'post',
+    requestPath: '/animals?type=Dog',
+    sort: mockSortServedAt,
+    direction: ascDesc,
+    include: 'request.headers,request.body,response.headers,response.body',
+  });
 
   console.log(data);
 })();
@@ -311,14 +302,14 @@ Publishes a mock server. Publishing a mock server sets its **Access Control** co
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.mocks.publishMock('e3d951bf-873f-49ac-a658-b2dcb91d3289');
+  const data = await postmanApiSdk.mocks.publishMock('e3d951bf-873f-49ac-a658-b2dcb91d3289');
 
   console.log(data);
 })();
@@ -344,16 +335,14 @@ Unpublishes a mock server. Unpublishing a mock server sets its **Access Control*
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.mocks.unpublishMock(
-    'e3d951bf-873f-49ac-a658-b2dcb91d3289',
-  );
+  const data = await postmanApiSdk.mocks.unpublishMock('e3d951bf-873f-49ac-a658-b2dcb91d3289');
 
   console.log(data);
 })();
@@ -379,14 +368,14 @@ Gets all of a mock server's server responses.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.mocks.getMockServerResponses(
+  const data = await postmanApiSdk.mocks.getMockServerResponses(
     'e3d951bf-873f-49ac-a658-b2dcb91d3289',
   );
 
@@ -419,11 +408,11 @@ import {
   CreateMockServerResponse,
   CreateMockServerResponseServerResponse,
   CreateMockServerResponseServerResponseHeaders,
-  PostmanPostmanApiSdk,
-} from 'postman-postman-api-sdk';
+  PostmanApiSdk,
+} from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -447,7 +436,7 @@ import {
     serverResponse: createMockServerResponseServerResponse,
   };
 
-  const data = await postmanPostmanApiSdk.mocks.createMockServerResponse(
+  const data = await postmanApiSdk.mocks.createMockServerResponse(
     'e3d951bf-873f-49ac-a658-b2dcb91d3289',
     createMockServerResponse,
   );
@@ -477,14 +466,14 @@ Gets information about a server response.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.mocks.getMockServerResponse(
+  const data = await postmanApiSdk.mocks.getMockServerResponse(
     'e3d951bf-873f-49ac-a658-b2dcb91d3289',
     '965cdd16-fe22-4d96-a161-3d05490ac421',
   );
@@ -516,14 +505,14 @@ Updates a server response.
 
 ```typescript
 import {
-  PostmanPostmanApiSdk,
+  PostmanApiSdk,
   UpdateMockServerResponse,
   UpdateMockServerResponseServerResponse,
   UpdateMockServerResponseServerResponseHeaders,
-} from 'postman-postman-api-sdk';
+} from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -547,7 +536,7 @@ import {
     serverResponse: updateMockServerResponseServerResponse,
   };
 
-  const data = await postmanPostmanApiSdk.mocks.updateMockServerResponse(
+  const data = await postmanApiSdk.mocks.updateMockServerResponse(
     'e3d951bf-873f-49ac-a658-b2dcb91d3289',
     '965cdd16-fe22-4d96-a161-3d05490ac421',
     updateMockServerResponse,
@@ -578,14 +567,14 @@ Deletes a mock server's server response.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.mocks.deleteMockServerResponse(
+  const data = await postmanApiSdk.mocks.deleteMockServerResponse(
     'e3d951bf-873f-49ac-a658-b2dcb91d3289',
     '965cdd16-fe22-4d96-a161-3d05490ac421',
   );

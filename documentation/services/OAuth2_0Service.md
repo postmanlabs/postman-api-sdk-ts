@@ -27,10 +27,10 @@ Generates an OAuth 2.0 access token for a client application using the `client_c
 **Example Usage Code Snippet**
 
 ```typescript
-import { GenerateOauthToken, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { GenerateOauthToken, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     username: 'YOUR_USERNAME',
     password: 'YOUR_PASSWORD',
   });
@@ -41,7 +41,7 @@ import { GenerateOauthToken, PostmanPostmanApiSdk } from 'postman-postman-api-sd
     jwt: 'eyJhXXX',
   };
 
-  const data = await postmanPostmanApiSdk.oAuth2_0.generateOauthToken(generateOauthToken);
+  const data = await postmanApiSdk.oAuth2_0.generateOauthToken(generateOauthToken);
 
   console.log(data);
 })();
@@ -67,16 +67,16 @@ Revokes an active OAuth 2.0 access token and prevents further use of it for auth
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk, RevokeOauthToken } from 'postman-postman-api-sdk';
+import { PostmanApiSdk, RevokeOauthToken } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({});
+  const postmanApiSdk = new PostmanApiSdk({});
 
   const revokeOauthToken: RevokeOauthToken = {
     token: 'PMAK-XXX',
   };
 
-  const data = await postmanPostmanApiSdk.oAuth2_0.revokeOauthToken(revokeOauthToken);
+  const data = await postmanApiSdk.oAuth2_0.revokeOauthToken(revokeOauthToken);
 
   console.log(data);
 })();

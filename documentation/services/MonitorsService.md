@@ -39,14 +39,14 @@ Gets all monitors.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.monitors.getMonitors({
+  const data = await postmanApiSdk.monitors.getMonitors({
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     active: true,
     owner: 12345678,
@@ -91,11 +91,11 @@ import {
   MonitorSchedule,
   OnError,
   OnFailure,
-  PostmanPostmanApiSdk,
-} from 'postman-postman-api-sdk';
+  PostmanApiSdk,
+} from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -151,7 +151,7 @@ import {
     monitor: createMonitorMonitor,
   };
 
-  const data = await postmanPostmanApiSdk.monitors.createMonitor(createMonitor, {
+  const data = await postmanApiSdk.monitors.createMonitor(createMonitor, {
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 
@@ -179,16 +179,14 @@ Gets information about a monitor.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.monitors.getMonitor(
-    '1e6b6cc1-c760-48e0-968f-4bfaeeae9af1',
-  );
+  const data = await postmanApiSdk.monitors.getMonitor('1e6b6cc1-c760-48e0-968f-4bfaeeae9af1');
 
   console.log(data);
 })();
@@ -223,13 +221,13 @@ import {
   MonitorSchedule,
   OnError,
   OnFailure,
-  PostmanPostmanApiSdk,
+  PostmanApiSdk,
   UpdateMonitor,
   UpdateMonitorMonitor,
-} from 'postman-postman-api-sdk';
+} from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -283,7 +281,7 @@ import {
     monitor: updateMonitorMonitor,
   };
 
-  const data = await postmanPostmanApiSdk.monitors.updateMonitor(
+  const data = await postmanApiSdk.monitors.updateMonitor(
     '1e6b6cc1-c760-48e0-968f-4bfaeeae9af1',
     updateMonitor,
   );
@@ -312,16 +310,14 @@ Deletes a monitor.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.monitors.deleteMonitor(
-    '1e6b6cc1-c760-48e0-968f-4bfaeeae9af1',
-  );
+  const data = await postmanApiSdk.monitors.deleteMonitor('1e6b6cc1-c760-48e0-968f-4bfaeeae9af1');
 
   console.log(data);
 })();
@@ -348,19 +344,16 @@ Runs a monitor and returns its run results. **Note:** - If you pass the `async=t
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.monitors.runMonitor(
-    '1e6b6cc1-c760-48e0-968f-4bfaeeae9af1',
-    {
-      async: true,
-    },
-  );
+  const data = await postmanApiSdk.monitors.runMonitor('1e6b6cc1-c760-48e0-968f-4bfaeeae9af1', {
+    async: true,
+  });
 
   console.log(data);
 })();
@@ -388,14 +381,14 @@ Gets all instances of the runner polling Postman for upcoming monitor runs. Inst
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.monitors.getRunnerInstances(
+  const data = await postmanApiSdk.monitors.getRunnerInstances(
     '1f08d6ba-c377-4ca0-be80-af81daf8fef9',
     {
       limit: 10,
@@ -428,14 +421,14 @@ Gets the Postman server-side metrics for a runner instance. Metrics include info
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.monitors.getRunnerMetrics(
+  const data = await postmanApiSdk.monitors.getRunnerMetrics(
     '1f08d6ba-c377-4ca0-be80-af81daf8fef9',
   );
 

@@ -26,14 +26,14 @@ Exchanges a service account API key for a short-lived access token. On success, 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.serviceAccounts.generateServiceAccountToken({
+  const data = await postmanApiSdk.serviceAccounts.generateServiceAccountToken({
     xApiKey: 'PMAK-xxxx-xxxx-xxxx-xxxx',
   });
 

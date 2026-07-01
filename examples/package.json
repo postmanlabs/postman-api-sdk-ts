@@ -1,9 +1,9 @@
 {
-  "name": "postman_postman_api_sdk",
+  "name": "postman_api_sdk",
   "version": "1.43.0",
   "private": true,
   "dependencies": {
-    "postman-postman-api-sdk": "file:../",
+    "postman-api-sdk": "file:../",
     "zod": "3.22.3"
   },
   "scripts": {
