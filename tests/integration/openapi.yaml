@@ -85,7 +85,7 @@ info:
 
     - [Postman Terms of Service](http://www.postman.com/legal/terms/)
     - [Postman Privacy Policy](https://www.postman.com/legal/privacy-policy/)
-  version: 1.41.2
+  version: 1.43.0
   termsOfService: 'https://www.postman.com/legal/terms/'
   contact:
     name: Postman Support
@@ -155,6 +155,20 @@ tags:
     description: The **Collection to API** endpoints enable you to transform your Postman Collections into API definitions.
   - name: Comments
     description: 'The **Comments** endpoints enable you to manage comments on an element. You can use [comments](https://learning.postman.com/docs/collaborating-in-postman/working-with-your-team/discussing-your-work/) to collaborate and discuss your work with your teammates in Postman.'
+  - name: Components
+    description: |
+      The **Components** endpoints enable you to manage components in the Postman [Component Library](https://learning.postman.com/docs/design-apis/specifications/component-library). Maintain and standardize your team's commonly used components, without having to redefine them in each specification. Reusable components can include schemas, responses, parameters, and more.
+
+      The Postman Component Library is available with [Postman Enterprise plans](https://www.postman.com/pricing/).
+  - name: Component Versions
+    description: 'These endpoints enable you to manage component versions. Versioning component files is useful for publishing a new version of your reusable components, while still supporting earlier versions.'
+  - name: Component Drafts
+    description: |
+      These endpoints enable you to manage your component file drafts.
+
+      **Note:**
+
+      You can't reuse components in a draft component file. You must publish a component file to enable your teammates to reference its components in their specifications.
   - name: Detected Secrets
     description: 'The **Detected Secrets** endpoints enable you to manage secrets detected by the Postman [Secret Scanner](https://learning.postman.com/docs/administration/secret-scanner/).'
   - name: Discovery Services
@@ -1936,6 +1950,247 @@ paths:
           $ref: '#/components/responses/comment500Error'
       parameters:
         - $ref: '#/components/parameters/threadId'
+  /components:
+    post:
+      summary: Create a component
+      description: 'Creates a new component. The component is created in an active state with an initial draft. Use the POST `/components/{componentId}/versions` endpoint to publish a version.'
+      operationId: createComponent
+      x-postman-plan: Enterprise
+      tags:
+        - Components
+      requestBody:
+        $ref: '#/components/requestBodies/createComponent'
+      responses:
+        '201':
+          $ref: '#/components/responses/createComponentResponse'
+        '400':
+          $ref: '#/components/responses/componentLibrary400Error'
+        '401':
+          $ref: '#/components/responses/common401Error'
+        '403':
+          $ref: '#/components/responses/common403Error'
+        '409':
+          $ref: '#/components/responses/componentLibrary409Error'
+        '500':
+          $ref: '#/components/responses/common500Error'
+    get:
+      summary: Get all components
+      description: Gets a list of all components in the team's component library.
+      operationId: getAllComponents
+      x-postman-plan: Enterprise
+      tags:
+        - Components
+      responses:
+        '200':
+          $ref: '#/components/responses/getAllComponents'
+        '400':
+          $ref: '#/components/responses/componentLibrary400Error'
+        '401':
+          $ref: '#/components/responses/common401Error'
+        '500':
+          $ref: '#/components/responses/common500Error'
+      parameters:
+        - $ref: '#/components/parameters/componentType'
+        - $ref: '#/components/parameters/componentStatus'
+        - $ref: '#/components/parameters/componentHasVersions'
+        - $ref: '#/components/parameters/componentIncludeFields'
+        - $ref: '#/components/parameters/componentExpandLatestVersion'
+  '/components/{componentId}':
+    patch:
+      summary: Update a component
+      description: |
+        Updates a component:
+          - `name` — Rename the component. The new name must be unique within the team. Archived components can't be renamed.
+          - `status` — Changes the component's lifecycle state:
+            - `archive` — Marks the component as read-only. Archived components aren't deleted and can't be edited or published, but their existing versions remain accessible.
+            - `active` — Restores the component. Only active components can be edited and published.
+
+        **Note:**
+
+        You can't update a name and archived state in a single call. To change both properties, make separate calls to update the name and status.
+      operationId: updateComponent
+      x-postman-plan: Enterprise
+      tags:
+        - Components
+      requestBody:
+        $ref: '#/components/requestBodies/updateComponent'
+      responses:
+        '200':
+          $ref: '#/components/responses/updateComponentResponse'
+        '400':
+          $ref: '#/components/responses/componentLibrary400Error'
+        '401':
+          $ref: '#/components/responses/common401Error'
+        '403':
+          $ref: '#/components/responses/common403Error'
+        '404':
+          $ref: '#/components/responses/componentLibrary404Error'
+        '409':
+          $ref: '#/components/responses/componentLibrary409Error'
+        '500':
+          $ref: '#/components/responses/common500Error'
+    get:
+      summary: Get a component
+      description: 'Gets information about a component. Use the `include` and `expand` query parameters to return additional information, such as `hasVersions` and the latest published version.'
+      operationId: getComponent
+      x-postman-plan: Enterprise
+      parameters:
+        - $ref: '#/components/parameters/componentIncludeFields'
+        - $ref: '#/components/parameters/componentExpandLatestVersion'
+      responses:
+        '200':
+          $ref: '#/components/responses/getComponent'
+        '400':
+          $ref: '#/components/responses/componentLibrary400Error'
+        '401':
+          $ref: '#/components/responses/common401Error'
+        '403':
+          $ref: '#/components/responses/common403Error'
+        '404':
+          $ref: '#/components/responses/componentLibrary404Error'
+        '500':
+          $ref: '#/components/responses/common500Error'
+      tags:
+        - Components
+    parameters:
+      - $ref: '#/components/parameters/componentId'
+  '/components/{componentId}/drafts':
+    patch:
+      summary: Update a component draft
+      description: |
+        Updates a component's draft. Component drafts contain unpublished edits to a component, which may be different from a recently published version.
+
+        **Note:**
+
+        You can't update archived components.
+      operationId: updateComponentDraft
+      x-postman-plan: Enterprise
+      tags:
+        - Components
+        - Component Drafts
+      requestBody:
+        $ref: '#/components/requestBodies/updateComponentDraft'
+      responses:
+        '200':
+          $ref: '#/components/responses/updateComponentDraftResponse'
+        '400':
+          $ref: '#/components/responses/componentLibrary400Error'
+        '401':
+          $ref: '#/components/responses/common401Error'
+        '403':
+          $ref: '#/components/responses/common403Error'
+        '404':
+          $ref: '#/components/responses/componentLibrary404Error'
+        '409':
+          $ref: '#/components/responses/componentLibrary409Error'
+        '500':
+          $ref: '#/components/responses/common500Error'
+    get:
+      summary: Get a component draft
+      description: 'Gets information about the current working draft of a component, including its content and format. Drafts represent the latest unpublished edits of a component, which may be different from the most recently published version.'
+      operationId: getComponentDraft
+      x-postman-plan: Enterprise
+      tags:
+        - Components
+        - Component Drafts
+      responses:
+        '200':
+          $ref: '#/components/responses/getComponentDraft'
+        '400':
+          $ref: '#/components/responses/componentLibrary400Error'
+        '401':
+          $ref: '#/components/responses/common401Error'
+        '403':
+          $ref: '#/components/responses/common403Error'
+        '404':
+          $ref: '#/components/responses/componentLibrary404Error'
+        '500':
+          $ref: '#/components/responses/common500Error'
+    parameters:
+      - $ref: '#/components/parameters/componentId'
+  '/components/{componentId}/versions':
+    post:
+      summary: Create a component version
+      description: |
+        Publishes a new version of a component from the current draft.
+
+        **Note:**
+
+        You can't publish a new version of an archived component. Reactivate the component before publishing a new version.
+      operationId: createComponentVersion
+      x-postman-plan: Enterprise
+      tags:
+        - Components
+        - Component Versions
+      requestBody:
+        $ref: '#/components/requestBodies/createComponentVersion'
+      responses:
+        '201':
+          $ref: '#/components/responses/createComponentVersionResponse'
+        '400':
+          $ref: '#/components/responses/componentLibrary400Error'
+        '401':
+          $ref: '#/components/responses/common401Error'
+        '403':
+          $ref: '#/components/responses/common403Error'
+        '404':
+          $ref: '#/components/responses/componentLibrary404Error'
+        '409':
+          $ref: '#/components/responses/componentLibrary409Error'
+        '500':
+          $ref: '#/components/responses/common500Error'
+    get:
+      summary: Get all component versions
+      description: Gets a list of a component's published versions.
+      operationId: getComponentVersions
+      x-postman-plan: Enterprise
+      tags:
+        - Components
+        - Component Versions
+      responses:
+        '200':
+          $ref: '#/components/responses/getComponentVersions'
+        '400':
+          $ref: '#/components/responses/componentLibrary400Error'
+        '401':
+          $ref: '#/components/responses/common401Error'
+        '403':
+          $ref: '#/components/responses/common403Error'
+        '404':
+          $ref: '#/components/responses/componentLibrary404Error'
+        '500':
+          $ref: '#/components/responses/common500Error'
+      parameters:
+        - $ref: '#/components/parameters/componentLibraryInclude'
+    parameters:
+      - $ref: '#/components/parameters/componentId'
+  '/components/{componentId}/versions/{versionId}':
+    get:
+      summary: Get a component version
+      description: Gets a published version of a component.
+      operationId: getComponentVersion
+      x-postman-plan: Enterprise
+      tags:
+        - Components
+        - Component Versions
+      responses:
+        '200':
+          $ref: '#/components/responses/getComponentVersion'
+        '400':
+          $ref: '#/components/responses/componentLibrary400Error'
+        '401':
+          $ref: '#/components/responses/common401Error'
+        '403':
+          $ref: '#/components/responses/common403Error'
+        '404':
+          $ref: '#/components/responses/componentLibrary404Error'
+        '500':
+          $ref: '#/components/responses/common500Error'
+      parameters:
+        - $ref: '#/components/parameters/componentLibraryInclude'
+    parameters:
+      - $ref: '#/components/parameters/componentId'
+      - $ref: '#/components/parameters/componentVersionId'
   /detected-secrets-queries:
     post:
       summary: Search detected secrets
@@ -2067,6 +2322,7 @@ paths:
         - The request body size cannot exceed the maximum allowed size of 30MB.
         - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.
         - If you do not include the `workspace` query parameter, the system creates the environment in the oldest personal Internal workspace you own.
+        - Only [shared variable](https://learning.postman.com/docs/use/send-requests/variables/variables/#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
       operationId: createEnvironment
       tags:
         - Environments
@@ -2116,6 +2372,7 @@ paths:
         - The request body size cannot exceed the maximum allowed size of 30MB.
         - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.
         - To add a description to an existing variable, use the `add` operation.
+        - Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
       operationId: patchEnvironment
       tags:
         - Environments
@@ -2143,6 +2400,7 @@ paths:
 
         - The request body size cannot exceed the maximum allowed size of 30MB.
         - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.
+        - Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
       operationId: putEnvironment
       tags:
         - Environments
@@ -10752,16 +11010,84 @@ components:
               title: integer
           description: The key's value.
           example: '{{userId}}'
+        enabled:
+          type: boolean
+          default: true
+          description: 'If true, the variable is enabled.'
+          example: true
         disabled:
           type: boolean
           default: false
           description: 'If true, the variable is not enabled. Doesn''t apply to path parameter variables.'
+    environmentSecret:
+      type: boolean
+      description: 'If true, the variable is marked as secret and its value is retrieved from the mentioned provider in the source field.'
+      example: false
+    environmentVariableSource:
+      type: object
+      description: Information about the source of the variable's value.
+      properties:
+        postman:
+          type: object
+          description: Information about the Postman-specific source of the variable's value.
+          properties:
+            secretId:
+              type: string
+              description: The variable's secret ID.
+              example: f5fa5280-18a3-4d93-a706-2fe48b1007dc
+            type:
+              type: string
+              description: |
+                The variable's type:
+                - `cloud` — The variable value is synced and stored in the Postman Cloud.
+              enum:
+                - cloud
+              example: cloud
+            vaultId:
+              type: string
+              description: The variable's ID in the Postman Vault.
+              example: 453a311c-c5b4-4627-8e51-a3bd48953734
+        provider:
+          type: string
+          description: The secret's provider.
+          enum:
+            - postman
+          example: postman
+    secretVariable:
+      title: Secret Variable Info
+      description: Information about the secret variable.
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          default: true
+          description: 'If true, the variable is enabled.'
+          example: true
+        key:
+          type: string
+          description: The variable's key (name).
+          example: userId
+        secret:
+          $ref: '#/components/schemas/environmentSecret'
+        source:
+          $ref: '#/components/schemas/environmentVariableSource'
+        id:
+          type: string
+          description: The variable's ID. Doesn't apply to collection-level variables.
+          example: 1561db76-bc21-48d1-a9f3-5d70c07b9d87
+        description:
+          type: string
+          maxLength: 512
+          description: The variable's description.
+          example: The user's ID.
     variable-list-2:
       title: Collection Variables
       type: array
       description: 'A list of the collection''s [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.'
       items:
-        $ref: '#/components/schemas/variable-2'
+        anyOf:
+          - $ref: '#/components/schemas/variable-2'
+          - $ref: '#/components/schemas/secretVariable'
     script-2:
       title: Script
       type: object
@@ -13487,6 +13813,303 @@ components:
     threadId:
       type: integer
       example: 34567
+    componentType:
+      type: string
+      description: The component's type. Corresponds to the specification that the component's content adheres to.
+      enum:
+        - OAS2
+        - OAS3
+        - OAS3_1
+      example: OAS3
+    componentStatus:
+      description: |
+        The component's lifecycle state:
+        - `active` — The component is active and can be edited and published.
+        - `archived` — The component is archived and read-only. Archived components can't be edited or published, but their existing versions remain accessible.
+      type: string
+      enum:
+        - active
+        - archived
+      example: active
+    componentHasVersions:
+      type: boolean
+      enum:
+        - true
+        - false
+      example: true
+    componentIncludeFields:
+      type: string
+      example: 'hasVersions,latestVersion'
+    componentExpandLatestVersion:
+      type: string
+      example: latestVersion
+    meta:
+      type: object
+      properties:
+        nextCursor:
+          type: string
+          nullable: true
+          description: The pagination cursor that points to the next record in the results set.
+          example: bmV4dDppZDpZWEpqYUdsMllXeEVRaXhtWldWa2MxOHlNREkxWHpFc01UTXpNelE0
+    componentVersionId:
+      type: string
+      description: The component version's ID.
+      example: 01KT9NBTW5GYETHG6V0HNPAPYV
+    componentVersionData:
+      title: Component Version Data
+      type: object
+      description: Information about a component's version.
+      properties:
+        id:
+          $ref: '#/components/schemas/componentVersionId'
+        label:
+          type: string
+          description: The component version's label.
+          example: 1.0.0
+        url:
+          type: string
+          format: uri
+          description: The URL where the component version can be accessed.
+          example: 'https://components.postman.com/example/Test1/1.0.0'
+        format:
+          type: string
+          description: The component version's content format.
+          example: YAML
+        publishedAt:
+          type: string
+          format: date-time
+          description: The date and time at which the component version was published.
+          example: '2026-01-15T10:30:00.000Z'
+        content:
+          type: string
+          description: The version's content. This returns when you include the `include` parameter.
+          example: |-
+            openapi: 3.0.0
+            info:
+              title: Example API
+              version: 1.0.0
+    componentData:
+      title: Component Data
+      type: object
+      description: Information about the component.
+      properties:
+        id:
+          type: string
+          description: The component's ID.
+          example: 01KT964C30J3DPJQKEACZH39N8
+        name:
+          type: string
+          description: The component's name.
+          example: example-component
+        type:
+          $ref: '#/components/schemas/componentType'
+        status:
+          $ref: '#/components/schemas/componentStatus'
+        createdAt:
+          type: string
+          format: date-time
+          description: The date and time at which the component was created.
+          example: '2026-01-15T10:30:00.000Z'
+        updatedAt:
+          type: string
+          format: date-time
+          description: The date and time at which the component was last updated.
+          example: '2026-01-15T10:30:00.000Z'
+        createdBy:
+          type: string
+          description: The ID of the user who created the component.
+          example: '12345678'
+        updatedBy:
+          type: string
+          description: The ID of the user who last updated the component.
+          example: '12345678'
+        hasVersions:
+          type: boolean
+          description: Whether the component has versions. Returns only when you pass the `hasVersions` value for the `include` parameter.
+          example: true
+        latestVersion:
+          description: |
+            Information about the component's latest version. This property only returns only when you pass the `latestVersion` value for the `include` parameter.
+
+            To return detailed information about the component's latest version, pass the `latestVersion` value for the `expand` parameter.
+          oneOf:
+            - title: Component Version ID
+              type: string
+              nullable: true
+              description: The component version's ID.
+              example: 01KT9NBTW5GYETHG6V0HNPAPYV
+            - $ref: '#/components/schemas/componentVersionData'
+    getAllComponents:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          description: A list of components.
+          items:
+            $ref: '#/components/schemas/componentData'
+    componentContentFormatData:
+      title: Component Content Format
+      type: string
+      description: The component's content format.
+      enum:
+        - JSON
+        - YAML
+      example: YAML
+    createComponent:
+      type: object
+      required:
+        - name
+        - type
+        - content
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 60
+          pattern: '^[a-zA-Z0-9\-_.]+$'
+          description: 'The component''s name. This must be unique within the team and can only contain letters, digits, hyphens, underscores, and periods and can''t exceed 60 characters.'
+          example: example-component
+        type:
+          $ref: '#/components/schemas/componentType'
+        content:
+          type: string
+          description: 'The component''s content, up to a maximum of 500 KB (UTF-8).'
+          example: |-
+            openapi: 3.0.0
+            info:
+              title: Example API
+              version: 1.0.0
+        format:
+          description: The component's content format. Defaults to YAML.
+          default: YAML
+          allOf:
+            - $ref: '#/components/schemas/componentContentFormatData'
+          example: YAML
+    componentId:
+      type: string
+      description: The component's ID.
+      example: 01KT964C30J3DPJQKEACZH39N8
+    createComponentResponse:
+      type: object
+      description: Information about the component.
+      properties:
+        id:
+          $ref: '#/components/schemas/componentId'
+    getComponent:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/componentData'
+    updateComponent:
+      type: object
+      oneOf:
+        - title: Rename Component
+          required:
+            - name
+        - title: Update Status
+          required:
+            - status
+      properties:
+        name:
+          type: string
+          description: The component's name. The new name must be unique within the team.
+          example: update-component-name
+        status:
+          $ref: '#/components/schemas/componentStatus'
+    updateComponentResponse:
+      type: object
+      description: Information about the component.
+      properties:
+        id:
+          $ref: '#/components/schemas/componentId'
+        name:
+          type: string
+          description: The component's name.
+          example: update-component-name
+        status:
+          $ref: '#/components/schemas/componentStatus'
+    getComponentDraft:
+      type: object
+      properties:
+        content:
+          type: string
+          description: The component's draft content.
+          example: |-
+            openapi: 3.0.0
+            info:
+              title: Example API
+              version: 1.0.0
+        format:
+          type: string
+          description: The component draft's content format.
+          example: YAML
+    updateComponentDraft:
+      type: object
+      minProperties: 1
+      description: Information about the component draft.
+      properties:
+        content:
+          type: string
+          description: 'The component''s contents, up to a maximum of 500 KB (UTF-8).'
+          example: |-
+            openapi: 3.0.0
+            info:
+              title: Example API
+              version: 1.0.0
+        format:
+          $ref: '#/components/schemas/componentContentFormatData'
+    updateComponentDraftResponse:
+      type: object
+      description: Information about the component draft.
+      properties:
+        id:
+          type: string
+          description: The component draft's ID.
+          example: 01KT964C30J3DPJQKEACZH39N8
+    componentLibraryInclude:
+      type: string
+      example: content
+    getComponentVersions:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/meta'
+        data:
+          type: array
+          description: A list of the component's versions.
+          items:
+            $ref: '#/components/schemas/componentVersionData'
+    createComponentVersion:
+      type: object
+      required:
+        - label
+      properties:
+        label:
+          type: string
+          minLength: 1
+          maxLength: 60
+          pattern: '^[a-zA-Z0-9]([a-zA-Z0-9._+-]{0,58}[a-zA-Z0-9])?$'
+          description: 'The component version''s label. This must begin and end with a an alphanumeric character and may only contain letters, digits, dots, underscores, plus signs, and hyphens and cannot exceed 60 characters.'
+          example: 1.0.0
+        source:
+          type: object
+          additionalProperties: false
+          description: The source to publish the version from. Defaults to the component's current draft.
+          properties:
+            type:
+              type: string
+              description: The `draft` value.
+              enum:
+                - draft
+              example: draft
+    createComponentVersionResponse:
+      type: object
+      description: Information about the component version.
+      properties:
+        id:
+          $ref: '#/components/schemas/componentVersionId'
     include:
       type: string
       example: meta.total
@@ -14025,8 +14648,9 @@ components:
           items:
             $ref: '#/components/schemas/getEnvironmentsInfo'
     environmentVariables:
+      title: Add Variable
       type: object
-      description: Information about the environment's variables.
+      description: Information about the variable.
       properties:
         enabled:
           type: boolean
@@ -14055,6 +14679,42 @@ components:
           maxLength: 512
           description: The variable's description.
           example: The collection's ID.
+    environmentVaultVariables:
+      type: object
+      title: Add Secret Variable
+      description: Information about the variable stored in the Postman Vault. This property only returns when when a variable is defined as secret.
+      properties:
+        enabled:
+          type: boolean
+          description: 'If true, the variable is enabled.'
+          example: true
+        key:
+          type: string
+          description: The variable's name.
+          example: collectionId
+        value:
+          type: string
+          description: The variable's value.
+          example: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        type:
+          type: string
+          description: |
+            The variable's type:
+            - `secret` — The variable value is masked.
+            - `default` — The variable value is visible in plain text.
+          enum:
+            - secret
+            - default
+          example: default
+        secret:
+          $ref: '#/components/schemas/environmentSecret'
+        source:
+          $ref: '#/components/schemas/environmentVariableSource'
+        description:
+          type: string
+          maxLength: 512
+          description: The variable's description.
+          example: The collection's ID.
     createEnvironment:
       title: Create Environment
       type: object
@@ -14073,7 +14733,9 @@ components:
               type: array
               description: Information about the environment's variables.
               items:
-                $ref: '#/components/schemas/environmentVariables'
+                anyOf:
+                  - $ref: '#/components/schemas/environmentVariables'
+                  - $ref: '#/components/schemas/environmentVaultVariables'
     createEnvironmentResponse:
       title: Environment Created
       type: object
@@ -14125,7 +14787,9 @@ components:
           type: array
           description: Information about the environment's variables.
           items:
-            $ref: '#/components/schemas/environmentVariables'
+            anyOf:
+              - $ref: '#/components/schemas/environmentVariables'
+              - $ref: '#/components/schemas/environmentVaultVariables'
         isPublic:
           type: boolean
           description: 'If true, the environment is public and visible to all users.'
@@ -14152,7 +14816,9 @@ components:
               type: array
               description: Information about the environment's variables.
               items:
-                $ref: '#/components/schemas/environmentVariables'
+                anyOf:
+                  - $ref: '#/components/schemas/environmentVariables'
+                  - $ref: '#/components/schemas/environmentVaultVariables'
     putEnvironmentResponse:
       title: Environment Updated
       type: object
@@ -14210,7 +14876,9 @@ components:
             description: 'The [JSON Pointer syntax](https://datatracker.ietf.org/doc/html/rfc6901) that indicates the entry to update, in `/values/#` format, where `#` is the entry ID. The first record begins at the `0` value.'
             example: /values/1
           value:
-            $ref: '#/components/schemas/environmentVariables'
+            anyOf:
+              - $ref: '#/components/schemas/environmentVariables'
+              - $ref: '#/components/schemas/environmentVaultVariables'
     patchEnvironmentName:
       title: Update Environment Name
       type: array
@@ -14306,7 +14974,9 @@ components:
           type: array
           description: Information about the environment's variables.
           items:
-            $ref: '#/components/schemas/environmentVariables'
+            anyOf:
+              - $ref: '#/components/schemas/environmentVariables'
+              - $ref: '#/components/schemas/environmentVaultVariables'
         uid:
           type: string
           format: uid
@@ -19888,14 +20558,6 @@ components:
                 type: string
                 description: The file's parent folder ID. This property is absent for ROOT-level files.
                 example: 2647f42c-3307-414f-b949-9a9b07b4cbd9
-    meta:
-      type: object
-      properties:
-        nextCursor:
-          type: string
-          nullable: true
-          description: The pagination cursor that points to the next record in the results set.
-          example: bmV4dDppZDpZWEpqYUdsMllXeEVRaXhtWldWa2MxOHlNREkxWHpFc01UTXpNelE0
     getSpecVersionTags:
       type: object
       properties:
@@ -21875,6 +22537,12 @@ components:
         title: Unauthorized
         detail: An API key must be provided in the request header or query string
         status: 401
+    common401ErrorNotAuthorized:
+      value:
+        type: 'https://api.postman.com/problems/unauthorized'
+        title: Unauthorized
+        detail: You are not authorized to perform this action.
+        status: 401
     common500ErrorInternalServer:
       value:
         type: 'https://api.postman.com/problems/internal-server-error'
@@ -21897,6 +22565,12 @@ components:
         title: Something went wrong
         detail: Something went wrong
         status: 500
+    common500ErrorSomethingWrongContactSupport:
+      value:
+        type: 'https://api.postman.com/problems/internal-server-error'
+        title: Something went wrong
+        status: 500
+        detail: Something went wrong. Please contact support.
     getAccountInvoices:
       value:
         data:
@@ -24380,6 +25054,12 @@ components:
         title: Forbidden
         detail: You are not authorized to perform this action.
         status: 403
+    common403ErrorPermissionDenied:
+      value:
+        type: 'https://api.postman.com/problems/forbidden'
+        title: Permission denied
+        status: 403
+        detail: You do not have permission to perform this action.
     featureUnavailable403Error:
       value:
         type: 'https://api.postman.com/problems/forbidden'
@@ -27210,9 +27890,18 @@ components:
         collection:
           variable:
             - key: userId
-              value: '12345678'
+              value: 12345678
               disabled: true
               description: The user's ID.
+            - enabled: true
+              key: apiKey
+              secret: true
+              source:
+                postman:
+                  secretId: f5fa5280-18a3-4d93-a706-2fe48b1007dc
+                  type: cloud
+                  vaultId: 453a311c-c5b4-4627-8e51-a3bd48953734
+                provider: postman
     patchCollectionResponse:
       value:
         collection:
@@ -28505,6 +29194,241 @@ components:
       value:
         id: 66ae9950-0869-4e65-96b0-1e0e47e771af
         status: failed
+    getAllComponents:
+      value:
+        data:
+          - id: 01KT964C30J3DPJQKEACZH39N8
+            name: example-component
+            type: OAS3
+            status: active
+            createdAt: '2026-01-15T10:30:00.000Z'
+            updatedAt: '2026-01-15T10:30:00.000Z'
+            createdBy: '12345678'
+            updatedBy: '12345678'
+          - id: 01KT964C30J3DPJQKEACZH39N9
+            name: another-component
+            type: OAS2
+            status: active
+            createdAt: '2026-01-14T09:20:00.000Z'
+            updatedAt: '2026-01-14T09:20:00.000Z'
+            createdBy: '12345678'
+            updatedBy: '12345678'
+    getAllComponentsIncludeFilter:
+      value:
+        data:
+          - id: 01KT964C30J3DPJQKEACZH39N8
+            name: example-component
+            hasVersions: true
+            type: OAS3
+            status: active
+            createdAt: '2026-01-15T10:30:00.000Z'
+            updatedAt: '2026-01-15T10:30:00.000Z'
+            createdBy: '12345678'
+            updatedBy: '12345678'
+          - id: 01KT964C30J3DPJQKEACZH39N9
+            name: another-component
+            hasVersions: false
+            type: OAS2
+            status: active
+            createdAt: '2026-01-14T09:20:00.000Z'
+            updatedAt: '2026-01-14T09:20:00.000Z'
+            createdBy: '12345678'
+            updatedBy: '12345678'
+    getAllComponentsIncludeExpandFilters:
+      value:
+        data:
+          - id: 01KT964C30J3DPJQKEACZH39N8
+            name: example-component
+            latestVersion:
+              id: 01KTK2XSBAA9JHA4KZ4AYTM9VS
+              content: |
+                components:
+                  schemas:
+                    sampleUser:
+                      description: A sample user object
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        email:
+                          type: string
+                      required:
+                        - id
+                        - name
+                        - email
+                  responses:
+                    sampleError:
+                      description: A sample error response
+                      content:
+                        application/json:
+                          schema:
+                              type: object
+                              properties:
+                                  code:
+                                    type: string
+                                  message:
+                                    type: string
+                              required:
+                                 - code
+                                 - message
+                  parameters:
+                    sampleParam:
+                      name: limit
+                      in: query
+                      description: A sample query parameter
+                      schema:
+                        type: integer
+                        minimum: 1
+                        maximum: 100
+                        default: 10
+              url: 'https://components.postman.com/example/Test1/1.0.0'
+              label: v1.0.0
+              publishedAt: '2026-06-08T07:42:31.000Z'
+              format: YAML
+            type: OAS3
+            status: active
+            createdAt: '2026-01-15T10:30:00.000Z'
+            updatedAt: '2026-01-15T10:30:00.000Z'
+            createdBy: '12345678'
+            updatedBy: '12345678'
+          - id: 01KT964C30J3DPJQKEACZH39N9
+            name: another-component
+            type: OAS2
+            status: active
+            createdAt: '2026-01-14T09:20:00.000Z'
+            updatedAt: '2026-01-14T09:20:00.000Z'
+            createdBy: '12345678'
+            updatedBy: '12345678'
+    componentLibrary400ErrorInvalidParameters:
+      value:
+        type: 'https://api.postman.com/problems/bad-request'
+        title: Invalid parameters
+        status: 400
+        detail: Invalid parameters provided. Please check your input and try again.
+    createComponent:
+      value:
+        name: example-component
+        type: OAS3
+        content: |-
+          openapi: 3.0.0
+          info:
+            title: Example API
+            version: 1.0.0
+        format: YAML
+    createComponentResponse:
+      value:
+        id: 01KT964C30J3DPJQKEACZH39N8
+    componentLibrary409ErrorCannotPublishVersionConflict:
+      value:
+        type: 'https://api.postman.com/problems/conflict'
+        title: Cannot publish version
+        status: 409
+        detail: This component is archived. Unarchive it before publishing a new version.
+    componentLibrary409ErrorComponentCannotRenameArchivedConflict:
+      value:
+        type: 'https://api.postman.com/problems/conflict'
+        title: Cannot rename component
+        status: 409
+        detail: This component is archived. Unarchive it before renaming.
+    componentLibrary409ErrorDuplicateLabel:
+      value:
+        type: 'https://api.postman.com/problems/conflict'
+        title: Duplicate component name
+        status: 409
+        detail: Component with the same name already exists in the team.
+    componentLibrary409ErrorDuplicateVersionLabel:
+      value:
+        type: 'https://api.postman.com/problems/conflict'
+        title: Duplicate component version label
+        status: 409
+        detail: Component version with the same label already exists.
+    componentLibrary409ErrorDraftArchivedConflict:
+      value:
+        type: 'https://api.postman.com/problems/conflict'
+        title: Cannot update draft
+        status: 409
+        detail: This component is archived. Unarchive it before editing the draft.
+    getComponent:
+      value:
+        id: 01KT964C30J3DPJQKEACZH39N8
+        name: example-component
+        type: OAS3
+        createdAt: '2026-01-15T10:30:00.000Z'
+        updatedAt: '2026-01-15T10:30:00.000Z'
+        createdBy: '12345678'
+        updatedBy: '12345678'
+    common404ErrorEntityNotFound:
+      value:
+        type: 'https://api.postman.com/problems/not-found'
+        title: Not found
+        status: 404
+        detail: Entity that you are trying to access does not exist.
+    componentLibrary404ErrorComponentVersionNotFound:
+      value:
+        type: 'https://api.postman.com/problems/not-found'
+        title: Component version not found
+        status: 404
+        detail: Entity that you are trying to access does not exist.
+    updateComponentName:
+      value:
+        name: update-component-name
+    updateComponentStatus:
+      value:
+        status: archived
+    updateComponentResponse:
+      value:
+        id: 01KT964C30J3DPJQKEACZH39N8
+        name: update-component-name
+        status: active
+    getComponentDraft:
+      value:
+        content: |-
+          openapi: 3.0.0
+          info:
+            title: Example API
+            version: 1.0.0
+        format: YAML
+    updateComponentDraft:
+      value:
+        content: |-
+          openapi: 3.0.0
+          info:
+            title: Example API
+            version: 1.0.0
+        format: YAML
+    updateComponentDraftResponse:
+      value:
+        id: 01KT964C30J3DPJQKEACZH39N8
+    getComponentVersions:
+      value:
+        data:
+          - id: 01KT9NBTW5GYETHG6V0HNPAPYV
+            label: 1.0.0
+            format: YAML
+            publishedAt: '2026-01-15T10:30:00.000Z'
+            url: 'https://components.postman.com/example/Test1/1.0.0'
+          - id: 01KT9NBTW5GYETHG6V0HNPAPYW
+            label: 1.1.0
+            format: JSON
+            publishedAt: '2026-01-16T09:20:00.000Z'
+            url: 'https://components.postman.com/example/Test1/1.1.0'
+    createComponentVersionDraftSource:
+      value:
+        label: 1.0.0
+        source:
+          type: draft
+    createComponentVersionResponse:
+      value:
+        id: 01KT9NBTW5GYETHG6V0HNPAPYV
+    getComponentVersion:
+      value:
+        id: 01KT9NBTW5GYETHG6V0HNPAPYV
+        label: 1.0.0
+        format: YAML
+        publishedAt: '2026-01-15T10:30:00.000Z'
+        url: 'https://components.postman.com/example/Test1/1.0.0'
     detectedSecretsQueries:
       value:
         secretTypes:
@@ -28752,6 +29676,17 @@ components:
               enabled: false
               type: default
               description: Placeholder variable value.
+            - enabled: true
+              key: apiKey
+              secret: true
+              source:
+                postman:
+                  secretId: f5fa5280-18a3-4d93-a706-2fe48b1007dc
+                  type: cloud
+                  vaultId: 453a311c-c5b4-4627-8e51-a3bd48953734
+                provider: postman
+              type: default
+              value: ''
     createEnvironmentResponse:
       value:
         environment:
@@ -28798,6 +29733,16 @@ components:
               enabled: true
               type: default
               description: The collection's ID.
+            - enabled: true
+              key: apiKey
+              secret: true
+              source:
+                postman:
+                  secretId: f5fa5280-18a3-4d93-a706-2fe48b1007dc
+                  type: cloud
+                  vaultId: 453a311c-c5b4-4627-8e51-a3bd48953734
+                provider: postman
+              type: default
           isPublic: false
     putEnvironment:
       value:
@@ -28809,6 +29754,17 @@ components:
               type: default
               enabled: true
               description: The collection's ID.
+            - enabled: true
+              key: apiKey
+              secret: true
+              source:
+                postman:
+                  secretId: f5fa5280-18a3-4d93-a706-2fe48b1007dc
+                  type: cloud
+                  vaultId: 453a311c-c5b4-4627-8e51-a3bd48953734
+                provider: postman
+              type: default
+              value: ''
     putEnvironmentRemoveVariables:
       value:
         environment:
@@ -28839,6 +29795,22 @@ components:
             type: default
             enabled: true
             description: The collection's ID.
+    patchEnvironmentAddSecretVariable:
+      value:
+        - op: add
+          path: /values/1
+          value:
+            enabled: true
+            key: apiKey
+            secret: true
+            source:
+              postman:
+                secretId: f5fa5280-18a3-4d93-a706-2fe48b1007dc
+                type: cloud
+                vaultId: 453a311c-c5b4-4627-8e51-a3bd48953734
+              provider: postman
+            type: default
+            value: ''
     patchEnvironmentEnableVariable:
       value:
         - op: replace
@@ -28872,6 +29844,10 @@ components:
             type: default
             enabled: true
             description: A valid API key.
+    patchEnvironmentUnshareVariable:
+      value:
+        - op: remove
+          path: /values/0/key
     patchEnvironmentName:
       value:
         - op: replace
@@ -28894,6 +29870,17 @@ components:
         - op: replace
           path: /values/0/description
           value: A valid API key.
+        - op: replace
+          path: /values/1/secret
+          value: true
+        - op: replace
+          path: /values/1/source
+          value:
+            postman:
+              secretId: 082351ca-810e-476b-8437-d098b20fba4b
+              type: cloud
+              vaultId: 04084949-0dda-4735-ace5-f83038f7b200
+            provider: postman
     patchEnvironment:
       value:
         environment:
@@ -28926,6 +29913,36 @@ components:
               type: default
               enabled: true
               description: The collection's ID.
+          uid: 12345678-5daabc50-8451-43f6-922d-96b403b4f28e
+    patchEnvironmentAddSecretVariableResponse:
+      value:
+        environment:
+          id: 5daabc50-8451-43f6-922d-96b403b4f28e
+          name: Test API Environment
+          owner: '12345678'
+          createdAt: '2025-03-10T15:37:00.000Z'
+          updatedAt: '2025-03-10T15:56:19.000Z'
+          values:
+            - key: x-api-key
+              value: '{{x-api-key}}'
+              type: secret
+              enabled: true
+            - key: collectionId
+              value: 12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2
+              type: default
+              enabled: true
+              description: The collection's ID.
+            - enabled: true
+              key: apiKey
+              secret: true
+              source:
+                postman:
+                  secretId: f5fa5280-18a3-4d93-a706-2fe48b1007dc
+                  type: cloud
+                  vaultId: 453a311c-c5b4-4627-8e51-a3bd48953734
+                provider: postman
+              type: default
+              value: ''
           uid: 12345678-5daabc50-8451-43f6-922d-96b403b4f28e
     patchEnvironmentRemoveVariableResponse:
       value:
@@ -35108,6 +36125,8 @@ components:
               $ref: '#/components/examples/common401ErrorAuthentication'
             Missing API Key:
               $ref: '#/components/examples/common401ErrorMissingApiKey'
+            Not Authorized:
+              $ref: '#/components/examples/common401ErrorNotAuthorized'
     common500Error:
       description: Internal Server Error
       content:
@@ -35126,6 +36145,8 @@ components:
               $ref: '#/components/examples/common500ErrorServerError'
             Something Went Wrong:
               $ref: '#/components/examples/common500ErrorSomethingWrong'
+            Contact Support:
+              $ref: '#/components/examples/common500ErrorSomethingWrongContactSupport'
     getAccountInvoices:
       description: Successful Response
       content:
@@ -35472,6 +36493,8 @@ components:
               $ref: '#/components/examples/common403ErrorWorkspaceAccess'
             Not Authorized:
               $ref: '#/components/examples/common403ErrorForbiddenNotAuthorized'
+            Permission Denied:
+              $ref: '#/components/examples/common403ErrorPermissionDenied'
             Feature Unavailable:
               $ref: '#/components/examples/featureUnavailable403Error'
     api404Error:
@@ -36869,6 +37892,128 @@ components:
               $ref: '#/components/examples/getCollectionUpdatesTasksInProgress'
             Failed:
               $ref: '#/components/examples/getCollectionUpdatesTasksFailed'
+    getAllComponents:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/getAllComponents'
+          examples:
+            Successful Response:
+              $ref: '#/components/examples/getAllComponents'
+            Filter Results by include:
+              $ref: '#/components/examples/getAllComponentsIncludeFilter'
+            Filter Results by include and expand:
+              $ref: '#/components/examples/getAllComponentsIncludeExpandFilters'
+    componentLibrary400Error:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/commonErrorTypeTitleDetailStatus'
+          examples:
+            Invalid Parameters:
+              $ref: '#/components/examples/componentLibrary400ErrorInvalidParameters'
+    createComponentResponse:
+      description: Component Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/createComponentResponse'
+          examples:
+            Component Created:
+              $ref: '#/components/examples/createComponentResponse'
+    componentLibrary409Error:
+      description: Conflict
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/commonErrorTypeTitleDetailStatus'
+          examples:
+            Cannot Publish Version:
+              $ref: '#/components/examples/componentLibrary409ErrorCannotPublishVersionConflict'
+            Cannot Rename Component:
+              $ref: '#/components/examples/componentLibrary409ErrorComponentCannotRenameArchivedConflict'
+            Duplicate Label:
+              $ref: '#/components/examples/componentLibrary409ErrorDuplicateLabel'
+            Duplicate Version Label:
+              $ref: '#/components/examples/componentLibrary409ErrorDuplicateVersionLabel'
+            Draft Archived:
+              $ref: '#/components/examples/componentLibrary409ErrorDraftArchivedConflict'
+    getComponent:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/getComponent'
+          examples:
+            Successful Response:
+              $ref: '#/components/examples/getComponent'
+    componentLibrary404Error:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/commonErrorTypeTitleDetailStatus'
+          examples:
+            Entity Not Found:
+              $ref: '#/components/examples/common404ErrorEntityNotFound'
+            Component Version Not Found:
+              $ref: '#/components/examples/componentLibrary404ErrorComponentVersionNotFound'
+    updateComponentResponse:
+      description: Component Updated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/updateComponentResponse'
+          examples:
+            Component Updated:
+              $ref: '#/components/examples/updateComponentResponse'
+    getComponentDraft:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/getComponentDraft'
+          examples:
+            Successful Response:
+              $ref: '#/components/examples/getComponentDraft'
+    updateComponentDraftResponse:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/updateComponentDraftResponse'
+          examples:
+            Component Draft Updated:
+              $ref: '#/components/examples/updateComponentDraftResponse'
+    getComponentVersions:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/getComponentVersions'
+          examples:
+            Successful Response:
+              $ref: '#/components/examples/getComponentVersions'
+    createComponentVersionResponse:
+      description: Version Created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/createComponentVersionResponse'
+          examples:
+            Successful Response:
+              $ref: '#/components/examples/createComponentVersionResponse'
+    getComponentVersion:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/componentVersionData'
+          examples:
+            Successful Response:
+              $ref: '#/components/examples/getComponentVersion'
     detectedSecretsQueries:
       description: Successful Response
       content:
@@ -37094,6 +38239,8 @@ components:
               $ref: '#/components/examples/patchEnvironment'
             Add Variable:
               $ref: '#/components/examples/patchEnvironmentAddVariableResponse'
+            Add Secret Variable:
+              $ref: '#/components/examples/patchEnvironmentAddSecretVariableResponse'
             Remove Variables:
               $ref: '#/components/examples/patchEnvironmentRemoveVariableResponse'
             Update Variable:
@@ -39741,6 +40888,56 @@ components:
       description: The comment's thread ID.
       schema:
         $ref: '#/components/schemas/threadId'
+    componentType:
+      name: type
+      in: query
+      description: Filter results by component type.
+      schema:
+        $ref: '#/components/schemas/componentType'
+    componentStatus:
+      name: status
+      in: query
+      description: Filter results by the component's status.
+      schema:
+        $ref: '#/components/schemas/componentStatus'
+    componentHasVersions:
+      name: hasVersions
+      in: query
+      description: 'If true, return only components with published versions.'
+      schema:
+        $ref: '#/components/schemas/componentHasVersions'
+    componentIncludeFields:
+      name: include
+      in: query
+      description: 'A comma-separated list of additional fields to include. Accepts the `hasVersions`, `latestVersion`, `latestVersion.content` values.'
+      schema:
+        $ref: '#/components/schemas/componentIncludeFields'
+    componentExpandLatestVersion:
+      name: expand
+      in: query
+      description: A comma-separated list of fields to expand. Accepts the `latestVersion` value.
+      schema:
+        $ref: '#/components/schemas/componentExpandLatestVersion'
+    componentId:
+      name: componentId
+      in: path
+      required: true
+      description: The component's ID.
+      schema:
+        $ref: '#/components/schemas/componentId'
+    componentLibraryInclude:
+      name: include
+      in: query
+      description: A comma-separated list of additional fields to include. Accepts the `content` value.
+      schema:
+        $ref: '#/components/schemas/componentLibraryInclude'
+    componentVersionId:
+      name: versionId
+      in: path
+      required: true
+      description: The component version's ID.
+      schema:
+        $ref: '#/components/schemas/componentVersionId'
     include:
       name: include
       in: query
@@ -40655,6 +41852,42 @@ components:
           examples:
             Transfer Collection Items:
               $ref: '#/components/examples/transferCollectionItems'
+    createComponent:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/createComponent'
+          examples:
+            Create Component:
+              $ref: '#/components/examples/createComponent'
+    updateComponent:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/updateComponent'
+          examples:
+            Rename Component:
+              $ref: '#/components/examples/updateComponentName'
+            Update Component Status:
+              $ref: '#/components/examples/updateComponentStatus'
+    updateComponentDraft:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/updateComponentDraft'
+          examples:
+            Update Component Draft:
+              $ref: '#/components/examples/updateComponentDraft'
+    createComponentVersion:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/createComponentVersion'
+          examples:
+            Create Component Version from Draft:
+              $ref: '#/components/examples/createComponentVersionDraftSource'
     detectedSecretsQueries:
       content:
         application/json:
@@ -40705,6 +41938,8 @@ components:
               $ref: '#/components/examples/patchEnvironmentAddDescriptionToExistingVariable'
             Add Variable:
               $ref: '#/components/examples/patchEnvironmentAddVariable'
+            Add Secret Variable:
+              $ref: '#/components/examples/patchEnvironmentAddSecretVariable'
             Enable Variable:
               $ref: '#/components/examples/patchEnvironmentEnableVariable'
             Remove Variable:
@@ -40713,6 +41948,8 @@ components:
               $ref: '#/components/examples/patchEnvironmentRemoveMultiple'
             Remove and Add Variable:
               $ref: '#/components/examples/patchEnvironmentRemoveAdd'
+            Unshare Variable:
+              $ref: '#/components/examples/patchEnvironmentUnshareVariable'
             Update Environment Name:
               $ref: '#/components/examples/patchEnvironmentName'
             Update Variable:
