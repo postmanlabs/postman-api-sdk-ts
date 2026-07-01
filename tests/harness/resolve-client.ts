@@ -2,8 +2,8 @@
  * Name-agnostic resolution of the generated SDK client class.
  *
  * The client class name is NOT stable across generations: the factory's own
- * local generation passes `--name @postman/postman-api-sdk` (deriving a class
- * like `PostmanPostmanApiSdk`), while the server generation that produces the
+ * local generation passes `--name @postman/api-sdk` (deriving a class
+ * like `PostmanApiSdk`), while the server generation that produces the
  * downstream repo inherits the Cloud spec name (deriving `PostmanApiSdkSourceOverlayed`).
  * Since this harness is delivered to the server-generated repo but only ships
  * `tests/**` (never `src/`), it must resolve the client from whatever `src/index.ts`
