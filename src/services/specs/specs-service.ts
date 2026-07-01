@@ -5,11 +5,21 @@ import { RequestBuilder } from '../../http/transport/request-builder';
 import { SerializationStyle } from '../../http/serialization/base-serializer';
 import { ThrowableError } from '../../http/errors/throwable-error';
 import { Environment } from '../../http/environment';
+import { GetMigrationStatus, getMigrationStatusResponse } from './models/get-migration-status';
+import { GetMigrationStatus400Error } from './models/get-migration-status400-error';
+import { ErrorTypeTitleDetailStatusInstance } from '../common/error-type-title-detail-status-instance';
+import { ApiSpec403Error } from './models/api-spec403-error';
+import { Common500Error } from '../common/common500-error';
+import { MigrateApiToSpecHub, migrateApiToSpecHubRequest } from './models/migrate-api-to-spec-hub';
+import {
+  MigrateToSpecHubResponse,
+  migrateToSpecHubResponseResponse,
+} from './models/migrate-to-spec-hub-response';
+import { MigrateApiToSpecHub400Error } from './models/migrate-api-to-spec-hub400-error';
 import {
   GetGeneratedCollectionSpecs,
   getGeneratedCollectionSpecsResponse,
 } from './models/get-generated-collection-specs';
-import { ApiSpec403Error } from './models/api-spec403-error';
 import { ErrorTypeTitleDetailStatus } from '../common/error-type-title-detail-status';
 import { ElementTypeSpec } from './models/element-type-spec';
 import {
@@ -17,7 +27,7 @@ import {
   generateSpecFromCollectionRequest,
 } from './models/generate-spec-from-collection';
 import { TaskCreated, taskCreatedResponse } from './models/task-created';
-import { Api403Error } from './models/api403-error';
+import { Api403Error } from '../common/api403-error';
 import {
   CreateSpecParams,
   GetAllSpecsParams,
@@ -30,13 +40,12 @@ import {
   GetAsyncCollectionTaskStatus,
   getAsyncCollectionTaskStatusResponse,
 } from './models/get-async-collection-task-status';
-import { Common500Error } from '../common/common500-error';
 import { ElementType } from './models/element-type';
 import { ElementId } from './models/element-id';
 import { GetAllSpecs, getAllSpecsResponse } from './models/get-all-specs';
 import { CreateSpec, createSpecRequest } from './models/create-spec';
 import { CreateSpecResponse, createSpecResponseResponse } from './models/create-spec-response';
-import { ErrorTypeTitleDetail } from '../common/error-type-title-detail';
+import { CreateApiClientErrorResponse } from '../common/create-api-client-error-response';
 import { SpecInformation, specInformationResponse } from './models/spec-information';
 import { UpdateSpecProperties, updateSpecPropertiesRequest } from './models/update-spec-properties';
 import {
@@ -48,7 +57,6 @@ import {
   apiSpecSyncOptionsRequest,
   apiSpecSyncOptionsResponse,
 } from './models/api-spec-sync-options';
-import { ErrorTypeTitleDetailStatusInstance } from '../common/error-type-title-detail-status-instance';
 import { GetSpecFiles, getSpecFilesResponse } from './models/get-spec-files';
 import { CreateSpecFile, createSpecFileRequest } from './models/create-spec-file';
 import {
@@ -77,6 +85,10 @@ import {
  * All methods return promises and handle request/response serialization automatically.
  */
 export class SpecsService extends BaseService {
+  protected getMigrationStatusConfig?: Partial<SdkConfig>;
+
+  protected migrateApiToSpecHubConfig?: Partial<SdkConfig>;
+
   protected getGeneratedCollectionSpecsConfig?: Partial<SdkConfig>;
 
   protected generateSpecFromCollectionConfig?: Partial<SdkConfig>;
@@ -120,6 +132,26 @@ export class SpecsService extends BaseService {
   protected getSpecVersionTagsConfig?: Partial<SdkConfig>;
 
   protected createSpecVersionTagConfig?: Partial<SdkConfig>;
+
+  /**
+   * Sets method-level configuration for getMigrationStatus.
+   * @param config - Partial configuration to override service-level defaults
+   * @returns This service instance for method chaining
+   */
+  setGetMigrationStatusConfig(config: Partial<SdkConfig>): this {
+    this.getMigrationStatusConfig = config;
+    return this;
+  }
+
+  /**
+   * Sets method-level configuration for migrateApiToSpecHub.
+   * @param config - Partial configuration to override service-level defaults
+   * @returns This service instance for method chaining
+   */
+  setMigrateApiToSpecHubConfig(config: Partial<SdkConfig>): this {
+    this.migrateApiToSpecHubConfig = config;
+    return this;
+  }
 
   /**
    * Sets method-level configuration for getGeneratedCollectionSpecs.
@@ -339,6 +371,124 @@ export class SpecsService extends BaseService {
   setCreateSpecVersionTagConfig(config: Partial<SdkConfig>): this {
     this.createSpecVersionTagConfig = config;
     return this;
+  }
+
+  /**
+   * Returns the status of an API Builder definition's migration to Spec Hub.
+   * @param {string} apiId - The API's ID.
+   * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
+   * @returns {Promise<HttpResponse<GetMigrationStatus>>} - Successful Response
+   */
+  async getMigrationStatus(
+    apiId: string,
+    requestConfig?: Partial<SdkConfig>,
+  ): Promise<GetMigrationStatus> {
+    const resolvedConfig = this.getResolvedConfig(this.getMigrationStatusConfig, requestConfig);
+    const request = new RequestBuilder()
+      .setConfig(resolvedConfig)
+      .setBaseUrl(resolvedConfig)
+      .setMethod('GET')
+      .setPath('/apis/{apiId}/spec-migrations')
+      .setRequestSchema(z.any())
+      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
+      .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
+      .setRequestContentType(ContentType.Json)
+      .addResponse({
+        schema: getMigrationStatusResponse,
+        contentType: ContentType.Json,
+        status: 200,
+      })
+      .addError({
+        error: GetMigrationStatus400Error,
+        contentType: ContentType.Json,
+        status: 400,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 401,
+      })
+      .addError({
+        error: ApiSpec403Error,
+        contentType: ContentType.Json,
+        status: 403,
+      })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
+      })
+      .addPathParam({
+        key: 'apiId',
+        value: apiId,
+      })
+      .build();
+    return this.client.callDirect<GetMigrationStatus>(request);
+  }
+
+  /**
+ * Migrates an API Builder definition to a [Spec Hub](https://learning.postman.com/docs/design-apis/specifications/overview) specification. You can migrate the definition to an existing workspace, or create a new workspace to migrate the definition into. On success, this returns an HTTP `202 Created` response. You can use the GET `/apis/{apiId}/spec-migrations` endpoint to check the migration status.
+**Note:**
+
+This returns an HTTP `200 OK` response if the given API ID isn't an API Builder definition.
+
+ * @param {string} apiId - The API's ID.
+ * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
+ * @returns {Promise<HttpResponse<MigrateToSpecHubResponse>>} - Empty API Migration
+ */
+  async migrateApiToSpecHub(
+    apiId: string,
+    body: MigrateApiToSpecHub,
+    requestConfig?: Partial<SdkConfig>,
+  ): Promise<MigrateToSpecHubResponse | MigrateToSpecHubResponse> {
+    const resolvedConfig = this.getResolvedConfig(this.migrateApiToSpecHubConfig, requestConfig);
+    const request = new RequestBuilder()
+      .setConfig(resolvedConfig)
+      .setBaseUrl(resolvedConfig)
+      .setMethod('POST')
+      .setPath('/apis/{apiId}/spec-migrations')
+      .setRequestSchema(migrateApiToSpecHubRequest)
+      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
+      .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
+      .setRequestContentType(ContentType.Json)
+      .addResponse({
+        schema: migrateToSpecHubResponseResponse,
+        contentType: ContentType.Json,
+        status: 200,
+      })
+      .addResponse({
+        schema: migrateToSpecHubResponseResponse,
+        contentType: ContentType.Json,
+        status: 202,
+      })
+      .addError({
+        error: MigrateApiToSpecHub400Error,
+        contentType: ContentType.Json,
+        status: 400,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 401,
+      })
+      .addError({
+        error: ApiSpec403Error,
+        contentType: ContentType.Json,
+        status: 403,
+      })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
+      })
+      .addPathParam({
+        key: 'apiId',
+        value: apiId,
+      })
+      .addHeaderParam({ key: 'Content-Type', value: 'application/json' })
+      .addBody(body)
+      .build();
+    return this.client.callDirect<MigrateToSpecHubResponse | MigrateToSpecHubResponse>(request);
   }
 
   /**
@@ -690,7 +840,7 @@ export class SpecsService extends BaseService {
         status: 403,
       })
       .addError({
-        error: ErrorTypeTitleDetail,
+        error: CreateApiClientErrorResponse,
         contentType: ContentType.Json,
         status: 404,
       })

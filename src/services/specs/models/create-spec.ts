@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { SpecType, specType } from './spec-type';
-import { Files, files, filesRequest, filesResponse } from './files';
+import {
+  CreateSpecFiles,
+  createSpecFiles,
+  createSpecFilesRequest,
+  createSpecFilesResponse,
+} from './create-spec-files';
 
 /**
  * Zod schema for the CreateSpec model.
@@ -11,7 +16,7 @@ export const createSpec = z.lazy(() => {
   return z.object({
     name: z.string(),
     type: specType,
-    files: z.array(files),
+    files: z.array(createSpecFiles),
   });
 });
 
@@ -20,7 +25,7 @@ export const createSpec = z.lazy(() => {
  * @typedef  {CreateSpec} createSpec
  * @property {string} - The specification's name.
  * @property {SpecType} - The type of API specification.
- * @property {Files[]} - A list of the specification's files and their contents.
+ * @property {CreateSpecFiles[]} - A list of the specification's files and their contents.
  */
 export type CreateSpec = z.infer<typeof createSpec>;
 
@@ -34,7 +39,7 @@ export const createSpecResponse1 = z.lazy(() => {
     .object({
       name: z.string(),
       type: specType,
-      files: z.array(filesResponse),
+      files: z.array(createSpecFilesResponse),
     })
     .transform((data) => ({
       name: data['name'],
@@ -53,7 +58,7 @@ export const createSpecRequest = z.lazy(() => {
     .object({
       name: z.string(),
       type: specType,
-      files: z.array(filesRequest),
+      files: z.array(createSpecFilesRequest),
     })
     .transform((data) => ({
       name: data['name'],

@@ -2,15 +2,17 @@ import { Environment } from './http/environment';
 import { SdkConfig } from './http/types';
 import { BillingService } from './services/billing';
 import { AnalyticsService } from './services/analytics';
+import { ApiCatalogService } from './services/api-catalog';
+import { ApiService } from './services/api';
+import { SpecsService } from './services/specs';
+import { TagsService } from './services/tags';
 import { AuditLogsService } from './services/audit-logs';
 import { CollectionAccessKeysService } from './services/collection-access-keys';
 import { CollectionsService } from './services/collections';
 import { CollectionItemsService } from './services/collection-items';
 import { CollectionFoldersService } from './services/collection-folders';
-import { SpecsService } from './services/specs';
 import { CollectionRequestsService } from './services/collection-requests';
 import { CollectionResponsesService } from './services/collection-responses';
-import { TagsService } from './services/tags';
 import { CommentsService } from './services/comments';
 import { ComponentsService } from './services/components';
 import { SecretScannerService } from './services/secret-scanner';
@@ -26,21 +28,24 @@ import { OAuth2_0Service } from './services/o-auth-2-0';
 import { PostbotService } from './services/postbot';
 import { PullRequestsService } from './services/pull-requests';
 import { ApiSecurityService } from './services/api-security';
+import { ScimService } from './services/scim';
 import { ServiceAccountsService } from './services/service-accounts';
 import { TeamsService } from './services/teams';
 import { WebhooksService } from './services/webhooks';
 
 export * from './services/billing';
 export * from './services/analytics';
+export * from './services/api-catalog';
+export * from './services/api';
+export * from './services/specs';
+export * from './services/tags';
 export * from './services/audit-logs';
 export * from './services/collection-access-keys';
 export * from './services/collections';
 export * from './services/collection-items';
 export * from './services/collection-folders';
-export * from './services/specs';
 export * from './services/collection-requests';
 export * from './services/collection-responses';
-export * from './services/tags';
 export * from './services/comments';
 export * from './services/components';
 export * from './services/secret-scanner';
@@ -56,6 +61,7 @@ export * from './services/o-auth-2-0';
 export * from './services/postbot';
 export * from './services/pull-requests';
 export * from './services/api-security';
+export * from './services/scim';
 export * from './services/service-accounts';
 export * from './services/teams';
 export * from './services/webhooks';
@@ -69,6 +75,14 @@ export class PostmanApiSdk {
 
   public readonly analytics: AnalyticsService;
 
+  public readonly apiCatalog: ApiCatalogService;
+
+  public readonly api: ApiService;
+
+  public readonly specs: SpecsService;
+
+  public readonly tags: TagsService;
+
   public readonly auditLogs: AuditLogsService;
 
   public readonly collectionAccessKeys: CollectionAccessKeysService;
@@ -79,13 +93,9 @@ export class PostmanApiSdk {
 
   public readonly collectionFolders: CollectionFoldersService;
 
-  public readonly specs: SpecsService;
-
   public readonly collectionRequests: CollectionRequestsService;
 
   public readonly collectionResponses: CollectionResponsesService;
-
-  public readonly tags: TagsService;
 
   public readonly comments: CommentsService;
 
@@ -117,6 +127,8 @@ export class PostmanApiSdk {
 
   public readonly apiSecurity: ApiSecurityService;
 
+  public readonly scim: ScimService;
+
   public readonly serviceAccounts: ServiceAccountsService;
 
   public readonly teams: TeamsService;
@@ -128,6 +140,14 @@ export class PostmanApiSdk {
 
     this.analytics = new AnalyticsService(this.config);
 
+    this.apiCatalog = new ApiCatalogService(this.config);
+
+    this.api = new ApiService(this.config);
+
+    this.specs = new SpecsService(this.config);
+
+    this.tags = new TagsService(this.config);
+
     this.auditLogs = new AuditLogsService(this.config);
 
     this.collectionAccessKeys = new CollectionAccessKeysService(this.config);
@@ -138,13 +158,9 @@ export class PostmanApiSdk {
 
     this.collectionFolders = new CollectionFoldersService(this.config);
 
-    this.specs = new SpecsService(this.config);
-
     this.collectionRequests = new CollectionRequestsService(this.config);
 
     this.collectionResponses = new CollectionResponsesService(this.config);
-
-    this.tags = new TagsService(this.config);
 
     this.comments = new CommentsService(this.config);
 
@@ -176,6 +192,8 @@ export class PostmanApiSdk {
 
     this.apiSecurity = new ApiSecurityService(this.config);
 
+    this.scim = new ScimService(this.config);
+
     this.serviceAccounts = new ServiceAccountsService(this.config);
 
     this.teams = new TeamsService(this.config);
@@ -186,15 +204,17 @@ export class PostmanApiSdk {
   set baseUrl(baseUrl: string) {
     this.billing.baseUrl = baseUrl;
     this.analytics.baseUrl = baseUrl;
+    this.apiCatalog.baseUrl = baseUrl;
+    this.api.baseUrl = baseUrl;
+    this.specs.baseUrl = baseUrl;
+    this.tags.baseUrl = baseUrl;
     this.auditLogs.baseUrl = baseUrl;
     this.collectionAccessKeys.baseUrl = baseUrl;
     this.collections.baseUrl = baseUrl;
     this.collectionItems.baseUrl = baseUrl;
     this.collectionFolders.baseUrl = baseUrl;
-    this.specs.baseUrl = baseUrl;
     this.collectionRequests.baseUrl = baseUrl;
     this.collectionResponses.baseUrl = baseUrl;
-    this.tags.baseUrl = baseUrl;
     this.comments.baseUrl = baseUrl;
     this.components.baseUrl = baseUrl;
     this.secretScanner.baseUrl = baseUrl;
@@ -210,6 +230,7 @@ export class PostmanApiSdk {
     this.postbot.baseUrl = baseUrl;
     this.pullRequests.baseUrl = baseUrl;
     this.apiSecurity.baseUrl = baseUrl;
+    this.scim.baseUrl = baseUrl;
     this.serviceAccounts.baseUrl = baseUrl;
     this.teams.baseUrl = baseUrl;
     this.webhooks.baseUrl = baseUrl;
@@ -218,15 +239,17 @@ export class PostmanApiSdk {
   set environment(environment: Environment) {
     this.billing.baseUrl = environment;
     this.analytics.baseUrl = environment;
+    this.apiCatalog.baseUrl = environment;
+    this.api.baseUrl = environment;
+    this.specs.baseUrl = environment;
+    this.tags.baseUrl = environment;
     this.auditLogs.baseUrl = environment;
     this.collectionAccessKeys.baseUrl = environment;
     this.collections.baseUrl = environment;
     this.collectionItems.baseUrl = environment;
     this.collectionFolders.baseUrl = environment;
-    this.specs.baseUrl = environment;
     this.collectionRequests.baseUrl = environment;
     this.collectionResponses.baseUrl = environment;
-    this.tags.baseUrl = environment;
     this.comments.baseUrl = environment;
     this.components.baseUrl = environment;
     this.secretScanner.baseUrl = environment;
@@ -242,6 +265,7 @@ export class PostmanApiSdk {
     this.postbot.baseUrl = environment;
     this.pullRequests.baseUrl = environment;
     this.apiSecurity.baseUrl = environment;
+    this.scim.baseUrl = environment;
     this.serviceAccounts.baseUrl = environment;
     this.teams.baseUrl = environment;
     this.webhooks.baseUrl = environment;
@@ -250,15 +274,17 @@ export class PostmanApiSdk {
   set timeoutMs(timeoutMs: number) {
     this.billing.timeoutMs = timeoutMs;
     this.analytics.timeoutMs = timeoutMs;
+    this.apiCatalog.timeoutMs = timeoutMs;
+    this.api.timeoutMs = timeoutMs;
+    this.specs.timeoutMs = timeoutMs;
+    this.tags.timeoutMs = timeoutMs;
     this.auditLogs.timeoutMs = timeoutMs;
     this.collectionAccessKeys.timeoutMs = timeoutMs;
     this.collections.timeoutMs = timeoutMs;
     this.collectionItems.timeoutMs = timeoutMs;
     this.collectionFolders.timeoutMs = timeoutMs;
-    this.specs.timeoutMs = timeoutMs;
     this.collectionRequests.timeoutMs = timeoutMs;
     this.collectionResponses.timeoutMs = timeoutMs;
-    this.tags.timeoutMs = timeoutMs;
     this.comments.timeoutMs = timeoutMs;
     this.components.timeoutMs = timeoutMs;
     this.secretScanner.timeoutMs = timeoutMs;
@@ -274,6 +300,7 @@ export class PostmanApiSdk {
     this.postbot.timeoutMs = timeoutMs;
     this.pullRequests.timeoutMs = timeoutMs;
     this.apiSecurity.timeoutMs = timeoutMs;
+    this.scim.timeoutMs = timeoutMs;
     this.serviceAccounts.timeoutMs = timeoutMs;
     this.teams.timeoutMs = timeoutMs;
     this.webhooks.timeoutMs = timeoutMs;
@@ -282,15 +309,17 @@ export class PostmanApiSdk {
   set username(username: string) {
     this.billing.username = username;
     this.analytics.username = username;
+    this.apiCatalog.username = username;
+    this.api.username = username;
+    this.specs.username = username;
+    this.tags.username = username;
     this.auditLogs.username = username;
     this.collectionAccessKeys.username = username;
     this.collections.username = username;
     this.collectionItems.username = username;
     this.collectionFolders.username = username;
-    this.specs.username = username;
     this.collectionRequests.username = username;
     this.collectionResponses.username = username;
-    this.tags.username = username;
     this.comments.username = username;
     this.components.username = username;
     this.secretScanner.username = username;
@@ -306,6 +335,7 @@ export class PostmanApiSdk {
     this.postbot.username = username;
     this.pullRequests.username = username;
     this.apiSecurity.username = username;
+    this.scim.username = username;
     this.serviceAccounts.username = username;
     this.teams.username = username;
     this.webhooks.username = username;
@@ -314,15 +344,17 @@ export class PostmanApiSdk {
   set password(password: string) {
     this.billing.password = password;
     this.analytics.password = password;
+    this.apiCatalog.password = password;
+    this.api.password = password;
+    this.specs.password = password;
+    this.tags.password = password;
     this.auditLogs.password = password;
     this.collectionAccessKeys.password = password;
     this.collections.password = password;
     this.collectionItems.password = password;
     this.collectionFolders.password = password;
-    this.specs.password = password;
     this.collectionRequests.password = password;
     this.collectionResponses.password = password;
-    this.tags.password = password;
     this.comments.password = password;
     this.components.password = password;
     this.secretScanner.password = password;
@@ -338,6 +370,7 @@ export class PostmanApiSdk {
     this.postbot.password = password;
     this.pullRequests.password = password;
     this.apiSecurity.password = password;
+    this.scim.password = password;
     this.serviceAccounts.password = password;
     this.teams.password = password;
     this.webhooks.password = password;
@@ -346,15 +379,17 @@ export class PostmanApiSdk {
   set apiKey(apiKey: string) {
     this.billing.apiKey = apiKey;
     this.analytics.apiKey = apiKey;
+    this.apiCatalog.apiKey = apiKey;
+    this.api.apiKey = apiKey;
+    this.specs.apiKey = apiKey;
+    this.tags.apiKey = apiKey;
     this.auditLogs.apiKey = apiKey;
     this.collectionAccessKeys.apiKey = apiKey;
     this.collections.apiKey = apiKey;
     this.collectionItems.apiKey = apiKey;
     this.collectionFolders.apiKey = apiKey;
-    this.specs.apiKey = apiKey;
     this.collectionRequests.apiKey = apiKey;
     this.collectionResponses.apiKey = apiKey;
-    this.tags.apiKey = apiKey;
     this.comments.apiKey = apiKey;
     this.components.apiKey = apiKey;
     this.secretScanner.apiKey = apiKey;
@@ -370,6 +405,7 @@ export class PostmanApiSdk {
     this.postbot.apiKey = apiKey;
     this.pullRequests.apiKey = apiKey;
     this.apiSecurity.apiKey = apiKey;
+    this.scim.apiKey = apiKey;
     this.serviceAccounts.apiKey = apiKey;
     this.teams.apiKey = apiKey;
     this.webhooks.apiKey = apiKey;
@@ -378,15 +414,17 @@ export class PostmanApiSdk {
   set apiKeyHeader(apiKeyHeader: string) {
     this.billing.apiKeyHeader = apiKeyHeader;
     this.analytics.apiKeyHeader = apiKeyHeader;
+    this.apiCatalog.apiKeyHeader = apiKeyHeader;
+    this.api.apiKeyHeader = apiKeyHeader;
+    this.specs.apiKeyHeader = apiKeyHeader;
+    this.tags.apiKeyHeader = apiKeyHeader;
     this.auditLogs.apiKeyHeader = apiKeyHeader;
     this.collectionAccessKeys.apiKeyHeader = apiKeyHeader;
     this.collections.apiKeyHeader = apiKeyHeader;
     this.collectionItems.apiKeyHeader = apiKeyHeader;
     this.collectionFolders.apiKeyHeader = apiKeyHeader;
-    this.specs.apiKeyHeader = apiKeyHeader;
     this.collectionRequests.apiKeyHeader = apiKeyHeader;
     this.collectionResponses.apiKeyHeader = apiKeyHeader;
-    this.tags.apiKeyHeader = apiKeyHeader;
     this.comments.apiKeyHeader = apiKeyHeader;
     this.components.apiKeyHeader = apiKeyHeader;
     this.secretScanner.apiKeyHeader = apiKeyHeader;
@@ -402,6 +440,7 @@ export class PostmanApiSdk {
     this.postbot.apiKeyHeader = apiKeyHeader;
     this.pullRequests.apiKeyHeader = apiKeyHeader;
     this.apiSecurity.apiKeyHeader = apiKeyHeader;
+    this.scim.apiKeyHeader = apiKeyHeader;
     this.serviceAccounts.apiKeyHeader = apiKeyHeader;
     this.teams.apiKeyHeader = apiKeyHeader;
     this.webhooks.apiKeyHeader = apiKeyHeader;

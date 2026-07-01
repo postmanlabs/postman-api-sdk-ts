@@ -4,7 +4,7 @@ import {
   taggedUsers,
   taggedUsersRequest,
   taggedUsersResponse,
-} from '../collections/models/tagged-users';
+} from '../api/models/tagged-users';
 
 /**
  * Zod schema for the CommentUpdate model.

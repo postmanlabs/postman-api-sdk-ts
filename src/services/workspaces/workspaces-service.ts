@@ -68,7 +68,7 @@ import {
   GetWorkspaceGlobalVariablesOkResponse,
   getWorkspaceGlobalVariablesOkResponseResponse,
 } from './models/get-workspace-global-variables-ok-response';
-import { ErrorTypeTitleDetail } from '../common/error-type-title-detail';
+import { CreateApiClientErrorResponse } from '../common/create-api-client-error-response';
 import {
   UpdateGlobalVariables,
   updateGlobalVariablesRequest,
@@ -961,7 +961,7 @@ This endpoint does not support transferring elements from team workspaces to per
         status: 200,
       })
       .addError({
-        error: ErrorTypeTitleDetail,
+        error: CreateApiClientErrorResponse,
         contentType: ContentType.Json,
         status: 500,
       })
@@ -1003,7 +1003,7 @@ This endpoint does not support transferring elements from team workspaces to per
         status: 200,
       })
       .addError({
-        error: ErrorTypeTitleDetail,
+        error: CreateApiClientErrorResponse,
         contentType: ContentType.Json,
         status: 500,
       })
