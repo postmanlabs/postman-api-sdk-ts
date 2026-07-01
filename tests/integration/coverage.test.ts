@@ -4,6 +4,12 @@
  *  - every generated SDK method maps to a spec operation (nothing generated escapes
  *    the dynamic tests — a regenerated SDK with new endpoints fails here until the
  *    spec that produced it is the one driving the tests).
+ *
+ * The shipped spec always matches the SDK under test (full spec ↔ factory's full SDK,
+ * or the already-pruned spec ↔ the published pruned SDK), so this is a plain bijection.
+ * That is also what enforces the ADR-05 guarantee downstream: if a regen re-introduces a
+ * removed path, its method has no operation in the shipped (pruned) spec and the second
+ * assertion fails.
  */
 
 import { describe, expect, it } from 'vitest';
