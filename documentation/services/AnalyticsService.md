@@ -40,10 +40,10 @@ Gets analytics data based on the specified resource, metrics, and given filters 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -54,7 +54,7 @@ import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
   const analyticsUserType = 'new';
   const analyticsEntityType = 'collection';
 
-  const data = await postmanPostmanApiSdk.analytics.getAnalyticsData({
+  const data = await postmanApiSdk.analytics.getAnalyticsData({
     resource: analyticsResource,
     metrics: analyticsMetrics,
     view: analyticsView,
@@ -97,16 +97,16 @@ Returns a catalog of analytics resources and their corresponding metrics for use
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const analyticsMetrics = 'active_users';
 
-  const data = await postmanPostmanApiSdk.analytics.getAnalyticsMetadata({
+  const data = await postmanApiSdk.analytics.getAnalyticsMetadata({
     include: 'parameters,response',
     resources: 'user,workspace,team',
     metrics: analyticsMetrics,

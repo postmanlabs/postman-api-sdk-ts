@@ -38,10 +38,10 @@ Gets a list of all components in the team's component library.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -49,7 +49,7 @@ import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
   const componentStatus = 'active';
   const componentHasVersions = true;
 
-  const data = await postmanPostmanApiSdk.components.getAllComponents({
+  const data = await postmanApiSdk.components.getAllComponents({
     type: componentType,
     status: componentStatus,
     hasVersions: componentHasVersions,
@@ -81,10 +81,10 @@ Creates a new component. The component is created in an active state with an ini
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateComponent, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { CreateComponent, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -99,7 +99,7 @@ import { CreateComponent, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
     format: componentContentFormat,
   };
 
-  const data = await postmanPostmanApiSdk.components.createComponent(createComponent);
+  const data = await postmanApiSdk.components.createComponent(createComponent);
 
   console.log(data);
 })();
@@ -127,14 +127,14 @@ Gets information about a component. Use the `include` and `expand` query paramet
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.components.getComponent('01KT964C30J3DPJQKEACZH39N8', {
+  const data = await postmanApiSdk.components.getComponent('01KT964C30J3DPJQKEACZH39N8', {
     include: 'hasVersions,latestVersion',
     expand: 'latestVersion',
   });
@@ -164,19 +164,16 @@ Updates a component: - `name` — Rename the component. The new name must be uni
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const input = {};
 
-  const data = await postmanPostmanApiSdk.components.updateComponent(
-    '01KT964C30J3DPJQKEACZH39N8',
-    input,
-  );
+  const data = await postmanApiSdk.components.updateComponent('01KT964C30J3DPJQKEACZH39N8', input);
 
   console.log(data);
 })();
@@ -202,16 +199,14 @@ Gets information about the current working draft of a component, including its c
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.components.getComponentDraft(
-    '01KT964C30J3DPJQKEACZH39N8',
-  );
+  const data = await postmanApiSdk.components.getComponentDraft('01KT964C30J3DPJQKEACZH39N8');
 
   console.log(data);
 })();
@@ -238,10 +233,10 @@ Updates a component's draft. Component drafts contain unpublished edits to a com
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk, UpdateComponentDraft } from 'postman-postman-api-sdk';
+import { PostmanApiSdk, UpdateComponentDraft } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -252,7 +247,7 @@ import { PostmanPostmanApiSdk, UpdateComponentDraft } from 'postman-postman-api-
     format: componentContentFormat,
   };
 
-  const data = await postmanPostmanApiSdk.components.updateComponentDraft(
+  const data = await postmanApiSdk.components.updateComponentDraft(
     '01KT964C30J3DPJQKEACZH39N8',
     updateComponentDraft,
   );
@@ -282,19 +277,16 @@ Gets a list of a component's published versions.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.components.getComponentVersions(
-    '01KT964C30J3DPJQKEACZH39N8',
-    {
-      include: 'content',
-    },
-  );
+  const data = await postmanApiSdk.components.getComponentVersions('01KT964C30J3DPJQKEACZH39N8', {
+    include: 'content',
+  });
 
   console.log(data);
 })();
@@ -324,11 +316,11 @@ Publishes a new version of a component from the current draft. **Note:** You can
 import {
   CreateComponentVersion,
   CreateComponentVersionSource,
-  PostmanPostmanApiSdk,
-} from 'postman-postman-api-sdk';
+  PostmanApiSdk,
+} from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -343,7 +335,7 @@ import {
     source: createComponentVersionSource,
   };
 
-  const data = await postmanPostmanApiSdk.components.createComponentVersion(
+  const data = await postmanApiSdk.components.createComponentVersion(
     '01KT964C30J3DPJQKEACZH39N8',
     createComponentVersion,
   );
@@ -374,14 +366,14 @@ Gets a published version of a component.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.components.getComponentVersion(
+  const data = await postmanApiSdk.components.getComponentVersion(
     '01KT964C30J3DPJQKEACZH39N8',
     '01KT9NBTW5GYETHG6V0HNPAPYV',
     {

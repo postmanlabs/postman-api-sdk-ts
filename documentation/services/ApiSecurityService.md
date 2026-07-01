@@ -27,13 +27,13 @@ Performs an analysis on the given definition and returns any issues based on you
 
 ```typescript
 import {
-  PostmanPostmanApiSdk,
+  PostmanApiSdk,
   SchemaValidationRequestBody,
   SchemaValidationRequestBodySchema,
-} from 'postman-postman-api-sdk';
+} from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -52,7 +52,7 @@ import {
     schema: schemaValidationRequestBodySchema,
   };
 
-  const data = await postmanPostmanApiSdk.apiSecurity.schemaSecurityValidation(
+  const data = await postmanApiSdk.apiSecurity.schemaSecurityValidation(
     schemaValidationRequestBody,
   );
 

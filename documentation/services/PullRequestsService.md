@@ -28,14 +28,14 @@ Gets information about a pull request, such as the source and destination detail
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.pullRequests.getPullRequest(
+  const data = await postmanApiSdk.pullRequests.getPullRequest(
     '4e1a6609-1a29-4037-a411-89ecc14c6cd8',
   );
 
@@ -64,10 +64,10 @@ Updates an open pull request.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk, UpdatePullRequest } from 'postman-postman-api-sdk';
+import { PostmanApiSdk, UpdatePullRequest } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -77,7 +77,7 @@ import { PostmanPostmanApiSdk, UpdatePullRequest } from 'postman-postman-api-sdk
     reviewers: ['12345678'],
   };
 
-  const data = await postmanPostmanApiSdk.pullRequests.updatePullRequest(
+  const data = await postmanApiSdk.pullRequests.updatePullRequest(
     '4e1a6609-1a29-4037-a411-89ecc14c6cd8',
     updatePullRequest,
   );
@@ -107,10 +107,10 @@ Updates the [review](https://learning.postman.com/docs/collaborating-in-postman/
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk, ReviewPullRequest } from 'postman-postman-api-sdk';
+import { PostmanApiSdk, ReviewPullRequest } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -121,7 +121,7 @@ import { PostmanPostmanApiSdk, ReviewPullRequest } from 'postman-postman-api-sdk
     comment: 'Missing descriptions in requests',
   };
 
-  const data = await postmanPostmanApiSdk.pullRequests.reviewPullRequest(
+  const data = await postmanApiSdk.pullRequests.reviewPullRequest(
     '4e1a6609-1a29-4037-a411-89ecc14c6cd8',
     reviewPullRequest,
   );

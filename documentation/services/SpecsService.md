@@ -48,16 +48,16 @@ Gets the API specification generated for the given collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const elementTypeSpec = 'spec';
 
-  const data = await postmanPostmanApiSdk.specs.getGeneratedCollectionSpecs(
+  const data = await postmanApiSdk.specs.getGeneratedCollectionSpecs(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     elementTypeSpec,
   );
@@ -88,10 +88,10 @@ Generates an OpenAPI 2.0, 3.0, or 3.1 specification for the given collection. Th
 **Example Usage Code Snippet**
 
 ```typescript
-import { GenerateSpecFromCollection, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { GenerateSpecFromCollection, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -107,7 +107,7 @@ import { GenerateSpecFromCollection, PostmanPostmanApiSdk } from 'postman-postma
     format: format,
   };
 
-  const data = await postmanPostmanApiSdk.specs.generateSpecFromCollection(
+  const data = await postmanApiSdk.specs.generateSpecFromCollection(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     elementTypeSpec,
     generateSpecFromCollection,
@@ -138,14 +138,14 @@ Syncs a collection generated from an API specification. This is an asynchronous 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.specs.syncCollectionWithSpec(
+  const data = await postmanApiSdk.specs.syncCollectionWithSpec(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     {
       specId: '73e15000-bc7a-4802-b80e-05fff18fd7f8',
@@ -178,17 +178,17 @@ Gets the status of an asynchronous API specification creation task.
 **Example Usage Code Snippet**
 
 ```typescript
-import { ElementId, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { ElementId, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const elementType = 'collections';
-  const elementId = 'elit in cupida';
+  const elementId = 'veniam Duis v';
 
-  const data = await postmanPostmanApiSdk.specs.getAsyncSpecTaskStatus(
+  const data = await postmanApiSdk.specs.getAsyncSpecTaskStatus(
     elementType,
     elementId,
     '66ae9950-0869-4e65-96b0-1e0e47e771af',
@@ -220,14 +220,14 @@ Gets all API specifications in a workspace.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.specs.getAllSpecs({
+  const data = await postmanApiSdk.specs.getAllSpecs({
     workspaceId: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
     limit: 10,
@@ -258,10 +258,10 @@ Creates an API specification in Postman's [Spec Hub](https://learning.postman.co
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateSpec, MultiFileSpec, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { CreateSpec, MultiFileSpec, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -282,7 +282,7 @@ import { CreateSpec, MultiFileSpec, PostmanPostmanApiSdk } from 'postman-postman
     files: [files],
   };
 
-  const data = await postmanPostmanApiSdk.specs.createSpec(createSpec, {
+  const data = await postmanApiSdk.specs.createSpec(createSpec, {
     workspaceId: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 
@@ -310,14 +310,14 @@ Gets information about an API specification.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.specs.getSpec('73e15000-bc7a-4802-b80e-05fff18fd7f8');
+  const data = await postmanApiSdk.specs.getSpec('73e15000-bc7a-4802-b80e-05fff18fd7f8');
 
   console.log(data);
 })();
@@ -344,10 +344,10 @@ Updates an API specification's properties, such as its name.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk, UpdateSpecProperties } from 'postman-postman-api-sdk';
+import { PostmanApiSdk, UpdateSpecProperties } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -355,7 +355,7 @@ import { PostmanPostmanApiSdk, UpdateSpecProperties } from 'postman-postman-api-
     name: 'Sample API',
   };
 
-  const data = await postmanPostmanApiSdk.specs.updateSpecProperties(
+  const data = await postmanApiSdk.specs.updateSpecProperties(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     updateSpecProperties,
   );
@@ -380,14 +380,14 @@ Deletes an API specification. On success, this returns an HTTP `204 No Content` 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.specs.deleteSpec('73e15000-bc7a-4802-b80e-05fff18fd7f8');
+  const data = await postmanApiSdk.specs.deleteSpec('73e15000-bc7a-4802-b80e-05fff18fd7f8');
 
   console.log(data);
 })();
@@ -415,10 +415,10 @@ Updates the [sync options](https://learning.postman.com/docs/design-apis/specifi
 **Example Usage Code Snippet**
 
 ```typescript
-import { ApiSpecSyncOptions, PostmanPostmanApiSdk, SyncOptions } from 'postman-postman-api-sdk';
+import { ApiSpecSyncOptions, PostmanApiSdk, SyncOptions } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -430,7 +430,7 @@ import { ApiSpecSyncOptions, PostmanPostmanApiSdk, SyncOptions } from 'postman-p
     syncOptions: syncOptions,
   };
 
-  const data = await postmanPostmanApiSdk.specs.updateSpecSyncOptions(
+  const data = await postmanApiSdk.specs.updateSpecSyncOptions(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     apiSpecSyncOptions,
@@ -460,16 +460,14 @@ Gets the complete contents of an OpenAPI or AsyncAPI specification's definition.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.specs.getSpecDefinition(
-    '73e15000-bc7a-4802-b80e-05fff18fd7f8',
-  );
+  const data = await postmanApiSdk.specs.getSpecDefinition('73e15000-bc7a-4802-b80e-05fff18fd7f8');
 
   console.log(data);
 })();
@@ -495,16 +493,14 @@ Gets all the files in an API specification.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.specs.getSpecFiles(
-    '73e15000-bc7a-4802-b80e-05fff18fd7f8',
-  );
+  const data = await postmanApiSdk.specs.getSpecFiles('73e15000-bc7a-4802-b80e-05fff18fd7f8');
 
   console.log(data);
 })();
@@ -531,10 +527,10 @@ Creates a file for an OpenAPI or a protobuf 2 or 3 specification. **Note:** - If
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateSpecFile, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { CreateSpecFile, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -544,7 +540,7 @@ import { CreateSpecFile, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
       '{\n    "SpacecraftId": {\n        "description": "The unique identifier of a spacecraft",\n        "type": "string"\n    },\n    "Spacecraft": {\n        "type": "object",\n        "required": [\n            "id",\n            "name",\n            "type"\n        ],\n        "properties": {\n            "id": {\n                "$ref": "#/SpacecraftId"\n            },\n            "name": {\n                "type": "string"\n            },\n            "type": {\n                "type": "string",\n                "enum": [\n                    "capsule",\n                    "probe",\n                    "satellite",\n                    "spaceplane",\n                    "station"\n                ]\n            },\n            "description": {\n                "type": "string"\n            }\n        }\n    },\n    "Error": {\n        "type": "object",\n        "required": [\n            "message"\n        ],\n        "properties": {\n            "message": {\n                "description": "A human readable error message",\n                "type": "string"\n            }\n        }\n    }\n}',
   };
 
-  const data = await postmanPostmanApiSdk.specs.createSpecFile(
+  const data = await postmanApiSdk.specs.createSpecFile(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     createSpecFile,
   );
@@ -574,14 +570,14 @@ Gets the contents of an API specification's file.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.specs.getSpecFile(
+  const data = await postmanApiSdk.specs.getSpecFile(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     'index.json',
   );
@@ -612,10 +608,10 @@ Updates a file for an OpenAPI or protobuf 2 or 3 specification. **Note:** - This
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk, UpdateSpecFile } from 'postman-postman-api-sdk';
+import { PostmanApiSdk, UpdateSpecFile } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -628,7 +624,7 @@ import { PostmanPostmanApiSdk, UpdateSpecFile } from 'postman-postman-api-sdk';
       '{\n  "openapi": "3.0.0",\n  "info": {\n    "version": "1.0.0",\n    "title": "Sample API",\n    "description": "Buy or rent spacecrafts"\n  },\n  "paths": {\n    "/spacecrafts/{spacecraftId}": {\n      "parameters": [\n        {\n          "name": "spacecraftId",\n          "description": "The unique identifier of the spacecraft",\n          "in": "path",\n          "required": true,\n          "schema": {\n            "$ref": "#/components/schemas/SpacecraftId"\n          }\n        }\n      ],\n      "get": {\n        "summary": "Read a spacecraft",\n        "responses": {\n          "200": {\n            "description": "The spacecraft corresponding to the provided `spacecraftId`",\n            "content": {\n              "application/json": {\n                "schema": {\n                  "$ref": "#/components/schemas/Spacecraft"\n                }\n              }\n            }\n          },\n          "404": {\n            "description": "No spacecraft found for the provided `spacecraftId`",\n            "content": {\n              "application/json": {\n                "schema": {\n                  "$ref": "#/components/schemas/Error"\n                }\n              }\n            }\n          },\n          "500": {\n            "description": "Unexpected error",\n            "content": {\n              "application/json": {\n                "schema": {\n                  "$ref": "#/components/schemas/Error"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  "components": {\n    "schemas": {\n      "SpacecraftId": {\n        "description": "The unique identifier of a spacecraft",\n        "type": "string"\n      },\n      "Spacecraft": {\n        "type": "object",\n        "required": [\n          "id",\n          "name",\n          "type"\n        ],\n        "properties": {\n          "id": {\n            "$ref": "#/components/schemas/SpacecraftId"\n          },\n          "name": {\n            "type": "string"\n          },\n          "type": {\n            "type": "string",\n            "enum": [\n              "capsule",\n              "probe",\n              "satellite",\n              "spaceplane",\n              "station"\n            ]\n          },\n          "description": {\n            "type": "string"\n          }\n        }\n      },\n      "Error": {\n        "type": "object",\n        "required": [\n          "message"\n        ],\n        "properties": {\n          "message": {\n            "description": "A human readable error message",\n            "type": "string"\n          }\n        }\n      }\n    },\n    "securitySchemes": {\n      "ApiKey": {\n        "type": "apiKey",\n        "in": "header",\n        "name": "X-Api-Key"\n      }\n    }\n  },\n  "security": [\n    {\n      "ApiKey": [\n\n      ]\n    }\n  ]\n}',
   };
 
-  const data = await postmanPostmanApiSdk.specs.updateSpecFile(
+  const data = await postmanApiSdk.specs.updateSpecFile(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     'index.json',
     updateSpecFile,
@@ -655,14 +651,14 @@ Deletes a file in an API specification. On success, this returns an HTTP `204 No
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.specs.deleteSpecFile(
+  const data = await postmanApiSdk.specs.deleteSpecFile(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     'index.json',
   );
@@ -694,16 +690,16 @@ Gets all of an API specification's generated collections.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const elementTypeCollection = 'collection';
 
-  const data = await postmanPostmanApiSdk.specs.getSpecCollections(
+  const data = await postmanApiSdk.specs.getSpecCollections(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     elementTypeCollection,
     {
@@ -739,14 +735,10 @@ Creates a collection from the given OpenAPI 2.0, 3.0, or 3.1 specification or Sm
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  GenerateCollection,
-  GenerateCollectionOptions,
-  PostmanPostmanApiSdk,
-} from 'postman-postman-api-sdk';
+import { GenerateCollection, GenerateCollectionOptions, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -775,7 +767,7 @@ import {
     options: generateCollectionOptions,
   };
 
-  const data = await postmanPostmanApiSdk.specs.generateCollection(
+  const data = await postmanApiSdk.specs.generateCollection(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     elementTypeCollection,
     generateCollection,
@@ -806,14 +798,14 @@ Syncs an API specification linked to a collection. This is an asynchronous endpo
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.specs.syncSpecWithCollection(
+  const data = await postmanApiSdk.specs.syncSpecWithCollection(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     {
       collectionUid: '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
@@ -845,14 +837,14 @@ Gets information about a specification's version tag. The response returns a sna
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.specs.getSpecVersionTag(
+  const data = await postmanApiSdk.specs.getSpecVersionTag(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     '97d2c74e-19de-426d-9763-8e7400429759',
   );
@@ -883,14 +875,14 @@ Gets a list of a specification's version tags.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.specs.getSpecVersionTags(
+  const data = await postmanApiSdk.specs.getSpecVersionTags(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     {
       cursor:
@@ -924,10 +916,10 @@ Creates a version tag for a specification. Version tags are snapshots of a speci
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateSpecVersionTag, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { CreateSpecVersionTag, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -935,7 +927,7 @@ import { CreateSpecVersionTag, PostmanPostmanApiSdk } from 'postman-postman-api-
     name: 'name',
   };
 
-  const data = await postmanPostmanApiSdk.specs.createSpecVersionTag(
+  const data = await postmanApiSdk.specs.createSpecVersionTag(
     '73e15000-bc7a-4802-b80e-05fff18fd7f8',
     createSpecVersionTag,
   );

@@ -37,11 +37,11 @@ Returns all secrets detected by Postman's [Secret Scanner](https://learning.post
 import {
   DetectedSecretsQueryRequest,
   DetectedSecretsQueryRequestResources,
-  PostmanPostmanApiSdk,
-} from 'postman-postman-api-sdk';
+  PostmanApiSdk,
+} from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -65,7 +65,7 @@ import {
     workspaceVisibilities: [workspaceVisibilities],
   };
 
-  const data = await postmanPostmanApiSdk.secretScanner.detectedSecretsQueries(
+  const data = await postmanApiSdk.secretScanner.detectedSecretsQueries(
     detectedSecretsQueryRequest,
     {
       limit: 10,
@@ -102,10 +102,10 @@ Updates the resolution status of a secret detected in a workspace.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk, UpdateSecretResolutionRequest } from 'postman-postman-api-sdk';
+import { PostmanApiSdk, UpdateSecretResolutionRequest } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -116,7 +116,7 @@ import { PostmanPostmanApiSdk, UpdateSecretResolutionRequest } from 'postman-pos
     workspaceId: 'e361eeb4-00dd-4225-9774-6146a2555999',
   };
 
-  const data = await postmanPostmanApiSdk.secretScanner.updateDetectedSecretResolutions(
+  const data = await postmanApiSdk.secretScanner.updateDetectedSecretResolutions(
     'MTc0ODA0Mw==',
     updateSecretResolutionRequest,
   );
@@ -151,27 +151,23 @@ Gets the locations of secrets detected by Postman's [Secret Scanner](https://lea
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const resourceType = 'collection';
 
-  const data = await postmanPostmanApiSdk.secretScanner.getDetectedSecretsLocations(
-    'MTc0ODA0Mw==',
-    {
-      limit: 10,
-      cursor:
-        'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
-      workspaceId: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
-      since: '2022-06-01T00:00:00.000Z',
-      until: '2022-06-15T00:00:00.000Z',
-      resourceType: resourceType,
-    },
-  );
+  const data = await postmanApiSdk.secretScanner.getDetectedSecretsLocations('MTc0ODA0Mw==', {
+    limit: 10,
+    cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
+    workspaceId: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
+    since: '2022-06-01T00:00:00.000Z',
+    until: '2022-06-15T00:00:00.000Z',
+    resourceType: resourceType,
+  });
 
   console.log(data);
 })();
@@ -191,14 +187,14 @@ Gets the metadata of the secret types supported by Postman's [Secret Scanner](ht
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.secretScanner.getSecretTypes();
+  const data = await postmanApiSdk.secretScanner.getSecretTypes();
 
   console.log(data);
 })();

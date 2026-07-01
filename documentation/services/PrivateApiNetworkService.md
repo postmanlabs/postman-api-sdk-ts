@@ -43,10 +43,10 @@ Gets information workspaces added to your team's [Private API Network](https://l
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -54,7 +54,7 @@ import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
   const sortCreatedUpdatedAt = 'createdAt';
   const ascDesc = 'asc';
 
-  const data = await postmanPostmanApiSdk.privateApiNetwork.listPrivateNetworkWorkspaces({
+  const data = await postmanApiSdk.privateApiNetwork.listPrivateNetworkWorkspaces({
     type: elementTypeQuery,
     name: 'billing',
     summary: 'payments',
@@ -93,10 +93,10 @@ Publishes a workspace in your team's [Private API Network](https://learning.post
 **Example Usage Code Snippet**
 
 ```typescript
-import { AddWorkspace, AddWorkspaceWorkspace, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { AddWorkspace, AddWorkspaceWorkspace, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -108,8 +108,7 @@ import { AddWorkspace, AddWorkspaceWorkspace, PostmanPostmanApiSdk } from 'postm
     workspace: addWorkspaceWorkspace,
   };
 
-  const data =
-    await postmanPostmanApiSdk.privateApiNetwork.addWorkspaceToPrivateNetwork(addWorkspace);
+  const data = await postmanApiSdk.privateApiNetwork.addWorkspaceToPrivateNetwork(addWorkspace);
 
   console.log(data);
 })();
@@ -132,16 +131,16 @@ import { AddWorkspace, AddWorkspaceWorkspace, PostmanPostmanApiSdk } from 'postm
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk, UpdatePanElementOrFolderRequest } from 'postman-postman-api-sdk';
+import { PostmanApiSdk, UpdatePanElementOrFolderRequest } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const updatePanElementOrFolderRequest: UpdatePanElementOrFolderRequest = {};
 
-  const data = await postmanPostmanApiSdk.privateApiNetwork.updatePanElementOrFolder(
+  const data = await postmanApiSdk.privateApiNetwork.updatePanElementOrFolder(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     updatePanElementOrFolderRequest,
   );
@@ -170,14 +169,14 @@ Removes a workspace from your team's [Private API Network](https://learning.post
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.privateApiNetwork.removeWorkspaceFromPrivateNetwork(
+  const data = await postmanApiSdk.privateApiNetwork.removeWorkspaceFromPrivateNetwork(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   );
 
@@ -214,10 +213,10 @@ Gets all requests to add workspaces to your team's [Private API Network](https:/
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -226,7 +225,7 @@ import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
   const sortCreatedUpdatedAt = 'createdAt';
   const ascDesc = 'asc';
 
-  const data = await postmanPostmanApiSdk.privateApiNetwork.listPrivateNetworkAddRequests({
+  const data = await postmanApiSdk.privateApiNetwork.listPrivateNetworkAddRequests({
     since: '2022-06-01T00:00:00.000Z',
     until: '2022-06-15T00:00:00.000Z',
     requestedBy: 12345678,
@@ -265,13 +264,13 @@ Responds to a user's request to add a workspace to your team's [Private API Netw
 
 ```typescript
 import {
-  PostmanPostmanApiSdk,
+  PostmanApiSdk,
   RespondPanElementAddRequestBody,
   RespondPanElementAddRequestBodyResponse1,
-} from 'postman-postman-api-sdk';
+} from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -286,7 +285,7 @@ import {
     response: respondPanElementAddRequestBodyResponse1,
   };
 
-  const data = await postmanPostmanApiSdk.privateApiNetwork.respondPrivateNetworkAddRequest(
+  const data = await postmanApiSdk.privateApiNetwork.respondPrivateNetworkAddRequest(
     232,
     respondPanElementAddRequestBody,
   );

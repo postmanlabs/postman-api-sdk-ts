@@ -30,14 +30,14 @@ Gets all comments left by users in a request.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.collectionRequests.getRequestComments(
+  const data = await postmanApiSdk.collectionRequests.getRequestComments(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-c82dd02c-4870-4907-8fcb-593a876cf05b',
   );
@@ -68,15 +68,10 @@ Creates a comment on a request. To create a reply on an existing comment, includ
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  CommentCreate,
-  PostmanPostmanApiSdk,
-  TaggedUsers,
-  UserName,
-} from 'postman-postman-api-sdk';
+import { CommentCreate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -97,7 +92,7 @@ import {
     tags: taggedUsers,
   };
 
-  const data = await postmanPostmanApiSdk.collectionRequests.createRequestComment(
+  const data = await postmanApiSdk.collectionRequests.createRequestComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-c82dd02c-4870-4907-8fcb-593a876cf05b',
     commentCreate,
@@ -130,15 +125,10 @@ Updates a comment on a request. **Note:** This endpoint accepts a max of 10,000 
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  CommentUpdate,
-  PostmanPostmanApiSdk,
-  TaggedUsers,
-  UserName,
-} from 'postman-postman-api-sdk';
+import { CommentUpdate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -158,7 +148,7 @@ import {
     tags: taggedUsers,
   };
 
-  const data = await postmanPostmanApiSdk.collectionRequests.updateRequestComment(
+  const data = await postmanApiSdk.collectionRequests.updateRequestComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-c82dd02c-4870-4907-8fcb-593a876cf05b',
     46814,
@@ -187,14 +177,14 @@ Deletes a comment from a request. On success, this returns an HTTP `204 No Conte
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.collectionRequests.deleteRequestComment(
+  const data = await postmanApiSdk.collectionRequests.deleteRequestComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-c82dd02c-4870-4907-8fcb-593a876cf05b',
     46814,

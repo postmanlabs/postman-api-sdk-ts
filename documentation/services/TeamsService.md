@@ -39,14 +39,14 @@ Gets all Postman teams in your organization.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.teams.getTeams({
+  const data = await postmanApiSdk.teams.getTeams({
     cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
     limit: 2,
     settings: true,
@@ -79,10 +79,10 @@ import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateTeam, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { CreateTeam, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -91,7 +91,7 @@ import { CreateTeam, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
     description: 'API testing team.',
   };
 
-  const data = await postmanPostmanApiSdk.teams.createTeam(createTeam, {
+  const data = await postmanApiSdk.teams.createTeam(createTeam, {
     identifierType: 'scim',
   });
 
@@ -121,16 +121,16 @@ Gets information about a Postman team.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const teamsInclude = 'members';
 
-  const data = await postmanPostmanApiSdk.teams.getTeam(123, {
+  const data = await postmanApiSdk.teams.getTeam(123, {
     include: teamsInclude,
     identifierType: 'scim',
   });
@@ -162,14 +162,14 @@ Gets a team's pending access requests.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.teams.getTeamAccessRequests(123, {
+  const data = await postmanApiSdk.teams.getTeamAccessRequests(123, {
     cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
     limit: 2,
     identifierType: 'scim',
@@ -201,16 +201,16 @@ Creates an access request for a team. Access requests include actions such as re
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateAccessRequest, PostmanPostmanApiSdk, TeamEntityInfo } from 'postman-postman-api-sdk';
+import { CreateAccessRequest, PostmanApiSdk, TeamEntityInfo } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const teamEntityInfoEntityType = 'user';
 
-  const teamEntityInfoEntityId = 123;
+  const teamEntityInfoEntityId = 1;
 
   const teamEntityInfo: TeamEntityInfo = {
     entityType: teamEntityInfoEntityType,
@@ -228,7 +228,7 @@ import { CreateAccessRequest, PostmanPostmanApiSdk, TeamEntityInfo } from 'postm
     requestType: requestType,
   };
 
-  const data = await postmanPostmanApiSdk.teams.createAccessRequest(123, createAccessRequest, {
+  const data = await postmanApiSdk.teams.createAccessRequest(123, createAccessRequest, {
     identifierType: 'scim',
   });
 
@@ -259,10 +259,10 @@ Approve or deny a team's access request.
 **Example Usage Code Snippet**
 
 ```typescript
-import { ApproveDenyAccessRequest, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { ApproveDenyAccessRequest, PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -272,7 +272,7 @@ import { ApproveDenyAccessRequest, PostmanPostmanApiSdk } from 'postman-postman-
     action: approveDenyAccessRequestAction,
   };
 
-  const data = await postmanPostmanApiSdk.teams.approveDenyAccessRequest(
+  const data = await postmanApiSdk.teams.approveDenyAccessRequest(
     123,
     12345,
     approveDenyAccessRequest,
@@ -312,14 +312,14 @@ import {
   ManageTeamMemberRolesAdd,
   ManageTeamMemberRolesRemove,
   OrgsInfo,
-  PostmanPostmanApiSdk,
+  PostmanApiSdk,
   TeamsInfo,
   UserGroupsInfo,
   UsersInfo,
-} from 'postman-postman-api-sdk';
+} from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -360,7 +360,7 @@ import {
     remove: manageTeamMemberRolesRemove,
   };
 
-  const data = await postmanPostmanApiSdk.teams.manageTeamMemberRoles(123, manageTeamMemberRoles, {
+  const data = await postmanApiSdk.teams.manageTeamMemberRoles(123, manageTeamMemberRoles, {
     identifierType: 'scim',
   });
 
@@ -386,16 +386,16 @@ Removes entities, such as users or organizations, from your Postman team. On suc
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk, RemoveTeamMembers, TeamEntityInfo } from 'postman-postman-api-sdk';
+import { PostmanApiSdk, RemoveTeamMembers, TeamEntityInfo } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const teamEntityInfoEntityType = 'user';
 
-  const teamEntityInfoEntityId = 123;
+  const teamEntityInfoEntityId = 1;
 
   const teamEntityInfo: TeamEntityInfo = {
     entityType: teamEntityInfoEntityType,
@@ -406,7 +406,7 @@ import { PostmanPostmanApiSdk, RemoveTeamMembers, TeamEntityInfo } from 'postman
     entities: [teamEntityInfo],
   };
 
-  const data = await postmanPostmanApiSdk.teams.removeTeamMembers(123, removeTeamMembers, {
+  const data = await postmanApiSdk.teams.removeTeamMembers(123, removeTeamMembers, {
     identifierType: 'scim',
   });
 
@@ -434,14 +434,14 @@ Gets a team's settings.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
+import { PostmanApiSdk } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanPostmanApiSdk.teams.getTeamSettings(123);
+  const data = await postmanApiSdk.teams.getTeamSettings(123);
 
   console.log(data);
 })();
@@ -468,14 +468,10 @@ Updates a team's settings.
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  PostmanPostmanApiSdk,
-  UpdateTeamSettings,
-  UpdateTeamSettingsSettings,
-} from 'postman-postman-api-sdk';
+import { PostmanApiSdk, UpdateTeamSettings, UpdateTeamSettingsSettings } from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -492,7 +488,7 @@ import {
     settings: updateTeamSettingsSettings,
   };
 
-  const data = await postmanPostmanApiSdk.teams.updateTeamSettings(123, updateTeamSettings);
+  const data = await postmanApiSdk.teams.updateTeamSettings(123, updateTeamSettings);
 
   console.log(data);
 })();

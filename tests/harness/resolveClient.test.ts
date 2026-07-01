@@ -37,7 +37,7 @@ describe('detectClientClassName', () => {
 
 describe('resolveClientClass', () => {
   // The regression: the factory's local generation names the class one way
-  // (via `--name @postman/postman-api-sdk`), the downstream server generation
+  // (via `--name @postman/api-sdk`), the downstream server generation
   // names it another (inheriting the Cloud spec name). The harness must resolve
   // whichever name the *repo it runs in* actually uses — never a hardcoded one.
   const makeNamespace = (clientName: string) => {

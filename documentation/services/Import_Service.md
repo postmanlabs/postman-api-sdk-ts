@@ -31,11 +31,11 @@ import {
   GenerateCollectionOptions,
   ImportOpenApiDefinition,
   JsonSchema,
-  PostmanPostmanApiSdk,
-} from 'postman-postman-api-sdk';
+  PostmanApiSdk,
+} from 'postman-api-sdk';
 
 (async () => {
-  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
+  const postmanApiSdk = new PostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -65,7 +65,7 @@ import {
     options: generateCollectionOptions,
   };
 
-  const data = await postmanPostmanApiSdk.import_.importOpenApiDefinition(jsonSchema, {
+  const data = await postmanApiSdk.import_.importOpenApiDefinition(jsonSchema, {
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 
