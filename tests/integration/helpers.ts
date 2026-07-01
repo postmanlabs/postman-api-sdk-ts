@@ -23,12 +23,17 @@ const HERE = dirname(fileURLToPath(import.meta.url));
  * Spec resolution order:
  *  1. SDK_SPEC_PATH env override
  *  2. openapi.yaml shipped next to these tests (self-contained SDK checkout)
- *  3. resources/overlayed.yaml in the factory repo layout (four levels up)
+ *  3. resources/postman-api.yaml in the factory repo layout (four levels up)
+ *
+ * The spec shipped next to the tests always matches the SDK under test — the full spec
+ * for the factory's full SDK, an already-pruned spec for the published (pruned) SDK — so
+ * the coverage suite is a plain spec↔SDK bijection and needs no knowledge of what was
+ * pruned. Path restriction is a factory concern (see ADR-05); it never leaks here.
  */
 const SPEC_CANDIDATES = [
   process.env.SDK_SPEC_PATH,
   resolve(HERE, 'openapi.yaml'),
-  resolve(HERE, '../../../..', 'resources', 'overlayed.yaml'),
+  resolve(HERE, '../../../..', 'resources', 'postman-api.yaml'),
 ].filter((p): p is string => !!p);
 
 export const SPEC_PATH = SPEC_CANDIDATES.find((p) => existsSync(p)) ?? SPEC_CANDIDATES[1];
@@ -40,12 +45,13 @@ export function loadSpec(): any {
     throw new Error(
       `OpenAPI spec not found (looked at: ${SPEC_CANDIDATES.join(', ')}). ` +
         'Ship openapi.yaml next to the tests, set SDK_SPEC_PATH, or in the factory repo ' +
-        'run `pnpm spec:fetch && pnpm spec:overlay` first.',
+        'run `pnpm spec:fetch` first.',
     );
   }
   return parse(readFileSync(SPEC_PATH, 'utf8'));
 }
 
+/** Every operation the shipped spec declares (which already matches the SDK surface). */
 export function specOperations(doc: unknown): SpecOperation[] {
   return enumerateOperations(doc);
 }
