@@ -1,0 +1,198 @@
+import { z } from 'zod';
+import { RequestMethod, requestMethod } from './request-method';
+import {
+  RequestHeaderData,
+  requestHeaderData,
+  requestHeaderDataRequest,
+  requestHeaderDataResponse,
+} from './request-header-data';
+import {
+  RequestQueryParams,
+  requestQueryParams,
+  requestQueryParamsRequest,
+  requestQueryParamsResponse,
+} from './request-query-params';
+import { CreateRequestDataMode, createRequestDataMode } from './create-request-data-mode';
+import { RequestData, requestData, requestDataRequest, requestDataResponse } from './request-data';
+import {
+  RequestGraphqlModeData,
+  requestGraphqlModeData,
+  requestGraphqlModeDataRequest,
+  requestGraphqlModeDataResponse,
+} from './request-graphql-mode-data';
+import {
+  RequestDataOptions,
+  requestDataOptions,
+  requestDataOptionsRequest,
+  requestDataOptionsResponse,
+} from './request-data-options';
+import { RequestAuth, requestAuth, requestAuthRequest, requestAuthResponse } from './request-auth';
+import {
+  RequestEvents,
+  requestEvents,
+  requestEventsRequest,
+  requestEventsResponse,
+} from './request-events';
+
+/**
+ * Zod schema for the CreateRequest model.
+ * Defines the structure and validation rules for this data type.
+ * This is the shape used in application code - what developers interact with.
+ */
+export const createRequest = z.lazy(() => {
+  return z.object({
+    name: z.string().optional(),
+    description: z.string().optional().nullable(),
+    method: requestMethod.optional(),
+    url: z.string().optional().nullable(),
+    headerData: z.array(requestHeaderData).optional(),
+    queryParams: z.array(requestQueryParams).optional(),
+    dataMode: createRequestDataMode.optional(),
+    data: z.array(requestData).optional().nullable(),
+    rawModeData: z.string().optional().nullable(),
+    graphqlModeData: requestGraphqlModeData.optional().nullable(),
+    dataOptions: requestDataOptions.optional().nullable(),
+    auth: requestAuth.optional().nullable(),
+    events: z.array(requestEvents).optional().nullable(),
+    additionalProperties: z.record(z.unknown()).optional(),
+  });
+});
+
+/**
+ * Information about the request. For a complete list of properties, refer to the **Request** property in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
+
+**Note:**
+
+It is recommended that you pass the `name` property in the request body. If you do not, the system uses a null value. As a result, this creates a request with a blank name.
+
+ * @typedef  {CreateRequest} createRequest - Information about the request. For a complete list of properties, refer to the **Request** property in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
+
+**Note:**
+
+It is recommended that you pass the `name` property in the request body. If you do not, the system uses a null value. As a result, this creates a request with a blank name.
+ - Information about the request. For a complete list of properties, refer to the **Request** property in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
+
+**Note:**
+
+It is recommended that you pass the `name` property in the request body. If you do not, the system uses a null value. As a result, this creates a request with a blank name.
+
+ * @property {string} - The request's name. It is recommended that you pass the `name` property in the request body. If you do not, the system uses a null value. As a result, this creates a request with a blank name.
+ * @property {string} - The request's description.
+ * @property {RequestMethod} - The request's HTTP method.
+ * @property {string} - The request's URL.
+ * @property {RequestHeaderData[]} - The request's headers.
+ * @property {RequestQueryParams[]} - The request's query parameters.
+ * @property {CreateRequestDataMode} - The request body's data mode.
+ * @property {RequestData[]} - The request body's form data.
+ * @property {string} - The request body's raw mode data.
+ * @property {RequestGraphqlModeData} - The request body's GraphQL mode data.
+ * @property {RequestDataOptions} - Additional configurations and options set for the request body's various data modes.
+ * @property {RequestAuth} - The request's authentication information.
+ * @property {RequestEvents[]} - A list of scripts configured to run when specific events occur.
+ */
+export type CreateRequest = z.infer<typeof createRequest>;
+
+/**
+ * Zod schema for mapping API responses to the CreateRequest application shape.
+ * Handles any property name transformations from the API schema.
+ * If property names match the API schema exactly, this is identical to the application shape.
+ */
+export const createRequestResponse = z.lazy(() => {
+  return z
+    .object({
+      name: z.string().optional(),
+      description: z.string().optional().nullable(),
+      method: requestMethod.optional(),
+      url: z.string().optional().nullable(),
+      headerData: z.array(requestHeaderDataResponse).optional(),
+      queryParams: z.array(requestQueryParamsResponse).optional(),
+      dataMode: createRequestDataMode.optional(),
+      data: z.array(requestDataResponse).optional().nullable(),
+      rawModeData: z.string().optional().nullable(),
+      graphqlModeData: requestGraphqlModeDataResponse.optional().nullable(),
+      dataOptions: requestDataOptionsResponse.optional().nullable(),
+      auth: requestAuthResponse.optional().nullable(),
+      events: z.array(requestEventsResponse).optional().nullable(),
+    })
+    .passthrough()
+    .transform((data) => {
+      const additionalProperties: { [key: string]: unknown } = {};
+      const declaredKeys = new Set<string>([
+        'name',
+        'description',
+        'method',
+        'url',
+        'headerData',
+        'queryParams',
+        'dataMode',
+        'data',
+        'rawModeData',
+        'graphqlModeData',
+        'dataOptions',
+        'auth',
+        'events',
+      ]);
+      for (const key of globalThis.Object.keys(data)) {
+        if (!declaredKeys.has(key)) {
+          additionalProperties[key] = (data as { [key: string]: unknown })[key];
+        }
+      }
+      return {
+        name: data['name'],
+        description: data['description'],
+        method: data['method'],
+        url: data['url'],
+        headerData: data['headerData'],
+        queryParams: data['queryParams'],
+        dataMode: data['dataMode'],
+        data: data['data'],
+        rawModeData: data['rawModeData'],
+        graphqlModeData: data['graphqlModeData'],
+        dataOptions: data['dataOptions'],
+        auth: data['auth'],
+        events: data['events'],
+        additionalProperties,
+      };
+    });
+});
+
+/**
+ * Zod schema for mapping the CreateRequest application shape to API requests.
+ * Handles any property name transformations required by the API schema.
+ * If property names match the API schema exactly, this is identical to the application shape.
+ */
+export const createRequestRequest = z.lazy(() => {
+  return z
+    .object({
+      name: z.string().optional(),
+      description: z.string().optional().nullable(),
+      method: requestMethod.optional(),
+      url: z.string().optional().nullable(),
+      headerData: z.array(requestHeaderDataRequest).optional(),
+      queryParams: z.array(requestQueryParamsRequest).optional(),
+      dataMode: createRequestDataMode.optional(),
+      data: z.array(requestDataRequest).optional().nullable(),
+      rawModeData: z.string().optional().nullable(),
+      graphqlModeData: requestGraphqlModeDataRequest.optional().nullable(),
+      dataOptions: requestDataOptionsRequest.optional().nullable(),
+      auth: requestAuthRequest.optional().nullable(),
+      events: z.array(requestEventsRequest).optional().nullable(),
+      additionalProperties: z.record(z.unknown()).optional(),
+    })
+    .transform((data) => ({
+      ...(data['additionalProperties'] ?? {}),
+      name: data['name'],
+      description: data['description'],
+      method: data['method'],
+      url: data['url'],
+      headerData: data['headerData'],
+      queryParams: data['queryParams'],
+      dataMode: data['dataMode'],
+      data: data['data'],
+      rawModeData: data['rawModeData'],
+      graphqlModeData: data['graphqlModeData'],
+      dataOptions: data['dataOptions'],
+      auth: data['auth'],
+      events: data['events'],
+    }));
+});

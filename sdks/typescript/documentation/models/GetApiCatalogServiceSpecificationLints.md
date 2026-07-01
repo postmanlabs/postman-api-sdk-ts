@@ -1,0 +1,25 @@
+# GetApiCatalogServiceSpecificationLints
+
+**Properties**
+
+| Name | Type                                                                                          | Required | Description                                            |
+| :--- | :-------------------------------------------------------------------------------------------- | :------- | :----------------------------------------------------- |
+| meta | GetApiCatalogServiceSpecificationLintsMeta                                                    | ✅       | The response's meta information for paginated results. |
+| data | [GetApiCatalogServiceSpecificationLintsData](GetApiCatalogServiceSpecificationLintsData.md)[] | ✅       | A list of API specification lint runs.                 |
+
+# GetApiCatalogServiceSpecificationLintsMeta
+
+The response's meta information for paginated results.
+
+**Properties**
+
+| Name               | Type                                                                                | Required | Description                                                              |
+| :----------------- | :---------------------------------------------------------------------------------- | :------- | :----------------------------------------------------------------------- |
+| nextCursor         | string                                                                              | ✅       | The pagination cursor that points to the next record in the results set. |
+| limit              | number                                                                              | ✅       | The maximum number of records in the paginated response.                 |
+| filters            | any                                                                                 | ✅       | The filters applied to the request.                                      |
+| timeRange          | [ApiCatalogServiceMetadataTimeRangeData](ApiCatalogServiceMetadataTimeRangeData.md) | ✅       | The time window for the returned data.                                   |
+| totalRuns          | number                                                                              | ✅       | The total number of runs that match the given filters.                   |
+| passedRuns         | number                                                                              | ✅       | The number of successful runs.                                           |
+| failedRuns         | number                                                                              | ✅       | The number of runs with at least one failure.                            |
+| conformanceRatePct | number                                                                              | ✅       | The percentage of runs that passed, rounded to two decimal places.       |

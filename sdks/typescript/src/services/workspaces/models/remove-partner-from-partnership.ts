@@ -1,0 +1,81 @@
+import { z } from 'zod';
+import {
+  RemovePartnerFromPartnershipTargetEntity,
+  removePartnerFromPartnershipTargetEntity,
+} from './remove-partner-from-partnership-target-entity';
+import {
+  RemovePartnerFromPartnershipAction,
+  removePartnerFromPartnershipAction,
+} from './remove-partner-from-partnership-action';
+import {
+  ManagePartnerWorkspaceInvitesTargetObjectUserId,
+  managePartnerWorkspaceInvitesTargetObjectUserId,
+  managePartnerWorkspaceInvitesTargetObjectUserIdRequest,
+  managePartnerWorkspaceInvitesTargetObjectUserIdResponse,
+} from './manage-partner-workspace-invites-target-object-user-id';
+
+/**
+ * Zod schema for the RemovePartnerFromPartnership model.
+ * Defines the structure and validation rules for this data type.
+ * This is the shape used in application code - what developers interact with.
+ */
+export const removePartnerFromPartnership = z.lazy(() => {
+  return z.object({
+    targetEntity: removePartnerFromPartnershipTargetEntity,
+    targetEntityId: z.string().min(1).max(60),
+    action: removePartnerFromPartnershipAction,
+    target: managePartnerWorkspaceInvitesTargetObjectUserId,
+  });
+});
+
+/**
+ * The request body for removing partners from partnership with a team.
+ * @typedef  {RemovePartnerFromPartnership} removePartnerFromPartnership - The request body for removing partners from partnership with a team. - The request body for removing partners from partnership with a team.
+ * @property {RemovePartnerFromPartnershipTargetEntity} - The `team` value.
+ * @property {string} - The team ID from which to remove partners.
+ * @property {RemovePartnerFromPartnershipAction} - The `remove_partner` action.
+ * @property {ManagePartnerWorkspaceInvitesTargetObjectUserId}
+ */
+export type RemovePartnerFromPartnership = z.infer<typeof removePartnerFromPartnership>;
+
+/**
+ * Zod schema for mapping API responses to the RemovePartnerFromPartnership application shape.
+ * Handles any property name transformations from the API schema.
+ * If property names match the API schema exactly, this is identical to the application shape.
+ */
+export const removePartnerFromPartnershipResponse = z.lazy(() => {
+  return z
+    .object({
+      targetEntity: removePartnerFromPartnershipTargetEntity,
+      targetEntityId: z.string().min(1).max(60),
+      action: removePartnerFromPartnershipAction,
+      target: managePartnerWorkspaceInvitesTargetObjectUserIdResponse,
+    })
+    .transform((data) => ({
+      targetEntity: data['targetEntity'],
+      targetEntityId: data['targetEntityId'],
+      action: data['action'],
+      target: data['target'],
+    }));
+});
+
+/**
+ * Zod schema for mapping the RemovePartnerFromPartnership application shape to API requests.
+ * Handles any property name transformations required by the API schema.
+ * If property names match the API schema exactly, this is identical to the application shape.
+ */
+export const removePartnerFromPartnershipRequest = z.lazy(() => {
+  return z
+    .object({
+      targetEntity: removePartnerFromPartnershipTargetEntity,
+      targetEntityId: z.string().min(1).max(60),
+      action: removePartnerFromPartnershipAction,
+      target: managePartnerWorkspaceInvitesTargetObjectUserIdRequest,
+    })
+    .transform((data) => ({
+      targetEntity: data['targetEntity'],
+      targetEntityId: data['targetEntityId'],
+      action: data['action'],
+      target: data['target'],
+    }));
+});

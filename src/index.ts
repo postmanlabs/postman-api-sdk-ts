@@ -2,8 +2,6 @@ import { Environment } from './http/environment';
 import { SdkConfig } from './http/types';
 import { BillingService } from './services/billing';
 import { AnalyticsService } from './services/analytics';
-import { ApiCatalogService } from './services/api-catalog';
-import { ApiService } from './services/api';
 import { SpecsService } from './services/specs';
 import { TagsService } from './services/tags';
 import { AuditLogsService } from './services/audit-logs';
@@ -28,15 +26,12 @@ import { OAuth2_0Service } from './services/o-auth-2-0';
 import { PostbotService } from './services/postbot';
 import { PullRequestsService } from './services/pull-requests';
 import { ApiSecurityService } from './services/api-security';
-import { ScimService } from './services/scim';
 import { ServiceAccountsService } from './services/service-accounts';
 import { TeamsService } from './services/teams';
 import { WebhooksService } from './services/webhooks';
 
 export * from './services/billing';
 export * from './services/analytics';
-export * from './services/api-catalog';
-export * from './services/api';
 export * from './services/specs';
 export * from './services/tags';
 export * from './services/audit-logs';
@@ -61,7 +56,6 @@ export * from './services/o-auth-2-0';
 export * from './services/postbot';
 export * from './services/pull-requests';
 export * from './services/api-security';
-export * from './services/scim';
 export * from './services/service-accounts';
 export * from './services/teams';
 export * from './services/webhooks';
@@ -74,10 +68,6 @@ export class PostmanApiSdk {
   public readonly billing: BillingService;
 
   public readonly analytics: AnalyticsService;
-
-  public readonly apiCatalog: ApiCatalogService;
-
-  public readonly api: ApiService;
 
   public readonly specs: SpecsService;
 
@@ -127,8 +117,6 @@ export class PostmanApiSdk {
 
   public readonly apiSecurity: ApiSecurityService;
 
-  public readonly scim: ScimService;
-
   public readonly serviceAccounts: ServiceAccountsService;
 
   public readonly teams: TeamsService;
@@ -139,10 +127,6 @@ export class PostmanApiSdk {
     this.billing = new BillingService(this.config);
 
     this.analytics = new AnalyticsService(this.config);
-
-    this.apiCatalog = new ApiCatalogService(this.config);
-
-    this.api = new ApiService(this.config);
 
     this.specs = new SpecsService(this.config);
 
@@ -191,8 +175,6 @@ export class PostmanApiSdk {
     this.pullRequests = new PullRequestsService(this.config);
 
     this.apiSecurity = new ApiSecurityService(this.config);
-
-    this.scim = new ScimService(this.config);
 
     this.serviceAccounts = new ServiceAccountsService(this.config);
 
