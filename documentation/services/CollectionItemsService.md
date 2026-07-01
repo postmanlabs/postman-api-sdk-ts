@@ -148,7 +148,7 @@ import {
 
   const requestAuthType = 'basic';
 
-  const authAttributesValue = 'proident in';
+  const authAttributesValue = 'etlaboru';
 
   const authAttributesType = 'string';
 
@@ -570,7 +570,7 @@ import {
 
   const requestAuthType = 'basic';
 
-  const authAttributesValue = 'proident in';
+  const authAttributesValue = 'etlaboru';
 
   const authAttributesType = 'string';
 

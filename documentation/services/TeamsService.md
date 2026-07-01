@@ -210,7 +210,7 @@ import { CreateAccessRequest, PostmanApiSdk, TeamEntityInfo } from 'postman-api-
 
   const teamEntityInfoEntityType = 'user';
 
-  const teamEntityInfoEntityId = 9;
+  const teamEntityInfoEntityId = 10;
 
   const teamEntityInfo: TeamEntityInfo = {
     entityType: teamEntityInfoEntityType,
@@ -395,7 +395,7 @@ import { PostmanApiSdk, RemoveTeamMembers, TeamEntityInfo } from 'postman-api-sd
 
   const teamEntityInfoEntityType = 'user';
 
-  const teamEntityInfoEntityId = 9;
+  const teamEntityInfoEntityId = 10;
 
   const teamEntityInfo: TeamEntityInfo = {
     entityType: teamEntityInfoEntityType,

@@ -262,7 +262,7 @@ import { ElementId, PostmanApiSdk } from 'postman-api-sdk';
   });
 
   const elementType = 'collections';
-  const elementId = 'cupida';
+  const elementId = 'qui exer';
 
   const data = await postmanApiSdk.specs.getAsyncSpecTaskStatus(
     elementType,

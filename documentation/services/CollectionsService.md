@@ -148,7 +148,7 @@ import { PostmanApiSdk } from 'postman-api-sdk';
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     name: 'Test Collection',
     limit: 3,
-    offset: 123,
+    offset: 7,
   });
 
   console.log(data);
@@ -211,7 +211,7 @@ import {
     schema: informationSchema1,
   };
 
-  const variableInfoValue1 = 'cillum';
+  const variableInfoValue1 = 'cupidata';
 
   const variable: Variable = {
     key: 'username',
@@ -236,7 +236,7 @@ import {
 
   const authMethodType1 = 'noauth';
 
-  const authAttributesValue = 'proident in';
+  const authAttributesValue = 'etlaboru';
 
   const authAttributesType = 'string';
 
@@ -303,11 +303,11 @@ import {
     body: collectionRequestBody1,
   };
 
-  const responseHeader1 = 'Duis des';
+  const responseHeader1 = 'pariatur';
 
   const itemResponse1: ItemResponse1 = {
     originalRequest: responseOriginalRequest1,
-    responseTime: 5.95,
+    responseTime: 7.54,
     header: responseHeader1,
     body: '{\n    "field": {}\n}',
     status: 'OK',
@@ -329,7 +329,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 9.38,
+    maxRedirects: 3.23,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -383,7 +383,7 @@ import {
   const protocolProfileBehavior1: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 9.38,
+    maxRedirects: 3.23,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -652,7 +652,7 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const variableInfoValue2 = 'elitdo';
+  const variableInfoValue2 = 'dolore';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -681,7 +681,7 @@ import {
 
   const authMethodType2 = 'basic';
 
-  const authAttributesValue = 'proident in';
+  const authAttributesValue = 'etlaboru';
 
   const authAttributesType = 'string';
 
@@ -748,12 +748,12 @@ import {
     body: collectionRequestBody2,
   };
 
-  const responseHeader2_3 = 'ut an';
+  const responseHeader2_3 = 'inaliqua vo';
 
   const itemResponse2: ItemResponse2 = {
     id: '33ffd2e3-59a8-4dfe-84fa-0a571984487b',
     originalRequest: responseOriginalRequest2,
-    responseTime: 5,
+    responseTime: 3.01,
     header: responseHeader2_3,
     body: 'body',
     status: 'OK',
@@ -778,7 +778,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 9.38,
+    maxRedirects: 3.23,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -840,7 +840,7 @@ import {
   const protocolProfileBehavior1: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 9.38,
+    maxRedirects: 3.23,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -923,7 +923,7 @@ import {
       'This collection makes a request to the Postman Echo service to get a list of request headers sent by an HTTP client.',
   };
 
-  const variableInfoValue2 = 'elitdo';
+  const variableInfoValue2 = 'dolore';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -936,7 +936,7 @@ import {
 
   const authMethodType2 = 'basic';
 
-  const authAttributesValue = 'proident in';
+  const authAttributesValue = 'etlaboru';
 
   const authAttributesType = 'string';
 
