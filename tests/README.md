@@ -18,7 +18,7 @@ the next scaffold run overwrites local changes.
 | `integration/e2e-mock-server.test.ts` | Per-operation end-to-end sweep through the full SDK stack against a local express mock server (supertest verifies the mock's contract). |
 | `integration/coverage.test.ts` | Two-way guarantee: every spec operation has a generated SDK method and every generated SDK method is driven by a spec operation. |
 | `integration/openapi.yaml` | The OpenAPI document the suite derives tests from. Override with the `SDK_SPEC_PATH` env var. |
-| `integration/client-under-test.ts` | Rendered at scaffold time: re-exports the generated client class as `SdkClient` — the only per-SDK file. |
+| `integration/client-under-test.ts` | Resolves the generated client class from `src/index.ts` at runtime (name-agnostic) and exports it as `SdkClient` — the class name isn't stable across generations, so it's never hardcoded. |
 
 ## Running
 

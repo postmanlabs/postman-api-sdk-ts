@@ -9,11 +9,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
@@ -23,3 +23,8 @@ jobs:
 
       - name: Test (harness units + integration sweep)
         run: npm run test:all
+
+      # No token, no network publish — packs the tarball and validates that the package
+      # name, scope, and access resolve. Fails the PR before merge if they're wrong.
+      - name: Validate publish resolution (dry-run)
+        run: npm publish --dry-run --access public
