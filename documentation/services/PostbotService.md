@@ -26,14 +26,10 @@ A list of all methods in the `PostbotService` service. Click on the method name 
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  GenerateTool,
-  GenerateToolConfig,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+import { GenerateTool, GenerateToolConfig, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -52,7 +48,7 @@ import {
     config: generateToolConfig,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.postbot.generateTool(generateTool);
+  const data = await postmanPostmanApiSdk.postbot.generateTool(generateTool);
 
   console.log(data);
 })();

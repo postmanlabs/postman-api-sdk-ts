@@ -1,10 +1,10 @@
 {
-  "name": "Postman_API_SDK_source_overlayed",
-  "version": "1.0.0",
+  "name": "postman_postman_api_sdk",
+  "version": "1.43.0",
   "private": true,
   "dependencies": {
-    "postman-api-sdk-source-overlayed": "file:../",
-    "zod": "3.22.0"
+    "postman-postman-api-sdk": "file:../",
+    "zod": "3.22.3"
   },
   "scripts": {
     "setup": "npm --prefix ../ install && npm --prefix ../ run build && npm install && tsc",

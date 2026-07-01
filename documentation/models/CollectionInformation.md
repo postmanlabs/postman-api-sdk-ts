@@ -12,13 +12,13 @@ For a complete list of this endpoint's possible values, use the [Postman Collect
 
 **Properties**
 
-| Name     | Type                                          | Required | Description                                                                                                                                                                      |
-| :------- | :-------------------------------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| info     | CollectionInformationCollectionInfo           | ❌       | Information about the collection.                                                                                                                                                |
-| item     | [CollectionItem](CollectionItem.md)[]         | ❌       |                                                                                                                                                                                  |
-| auth     | [CollectionAuth](CollectionAuth.md)           | ❌       | The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).                                            |
-| event    | [CollectionEvent](CollectionEvent.md)[]       | ❌       | A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID.                                                   |
-| variable | [CollectionVariable](CollectionVariable.md)[] | ❌       | A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables. |
+| Name     | Type                                    | Required | Description                                                                                                                                                                      |
+| :------- | :-------------------------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| info     | CollectionInformationCollectionInfo     | ❌       | Information about the collection.                                                                                                                                                |
+| item     | [CollectionItem](CollectionItem.md)[]   | ❌       |                                                                                                                                                                                  |
+| auth     | [CollectionAuth](CollectionAuth.md)     | ❌       | The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).                                            |
+| event    | [CollectionEvent](CollectionEvent.md)[] | ❌       | A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID.                                                   |
+| variable | [VariableList2](VariableList2.md)[]     | ❌       | A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables. |
 
 # CollectionInformationCollectionInfo
 

@@ -39,14 +39,14 @@ Gets all monitors.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.monitors.getMonitors({
+  const data = await postmanPostmanApiSdk.monitors.getMonitors({
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     active: true,
     owner: 12345678,
@@ -91,11 +91,11 @@ import {
   MonitorSchedule,
   OnError,
   OnFailure,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+  PostmanPostmanApiSdk,
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -151,7 +151,7 @@ import {
     monitor: createMonitorMonitor,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.monitors.createMonitor(createMonitor, {
+  const data = await postmanPostmanApiSdk.monitors.createMonitor(createMonitor, {
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 
@@ -179,14 +179,14 @@ Gets information about a monitor.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.monitors.getMonitor(
+  const data = await postmanPostmanApiSdk.monitors.getMonitor(
     '1e6b6cc1-c760-48e0-968f-4bfaeeae9af1',
   );
 
@@ -223,13 +223,13 @@ import {
   MonitorSchedule,
   OnError,
   OnFailure,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   UpdateMonitor,
   UpdateMonitorMonitor,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -283,7 +283,7 @@ import {
     monitor: updateMonitorMonitor,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.monitors.updateMonitor(
+  const data = await postmanPostmanApiSdk.monitors.updateMonitor(
     '1e6b6cc1-c760-48e0-968f-4bfaeeae9af1',
     updateMonitor,
   );
@@ -312,14 +312,14 @@ Deletes a monitor.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.monitors.deleteMonitor(
+  const data = await postmanPostmanApiSdk.monitors.deleteMonitor(
     '1e6b6cc1-c760-48e0-968f-4bfaeeae9af1',
   );
 
@@ -348,14 +348,14 @@ Runs a monitor and returns its run results. **Note:** - If you pass the `async=t
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.monitors.runMonitor(
+  const data = await postmanPostmanApiSdk.monitors.runMonitor(
     '1e6b6cc1-c760-48e0-968f-4bfaeeae9af1',
     {
       async: true,
@@ -388,14 +388,14 @@ Gets all instances of the runner polling Postman for upcoming monitor runs. Inst
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.monitors.getRunnerInstances(
+  const data = await postmanPostmanApiSdk.monitors.getRunnerInstances(
     '1f08d6ba-c377-4ca0-be80-af81daf8fef9',
     {
       limit: 10,
@@ -428,14 +428,14 @@ Gets the Postman server-side metrics for a runner instance. Metrics include info
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.monitors.getRunnerMetrics(
+  const data = await postmanPostmanApiSdk.monitors.getRunnerMetrics(
     '1f08d6ba-c377-4ca0-be80-af81daf8fef9',
   );
 

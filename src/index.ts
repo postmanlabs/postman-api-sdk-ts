@@ -12,6 +12,7 @@ import { CollectionRequestsService } from './services/collection-requests';
 import { CollectionResponsesService } from './services/collection-responses';
 import { TagsService } from './services/tags';
 import { CommentsService } from './services/comments';
+import { ComponentsService } from './services/components';
 import { SecretScannerService } from './services/secret-scanner';
 import { EnvironmentsService } from './services/environments';
 import { GroupsService } from './services/groups';
@@ -41,6 +42,7 @@ export * from './services/collection-requests';
 export * from './services/collection-responses';
 export * from './services/tags';
 export * from './services/comments';
+export * from './services/components';
 export * from './services/secret-scanner';
 export * from './services/environments';
 export * from './services/groups';
@@ -62,7 +64,7 @@ export * from './services/common';
 export * from './http';
 export { Environment } from './http/environment';
 
-export class PostmanApiSdkSourceOverlayed {
+export class PostmanPostmanApiSdk {
   public readonly billing: BillingService;
 
   public readonly analytics: AnalyticsService;
@@ -86,6 +88,8 @@ export class PostmanApiSdkSourceOverlayed {
   public readonly tags: TagsService;
 
   public readonly comments: CommentsService;
+
+  public readonly components: ComponentsService;
 
   public readonly secretScanner: SecretScannerService;
 
@@ -144,6 +148,8 @@ export class PostmanApiSdkSourceOverlayed {
 
     this.comments = new CommentsService(this.config);
 
+    this.components = new ComponentsService(this.config);
+
     this.secretScanner = new SecretScannerService(this.config);
 
     this.environments = new EnvironmentsService(this.config);
@@ -190,6 +196,7 @@ export class PostmanApiSdkSourceOverlayed {
     this.collectionResponses.baseUrl = baseUrl;
     this.tags.baseUrl = baseUrl;
     this.comments.baseUrl = baseUrl;
+    this.components.baseUrl = baseUrl;
     this.secretScanner.baseUrl = baseUrl;
     this.environments.baseUrl = baseUrl;
     this.groups.baseUrl = baseUrl;
@@ -221,6 +228,7 @@ export class PostmanApiSdkSourceOverlayed {
     this.collectionResponses.baseUrl = environment;
     this.tags.baseUrl = environment;
     this.comments.baseUrl = environment;
+    this.components.baseUrl = environment;
     this.secretScanner.baseUrl = environment;
     this.environments.baseUrl = environment;
     this.groups.baseUrl = environment;
@@ -252,6 +260,7 @@ export class PostmanApiSdkSourceOverlayed {
     this.collectionResponses.timeoutMs = timeoutMs;
     this.tags.timeoutMs = timeoutMs;
     this.comments.timeoutMs = timeoutMs;
+    this.components.timeoutMs = timeoutMs;
     this.secretScanner.timeoutMs = timeoutMs;
     this.environments.timeoutMs = timeoutMs;
     this.groups.timeoutMs = timeoutMs;
@@ -283,6 +292,7 @@ export class PostmanApiSdkSourceOverlayed {
     this.collectionResponses.username = username;
     this.tags.username = username;
     this.comments.username = username;
+    this.components.username = username;
     this.secretScanner.username = username;
     this.environments.username = username;
     this.groups.username = username;
@@ -314,6 +324,7 @@ export class PostmanApiSdkSourceOverlayed {
     this.collectionResponses.password = password;
     this.tags.password = password;
     this.comments.password = password;
+    this.components.password = password;
     this.secretScanner.password = password;
     this.environments.password = password;
     this.groups.password = password;
@@ -345,6 +356,7 @@ export class PostmanApiSdkSourceOverlayed {
     this.collectionResponses.apiKey = apiKey;
     this.tags.apiKey = apiKey;
     this.comments.apiKey = apiKey;
+    this.components.apiKey = apiKey;
     this.secretScanner.apiKey = apiKey;
     this.environments.apiKey = apiKey;
     this.groups.apiKey = apiKey;
@@ -376,6 +388,7 @@ export class PostmanApiSdkSourceOverlayed {
     this.collectionResponses.apiKeyHeader = apiKeyHeader;
     this.tags.apiKeyHeader = apiKeyHeader;
     this.comments.apiKeyHeader = apiKeyHeader;
+    this.components.apiKeyHeader = apiKeyHeader;
     this.secretScanner.apiKeyHeader = apiKeyHeader;
     this.environments.apiKeyHeader = apiKeyHeader;
     this.groups.apiKeyHeader = apiKeyHeader;

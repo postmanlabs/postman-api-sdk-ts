@@ -249,6 +249,7 @@ export class EnvironmentsService extends BaseService {
 - The request body size cannot exceed the maximum allowed size of 30MB.
 - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.
 - If you do not include the `workspace` query parameter, the system creates the environment in the oldest personal Internal workspace you own.
+- Only [shared variable](https://learning.postman.com/docs/use/send-requests/variables/variables/#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
 
  * @param {string} params.workspace - The workspace's ID.
  * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
@@ -369,6 +370,7 @@ export class EnvironmentsService extends BaseService {
 
 - The request body size cannot exceed the maximum allowed size of 30MB.
 - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.
+- Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
 
  * @param {string} environmentId - The environment's ID.
  * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
@@ -437,6 +439,7 @@ export class EnvironmentsService extends BaseService {
 - The request body size cannot exceed the maximum allowed size of 30MB.
 - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.
 - To add a description to an existing variable, use the `add` operation.
+- Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
 
  * @param {string} environmentId - The environment's ID.
  * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.

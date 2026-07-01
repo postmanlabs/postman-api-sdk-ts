@@ -6,11 +6,11 @@ import {
   updateCollectionCollectionInfoResponse,
 } from './update-collection-collection-info';
 import {
-  CollectionVariable,
-  collectionVariable,
-  collectionVariableRequest,
-  collectionVariableResponse,
-} from './collection-variable';
+  VariableList2,
+  variableList2,
+  variableList2Request,
+  variableList2Response,
+} from './variable-list-2';
 import {
   CollectionAuth,
   collectionAuth,
@@ -32,7 +32,7 @@ import {
 export const updateCollectionCollection = z.lazy(() => {
   return z.object({
     info: updateCollectionCollectionInfo.optional(),
-    variable: z.array(collectionVariable).optional(),
+    variable: z.array(variableList2).optional(),
     auth: collectionAuth.optional(),
     events: z.array(collectionEvent).optional(),
   });
@@ -42,7 +42,7 @@ export const updateCollectionCollection = z.lazy(() => {
  *
  * @typedef  {UpdateCollectionCollection} updateCollectionCollection
  * @property {UpdateCollectionCollectionInfo} - An object that contains the collection's updated name and description.
- * @property {CollectionVariable[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
+ * @property {VariableList2[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
  * @property {CollectionAuth} - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
  * @property {CollectionEvent[]} - A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID.
  */
@@ -57,7 +57,7 @@ export const updateCollectionCollectionResponse = z.lazy(() => {
   return z
     .object({
       info: updateCollectionCollectionInfoResponse.optional(),
-      variable: z.array(collectionVariableResponse).optional(),
+      variable: z.array(variableList2Response).optional(),
       auth: collectionAuthResponse.optional(),
       events: z.array(collectionEventResponse).optional(),
     })
@@ -78,7 +78,7 @@ export const updateCollectionCollectionRequest = z.lazy(() => {
   return z
     .object({
       info: updateCollectionCollectionInfoRequest.optional(),
-      variable: z.array(collectionVariableRequest).optional(),
+      variable: z.array(variableList2Request).optional(),
       auth: collectionAuthRequest.optional(),
       events: z.array(collectionEventRequest).optional(),
     })

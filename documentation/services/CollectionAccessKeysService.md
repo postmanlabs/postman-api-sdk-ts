@@ -28,14 +28,14 @@ Gets the authenticated user's personal and team [collection access keys](https:/
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collectionAccessKeys.getCollectionAccessKeys({
+  const data = await postmanPostmanApiSdk.collectionAccessKeys.getCollectionAccessKeys({
     collectionId: '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
   });
@@ -60,14 +60,14 @@ Deletes a collection access key. To get a collection access key's ID, use the GE
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collectionAccessKeys.deleteCollectionAccessKey(
+  const data = await postmanPostmanApiSdk.collectionAccessKeys.deleteCollectionAccessKey(
     'Njg5OjU3MDQ1NjYtYmQxZDU3NzktMWVkNS00ZDhjLWI0ZmQtZWRhOGY2Mzg1NTY0',
   );
 

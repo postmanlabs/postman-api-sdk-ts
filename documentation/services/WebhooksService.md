@@ -27,14 +27,10 @@ Creates a webhook that triggers a collection with a custom payload. You can get 
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  CreateWebhook,
-  CreateWebhookWebhook,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+import { CreateWebhook, CreateWebhookWebhook, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -48,7 +44,7 @@ import {
     webhook: createWebhookWebhook,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.webhooks.createWebhook(createWebhook, {
+  const data = await postmanPostmanApiSdk.webhooks.createWebhook(createWebhook, {
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 

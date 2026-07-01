@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  EnvironmentVariables,
-  environmentVariables,
-  environmentVariablesRequest,
-  environmentVariablesResponse,
-} from './environment-variables';
+  ReplaceEnvironmentDataEnvironmentValues,
+  replaceEnvironmentDataEnvironmentValues,
+  replaceEnvironmentDataEnvironmentValuesRequest,
+  replaceEnvironmentDataEnvironmentValuesResponse,
+} from './replace-environment-data-environment-values';
 
 /**
  * Zod schema for the ReplaceEnvironmentDataEnvironment model.
@@ -14,7 +14,7 @@ import {
 export const replaceEnvironmentDataEnvironment = z.lazy(() => {
   return z.object({
     name: z.string().optional(),
-    values: z.array(environmentVariables).optional(),
+    values: z.array(replaceEnvironmentDataEnvironmentValues).optional(),
   });
 });
 
@@ -22,7 +22,7 @@ export const replaceEnvironmentDataEnvironment = z.lazy(() => {
  * Information about the environment.
  * @typedef  {ReplaceEnvironmentDataEnvironment} replaceEnvironmentDataEnvironment - Information about the environment. - Information about the environment.
  * @property {string} - The environment's name.
- * @property {EnvironmentVariables[]} - Information about the environment's variables.
+ * @property {ReplaceEnvironmentDataEnvironmentValues[]} - Information about the environment's variables.
  */
 export type ReplaceEnvironmentDataEnvironment = z.infer<typeof replaceEnvironmentDataEnvironment>;
 
@@ -35,7 +35,7 @@ export const replaceEnvironmentDataEnvironmentResponse = z.lazy(() => {
   return z
     .object({
       name: z.string().optional(),
-      values: z.array(environmentVariablesResponse).optional(),
+      values: z.array(replaceEnvironmentDataEnvironmentValuesResponse).optional(),
     })
     .transform((data) => ({
       name: data['name'],
@@ -52,7 +52,7 @@ export const replaceEnvironmentDataEnvironmentRequest = z.lazy(() => {
   return z
     .object({
       name: z.string().optional(),
-      values: z.array(environmentVariablesRequest).optional(),
+      values: z.array(replaceEnvironmentDataEnvironmentValuesRequest).optional(),
     })
     .transform((data) => ({
       name: data['name'],

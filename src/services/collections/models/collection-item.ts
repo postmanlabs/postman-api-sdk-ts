@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  CollectionVariable,
-  collectionVariable,
-  collectionVariableRequest,
-  collectionVariableResponse,
-} from './collection-variable';
+  VariableList2,
+  variableList2,
+  variableList2Request,
+  variableList2Response,
+} from './variable-list-2';
 import {
   CollectionEvent,
   collectionEvent,
@@ -40,7 +40,7 @@ export const collectionItem = z.lazy(() => {
     id: z.string(),
     name: z.string().optional(),
     description: z.string().optional().nullable(),
-    variable: z.array(collectionVariable).optional(),
+    variable: z.array(variableList2).optional(),
     event: z.array(collectionEvent).optional(),
     request: responseOriginalRequest2.optional(),
     response: z.array(itemResponse2).optional(),
@@ -57,7 +57,7 @@ export const collectionItem = z.lazy(() => {
  * @property {string} - The collection item's ID.
  * @property {string} - The item's name.
  * @property {string} - The item's description.
- * @property {CollectionVariable[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
+ * @property {VariableList2[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
  * @property {CollectionEvent[]} - A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID.
  * @property {ResponseOriginalRequest2} - Information about the collection request.
  * @property {ItemResponse2[]} - A list of the collection's responses.
@@ -79,7 +79,7 @@ export const collectionItemResponse = z.lazy(() => {
       id: z.string(),
       name: z.string().optional(),
       description: z.string().optional().nullable(),
-      variable: z.array(collectionVariableResponse).optional(),
+      variable: z.array(variableList2Response).optional(),
       event: z.array(collectionEventResponse).optional(),
       request: responseOriginalRequest2Response.optional(),
       response: z.array(itemResponse2Response).optional(),
@@ -114,7 +114,7 @@ export const collectionItemRequest = z.lazy(() => {
       id: z.string(),
       name: z.string().optional(),
       description: z.string().optional().nullable(),
-      variable: z.array(collectionVariableRequest).optional(),
+      variable: z.array(variableList2Request).optional(),
       event: z.array(collectionEventRequest).optional(),
       request: responseOriginalRequest2Request.optional(),
       response: z.array(itemResponse2Request).optional(),

@@ -17,12 +17,7 @@ import {
   createCollectionSchemaEventRequest,
   createCollectionSchemaEventResponse,
 } from './create-collection-schema-event';
-import {
-  CreateCollectionSchemaVariable,
-  createCollectionSchemaVariable,
-  createCollectionSchemaVariableRequest,
-  createCollectionSchemaVariableResponse,
-} from './create-collection-schema-variable';
+import { Variable, variable, variableRequest, variableResponse } from './variable';
 import {
   CreateCollectionSchemaAuth,
   createCollectionSchemaAuth,
@@ -46,7 +41,7 @@ export const createCollectionSchema = z.lazy(() => {
     info: createCollectionSchemaInfo,
     item: z.array(createCollectionSchemaItem),
     event: z.array(createCollectionSchemaEvent).optional(),
-    variable: z.array(createCollectionSchemaVariable).optional(),
+    variable: z.array(variable).optional(),
     auth: createCollectionSchemaAuth.optional(),
     protocolProfileBehavior: protocolProfileBehavior.optional(),
   });
@@ -58,7 +53,7 @@ export const createCollectionSchema = z.lazy(() => {
  * @property {CreateCollectionSchemaInfo} - Information about the collection.
  * @property {CreateCollectionSchemaItem[]}
  * @property {CreateCollectionSchemaEvent[]} - A list of scripts configured to run when specific events occur.
- * @property {CreateCollectionSchemaVariable[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
+ * @property {Variable[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
  * @property {CreateCollectionSchemaAuth} - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
  * @property {ProtocolProfileBehavior} - The [settings](https://learning.postman.com/docs/sending-requests/create-requests/request-settings/) used to alter the [Protocol Profile Behavior](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md) of sending a request.
  */
@@ -75,7 +70,7 @@ export const createCollectionSchemaResponse = z.lazy(() => {
       info: createCollectionSchemaInfoResponse,
       item: z.array(createCollectionSchemaItemResponse),
       event: z.array(createCollectionSchemaEventResponse).optional(),
-      variable: z.array(createCollectionSchemaVariableResponse).optional(),
+      variable: z.array(variableResponse).optional(),
       auth: createCollectionSchemaAuthResponse.optional(),
       protocolProfileBehavior: protocolProfileBehaviorResponse.optional(),
     })
@@ -100,7 +95,7 @@ export const createCollectionSchemaRequest = z.lazy(() => {
       info: createCollectionSchemaInfoRequest,
       item: z.array(createCollectionSchemaItemRequest),
       event: z.array(createCollectionSchemaEventRequest).optional(),
-      variable: z.array(createCollectionSchemaVariableRequest).optional(),
+      variable: z.array(variableRequest).optional(),
       auth: createCollectionSchemaAuthRequest.optional(),
       protocolProfileBehavior: protocolProfileBehaviorRequest.optional(),
     })
