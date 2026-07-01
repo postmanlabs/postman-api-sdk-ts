@@ -2,9 +2,9 @@
 
 This is a union type which means it could be any of several possible types.
 
-# GetAsyncTaskStatus
+# GetAsyncCollectionTaskStatus1
 
-See all details about GetAsyncTaskStatus model [here](GetAsyncTaskStatus.md).
+See all details about GetAsyncCollectionTaskStatus1 model [here](GetAsyncCollectionTaskStatus1.md).
 
 # AsyncTaskFailed
 

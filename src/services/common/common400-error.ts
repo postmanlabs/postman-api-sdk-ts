@@ -1,6 +1,9 @@
 import { z } from 'zod';
 import { ThrowableError } from '../../http/errors/throwable-error';
-import { ErrorTypeTitleDetail, errorTypeTitleDetailResponse } from './error-type-title-detail';
+import {
+  CreateApiClientErrorResponse,
+  createApiClientErrorResponseResponse,
+} from './create-api-client-error-response';
 import {
   ErrorTypeTitleDetailStatus,
   errorTypeTitleDetailStatusResponse,
@@ -19,8 +22,8 @@ export class Common400Error extends ThrowableError {
   }
 
   throw() {
-    if (errorTypeTitleDetailResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeTitleDetail(this.message, this.response);
+    if (createApiClientErrorResponseResponse.safeParse(this.response).success) {
+      const error = new CreateApiClientErrorResponse(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }

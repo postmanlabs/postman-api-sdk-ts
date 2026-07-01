@@ -2,9 +2,9 @@
 
 This is a union type which means it could be any of several possible types.
 
-# ErrorTypeTitleDetail
+# CreateApiClientErrorResponse
 
-See all details about ErrorTypeTitleDetail model [here](ErrorTypeTitleDetail.md).
+See all details about CreateApiClientErrorResponse model [here](CreateApiClientErrorResponse.md).
 
 # ErrorTypeTitleDetailStatus
 

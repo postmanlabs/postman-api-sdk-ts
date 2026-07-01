@@ -130,7 +130,7 @@ import {
   CollectionItemsTransferred,
   collectionItemsTransferredResponse,
 } from './models/collection-items-transferred';
-import { ErrorTypeTitleDetail } from '../common/error-type-title-detail';
+import { CreateApiClientErrorResponse } from '../common/create-api-client-error-response';
 import {
   GetCollectionUpdateStatus,
   getCollectionUpdateStatusResponse,
@@ -2103,7 +2103,7 @@ This does not create an API.
         status: 200,
       })
       .addError({
-        error: ErrorTypeTitleDetail,
+        error: CreateApiClientErrorResponse,
         contentType: ContentType.Json,
         status: 400,
       })
@@ -2146,7 +2146,7 @@ This does not create an API.
         status: 200,
       })
       .addError({
-        error: ErrorTypeTitleDetail,
+        error: CreateApiClientErrorResponse,
         contentType: ContentType.Json,
         status: 400,
       })
@@ -2189,7 +2189,7 @@ This does not create an API.
         status: 200,
       })
       .addError({
-        error: ErrorTypeTitleDetail,
+        error: CreateApiClientErrorResponse,
         contentType: ContentType.Json,
         status: 400,
       })

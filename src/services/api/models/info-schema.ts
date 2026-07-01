@@ -1,0 +1,7 @@
+import { z } from 'zod';
+
+export const infoSchema = z.literal(
+  'https://schema.getpostman.com/json/collection/v2.1.0/collection.json',
+);
+
+export type InfoSchema = z.infer<typeof infoSchema>;

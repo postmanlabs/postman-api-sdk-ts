@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { Op, op } from './op';
+import { RolesOp, rolesOp } from './roles-op';
 import {
   UpdateCollectionRolesRolesPath,
   updateCollectionRolesRolesPath,
@@ -18,7 +18,7 @@ import {
  */
 export const updateCollectionRolesRoles = z.lazy(() => {
   return z.object({
-    op: op,
+    op: rolesOp,
     path: updateCollectionRolesRolesPath,
     value: z.array(updateCollectionRolesRolesValue),
   });
@@ -27,7 +27,7 @@ export const updateCollectionRolesRoles = z.lazy(() => {
 /**
  *
  * @typedef  {UpdateCollectionRolesRoles} updateCollectionRolesRoles
- * @property {Op} - The operation to perform on the path.
+ * @property {RolesOp} - The operation to perform on the path.
  * @property {UpdateCollectionRolesRolesPath} - The resource to perform the action on.
  * @property {UpdateCollectionRolesRolesValue[]}
  */
@@ -41,7 +41,7 @@ export type UpdateCollectionRolesRoles = z.infer<typeof updateCollectionRolesRol
 export const updateCollectionRolesRolesResponse = z.lazy(() => {
   return z
     .object({
-      op: op,
+      op: rolesOp,
       path: updateCollectionRolesRolesPath,
       value: z.array(updateCollectionRolesRolesValueResponse),
     })
@@ -60,7 +60,7 @@ export const updateCollectionRolesRolesResponse = z.lazy(() => {
 export const updateCollectionRolesRolesRequest = z.lazy(() => {
   return z
     .object({
-      op: op,
+      op: rolesOp,
       path: updateCollectionRolesRolesPath,
       value: z.array(updateCollectionRolesRolesValueRequest),
     })

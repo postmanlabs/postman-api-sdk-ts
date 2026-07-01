@@ -5,7 +5,12 @@ import {
   successfulResponseUserRequest,
   successfulResponseUserResponse,
 } from './successful-response-user';
-import { Operations, operations, operationsRequest, operationsResponse } from './operations';
+import {
+  SuccessfulResponseOperations,
+  successfulResponseOperations,
+  successfulResponseOperationsRequest,
+  successfulResponseOperationsResponse,
+} from './successful-response-operations';
 
 /**
  * Zod schema for the GetAuthenticatedUserOkResponse model.
@@ -15,7 +20,7 @@ import { Operations, operations, operationsRequest, operationsResponse } from '.
 export const getAuthenticatedUserOkResponse = z.lazy(() => {
   return z.object({
     user: successfulResponseUser.optional(),
-    operations: z.array(operations).optional(),
+    operations: z.array(successfulResponseOperations).optional(),
   });
 });
 
@@ -23,7 +28,7 @@ export const getAuthenticatedUserOkResponse = z.lazy(() => {
  *
  * @typedef  {GetAuthenticatedUserOkResponse} getAuthenticatedUserOkResponse
  * @property {SuccessfulResponseUser} - Information about the authenticated user.
- * @property {Operations[]} - Information about operations and their usage limits. This object does not return for users with the [Guest and Partner role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
+ * @property {SuccessfulResponseOperations[]} - Information about operations and their usage limits. This object does not return for users with the [Guest and Partner role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
  */
 export type GetAuthenticatedUserOkResponse = z.infer<typeof getAuthenticatedUserOkResponse>;
 
@@ -36,7 +41,7 @@ export const getAuthenticatedUserOkResponseResponse = z.lazy(() => {
   return z
     .object({
       user: successfulResponseUserResponse.optional(),
-      operations: z.array(operationsResponse).optional(),
+      operations: z.array(successfulResponseOperationsResponse).optional(),
     })
     .transform((data) => ({
       user: data['user'],
@@ -53,7 +58,7 @@ export const getAuthenticatedUserOkResponseRequest = z.lazy(() => {
   return z
     .object({
       user: successfulResponseUserRequest.optional(),
-      operations: z.array(operationsRequest).optional(),
+      operations: z.array(successfulResponseOperationsRequest).optional(),
     })
     .transform((data) => ({
       user: data['user'],
