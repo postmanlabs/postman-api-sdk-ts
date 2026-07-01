@@ -46,7 +46,7 @@ import {
   GetEnvironmentForksOkResponse,
   getEnvironmentForksOkResponseResponse,
 } from './models/get-environment-forks-ok-response';
-import { ErrorTypeTitleDetail } from '../common/error-type-title-detail';
+import { CreateApiClientErrorResponse } from '../common/create-api-client-error-response';
 import { ErrorTypeTitleDetailStatus } from '../common/error-type-title-detail-status';
 import { ForkEnvironment, forkEnvironmentRequest } from './models/fork-environment';
 import {
@@ -585,7 +585,7 @@ export class EnvironmentsService extends BaseService {
         status: 200,
       })
       .addError({
-        error: ErrorTypeTitleDetail,
+        error: CreateApiClientErrorResponse,
         contentType: ContentType.Json,
         status: 400,
       })
@@ -713,7 +713,7 @@ export class EnvironmentsService extends BaseService {
         status: 200,
       })
       .addError({
-        error: ErrorTypeTitleDetail,
+        error: CreateApiClientErrorResponse,
         contentType: ContentType.Json,
         status: 400,
       })
@@ -769,7 +769,7 @@ export class EnvironmentsService extends BaseService {
         status: 200,
       })
       .addError({
-        error: ErrorTypeTitleDetail,
+        error: CreateApiClientErrorResponse,
         contentType: ContentType.Json,
         status: 400,
       })

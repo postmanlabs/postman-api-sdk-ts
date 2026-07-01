@@ -6,10 +6,12 @@ import { SerializationStyle } from '../../http/serialization/base-serializer';
 import { ThrowableError } from '../../http/errors/throwable-error';
 import { Environment } from '../../http/environment';
 import { SuccessResponse, successResponseResponse } from './models/success-response';
+import { ApiErrorNameMessage } from '../common/api-error-name-message';
 import { ErrorTypeTitleDetailStatus } from '../common/error-type-title-detail-status';
 import { ErrorTypeTitleDetailStatusInstance } from '../common/error-type-title-detail-status-instance';
 import { UpdateTags, updateTagsRequest } from './models/update-tags';
-import { UpdateCollectionTagsBadRequestResponse } from './models/update-collection-tags-bad-request-response';
+import { ApiTag400Error } from './models/api-tag400-error';
+import { ApiTag400Error1 } from './models/api-tag400-error-1';
 import {
   GetTaggedEntitiesOkResponse,
   getTaggedEntitiesOkResponseResponse,
@@ -23,6 +25,10 @@ import { GetTaggedEntitiesParams } from './request-params';
  * All methods return promises and handle request/response serialization automatically.
  */
 export class TagsService extends BaseService {
+  protected getApiTagsConfig?: Partial<SdkConfig>;
+
+  protected updateApiTagsConfig?: Partial<SdkConfig>;
+
   protected getCollectionTagsConfig?: Partial<SdkConfig>;
 
   protected updateCollectionTagsConfig?: Partial<SdkConfig>;
@@ -32,6 +38,26 @@ export class TagsService extends BaseService {
   protected getWorkspaceTagsConfig?: Partial<SdkConfig>;
 
   protected updateWorkspaceTagsConfig?: Partial<SdkConfig>;
+
+  /**
+   * Sets method-level configuration for getApiTags.
+   * @param config - Partial configuration to override service-level defaults
+   * @returns This service instance for method chaining
+   */
+  setGetApiTagsConfig(config: Partial<SdkConfig>): this {
+    this.getApiTagsConfig = config;
+    return this;
+  }
+
+  /**
+   * Sets method-level configuration for updateApiTags.
+   * @param config - Partial configuration to override service-level defaults
+   * @returns This service instance for method chaining
+   */
+  setUpdateApiTagsConfig(config: Partial<SdkConfig>): this {
+    this.updateApiTagsConfig = config;
+    return this;
+  }
 
   /**
    * Sets method-level configuration for getCollectionTags.
@@ -81,6 +107,122 @@ export class TagsService extends BaseService {
   setUpdateWorkspaceTagsConfig(config: Partial<SdkConfig>): this {
     this.updateWorkspaceTagsConfig = config;
     return this;
+  }
+
+  /**
+   * Gets all the tags associated with an API.
+   * @param {string} apiId - The API's ID.
+   * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
+   * @returns {Promise<HttpResponse<SuccessResponse>>} - Success Response
+   */
+  async getApiTags(apiId: string, requestConfig?: Partial<SdkConfig>): Promise<SuccessResponse> {
+    const resolvedConfig = this.getResolvedConfig(this.getApiTagsConfig, requestConfig);
+    const request = new RequestBuilder()
+      .setConfig(resolvedConfig)
+      .setBaseUrl(resolvedConfig)
+      .setMethod('GET')
+      .setPath('/apis/{apiId}/tags')
+      .setRequestSchema(z.any())
+      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
+      .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
+      .setRequestContentType(ContentType.Json)
+      .addResponse({
+        schema: successResponseResponse,
+        contentType: ContentType.Json,
+        status: 200,
+      })
+      .addError({
+        error: ApiErrorNameMessage,
+        contentType: ContentType.Json,
+        status: 400,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 401,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 403,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 404,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 500,
+      })
+      .addPathParam({
+        key: 'apiId',
+        value: apiId,
+      })
+      .build();
+    return this.client.callDirect<SuccessResponse>(request);
+  }
+
+  /**
+   * Updates an API's associated tags. This endpoint replaces all existing tags with those you pass in the request body.
+   * @param {string} apiId - The API's ID.
+   * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
+   * @returns {Promise<HttpResponse<SuccessResponse>>} - Success Response
+   */
+  async updateApiTags(
+    apiId: string,
+    body: UpdateTags,
+    requestConfig?: Partial<SdkConfig>,
+  ): Promise<SuccessResponse> {
+    const resolvedConfig = this.getResolvedConfig(this.updateApiTagsConfig, requestConfig);
+    const request = new RequestBuilder()
+      .setConfig(resolvedConfig)
+      .setBaseUrl(resolvedConfig)
+      .setMethod('PUT')
+      .setPath('/apis/{apiId}/tags')
+      .setRequestSchema(updateTagsRequest)
+      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
+      .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
+      .setRequestContentType(ContentType.Json)
+      .addResponse({
+        schema: successResponseResponse,
+        contentType: ContentType.Json,
+        status: 200,
+      })
+      .addError({
+        error: ApiTag400Error,
+        contentType: ContentType.Json,
+        status: 400,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 401,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 403,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 404,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 500,
+      })
+      .addPathParam({
+        key: 'apiId',
+        value: apiId,
+      })
+      .addHeaderParam({ key: 'Content-Type', value: 'application/json' })
+      .addBody(body)
+      .build();
+    return this.client.callDirect<SuccessResponse>(request);
   }
 
   /**
@@ -158,7 +300,7 @@ export class TagsService extends BaseService {
         status: 200,
       })
       .addError({
-        error: UpdateCollectionTagsBadRequestResponse,
+        error: ApiTag400Error1,
         contentType: ContentType.Json,
         status: 400,
       })
@@ -361,7 +503,7 @@ Tagging is available on Postman [**Solo**, **Team**, and **Enterprise** plans](h
         status: 200,
       })
       .addError({
-        error: UpdateCollectionTagsBadRequestResponse,
+        error: ApiTag400Error1,
         contentType: ContentType.Json,
         status: 400,
       })

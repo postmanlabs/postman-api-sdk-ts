@@ -148,7 +148,7 @@ import { PostmanApiSdk } from 'postman-api-sdk';
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     name: 'Test Collection',
     limit: 3,
-    offset: 6,
+    offset: 4,
   });
 
   console.log(data);
@@ -211,7 +211,7 @@ import {
     schema: informationSchema1,
   };
 
-  const variableInfoValue1 = 'in quis eius';
+  const variableInfoValue1 = 'quis Lorem';
 
   const variable: Variable = {
     key: 'username',
@@ -236,7 +236,7 @@ import {
 
   const authMethodType1 = 'noauth';
 
-  const authAttributesValue = 'deserunt ';
+  const authAttributesValue = 'elit et ut E';
 
   const authAttributesType = 'string';
 
@@ -303,11 +303,11 @@ import {
     body: collectionRequestBody1,
   };
 
-  const responseHeader1 = 'proident';
+  const responseHeader1 = 'sit esse';
 
   const itemResponse1: ItemResponse1 = {
     originalRequest: responseOriginalRequest1,
-    responseTime: 9.08,
+    responseTime: 0.43,
     header: responseHeader1,
     body: '{\n    "field": {}\n}',
     status: 'OK',
@@ -652,7 +652,7 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const variableInfoValue2 = 'eiusmod anim';
+  const variableInfoValue2 = 'ullam';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -681,7 +681,7 @@ import {
 
   const authMethodType2 = 'basic';
 
-  const authAttributesValue = 'deserunt ';
+  const authAttributesValue = 'elit et ut E';
 
   const authAttributesType = 'string';
 
@@ -748,12 +748,12 @@ import {
     body: collectionRequestBody2,
   };
 
-  const responseHeader2_3 = 'Excepteur cup';
+  const responseHeader2_3 = 'occaecat ';
 
   const itemResponse2: ItemResponse2 = {
     id: '33ffd2e3-59a8-4dfe-84fa-0a571984487b',
     originalRequest: responseOriginalRequest2,
-    responseTime: 1.16,
+    responseTime: 4.94,
     header: responseHeader2_3,
     body: 'body',
     status: 'OK',
@@ -923,7 +923,7 @@ import {
       'This collection makes a request to the Postman Echo service to get a list of request headers sent by an HTTP client.',
   };
 
-  const variableInfoValue2 = 'eiusmod anim';
+  const variableInfoValue2 = 'ullam';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -936,7 +936,7 @@ import {
 
   const authMethodType2 = 'basic';
 
-  const authAttributesValue = 'deserunt ';
+  const authAttributesValue = 'elit et ut E';
 
   const authAttributesType = 'string';
 
@@ -1590,7 +1590,7 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const op = 'update';
+  const rolesOp = 'update';
 
   const updateCollectionRolesRolesPath = '/user';
 
@@ -1602,7 +1602,7 @@ import {
   };
 
   const updateCollectionRolesRoles: UpdateCollectionRolesRoles = {
-    op: op,
+    op: rolesOp,
     path: updateCollectionRolesRolesPath,
     value: [updateCollectionRolesRolesValue],
   };

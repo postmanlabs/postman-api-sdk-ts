@@ -8,5 +8,6 @@ export type { Entities } from './entities';
 export type { EntitiesEntityType } from './entities-entity-type';
 export type { SuccessfulResponseMeta1 } from './successful-response-meta-1';
 export type { TagsEntityType } from './tags-entity-type';
-export type { UpdateCollectionTagsBadRequestResponse } from './update-collection-tags-bad-request-response';
+export type { ApiTag400Error1 } from './api-tag400-error-1';
+export type { ApiTag400Error } from './api-tag400-error';
 export type { GetTaggedEntitiesBadRequestResponse } from './get-tagged-entities-bad-request-response';

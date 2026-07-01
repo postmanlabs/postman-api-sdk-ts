@@ -148,7 +148,7 @@ import {
 
   const requestAuthType = 'basic';
 
-  const authAttributesValue = 'deserunt ';
+  const authAttributesValue = 'elit et ut E';
 
   const authAttributesType = 'string';
 
@@ -570,7 +570,7 @@ import {
 
   const requestAuthType = 'basic';
 
-  const authAttributesValue = 'deserunt ';
+  const authAttributesValue = 'elit et ut E';
 
   const authAttributesType = 'string';
 

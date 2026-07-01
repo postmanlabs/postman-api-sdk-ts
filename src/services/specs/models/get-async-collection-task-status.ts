@@ -1,9 +1,9 @@
 import { z } from 'zod';
 import {
-  getAsyncTaskStatus,
-  getAsyncTaskStatusRequest,
-  getAsyncTaskStatusResponse,
-} from './get-async-task-status';
+  getAsyncCollectionTaskStatus1,
+  getAsyncCollectionTaskStatus1Request,
+  getAsyncCollectionTaskStatus1Response,
+} from './get-async-collection-task-status-1';
 import {
   asyncTaskFailed,
   asyncTaskFailedRequest,
@@ -16,13 +16,13 @@ import {
  * This is the shape used in application code - what developers interact with.
  */
 export const getAsyncCollectionTaskStatus = z.lazy(() => {
-  return z.union([getAsyncTaskStatus, asyncTaskFailed]);
+  return z.union([getAsyncCollectionTaskStatus1, asyncTaskFailed]);
 });
 
 /**
  *
  * @typedef  {GetAsyncCollectionTaskStatus} getAsyncCollectionTaskStatus
- * @property {GetAsyncTaskStatus}
+ * @property {GetAsyncCollectionTaskStatus1}
  * @property {AsyncTaskFailed}
  */
 export type GetAsyncCollectionTaskStatus = z.infer<typeof getAsyncCollectionTaskStatus>;
@@ -32,7 +32,7 @@ export type GetAsyncCollectionTaskStatus = z.infer<typeof getAsyncCollectionTask
  * Is equal to application shape if all property names match the api schema
  */
 export const getAsyncCollectionTaskStatusResponse = z.lazy(() => {
-  return z.union([getAsyncTaskStatusResponse, asyncTaskFailedResponse]);
+  return z.union([getAsyncCollectionTaskStatus1Response, asyncTaskFailedResponse]);
 });
 
 /**
@@ -40,5 +40,5 @@ export const getAsyncCollectionTaskStatusResponse = z.lazy(() => {
  * Is equal to application shape if all property names match the api schema
  */
 export const getAsyncCollectionTaskStatusRequest = z.lazy(() => {
-  return z.union([getAsyncTaskStatusRequest, asyncTaskFailedRequest]);
+  return z.union([getAsyncCollectionTaskStatus1Request, asyncTaskFailedRequest]);
 });

@@ -405,7 +405,7 @@ import { PostmanApiSdk, TransferWorkspaceElement } from 'postman-api-sdk';
     apiKey: 'YOUR_API_KEY',
   });
 
-  const id = 'deserunt';
+  const id = 'est dolor ut';
 
   const transferWorkspaceElementType = 'collection';
 
