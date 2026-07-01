@@ -56,13 +56,10 @@ A list of all methods in the `CollectionsService` service. Click on the method n
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  MergePullCollectionChanges,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+import { MergePullCollectionChanges, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -74,7 +71,7 @@ import {
     destination: '12345678-b04fa319-3e7e-4fa3-b6a2-f5b29ad67583',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collections.asyncMergePullCollectionFork(
+  const data = await postmanPostmanApiSdk.collections.asyncMergePullCollectionFork(
     mergePullCollectionChanges,
   );
 
@@ -102,14 +99,14 @@ Gets the status of a collection's merge or a pull changes task. **Note:** After 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.asyncMergePullCollectionTaskStatus(
+  const data = await postmanPostmanApiSdk.collections.asyncMergePullCollectionTaskStatus(
     'pm~vc:merge-workflow~12345678-5a027c05-056b-49f5-ac9d-37c29f2d91c3',
   );
 
@@ -140,18 +137,18 @@ Gets all of your [collections](https://www.getpostman.com/docs/collections). The
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.getCollections({
+  const data = await postmanPostmanApiSdk.collections.getCollections({
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     name: 'Test Collection',
     limit: 3,
-    offset: 7,
+    offset: 9,
   });
 
   console.log(data);
@@ -191,18 +188,18 @@ import {
   CreateCollectionSchemaEvent,
   CreateCollectionSchemaInfo,
   CreateCollectionSchemaItem,
-  CreateCollectionSchemaVariable,
   DisabledSystemHeaders,
   EventScript,
   ItemResponse1,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   ProtocolProfileBehavior,
   ResponseHeader2_1,
   ResponseOriginalRequest1,
-} from 'postman-api-sdk-source-overlayed';
+  Variable,
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -214,9 +211,9 @@ import {
     schema: informationSchema1,
   };
 
-  const variableInfoValue1 = 'dolor';
+  const variableInfoValue1 = 'estreprehender';
 
-  const createCollectionSchemaVariable: CreateCollectionSchemaVariable = {
+  const variable: Variable = {
     key: 'username',
     value: variableInfoValue1,
     description: 'description',
@@ -239,7 +236,7 @@ import {
 
   const authMethodType1 = 'noauth';
 
-  const authAttributesValue = 'dolor lab';
+  const authAttributesValue = 'incididunt c';
 
   const authAttributesType = 'string';
 
@@ -306,11 +303,11 @@ import {
     body: collectionRequestBody1,
   };
 
-  const responseHeader1 = 'Ut enim ';
+  const responseHeader1 = 'ad veniam';
 
   const itemResponse1: ItemResponse1 = {
     originalRequest: responseOriginalRequest1,
-    responseTime: 4.2,
+    responseTime: 7.54,
     header: responseHeader1,
     body: '{\n    "field": {}\n}',
     status: 'OK',
@@ -332,7 +329,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 3.1,
+    maxRedirects: 5.44,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -349,7 +346,7 @@ import {
   const createCollectionSchemaItem: CreateCollectionSchemaItem = {
     name: 'Test Request',
     description: 'This is a test request.',
-    variable: [createCollectionSchemaVariable],
+    variable: [variable],
     event: [createCollectionSchemaEvent],
     request: responseOriginalRequest1,
     response: [itemResponse1],
@@ -361,7 +358,7 @@ import {
     script: eventScript,
   };
 
-  const createCollectionSchemaVariable1: CreateCollectionSchemaVariable = {
+  const variable1: Variable = {
     key: 'username',
     value: variableInfoValue1,
     description: 'description',
@@ -386,7 +383,7 @@ import {
   const protocolProfileBehavior1: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 3.1,
+    maxRedirects: 5.44,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -404,7 +401,7 @@ import {
     info: createCollectionSchemaInfo,
     item: [createCollectionSchemaItem],
     event: [createCollectionSchemaEvent1],
-    variable: [createCollectionSchemaVariable1],
+    variable: [variable1],
     auth: createCollectionSchemaAuth1,
     protocolProfileBehavior: protocolProfileBehavior1,
   };
@@ -413,7 +410,7 @@ import {
     collection: createCollectionSchema,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collections.createCollection(createCollection, {
+  const data = await postmanPostmanApiSdk.collections.createCollection(createCollection, {
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 
@@ -443,16 +440,16 @@ Gets a list of all the authenticated user's forked collections.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const ascDesc = 'asc';
 
-  const data = await postmanApiSdkSourceOverlayed.collections.getCollectionsForkedByUser({
+  const data = await postmanPostmanApiSdk.collections.getCollectionsForkedByUser({
     cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
     limit: 10,
     direction: ascDesc,
@@ -484,13 +481,10 @@ Creates a [fork](https://learning.postman.com/docs/collaborating-in-postman/vers
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  CreateCollectionFork,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+import { CreateCollectionFork, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -498,7 +492,7 @@ import {
     label: 'Test Fork',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collections.createCollectionFork(
+  const data = await postmanPostmanApiSdk.collections.createCollectionFork(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     createCollectionFork,
     {
@@ -530,13 +524,10 @@ import {
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  MergeCollectionFork,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+import { MergeCollectionFork, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -548,8 +539,7 @@ import {
     strategy: mergeCollectionForkStrategy,
   };
 
-  const data =
-    await postmanApiSdkSourceOverlayed.collections.mergeCollectionFork(mergeCollectionFork);
+  const data = await postmanPostmanApiSdk.collections.mergeCollectionFork(mergeCollectionFork);
 
   console.log(data);
 })();
@@ -577,16 +567,16 @@ Gets information about a collection. For a complete list of this endpoint's poss
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const collectionModelQuery = 'minimal';
 
-  const data = await postmanApiSdkSourceOverlayed.collections.getCollection(
+  const data = await postmanPostmanApiSdk.collections.getCollection(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     {
       accessKey: 'PMAT-**************************',
@@ -629,21 +619,21 @@ import {
   CollectionRequestBodyFile2,
   CollectionRequestBodyGraphql2,
   CollectionRequestBodyUrlencoded2,
-  CollectionVariable,
   DisabledSystemHeaders,
   ItemResponse2,
   ModifyCollectionSchema,
   ModifyCollectionSchemaInfo,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   ProtocolProfileBehavior,
   ReplaceCollectionData,
   RequestEventsScript,
   ResponseHeader2_2,
   ResponseOriginalRequest2,
-} from 'postman-api-sdk-source-overlayed';
+  VariableList2_1,
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -662,13 +652,14 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const variableInfoValue2 = 'ut eiusmod';
+  const variableInfoValue2 = 'exaliqua';
 
-  const collectionVariable: CollectionVariable = {
+  const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
     key: 'userId',
     description: "The user's ID.",
     value: variableInfoValue2,
+    enabled: true,
     disabled: true,
   };
 
@@ -690,7 +681,7 @@ import {
 
   const authMethodType2 = 'basic';
 
-  const authAttributesValue = 'dolor lab';
+  const authAttributesValue = 'incididunt c';
 
   const authAttributesType = 'string';
 
@@ -757,12 +748,12 @@ import {
     body: collectionRequestBody2,
   };
 
-  const responseHeader2_3 = 'dosed';
+  const responseHeader2_3 = 'proident';
 
   const itemResponse2: ItemResponse2 = {
     id: '33ffd2e3-59a8-4dfe-84fa-0a571984487b',
     originalRequest: responseOriginalRequest2,
-    responseTime: 2.01,
+    responseTime: 2.05,
     header: responseHeader2_3,
     body: 'body',
     status: 'OK',
@@ -787,7 +778,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 3.1,
+    maxRedirects: 5.44,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -805,7 +796,7 @@ import {
     id: '8d021b74-ecb5-460d-ac52-0d1e496d43d1',
     name: 'Test Request',
     description: 'This is a test request.',
-    variable: [collectionVariable],
+    variable: [variableList2],
     event: [collectionEvent],
     request: responseOriginalRequest2,
     response: [itemResponse2],
@@ -821,11 +812,12 @@ import {
     script: requestEventsScript,
   };
 
-  const collectionVariable1: CollectionVariable = {
+  const variableList2_11: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
     key: 'userId',
     description: "The user's ID.",
     value: variableInfoValue2,
+    enabled: true,
     disabled: true,
   };
 
@@ -848,7 +840,7 @@ import {
   const protocolProfileBehavior1: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 3.1,
+    maxRedirects: 5.44,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -866,7 +858,7 @@ import {
     info: modifyCollectionSchemaInfo,
     item: [collectionItem],
     event: [collectionEvent1],
-    variable: [collectionVariable1],
+    variable: [variableList2],
     auth: collectionAuth1,
     protocolProfileBehavior: protocolProfileBehavior1,
   };
@@ -875,7 +867,7 @@ import {
     collection: modifyCollectionSchema,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collections.putCollection(
+  const data = await postmanPostmanApiSdk.collections.putCollection(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     replaceCollectionData,
     {
@@ -912,16 +904,16 @@ import {
   AuthAttributes,
   CollectionAuth,
   CollectionEvent,
-  CollectionVariable,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   RequestEventsScript,
   UpdateCollection,
   UpdateCollectionCollection,
   UpdateCollectionCollectionInfo,
-} from 'postman-api-sdk-source-overlayed';
+  VariableList2_1,
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -931,19 +923,20 @@ import {
       'This collection makes a request to the Postman Echo service to get a list of request headers sent by an HTTP client.',
   };
 
-  const variableInfoValue2 = 'ut eiusmod';
+  const variableInfoValue2 = 'exaliqua';
 
-  const collectionVariable: CollectionVariable = {
+  const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
     key: 'userId',
     description: "The user's ID.",
     value: variableInfoValue2,
+    enabled: true,
     disabled: true,
   };
 
   const authMethodType2 = 'basic';
 
-  const authAttributesValue = 'dolor lab';
+  const authAttributesValue = 'incididunt c';
 
   const authAttributesType = 'string';
 
@@ -985,7 +978,7 @@ import {
 
   const updateCollectionCollection: UpdateCollectionCollection = {
     info: updateCollectionCollectionInfo,
-    variable: [collectionVariable],
+    variable: [variableList2],
     auth: collectionAuth,
     events: [collectionEvent],
   };
@@ -994,7 +987,7 @@ import {
     collection: updateCollectionCollection,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collections.patchCollection(
+  const data = await postmanPostmanApiSdk.collections.patchCollection(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     updateCollection,
   );
@@ -1023,14 +1016,14 @@ Deletes a collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.deleteCollection(
+  const data = await postmanPostmanApiSdk.collections.deleteCollection(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );
 
@@ -1058,14 +1051,14 @@ Gets all comments left by users in a collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.getCollectionComments(
+  const data = await postmanPostmanApiSdk.collections.getCollectionComments(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );
 
@@ -1096,13 +1089,13 @@ Creates a comment on a collection. To create a reply on an existing comment, inc
 ```typescript
 import {
   CommentCreate,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   TaggedUsers,
   UserName,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -1123,7 +1116,7 @@ import {
     tags: taggedUsers,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collections.createCollectionComment(
+  const data = await postmanPostmanApiSdk.collections.createCollectionComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     commentCreate,
   );
@@ -1156,13 +1149,13 @@ Updates a comment on a collection. **Note:** This endpoint accepts a max of 10,0
 ```typescript
 import {
   CommentUpdate,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   TaggedUsers,
   UserName,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -1182,7 +1175,7 @@ import {
     tags: taggedUsers,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collections.updateCollectionComment(
+  const data = await postmanPostmanApiSdk.collections.updateCollectionComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     46814,
     commentUpdate,
@@ -1209,14 +1202,14 @@ Deletes a comment from a collection. On success, this returns an HTTP `204 No Co
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.deleteCollectionComment(
+  const data = await postmanPostmanApiSdk.collections.deleteCollectionComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     46814,
   );
@@ -1246,13 +1239,10 @@ Creates a duplicate of the given collection in another workspace. Use the GET `/
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  DuplicateCollection,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+import { DuplicateCollection, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -1261,7 +1251,7 @@ import {
     suffix: 'Copy',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collections.duplicateCollection(
+  const data = await postmanPostmanApiSdk.collections.duplicateCollection(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     duplicateCollection,
   );
@@ -1293,16 +1283,16 @@ Gets a collection's forked collections. The response returns data for each fork,
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const ascDesc = 'asc';
 
-  const data = await postmanApiSdkSourceOverlayed.collections.getCollectionForks(
+  const data = await postmanPostmanApiSdk.collections.getCollectionForks(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     {
       cursor:
@@ -1343,12 +1333,12 @@ import {
   DocumentationCustomizationSettings,
   DocumentationMetaTags,
   DocumentationThemeSettings,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   PublishDocumentation,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -1392,7 +1382,7 @@ import {
     customization: documentationCustomizationSettings,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collections.publishDocumentation(
+  const data = await postmanPostmanApiSdk.collections.publishDocumentation(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     publishDocumentation,
   );
@@ -1417,14 +1407,14 @@ Unpublishes a collection's documentation. On success, this returns an HTTP `204 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.unpublishDocumentation(
+  const data = await postmanPostmanApiSdk.collections.unpublishDocumentation(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );
 
@@ -1452,14 +1442,14 @@ Pulls the changes from a parent (source) collection into the forked collection. 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.pullCollectionChanges(
+  const data = await postmanPostmanApiSdk.collections.pullCollectionChanges(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );
 
@@ -1487,14 +1477,14 @@ Gets information about a collection's pull requests, such as the source and dest
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.getCollectionPullRequests(
+  const data = await postmanPostmanApiSdk.collections.getCollectionPullRequests(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );
 
@@ -1523,10 +1513,10 @@ Creates a pull request for a forked collection into its parent collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreatePullRequest, PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { CreatePullRequest, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -1537,7 +1527,7 @@ import { CreatePullRequest, PostmanApiSdkSourceOverlayed } from 'postman-api-sdk
     destinationId: '12345678-ec548788-unftw-rgn8-83b8-0b59798648e4',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collections.createCollectionPullRequest(
+  const data = await postmanPostmanApiSdk.collections.createCollectionPullRequest(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     createPullRequest,
   );
@@ -1566,14 +1556,14 @@ Gets information about all roles in a collection. The response returns the IDs o
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.getCollectionRoles(
+  const data = await postmanPostmanApiSdk.collections.getCollectionRoles(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );
 
@@ -1599,14 +1589,14 @@ Updates the roles of users, groups, or teams in a collection. On success, this r
 
 ```typescript
 import {
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   UpdateCollectionRoles,
   UpdateCollectionRolesRoles,
   UpdateCollectionRolesRolesValue,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -1631,7 +1621,7 @@ import {
     roles: [updateCollectionRolesRoles],
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collections.updateCollectionRoles(
+  const data = await postmanPostmanApiSdk.collections.updateCollectionRoles(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     updateCollectionRoles,
   );
@@ -1660,14 +1650,14 @@ Checks whether there is a change between the forked collection and its parent (s
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.getSourceCollectionStatus(
+  const data = await postmanPostmanApiSdk.collections.getSourceCollectionStatus(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );
 
@@ -1696,16 +1686,16 @@ Transforms an existing Postman Collection into a stringified OpenAPI definition.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const collectionTransformFormat = 'json';
 
-  const data = await postmanApiSdkSourceOverlayed.collections.transformCollectionToOpenApi(
+  const data = await postmanPostmanApiSdk.collections.transformCollectionToOpenApi(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     {
       format: collectionTransformFormat,
@@ -1738,13 +1728,13 @@ Copies or moves folders into a collection or folder.
 ```typescript
 import {
   Location,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   Target,
   TransferCollectionItems,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -1773,9 +1763,7 @@ import {
   };
 
   const data =
-    await postmanApiSdkSourceOverlayed.collections.transferCollectionFolders(
-      transferCollectionItems,
-    );
+    await postmanPostmanApiSdk.collections.transferCollectionFolders(transferCollectionItems);
 
   console.log(data);
 })();
@@ -1803,13 +1791,13 @@ Copies or moves requests into a collection or folder.
 ```typescript
 import {
   Location,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   Target,
   TransferCollectionItems,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -1838,9 +1826,7 @@ import {
   };
 
   const data =
-    await postmanApiSdkSourceOverlayed.collections.transferCollectionRequests(
-      transferCollectionItems,
-    );
+    await postmanPostmanApiSdk.collections.transferCollectionRequests(transferCollectionItems);
 
   console.log(data);
 })();
@@ -1868,13 +1854,13 @@ Copies or moves responses into a request.
 ```typescript
 import {
   Location,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   Target,
   TransferCollectionItems,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -1903,9 +1889,7 @@ import {
   };
 
   const data =
-    await postmanApiSdkSourceOverlayed.collections.transferCollectionResponses(
-      transferCollectionItems,
-    );
+    await postmanPostmanApiSdk.collections.transferCollectionResponses(transferCollectionItems);
 
   console.log(data);
 })();
@@ -1931,14 +1915,14 @@ Gets the status of a collection duplication task.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.getDuplicateCollectionTaskStatus(
+  const data = await postmanPostmanApiSdk.collections.getDuplicateCollectionTaskStatus(
     '12345678-66ae9950-0869-4e65-96b0-1e0e47e771af',
   );
 
@@ -1966,14 +1950,14 @@ Gets the status of an asynchronous collection update task.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collections.getCollectionUpdatesTasks(
+  const data = await postmanPostmanApiSdk.collections.getCollectionUpdatesTasks(
     '66ae9950-0869-4e65-96b0-1e0e47e771af',
   );
 

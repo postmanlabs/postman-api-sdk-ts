@@ -13,13 +13,13 @@
 | updatedBy   | string                      | ❌       | The ID of the user who last updated the pull request.                                                                                                                                                                  |
 | comment     | string                      | ❌       | If the pull request is a `decline` status, an optional comment about why the pull request was declined.                                                                                                                |
 | fortkType   | string                      | ❌       | The type of element the pull request was forked from.                                                                                                                                                                  |
-| source      | Source                      | ❌       | Information about the pull request's source (parent) element.                                                                                                                                                          |
+| source      | SuccessfulResponseSource    | ❌       | Information about the pull request's source (parent) element.                                                                                                                                                          |
 | destination | Destination                 | ❌       | Information about the pull request destination element.                                                                                                                                                                |
 | status      | string                      | ❌       | The pull request's current review status: - `open` — The pull request is still open. - `approved` — The pull request was approved by its reviewers. - `declined` — The pull request was not approved by its reviewers. |
 | merge       | Merge                       | ❌       | Information about the current progress of the pull request's merge.                                                                                                                                                    |
 | reviewers   | [Reviewers](Reviewers.md)[] | ❌       | Information about the reviewers assigned to the pull request.                                                                                                                                                          |
 
-# Source
+# SuccessfulResponseSource
 
 Information about the pull request's source (parent) element.
 

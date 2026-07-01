@@ -1,10 +1,5 @@
 import { z } from 'zod';
-import {
-  CreateCollectionSchemaVariable,
-  createCollectionSchemaVariable,
-  createCollectionSchemaVariableRequest,
-  createCollectionSchemaVariableResponse,
-} from './create-collection-schema-variable';
+import { Variable, variable, variableRequest, variableResponse } from './variable';
 import {
   CreateCollectionSchemaEvent,
   createCollectionSchemaEvent,
@@ -39,7 +34,7 @@ export const createCollectionSchemaItem = z.lazy(() => {
   return z.object({
     name: z.string().optional(),
     description: z.string().optional().nullable(),
-    variable: z.array(createCollectionSchemaVariable).optional(),
+    variable: z.array(variable).optional(),
     event: z.array(createCollectionSchemaEvent).optional(),
     request: responseOriginalRequest1.optional(),
     response: z.array(itemResponse1).optional(),
@@ -52,7 +47,7 @@ export const createCollectionSchemaItem = z.lazy(() => {
  * @typedef  {CreateCollectionSchemaItem} createCollectionSchemaItem - Information about the collection request or folder. - Information about the collection request or folder.
  * @property {string} - The item's name.
  * @property {string} - The item's description.
- * @property {CreateCollectionSchemaVariable[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
+ * @property {Variable[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
  * @property {CreateCollectionSchemaEvent[]} - A list of scripts configured to run when specific events occur.
  * @property {ResponseOriginalRequest1} - Information about the collection request.
  * @property {ItemResponse1[]} - A list of the collection's responses.
@@ -70,7 +65,7 @@ export const createCollectionSchemaItemResponse = z.lazy(() => {
     .object({
       name: z.string().optional(),
       description: z.string().optional().nullable(),
-      variable: z.array(createCollectionSchemaVariableResponse).optional(),
+      variable: z.array(variableResponse).optional(),
       event: z.array(createCollectionSchemaEventResponse).optional(),
       request: responseOriginalRequest1Response.optional(),
       response: z.array(itemResponse1Response).optional(),
@@ -97,7 +92,7 @@ export const createCollectionSchemaItemRequest = z.lazy(() => {
     .object({
       name: z.string().optional(),
       description: z.string().optional().nullable(),
-      variable: z.array(createCollectionSchemaVariableRequest).optional(),
+      variable: z.array(variableRequest).optional(),
       event: z.array(createCollectionSchemaEventRequest).optional(),
       request: responseOriginalRequest1Request.optional(),
       response: z.array(itemResponse1Request).optional(),

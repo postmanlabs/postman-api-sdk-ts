@@ -11,8 +11,8 @@ import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from 'yaml';
-// client-under-test.ts is rendered by the factory's scaffold step
-// (src/scripts/scaffold-sdk-tests.ts) with the generated client class name.
+// client-under-test.ts resolves the generated client class from src/index.ts at
+// runtime (name-agnostic) — the class name isn't stable across generations.
 import { SdkClient } from './client-under-test';
 import { enumerateOperations, type SpecOperation } from '../harness/spec-operations';
 import { collectSdkMethods, type SdkMethod } from '../harness/sdk-reflection';

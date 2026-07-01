@@ -43,10 +43,10 @@ Gets information workspaces added to your team's [Private API Network](https://l
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -54,7 +54,7 @@ import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
   const sortCreatedUpdatedAt = 'createdAt';
   const ascDesc = 'asc';
 
-  const data = await postmanApiSdkSourceOverlayed.privateApiNetwork.listPrivateNetworkWorkspaces({
+  const data = await postmanPostmanApiSdk.privateApiNetwork.listPrivateNetworkWorkspaces({
     type: elementTypeQuery,
     name: 'billing',
     summary: 'payments',
@@ -93,14 +93,10 @@ Publishes a workspace in your team's [Private API Network](https://learning.post
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  AddWorkspace,
-  AddWorkspaceWorkspace,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+import { AddWorkspace, AddWorkspaceWorkspace, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -113,7 +109,7 @@ import {
   };
 
   const data =
-    await postmanApiSdkSourceOverlayed.privateApiNetwork.addWorkspaceToPrivateNetwork(addWorkspace);
+    await postmanPostmanApiSdk.privateApiNetwork.addWorkspaceToPrivateNetwork(addWorkspace);
 
   console.log(data);
 })();
@@ -136,19 +132,16 @@ import {
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  PostmanApiSdkSourceOverlayed,
-  UpdatePanElementOrFolderRequest,
-} from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk, UpdatePanElementOrFolderRequest } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const updatePanElementOrFolderRequest: UpdatePanElementOrFolderRequest = {};
 
-  const data = await postmanApiSdkSourceOverlayed.privateApiNetwork.updatePanElementOrFolder(
+  const data = await postmanPostmanApiSdk.privateApiNetwork.updatePanElementOrFolder(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     updatePanElementOrFolderRequest,
   );
@@ -177,17 +170,16 @@ Removes a workspace from your team's [Private API Network](https://learning.post
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data =
-    await postmanApiSdkSourceOverlayed.privateApiNetwork.removeWorkspaceFromPrivateNetwork(
-      '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
-    );
+  const data = await postmanPostmanApiSdk.privateApiNetwork.removeWorkspaceFromPrivateNetwork(
+    '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
+  );
 
   console.log(data);
 })();
@@ -222,10 +214,10 @@ Gets all requests to add workspaces to your team's [Private API Network](https:/
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -234,7 +226,7 @@ import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
   const sortCreatedUpdatedAt = 'createdAt';
   const ascDesc = 'asc';
 
-  const data = await postmanApiSdkSourceOverlayed.privateApiNetwork.listPrivateNetworkAddRequests({
+  const data = await postmanPostmanApiSdk.privateApiNetwork.listPrivateNetworkAddRequests({
     since: '2022-06-01T00:00:00.000Z',
     until: '2022-06-15T00:00:00.000Z',
     requestedBy: 12345678,
@@ -273,13 +265,13 @@ Responds to a user's request to add a workspace to your team's [Private API Netw
 
 ```typescript
 import {
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   RespondPanElementAddRequestBody,
   RespondPanElementAddRequestBodyResponse1,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -294,7 +286,7 @@ import {
     response: respondPanElementAddRequestBodyResponse1,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.privateApiNetwork.respondPrivateNetworkAddRequest(
+  const data = await postmanPostmanApiSdk.privateApiNetwork.respondPrivateNetworkAddRequest(
     232,
     respondPanElementAddRequestBody,
   );

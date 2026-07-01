@@ -37,11 +37,11 @@ Returns all secrets detected by Postman's [Secret Scanner](https://learning.post
 import {
   DetectedSecretsQueryRequest,
   DetectedSecretsQueryRequestResources,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+  PostmanPostmanApiSdk,
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -65,7 +65,7 @@ import {
     workspaceVisibilities: [workspaceVisibilities],
   };
 
-  const data = await postmanApiSdkSourceOverlayed.secretScanner.detectedSecretsQueries(
+  const data = await postmanPostmanApiSdk.secretScanner.detectedSecretsQueries(
     detectedSecretsQueryRequest,
     {
       limit: 10,
@@ -102,13 +102,10 @@ Updates the resolution status of a secret detected in a workspace.
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  PostmanApiSdkSourceOverlayed,
-  UpdateSecretResolutionRequest,
-} from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk, UpdateSecretResolutionRequest } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -119,7 +116,7 @@ import {
     workspaceId: 'e361eeb4-00dd-4225-9774-6146a2555999',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.secretScanner.updateDetectedSecretResolutions(
+  const data = await postmanPostmanApiSdk.secretScanner.updateDetectedSecretResolutions(
     'MTc0ODA0Mw==',
     updateSecretResolutionRequest,
   );
@@ -154,16 +151,16 @@ Gets the locations of secrets detected by Postman's [Secret Scanner](https://lea
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const resourceType = 'collection';
 
-  const data = await postmanApiSdkSourceOverlayed.secretScanner.getDetectedSecretsLocations(
+  const data = await postmanPostmanApiSdk.secretScanner.getDetectedSecretsLocations(
     'MTc0ODA0Mw==',
     {
       limit: 10,
@@ -194,14 +191,14 @@ Gets the metadata of the secret types supported by Postman's [Secret Scanner](ht
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.secretScanner.getSecretTypes();
+  const data = await postmanPostmanApiSdk.secretScanner.getSecretTypes();
 
   console.log(data);
 })();

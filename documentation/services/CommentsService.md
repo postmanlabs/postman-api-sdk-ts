@@ -22,14 +22,14 @@ Resolves a comment and any associated replies. On success, this returns an HTTP 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.comments.resolveCommentThread(34567);
+  const data = await postmanPostmanApiSdk.comments.resolveCommentThread(34567);
 
   console.log(data);
 })();

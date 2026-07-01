@@ -22,14 +22,14 @@ Gets information about the authenticated user. **Note:** - This API returns a di
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.users.getAuthenticatedUser();
+  const data = await postmanPostmanApiSdk.users.getAuthenticatedUser();
 
   console.log(data);
 })();
@@ -55,14 +55,14 @@ Gets information about all users on the [Postman team](https://learning.postman.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.users.getTeamUsers({
+  const data = await postmanPostmanApiSdk.users.getTeamUsers({
     groupId: 123,
   });
 
@@ -90,14 +90,14 @@ Gets information about a user on the Postman team.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.users.getTeamUser(1);
+  const data = await postmanPostmanApiSdk.users.getTeamUser(1);
 
   console.log(data);
 })();

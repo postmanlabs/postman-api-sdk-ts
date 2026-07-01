@@ -1,10 +1,10 @@
-# postman-api-sdk-source-overlayed
+# postman-postman-api-sdk
 
-A basic example of how to use the postman-api-sdk-source-overlayed package.
+A basic example of how to use the postman-postman-api-sdk package.
 
 ## Installation
 
-In the event `postman-api-sdk-source-overlayed` is not published to npm, you can install it locally by running the following command in the examples folder:
+In the event `postman-postman-api-sdk` is not published to npm, you can install it locally by running the following command in the examples folder:
 
 ```sh
 npm run setup
@@ -15,7 +15,7 @@ This will rebuild the parent package and install it locally.
 Otherwise you can install it from npm:
 
 ```sh
-npm install postman-api-sdk-source-overlayed
+npm install postman-postman-api-sdk
 ```
 
 ## Usage

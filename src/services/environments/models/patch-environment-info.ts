@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  EnvironmentVariables,
-  environmentVariables,
-  environmentVariablesRequest,
-  environmentVariablesResponse,
-} from './environment-variables';
+  PatchEnvironmentInfoValues,
+  patchEnvironmentInfoValues,
+  patchEnvironmentInfoValuesRequest,
+  patchEnvironmentInfoValuesResponse,
+} from './patch-environment-info-values';
 
 /**
  * Zod schema for the PatchEnvironmentInfo model.
@@ -18,7 +18,7 @@ export const patchEnvironmentInfo = z.lazy(() => {
     owner: z.string().optional(),
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
-    values: z.array(environmentVariables).optional(),
+    values: z.array(patchEnvironmentInfoValues).optional(),
     uid: z.string().optional(),
   });
 });
@@ -31,7 +31,7 @@ export const patchEnvironmentInfo = z.lazy(() => {
  * @property {string} - The ID of environment's owner.
  * @property {string} - The date and time at which the environment was created.
  * @property {string} - The date and time at which the environment was last updated.
- * @property {EnvironmentVariables[]} - Information about the environment's variables.
+ * @property {PatchEnvironmentInfoValues[]} - Information about the environment's variables.
  * @property {string} - The environment's unique ID.
  */
 export type PatchEnvironmentInfo = z.infer<typeof patchEnvironmentInfo>;
@@ -49,7 +49,7 @@ export const patchEnvironmentInfoResponse = z.lazy(() => {
       owner: z.string().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      values: z.array(environmentVariablesResponse).optional(),
+      values: z.array(patchEnvironmentInfoValuesResponse).optional(),
       uid: z.string().optional(),
     })
     .transform((data) => ({
@@ -76,7 +76,7 @@ export const patchEnvironmentInfoRequest = z.lazy(() => {
       owner: z.string().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      values: z.array(environmentVariablesRequest).optional(),
+      values: z.array(patchEnvironmentInfoValuesRequest).optional(),
       uid: z.string().optional(),
     })
     .transform((data) => ({

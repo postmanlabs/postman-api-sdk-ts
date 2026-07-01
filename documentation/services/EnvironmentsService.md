@@ -2,18 +2,18 @@
 
 A list of all methods in the `EnvironmentsService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| :-------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [getEnvironments](#getenvironments)           | Gets information about all of your [environments](https://learning.postman.com/docs/sending-requests/managing-environments/).                                                                                                                                                                                                                                                                                                                                                                                                |
-| [createEnvironment](#createenvironment)       | Creates an environment. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header. - If you do not include the `workspace` query parameter, the system creates the environment in the oldest personal Internal workspace you own.                                                                                                                       |
-| [getEnvironment](#getenvironment)             | Gets information about an environment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| [putEnvironment](#putenvironment)             | Replaces all the contents of an environment with the given information. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.                                                                                                                                                                                                                      |
-| [patchEnvironment](#patchenvironment)         | Updates specific environment properties, such as its name and variables. **Note:** - You can only perform one type of operation at a time. For example, you cannot perform an `add` and `replace` operation in the same call. - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header. - To add a description to an existing variable, use the `add` operation. |
-| [deleteEnvironment](#deleteenvironment)       | Deletes an environment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| [getEnvironmentForks](#getenvironmentforks)   | Gets all of an environment's forked environments.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| [forkEnvironment](#forkenvironment)           | Creates a [fork](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-elements/) of an existing environment.                                                                                                                                                                                                                                                                                                                                                                             |
-| [mergeEnvironmentFork](#mergeenvironmentfork) | [Merges](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-elements/#merge-changes-from-a-fork) a forked environment back into its parent environment.                                                                                                                                                                                                                                                                                                                                |
-| [pullEnvironment](#pullenvironment)           | [Pulls](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-elements/#pull-updates-from-a-parent-element) the changes from a parent (source) environment into the forked environment.                                                                                                                                                                                                                                                                                                   |
+| Methods                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| :-------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [getEnvironments](#getenvironments)           | Gets information about all of your [environments](https://learning.postman.com/docs/sending-requests/managing-environments/).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| [createEnvironment](#createenvironment)       | Creates an environment. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header. - If you do not include the `workspace` query parameter, the system creates the environment in the oldest personal Internal workspace you own. - Only [shared variable](https://learning.postman.com/docs/use/send-requests/variables/variables/#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.                                                                                                                     |
+| [getEnvironment](#getenvironment)             | Gets information about an environment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| [putEnvironment](#putenvironment)             | Replaces all the contents of an environment with the given information. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header. - Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.                                                                                                                                                                                                                      |
+| [patchEnvironment](#patchenvironment)         | Updates specific environment properties, such as its name and variables. **Note:** - You can only perform one type of operation at a time. For example, you cannot perform an `add` and `replace` operation in the same call. - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header. - To add a description to an existing variable, use the `add` operation. - Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace. |
+| [deleteEnvironment](#deleteenvironment)       | Deletes an environment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| [getEnvironmentForks](#getenvironmentforks)   | Gets all of an environment's forked environments.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| [forkEnvironment](#forkenvironment)           | Creates a [fork](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-elements/) of an existing environment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| [mergeEnvironmentFork](#mergeenvironmentfork) | [Merges](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-elements/#merge-changes-from-a-fork) a forked environment back into its parent environment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| [pullEnvironment](#pullenvironment)           | [Pulls](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-elements/#pull-updates-from-a-parent-element) the changes from a parent (source) environment into the forked environment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 ## getEnvironments
 
@@ -35,14 +35,14 @@ Gets information about all of your [environments](https://learning.postman.com/d
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.environments.getEnvironments({
+  const data = await postmanPostmanApiSdk.environments.getEnvironments({
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 
@@ -52,7 +52,7 @@ import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
 
 ## createEnvironment
 
-Creates an environment. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header. - If you do not include the `workspace` query parameter, the system creates the environment in the oldest personal Internal workspace you own.
+Creates an environment. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header. - If you do not include the `workspace` query parameter, the system creates the environment in the oldest personal Internal workspace you own. - Only [shared variable](https://learning.postman.com/docs/use/send-requests/variables/variables/#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
 
 - HTTP Method: `POST`
 - Endpoint: `/environments`
@@ -72,42 +72,39 @@ Creates an environment. **Note:** - The request body size cannot exceed the maxi
 
 ```typescript
 import {
+  AddVariable,
   CreateEnvironment,
   CreateEnvironmentEnvironment,
-  EnvironmentVariables,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+  PostmanPostmanApiSdk,
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const environmentVariablesType = 'secret';
+  const addVariableType = 'secret';
 
-  const environmentVariables: EnvironmentVariables = {
+  const addVariable: AddVariable = {
     enabled: true,
     key: 'collectionId',
     value: '12ece9e1-2abf-4edc-8e34-de66e74114d2',
-    type: environmentVariablesType,
+    type: addVariableType,
     description: "The collection's ID.",
   };
 
   const createEnvironmentEnvironment: CreateEnvironmentEnvironment = {
     name: 'Test Environment',
-    values: [environmentVariables],
+    values: [createEnvironmentEnvironmentValues],
   };
 
   const createEnvironment: CreateEnvironment = {
     environment: createEnvironmentEnvironment,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.environments.createEnvironment(
-    createEnvironment,
-    {
-      workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
-    },
-  );
+  const data = await postmanPostmanApiSdk.environments.createEnvironment(createEnvironment, {
+    workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
+  });
 
   console.log(data);
 })();
@@ -133,14 +130,14 @@ Gets information about an environment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.environments.getEnvironment(
+  const data = await postmanPostmanApiSdk.environments.getEnvironment(
     '5daabc50-8451-43f6-922d-96b403b4f28e',
   );
 
@@ -150,7 +147,7 @@ import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
 
 ## putEnvironment
 
-Replaces all the contents of an environment with the given information. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.
+Replaces all the contents of an environment with the given information. **Note:** - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header. - Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
 
 - HTTP Method: `PUT`
 - Endpoint: `/environments/{environmentId}`
@@ -170,37 +167,37 @@ Replaces all the contents of an environment with the given information. **Note:*
 
 ```typescript
 import {
-  EnvironmentVariables,
-  PostmanApiSdkSourceOverlayed,
+  AddVariable,
+  PostmanPostmanApiSdk,
   ReplaceEnvironmentData,
   ReplaceEnvironmentDataEnvironment,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const environmentVariablesType = 'secret';
+  const addVariableType = 'secret';
 
-  const environmentVariables: EnvironmentVariables = {
+  const addVariable: AddVariable = {
     enabled: true,
     key: 'collectionId',
     value: '12ece9e1-2abf-4edc-8e34-de66e74114d2',
-    type: environmentVariablesType,
+    type: addVariableType,
     description: "The collection's ID.",
   };
 
   const replaceEnvironmentDataEnvironment: ReplaceEnvironmentDataEnvironment = {
     name: 'Test Environment',
-    values: [environmentVariables],
+    values: [replaceEnvironmentDataEnvironmentValues],
   };
 
   const replaceEnvironmentData: ReplaceEnvironmentData = {
     environment: replaceEnvironmentDataEnvironment,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.environments.putEnvironment(
+  const data = await postmanPostmanApiSdk.environments.putEnvironment(
     '5daabc50-8451-43f6-922d-96b403b4f28e',
     replaceEnvironmentData,
   );
@@ -211,7 +208,7 @@ import {
 
 ## patchEnvironment
 
-Updates specific environment properties, such as its name and variables. **Note:** - You can only perform one type of operation at a time. For example, you cannot perform an `add` and `replace` operation in the same call. - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header. - To add a description to an existing variable, use the `add` operation.
+Updates specific environment properties, such as its name and variables. **Note:** - You can only perform one type of operation at a time. For example, you cannot perform an `add` and `replace` operation in the same call. - The request body size cannot exceed the maximum allowed size of 30MB. - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header. - To add a description to an existing variable, use the `add` operation. - Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
 
 - HTTP Method: `PATCH`
 - Endpoint: `/environments/{environmentId}`
@@ -230,16 +227,16 @@ Updates specific environment properties, such as its name and variables. **Note:
 **Example Usage Code Snippet**
 
 ```typescript
-import { PatchEnvironment, PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PatchEnvironment, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const patchEnvironment = [patchEnvironmentAdd];
 
-  const data = await postmanApiSdkSourceOverlayed.environments.patchEnvironment(
+  const data = await postmanPostmanApiSdk.environments.patchEnvironment(
     '5daabc50-8451-43f6-922d-96b403b4f28e',
     patchEnvironment,
   );
@@ -268,14 +265,14 @@ Deletes an environment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.environments.deleteEnvironment(
+  const data = await postmanPostmanApiSdk.environments.deleteEnvironment(
     '5daabc50-8451-43f6-922d-96b403b4f28e',
   );
 
@@ -307,17 +304,17 @@ Gets all of an environment's forked environments.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const ascDesc = 'asc';
   const sortByCreatedAt = 'createdAt';
 
-  const data = await postmanApiSdkSourceOverlayed.environments.getEnvironmentForks(
+  const data = await postmanPostmanApiSdk.environments.getEnvironmentForks(
     '12345678-5daabc50-8451-43f6-922d-96b403b4f28e',
     {
       cursor:
@@ -354,10 +351,10 @@ Creates a [fork](https://learning.postman.com/docs/collaborating-in-postman/usin
 **Example Usage Code Snippet**
 
 ```typescript
-import { ForkEnvironment, PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { ForkEnvironment, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -365,7 +362,7 @@ import { ForkEnvironment, PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-s
     forkName: 'My fork',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.environments.forkEnvironment(
+  const data = await postmanPostmanApiSdk.environments.forkEnvironment(
     '12345678-5daabc50-8451-43f6-922d-96b403b4f28e',
     forkEnvironment,
     {
@@ -398,13 +395,10 @@ import { ForkEnvironment, PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-s
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  MergeEnvironmentFork,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+import { MergeEnvironmentFork, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -413,7 +407,7 @@ import {
     deleteSource: true,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.environments.mergeEnvironmentFork(
+  const data = await postmanPostmanApiSdk.environments.mergeEnvironmentFork(
     '12345678-5daabc50-8451-43f6-922d-96b403b4f28e',
     mergeEnvironmentFork,
   );
@@ -443,13 +437,10 @@ import {
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  PostmanApiSdkSourceOverlayed,
-  PullEnvironmentForkChanges,
-} from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk, PullEnvironmentForkChanges } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -457,7 +448,7 @@ import {
     source: '12345678-d9c7dc8f-904e-4bba-99b5-4d490aae1957',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.environments.pullEnvironment(
+  const data = await postmanPostmanApiSdk.environments.pullEnvironment(
     '12345678-5daabc50-8451-43f6-922d-96b403b4f28e',
     pullEnvironmentForkChanges,
   );

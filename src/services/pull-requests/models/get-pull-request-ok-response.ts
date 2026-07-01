@@ -1,5 +1,10 @@
 import { z } from 'zod';
-import { Source, source, sourceRequest, sourceResponse } from './source';
+import {
+  SuccessfulResponseSource,
+  successfulResponseSource,
+  successfulResponseSourceRequest,
+  successfulResponseSourceResponse,
+} from './successful-response-source';
 import { Destination, destination, destinationRequest, destinationResponse } from './destination';
 import { Merge, merge, mergeRequest, mergeResponse } from './merge';
 import { Reviewers, reviewers, reviewersRequest, reviewersResponse } from './reviewers';
@@ -20,7 +25,7 @@ export const getPullRequestOkResponse = z.lazy(() => {
     updatedBy: z.string().optional(),
     comment: z.string().optional(),
     fortkType: z.string().optional(),
-    source: source.optional(),
+    source: successfulResponseSource.optional(),
     destination: destination.optional(),
     status: z.string().optional(),
     merge: merge.optional(),
@@ -40,7 +45,7 @@ export const getPullRequestOkResponse = z.lazy(() => {
  * @property {string} - The ID of the user who last updated the pull request.
  * @property {string} - If the pull request is a `decline` status, an optional comment about why the pull request was declined.
  * @property {string} - The type of element the pull request was forked from.
- * @property {Source} - Information about the pull request's source (parent) element.
+ * @property {SuccessfulResponseSource} - Information about the pull request's source (parent) element.
  * @property {Destination} - Information about the pull request destination element.
  * @property {string} - The pull request's current review status:
 - `open` — The pull request is still open.
@@ -69,7 +74,7 @@ export const getPullRequestOkResponseResponse = z.lazy(() => {
       updatedBy: z.string().optional(),
       comment: z.string().optional(),
       fortkType: z.string().optional(),
-      source: sourceResponse.optional(),
+      source: successfulResponseSourceResponse.optional(),
       destination: destinationResponse.optional(),
       status: z.string().optional(),
       merge: mergeResponse.optional(),
@@ -110,7 +115,7 @@ export const getPullRequestOkResponseRequest = z.lazy(() => {
       updatedBy: z.string().optional(),
       comment: z.string().optional(),
       fortkType: z.string().optional(),
-      source: sourceRequest.optional(),
+      source: successfulResponseSourceRequest.optional(),
       destination: destinationRequest.optional(),
       status: z.string().optional(),
       merge: mergeRequest.optional(),

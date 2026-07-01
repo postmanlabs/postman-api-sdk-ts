@@ -30,14 +30,14 @@ Gets all the tags associated with a collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.tags.getCollectionTags(
+  const data = await postmanPostmanApiSdk.tags.getCollectionTags(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );
 
@@ -66,14 +66,10 @@ Updates a collection's associated tags. This endpoint replaces all existing tags
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  PostmanApiSdkSourceOverlayed,
-  UpdateTags,
-  UpdateTagsTags,
-} from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk, UpdateTags, UpdateTagsTags } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -85,7 +81,7 @@ import {
     tags: [updateTagsTags],
   };
 
-  const data = await postmanApiSdkSourceOverlayed.tags.updateCollectionTags(
+  const data = await postmanPostmanApiSdk.tags.updateCollectionTags(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     updateTags,
   );
@@ -118,17 +114,17 @@ Gets Postman elements (entities) by a given tag. Tags enable you to organize and
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const ascDescDefaultDesc = 'asc';
   const tagsEntityType = 'api';
 
-  const data = await postmanApiSdkSourceOverlayed.tags.getTaggedEntities('needs-review', {
+  const data = await postmanPostmanApiSdk.tags.getTaggedEntities('needs-review', {
     limit: 2,
     direction: ascDescDefaultDesc,
     cursor: 'eyJpZCI6ODYsImVudGl0eVR5cGUiOiJhcGkifQ==',
@@ -159,14 +155,14 @@ Gets all the tags associated with a workspace.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.tags.getWorkspaceTags(
+  const data = await postmanPostmanApiSdk.tags.getWorkspaceTags(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   );
 
@@ -195,14 +191,10 @@ Updates a workspace's associated tags. This endpoint replaces all existing tags 
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  PostmanApiSdkSourceOverlayed,
-  UpdateTags,
-  UpdateTagsTags,
-} from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk, UpdateTags, UpdateTagsTags } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -214,7 +206,7 @@ import {
     tags: [updateTagsTags],
   };
 
-  const data = await postmanApiSdkSourceOverlayed.tags.updateWorkspaceTags(
+  const data = await postmanPostmanApiSdk.tags.updateWorkspaceTags(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     updateTags,
   );

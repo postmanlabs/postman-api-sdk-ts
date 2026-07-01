@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  EnvironmentVariables,
-  environmentVariables,
-  environmentVariablesRequest,
-  environmentVariablesResponse,
-} from './environment-variables';
+  GetEnvironmentInfoValues,
+  getEnvironmentInfoValues,
+  getEnvironmentInfoValuesRequest,
+  getEnvironmentInfoValuesResponse,
+} from './get-environment-info-values';
 
 /**
  * Zod schema for the GetEnvironmentInfo model.
@@ -18,7 +18,7 @@ export const getEnvironmentInfo = z.lazy(() => {
     owner: z.string().optional(),
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
-    values: z.array(environmentVariables).optional(),
+    values: z.array(getEnvironmentInfoValues).optional(),
     isPublic: z.boolean().optional(),
   });
 });
@@ -31,7 +31,7 @@ export const getEnvironmentInfo = z.lazy(() => {
  * @property {string} - The ID of environment's owner.
  * @property {string} - The date and time at which the environment was created.
  * @property {string} - The date and time at which the environment was last updated.
- * @property {EnvironmentVariables[]} - Information about the environment's variables.
+ * @property {GetEnvironmentInfoValues[]} - Information about the environment's variables.
  * @property {boolean} - If true, the environment is public and visible to all users.
  */
 export type GetEnvironmentInfo = z.infer<typeof getEnvironmentInfo>;
@@ -49,7 +49,7 @@ export const getEnvironmentInfoResponse = z.lazy(() => {
       owner: z.string().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      values: z.array(environmentVariablesResponse).optional(),
+      values: z.array(getEnvironmentInfoValuesResponse).optional(),
       isPublic: z.boolean().optional(),
     })
     .transform((data) => ({
@@ -76,7 +76,7 @@ export const getEnvironmentInfoRequest = z.lazy(() => {
       owner: z.string().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      values: z.array(environmentVariablesRequest).optional(),
+      values: z.array(getEnvironmentInfoValuesRequest).optional(),
       isPublic: z.boolean().optional(),
     })
     .transform((data) => ({

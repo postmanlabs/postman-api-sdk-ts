@@ -1,6 +1,7 @@
 export type { AscDescDefaultDesc } from './asc-desc-default-desc';
 export type { AuthAttributes } from './auth-attributes';
 export type { AscDesc } from './asc-desc';
+export type { EnvironmentVariableSource } from './environment-variable-source';
 export type { RequestEventsScript } from './request-events-script';
 export type { ResponseHeader2_2 } from './response-header-2-2';
 export type { CommentResponseObject } from './comment-response-object';

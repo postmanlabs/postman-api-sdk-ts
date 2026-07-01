@@ -1,5 +1,5 @@
 export type { GetPullRequestOkResponse } from './get-pull-request-ok-response';
-export type { Source } from './source';
+export type { SuccessfulResponseSource } from './successful-response-source';
 export type { Destination } from './destination';
 export type { Merge } from './merge';
 export type { MergeStatus } from './merge-status';

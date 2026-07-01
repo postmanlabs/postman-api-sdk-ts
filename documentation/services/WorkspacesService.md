@@ -48,11 +48,11 @@ import {
   InvitePartners,
   ManagePartnerWorkspaceInvites,
   ManagePartnerWorkspaceInvitesTargetObjectEmails,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+  PostmanPostmanApiSdk,
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -75,8 +75,7 @@ import {
     target: managePartnerWorkspaceInvitesTargetObjectEmails,
   };
 
-  const data =
-    await postmanApiSdkSourceOverlayed.workspaces.managePartnerWorkspaceInvites(invitePartners);
+  const data = await postmanPostmanApiSdk.workspaces.managePartnerWorkspaceInvites(invitePartners);
 
   console.log(data);
 })();
@@ -108,10 +107,10 @@ Gets all [workspaces](https://learning.postman.com/docs/collaborating-in-postman
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -119,7 +118,7 @@ import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
   const workspaceIncludeQuery = 'mocks:deactivated';
   const workspaceElementTypeQuery = 'collection';
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.getWorkspaces({
+  const data = await postmanPostmanApiSdk.workspaces.getWorkspaces({
     type: workspaceTypeQuery,
     createdBy: 12345678,
     include: workspaceIncludeQuery,
@@ -156,11 +155,11 @@ Creates a new [workspace](https://learning.postman.com/docs/collaborating-in-pos
 import {
   CreateWorkspace,
   CreateWorkspaceWorkspace,
-  PostmanApiSdkSourceOverlayed,
-} from 'postman-api-sdk-source-overlayed';
+  PostmanPostmanApiSdk,
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -178,7 +177,7 @@ import {
     workspace: createWorkspaceWorkspace,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.createWorkspace(createWorkspace);
+  const data = await postmanPostmanApiSdk.workspaces.createWorkspace(createWorkspace);
 
   console.log(data);
 })();
@@ -198,14 +197,14 @@ Gets information about all roles in a workspace, based on the team's [plan](http
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.getAllWorkspaceRoles();
+  const data = await postmanPostmanApiSdk.workspaces.getAllWorkspaceRoles();
 
   console.log(data);
 })();
@@ -232,16 +231,16 @@ Gets information about a workspace. **Note:** This endpoint's response contains 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const workspaceIncludeQuery = 'mocks:deactivated';
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.getWorkspace(
+  const data = await postmanPostmanApiSdk.workspaces.getWorkspace(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     {
       include: workspaceIncludeQuery,
@@ -274,13 +273,13 @@ Updates a workspace's property, such as its name or visibility. **Note:** - This
 
 ```typescript
 import {
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   UpdateWorkspaceRequest,
   UpdateWorkspaceWorkspace1,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -297,7 +296,7 @@ import {
     workspace: updateWorkspaceWorkspace1,
   };
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.updateWorkspace(
+  const data = await postmanPostmanApiSdk.workspaces.updateWorkspace(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     updateWorkspaceRequest,
   );
@@ -326,14 +325,14 @@ Deletes an existing workspace.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.deleteWorkspace(
+  const data = await postmanPostmanApiSdk.workspaces.deleteWorkspace(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   );
 
@@ -365,16 +364,16 @@ Gets a workspace's [activity feed](https://learning.postman.com/docs/collaborati
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const elementType2 = 'collection';
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.getWorkspaceActivityFeed(
+  const data = await postmanPostmanApiSdk.workspaces.getWorkspaceActivityFeed(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     {
       userId: 12345678,
@@ -410,17 +409,14 @@ Transfers a [Postman element](https://learning.postman.com/docs/getting-started/
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  PostmanApiSdkSourceOverlayed,
-  TransferWorkspaceElement,
-} from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk, TransferWorkspaceElement } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const id = 'dolor';
+  const id = 'ex en';
 
   const transferWorkspaceElementType = 'collection';
 
@@ -430,7 +426,7 @@ import {
     to: 'd56bc95f-57c5-47cc-bd99-75c4ad96a6dd',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.transferWorkspaceElement(
+  const data = await postmanPostmanApiSdk.workspaces.transferWorkspaceElement(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     transferWorkspaceElement,
   );
@@ -459,14 +455,14 @@ Gets a workspace's global [variables](https://learning.postman.com/docs/sending-
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.getWorkspaceGlobalVariables(
+  const data = await postmanPostmanApiSdk.workspaces.getWorkspaceGlobalVariables(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   );
 
@@ -497,12 +493,12 @@ Updates and replaces a workspace's global [variables](https://learning.postman.c
 ```typescript
 import {
   GlobalVariableInfo,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   UpdateGlobalVariables,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -520,7 +516,7 @@ import {
     values: [globalVariableInfo],
   };
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.updateWorkspaceGlobalVariables(
+  const data = await postmanPostmanApiSdk.workspaces.updateWorkspaceGlobalVariables(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     updateGlobalVariables,
   );
@@ -550,16 +546,16 @@ Gets the roles of users, user groups, and partners in a workspace. **Note:** Par
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
   const workspaceIncludeScimQuery = 'scim';
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.getWorkspaceRoles(
+  const data = await postmanPostmanApiSdk.workspaces.getWorkspaceRoles(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     {
       include: workspaceIncludeScimQuery,
@@ -593,14 +589,14 @@ Updates the roles of users, [user groups](https://learning.postman.com/docs/coll
 
 ```typescript
 import {
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   UpdateWorkspaceRoles,
   UpdateWorkspaceRolesRoles,
   UpdateWorkspaceRolesRolesValue,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -621,7 +617,7 @@ import {
     roles: [updateWorkspaceRolesRoles],
   };
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.updateWorkspaceRoles(
+  const data = await postmanPostmanApiSdk.workspaces.updateWorkspaceRoles(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     updateWorkspaceRoles,
     {
@@ -654,13 +650,10 @@ Transfers a workspace from one team (`source`) to another team (`destination`). 
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  PostmanApiSdkSourceOverlayed,
-  TransferWorkspaceToTeam,
-} from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk, TransferWorkspaceToTeam } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -669,7 +662,7 @@ import {
     source: 'd56bc95f-57c5-47cc-bd99-75c4ad96a6dd',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.transferWorkspaceToTeam(
+  const data = await postmanPostmanApiSdk.workspaces.transferWorkspaceToTeam(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     transferWorkspaceToTeam,
   );
@@ -700,14 +693,14 @@ Gets a list of workspace updates for the given workspace.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.getWorkspaceUpdates(
+  const data = await postmanPostmanApiSdk.workspaces.getWorkspaceUpdates(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     {
       cursor:
@@ -743,12 +736,12 @@ Creates a [workspace update](https://learning.postman.com/docs/collaborating-in-
 ```typescript
 import {
   CreateWorkspaceUpdate,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   WorkspaceUpdateRelatedResourcesData,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -768,7 +761,7 @@ import {
     relatedResources: [workspaceUpdateRelatedResourcesData],
   };
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.createWorkspaceUpdate(
+  const data = await postmanPostmanApiSdk.workspaces.createWorkspaceUpdate(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     createWorkspaceUpdate,
   );
@@ -798,14 +791,14 @@ Gets information about a workspace update.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.getWorkspaceUpdate(
+  const data = await postmanPostmanApiSdk.workspaces.getWorkspaceUpdate(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     123,
   );
@@ -837,13 +830,13 @@ Updates a workspace update. **Note:** This endpoint requires the `application/me
 
 ```typescript
 import {
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   UpdateWorkspaceUpdate,
   WorkspaceUpdateRelatedResourcesData,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -864,7 +857,7 @@ import {
     relatedResources: [workspaceUpdateRelatedResourcesData],
   };
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.patchWorkspaceUpdate(
+  const data = await postmanPostmanApiSdk.workspaces.patchWorkspaceUpdate(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     123,
     updateWorkspaceUpdate,
@@ -891,14 +884,14 @@ Deletes a workspace update. On success, this returns an HTTP `204 No Content` re
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.workspaces.deleteWorkspaceUpdate(
+  const data = await postmanPostmanApiSdk.workspaces.deleteWorkspaceUpdate(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     123,
   );

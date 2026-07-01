@@ -24,11 +24,11 @@ import {
   collectionEventResponse,
 } from './collection-event';
 import {
-  CollectionVariable,
-  collectionVariable,
-  collectionVariableRequest,
-  collectionVariableResponse,
-} from './collection-variable';
+  VariableList2,
+  variableList2,
+  variableList2Request,
+  variableList2Response,
+} from './variable-list-2';
 
 /**
  * Zod schema for the CollectionInformationCollection model.
@@ -41,7 +41,7 @@ export const collectionInformationCollection = z.lazy(() => {
     item: z.array(collectionItem).optional(),
     auth: collectionAuth.optional(),
     event: z.array(collectionEvent).optional(),
-    variable: z.array(collectionVariable).optional(),
+    variable: z.array(variableList2).optional(),
     additionalProperties: z.record(z.unknown()).optional(),
   });
 });
@@ -53,7 +53,7 @@ export const collectionInformationCollection = z.lazy(() => {
  * @property {CollectionItem[]}
  * @property {CollectionAuth} - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
  * @property {CollectionEvent[]} - A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID.
- * @property {CollectionVariable[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
+ * @property {VariableList2[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
  */
 export type CollectionInformationCollection = z.infer<typeof collectionInformationCollection>;
 
@@ -69,7 +69,7 @@ export const collectionInformationCollectionResponse = z.lazy(() => {
       item: z.array(collectionItemResponse).optional(),
       auth: collectionAuthResponse.optional(),
       event: z.array(collectionEventResponse).optional(),
-      variable: z.array(collectionVariableResponse).optional(),
+      variable: z.array(variableList2Response).optional(),
     })
     .passthrough()
     .transform((data) => {
@@ -103,7 +103,7 @@ export const collectionInformationCollectionRequest = z.lazy(() => {
       item: z.array(collectionItemRequest).optional(),
       auth: collectionAuthRequest.optional(),
       event: z.array(collectionEventRequest).optional(),
-      variable: z.array(collectionVariableRequest).optional(),
+      variable: z.array(variableList2Request).optional(),
       additionalProperties: z.record(z.unknown()).optional(),
     })
     .transform((data) => ({

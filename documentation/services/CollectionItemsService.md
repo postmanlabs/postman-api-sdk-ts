@@ -38,10 +38,10 @@ Creates a folder in a collection. For a complete list of properties, refer to th
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateFolder, PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { CreateFolder, PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -50,7 +50,7 @@ import { CreateFolder, PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-sour
     folder: '12345678-65a99e60-8e0a-4b6e-b79c-7d8264cc5caa',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.createCollectionFolder(
+  const data = await postmanPostmanApiSdk.collectionItems.createCollectionFolder(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     createFolder,
   );
@@ -84,7 +84,7 @@ Creates a request in a collection. For a complete list of properties, refer to t
 import {
   AuthAttributes,
   CreateRequest,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   Raw,
   RequestAuth,
   RequestData,
@@ -94,10 +94,10 @@ import {
   RequestGraphqlModeData,
   RequestHeaderData,
   RequestQueryParams,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -148,7 +148,7 @@ import {
 
   const requestAuthType = 'basic';
 
-  const authAttributesValue = 'dolor lab';
+  const authAttributesValue = 'incididunt c';
 
   const authAttributesType = 'string';
 
@@ -203,7 +203,7 @@ import {
     events: [requestEvents],
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.createCollectionRequest(
+  const data = await postmanPostmanApiSdk.collectionItems.createCollectionRequest(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     createRequest,
     {
@@ -240,14 +240,14 @@ Creates a request response in a collection. For a complete list of request body 
 import {
   CollectionResponseCreatedResponseCode,
   CreateCollectionResponseRequest,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   Raw,
   RequestDataOptions,
   ResponseHeader2_2,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -298,7 +298,7 @@ import {
     requestObject: 'requestObject',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.createCollectionResponse(
+  const data = await postmanPostmanApiSdk.collectionItems.createCollectionResponse(
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     createCollectionResponseRequest,
     {
@@ -334,14 +334,14 @@ Gets information about a folder in a collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.getCollectionFolder(
+  const data = await postmanPostmanApiSdk.collectionItems.getCollectionFolder(
     '65a99e60-8e0a-4b6e-b79c-7d8264cc5caa',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     {
@@ -377,10 +377,10 @@ Updates a folder in a collection. For a complete list of properties, refer to th
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed, UpdateFolder } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk, UpdateFolder } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -389,7 +389,7 @@ import { PostmanApiSdkSourceOverlayed, UpdateFolder } from 'postman-api-sdk-sour
     description: 'This is a test folder.',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.updateCollectionFolder(
+  const data = await postmanPostmanApiSdk.collectionItems.updateCollectionFolder(
     '65a99e60-8e0a-4b6e-b79c-7d8264cc5caa',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     updateFolder,
@@ -420,14 +420,14 @@ Deletes a folder in a collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.deleteCollectionFolder(
+  const data = await postmanPostmanApiSdk.collectionItems.deleteCollectionFolder(
     '65a99e60-8e0a-4b6e-b79c-7d8264cc5caa',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );
@@ -460,14 +460,14 @@ Gets information about a request in a collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.getCollectionRequest(
+  const data = await postmanPostmanApiSdk.collectionItems.getCollectionRequest(
     'c82dd02c-4870-4907-8fcb-593a876cf05b',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     {
@@ -505,7 +505,7 @@ Updates a request in a collection. For a complete list of properties, refer to t
 ```typescript
 import {
   AuthAttributes,
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   Raw,
   RequestAuth,
   RequestData,
@@ -516,10 +516,10 @@ import {
   RequestHeaderData,
   RequestQueryParams,
   UpdateRequest,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -570,7 +570,7 @@ import {
 
   const requestAuthType = 'basic';
 
-  const authAttributesValue = 'dolor lab';
+  const authAttributesValue = 'incididunt c';
 
   const authAttributesType = 'string';
 
@@ -625,7 +625,7 @@ import {
     events: [requestEvents],
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.updateCollectionRequest(
+  const data = await postmanPostmanApiSdk.collectionItems.updateCollectionRequest(
     'c82dd02c-4870-4907-8fcb-593a876cf05b',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     updateRequest,
@@ -656,14 +656,14 @@ Deletes a request in a collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.deleteCollectionRequest(
+  const data = await postmanPostmanApiSdk.collectionItems.deleteCollectionRequest(
     'c82dd02c-4870-4907-8fcb-593a876cf05b',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );
@@ -696,14 +696,14 @@ Gets information about a response in a collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.getCollectionResponse(
+  const data = await postmanPostmanApiSdk.collectionItems.getCollectionResponse(
     'cc364734-7dfd-4bfc-897d-be763dcdbb07',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     {
@@ -740,16 +740,16 @@ Updates a response in a collection. For a complete list of properties, see the [
 
 ```typescript
 import {
-  PostmanApiSdkSourceOverlayed,
+  PostmanPostmanApiSdk,
   Raw,
   RequestDataOptions,
   ResponseHeader2_2,
   UpdateCollectionResponse1,
   UpdateCollectionResponseResponseCode,
-} from 'postman-api-sdk-source-overlayed';
+} from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -800,7 +800,7 @@ import {
     requestObject: 'requestObject',
   };
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.updateCollectionResponse(
+  const data = await postmanPostmanApiSdk.collectionItems.updateCollectionResponse(
     'cc364734-7dfd-4bfc-897d-be763dcdbb07',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     updateCollectionResponse1,
@@ -831,14 +831,14 @@ Deletes a response in a collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdkSourceOverlayed } from 'postman-api-sdk-source-overlayed';
+import { PostmanPostmanApiSdk } from 'postman-postman-api-sdk';
 
 (async () => {
-  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
+  const postmanPostmanApiSdk = new PostmanPostmanApiSdk({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdkSourceOverlayed.collectionItems.deleteCollectionResponse(
+  const data = await postmanPostmanApiSdk.collectionItems.deleteCollectionResponse(
     'cc364734-7dfd-4bfc-897d-be763dcdbb07',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );

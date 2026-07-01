@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  EnvironmentVariables,
-  environmentVariables,
-  environmentVariablesRequest,
-  environmentVariablesResponse,
-} from './environment-variables';
+  CreateEnvironmentEnvironmentValues,
+  createEnvironmentEnvironmentValues,
+  createEnvironmentEnvironmentValuesRequest,
+  createEnvironmentEnvironmentValuesResponse,
+} from './create-environment-environment-values';
 
 /**
  * Zod schema for the CreateEnvironmentEnvironment model.
@@ -14,7 +14,7 @@ import {
 export const createEnvironmentEnvironment = z.lazy(() => {
   return z.object({
     name: z.string(),
-    values: z.array(environmentVariables).optional(),
+    values: z.array(createEnvironmentEnvironmentValues).optional(),
   });
 });
 
@@ -22,7 +22,7 @@ export const createEnvironmentEnvironment = z.lazy(() => {
  * Information about the environment.
  * @typedef  {CreateEnvironmentEnvironment} createEnvironmentEnvironment - Information about the environment. - Information about the environment.
  * @property {string} - The environment's name.
- * @property {EnvironmentVariables[]} - Information about the environment's variables.
+ * @property {CreateEnvironmentEnvironmentValues[]} - Information about the environment's variables.
  */
 export type CreateEnvironmentEnvironment = z.infer<typeof createEnvironmentEnvironment>;
 
@@ -35,7 +35,7 @@ export const createEnvironmentEnvironmentResponse = z.lazy(() => {
   return z
     .object({
       name: z.string(),
-      values: z.array(environmentVariablesResponse).optional(),
+      values: z.array(createEnvironmentEnvironmentValuesResponse).optional(),
     })
     .transform((data) => ({
       name: data['name'],
@@ -52,7 +52,7 @@ export const createEnvironmentEnvironmentRequest = z.lazy(() => {
   return z
     .object({
       name: z.string(),
-      values: z.array(environmentVariablesRequest).optional(),
+      values: z.array(createEnvironmentEnvironmentValuesRequest).optional(),
     })
     .transform((data) => ({
       name: data['name'],
