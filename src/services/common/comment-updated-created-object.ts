@@ -4,7 +4,7 @@ import {
   commentUpdatedCreatedObjectData,
   commentUpdatedCreatedObjectDataRequest,
   commentUpdatedCreatedObjectDataResponse,
-} from '../api/models/comment-updated-created-object-data';
+} from './models/comment-updated-created-object-data';
 
 /**
  * Zod schema for the CommentUpdatedCreatedObject model.
