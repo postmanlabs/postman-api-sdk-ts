@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
-export const successfulResponseDataType = z.union([z.literal('DEFAULT'), z.literal('TEAM_REGEX')]);
-
-export type SuccessfulResponseDataType = z.infer<typeof successfulResponseDataType>;
+export enum SuccessfulResponseDataType {
+  DEFAULT_ = 'DEFAULT',
+  TEAM_REGEX = 'TEAM_REGEX',
+}

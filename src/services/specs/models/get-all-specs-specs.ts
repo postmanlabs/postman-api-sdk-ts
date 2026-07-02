@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { SpecType, specType } from './spec-type';
 
 /**
  * Zod schema for the GetAllSpecsSpecs model.
@@ -10,7 +9,7 @@ export const getAllSpecsSpecs = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
     name: z.string().optional(),
-    type: specType.optional(),
+    type: z.string().optional(),
     createdBy: z.number().optional(),
     updatedBy: z.number().optional(),
     createdAt: z.string().optional(),
@@ -41,7 +40,7 @@ export const getAllSpecsSpecsResponse = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      type: specType.optional(),
+      type: z.string().optional(),
       createdBy: z.number().optional(),
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),
@@ -68,7 +67,7 @@ export const getAllSpecsSpecsRequest = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      type: specType.optional(),
+      type: z.string().optional(),
       createdBy: z.number().optional(),
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),

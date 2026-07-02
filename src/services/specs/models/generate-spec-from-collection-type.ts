@@ -1,9 +1,7 @@
 import { z } from 'zod';
 
-export const generateSpecFromCollectionType = z.union([
-  z.literal('OPENAPI:2.0'),
-  z.literal('OPENAPI:3.0'),
-  z.literal('OPENAPI:3.1'),
-]);
-
-export type GenerateSpecFromCollectionType = z.infer<typeof generateSpecFromCollectionType>;
+export enum GenerateSpecFromCollectionType {
+  OPENAPI_2_0 = 'OPENAPI:2.0',
+  OPENAPI_3_0 = 'OPENAPI:3.0',
+  OPENAPI_3_1 = 'OPENAPI:3.1',
+}

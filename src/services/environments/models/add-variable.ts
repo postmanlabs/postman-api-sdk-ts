@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { AddVariableType, addVariableType } from './add-variable-type';
 
 /**
  * Zod schema for the AddVariable model.
@@ -11,7 +10,7 @@ export const addVariable = z.lazy(() => {
     enabled: z.boolean().optional(),
     key: z.string().optional(),
     value: z.string().optional(),
-    type: addVariableType.optional(),
+    type: z.string().optional(),
     description: z.string().max(512).optional(),
   });
 });
@@ -41,7 +40,7 @@ export const addVariableResponse = z.lazy(() => {
       enabled: z.boolean().optional(),
       key: z.string().optional(),
       value: z.string().optional(),
-      type: addVariableType.optional(),
+      type: z.string().optional(),
       description: z.string().max(512).optional(),
     })
     .transform((data) => ({
@@ -64,7 +63,7 @@ export const addVariableRequest = z.lazy(() => {
       enabled: z.boolean().optional(),
       key: z.string().optional(),
       value: z.string().optional(),
-      type: addVariableType.optional(),
+      type: z.string().optional(),
       description: z.string().max(512).optional(),
     })
     .transform((data) => ({

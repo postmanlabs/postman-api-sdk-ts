@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { GroupRole, groupRole } from './group-role';
 
 /**
  * Zod schema for the Group model.
@@ -8,7 +7,7 @@ import { GroupRole, groupRole } from './group-role';
  */
 export const group = z.lazy(() => {
   return z.object({
-    role: groupRole.optional(),
+    role: z.string().optional(),
     id: z.number().optional(),
   });
 });
@@ -32,7 +31,7 @@ export type Group = z.infer<typeof group>;
 export const groupResponse = z.lazy(() => {
   return z
     .object({
-      role: groupRole.optional(),
+      role: z.string().optional(),
       id: z.number().optional(),
     })
     .transform((data) => ({
@@ -49,7 +48,7 @@ export const groupResponse = z.lazy(() => {
 export const groupRequest = z.lazy(() => {
   return z
     .object({
-      role: groupRole.optional(),
+      role: z.string().optional(),
       id: z.number().optional(),
     })
     .transform((data) => ({

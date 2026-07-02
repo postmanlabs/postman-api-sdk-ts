@@ -1,6 +1,4 @@
 import { z } from 'zod';
-import { ComponentType, componentType } from './component-type';
-import { ComponentContentFormat, componentContentFormat } from './component-content-format';
 
 /**
  * Zod schema for the CreateComponent model.
@@ -14,9 +12,9 @@ export const createComponent = z.lazy(() => {
       .min(1)
       .max(60)
       .regex(/^[a-zA-Z0-9\-_.]+$/),
-    type: componentType,
+    type: z.string(),
     content: z.string(),
-    format: componentContentFormat.optional(),
+    format: z.string().optional(),
   });
 });
 
@@ -43,9 +41,9 @@ export const createComponentResponse1 = z.lazy(() => {
         .min(1)
         .max(60)
         .regex(/^[a-zA-Z0-9\-_.]+$/),
-      type: componentType,
+      type: z.string(),
       content: z.string(),
-      format: componentContentFormat.optional(),
+      format: z.string().optional(),
     })
     .transform((data) => ({
       name: data['name'],
@@ -68,9 +66,9 @@ export const createComponentRequest = z.lazy(() => {
         .min(1)
         .max(60)
         .regex(/^[a-zA-Z0-9\-_.]+$/),
-      type: componentType,
+      type: z.string(),
       content: z.string(),
-      format: componentContentFormat.optional(),
+      format: z.string().optional(),
     })
     .transform((data) => ({
       name: data['name'],

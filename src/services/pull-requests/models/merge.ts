@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { MergeStatus, mergeStatus } from './merge-status';
 
 /**
  * Zod schema for the Merge model.
@@ -8,7 +7,7 @@ import { MergeStatus, mergeStatus } from './merge-status';
  */
 export const merge = z.lazy(() => {
   return z.object({
-    status: mergeStatus.optional(),
+    status: z.string().optional(),
   });
 });
 
@@ -31,7 +30,7 @@ export type Merge = z.infer<typeof merge>;
 export const mergeResponse = z.lazy(() => {
   return z
     .object({
-      status: mergeStatus.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       status: data['status'],
@@ -46,7 +45,7 @@ export const mergeResponse = z.lazy(() => {
 export const mergeRequest = z.lazy(() => {
   return z
     .object({
-      status: mergeStatus.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       status: data['status'],

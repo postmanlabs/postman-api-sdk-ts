@@ -57,14 +57,14 @@ Gets information about all APIs in a workspace.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.getApis({
+  const data = await postmanApiSdkSourceOverlayed.api.getApis({
     workspaceId: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     createdBy: 12345678,
     cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
@@ -97,10 +97,10 @@ Creates an API.
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateUpdateApi, PostmanApiSdk } from 'postman-api-sdk';
+import { CreateUpdateApi, PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -110,7 +110,7 @@ import { CreateUpdateApi, PostmanApiSdk } from 'postman-api-sdk';
     description: 'This is a test API.',
   };
 
-  const data = await postmanApiSdk.api.createApi(createUpdateApi, {
+  const data = await postmanApiSdkSourceOverlayed.api.createApi(createUpdateApi, {
     workspaceId: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 
@@ -139,18 +139,21 @@ Gets information about an API. **Note:** - Git-connected APIs will only return t
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { ApiInclude, PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const apiInclude = 'collections';
+  const apiInclude = ApiInclude.COLLECTIONS;
 
-  const data = await postmanApiSdk.api.getApi('90ca9f5a-c4c4-11ed-afa1-0242ac120002', {
-    include: [apiInclude],
-  });
+  const data = await postmanApiSdkSourceOverlayed.api.getApi(
+    '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
+    {
+      include: [apiInclude],
+    },
+  );
 
   console.log(data);
 })();
@@ -177,10 +180,10 @@ Updates an API.
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateUpdateApi, PostmanApiSdk } from 'postman-api-sdk';
+import { CreateUpdateApi, PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -190,7 +193,7 @@ import { CreateUpdateApi, PostmanApiSdk } from 'postman-api-sdk';
     description: 'This is a test API.',
   };
 
-  const data = await postmanApiSdk.api.updateApi(
+  const data = await postmanApiSdkSourceOverlayed.api.updateApi(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     createUpdateApi,
   );
@@ -215,14 +218,16 @@ Deletes an API. On success, this returns an HTTP `204 No Content` response.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.deleteApi('90ca9f5a-c4c4-11ed-afa1-0242ac120002');
+  const data = await postmanApiSdkSourceOverlayed.api.deleteApi(
+    '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
+  );
 
   console.log(data);
 })();
@@ -253,11 +258,12 @@ import {
   AddApiCollection,
   CopyCollectionToApi,
   CopyCollectionToApiData,
-  PostmanApiSdk,
-} from 'postman-api-sdk';
+  CopyCollectionToApiOperationType,
+  PostmanApiSdkSourceOverlayed,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -265,14 +271,14 @@ import {
     collectionId: '12345678-61867bcc-c4c1-11ed-afa1-0242ac120002',
   };
 
-  const copyCollectionToApiOperationType = 'COPY_COLLECTION';
+  const copyCollectionToApiOperationType = CopyCollectionToApiOperationType.COPY_COLLECTION;
 
   const copyCollectionToApi: CopyCollectionToApi = {
     data: copyCollectionToApiData,
     operationType: copyCollectionToApiOperationType,
   };
 
-  const data = await postmanApiSdk.api.addApiCollection(
+  const data = await postmanApiSdkSourceOverlayed.api.addApiCollection(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     copyCollectionToApi,
   );
@@ -303,14 +309,14 @@ Gets a collection attached to an API. You can use the `versionId` query paramete
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.getApiCollection(
+  const data = await postmanApiSdkSourceOverlayed.api.getApiCollection(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '12345678-61867bcc-c4c1-11ed-afa1-0242ac120002',
     {
@@ -343,14 +349,14 @@ Gets all comments left by users in an API's collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.getApiCollectionComments(
+  const data = await postmanApiSdkSourceOverlayed.api.getApiCollectionComments(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '12345678-61867bcc-c4c1-11ed-afa1-0242ac120002',
   );
@@ -381,14 +387,20 @@ Creates a comment on an API's collection. To create a reply on an existing comme
 **Example Usage Code Snippet**
 
 ```typescript
-import { CommentCreate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api-sdk';
+import {
+  CommentCreate,
+  PostmanApiSdkSourceOverlayed,
+  TaggedUsers,
+  UserName,
+  UserNameType,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const userNameType = 'user';
+  const userNameType = UserNameType.USER;
 
   const userName: UserName = {
     type: userNameType,
@@ -405,7 +417,7 @@ import { CommentCreate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api
     tags: taggedUsers,
   };
 
-  const data = await postmanApiSdk.api.createApiCollectionComment(
+  const data = await postmanApiSdkSourceOverlayed.api.createApiCollectionComment(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '12345678-61867bcc-c4c1-11ed-afa1-0242ac120002',
     commentCreate,
@@ -438,14 +450,20 @@ Updates a comment on an API's collection. **Note:** This endpoint accepts a max 
 **Example Usage Code Snippet**
 
 ```typescript
-import { CommentUpdate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api-sdk';
+import {
+  CommentUpdate,
+  PostmanApiSdkSourceOverlayed,
+  TaggedUsers,
+  UserName,
+  UserNameType,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const userNameType = 'user';
+  const userNameType = UserNameType.USER;
 
   const userName: UserName = {
     type: userNameType,
@@ -461,7 +479,7 @@ import { CommentUpdate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api
     tags: taggedUsers,
   };
 
-  const data = await postmanApiSdk.api.updateApiCollectionComment(
+  const data = await postmanApiSdkSourceOverlayed.api.updateApiCollectionComment(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '12345678-61867bcc-c4c1-11ed-afa1-0242ac120002',
     46814,
@@ -490,14 +508,14 @@ Deletes a comment from an API's collection. On success, this returns an HTTP `20
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.deleteApiCollectionComment(
+  const data = await postmanApiSdkSourceOverlayed.api.deleteApiCollectionComment(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '12345678-61867bcc-c4c1-11ed-afa1-0242ac120002',
     46814,
@@ -528,14 +546,14 @@ Syncs a collection attached to an API with the API schema. This is an asynchrono
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.syncCollectionWithSchema(
+  const data = await postmanApiSdkSourceOverlayed.api.syncCollectionWithSchema(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '12345678-61867bcc-c4c1-11ed-afa1-0242ac120002',
   );
@@ -564,14 +582,16 @@ Gets all comments left by users in an API.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.getApiComments('90ca9f5a-c4c4-11ed-afa1-0242ac120002');
+  const data = await postmanApiSdkSourceOverlayed.api.getApiComments(
+    '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
+  );
 
   console.log(data);
 })();
@@ -598,14 +618,20 @@ Creates a comment on an API. To create a reply on an existing comment, include t
 **Example Usage Code Snippet**
 
 ```typescript
-import { CommentCreate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api-sdk';
+import {
+  CommentCreate,
+  PostmanApiSdkSourceOverlayed,
+  TaggedUsers,
+  UserName,
+  UserNameType,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const userNameType = 'user';
+  const userNameType = UserNameType.USER;
 
   const userName: UserName = {
     type: userNameType,
@@ -622,7 +648,7 @@ import { CommentCreate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api
     tags: taggedUsers,
   };
 
-  const data = await postmanApiSdk.api.createApiComment(
+  const data = await postmanApiSdkSourceOverlayed.api.createApiComment(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     commentCreate,
   );
@@ -653,14 +679,20 @@ Updates a comment on an API. **Note:** This endpoint accepts a max of 10,000 cha
 **Example Usage Code Snippet**
 
 ```typescript
-import { CommentUpdate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api-sdk';
+import {
+  CommentUpdate,
+  PostmanApiSdkSourceOverlayed,
+  TaggedUsers,
+  UserName,
+  UserNameType,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const userNameType = 'user';
+  const userNameType = UserNameType.USER;
 
   const userName: UserName = {
     type: userNameType,
@@ -676,7 +708,7 @@ import { CommentUpdate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api
     tags: taggedUsers,
   };
 
-  const data = await postmanApiSdk.api.updateApiComment(
+  const data = await postmanApiSdkSourceOverlayed.api.updateApiComment(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     46814,
     commentUpdate,
@@ -703,14 +735,14 @@ Deletes a comment from an API. On success, this returns an HTTP `204 No Content`
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.deleteApiComment(
+  const data = await postmanApiSdkSourceOverlayed.api.deleteApiComment(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     46814,
   );
@@ -744,15 +776,16 @@ import {
   CreateApiSchema,
   CreateApiSchemaFiles,
   CreateApiSchemaFilesRoot,
-  PostmanApiSdk,
-} from 'postman-api-sdk';
+  CreateApiSchemaType,
+  PostmanApiSdkSourceOverlayed,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const createApiSchemaType = 'proto:2';
+  const createApiSchemaType = CreateApiSchemaType.PROTO_2;
 
   const createApiSchemaFilesRoot: CreateApiSchemaFilesRoot = {
     enabled: true,
@@ -769,7 +802,7 @@ import {
     files: [createApiSchemaFiles],
   };
 
-  const data = await postmanApiSdk.api.createApiSchema(
+  const data = await postmanApiSdkSourceOverlayed.api.createApiSchema(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     createApiSchema,
   );
@@ -801,14 +834,14 @@ Gets information about API schema. You can use the `versionId` query parameter t
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.getApiSchema(
+  const data = await postmanApiSdkSourceOverlayed.api.getApiSchema(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '5381f010-c4c1-11ed-afa1-0242ac120002',
     {
@@ -845,14 +878,14 @@ Gets the files in an API schema. You can use the `versionId` query parameter to 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.getApiSchemaFiles(
+  const data = await postmanApiSdkSourceOverlayed.api.getApiSchemaFiles(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '5381f010-c4c1-11ed-afa1-0242ac120002',
     {
@@ -890,14 +923,14 @@ Gets an API schema file contents at the defined path. You can use the `versionId
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.getApiSchemaFileContents(
+  const data = await postmanApiSdkSourceOverlayed.api.getApiSchemaFileContents(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '5381f010-c4c1-11ed-afa1-0242ac120002',
     'postman/collection/c1.json',
@@ -936,11 +969,11 @@ Creates or updates an API schema file. **Note:** - If the provided file path exi
 import {
   CreateUpdateApiSchemaFile,
   CreateUpdateApiSchemaFileRoot,
-  PostmanApiSdk,
-} from 'postman-api-sdk';
+  PostmanApiSdkSourceOverlayed,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -955,7 +988,7 @@ import {
       '{\n  "openapi": "3.1.0",\n  "info": {\n    "version": "1.0.0",\n    "title": "Sample API",\n    "description": "Buy or rent spacecrafts"\n  },\n  "paths": {\n    "/spacecrafts/{spacecraftId}": {\n      "parameters": [\n        {\n          "name": "spacecraftId",\n          "description": "The unique identifier of the spacecraft",\n          "in": "path",\n          "required": true,\n          "schema": {\n            "$ref": "#/components/schemas/SpacecraftId"\n          }\n        }\n      ],\n      "get": {\n        "summary": "Read a spacecraft",\n        "responses": {\n          "200": {\n            "description": "The spacecraft corresponding to the provided `spacecraftId`",\n            "content": {\n              "application/json": {\n                "schema": {\n                  "$ref": "#/components/schemas/Spacecraft"\n                }\n              }\n            }\n          },\n          "404": {\n            "description": "No spacecraft found for the provided `spacecraftId`",\n            "content": {\n              "application/json": {\n                "schema": {\n                  "$ref": "#/components/schemas/Error"\n                }\n              }\n            }\n          },\n          "500": {\n            "description": "Unexpected error",\n            "content": {\n              "application/json": {\n                "schema": {\n                  "$ref": "#/components/schemas/Error"\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  },\n  "components": {\n    "schemas": {\n      "SpacecraftId": {\n        "description": "The unique identifier of a spacecraft",\n        "type": "string"\n      },\n      "Spacecraft": {\n        "type": "object",\n        "required": [\n          "id",\n          "name",\n          "type"\n        ],\n        "properties": {\n          "id": {\n            "$ref": "#/components/schemas/SpacecraftId"\n          },\n          "name": {\n            "type": "string"\n          },\n          "type": {\n            "type": "string",\n            "enum": [\n              "capsule",\n              "probe",\n              "satellite",\n              "spaceplane",\n              "station"\n            ]\n          },\n          "description": {\n            "type": "string"\n          }\n        }\n      },\n      "Error": {\n        "type": "object",\n        "required": [\n          "message"\n        ],\n        "properties": {\n          "message": {\n            "description": "A human readable error message",\n            "type": "string"\n          }\n        }\n      }\n    },\n    "securitySchemes": {\n      "ApiKey": {\n        "type": "apiKey",\n        "in": "header",\n        "name": "X-Api-Key"\n      }\n    }\n  },\n  "security": [\n    {\n      "ApiKey": [\n\n      ]\n    }\n  ]\n}',
   };
 
-  const data = await postmanApiSdk.api.createUpdateApiSchemaFile(
+  const data = await postmanApiSdkSourceOverlayed.api.createUpdateApiSchemaFile(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '5381f010-c4c1-11ed-afa1-0242ac120002',
     'postman/collection/c1.json',
@@ -984,14 +1017,14 @@ Deletes a file in an API schema. On success, this returns an HTTP `204 No Conten
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.deleteApiSchemaFile(
+  const data = await postmanApiSdkSourceOverlayed.api.deleteApiSchemaFile(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '5381f010-c4c1-11ed-afa1-0242ac120002',
     'postman/collection/c1.json',
@@ -1022,14 +1055,14 @@ Gets the status of an asynchronous task.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.getStatusOfAnAsyncApiTask(
+  const data = await postmanApiSdkSourceOverlayed.api.getStatusOfAnAsyncApiTask(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '90ca9f5a-c4c4-21ed-afa1-0242ac120002',
   );
@@ -1060,17 +1093,21 @@ Gets all the published versions of an API.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.getApiVersions('90ca9f5a-c4c4-11ed-afa1-0242ac120002', {
-    cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
-    limit: 10,
-  });
+  const data = await postmanApiSdkSourceOverlayed.api.getApiVersions(
+    '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
+    {
+      cursor:
+        'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
+      limit: 10,
+    },
+  );
 
   console.log(data);
 })();
@@ -1102,11 +1139,11 @@ import {
   CreateVersionSchemaNotGitLinked,
   CreateVersionSchemaNotGitLinkedCollections,
   CreateVersionSchemaNotGitLinkedSchemas,
-  PostmanApiSdk,
-} from 'postman-api-sdk';
+  PostmanApiSdkSourceOverlayed,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -1125,7 +1162,7 @@ import {
     releaseNotes: 'This is the first release.',
   };
 
-  const data = await postmanApiSdk.api.createApiVersion(
+  const data = await postmanApiSdkSourceOverlayed.api.createApiVersion(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     createVersionSchemaNotGitLinked,
   );
@@ -1155,14 +1192,14 @@ Gets information about an API version. **Note:** - For API editors, this endpoin
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.getApiVersion(
+  const data = await postmanApiSdkSourceOverlayed.api.getApiVersion(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );
@@ -1193,10 +1230,10 @@ Updates an API version. **Note:** This endpoint returns an HTTP `404 Not Found` 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk, UpdateApiVersion } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed, UpdateApiVersion } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -1205,7 +1242,7 @@ import { PostmanApiSdk, UpdateApiVersion } from 'postman-api-sdk';
     releaseNotes: 'This is the first public release update.',
   };
 
-  const data = await postmanApiSdk.api.updateApiVersion(
+  const data = await postmanApiSdkSourceOverlayed.api.updateApiVersion(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     updateApiVersion,
@@ -1232,14 +1269,14 @@ Deletes an API version. On success, this returns an HTTP `204 No Content` respon
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.api.deleteApiVersion(
+  const data = await postmanApiSdkSourceOverlayed.api.deleteApiVersion(
     '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
   );

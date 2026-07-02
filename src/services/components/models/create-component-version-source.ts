@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { SourceType, sourceType } from './source-type';
 
 /**
  * Zod schema for the CreateComponentVersionSource model.
@@ -8,7 +7,7 @@ import { SourceType, sourceType } from './source-type';
  */
 export const createComponentVersionSource = z.lazy(() => {
   return z.object({
-    type: sourceType.optional(),
+    type: z.string().optional(),
   });
 });
 
@@ -27,7 +26,7 @@ export type CreateComponentVersionSource = z.infer<typeof createComponentVersion
 export const createComponentVersionSourceResponse = z.lazy(() => {
   return z
     .object({
-      type: sourceType.optional(),
+      type: z.string().optional(),
     })
     .transform((data) => ({
       type: data['type'],
@@ -42,7 +41,7 @@ export const createComponentVersionSourceResponse = z.lazy(() => {
 export const createComponentVersionSourceRequest = z.lazy(() => {
   return z
     .object({
-      type: sourceType.optional(),
+      type: z.string().optional(),
     })
     .transform((data) => ({
       type: data['type'],

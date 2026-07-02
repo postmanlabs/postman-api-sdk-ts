@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  RemovePartnerResponseResultsStatus,
-  removePartnerResponseResultsStatus,
-} from './remove-partner-response-results-status';
 
 /**
  * Zod schema for the RemovePartnerResponseResults model.
@@ -13,7 +9,7 @@ export const removePartnerResponseResults = z.lazy(() => {
   return z.object({
     error: z.string().optional(),
     message: z.string().optional(),
-    status: removePartnerResponseResultsStatus.optional(),
+    status: z.string().optional(),
     userId: z.string().optional(),
   });
 });
@@ -41,7 +37,7 @@ export const removePartnerResponseResultsResponse = z.lazy(() => {
     .object({
       error: z.string().optional(),
       message: z.string().optional(),
-      status: removePartnerResponseResultsStatus.optional(),
+      status: z.string().optional(),
       userId: z.string().optional(),
     })
     .transform((data) => ({
@@ -62,7 +58,7 @@ export const removePartnerResponseResultsRequest = z.lazy(() => {
     .object({
       error: z.string().optional(),
       message: z.string().optional(),
-      status: removePartnerResponseResultsStatus.optional(),
+      status: z.string().optional(),
       userId: z.string().optional(),
     })
     .transform((data) => ({

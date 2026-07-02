@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { TeamRoles, teamRoles } from './team-roles';
 
 /**
  * Zod schema for the OrgsInfo model.
@@ -8,7 +7,7 @@ import { TeamRoles, teamRoles } from './team-roles';
  */
 export const orgsInfo = z.lazy(() => {
   return z.object({
-    _orgId_: z.array(teamRoles).optional(),
+    _orgId_: z.array(z.string()).optional(),
   });
 });
 
@@ -27,7 +26,7 @@ export type OrgsInfo = z.infer<typeof orgsInfo>;
 export const orgsInfoResponse = z.lazy(() => {
   return z
     .object({
-      '{{orgId}}': z.array(teamRoles).optional(),
+      '{{orgId}}': z.array(z.string()).optional(),
     })
     .transform((data) => ({
       _orgId_: data['{{orgId}}'],
@@ -42,7 +41,7 @@ export const orgsInfoResponse = z.lazy(() => {
 export const orgsInfoRequest = z.lazy(() => {
   return z
     .object({
-      _orgId_: z.array(teamRoles).optional(),
+      _orgId_: z.array(z.string()).optional(),
     })
     .transform((data) => ({
       '{{orgId}}': data['_orgId_'],

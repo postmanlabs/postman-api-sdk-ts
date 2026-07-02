@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  RequestApprovedRequestStatus,
-  requestApprovedRequestStatus,
-} from './request-approved-request-status';
 import { Element, element, elementRequest, elementResponse } from './element';
 
 /**
@@ -16,7 +12,7 @@ export const requestApprovedRequest1 = z.lazy(() => {
     createdAt: z.string().optional(),
     createdBy: z.number().optional(),
     message: z.string().optional(),
-    status: requestApprovedRequestStatus.optional(),
+    status: z.string().optional(),
     element: element.optional(),
   });
 });
@@ -45,7 +41,7 @@ export const requestApprovedRequest1Response = z.lazy(() => {
       createdAt: z.string().optional(),
       createdBy: z.number().optional(),
       message: z.string().optional(),
-      status: requestApprovedRequestStatus.optional(),
+      status: z.string().optional(),
       element: elementResponse.optional(),
     })
     .transform((data) => ({
@@ -70,7 +66,7 @@ export const requestApprovedRequest1Request = z.lazy(() => {
       createdAt: z.string().optional(),
       createdBy: z.number().optional(),
       message: z.string().optional(),
-      status: requestApprovedRequestStatus.optional(),
+      status: z.string().optional(),
       element: elementRequest.optional(),
     })
     .transform((data) => ({

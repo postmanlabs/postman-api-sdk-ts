@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
-export const fileType = z.union([z.literal('ROOT'), z.literal('DEFAULT')]);
-
-export type FileType = z.infer<typeof fileType>;
+export enum FileType {
+  ROOT = 'ROOT',
+  DEFAULT_ = 'DEFAULT',
+}

@@ -1,5 +1,5 @@
-import { MockSortServedAt, mockSortServedAt } from './models/mock-sort-served-at';
-import { AscDesc, ascDesc } from '../common/asc-desc';
+import { MockSortServedAt } from './models/mock-sort-served-at';
+import { AscDesc } from '../common/asc-desc';
 
 export interface GetMocksParams {
   teamId?: string;

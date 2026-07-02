@@ -1,12 +1,4 @@
 import { z } from 'zod';
-import {
-  MockCreateUpdateResponseMockConfigDelayType,
-  mockCreateUpdateResponseMockConfigDelayType,
-} from './mock-create-update-response-mock-config-delay-type';
-import {
-  MockCreateUpdateResponseMockConfigDelayPreset,
-  mockCreateUpdateResponseMockConfigDelayPreset,
-} from './mock-create-update-response-mock-config-delay-preset';
 
 /**
  * Zod schema for the MockCreateUpdateResponseMockConfigDelay model.
@@ -15,9 +7,9 @@ import {
  */
 export const mockCreateUpdateResponseMockConfigDelay = z.lazy(() => {
   return z.object({
-    type: mockCreateUpdateResponseMockConfigDelayType.optional(),
+    type: z.string().optional(),
     duration: z.number().optional(),
-    preset: mockCreateUpdateResponseMockConfigDelayPreset.optional(),
+    preset: z.string().optional(),
   });
 });
 
@@ -44,9 +36,9 @@ export type MockCreateUpdateResponseMockConfigDelay = z.infer<
 export const mockCreateUpdateResponseMockConfigDelayResponse = z.lazy(() => {
   return z
     .object({
-      type: mockCreateUpdateResponseMockConfigDelayType.optional(),
+      type: z.string().optional(),
       duration: z.number().optional(),
-      preset: mockCreateUpdateResponseMockConfigDelayPreset.optional(),
+      preset: z.string().optional(),
     })
     .transform((data) => ({
       type: data['type'],
@@ -63,9 +55,9 @@ export const mockCreateUpdateResponseMockConfigDelayResponse = z.lazy(() => {
 export const mockCreateUpdateResponseMockConfigDelayRequest = z.lazy(() => {
   return z
     .object({
-      type: mockCreateUpdateResponseMockConfigDelayType.optional(),
+      type: z.string().optional(),
       duration: z.number().optional(),
-      preset: mockCreateUpdateResponseMockConfigDelayPreset.optional(),
+      preset: z.string().optional(),
     })
     .transform((data) => ({
       type: data['type'],

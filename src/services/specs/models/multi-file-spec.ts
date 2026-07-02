@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { MultiFileSpecType, multiFileSpecType } from './multi-file-spec-type';
 
 /**
  * Zod schema for the MultiFileSpec model.
@@ -10,7 +9,7 @@ export const multiFileSpec = z.lazy(() => {
   return z.object({
     path: z.string(),
     content: z.string(),
-    type: multiFileSpecType,
+    type: z.string(),
   });
 });
 
@@ -36,7 +35,7 @@ export const multiFileSpecResponse = z.lazy(() => {
     .object({
       path: z.string(),
       content: z.string(),
-      type: multiFileSpecType,
+      type: z.string(),
     })
     .transform((data) => ({
       path: data['path'],
@@ -55,7 +54,7 @@ export const multiFileSpecRequest = z.lazy(() => {
     .object({
       path: z.string(),
       content: z.string(),
-      type: multiFileSpecType,
+      type: z.string(),
     })
     .transform((data) => ({
       path: data['path'],

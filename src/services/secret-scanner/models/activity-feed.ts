@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { ActivityFeedStatus, activityFeedStatus } from './activity-feed-status';
 
 /**
  * Zod schema for the ActivityFeed model.
@@ -10,7 +9,7 @@ export const activityFeed = z.lazy(() => {
   return z.object({
     resolvedAt: z.string().optional(),
     resolvedBy: z.number().optional(),
-    status: activityFeedStatus.optional(),
+    status: z.string().optional(),
   });
 });
 
@@ -38,7 +37,7 @@ export const activityFeedResponse = z.lazy(() => {
     .object({
       resolvedAt: z.string().optional(),
       resolvedBy: z.number().optional(),
-      status: activityFeedStatus.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       resolvedAt: data['resolvedAt'],
@@ -57,7 +56,7 @@ export const activityFeedRequest = z.lazy(() => {
     .object({
       resolvedAt: z.string().optional(),
       resolvedBy: z.number().optional(),
-      status: activityFeedStatus.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       resolvedAt: data['resolvedAt'],

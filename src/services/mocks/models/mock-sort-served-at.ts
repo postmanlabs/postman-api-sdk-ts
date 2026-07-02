@@ -1,5 +1,5 @@
 import { z } from 'zod';
 
-export const mockSortServedAt = z.literal('servedAt');
-
-export type MockSortServedAt = z.infer<typeof mockSortServedAt>;
+export enum MockSortServedAt {
+  SERVED_AT = 'servedAt',
+}

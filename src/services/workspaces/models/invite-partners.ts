@@ -1,10 +1,4 @@
 import { z } from 'zod';
-import { InvitePartnersAction, invitePartnersAction } from './invite-partners-action';
-import {
-  InvitePartnersTargetEntity,
-  invitePartnersTargetEntity,
-} from './invite-partners-target-entity';
-import { RoleId, roleId } from './role-id';
 import {
   ManagePartnerWorkspaceInvitesTargetObjectEmails,
   managePartnerWorkspaceInvitesTargetObjectEmails,
@@ -19,10 +13,10 @@ import {
  */
 export const invitePartners = z.lazy(() => {
   return z.object({
-    action: invitePartnersAction,
-    targetEntity: invitePartnersTargetEntity,
+    action: z.string(),
+    targetEntity: z.string(),
     targetEntityId: z.string().min(1).max(60),
-    roleId: roleId,
+    roleId: z.string(),
     target: managePartnerWorkspaceInvitesTargetObjectEmails,
   });
 });
@@ -51,10 +45,10 @@ export type InvitePartners = z.infer<typeof invitePartners>;
 export const invitePartnersResponse = z.lazy(() => {
   return z
     .object({
-      action: invitePartnersAction,
-      targetEntity: invitePartnersTargetEntity,
+      action: z.string(),
+      targetEntity: z.string(),
       targetEntityId: z.string().min(1).max(60),
-      roleId: roleId,
+      roleId: z.string(),
       target: managePartnerWorkspaceInvitesTargetObjectEmailsResponse,
     })
     .transform((data) => ({
@@ -74,10 +68,10 @@ export const invitePartnersResponse = z.lazy(() => {
 export const invitePartnersRequest = z.lazy(() => {
   return z
     .object({
-      action: invitePartnersAction,
-      targetEntity: invitePartnersTargetEntity,
+      action: z.string(),
+      targetEntity: z.string(),
       targetEntityId: z.string().min(1).max(60),
-      roleId: roleId,
+      roleId: z.string(),
       target: managePartnerWorkspaceInvitesTargetObjectEmailsRequest,
     })
     .transform((data) => ({

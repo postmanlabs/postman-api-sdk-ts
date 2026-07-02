@@ -1,5 +1,5 @@
-import { AscDescDefaultDesc, ascDescDefaultDesc } from '../common/asc-desc-default-desc';
-import { TagsEntityType, tagsEntityType } from './models/tags-entity-type';
+import { AscDescDefaultDesc } from '../common/asc-desc-default-desc';
+import { TagsEntityType } from './models/tags-entity-type';
 
 export interface GetTaggedEntitiesParams {
   limit?: number;

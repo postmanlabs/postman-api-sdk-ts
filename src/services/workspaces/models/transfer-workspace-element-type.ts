@@ -1,12 +1,10 @@
 import { z } from 'zod';
 
-export const transferWorkspaceElementType = z.union([
-  z.literal('collection'),
-  z.literal('environment'),
-  z.literal('api'),
-  z.literal('flow'),
-  z.literal('mock'),
-  z.literal('monitor'),
-]);
-
-export type TransferWorkspaceElementType = z.infer<typeof transferWorkspaceElementType>;
+export enum TransferWorkspaceElementType {
+  COLLECTION = 'collection',
+  ENVIRONMENT = 'environment',
+  API = 'api',
+  FLOW = 'flow',
+  MOCK = 'mock',
+  MONITOR = 'monitor',
+}

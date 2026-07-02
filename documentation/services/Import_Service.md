@@ -28,24 +28,28 @@ Imports an OpenAPI definition into Postman as a new [Postman Collection](https:/
 
 ```typescript
 import {
+  FolderStrategy,
   GenerateCollectionOptions,
   ImportOpenApiDefinition,
+  IndentCharacter,
   JsonSchema,
-  PostmanApiSdk,
-} from 'postman-api-sdk';
+  JsonSchemaType,
+  PostmanApiSdkSourceOverlayed,
+  RequestNameSource,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const jsonSchemaType = 'json';
+  const jsonSchemaType = JsonSchemaType.JSON;
 
-  const requestNameSource = 'Fallback';
+  const requestNameSource = RequestNameSource.FALLBACK;
 
-  const indentCharacter = 'Tab';
+  const indentCharacter = IndentCharacter.TAB;
 
-  const folderStrategy = 'Paths';
+  const folderStrategy = FolderStrategy.PATHS;
 
   const generateCollectionOptions: GenerateCollectionOptions = {
     requestNameSource: requestNameSource,
@@ -65,7 +69,7 @@ import {
     options: generateCollectionOptions,
   };
 
-  const data = await postmanApiSdk.import_.importOpenApiDefinition(jsonSchema, {
+  const data = await postmanApiSdkSourceOverlayed.import_.importOpenApiDefinition(jsonSchema, {
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 

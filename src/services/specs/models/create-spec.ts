@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { SpecType, specType } from './spec-type';
 import {
   CreateSpecFiles,
   createSpecFiles,
@@ -15,7 +14,7 @@ import {
 export const createSpec = z.lazy(() => {
   return z.object({
     name: z.string(),
-    type: specType,
+    type: z.string(),
     files: z.array(createSpecFiles),
   });
 });
@@ -38,7 +37,7 @@ export const createSpecResponse1 = z.lazy(() => {
   return z
     .object({
       name: z.string(),
-      type: specType,
+      type: z.string(),
       files: z.array(createSpecFilesResponse),
     })
     .transform((data) => ({
@@ -57,7 +56,7 @@ export const createSpecRequest = z.lazy(() => {
   return z
     .object({
       name: z.string(),
-      type: specType,
+      type: z.string(),
       files: z.array(createSpecFilesRequest),
     })
     .transform((data) => ({

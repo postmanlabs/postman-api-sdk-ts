@@ -1,9 +1,4 @@
 import { z } from 'zod';
-import {
-  GenerateSpecFromCollectionType,
-  generateSpecFromCollectionType,
-} from './generate-spec-from-collection-type';
-import { Format, format } from './format';
 
 /**
  * Zod schema for the GenerateSpecFromCollection model.
@@ -13,8 +8,8 @@ import { Format, format } from './format';
 export const generateSpecFromCollection = z.lazy(() => {
   return z.object({
     name: z.string(),
-    type: generateSpecFromCollectionType.optional(),
-    format: format.optional(),
+    type: z.string().optional(),
+    format: z.string().optional(),
   });
 });
 
@@ -36,8 +31,8 @@ export const generateSpecFromCollectionResponse = z.lazy(() => {
   return z
     .object({
       name: z.string(),
-      type: generateSpecFromCollectionType.optional(),
-      format: format.optional(),
+      type: z.string().optional(),
+      format: z.string().optional(),
     })
     .transform((data) => ({
       name: data['name'],
@@ -55,8 +50,8 @@ export const generateSpecFromCollectionRequest = z.lazy(() => {
   return z
     .object({
       name: z.string(),
-      type: generateSpecFromCollectionType.optional(),
-      format: format.optional(),
+      type: z.string().optional(),
+      format: z.string().optional(),
     })
     .transform((data) => ({
       name: data['name'],

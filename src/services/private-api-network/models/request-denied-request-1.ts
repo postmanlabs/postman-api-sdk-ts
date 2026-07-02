@@ -1,9 +1,5 @@
 import { z } from 'zod';
 import {
-  RequestDeniedRequestStatus,
-  requestDeniedRequestStatus,
-} from './request-denied-request-status';
-import {
   PanRequestElement,
   panRequestElement,
   panRequestElementRequest,
@@ -27,7 +23,7 @@ export const requestDeniedRequest1 = z.lazy(() => {
     createdAt: z.string().optional(),
     createdBy: z.number().optional(),
     message: z.string().optional(),
-    status: requestDeniedRequestStatus.optional(),
+    status: z.string().optional(),
     element: panRequestElement.optional(),
     response: panRequestResponse.optional(),
   });
@@ -58,7 +54,7 @@ export const requestDeniedRequest1Response = z.lazy(() => {
       createdAt: z.string().optional(),
       createdBy: z.number().optional(),
       message: z.string().optional(),
-      status: requestDeniedRequestStatus.optional(),
+      status: z.string().optional(),
       element: panRequestElementResponse.optional(),
       response: panRequestResponseResponse.optional(),
     })
@@ -85,7 +81,7 @@ export const requestDeniedRequest1Request = z.lazy(() => {
       createdAt: z.string().optional(),
       createdBy: z.number().optional(),
       message: z.string().optional(),
-      status: requestDeniedRequestStatus.optional(),
+      status: z.string().optional(),
       element: panRequestElementRequest.optional(),
       response: panRequestResponseRequest.optional(),
     })

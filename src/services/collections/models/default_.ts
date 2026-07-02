@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
-export const default_ = z.union([z.literal('light'), z.literal('dark')]);
-
-export type Default_ = z.infer<typeof default_>;
+export enum Default_ {
+  LIGHT = 'light',
+  DARK = 'dark',
+}

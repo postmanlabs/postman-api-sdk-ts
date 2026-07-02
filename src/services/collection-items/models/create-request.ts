@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { RequestMethod, requestMethod } from './request-method';
 import {
   RequestHeaderData,
   requestHeaderData,
@@ -12,7 +11,6 @@ import {
   requestQueryParamsRequest,
   requestQueryParamsResponse,
 } from './request-query-params';
-import { CreateRequestDataMode, createRequestDataMode } from './create-request-data-mode';
 import { RequestData, requestData, requestDataRequest, requestDataResponse } from './request-data';
 import {
   RequestGraphqlModeData,
@@ -43,11 +41,11 @@ export const createRequest = z.lazy(() => {
   return z.object({
     name: z.string().optional(),
     description: z.string().optional().nullable(),
-    method: requestMethod.optional(),
+    method: z.string().optional(),
     url: z.string().optional().nullable(),
     headerData: z.array(requestHeaderData).optional(),
     queryParams: z.array(requestQueryParams).optional(),
-    dataMode: createRequestDataMode.optional(),
+    dataMode: z.string().optional(),
     data: z.array(requestData).optional().nullable(),
     rawModeData: z.string().optional().nullable(),
     graphqlModeData: requestGraphqlModeData.optional().nullable(),
@@ -102,11 +100,11 @@ export const createRequestResponse = z.lazy(() => {
     .object({
       name: z.string().optional(),
       description: z.string().optional().nullable(),
-      method: requestMethod.optional(),
+      method: z.string().optional(),
       url: z.string().optional().nullable(),
       headerData: z.array(requestHeaderDataResponse).optional(),
       queryParams: z.array(requestQueryParamsResponse).optional(),
-      dataMode: createRequestDataMode.optional(),
+      dataMode: z.string().optional(),
       data: z.array(requestDataResponse).optional().nullable(),
       rawModeData: z.string().optional().nullable(),
       graphqlModeData: requestGraphqlModeDataResponse.optional().nullable(),
@@ -166,11 +164,11 @@ export const createRequestRequest = z.lazy(() => {
     .object({
       name: z.string().optional(),
       description: z.string().optional().nullable(),
-      method: requestMethod.optional(),
+      method: z.string().optional(),
       url: z.string().optional().nullable(),
       headerData: z.array(requestHeaderDataRequest).optional(),
       queryParams: z.array(requestQueryParamsRequest).optional(),
-      dataMode: createRequestDataMode.optional(),
+      dataMode: z.string().optional(),
       data: z.array(requestDataRequest).optional().nullable(),
       rawModeData: z.string().optional().nullable(),
       graphqlModeData: requestGraphqlModeDataRequest.optional().nullable(),

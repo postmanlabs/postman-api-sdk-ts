@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { TeamEntityInfoEntityType, teamEntityInfoEntityType } from './team-entity-info-entity-type';
 import {
   TeamEntityInfoEntityId,
   teamEntityInfoEntityId,
@@ -14,7 +13,7 @@ import {
  */
 export const teamEntityInfo = z.lazy(() => {
   return z.object({
-    entityType: teamEntityInfoEntityType,
+    entityType: z.string(),
     entityId: teamEntityInfoEntityId,
   });
 });
@@ -35,7 +34,7 @@ export type TeamEntityInfo = z.infer<typeof teamEntityInfo>;
 export const teamEntityInfoResponse = z.lazy(() => {
   return z
     .object({
-      entityType: teamEntityInfoEntityType,
+      entityType: z.string(),
       entityId: teamEntityInfoEntityIdResponse,
     })
     .transform((data) => ({
@@ -52,7 +51,7 @@ export const teamEntityInfoResponse = z.lazy(() => {
 export const teamEntityInfoRequest = z.lazy(() => {
   return z
     .object({
-      entityType: teamEntityInfoEntityType,
+      entityType: z.string(),
       entityId: teamEntityInfoEntityIdRequest,
     })
     .transform((data) => ({

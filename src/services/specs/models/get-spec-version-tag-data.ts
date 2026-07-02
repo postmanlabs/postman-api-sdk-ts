@@ -1,9 +1,4 @@
 import { z } from 'zod';
-import {
-  GetSpecVersionTagDataType,
-  getSpecVersionTagDataType,
-} from './get-spec-version-tag-data-type';
-import { FileType, fileType } from './file-type';
 
 /**
  * Zod schema for the GetSpecVersionTagData model.
@@ -18,9 +13,9 @@ export const getSpecVersionTagData = z.lazy(() => {
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
     createdBy: z.string().optional(),
-    type: getSpecVersionTagDataType.optional(),
+    type: z.string().optional(),
     path: z.string().optional(),
-    fileType: fileType.optional(),
+    fileType: z.string().optional(),
     content: z.string().optional(),
     parentId: z.string().optional(),
   });
@@ -63,9 +58,9 @@ export const getSpecVersionTagDataResponse = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       createdBy: z.string().optional(),
-      type: getSpecVersionTagDataType.optional(),
+      type: z.string().optional(),
       path: z.string().optional(),
-      fileType: fileType.optional(),
+      fileType: z.string().optional(),
       content: z.string().optional(),
       parentId: z.string().optional(),
     })
@@ -98,9 +93,9 @@ export const getSpecVersionTagDataRequest = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       createdBy: z.string().optional(),
-      type: getSpecVersionTagDataType.optional(),
+      type: z.string().optional(),
       path: z.string().optional(),
-      fileType: fileType.optional(),
+      fileType: z.string().optional(),
       content: z.string().optional(),
       parentId: z.string().optional(),
     })

@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { TokenType, tokenType } from './token-type';
 
 /**
  * Zod schema for the GenerateOauthTokenResponse model.
@@ -10,7 +9,7 @@ export const generateOauthTokenResponse = z.lazy(() => {
   return z.object({
     accessToken: z.string().optional(),
     expiresIn: z.number().optional(),
-    tokenType: tokenType.optional(),
+    tokenType: z.string().optional(),
   });
 });
 
@@ -33,7 +32,7 @@ export const generateOauthTokenResponseResponse = z.lazy(() => {
     .object({
       access_token: z.string().optional(),
       expires_in: z.number().optional(),
-      token_type: tokenType.optional(),
+      token_type: z.string().optional(),
     })
     .transform((data) => ({
       accessToken: data['access_token'],
@@ -52,7 +51,7 @@ export const generateOauthTokenResponseRequest = z.lazy(() => {
     .object({
       accessToken: z.string().optional(),
       expiresIn: z.number().optional(),
-      tokenType: tokenType.optional(),
+      tokenType: z.string().optional(),
     })
     .transform((data) => ({
       access_token: data['accessToken'],

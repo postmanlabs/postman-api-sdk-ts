@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { GetMigrationStatusStatus, getMigrationStatusStatus } from './get-migration-status-status';
 import {
   GetMigrationStatusDetails,
   getMigrationStatusDetails,
@@ -14,7 +13,7 @@ import {
  */
 export const getMigrationStatus = z.lazy(() => {
   return z.object({
-    status: getMigrationStatusStatus.optional(),
+    status: z.string().optional(),
     details: getMigrationStatusDetails.optional(),
   });
 });
@@ -35,7 +34,7 @@ export type GetMigrationStatus = z.infer<typeof getMigrationStatus>;
 export const getMigrationStatusResponse = z.lazy(() => {
   return z
     .object({
-      status: getMigrationStatusStatus.optional(),
+      status: z.string().optional(),
       details: getMigrationStatusDetailsResponse.optional(),
     })
     .transform((data) => ({
@@ -52,7 +51,7 @@ export const getMigrationStatusResponse = z.lazy(() => {
 export const getMigrationStatusRequest = z.lazy(() => {
   return z
     .object({
-      status: getMigrationStatusStatus.optional(),
+      status: z.string().optional(),
       details: getMigrationStatusDetailsRequest.optional(),
     })
     .transform((data) => ({

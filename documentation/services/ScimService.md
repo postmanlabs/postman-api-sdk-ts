@@ -39,14 +39,14 @@ Gets information about all Postman team members.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.scim.getScimGroupResources({
+  const data = await postmanApiSdkSourceOverlayed.scim.getScimGroupResources({
     startIndex: 1,
     count: 2,
     filter: 'displayName eq "TestAPI"',
@@ -76,10 +76,14 @@ Creates a new user group in Postman and creates a new account for each group mem
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateScimGroup, CreateScimGroupMembers, PostmanApiSdk } from 'postman-api-sdk';
+import {
+  CreateScimGroup,
+  CreateScimGroupMembers,
+  PostmanApiSdkSourceOverlayed,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -94,7 +98,7 @@ import { CreateScimGroup, CreateScimGroupMembers, PostmanApiSdk } from 'postman-
     members: [createScimGroupMembers],
   };
 
-  const data = await postmanApiSdk.scim.createScimGroup(createScimGroup);
+  const data = await postmanApiSdkSourceOverlayed.scim.createScimGroup(createScimGroup);
 
   console.log(data);
 })();
@@ -120,14 +124,14 @@ Gets information about a Postman group within the team.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.scim.getScimGroupResource(
+  const data = await postmanApiSdkSourceOverlayed.scim.getScimGroupResource(
     '405775fe15ed41872a8eea4c8aa2b38cda9749812cc55c99',
   );
 
@@ -157,18 +161,19 @@ Updates a group's information. Using this endpoint you can: - Update a group's n
 
 ```typescript
 import {
-  PostmanApiSdk,
+  PostmanApiSdkSourceOverlayed,
   UpdateScimGroup,
   UpdateScimGroupOperations,
+  UpdateScimGroupOperationsOp,
   UpdateScimGroupOperationsValue,
-} from 'postman-api-sdk';
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const updateScimGroupOperationsOp = 'replace';
+  const updateScimGroupOperationsOp = UpdateScimGroupOperationsOp.REPLACE;
 
   const updateScimGroupOperationsValue: UpdateScimGroupOperationsValue = {
     id: '561631fq14ed41872a8eea4c8aa2b38cda9749812cc55c00',
@@ -186,7 +191,7 @@ import {
     operations: [updateScimGroupOperations],
   };
 
-  const data = await postmanApiSdk.scim.scimUpdateGroup(
+  const data = await postmanApiSdkSourceOverlayed.scim.scimUpdateGroup(
     '405775fe15ed41872a8eea4c8aa2b38cda9749812cc55c99',
     updateScimGroup,
   );
@@ -211,14 +216,14 @@ Deletes a group in Postman. On success, this returns an HTTP `204 No Content` re
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.scim.deleteScimGroup(
+  const data = await postmanApiSdkSourceOverlayed.scim.deleteScimGroup(
     '405775fe15ed41872a8eea4c8aa2b38cda9749812cc55c99',
   );
 
@@ -240,14 +245,14 @@ Gets all the resource types supported by Postman's SCIM API.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.scim.getScimResourceTypes();
+  const data = await postmanApiSdkSourceOverlayed.scim.getScimResourceTypes();
 
   console.log(data);
 })();
@@ -267,14 +272,14 @@ Gets the Postman SCIM API configuration information. This includes a list of sup
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.scim.getScimServiceProviderConfig();
+  const data = await postmanApiSdkSourceOverlayed.scim.getScimServiceProviderConfig();
 
   console.log(data);
 })();
@@ -302,14 +307,14 @@ Gets information about all Postman team members.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.scim.getScimUserResources({
+  const data = await postmanApiSdkSourceOverlayed.scim.getScimUserResources({
     startIndex: 1,
     count: 2,
     filter: 'userName eq "taylor-lee%40example.com"',
@@ -339,10 +344,14 @@ Creates a new user account in Postman and adds the user to your organization's P
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateScimUser, CreateScimUserName, PostmanApiSdk } from 'postman-api-sdk';
+import {
+  CreateScimUser,
+  CreateScimUserName,
+  PostmanApiSdkSourceOverlayed,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -361,7 +370,7 @@ import { CreateScimUser, CreateScimUserName, PostmanApiSdk } from 'postman-api-s
     name: createScimUserName,
   };
 
-  const data = await postmanApiSdk.scim.createScimUser(createScimUser);
+  const data = await postmanApiSdkSourceOverlayed.scim.createScimUser(createScimUser);
 
   console.log(data);
 })();
@@ -387,14 +396,14 @@ Gets information about a Postman team member.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.scim.getScimUserResource(
+  const data = await postmanApiSdkSourceOverlayed.scim.getScimUserResource(
     '405775fe15ed41872a8eea4c8aa2b38cda9749812cc55c99',
   );
 
@@ -423,10 +432,14 @@ Updates a user in Postman. **Reactivating a user** By setting the `active` prope
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk, UpdateScimUserName, UpdateScimUserRequest } from 'postman-api-sdk';
+import {
+  PostmanApiSdkSourceOverlayed,
+  UpdateScimUserName,
+  UpdateScimUserRequest,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -442,7 +455,7 @@ import { PostmanApiSdk, UpdateScimUserName, UpdateScimUserRequest } from 'postma
     active: true,
   };
 
-  const data = await postmanApiSdk.scim.updateScimUser(
+  const data = await postmanApiSdkSourceOverlayed.scim.updateScimUser(
     '405775fe15ed41872a8eea4c8aa2b38cda9749812cc55c99',
     updateScimUserRequest,
   );
@@ -473,19 +486,20 @@ Updates a user in Postman. **Reactivating a user** By setting the `active` prope
 
 ```typescript
 import {
-  PostmanApiSdk,
+  PostmanApiSdkSourceOverlayed,
   UpdateActiveState,
   UpdateActiveStateOperations,
+  UpdateActiveStateOperationsOp,
   UpdateActiveStateOperationsValue,
   UpdateScimUserPatchRequest,
-} from 'postman-api-sdk';
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const updateActiveStateOperationsOp = 'replace';
+  const updateActiveStateOperationsOp = UpdateActiveStateOperationsOp.REPLACE;
 
   const updateActiveStateOperationsValue: UpdateActiveStateOperationsValue = {
     active: true,
@@ -501,7 +515,7 @@ import {
     operations: [updateActiveStateOperations],
   };
 
-  const data = await postmanApiSdk.scim.updateScimUserPatch(
+  const data = await postmanApiSdkSourceOverlayed.scim.updateScimUserPatch(
     '405775fe15ed41872a8eea4c8aa2b38cda9749812cc55c99',
     updateActiveState,
   );

@@ -5,10 +5,6 @@ import {
   serverResponseDeletedHeadersRequest,
   serverResponseDeletedHeadersResponse,
 } from './server-response-deleted-headers';
-import {
-  ServerResponseDeletedLanguage,
-  serverResponseDeletedLanguage,
-} from './server-response-deleted-language';
 
 /**
  * Zod schema for the ServerResponseDeleted model.
@@ -21,7 +17,7 @@ export const serverResponseDeleted = z.lazy(() => {
     name: z.string().optional(),
     statusCode: z.number().optional(),
     headers: z.array(serverResponseDeletedHeaders).optional(),
-    language: serverResponseDeletedLanguage.optional().nullable(),
+    language: z.string().optional().nullable(),
     body: z.string().optional(),
     createdBy: z.string().optional(),
     updatedBy: z.string().optional(),
@@ -56,7 +52,7 @@ export const serverResponseDeletedResponse = z.lazy(() => {
       name: z.string().optional(),
       statusCode: z.number().optional(),
       headers: z.array(serverResponseDeletedHeadersResponse).optional(),
-      language: serverResponseDeletedLanguage.optional().nullable(),
+      language: z.string().optional().nullable(),
       body: z.string().optional(),
       createdBy: z.string().optional(),
       updatedBy: z.string().optional(),
@@ -87,7 +83,7 @@ export const serverResponseDeletedRequest = z.lazy(() => {
       name: z.string().optional(),
       statusCode: z.number().optional(),
       headers: z.array(serverResponseDeletedHeadersRequest).optional(),
-      language: serverResponseDeletedLanguage.optional().nullable(),
+      language: z.string().optional().nullable(),
       body: z.string().optional(),
       createdBy: z.string().optional(),
       updatedBy: z.string().optional(),

@@ -1,9 +1,5 @@
 import { z } from 'zod';
 import { Id, id, idRequest, idResponse } from './id';
-import {
-  TransferWorkspaceElementType,
-  transferWorkspaceElementType,
-} from './transfer-workspace-element-type';
 
 /**
  * Zod schema for the TransferWorkspaceElement model.
@@ -13,7 +9,7 @@ import {
 export const transferWorkspaceElement = z.lazy(() => {
   return z.object({
     id: id,
-    type: transferWorkspaceElementType,
+    type: z.string(),
     to: z.string(),
   });
 });
@@ -36,7 +32,7 @@ export const transferWorkspaceElementResponse1 = z.lazy(() => {
   return z
     .object({
       id: idResponse,
-      type: transferWorkspaceElementType,
+      type: z.string(),
       to: z.string(),
     })
     .transform((data) => ({
@@ -55,7 +51,7 @@ export const transferWorkspaceElementRequest = z.lazy(() => {
   return z
     .object({
       id: idRequest,
-      type: transferWorkspaceElementType,
+      type: z.string(),
       to: z.string(),
     })
     .transform((data) => ({

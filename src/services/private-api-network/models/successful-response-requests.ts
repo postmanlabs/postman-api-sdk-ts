@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { RequestsStatus, requestsStatus } from './requests-status';
 import {
   PanRequestElement,
   panRequestElement,
@@ -24,7 +23,7 @@ export const successfulResponseRequests = z.lazy(() => {
     createdAt: z.string().optional(),
     createdBy: z.number().optional(),
     message: z.string().optional(),
-    status: requestsStatus.optional(),
+    status: z.string().optional(),
     element: panRequestElement.optional(),
     response: panRequestResponse.optional(),
   });
@@ -55,7 +54,7 @@ export const successfulResponseRequestsResponse = z.lazy(() => {
       createdAt: z.string().optional(),
       createdBy: z.number().optional(),
       message: z.string().optional(),
-      status: requestsStatus.optional(),
+      status: z.string().optional(),
       element: panRequestElementResponse.optional(),
       response: panRequestResponseResponse.optional(),
     })
@@ -82,7 +81,7 @@ export const successfulResponseRequestsRequest = z.lazy(() => {
       createdAt: z.string().optional(),
       createdBy: z.number().optional(),
       message: z.string().optional(),
-      status: requestsStatus.optional(),
+      status: z.string().optional(),
       element: panRequestElementRequest.optional(),
       response: panRequestResponseRequest.optional(),
     })

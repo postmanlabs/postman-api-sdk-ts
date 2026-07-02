@@ -1,9 +1,5 @@
 import { z } from 'zod';
 import {
-  WorkspaceUpdateCategoryData,
-  workspaceUpdateCategoryData,
-} from './workspace-update-category-data';
-import {
   WorkspaceUpdateRelatedResourcesData,
   workspaceUpdateRelatedResourcesData,
   workspaceUpdateRelatedResourcesDataRequest,
@@ -19,7 +15,7 @@ export const createWorkspaceUpdate = z.lazy(() => {
   return z.object({
     description: z.string().min(1).max(20000),
     topic: z.string().min(1).max(255),
-    category: workspaceUpdateCategoryData,
+    category: z.string(),
     relatedResources: z.array(workspaceUpdateRelatedResourcesData).max(10).optional(),
   });
 });
@@ -44,7 +40,7 @@ export const createWorkspaceUpdateResponse = z.lazy(() => {
     .object({
       description: z.string().min(1).max(20000),
       topic: z.string().min(1).max(255),
-      category: workspaceUpdateCategoryData,
+      category: z.string(),
       relatedResources: z.array(workspaceUpdateRelatedResourcesDataResponse).max(10).optional(),
     })
     .transform((data) => ({
@@ -65,7 +61,7 @@ export const createWorkspaceUpdateRequest = z.lazy(() => {
     .object({
       description: z.string().min(1).max(20000),
       topic: z.string().min(1).max(255),
-      category: workspaceUpdateCategoryData,
+      category: z.string(),
       relatedResources: z.array(workspaceUpdateRelatedResourcesDataRequest).max(10).optional(),
     })
     .transform((data) => ({

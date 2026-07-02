@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { EntitiesEntityType, entitiesEntityType } from './entities-entity-type';
 
 /**
  * Zod schema for the Entities model.
@@ -9,7 +8,7 @@ import { EntitiesEntityType, entitiesEntityType } from './entities-entity-type';
 export const entities = z.lazy(() => {
   return z.object({
     entityId: z.string().optional(),
-    entityType: entitiesEntityType.optional(),
+    entityType: z.string().optional(),
   });
 });
 
@@ -30,7 +29,7 @@ export const entitiesResponse = z.lazy(() => {
   return z
     .object({
       entityId: z.string().optional(),
-      entityType: entitiesEntityType.optional(),
+      entityType: z.string().optional(),
     })
     .transform((data) => ({
       entityId: data['entityId'],
@@ -47,7 +46,7 @@ export const entitiesRequest = z.lazy(() => {
   return z
     .object({
       entityId: z.string().optional(),
-      entityType: entitiesEntityType.optional(),
+      entityType: z.string().optional(),
     })
     .transform((data) => ({
       entityId: data['entityId'],

@@ -1,6 +1,4 @@
 import { z } from 'zod';
-import { MocksConfigDelayType, mocksConfigDelayType } from './mocks-config-delay-type';
-import { MocksConfigDelayPreset, mocksConfigDelayPreset } from './mocks-config-delay-preset';
 
 /**
  * Zod schema for the MocksConfigDelay model.
@@ -9,8 +7,8 @@ import { MocksConfigDelayPreset, mocksConfigDelayPreset } from './mocks-config-d
  */
 export const mocksConfigDelay = z.lazy(() => {
   return z.object({
-    type: mocksConfigDelayType.optional(),
-    preset: mocksConfigDelayPreset.optional(),
+    type: z.string().optional(),
+    preset: z.string().optional(),
     duration: z.number().optional(),
   });
 });
@@ -38,8 +36,8 @@ export type MocksConfigDelay = z.infer<typeof mocksConfigDelay>;
 export const mocksConfigDelayResponse = z.lazy(() => {
   return z
     .object({
-      type: mocksConfigDelayType.optional(),
-      preset: mocksConfigDelayPreset.optional(),
+      type: z.string().optional(),
+      preset: z.string().optional(),
       duration: z.number().optional(),
     })
     .transform((data) => ({
@@ -57,8 +55,8 @@ export const mocksConfigDelayResponse = z.lazy(() => {
 export const mocksConfigDelayRequest = z.lazy(() => {
   return z
     .object({
-      type: mocksConfigDelayType.optional(),
-      preset: mocksConfigDelayPreset.optional(),
+      type: z.string().optional(),
+      preset: z.string().optional(),
       duration: z.number().optional(),
     })
     .transform((data) => ({

@@ -1,14 +1,8 @@
-import { WorkspaceTypeQuery, workspaceTypeQuery } from './models/workspace-type-query';
-import { WorkspaceIncludeQuery, workspaceIncludeQuery } from './models/workspace-include-query';
-import {
-  WorkspaceElementTypeQuery,
-  workspaceElementTypeQuery,
-} from './models/workspace-element-type-query';
-import { ElementType2, elementType2 } from './models/element-type-2';
-import {
-  WorkspaceIncludeScimQuery,
-  workspaceIncludeScimQuery,
-} from './models/workspace-include-scim-query';
+import { WorkspaceTypeQuery } from './models/workspace-type-query';
+import { WorkspaceIncludeQuery } from './models/workspace-include-query';
+import { WorkspaceElementTypeQuery } from './models/workspace-element-type-query';
+import { ElementType2 } from './models/element-type-2';
+import { WorkspaceIncludeScimQuery } from './models/workspace-include-scim-query';
 
 export interface GetWorkspacesParams {
   type?: WorkspaceTypeQuery;

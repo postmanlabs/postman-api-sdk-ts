@@ -1,9 +1,9 @@
 {
-  "name": "postman_api_sdk",
+  "name": "Postman_API_SDK_source_overlayed",
   "version": "1.43.0",
   "private": true,
   "dependencies": {
-    "postman-api-sdk": "file:../",
+    "@@postman/api-sdk": "file:../",
     "zod": "3.22.3"
   },
   "scripts": {

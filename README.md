@@ -1,6 +1,6 @@
-# PostmanApiSdk TypeScript SDK 1.43.0
+# PostmanApiSdkSourceOverlayed TypeScript SDK 1.43.0
 
-Welcome to the PostmanApiSdk SDK documentation. This guide will help you get started with integrating and using the PostmanApiSdk SDK in your project.
+Welcome to the PostmanApiSdkSourceOverlayed SDK documentation. This guide will help you get started with integrating and using the PostmanApiSdkSourceOverlayed SDK in your project.
 
 ## Versions
 
@@ -116,20 +116,20 @@ This SDK is compatible with the following versions: `TypeScript >= 4.8.4`
 To get started with the SDK, we recommend installing using `npm` or `yarn`:
 
 ```bash
-npm install postman-api-sdk
+npm install @@postman/api-sdk
 ```
 
 or
 
 ```bash
-yarn add postman-api-sdk
+yarn add @@postman/api-sdk
 ```
 
 ## Authentication
 
 ### Basic Authentication
 
-The PostmanApiSdk API uses Basic Authentication.
+The PostmanApiSdkSourceOverlayed API uses Basic Authentication.
 
 You need to provide your username and password when initializing the SDK.
 
@@ -138,33 +138,36 @@ You need to provide your username and password when initializing the SDK.
 When you initialize the SDK, you can set the username and password as follows:
 
 ```ts
-const sdk = new PostmanApiSdk({ username: 'YOUR_USERNAME', password: 'YOUR_PASSWORD' });
+const sdk = new PostmanApiSdkSourceOverlayed({
+  username: 'YOUR_USERNAME',
+  password: 'YOUR_PASSWORD',
+});
 ```
 
 If you need to set or update the username and password after initializing the SDK, you can use:
 
 ```ts
-const sdk = new PostmanApiSdk();
+const sdk = new PostmanApiSdkSourceOverlayed();
 sdk.username = 'YOUR_USERNAME';
 sdk.password = 'YOUR_PASSWORD';
 ```
 
 ### API Key Authentication
 
-The PostmanApiSdk API uses API keys as a form of authentication. An API key is a unique identifier used to authenticate a user, developer, or a program that is calling the API.
+The PostmanApiSdkSourceOverlayed API uses API keys as a form of authentication. An API key is a unique identifier used to authenticate a user, developer, or a program that is calling the API.
 
 #### Setting the API key
 
 When you initialize the SDK, you can set the API key as follows:
 
 ```ts
-const sdk = new PostmanApiSdk({ apiKey: 'YOUR_API_KEY' });
+const sdk = new PostmanApiSdkSourceOverlayed({ apiKey: 'YOUR_API_KEY' });
 ```
 
 If you need to set or update the API key after initializing the SDK, you can use:
 
 ```ts
-const sdk = new PostmanApiSdk();
+const sdk = new PostmanApiSdkSourceOverlayed();
 sdk.apiKey = 'YOUR_API_KEY';
 ```
 
@@ -173,7 +176,7 @@ sdk.apiKey = 'YOUR_API_KEY';
 You can set a custom timeout for the SDK's HTTP requests as follows:
 
 ```ts
-const postmanApiSdk = new PostmanApiSdk({ timeout: 10000 });
+const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({ timeout: 10000 });
 ```
 
 # Sample Usage
@@ -181,14 +184,14 @@ const postmanApiSdk = new PostmanApiSdk({ timeout: 10000 });
 Below is a comprehensive example demonstrating how to authenticate and call a simple endpoint:
 
 ```ts
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.billing.getAccounts();
+  const data = await postmanApiSdkSourceOverlayed.billing.getAccounts();
 
   console.log(data);
 })();

@@ -1,13 +1,5 @@
 import { z } from 'zod';
 import {
-  SuccessfulResponseWorkspaceType,
-  successfulResponseWorkspaceType,
-} from './successful-response-workspace-type';
-import {
-  SuccessfulResponseWorkspaceVisibility,
-  successfulResponseWorkspaceVisibility,
-} from './successful-response-workspace-visibility';
-import {
   WorkspaceCollections,
   workspaceCollections,
   workspaceCollectionsRequest,
@@ -48,9 +40,9 @@ export const successfulResponseWorkspace2 = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
     name: z.string().optional(),
-    type: successfulResponseWorkspaceType.optional(),
+    type: z.string().optional(),
     description: z.string().optional(),
-    visibility: successfulResponseWorkspaceVisibility.optional(),
+    visibility: z.string().optional(),
     createdBy: z.string().optional(),
     updatedBy: z.string().optional(),
     createdAt: z.string().optional(),
@@ -103,9 +95,9 @@ export const successfulResponseWorkspace2Response = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      type: successfulResponseWorkspaceType.optional(),
+      type: z.string().optional(),
       description: z.string().optional(),
-      visibility: successfulResponseWorkspaceVisibility.optional(),
+      visibility: z.string().optional(),
       createdBy: z.string().optional(),
       updatedBy: z.string().optional(),
       createdAt: z.string().optional(),
@@ -148,9 +140,9 @@ export const successfulResponseWorkspace2Request = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      type: successfulResponseWorkspaceType.optional(),
+      type: z.string().optional(),
       description: z.string().optional(),
-      visibility: successfulResponseWorkspaceVisibility.optional(),
+      visibility: z.string().optional(),
       createdBy: z.string().optional(),
       updatedBy: z.string().optional(),
       createdAt: z.string().optional(),

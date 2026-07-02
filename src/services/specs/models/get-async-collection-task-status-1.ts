@@ -6,10 +6,6 @@ import {
   getAsyncTaskStatusMeta2Response,
 } from './get-async-task-status-meta-2';
 import { Details, details, detailsRequest, detailsResponse } from './details';
-import {
-  GetAsyncTaskStatusStatus2,
-  getAsyncTaskStatusStatus2,
-} from './get-async-task-status-status-2';
 
 /**
  * Zod schema for the GetAsyncCollectionTaskStatus1 model.
@@ -20,7 +16,7 @@ export const getAsyncCollectionTaskStatus1 = z.lazy(() => {
   return z.object({
     meta: getAsyncTaskStatusMeta2.optional(),
     details: details.optional(),
-    status: getAsyncTaskStatusStatus2.optional(),
+    status: z.string().optional(),
   });
 });
 
@@ -43,7 +39,7 @@ export const getAsyncCollectionTaskStatus1Response = z.lazy(() => {
     .object({
       meta: getAsyncTaskStatusMeta2Response.optional(),
       details: detailsResponse.optional(),
-      status: getAsyncTaskStatusStatus2.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       meta: data['meta'],
@@ -62,7 +58,7 @@ export const getAsyncCollectionTaskStatus1Request = z.lazy(() => {
     .object({
       meta: getAsyncTaskStatusMeta2Request.optional(),
       details: detailsRequest.optional(),
-      status: getAsyncTaskStatusStatus2.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       meta: data['meta'],

@@ -1,10 +1,5 @@
 import { z } from 'zod';
 import {
-  RemovePartnersTargetEntity,
-  removePartnersTargetEntity,
-} from './remove-partners-target-entity';
-import { RemovePartnersAction, removePartnersAction } from './remove-partners-action';
-import {
   ManagePartnerWorkspaceInvitesTargetObjectUserId,
   managePartnerWorkspaceInvitesTargetObjectUserId,
   managePartnerWorkspaceInvitesTargetObjectUserIdRequest,
@@ -18,9 +13,9 @@ import {
  */
 export const removePartners = z.lazy(() => {
   return z.object({
-    targetEntity: removePartnersTargetEntity,
+    targetEntity: z.string(),
     targetEntityId: z.string().min(1).max(60),
-    action: removePartnersAction,
+    action: z.string(),
     target: managePartnerWorkspaceInvitesTargetObjectUserId,
   });
 });
@@ -43,9 +38,9 @@ export type RemovePartners = z.infer<typeof removePartners>;
 export const removePartnersResponse = z.lazy(() => {
   return z
     .object({
-      targetEntity: removePartnersTargetEntity,
+      targetEntity: z.string(),
       targetEntityId: z.string().min(1).max(60),
-      action: removePartnersAction,
+      action: z.string(),
       target: managePartnerWorkspaceInvitesTargetObjectUserIdResponse,
     })
     .transform((data) => ({
@@ -64,9 +59,9 @@ export const removePartnersResponse = z.lazy(() => {
 export const removePartnersRequest = z.lazy(() => {
   return z
     .object({
-      targetEntity: removePartnersTargetEntity,
+      targetEntity: z.string(),
       targetEntityId: z.string().min(1).max(60),
-      action: removePartnersAction,
+      action: z.string(),
       target: managePartnerWorkspaceInvitesTargetObjectUserIdRequest,
     })
     .transform((data) => ({

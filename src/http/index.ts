@@ -7,4 +7,4 @@ export type {
   HttpResponse,
 } from './types';
 export type { HttpError } from './error';
-export type { Environment } from './environment';
+export { Environment } from './environment';

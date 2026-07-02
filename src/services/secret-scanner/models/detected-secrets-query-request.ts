@@ -1,12 +1,10 @@
 import { z } from 'zod';
-import { Statuses, statuses } from './statuses';
 import {
   DetectedSecretsQueryRequestResources,
   detectedSecretsQueryRequestResources,
   detectedSecretsQueryRequestResourcesRequest,
   detectedSecretsQueryRequestResourcesResponse,
 } from './detected-secrets-query-request-resources';
-import { WorkspaceVisibilities, workspaceVisibilities } from './workspace-visibilities';
 
 /**
  * Zod schema for the DetectedSecretsQueryRequest model.
@@ -17,10 +15,10 @@ export const detectedSecretsQueryRequest = z.lazy(() => {
   return z.object({
     resolved: z.boolean().optional(),
     secretTypes: z.array(z.string()).optional(),
-    statuses: z.array(statuses).optional(),
+    statuses: z.array(z.string()).optional(),
     resources: z.array(detectedSecretsQueryRequestResources).optional(),
     workspaceIds: z.array(z.string()).optional(),
-    workspaceVisibilities: z.array(workspaceVisibilities).optional(),
+    workspaceVisibilities: z.array(z.string()).optional(),
   });
 });
 
@@ -46,10 +44,10 @@ export const detectedSecretsQueryRequestResponse = z.lazy(() => {
     .object({
       resolved: z.boolean().optional(),
       secretTypes: z.array(z.string()).optional(),
-      statuses: z.array(statuses).optional(),
+      statuses: z.array(z.string()).optional(),
       resources: z.array(detectedSecretsQueryRequestResourcesResponse).optional(),
       workspaceIds: z.array(z.string()).optional(),
-      workspaceVisibilities: z.array(workspaceVisibilities).optional(),
+      workspaceVisibilities: z.array(z.string()).optional(),
     })
     .transform((data) => ({
       resolved: data['resolved'],
@@ -71,10 +69,10 @@ export const detectedSecretsQueryRequestRequest = z.lazy(() => {
     .object({
       resolved: z.boolean().optional(),
       secretTypes: z.array(z.string()).optional(),
-      statuses: z.array(statuses).optional(),
+      statuses: z.array(z.string()).optional(),
       resources: z.array(detectedSecretsQueryRequestResourcesRequest).optional(),
       workspaceIds: z.array(z.string()).optional(),
-      workspaceVisibilities: z.array(workspaceVisibilities).optional(),
+      workspaceVisibilities: z.array(z.string()).optional(),
     })
     .transform((data) => ({
       resolved: data['resolved'],

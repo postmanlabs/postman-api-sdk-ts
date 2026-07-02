@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  CollectionPullRequestsDataStatus,
-  collectionPullRequestsDataStatus,
-} from './collection-pull-requests-data-status';
 
 /**
  * Zod schema for the CollectionPullRequestsData model.
@@ -18,7 +14,7 @@ export const collectionPullRequestsData = z.lazy(() => {
     href: z.string().optional(),
     id: z.string().optional(),
     sourceId: z.string().optional(),
-    status: collectionPullRequestsDataStatus.optional(),
+    status: z.string().optional(),
     comment: z.string().optional(),
     title: z.string().optional(),
     updatedBy: z.string().optional(),
@@ -59,7 +55,7 @@ export const collectionPullRequestsDataResponse = z.lazy(() => {
       href: z.string().optional(),
       id: z.string().optional(),
       sourceId: z.string().optional(),
-      status: collectionPullRequestsDataStatus.optional(),
+      status: z.string().optional(),
       comment: z.string().optional(),
       title: z.string().optional(),
       updatedBy: z.string().optional(),
@@ -96,7 +92,7 @@ export const collectionPullRequestsDataRequest = z.lazy(() => {
       href: z.string().optional(),
       id: z.string().optional(),
       sourceId: z.string().optional(),
-      status: collectionPullRequestsDataStatus.optional(),
+      status: z.string().optional(),
       comment: z.string().optional(),
       title: z.string().optional(),
       updatedBy: z.string().optional(),

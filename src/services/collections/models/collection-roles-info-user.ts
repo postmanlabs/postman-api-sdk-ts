@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { UserRole, userRole } from './user-role';
 
 /**
  * Zod schema for the CollectionRolesInfoUser model.
@@ -8,7 +7,7 @@ import { UserRole, userRole } from './user-role';
  */
 export const collectionRolesInfoUser = z.lazy(() => {
   return z.object({
-    role: userRole.optional(),
+    role: z.string().optional(),
     id: z.number().optional(),
   });
 });
@@ -32,7 +31,7 @@ export type CollectionRolesInfoUser = z.infer<typeof collectionRolesInfoUser>;
 export const collectionRolesInfoUserResponse = z.lazy(() => {
   return z
     .object({
-      role: userRole.optional(),
+      role: z.string().optional(),
       id: z.number().optional(),
     })
     .transform((data) => ({
@@ -49,7 +48,7 @@ export const collectionRolesInfoUserResponse = z.lazy(() => {
 export const collectionRolesInfoUserRequest = z.lazy(() => {
   return z
     .object({
-      role: userRole.optional(),
+      role: z.string().optional(),
       id: z.number().optional(),
     })
     .transform((data) => ({

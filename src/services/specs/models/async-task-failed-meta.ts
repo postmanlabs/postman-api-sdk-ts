@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { AsyncTaskFailedMetaModel, asyncTaskFailedMetaModel } from './async-task-failed-meta-model';
 
 /**
  * Zod schema for the AsyncTaskFailedMeta model.
@@ -9,7 +8,7 @@ import { AsyncTaskFailedMetaModel, asyncTaskFailedMetaModel } from './async-task
 export const asyncTaskFailedMeta = z.lazy(() => {
   return z.object({
     action: z.string().optional(),
-    model: asyncTaskFailedMetaModel.optional(),
+    model: z.string().optional(),
   });
 });
 
@@ -30,7 +29,7 @@ export const asyncTaskFailedMetaResponse = z.lazy(() => {
   return z
     .object({
       action: z.string().optional(),
-      model: asyncTaskFailedMetaModel.optional(),
+      model: z.string().optional(),
     })
     .transform((data) => ({
       action: data['action'],
@@ -47,7 +46,7 @@ export const asyncTaskFailedMetaRequest = z.lazy(() => {
   return z
     .object({
       action: z.string().optional(),
-      model: asyncTaskFailedMetaModel.optional(),
+      model: z.string().optional(),
     })
     .transform((data) => ({
       action: data['action'],

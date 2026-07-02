@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { Postman, postman, postmanRequest, postmanResponse } from '../collections/models/postman';
-import { Provider, provider } from '../collections/models/provider';
 
 /**
  * Zod schema for the EnvironmentVariableSource model.
@@ -10,7 +9,7 @@ import { Provider, provider } from '../collections/models/provider';
 export const environmentVariableSource = z.lazy(() => {
   return z.object({
     postman: postman.optional(),
-    provider: provider.optional(),
+    provider: z.string().optional(),
   });
 });
 
@@ -31,7 +30,7 @@ export const environmentVariableSourceResponse = z.lazy(() => {
   return z
     .object({
       postman: postmanResponse.optional(),
-      provider: provider.optional(),
+      provider: z.string().optional(),
     })
     .transform((data) => ({
       postman: data['postman'],
@@ -48,7 +47,7 @@ export const environmentVariableSourceRequest = z.lazy(() => {
   return z
     .object({
       postman: postmanRequest.optional(),
-      provider: provider.optional(),
+      provider: z.string().optional(),
     })
     .transform((data) => ({
       postman: data['postman'],

@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  CollectionAccessKeysDataStatus,
-  collectionAccessKeysDataStatus,
-} from './collection-access-keys-data-status';
 
 /**
  * Zod schema for the CollectionAccessKeysData model.
@@ -13,7 +9,7 @@ export const collectionAccessKeysData = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
     token: z.string().optional(),
-    status: collectionAccessKeysDataStatus.optional(),
+    status: z.string().optional(),
     teamId: z.number().optional(),
     userId: z.number().optional(),
     collectionId: z.string().optional(),
@@ -52,7 +48,7 @@ export const collectionAccessKeysDataResponse = z.lazy(() => {
     .object({
       id: z.string().optional(),
       token: z.string().optional(),
-      status: collectionAccessKeysDataStatus.optional(),
+      status: z.string().optional(),
       teamId: z.number().optional(),
       userId: z.number().optional(),
       collectionId: z.string().optional(),
@@ -87,7 +83,7 @@ export const collectionAccessKeysDataRequest = z.lazy(() => {
     .object({
       id: z.string().optional(),
       token: z.string().optional(),
-      status: collectionAccessKeysDataStatus.optional(),
+      status: z.string().optional(),
       teamId: z.number().optional(),
       userId: z.number().optional(),
       collectionId: z.string().optional(),

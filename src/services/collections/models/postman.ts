@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { PostmanType, postmanType } from './postman-type';
 
 /**
  * Zod schema for the Postman model.
@@ -9,7 +8,7 @@ import { PostmanType, postmanType } from './postman-type';
 export const postman = z.lazy(() => {
   return z.object({
     secretId: z.string().optional(),
-    type: postmanType.optional(),
+    type: z.string().optional(),
     vaultId: z.string().optional(),
   });
 });
@@ -34,7 +33,7 @@ export const postmanResponse = z.lazy(() => {
   return z
     .object({
       secretId: z.string().optional(),
-      type: postmanType.optional(),
+      type: z.string().optional(),
       vaultId: z.string().optional(),
     })
     .transform((data) => ({
@@ -53,7 +52,7 @@ export const postmanRequest = z.lazy(() => {
   return z
     .object({
       secretId: z.string().optional(),
-      type: postmanType.optional(),
+      type: z.string().optional(),
       vaultId: z.string().optional(),
     })
     .transform((data) => ({

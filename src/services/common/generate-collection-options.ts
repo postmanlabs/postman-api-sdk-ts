@@ -1,7 +1,4 @@
 import { z } from 'zod';
-import { RequestNameSource, requestNameSource } from '../specs/models/request-name-source';
-import { IndentCharacter, indentCharacter } from '../specs/models/indent-character';
-import { FolderStrategy, folderStrategy } from '../specs/models/folder-strategy';
 
 /**
  * Zod schema for the GenerateCollectionOptions model.
@@ -10,10 +7,10 @@ import { FolderStrategy, folderStrategy } from '../specs/models/folder-strategy'
  */
 export const generateCollectionOptions = z.lazy(() => {
   return z.object({
-    requestNameSource: requestNameSource.optional(),
-    indentCharacter: indentCharacter.optional(),
+    requestNameSource: z.string().optional(),
+    indentCharacter: z.string().optional(),
     parametersResolution: z.string().optional(),
-    folderStrategy: folderStrategy.optional(),
+    folderStrategy: z.string().optional(),
     includeAuthInfoInExample: z.boolean().optional(),
     enableOptionalParameters: z.boolean().optional(),
     keepImplicitHeaders: z.boolean().optional(),
@@ -52,10 +49,10 @@ export type GenerateCollectionOptions = z.infer<typeof generateCollectionOptions
 export const generateCollectionOptionsResponse = z.lazy(() => {
   return z
     .object({
-      requestNameSource: requestNameSource.optional(),
-      indentCharacter: indentCharacter.optional(),
+      requestNameSource: z.string().optional(),
+      indentCharacter: z.string().optional(),
       parametersResolution: z.string().optional(),
-      folderStrategy: folderStrategy.optional(),
+      folderStrategy: z.string().optional(),
       includeAuthInfoInExample: z.boolean().optional(),
       enableOptionalParameters: z.boolean().optional(),
       keepImplicitHeaders: z.boolean().optional(),
@@ -85,10 +82,10 @@ export const generateCollectionOptionsResponse = z.lazy(() => {
 export const generateCollectionOptionsRequest = z.lazy(() => {
   return z
     .object({
-      requestNameSource: requestNameSource.optional(),
-      indentCharacter: indentCharacter.optional(),
+      requestNameSource: z.string().optional(),
+      indentCharacter: z.string().optional(),
       parametersResolution: z.string().optional(),
-      folderStrategy: folderStrategy.optional(),
+      folderStrategy: z.string().optional(),
       includeAuthInfoInExample: z.boolean().optional(),
       enableOptionalParameters: z.boolean().optional(),
       keepImplicitHeaders: z.boolean().optional(),

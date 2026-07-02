@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { RequestDataType, requestDataType } from './request-data-type';
 
 /**
  * Zod schema for the RequestData model.
@@ -12,7 +11,7 @@ export const requestData = z.lazy(() => {
     value: z.string().optional(),
     description: z.string().optional(),
     enabled: z.boolean().optional(),
-    type: requestDataType.optional(),
+    type: z.string().optional(),
     uuid: z.string().optional(),
   });
 });
@@ -41,7 +40,7 @@ export const requestDataResponse = z.lazy(() => {
       value: z.string().optional(),
       description: z.string().optional(),
       enabled: z.boolean().optional(),
-      type: requestDataType.optional(),
+      type: z.string().optional(),
       uuid: z.string().optional(),
     })
     .transform((data) => ({
@@ -66,7 +65,7 @@ export const requestDataRequest = z.lazy(() => {
       value: z.string().optional(),
       description: z.string().optional(),
       enabled: z.boolean().optional(),
-      type: requestDataType.optional(),
+      type: z.string().optional(),
       uuid: z.string().optional(),
     })
     .transform((data) => ({

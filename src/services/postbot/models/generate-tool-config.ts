@@ -1,6 +1,4 @@
 import { z } from 'zod';
-import { ConfigLanguage, configLanguage } from './config-language';
-import { AgentFramework, agentFramework } from './agent-framework';
 
 /**
  * Zod schema for the GenerateToolConfig model.
@@ -9,8 +7,8 @@ import { AgentFramework, agentFramework } from './agent-framework';
  */
 export const generateToolConfig = z.lazy(() => {
   return z.object({
-    language: configLanguage,
-    agentFramework: agentFramework,
+    language: z.string(),
+    agentFramework: z.string(),
   });
 });
 
@@ -30,8 +28,8 @@ export type GenerateToolConfig = z.infer<typeof generateToolConfig>;
 export const generateToolConfigResponse = z.lazy(() => {
   return z
     .object({
-      language: configLanguage,
-      agentFramework: agentFramework,
+      language: z.string(),
+      agentFramework: z.string(),
     })
     .transform((data) => ({
       language: data['language'],
@@ -47,8 +45,8 @@ export const generateToolConfigResponse = z.lazy(() => {
 export const generateToolConfigRequest = z.lazy(() => {
   return z
     .object({
-      language: configLanguage,
-      agentFramework: agentFramework,
+      language: z.string(),
+      agentFramework: z.string(),
     })
     .transform((data) => ({
       language: data['language'],

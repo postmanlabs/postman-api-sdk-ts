@@ -21,14 +21,14 @@ Gets Postman billing account details for the given team.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.billing.getAccounts();
+  const data = await postmanApiSdkSourceOverlayed.billing.getAccounts();
 
   console.log(data);
 })();
@@ -55,16 +55,16 @@ Gets all invoices for a Postman billing account filtered by the status of the in
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { BillingAccountStatus, PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const billingAccountStatus = 'PAID';
+  const billingAccountStatus = BillingAccountStatus.PAID;
 
-  const data = await postmanApiSdk.billing.getAccountInvoices('123456', {
+  const data = await postmanApiSdkSourceOverlayed.billing.getAccountInvoices('123456', {
     status: billingAccountStatus,
   });
 

@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  SpecCollectionInformationState,
-  specCollectionInformationState,
-} from './spec-collection-information-state';
 
 /**
  * Zod schema for the SpecCollectionInformation model.
@@ -13,7 +9,7 @@ export const specCollectionInformation = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
     name: z.string().optional(),
-    state: specCollectionInformationState.optional(),
+    state: z.string().optional(),
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
     createdBy: z.number().optional(),
@@ -42,7 +38,7 @@ export const specCollectionInformationResponse = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      state: specCollectionInformationState.optional(),
+      state: z.string().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       createdBy: z.number().optional(),
@@ -67,7 +63,7 @@ export const specCollectionInformationRequest = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      state: specCollectionInformationState.optional(),
+      state: z.string().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       createdBy: z.number().optional(),

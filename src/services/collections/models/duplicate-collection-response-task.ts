@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { TaskStatus, taskStatus } from './task-status';
 
 /**
  * Zod schema for the DuplicateCollectionResponseTask model.
@@ -9,7 +8,7 @@ import { TaskStatus, taskStatus } from './task-status';
 export const duplicateCollectionResponseTask = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
-    status: taskStatus.optional(),
+    status: z.string().optional(),
     reason: z.string().optional().nullable(),
   });
 });
@@ -32,7 +31,7 @@ export const duplicateCollectionResponseTaskResponse = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      status: taskStatus.optional(),
+      status: z.string().optional(),
       reason: z.string().optional().nullable(),
     })
     .transform((data) => ({
@@ -51,7 +50,7 @@ export const duplicateCollectionResponseTaskRequest = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      status: taskStatus.optional(),
+      status: z.string().optional(),
       reason: z.string().optional().nullable(),
     })
     .transform((data) => ({

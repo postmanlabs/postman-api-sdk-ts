@@ -1,9 +1,7 @@
 import { z } from 'zod';
 
-export const collectionSpecInformationState = z.union([
-  z.literal('in-sync'),
-  z.literal('out-of-sync'),
-  z.literal('sync-in-progress'),
-]);
-
-export type CollectionSpecInformationState = z.infer<typeof collectionSpecInformationState>;
+export enum CollectionSpecInformationState {
+  IN_SYNC = 'in-sync',
+  OUT_OF_SYNC = 'out-of-sync',
+  SYNC_IN_PROGRESS = 'sync-in-progress',
+}

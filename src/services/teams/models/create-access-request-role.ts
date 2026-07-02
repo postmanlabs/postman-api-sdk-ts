@@ -1,15 +1,13 @@
 import { z } from 'zod';
 
-export const createAccessRequestRole = z.union([
-  z.literal('TEAM_MANAGER'),
-  z.literal('TEAM_DEVELOPER'),
-  z.literal('TEAM_GUEST_DEVELOPER'),
-  z.literal('TEAM_GUEST_VIEWER'),
-  z.literal('TEAM_PARTNER_MANAGER'),
-  z.literal('TEAM_PARTNER_LEAD'),
-  z.literal('TEAM_GUEST'),
-  z.literal('TEAM_PARTNER'),
-  z.literal('TEAM_COMMUNITY_MANAGER'),
-]);
-
-export type CreateAccessRequestRole = z.infer<typeof createAccessRequestRole>;
+export enum CreateAccessRequestRole {
+  TEAM_MANAGER = 'TEAM_MANAGER',
+  TEAM_DEVELOPER = 'TEAM_DEVELOPER',
+  TEAM_GUEST_DEVELOPER = 'TEAM_GUEST_DEVELOPER',
+  TEAM_GUEST_VIEWER = 'TEAM_GUEST_VIEWER',
+  TEAM_PARTNER_MANAGER = 'TEAM_PARTNER_MANAGER',
+  TEAM_PARTNER_LEAD = 'TEAM_PARTNER_LEAD',
+  TEAM_GUEST = 'TEAM_GUEST',
+  TEAM_PARTNER = 'TEAM_PARTNER',
+  TEAM_COMMUNITY_MANAGER = 'TEAM_COMMUNITY_MANAGER',
+}

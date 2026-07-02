@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { InformationSchema1, informationSchema1 } from './information-schema-1';
 
 /**
  * Zod schema for the CreateCollectionSchemaInfo model.
@@ -10,7 +9,7 @@ export const createCollectionSchemaInfo = z.lazy(() => {
   return z.object({
     name: z.string(),
     description: z.string().optional(),
-    schema: informationSchema1,
+    schema: z.string(),
   });
 });
 
@@ -33,7 +32,7 @@ export const createCollectionSchemaInfoResponse = z.lazy(() => {
     .object({
       name: z.string(),
       description: z.string().optional(),
-      schema: informationSchema1,
+      schema: z.string(),
     })
     .transform((data) => ({
       name: data['name'],
@@ -52,7 +51,7 @@ export const createCollectionSchemaInfoRequest = z.lazy(() => {
     .object({
       name: z.string(),
       description: z.string().optional(),
-      schema: informationSchema1,
+      schema: z.string(),
     })
     .transform((data) => ({
       name: data['name'],

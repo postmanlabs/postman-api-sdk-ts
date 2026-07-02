@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { ImportExportFileType, importExportFileType } from './import-export-file-type';
 
 /**
  * Zod schema for the ImportExportFile model.
@@ -8,7 +7,7 @@ import { ImportExportFileType, importExportFileType } from './import-export-file
  */
 export const importExportFile = z.lazy(() => {
   return z.object({
-    type: importExportFileType,
+    type: z.string(),
     input: z.instanceof(ArrayBuffer),
   });
 });
@@ -29,7 +28,7 @@ export type ImportExportFile = z.infer<typeof importExportFile>;
 export const importExportFileResponse = z.lazy(() => {
   return z
     .object({
-      type: importExportFileType,
+      type: z.string(),
       input: z.instanceof(ArrayBuffer),
     })
     .transform((data) => ({
@@ -46,7 +45,7 @@ export const importExportFileResponse = z.lazy(() => {
 export const importExportFileRequest = z.lazy(() => {
   return z
     .object({
-      type: importExportFileType,
+      type: z.string(),
       input: z.instanceof(ArrayBuffer),
     })
     .transform((data) => ({

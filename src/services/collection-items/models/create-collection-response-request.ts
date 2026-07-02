@@ -1,15 +1,10 @@
 import { z } from 'zod';
-import { RequestMethod, requestMethod } from './request-method';
 import {
   ResponseHeader2_2,
   responseHeader2_2,
   responseHeader2_2Request,
   responseHeader2_2Response,
 } from '../../common/response-header-2-2';
-import {
-  CollectionResponseCreatedDataMode,
-  collectionResponseCreatedDataMode,
-} from './collection-response-created-data-mode';
 import {
   RequestDataOptions,
   requestDataOptions,
@@ -33,9 +28,9 @@ export const createCollectionResponseRequest = z.lazy(() => {
     name: z.string().optional(),
     description: z.string().optional().nullable(),
     url: z.string().optional().nullable(),
-    method: requestMethod.optional(),
+    method: z.string().optional(),
     headers: z.array(responseHeader2_2).optional(),
-    dataMode: collectionResponseCreatedDataMode.optional(),
+    dataMode: z.string().optional(),
     rawModeData: z.string().optional().nullable(),
     dataOptions: requestDataOptions.optional().nullable(),
     responseCode: collectionResponseCreatedResponseCode.optional(),
@@ -100,9 +95,9 @@ export const createCollectionResponseRequestResponse = z.lazy(() => {
       name: z.string().optional(),
       description: z.string().optional().nullable(),
       url: z.string().optional().nullable(),
-      method: requestMethod.optional(),
+      method: z.string().optional(),
       headers: z.array(responseHeader2_2Response).optional(),
-      dataMode: collectionResponseCreatedDataMode.optional(),
+      dataMode: z.string().optional(),
       rawModeData: z.string().optional().nullable(),
       dataOptions: requestDataOptionsResponse.optional().nullable(),
       responseCode: collectionResponseCreatedResponseCodeResponse.optional(),
@@ -176,9 +171,9 @@ export const createCollectionResponseRequestRequest = z.lazy(() => {
       name: z.string().optional(),
       description: z.string().optional().nullable(),
       url: z.string().optional().nullable(),
-      method: requestMethod.optional(),
+      method: z.string().optional(),
       headers: z.array(responseHeader2_2Request).optional(),
-      dataMode: collectionResponseCreatedDataMode.optional(),
+      dataMode: z.string().optional(),
       rawModeData: z.string().optional().nullable(),
       dataOptions: requestDataOptionsRequest.optional().nullable(),
       responseCode: collectionResponseCreatedResponseCodeRequest.optional(),

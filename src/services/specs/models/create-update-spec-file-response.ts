@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  CreateUpdateSpecFileResponseType,
-  createUpdateSpecFileResponseType,
-} from './create-update-spec-file-response-type';
 
 /**
  * Zod schema for the CreateUpdateSpecFileResponse model.
@@ -17,7 +13,7 @@ export const createUpdateSpecFileResponse = z.lazy(() => {
     path: z.string().optional(),
     updatedAt: z.string().optional(),
     updatedBy: z.number().optional(),
-    type: createUpdateSpecFileResponseType.optional(),
+    type: z.string().optional(),
   });
 });
 
@@ -51,7 +47,7 @@ export const createUpdateSpecFileResponseResponse = z.lazy(() => {
       path: z.string().optional(),
       updatedAt: z.string().optional(),
       updatedBy: z.number().optional(),
-      type: createUpdateSpecFileResponseType.optional(),
+      type: z.string().optional(),
     })
     .transform((data) => ({
       createdAt: data['createdAt'],
@@ -78,7 +74,7 @@ export const createUpdateSpecFileResponseRequest = z.lazy(() => {
       path: z.string().optional(),
       updatedAt: z.string().optional(),
       updatedBy: z.number().optional(),
-      type: createUpdateSpecFileResponseType.optional(),
+      type: z.string().optional(),
     })
     .transform((data) => ({
       createdAt: data['createdAt'],

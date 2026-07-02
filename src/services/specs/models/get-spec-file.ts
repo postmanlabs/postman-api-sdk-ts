@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { GetSpecFileType, getSpecFileType } from './get-spec-file-type';
 
 /**
  * Zod schema for the GetSpecFile model.
@@ -15,7 +14,7 @@ export const getSpecFile = z.lazy(() => {
     updatedBy: z.number().optional(),
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
-    type: getSpecFileType.optional(),
+    type: z.string().optional(),
     content: z.string().optional(),
   });
 });
@@ -53,7 +52,7 @@ export const getSpecFileResponse = z.lazy(() => {
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      type: getSpecFileType.optional(),
+      type: z.string().optional(),
       content: z.string().optional(),
     })
     .transform((data) => ({
@@ -84,7 +83,7 @@ export const getSpecFileRequest = z.lazy(() => {
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      type: getSpecFileType.optional(),
+      type: z.string().optional(),
       content: z.string().optional(),
     })
     .transform((data) => ({

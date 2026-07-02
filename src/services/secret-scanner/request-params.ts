@@ -1,4 +1,4 @@
-import { ResourceType, resourceType } from './models/resource-type';
+import { ResourceType } from './models/resource-type';
 
 export interface DetectedSecretsQueriesParams {
   limit?: number;

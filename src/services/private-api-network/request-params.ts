@@ -1,7 +1,7 @@
-import { ElementTypeQuery, elementTypeQuery } from './models/element-type-query';
-import { SortCreatedUpdatedAt, sortCreatedUpdatedAt } from './models/sort-created-updated-at';
-import { AscDesc, ascDesc } from '../common/asc-desc';
-import { PanRequestStatus, panRequestStatus } from './models/pan-request-status';
+import { ElementTypeQuery } from './models/element-type-query';
+import { SortCreatedUpdatedAt } from './models/sort-created-updated-at';
+import { AscDesc } from '../common/asc-desc';
+import { PanRequestStatus } from './models/pan-request-status';
 
 export interface ListPrivateNetworkWorkspacesParams {
   type?: ElementTypeQuery;

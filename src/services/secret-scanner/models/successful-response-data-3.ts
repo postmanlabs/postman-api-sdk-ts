@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  SuccessfulResponseDataType,
-  successfulResponseDataType,
-} from './successful-response-data-type';
 
 /**
  * Zod schema for the SuccessfulResponseData3 model.
@@ -13,7 +9,7 @@ export const successfulResponseData3 = z.lazy(() => {
   return z.object({
     name: z.string().optional(),
     id: z.string().optional(),
-    type: successfulResponseDataType.optional(),
+    type: z.string().optional(),
   });
 });
 
@@ -39,7 +35,7 @@ export const successfulResponseData3Response = z.lazy(() => {
     .object({
       name: z.string().optional(),
       id: z.string().optional(),
-      type: successfulResponseDataType.optional(),
+      type: z.string().optional(),
     })
     .transform((data) => ({
       name: data['name'],
@@ -58,7 +54,7 @@ export const successfulResponseData3Request = z.lazy(() => {
     .object({
       name: z.string().optional(),
       id: z.string().optional(),
-      type: successfulResponseDataType.optional(),
+      type: z.string().optional(),
     })
     .transform((data) => ({
       name: data['name'],

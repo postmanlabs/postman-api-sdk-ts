@@ -1,6 +1,4 @@
 import { z } from 'zod';
-import { DataWorkspaceVisibility, dataWorkspaceVisibility } from './data-workspace-visibility';
-import { DataResolution, dataResolution } from './data-resolution';
 
 /**
  * Zod schema for the SearchDetectedSecretsRequestData model.
@@ -11,14 +9,14 @@ export const searchDetectedSecretsRequestData = z.lazy(() => {
   return z.object({
     detectedAt: z.string().optional(),
     secretType: z.string().optional(),
-    workspaceVisibility: dataWorkspaceVisibility.optional(),
+    workspaceVisibility: z.string().optional(),
     secretHash: z.string().optional(),
     workspaceId: z.string().optional(),
     resourceType: z.string().optional(),
     resourceId: z.string().optional(),
     secretId: z.string().optional(),
     obfuscatedSecret: z.string().optional(),
-    resolution: dataResolution.optional(),
+    resolution: z.string().optional(),
     occurrences: z.number().optional(),
   });
 });
@@ -55,14 +53,14 @@ export const searchDetectedSecretsRequestDataResponse = z.lazy(() => {
     .object({
       detectedAt: z.string().optional(),
       secretType: z.string().optional(),
-      workspaceVisibility: dataWorkspaceVisibility.optional(),
+      workspaceVisibility: z.string().optional(),
       secretHash: z.string().optional(),
       workspaceId: z.string().optional(),
       resourceType: z.string().optional(),
       resourceId: z.string().optional(),
       secretId: z.string().optional(),
       obfuscatedSecret: z.string().optional(),
-      resolution: dataResolution.optional(),
+      resolution: z.string().optional(),
       occurrences: z.number().optional(),
     })
     .transform((data) => ({
@@ -90,14 +88,14 @@ export const searchDetectedSecretsRequestDataRequest = z.lazy(() => {
     .object({
       detectedAt: z.string().optional(),
       secretType: z.string().optional(),
-      workspaceVisibility: dataWorkspaceVisibility.optional(),
+      workspaceVisibility: z.string().optional(),
       secretHash: z.string().optional(),
       workspaceId: z.string().optional(),
       resourceType: z.string().optional(),
       resourceId: z.string().optional(),
       secretId: z.string().optional(),
       obfuscatedSecret: z.string().optional(),
-      resolution: dataResolution.optional(),
+      resolution: z.string().optional(),
       occurrences: z.number().optional(),
     })
     .transform((data) => ({

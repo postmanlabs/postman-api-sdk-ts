@@ -1,10 +1,7 @@
-import { AscDesc, ascDesc } from '../common/asc-desc';
-import { CollectionModelQuery, collectionModelQuery } from './models/collection-model-query';
-import { Prefer, prefer } from './models/prefer';
-import {
-  CollectionTransformFormat,
-  collectionTransformFormat,
-} from './models/collection-transform-format';
+import { AscDesc } from '../common/asc-desc';
+import { CollectionModelQuery } from './models/collection-model-query';
+import { Prefer } from './models/prefer';
+import { CollectionTransformFormat } from './models/collection-transform-format';
 
 export interface GetCollectionsParams {
   workspace?: string;

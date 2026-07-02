@@ -28,14 +28,14 @@ Gets information about a pull request, such as the source and destination detail
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.pullRequests.getPullRequest(
+  const data = await postmanApiSdkSourceOverlayed.pullRequests.getPullRequest(
     '4e1a6609-1a29-4037-a411-89ecc14c6cd8',
   );
 
@@ -64,10 +64,10 @@ Updates an open pull request.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk, UpdatePullRequest } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed, UpdatePullRequest } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -77,7 +77,7 @@ import { PostmanApiSdk, UpdatePullRequest } from 'postman-api-sdk';
     reviewers: ['12345678'],
   };
 
-  const data = await postmanApiSdk.pullRequests.updatePullRequest(
+  const data = await postmanApiSdkSourceOverlayed.pullRequests.updatePullRequest(
     '4e1a6609-1a29-4037-a411-89ecc14c6cd8',
     updatePullRequest,
   );
@@ -107,21 +107,25 @@ Updates the [review](https://learning.postman.com/docs/collaborating-in-postman/
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk, ReviewPullRequest } from 'postman-api-sdk';
+import {
+  PostmanApiSdkSourceOverlayed,
+  ReviewPullRequest,
+  ReviewPullRequestAction,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const reviewPullRequestAction = 'approve';
+  const reviewPullRequestAction = ReviewPullRequestAction.APPROVE;
 
   const reviewPullRequest: ReviewPullRequest = {
     action: reviewPullRequestAction,
     comment: 'Missing descriptions in requests',
   };
 
-  const data = await postmanApiSdk.pullRequests.reviewPullRequest(
+  const data = await postmanApiSdkSourceOverlayed.pullRequests.reviewPullRequest(
     '4e1a6609-1a29-4037-a411-89ecc14c6cd8',
     reviewPullRequest,
   );

@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { ElementCreatedType, elementCreatedType } from './element-created-type';
 
 /**
  * Zod schema for the ElementCreated model.
@@ -14,7 +13,7 @@ export const elementCreated = z.lazy(() => {
     createdAt: z.string().optional(),
     updatedBy: z.number().optional(),
     updatedAt: z.string().optional(),
-    type: elementCreatedType.optional(),
+    type: z.string().optional(),
     id: z.string().optional(),
     name: z.string().optional(),
     summary: z.string().optional().nullable(),
@@ -57,7 +56,7 @@ export const elementCreatedResponse = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedBy: z.number().optional(),
       updatedAt: z.string().optional(),
-      type: elementCreatedType.optional(),
+      type: z.string().optional(),
       id: z.string().optional(),
       name: z.string().optional(),
       summary: z.string().optional().nullable(),
@@ -96,7 +95,7 @@ export const elementCreatedRequest = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedBy: z.number().optional(),
       updatedAt: z.string().optional(),
-      type: elementCreatedType.optional(),
+      type: z.string().optional(),
       id: z.string().optional(),
       name: z.string().optional(),
       summary: z.string().optional().nullable(),

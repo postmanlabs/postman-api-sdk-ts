@@ -1,9 +1,4 @@
 import { z } from 'zod';
-import { RolesOp, rolesOp } from './roles-op';
-import {
-  UpdateCollectionRolesRolesPath,
-  updateCollectionRolesRolesPath,
-} from './update-collection-roles-roles-path';
 import {
   UpdateCollectionRolesRolesValue,
   updateCollectionRolesRolesValue,
@@ -18,8 +13,8 @@ import {
  */
 export const updateCollectionRolesRoles = z.lazy(() => {
   return z.object({
-    op: rolesOp,
-    path: updateCollectionRolesRolesPath,
+    op: z.string(),
+    path: z.string(),
     value: z.array(updateCollectionRolesRolesValue),
   });
 });
@@ -41,8 +36,8 @@ export type UpdateCollectionRolesRoles = z.infer<typeof updateCollectionRolesRol
 export const updateCollectionRolesRolesResponse = z.lazy(() => {
   return z
     .object({
-      op: rolesOp,
-      path: updateCollectionRolesRolesPath,
+      op: z.string(),
+      path: z.string(),
       value: z.array(updateCollectionRolesRolesValueResponse),
     })
     .transform((data) => ({
@@ -60,8 +55,8 @@ export const updateCollectionRolesRolesResponse = z.lazy(() => {
 export const updateCollectionRolesRolesRequest = z.lazy(() => {
   return z
     .object({
-      op: rolesOp,
-      path: updateCollectionRolesRolesPath,
+      op: z.string(),
+      path: z.string(),
       value: z.array(updateCollectionRolesRolesValueRequest),
     })
     .transform((data) => ({

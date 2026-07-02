@@ -37,24 +37,27 @@ Returns all secrets detected by Postman's [Secret Scanner](https://learning.post
 import {
   DetectedSecretsQueryRequest,
   DetectedSecretsQueryRequestResources,
-  PostmanApiSdk,
-} from 'postman-api-sdk';
+  PostmanApiSdkSourceOverlayed,
+  ResourcesType,
+  Statuses,
+  WorkspaceVisibilities,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const statuses = 'FALSE_POSITIVE';
+  const statuses = Statuses.FALSE_POSITIVE;
 
-  const resourcesType = 'collection';
+  const resourcesType = ResourcesType.COLLECTION;
 
   const detectedSecretsQueryRequestResources: DetectedSecretsQueryRequestResources = {
     type: resourcesType,
     ids: ['12345678-94720289-b9f3-4572-b34d-ecdfb9225b07'],
   };
 
-  const workspaceVisibilities = 'team';
+  const workspaceVisibilities = WorkspaceVisibilities.TEAM;
 
   const detectedSecretsQueryRequest: DetectedSecretsQueryRequest = {
     resolved: true,
@@ -65,7 +68,7 @@ import {
     workspaceVisibilities: [workspaceVisibilities],
   };
 
-  const data = await postmanApiSdk.secretScanner.detectedSecretsQueries(
+  const data = await postmanApiSdkSourceOverlayed.secretScanner.detectedSecretsQueries(
     detectedSecretsQueryRequest,
     {
       limit: 10,
@@ -102,21 +105,26 @@ Updates the resolution status of a secret detected in a workspace.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk, UpdateSecretResolutionRequest } from 'postman-api-sdk';
+import {
+  PostmanApiSdkSourceOverlayed,
+  UpdateSecretResolutionRequest,
+  UpdateSecretResolutionRequestResolution,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const updateSecretResolutionRequestResolution = 'FALSE_POSITIVE';
+  const updateSecretResolutionRequestResolution =
+    UpdateSecretResolutionRequestResolution.FALSE_POSITIVE;
 
   const updateSecretResolutionRequest: UpdateSecretResolutionRequest = {
     resolution: updateSecretResolutionRequestResolution,
     workspaceId: 'e361eeb4-00dd-4225-9774-6146a2555999',
   };
 
-  const data = await postmanApiSdk.secretScanner.updateDetectedSecretResolutions(
+  const data = await postmanApiSdkSourceOverlayed.secretScanner.updateDetectedSecretResolutions(
     'MTc0ODA0Mw==',
     updateSecretResolutionRequest,
   );
@@ -151,23 +159,27 @@ Gets the locations of secrets detected by Postman's [Secret Scanner](https://lea
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed, ResourceType } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const resourceType = 'collection';
+  const resourceType = ResourceType.COLLECTION;
 
-  const data = await postmanApiSdk.secretScanner.getDetectedSecretsLocations('MTc0ODA0Mw==', {
-    limit: 10,
-    cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
-    workspaceId: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
-    since: '2022-06-01T00:00:00.000Z',
-    until: '2022-06-15T00:00:00.000Z',
-    resourceType: resourceType,
-  });
+  const data = await postmanApiSdkSourceOverlayed.secretScanner.getDetectedSecretsLocations(
+    'MTc0ODA0Mw==',
+    {
+      limit: 10,
+      cursor:
+        'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
+      workspaceId: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
+      since: '2022-06-01T00:00:00.000Z',
+      until: '2022-06-15T00:00:00.000Z',
+      resourceType: resourceType,
+    },
+  );
 
   console.log(data);
 })();
@@ -187,14 +199,14 @@ Gets the metadata of the secret types supported by Postman's [Secret Scanner](ht
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.secretScanner.getSecretTypes();
+  const data = await postmanApiSdkSourceOverlayed.secretScanner.getSecretTypes();
 
   console.log(data);
 })();

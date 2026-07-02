@@ -1,5 +1,5 @@
-import { ComponentType, componentType } from './models/component-type';
-import { ComponentStatus, componentStatus } from './models/component-status';
+import { ComponentType } from './models/component-type';
+import { ComponentStatus } from './models/component-status';
 
 export interface GetAllComponentsParams {
   type?: ComponentType;

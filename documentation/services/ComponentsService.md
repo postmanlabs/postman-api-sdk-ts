@@ -38,18 +38,23 @@ Gets a list of all components in the team's component library.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import {
+  ComponentHasVersions,
+  ComponentStatus,
+  ComponentType,
+  PostmanApiSdkSourceOverlayed,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const componentType = 'OAS2';
-  const componentStatus = 'active';
-  const componentHasVersions = true;
+  const componentType = ComponentType.OAS2;
+  const componentStatus = ComponentStatus.ACTIVE;
+  const componentHasVersions = ComponentHasVersions.TRUE_;
 
-  const data = await postmanApiSdk.components.getAllComponents({
+  const data = await postmanApiSdkSourceOverlayed.components.getAllComponents({
     type: componentType,
     status: componentStatus,
     hasVersions: componentHasVersions,
@@ -81,16 +86,21 @@ Creates a new component. The component is created in an active state with an ini
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateComponent, PostmanApiSdk } from 'postman-api-sdk';
+import {
+  ComponentContentFormat,
+  ComponentType,
+  CreateComponent,
+  PostmanApiSdkSourceOverlayed,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const componentType = 'OAS2';
+  const componentType = ComponentType.OAS2;
 
-  const componentContentFormat = 'JSON';
+  const componentContentFormat = ComponentContentFormat.JSON;
 
   const createComponent: CreateComponent = {
     name: 'example-component',
@@ -99,7 +109,7 @@ import { CreateComponent, PostmanApiSdk } from 'postman-api-sdk';
     format: componentContentFormat,
   };
 
-  const data = await postmanApiSdk.components.createComponent(createComponent);
+  const data = await postmanApiSdkSourceOverlayed.components.createComponent(createComponent);
 
   console.log(data);
 })();
@@ -127,17 +137,20 @@ Gets information about a component. Use the `include` and `expand` query paramet
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.components.getComponent('01KT964C30J3DPJQKEACZH39N8', {
-    include: 'hasVersions,latestVersion',
-    expand: 'latestVersion',
-  });
+  const data = await postmanApiSdkSourceOverlayed.components.getComponent(
+    '01KT964C30J3DPJQKEACZH39N8',
+    {
+      include: 'hasVersions,latestVersion',
+      expand: 'latestVersion',
+    },
+  );
 
   console.log(data);
 })();
@@ -164,16 +177,19 @@ Updates a component: - `name` — Rename the component. The new name must be uni
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
   const input = {};
 
-  const data = await postmanApiSdk.components.updateComponent('01KT964C30J3DPJQKEACZH39N8', input);
+  const data = await postmanApiSdkSourceOverlayed.components.updateComponent(
+    '01KT964C30J3DPJQKEACZH39N8',
+    input,
+  );
 
   console.log(data);
 })();
@@ -199,14 +215,16 @@ Gets information about the current working draft of a component, including its c
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.components.getComponentDraft('01KT964C30J3DPJQKEACZH39N8');
+  const data = await postmanApiSdkSourceOverlayed.components.getComponentDraft(
+    '01KT964C30J3DPJQKEACZH39N8',
+  );
 
   console.log(data);
 })();
@@ -233,21 +251,25 @@ Updates a component's draft. Component drafts contain unpublished edits to a com
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk, UpdateComponentDraft } from 'postman-api-sdk';
+import {
+  ComponentContentFormat,
+  PostmanApiSdkSourceOverlayed,
+  UpdateComponentDraft,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const componentContentFormat = 'JSON';
+  const componentContentFormat = ComponentContentFormat.JSON;
 
   const updateComponentDraft: UpdateComponentDraft = {
     content: 'openapi: 3.0.0\ninfo:\n  title: Example API\n  version: 1.0.0',
     format: componentContentFormat,
   };
 
-  const data = await postmanApiSdk.components.updateComponentDraft(
+  const data = await postmanApiSdkSourceOverlayed.components.updateComponentDraft(
     '01KT964C30J3DPJQKEACZH39N8',
     updateComponentDraft,
   );
@@ -277,16 +299,19 @@ Gets a list of a component's published versions.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.components.getComponentVersions('01KT964C30J3DPJQKEACZH39N8', {
-    include: 'content',
-  });
+  const data = await postmanApiSdkSourceOverlayed.components.getComponentVersions(
+    '01KT964C30J3DPJQKEACZH39N8',
+    {
+      include: 'content',
+    },
+  );
 
   console.log(data);
 })();
@@ -316,15 +341,16 @@ Publishes a new version of a component from the current draft. **Note:** You can
 import {
   CreateComponentVersion,
   CreateComponentVersionSource,
-  PostmanApiSdk,
-} from 'postman-api-sdk';
+  PostmanApiSdkSourceOverlayed,
+  SourceType,
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const sourceType = 'draft';
+  const sourceType = SourceType.DRAFT;
 
   const createComponentVersionSource: CreateComponentVersionSource = {
     type: sourceType,
@@ -335,7 +361,7 @@ import {
     source: createComponentVersionSource,
   };
 
-  const data = await postmanApiSdk.components.createComponentVersion(
+  const data = await postmanApiSdkSourceOverlayed.components.createComponentVersion(
     '01KT964C30J3DPJQKEACZH39N8',
     createComponentVersion,
   );
@@ -366,14 +392,14 @@ Gets a published version of a component.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.components.getComponentVersion(
+  const data = await postmanApiSdkSourceOverlayed.components.getComponentVersion(
     '01KT964C30J3DPJQKEACZH39N8',
     '01KT9NBTW5GYETHG6V0HNPAPYV',
     {

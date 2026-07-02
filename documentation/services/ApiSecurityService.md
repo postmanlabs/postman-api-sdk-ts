@@ -27,19 +27,21 @@ Performs an analysis on the given definition and returns any issues based on you
 
 ```typescript
 import {
-  PostmanApiSdk,
+  PostmanApiSdkSourceOverlayed,
+  SchemaLanguage,
+  SchemaType,
   SchemaValidationRequestBody,
   SchemaValidationRequestBodySchema,
-} from 'postman-api-sdk';
+} from '@@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const schemaLanguage = 'json';
+  const schemaLanguage = SchemaLanguage.JSON;
 
-  const schemaType = 'openapi3';
+  const schemaType = SchemaType.OPENAPI3;
 
   const schemaValidationRequestBodySchema: SchemaValidationRequestBodySchema = {
     language: schemaLanguage,
@@ -52,7 +54,7 @@ import {
     schema: schemaValidationRequestBodySchema,
   };
 
-  const data = await postmanApiSdk.apiSecurity.schemaSecurityValidation(
+  const data = await postmanApiSdkSourceOverlayed.apiSecurity.schemaSecurityValidation(
     schemaValidationRequestBody,
   );
 

@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { UpdateSpecFileType, updateSpecFileType } from './update-spec-file-type';
 
 /**
  * Zod schema for the UpdateSpecFile model.
@@ -9,7 +8,7 @@ import { UpdateSpecFileType, updateSpecFileType } from './update-spec-file-type'
 export const updateSpecFile = z.lazy(() => {
   return z.object({
     name: z.string().optional(),
-    type: updateSpecFileType.optional(),
+    type: z.string().optional(),
     content: z.string().optional(),
   });
 });
@@ -35,7 +34,7 @@ export const updateSpecFileResponse = z.lazy(() => {
   return z
     .object({
       name: z.string().optional(),
-      type: updateSpecFileType.optional(),
+      type: z.string().optional(),
       content: z.string().optional(),
     })
     .transform((data) => ({
@@ -54,7 +53,7 @@ export const updateSpecFileRequest = z.lazy(() => {
   return z
     .object({
       name: z.string().optional(),
-      type: updateSpecFileType.optional(),
+      type: z.string().optional(),
       content: z.string().optional(),
     })
     .transform((data) => ({

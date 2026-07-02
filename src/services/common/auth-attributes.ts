@@ -5,7 +5,6 @@ import {
   authAttributesValueRequest,
   authAttributesValueResponse,
 } from '../collections/models/auth-attributes-value';
-import { AuthAttributesType, authAttributesType } from '../collections/models/auth-attributes-type';
 
 /**
  * Zod schema for the AuthAttributes model.
@@ -16,7 +15,7 @@ export const authAttributes = z.lazy(() => {
   return z.object({
     key: z.string(),
     value: authAttributesValue.optional(),
-    type: authAttributesType.optional(),
+    type: z.string().optional(),
   });
 });
 
@@ -39,7 +38,7 @@ export const authAttributesResponse = z.lazy(() => {
     .object({
       key: z.string(),
       value: authAttributesValueResponse.optional(),
-      type: authAttributesType.optional(),
+      type: z.string().optional(),
     })
     .transform((data) => ({
       key: data['key'],
@@ -58,7 +57,7 @@ export const authAttributesRequest = z.lazy(() => {
     .object({
       key: z.string(),
       value: authAttributesValueRequest.optional(),
-      type: authAttributesType.optional(),
+      type: z.string().optional(),
     })
     .transform((data) => ({
       key: data['key'],

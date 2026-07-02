@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { TargetModel, targetModel } from './target-model';
 
 /**
  * Zod schema for the Target model.
@@ -9,7 +8,7 @@ import { TargetModel, targetModel } from './target-model';
 export const target = z.lazy(() => {
   return z.object({
     id: z.string(),
-    model: targetModel,
+    model: z.string(),
   });
 });
 
@@ -30,7 +29,7 @@ export const targetResponse = z.lazy(() => {
   return z
     .object({
       id: z.string(),
-      model: targetModel,
+      model: z.string(),
     })
     .transform((data) => ({
       id: data['id'],
@@ -47,7 +46,7 @@ export const targetRequest = z.lazy(() => {
   return z
     .object({
       id: z.string(),
-      model: targetModel,
+      model: z.string(),
     })
     .transform((data) => ({
       id: data['id'],

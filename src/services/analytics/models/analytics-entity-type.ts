@@ -1,12 +1,10 @@
 import { z } from 'zod';
 
-export const analyticsEntityType = z.union([
-  z.literal('collection'),
-  z.literal('specification'),
-  z.literal('mock'),
-  z.literal('flow'),
-  z.literal('sdk-collection'),
-  z.literal('sdk-specification'),
-]);
-
-export type AnalyticsEntityType = z.infer<typeof analyticsEntityType>;
+export enum AnalyticsEntityType {
+  COLLECTION = 'collection',
+  SPECIFICATION = 'specification',
+  MOCK = 'mock',
+  FLOW = 'flow',
+  SDK_COLLECTION = 'sdk-collection',
+  SDK_SPECIFICATION = 'sdk-specification',
+}

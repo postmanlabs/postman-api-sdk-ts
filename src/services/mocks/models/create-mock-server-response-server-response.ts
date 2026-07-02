@@ -5,10 +5,6 @@ import {
   createMockServerResponseServerResponseHeadersRequest,
   createMockServerResponseServerResponseHeadersResponse,
 } from './create-mock-server-response-server-response-headers';
-import {
-  CreateMockServerResponseServerResponseLanguage,
-  createMockServerResponseServerResponseLanguage,
-} from './create-mock-server-response-server-response-language';
 
 /**
  * Zod schema for the CreateMockServerResponseServerResponse model.
@@ -20,7 +16,7 @@ export const createMockServerResponseServerResponse = z.lazy(() => {
     name: z.string(),
     statusCode: z.number(),
     headers: z.array(createMockServerResponseServerResponseHeaders).optional(),
-    language: createMockServerResponseServerResponseLanguage.optional().nullable(),
+    language: z.string().optional().nullable(),
     body: z.string().optional(),
   });
 });
@@ -49,7 +45,7 @@ export const createMockServerResponseServerResponseResponse = z.lazy(() => {
       name: z.string(),
       statusCode: z.number(),
       headers: z.array(createMockServerResponseServerResponseHeadersResponse).optional(),
-      language: createMockServerResponseServerResponseLanguage.optional().nullable(),
+      language: z.string().optional().nullable(),
       body: z.string().optional(),
     })
     .transform((data) => ({
@@ -72,7 +68,7 @@ export const createMockServerResponseServerResponseRequest = z.lazy(() => {
       name: z.string(),
       statusCode: z.number(),
       headers: z.array(createMockServerResponseServerResponseHeadersRequest).optional(),
-      language: createMockServerResponseServerResponseLanguage.optional().nullable(),
+      language: z.string().optional().nullable(),
       body: z.string().optional(),
     })
     .transform((data) => ({

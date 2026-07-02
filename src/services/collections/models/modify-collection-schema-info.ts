@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { InformationSchema2, informationSchema2 } from './information-schema-2';
 
 /**
  * Zod schema for the ModifyCollectionSchemaInfo model.
@@ -11,7 +10,7 @@ export const modifyCollectionSchemaInfo = z.lazy(() => {
     name: z.string(),
     _postmanId: z.string().optional(),
     description: z.string().optional(),
-    schema: informationSchema2,
+    schema: z.string(),
     updatedAt: z.string().optional(),
     createdat: z.string().optional(),
     lastUpdatedBy: z.string().optional(),
@@ -44,7 +43,7 @@ export const modifyCollectionSchemaInfoResponse = z.lazy(() => {
       name: z.string(),
       _postman_id: z.string().optional(),
       description: z.string().optional(),
-      schema: informationSchema2,
+      schema: z.string(),
       updatedAt: z.string().optional(),
       createdat: z.string().optional(),
       lastUpdatedBy: z.string().optional(),
@@ -73,7 +72,7 @@ export const modifyCollectionSchemaInfoRequest = z.lazy(() => {
       name: z.string(),
       _postmanId: z.string().optional(),
       description: z.string().optional(),
-      schema: informationSchema2,
+      schema: z.string(),
       updatedAt: z.string().optional(),
       createdat: z.string().optional(),
       lastUpdatedBy: z.string().optional(),

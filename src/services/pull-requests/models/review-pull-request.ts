@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { ReviewPullRequestAction, reviewPullRequestAction } from './review-pull-request-action';
 
 /**
  * Zod schema for the ReviewPullRequest model.
@@ -8,7 +7,7 @@ import { ReviewPullRequestAction, reviewPullRequestAction } from './review-pull-
  */
 export const reviewPullRequest = z.lazy(() => {
   return z.object({
-    action: reviewPullRequestAction,
+    action: z.string(),
     comment: z.string().optional(),
   });
 });
@@ -34,7 +33,7 @@ export type ReviewPullRequest = z.infer<typeof reviewPullRequest>;
 export const reviewPullRequestResponse = z.lazy(() => {
   return z
     .object({
-      action: reviewPullRequestAction,
+      action: z.string(),
       comment: z.string().optional(),
     })
     .transform((data) => ({
@@ -51,7 +50,7 @@ export const reviewPullRequestResponse = z.lazy(() => {
 export const reviewPullRequestRequest = z.lazy(() => {
   return z
     .object({
-      action: reviewPullRequestAction,
+      action: z.string(),
       comment: z.string().optional(),
     })
     .transform((data) => ({

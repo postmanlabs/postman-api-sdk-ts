@@ -1,6 +1,4 @@
 import { z } from 'zod';
-import { ComponentType, componentType } from './component-type';
-import { ComponentStatus, componentStatus } from './component-status';
 import {
   LatestVersion,
   latestVersion,
@@ -17,8 +15,8 @@ export const componentData = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
     name: z.string().optional(),
-    type: componentType.optional(),
-    status: componentStatus.optional(),
+    type: z.string().optional(),
+    status: z.string().optional(),
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
     createdBy: z.string().optional(),
@@ -60,8 +58,8 @@ export const componentDataResponse = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      type: componentType.optional(),
-      status: componentStatus.optional(),
+      type: z.string().optional(),
+      status: z.string().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       createdBy: z.string().optional(),
@@ -93,8 +91,8 @@ export const componentDataRequest = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      type: componentType.optional(),
-      status: componentStatus.optional(),
+      type: z.string().optional(),
+      status: z.string().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       createdBy: z.string().optional(),

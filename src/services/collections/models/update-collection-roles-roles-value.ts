@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { ValueRole, valueRole } from './value-role';
 
 /**
  * Zod schema for the UpdateCollectionRolesRolesValue model.
@@ -9,7 +8,7 @@ import { ValueRole, valueRole } from './value-role';
 export const updateCollectionRolesRolesValue = z.lazy(() => {
   return z.object({
     id: z.number(),
-    role: valueRole,
+    role: z.string(),
   });
 });
 
@@ -32,7 +31,7 @@ export const updateCollectionRolesRolesValueResponse = z.lazy(() => {
   return z
     .object({
       id: z.number(),
-      role: valueRole,
+      role: z.string(),
     })
     .transform((data) => ({
       id: data['id'],
@@ -49,7 +48,7 @@ export const updateCollectionRolesRolesValueRequest = z.lazy(() => {
   return z
     .object({
       id: z.number(),
-      role: valueRole,
+      role: z.string(),
     })
     .transform((data) => ({
       id: data['id'],

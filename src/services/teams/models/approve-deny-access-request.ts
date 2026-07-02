@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  ApproveDenyAccessRequestAction,
-  approveDenyAccessRequestAction,
-} from './approve-deny-access-request-action';
 
 /**
  * Zod schema for the ApproveDenyAccessRequest model.
@@ -11,7 +7,7 @@ import {
  */
 export const approveDenyAccessRequest = z.lazy(() => {
   return z.object({
-    action: approveDenyAccessRequestAction,
+    action: z.string(),
   });
 });
 
@@ -30,7 +26,7 @@ export type ApproveDenyAccessRequest = z.infer<typeof approveDenyAccessRequest>;
 export const approveDenyAccessRequestResponse1 = z.lazy(() => {
   return z
     .object({
-      action: approveDenyAccessRequestAction,
+      action: z.string(),
     })
     .transform((data) => ({
       action: data['action'],
@@ -45,7 +41,7 @@ export const approveDenyAccessRequestResponse1 = z.lazy(() => {
 export const approveDenyAccessRequestRequest = z.lazy(() => {
   return z
     .object({
-      action: approveDenyAccessRequestAction,
+      action: z.string(),
     })
     .transform((data) => ({
       action: data['action'],

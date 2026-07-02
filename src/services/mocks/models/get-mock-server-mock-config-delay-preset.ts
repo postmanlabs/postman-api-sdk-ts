@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
-export const getMockServerMockConfigDelayPreset = z.union([z.literal('1'), z.literal('2')]);
-
-export type GetMockServerMockConfigDelayPreset = z.infer<typeof getMockServerMockConfigDelayPreset>;
+export enum GetMockServerMockConfigDelayPreset {
+  _1 = '1',
+  _2 = '2',
+}

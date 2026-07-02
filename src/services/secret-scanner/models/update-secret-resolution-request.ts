@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  UpdateSecretResolutionRequestResolution,
-  updateSecretResolutionRequestResolution,
-} from './update-secret-resolution-request-resolution';
 
 /**
  * Zod schema for the UpdateSecretResolutionRequest model.
@@ -11,7 +7,7 @@ import {
  */
 export const updateSecretResolutionRequest = z.lazy(() => {
   return z.object({
-    resolution: updateSecretResolutionRequestResolution,
+    resolution: z.string(),
     workspaceId: z.string(),
   });
 });
@@ -36,7 +32,7 @@ export type UpdateSecretResolutionRequest = z.infer<typeof updateSecretResolutio
 export const updateSecretResolutionRequestResponse = z.lazy(() => {
   return z
     .object({
-      resolution: updateSecretResolutionRequestResolution,
+      resolution: z.string(),
       workspaceId: z.string(),
     })
     .transform((data) => ({
@@ -53,7 +49,7 @@ export const updateSecretResolutionRequestResponse = z.lazy(() => {
 export const updateSecretResolutionRequestRequest = z.lazy(() => {
   return z
     .object({
-      resolution: updateSecretResolutionRequestResolution,
+      resolution: z.string(),
       workspaceId: z.string(),
     })
     .transform((data) => ({

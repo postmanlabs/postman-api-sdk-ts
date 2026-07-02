@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  UpdateWorkspaceWorkspaceType,
-  updateWorkspaceWorkspaceType,
-} from './update-workspace-workspace-type';
 
 /**
  * Zod schema for the UpdateWorkspaceWorkspace1 model.
@@ -12,7 +8,7 @@ import {
 export const updateWorkspaceWorkspace1 = z.lazy(() => {
   return z.object({
     name: z.string().optional(),
-    type: updateWorkspaceWorkspaceType.optional(),
+    type: z.string().optional(),
     description: z.string().optional(),
     about: z.string().optional(),
   });
@@ -40,7 +36,7 @@ export const updateWorkspaceWorkspace1Response = z.lazy(() => {
   return z
     .object({
       name: z.string().optional(),
-      type: updateWorkspaceWorkspaceType.optional(),
+      type: z.string().optional(),
       description: z.string().optional(),
       about: z.string().optional(),
     })
@@ -61,7 +57,7 @@ export const updateWorkspaceWorkspace1Request = z.lazy(() => {
   return z
     .object({
       name: z.string().optional(),
-      type: updateWorkspaceWorkspaceType.optional(),
+      type: z.string().optional(),
       description: z.string().optional(),
       about: z.string().optional(),
     })

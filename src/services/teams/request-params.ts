@@ -1,4 +1,4 @@
-import { TeamsInclude, teamsInclude } from './models/teams-include';
+import { TeamsInclude } from './models/teams-include';
 
 export interface GetTeamsParams {
   cursor?: string;

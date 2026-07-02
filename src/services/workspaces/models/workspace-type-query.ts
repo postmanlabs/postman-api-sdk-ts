@@ -1,11 +1,9 @@
 import { z } from 'zod';
 
-export const workspaceTypeQuery = z.union([
-  z.literal('personal'),
-  z.literal('team'),
-  z.literal('private'),
-  z.literal('public'),
-  z.literal('partner'),
-]);
-
-export type WorkspaceTypeQuery = z.infer<typeof workspaceTypeQuery>;
+export enum WorkspaceTypeQuery {
+  PERSONAL = 'personal',
+  TEAM = 'team',
+  PRIVATE_ = 'private',
+  PUBLIC_ = 'public',
+  PARTNER = 'partner',
+}

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
-export const workspaceVisibilities = z.union([z.literal('team'), z.literal('public')]);
-
-export type WorkspaceVisibilities = z.infer<typeof workspaceVisibilities>;
+export enum WorkspaceVisibilities {
+  TEAM = 'team',
+  PUBLIC_ = 'public',
+}

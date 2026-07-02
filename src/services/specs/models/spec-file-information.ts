@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { SpecFileInformationType, specFileInformationType } from './spec-file-information-type';
 
 /**
  * Zod schema for the SpecFileInformation model.
@@ -15,7 +14,7 @@ export const specFileInformation = z.lazy(() => {
     updatedBy: z.number().optional(),
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
-    type: specFileInformationType.optional(),
+    type: z.string().optional(),
   });
 });
 
@@ -51,7 +50,7 @@ export const specFileInformationResponse = z.lazy(() => {
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      type: specFileInformationType.optional(),
+      type: z.string().optional(),
     })
     .transform((data) => ({
       id: data['id'],
@@ -80,7 +79,7 @@ export const specFileInformationRequest = z.lazy(() => {
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      type: specFileInformationType.optional(),
+      type: z.string().optional(),
     })
     .transform((data) => ({
       id: data['id'],

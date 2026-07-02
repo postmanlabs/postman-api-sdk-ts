@@ -1,9 +1,5 @@
 import { z } from 'zod';
 import {
-  UpdateWorkspaceRolesRolesPath,
-  updateWorkspaceRolesRolesPath,
-} from './update-workspace-roles-roles-path';
-import {
   UpdateWorkspaceRolesRolesValue,
   updateWorkspaceRolesRolesValue,
   updateWorkspaceRolesRolesValueRequest,
@@ -18,7 +14,7 @@ import {
 export const updateWorkspaceRolesRoles = z.lazy(() => {
   return z.object({
     op: z.string(),
-    path: updateWorkspaceRolesRolesPath,
+    path: z.string(),
     value: z.array(updateWorkspaceRolesRolesValue),
   });
 });
@@ -41,7 +37,7 @@ export const updateWorkspaceRolesRolesResponse = z.lazy(() => {
   return z
     .object({
       op: z.string(),
-      path: updateWorkspaceRolesRolesPath,
+      path: z.string(),
       value: z.array(updateWorkspaceRolesRolesValueResponse),
     })
     .transform((data) => ({
@@ -60,7 +56,7 @@ export const updateWorkspaceRolesRolesRequest = z.lazy(() => {
   return z
     .object({
       op: z.string(),
-      path: updateWorkspaceRolesRolesPath,
+      path: z.string(),
       value: z.array(updateWorkspaceRolesRolesValueRequest),
     })
     .transform((data) => ({

@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { AddSecretVariableType, addSecretVariableType } from './add-secret-variable-type';
 import {
   EnvironmentVariableSource,
   environmentVariableSource,
@@ -17,7 +16,7 @@ export const addSecretVariable = z.lazy(() => {
     enabled: z.boolean().optional(),
     key: z.string().optional(),
     value: z.string().optional(),
-    type: addSecretVariableType.optional(),
+    type: z.string().optional(),
     secret: z.boolean().optional(),
     source: environmentVariableSource.optional(),
     description: z.string().max(512).optional(),
@@ -51,7 +50,7 @@ export const addSecretVariableResponse = z.lazy(() => {
       enabled: z.boolean().optional(),
       key: z.string().optional(),
       value: z.string().optional(),
-      type: addSecretVariableType.optional(),
+      type: z.string().optional(),
       secret: z.boolean().optional(),
       source: environmentVariableSourceResponse.optional(),
       description: z.string().max(512).optional(),
@@ -78,7 +77,7 @@ export const addSecretVariableRequest = z.lazy(() => {
       enabled: z.boolean().optional(),
       key: z.string().optional(),
       value: z.string().optional(),
-      type: addSecretVariableType.optional(),
+      type: z.string().optional(),
       secret: z.boolean().optional(),
       source: environmentVariableSourceRequest.optional(),
       description: z.string().max(512).optional(),

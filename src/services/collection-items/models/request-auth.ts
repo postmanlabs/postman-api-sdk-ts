@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { RequestAuthType, requestAuthType } from './request-auth-type';
 import {
   AuthAttributes,
   authAttributes,
@@ -14,7 +13,7 @@ import {
  */
 export const requestAuth = z.lazy(() => {
   return z.object({
-    type: requestAuthType,
+    type: z.string(),
     apikey: z.array(authAttributes).optional(),
     awsv4: z.array(authAttributes).optional(),
     basic: z.array(authAttributes).optional(),
@@ -57,7 +56,7 @@ export type RequestAuth = z.infer<typeof requestAuth>;
 export const requestAuthResponse = z.lazy(() => {
   return z
     .object({
-      type: requestAuthType,
+      type: z.string(),
       apikey: z.array(authAttributesResponse).optional(),
       awsv4: z.array(authAttributesResponse).optional(),
       basic: z.array(authAttributesResponse).optional(),
@@ -96,7 +95,7 @@ export const requestAuthResponse = z.lazy(() => {
 export const requestAuthRequest = z.lazy(() => {
   return z
     .object({
-      type: requestAuthType,
+      type: z.string(),
       apikey: z.array(authAttributesRequest).optional(),
       awsv4: z.array(authAttributesRequest).optional(),
       basic: z.array(authAttributesRequest).optional(),
