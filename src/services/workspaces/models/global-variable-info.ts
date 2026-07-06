@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { GlobalVariableInfoType, globalVariableInfoType } from './global-variable-info-type';
 
 /**
  * Zod schema for the GlobalVariableInfo model.
@@ -9,7 +8,7 @@ import { GlobalVariableInfoType, globalVariableInfoType } from './global-variabl
 export const globalVariableInfo = z.lazy(() => {
   return z.object({
     key: z.string().optional(),
-    type: globalVariableInfoType.optional(),
+    type: z.string().optional(),
     value: z.string().optional(),
     enabled: z.boolean().optional(),
     description: z.string().max(512).optional(),
@@ -36,7 +35,7 @@ export const globalVariableInfoResponse = z.lazy(() => {
   return z
     .object({
       key: z.string().optional(),
-      type: globalVariableInfoType.optional(),
+      type: z.string().optional(),
       value: z.string().optional(),
       enabled: z.boolean().optional(),
       description: z.string().max(512).optional(),
@@ -59,7 +58,7 @@ export const globalVariableInfoRequest = z.lazy(() => {
   return z
     .object({
       key: z.string().optional(),
-      type: globalVariableInfoType.optional(),
+      type: z.string().optional(),
       value: z.string().optional(),
       enabled: z.boolean().optional(),
       description: z.string().max(512).optional(),

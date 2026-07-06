@@ -1,15 +1,13 @@
 import { z } from 'zod';
 
-export const region = z.union([
-  z.literal('us-east'),
-  z.literal('us-west'),
-  z.literal('ap-southeast'),
-  z.literal('ca-central'),
-  z.literal('eu-central'),
-  z.literal('sa-east'),
-  z.literal('uk'),
-  z.literal('us-east-staticip'),
-  z.literal('us-west-staticip'),
-]);
-
-export type Region = z.infer<typeof region>;
+export enum Region {
+  US_EAST = 'us-east',
+  US_WEST = 'us-west',
+  AP_SOUTHEAST = 'ap-southeast',
+  CA_CENTRAL = 'ca-central',
+  EU_CENTRAL = 'eu-central',
+  SA_EAST = 'sa-east',
+  UK = 'uk',
+  US_EAST_STATICIP = 'us-east-staticip',
+  US_WEST_STATICIP = 'us-west-staticip',
+}

@@ -1,6 +1,4 @@
 import { z } from 'zod';
-import { SchemaLanguage, schemaLanguage } from './schema-language';
-import { SchemaType, schemaType } from './schema-type';
 
 /**
  * Zod schema for the SchemaValidationRequestBodySchema model.
@@ -9,9 +7,9 @@ import { SchemaType, schemaType } from './schema-type';
  */
 export const schemaValidationRequestBodySchema = z.lazy(() => {
   return z.object({
-    language: schemaLanguage,
+    language: z.string(),
     schema: z.string(),
-    type: schemaType,
+    type: z.string(),
   });
 });
 
@@ -32,9 +30,9 @@ export type SchemaValidationRequestBodySchema = z.infer<typeof schemaValidationR
 export const schemaValidationRequestBodySchemaResponse = z.lazy(() => {
   return z
     .object({
-      language: schemaLanguage,
+      language: z.string(),
       schema: z.string(),
-      type: schemaType,
+      type: z.string(),
     })
     .transform((data) => ({
       language: data['language'],
@@ -51,9 +49,9 @@ export const schemaValidationRequestBodySchemaResponse = z.lazy(() => {
 export const schemaValidationRequestBodySchemaRequest = z.lazy(() => {
   return z
     .object({
-      language: schemaLanguage,
+      language: z.string(),
       schema: z.string(),
-      type: schemaType,
+      type: z.string(),
     })
     .transform((data) => ({
       language: data['language'],

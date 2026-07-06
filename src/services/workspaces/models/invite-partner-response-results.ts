@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  InvitePartnerResponseResultsStatus,
-  invitePartnerResponseResultsStatus,
-} from './invite-partner-response-results-status';
 
 /**
  * Zod schema for the InvitePartnerResponseResults model.
@@ -12,7 +8,7 @@ import {
 export const invitePartnerResponseResults = z.lazy(() => {
   return z.object({
     email: z.string().optional(),
-    status: invitePartnerResponseResultsStatus.optional(),
+    status: z.string().optional(),
     userId: z.string().optional(),
     message: z.string().optional(),
     invitationLink: z.string().optional(),
@@ -44,7 +40,7 @@ export const invitePartnerResponseResultsResponse = z.lazy(() => {
   return z
     .object({
       email: z.string().optional(),
-      status: invitePartnerResponseResultsStatus.optional(),
+      status: z.string().optional(),
       userId: z.string().optional(),
       message: z.string().optional(),
       invitationLink: z.string().optional(),
@@ -67,7 +63,7 @@ export const invitePartnerResponseResultsRequest = z.lazy(() => {
   return z
     .object({
       email: z.string().optional(),
-      status: invitePartnerResponseResultsStatus.optional(),
+      status: z.string().optional(),
       userId: z.string().optional(),
       message: z.string().optional(),
       invitationLink: z.string().optional(),

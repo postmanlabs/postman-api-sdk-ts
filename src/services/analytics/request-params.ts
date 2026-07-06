@@ -1,9 +1,9 @@
-import { AnalyticsResource, analyticsResource } from './models/analytics-resource';
-import { AnalyticsMetrics, analyticsMetrics } from './models/analytics-metrics';
-import { AnalyticsView, analyticsView } from './models/analytics-view';
-import { AnalyticsDuration, analyticsDuration } from './models/analytics-duration';
-import { AnalyticsUserType, analyticsUserType } from './models/analytics-user-type';
-import { AnalyticsEntityType, analyticsEntityType } from './models/analytics-entity-type';
+import { AnalyticsResource } from './models/analytics-resource';
+import { AnalyticsMetrics } from './models/analytics-metrics';
+import { AnalyticsView } from './models/analytics-view';
+import { AnalyticsDuration } from './models/analytics-duration';
+import { AnalyticsUserType } from './models/analytics-user-type';
+import { AnalyticsEntityType } from './models/analytics-entity-type';
 
 export interface GetAnalyticsDataParams {
   resource: AnalyticsResource;

@@ -1,9 +1,5 @@
 import { z } from 'zod';
 import {
-  RespondPanElementAddRequestBodyStatus,
-  respondPanElementAddRequestBodyStatus,
-} from './respond-pan-element-add-request-body-status';
-import {
   RespondPanElementAddRequestBodyResponse1,
   respondPanElementAddRequestBodyResponse1,
   respondPanElementAddRequestBodyResponse1Request,
@@ -17,7 +13,7 @@ import {
  */
 export const respondPanElementAddRequestBody = z.lazy(() => {
   return z.object({
-    status: respondPanElementAddRequestBodyStatus,
+    status: z.string(),
     response: respondPanElementAddRequestBodyResponse1.optional(),
   });
 });
@@ -38,7 +34,7 @@ export type RespondPanElementAddRequestBody = z.infer<typeof respondPanElementAd
 export const respondPanElementAddRequestBodyResponse = z.lazy(() => {
   return z
     .object({
-      status: respondPanElementAddRequestBodyStatus,
+      status: z.string(),
       response: respondPanElementAddRequestBodyResponse1Response.optional(),
     })
     .transform((data) => ({
@@ -55,7 +51,7 @@ export const respondPanElementAddRequestBodyResponse = z.lazy(() => {
 export const respondPanElementAddRequestBodyRequest = z.lazy(() => {
   return z
     .object({
-      status: respondPanElementAddRequestBodyStatus,
+      status: z.string(),
       response: respondPanElementAddRequestBodyResponse1Request.optional(),
     })
     .transform((data) => ({

@@ -1,12 +1,10 @@
 import { z } from 'zod';
 
-export const authAttributesType = z.union([
-  z.literal('string'),
-  z.literal('boolean'),
-  z.literal('number'),
-  z.literal('array'),
-  z.literal('object'),
-  z.literal('any'),
-]);
-
-export type AuthAttributesType = z.infer<typeof authAttributesType>;
+export enum AuthAttributesType {
+  STRING_ = 'string',
+  BOOLEAN_ = 'boolean',
+  NUMBER_ = 'number',
+  ARRAY = 'array',
+  OBJECT = 'object',
+  ANY_ = 'any',
+}

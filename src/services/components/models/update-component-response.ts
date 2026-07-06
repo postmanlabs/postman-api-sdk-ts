@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { ComponentStatus, componentStatus } from './component-status';
 
 /**
  * Zod schema for the UpdateComponentResponse model.
@@ -10,7 +9,7 @@ export const updateComponentResponse = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
     name: z.string().optional(),
-    status: componentStatus.optional(),
+    status: z.string().optional(),
   });
 });
 
@@ -36,7 +35,7 @@ export const updateComponentResponseResponse = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      status: componentStatus.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       id: data['id'],
@@ -55,7 +54,7 @@ export const updateComponentResponseRequest = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      status: componentStatus.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       id: data['id'],

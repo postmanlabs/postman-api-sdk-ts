@@ -9,7 +9,7 @@ export type { MonitorRetrySettings } from './monitor-retry-settings';
 export type { MonitorOptions } from './monitor-options';
 export type { MonitorSchedule } from './monitor-schedule';
 export type { MonitorDistribution } from './monitor-distribution';
-export type { Region } from './region';
+export { Region } from './region';
 export type { MonitorNotifications } from './monitor-notifications';
 export type { OnError } from './on-error';
 export type { OnFailure } from './on-failure';

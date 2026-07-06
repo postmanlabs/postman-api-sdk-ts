@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { JsonStringifiedType, jsonStringifiedType } from './json-stringified-type';
 import {
   GenerateCollectionOptions,
   generateCollectionOptions,
@@ -14,7 +13,7 @@ import {
  */
 export const jsonStringified = z.lazy(() => {
   return z.object({
-    type: jsonStringifiedType,
+    type: z.string(),
     input: z.string(),
     options: generateCollectionOptions.optional(),
   });
@@ -37,7 +36,7 @@ export type JsonStringified = z.infer<typeof jsonStringified>;
 export const jsonStringifiedResponse = z.lazy(() => {
   return z
     .object({
-      type: jsonStringifiedType,
+      type: z.string(),
       input: z.string(),
       options: generateCollectionOptionsResponse.optional(),
     })
@@ -56,7 +55,7 @@ export const jsonStringifiedResponse = z.lazy(() => {
 export const jsonStringifiedRequest = z.lazy(() => {
   return z
     .object({
-      type: jsonStringifiedType,
+      type: z.string(),
       input: z.string(),
       options: generateCollectionOptionsRequest.optional(),
     })

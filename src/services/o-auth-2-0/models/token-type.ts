@@ -1,5 +1,5 @@
 import { z } from 'zod';
 
-export const tokenType = z.literal('Bearer');
-
-export type TokenType = z.infer<typeof tokenType>;
+export enum TokenType {
+  BEARER = 'Bearer',
+}

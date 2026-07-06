@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  CreateWorkspaceWorkspaceType,
-  createWorkspaceWorkspaceType,
-} from './create-workspace-workspace-type';
 
 /**
  * Zod schema for the CreateWorkspaceWorkspace model.
@@ -12,7 +8,7 @@ import {
 export const createWorkspaceWorkspace = z.lazy(() => {
   return z.object({
     name: z.string(),
-    type: createWorkspaceWorkspaceType,
+    type: z.string(),
     description: z.string().optional(),
     about: z.string().optional(),
     teamId: z.string().optional(),
@@ -45,7 +41,7 @@ export const createWorkspaceWorkspaceResponse = z.lazy(() => {
   return z
     .object({
       name: z.string(),
-      type: createWorkspaceWorkspaceType,
+      type: z.string(),
       description: z.string().optional(),
       about: z.string().optional(),
       teamId: z.string().optional(),
@@ -68,7 +64,7 @@ export const createWorkspaceWorkspaceRequest = z.lazy(() => {
   return z
     .object({
       name: z.string(),
-      type: createWorkspaceWorkspaceType,
+      type: z.string(),
       description: z.string().optional(),
       about: z.string().optional(),
       teamId: z.string().optional(),

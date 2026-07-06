@@ -1,9 +1,5 @@
 import { z } from 'zod';
 import {
-  DocumentationThemeSettingsName,
-  documentationThemeSettingsName,
-} from './documentation-theme-settings-name';
-import {
   DocumentationColorSettings,
   documentationColorSettings,
   documentationColorSettingsRequest,
@@ -17,7 +13,7 @@ import {
  */
 export const documentationThemeSettings = z.lazy(() => {
   return z.object({
-    name: documentationThemeSettingsName.optional(),
+    name: z.string().optional(),
     colors: documentationColorSettings.optional(),
     logo: z.string().optional().nullable(),
   });
@@ -40,7 +36,7 @@ export type DocumentationThemeSettings = z.infer<typeof documentationThemeSettin
 export const documentationThemeSettingsResponse = z.lazy(() => {
   return z
     .object({
-      name: documentationThemeSettingsName.optional(),
+      name: z.string().optional(),
       colors: documentationColorSettingsResponse.optional(),
       logo: z.string().optional().nullable(),
     })
@@ -59,7 +55,7 @@ export const documentationThemeSettingsResponse = z.lazy(() => {
 export const documentationThemeSettingsRequest = z.lazy(() => {
   return z
     .object({
-      name: documentationThemeSettingsName.optional(),
+      name: z.string().optional(),
       colors: documentationColorSettingsRequest.optional(),
       logo: z.string().optional().nullable(),
     })

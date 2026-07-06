@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { SalesChannel, salesChannel } from './sales-channel';
 import {
   InvoicesSlots,
   invoicesSlots,
@@ -18,7 +17,7 @@ export const accountInformation = z.lazy(() => {
     id: z.number().optional(),
     state: z.string().optional(),
     teamId: z.number().optional(),
-    salesChannel: salesChannel.optional(),
+    salesChannel: z.string().optional(),
     slots: invoicesSlots.optional(),
   });
 });
@@ -58,7 +57,7 @@ export const accountInformationResponse = z.lazy(() => {
       id: z.number().optional(),
       state: z.string().optional(),
       teamId: z.number().optional(),
-      salesChannel: salesChannel.optional(),
+      salesChannel: z.string().optional(),
       slots: invoicesSlotsResponse.optional(),
     })
     .transform((data) => ({
@@ -83,7 +82,7 @@ export const accountInformationRequest = z.lazy(() => {
       id: z.number().optional(),
       state: z.string().optional(),
       teamId: z.number().optional(),
-      salesChannel: salesChannel.optional(),
+      salesChannel: z.string().optional(),
       slots: invoicesSlotsRequest.optional(),
     })
     .transform((data) => ({

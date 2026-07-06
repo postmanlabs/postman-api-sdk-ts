@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
-export const componentType = z.union([z.literal('OAS2'), z.literal('OAS3'), z.literal('OAS3_1')]);
-
-export type ComponentType = z.infer<typeof componentType>;
+export enum ComponentType {
+  OAS2 = 'OAS2',
+  OAS3 = 'OAS3',
+  OAS3_1 = 'OAS3_1',
+}

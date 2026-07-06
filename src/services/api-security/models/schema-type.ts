@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
-export const schemaType = z.union([z.literal('openapi3'), z.literal('openapi2')]);
-
-export type SchemaType = z.infer<typeof schemaType>;
+export enum SchemaType {
+  OPENAPI3 = 'openapi3',
+  OPENAPI2 = 'openapi2',
+}

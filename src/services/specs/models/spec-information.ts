@@ -1,6 +1,4 @@
 import { z } from 'zod';
-import { FileFormat, fileFormat } from './file-format';
-import { SpecType, specType } from './spec-type';
 
 /**
  * Zod schema for the SpecInformation model.
@@ -10,9 +8,9 @@ import { SpecType, specType } from './spec-type';
 export const specInformation = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
-    fileFormat: fileFormat.optional(),
+    fileFormat: z.string().optional(),
     name: z.string().optional(),
-    type: specType.optional(),
+    type: z.string().optional(),
     createdBy: z.number().optional(),
     updatedBy: z.number().optional(),
     createdAt: z.string().optional(),
@@ -43,9 +41,9 @@ export const specInformationResponse = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      fileFormat: fileFormat.optional(),
+      fileFormat: z.string().optional(),
       name: z.string().optional(),
-      type: specType.optional(),
+      type: z.string().optional(),
       createdBy: z.number().optional(),
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),
@@ -72,9 +70,9 @@ export const specInformationRequest = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      fileFormat: fileFormat.optional(),
+      fileFormat: z.string().optional(),
       name: z.string().optional(),
-      type: specType.optional(),
+      type: z.string().optional(),
       createdBy: z.number().optional(),
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),

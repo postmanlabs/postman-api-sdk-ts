@@ -1,6 +1,4 @@
 import { z } from 'zod';
-import { RfaForAddMember, rfaForAddMember } from './rfa-for-add-member';
-import { RfaForAddCollaborator, rfaForAddCollaborator } from './rfa-for-add-collaborator';
 
 /**
  * Zod schema for the UpdateTeamSettingsSettings model.
@@ -9,8 +7,8 @@ import { RfaForAddCollaborator, rfaForAddCollaborator } from './rfa-for-add-coll
  */
 export const updateTeamSettingsSettings = z.lazy(() => {
   return z.object({
-    rfaForAddMember: rfaForAddMember.optional(),
-    rfaForAddCollaborator: rfaForAddCollaborator.optional(),
+    rfaForAddMember: z.string().optional(),
+    rfaForAddCollaborator: z.string().optional(),
   });
 });
 
@@ -30,8 +28,8 @@ export type UpdateTeamSettingsSettings = z.infer<typeof updateTeamSettingsSettin
 export const updateTeamSettingsSettingsResponse = z.lazy(() => {
   return z
     .object({
-      rfa_for_add_member: rfaForAddMember.optional(),
-      rfa_for_add_collaborator: rfaForAddCollaborator.optional(),
+      rfa_for_add_member: z.string().optional(),
+      rfa_for_add_collaborator: z.string().optional(),
     })
     .transform((data) => ({
       rfaForAddMember: data['rfa_for_add_member'],
@@ -47,8 +45,8 @@ export const updateTeamSettingsSettingsResponse = z.lazy(() => {
 export const updateTeamSettingsSettingsRequest = z.lazy(() => {
   return z
     .object({
-      rfaForAddMember: rfaForAddMember.optional(),
-      rfaForAddCollaborator: rfaForAddCollaborator.optional(),
+      rfaForAddMember: z.string().optional(),
+      rfaForAddCollaborator: z.string().optional(),
     })
     .transform((data) => ({
       rfa_for_add_member: data['rfaForAddMember'],

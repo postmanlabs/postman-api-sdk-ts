@@ -5,7 +5,6 @@ import {
   disabledSystemHeadersRequest,
   disabledSystemHeadersResponse,
 } from './disabled-system-headers';
-import { ProtocolVersion, protocolVersion } from './protocol-version';
 
 /**
  * Zod schema for the ProtocolProfileBehavior model.
@@ -23,7 +22,7 @@ export const protocolProfileBehavior = z.lazy(() => {
     insecureHttpParser: z.boolean().optional(),
     followOriginalHttpMethod: z.boolean().optional(),
     followAuthorizationHeader: z.boolean().optional(),
-    protocolVersion: protocolVersion.optional(),
+    protocolVersion: z.string().optional(),
     removeRefererHeaderOnRedirect: z.boolean().optional(),
     tlsPreferServerCiphers: z.boolean().optional(),
     tlsDisabledProtocols: z.array(z.string()).optional(),
@@ -68,7 +67,7 @@ export const protocolProfileBehaviorResponse = z.lazy(() => {
       insecureHTTPParser: z.boolean().optional(),
       followOriginalHttpMethod: z.boolean().optional(),
       followAuthorizationHeader: z.boolean().optional(),
-      protocolVersion: protocolVersion.optional(),
+      protocolVersion: z.string().optional(),
       removeRefererHeaderOnRedirect: z.boolean().optional(),
       tlsPreferServerCiphers: z.boolean().optional(),
       tlsDisabledProtocols: z.array(z.string()).optional(),
@@ -109,7 +108,7 @@ export const protocolProfileBehaviorRequest = z.lazy(() => {
       insecureHttpParser: z.boolean().optional(),
       followOriginalHttpMethod: z.boolean().optional(),
       followAuthorizationHeader: z.boolean().optional(),
-      protocolVersion: protocolVersion.optional(),
+      protocolVersion: z.string().optional(),
       removeRefererHeaderOnRedirect: z.boolean().optional(),
       tlsPreferServerCiphers: z.boolean().optional(),
       tlsDisabledProtocols: z.array(z.string()).optional(),

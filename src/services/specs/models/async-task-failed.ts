@@ -5,7 +5,6 @@ import {
   asyncTaskFailedMetaRequest,
   asyncTaskFailedMetaResponse,
 } from './async-task-failed-meta';
-import { AsyncTaskFailedStatus, asyncTaskFailedStatus } from './async-task-failed-status';
 
 /**
  * Zod schema for the AsyncTaskFailed model.
@@ -16,7 +15,7 @@ export const asyncTaskFailed = z.lazy(() => {
   return z.object({
     details: z.string().optional(),
     meta: asyncTaskFailedMeta.optional(),
-    status: asyncTaskFailedStatus.optional(),
+    status: z.string().optional(),
   });
 });
 
@@ -39,7 +38,7 @@ export const asyncTaskFailedResponse = z.lazy(() => {
     .object({
       details: z.string().optional(),
       meta: asyncTaskFailedMetaResponse.optional(),
-      status: asyncTaskFailedStatus.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       details: data['details'],
@@ -58,7 +57,7 @@ export const asyncTaskFailedRequest = z.lazy(() => {
     .object({
       details: z.string().optional(),
       meta: asyncTaskFailedMetaRequest.optional(),
-      status: asyncTaskFailedStatus.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       details: data['details'],

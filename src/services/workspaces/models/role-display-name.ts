@@ -1,10 +1,8 @@
 import { z } from 'zod';
 
-export const roleDisplayName = z.union([
-  z.literal('Viewer'),
-  z.literal('Editor'),
-  z.literal('Viewer and Partner Lead'),
-  z.literal('Editor and Partner Lead'),
-]);
-
-export type RoleDisplayName = z.infer<typeof roleDisplayName>;
+export enum RoleDisplayName {
+  VIEWER = 'Viewer',
+  EDITOR = 'Editor',
+  VIEWER_AND_PARTNER_LEAD = 'Viewer and Partner Lead',
+  EDITOR_AND_PARTNER_LEAD = 'Editor and Partner Lead',
+}

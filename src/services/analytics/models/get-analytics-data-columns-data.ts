@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  GetAnalyticsDataColumnsDataType,
-  getAnalyticsDataColumnsDataType,
-} from './get-analytics-data-columns-data-type';
 
 /**
  * Zod schema for the GetAnalyticsDataColumnsData model.
@@ -12,7 +8,7 @@ import {
 export const getAnalyticsDataColumnsData = z.lazy(() => {
   return z.object({
     name: z.string().optional(),
-    type: getAnalyticsDataColumnsDataType.optional(),
+    type: z.string().optional(),
     format: z.string().optional(),
     description: z.string().optional(),
   });
@@ -37,7 +33,7 @@ export const getAnalyticsDataColumnsDataResponse = z.lazy(() => {
   return z
     .object({
       name: z.string().optional(),
-      type: getAnalyticsDataColumnsDataType.optional(),
+      type: z.string().optional(),
       format: z.string().optional(),
       description: z.string().optional(),
     })
@@ -58,7 +54,7 @@ export const getAnalyticsDataColumnsDataRequest = z.lazy(() => {
   return z
     .object({
       name: z.string().optional(),
-      type: getAnalyticsDataColumnsDataType.optional(),
+      type: z.string().optional(),
       format: z.string().optional(),
       description: z.string().optional(),
     })

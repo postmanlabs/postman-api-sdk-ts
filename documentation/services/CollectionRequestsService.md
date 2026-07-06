@@ -30,14 +30,14 @@ Gets all comments left by users in a request.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.collectionRequests.getRequestComments(
+  const data = await postmanApiSdkSourceOverlayed.collectionRequests.getRequestComments(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-c82dd02c-4870-4907-8fcb-593a876cf05b',
   );
@@ -68,14 +68,20 @@ Creates a comment on a request. To create a reply on an existing comment, includ
 **Example Usage Code Snippet**
 
 ```typescript
-import { CommentCreate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api-sdk';
+import {
+  CommentCreate,
+  PostmanApiSdkSourceOverlayed,
+  TaggedUsers,
+  UserName,
+  UserNameType,
+} from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const userNameType = 'user';
+  const userNameType = UserNameType.USER;
 
   const userName: UserName = {
     type: userNameType,
@@ -92,7 +98,7 @@ import { CommentCreate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api
     tags: taggedUsers,
   };
 
-  const data = await postmanApiSdk.collectionRequests.createRequestComment(
+  const data = await postmanApiSdkSourceOverlayed.collectionRequests.createRequestComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-c82dd02c-4870-4907-8fcb-593a876cf05b',
     commentCreate,
@@ -125,14 +131,20 @@ Updates a comment on a request. **Note:** This endpoint accepts a max of 10,000 
 **Example Usage Code Snippet**
 
 ```typescript
-import { CommentUpdate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api-sdk';
+import {
+  CommentUpdate,
+  PostmanApiSdkSourceOverlayed,
+  TaggedUsers,
+  UserName,
+  UserNameType,
+} from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const userNameType = 'user';
+  const userNameType = UserNameType.USER;
 
   const userName: UserName = {
     type: userNameType,
@@ -148,7 +160,7 @@ import { CommentUpdate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api
     tags: taggedUsers,
   };
 
-  const data = await postmanApiSdk.collectionRequests.updateRequestComment(
+  const data = await postmanApiSdkSourceOverlayed.collectionRequests.updateRequestComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-c82dd02c-4870-4907-8fcb-593a876cf05b',
     46814,
@@ -177,14 +189,14 @@ Deletes a comment from a request. On success, this returns an HTTP `204 No Conte
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.collectionRequests.deleteRequestComment(
+  const data = await postmanApiSdkSourceOverlayed.collectionRequests.deleteRequestComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-c82dd02c-4870-4907-8fcb-593a876cf05b',
     46814,

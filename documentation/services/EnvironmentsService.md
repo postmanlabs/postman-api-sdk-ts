@@ -35,14 +35,14 @@ Gets information about all of your [environments](https://learning.postman.com/d
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.environments.getEnvironments({
+  const data = await postmanApiSdkSourceOverlayed.environments.getEnvironments({
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 
@@ -73,17 +73,18 @@ Creates an environment. **Note:** - The request body size cannot exceed the maxi
 ```typescript
 import {
   AddVariable,
+  AddVariableType,
   CreateEnvironment,
   CreateEnvironmentEnvironment,
-  PostmanApiSdk,
-} from 'postman-api-sdk';
+  PostmanApiSdkSourceOverlayed,
+} from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const addVariableType = 'secret';
+  const addVariableType = AddVariableType.SECRET;
 
   const addVariable: AddVariable = {
     enabled: true,
@@ -102,9 +103,12 @@ import {
     environment: createEnvironmentEnvironment,
   };
 
-  const data = await postmanApiSdk.environments.createEnvironment(createEnvironment, {
-    workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
-  });
+  const data = await postmanApiSdkSourceOverlayed.environments.createEnvironment(
+    createEnvironment,
+    {
+      workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
+    },
+  );
 
   console.log(data);
 })();
@@ -130,14 +134,14 @@ Gets information about an environment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.environments.getEnvironment(
+  const data = await postmanApiSdkSourceOverlayed.environments.getEnvironment(
     '5daabc50-8451-43f6-922d-96b403b4f28e',
   );
 
@@ -168,17 +172,18 @@ Replaces all the contents of an environment with the given information. **Note:*
 ```typescript
 import {
   AddVariable,
-  PostmanApiSdk,
+  AddVariableType,
+  PostmanApiSdkSourceOverlayed,
   ReplaceEnvironmentData,
   ReplaceEnvironmentDataEnvironment,
-} from 'postman-api-sdk';
+} from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const addVariableType = 'secret';
+  const addVariableType = AddVariableType.SECRET;
 
   const addVariable: AddVariable = {
     enabled: true,
@@ -197,7 +202,7 @@ import {
     environment: replaceEnvironmentDataEnvironment,
   };
 
-  const data = await postmanApiSdk.environments.putEnvironment(
+  const data = await postmanApiSdkSourceOverlayed.environments.putEnvironment(
     '5daabc50-8451-43f6-922d-96b403b4f28e',
     replaceEnvironmentData,
   );
@@ -227,16 +232,16 @@ Updates specific environment properties, such as its name and variables. **Note:
 **Example Usage Code Snippet**
 
 ```typescript
-import { PatchEnvironment, PostmanApiSdk } from 'postman-api-sdk';
+import { PatchEnvironment, PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
   const patchEnvironment = [patchEnvironmentAdd];
 
-  const data = await postmanApiSdk.environments.patchEnvironment(
+  const data = await postmanApiSdkSourceOverlayed.environments.patchEnvironment(
     '5daabc50-8451-43f6-922d-96b403b4f28e',
     patchEnvironment,
   );
@@ -265,14 +270,14 @@ Deletes an environment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.environments.deleteEnvironment(
+  const data = await postmanApiSdkSourceOverlayed.environments.deleteEnvironment(
     '5daabc50-8451-43f6-922d-96b403b4f28e',
   );
 
@@ -304,17 +309,17 @@ Gets all of an environment's forked environments.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { AscDesc, PostmanApiSdkSourceOverlayed, SortByCreatedAt } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const ascDesc = 'asc';
-  const sortByCreatedAt = 'createdAt';
+  const ascDesc = AscDesc.ASC;
+  const sortByCreatedAt = SortByCreatedAt.CREATED_AT;
 
-  const data = await postmanApiSdk.environments.getEnvironmentForks(
+  const data = await postmanApiSdkSourceOverlayed.environments.getEnvironmentForks(
     '12345678-5daabc50-8451-43f6-922d-96b403b4f28e',
     {
       cursor:
@@ -351,10 +356,10 @@ Creates a [fork](https://learning.postman.com/docs/collaborating-in-postman/usin
 **Example Usage Code Snippet**
 
 ```typescript
-import { ForkEnvironment, PostmanApiSdk } from 'postman-api-sdk';
+import { ForkEnvironment, PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -362,7 +367,7 @@ import { ForkEnvironment, PostmanApiSdk } from 'postman-api-sdk';
     forkName: 'My fork',
   };
 
-  const data = await postmanApiSdk.environments.forkEnvironment(
+  const data = await postmanApiSdkSourceOverlayed.environments.forkEnvironment(
     '12345678-5daabc50-8451-43f6-922d-96b403b4f28e',
     forkEnvironment,
     {
@@ -395,10 +400,10 @@ import { ForkEnvironment, PostmanApiSdk } from 'postman-api-sdk';
 **Example Usage Code Snippet**
 
 ```typescript
-import { MergeEnvironmentFork, PostmanApiSdk } from 'postman-api-sdk';
+import { MergeEnvironmentFork, PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -407,7 +412,7 @@ import { MergeEnvironmentFork, PostmanApiSdk } from 'postman-api-sdk';
     deleteSource: true,
   };
 
-  const data = await postmanApiSdk.environments.mergeEnvironmentFork(
+  const data = await postmanApiSdkSourceOverlayed.environments.mergeEnvironmentFork(
     '12345678-5daabc50-8451-43f6-922d-96b403b4f28e',
     mergeEnvironmentFork,
   );
@@ -437,10 +442,10 @@ import { MergeEnvironmentFork, PostmanApiSdk } from 'postman-api-sdk';
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk, PullEnvironmentForkChanges } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed, PullEnvironmentForkChanges } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -448,7 +453,7 @@ import { PostmanApiSdk, PullEnvironmentForkChanges } from 'postman-api-sdk';
     source: '12345678-d9c7dc8f-904e-4bba-99b5-4d490aae1957',
   };
 
-  const data = await postmanApiSdk.environments.pullEnvironment(
+  const data = await postmanApiSdkSourceOverlayed.environments.pullEnvironment(
     '12345678-5daabc50-8451-43f6-922d-96b403b4f28e',
     pullEnvironmentForkChanges,
   );

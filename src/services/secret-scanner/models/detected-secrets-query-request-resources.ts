@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { ResourcesType, resourcesType } from './resources-type';
 
 /**
  * Zod schema for the DetectedSecretsQueryRequestResources model.
@@ -8,7 +7,7 @@ import { ResourcesType, resourcesType } from './resources-type';
  */
 export const detectedSecretsQueryRequestResources = z.lazy(() => {
   return z.object({
-    type: resourcesType.optional(),
+    type: z.string().optional(),
     ids: z.array(z.string()).optional(),
   });
 });
@@ -31,7 +30,7 @@ export type DetectedSecretsQueryRequestResources = z.infer<
 export const detectedSecretsQueryRequestResourcesResponse = z.lazy(() => {
   return z
     .object({
-      type: resourcesType.optional(),
+      type: z.string().optional(),
       ids: z.array(z.string()).optional(),
     })
     .transform((data) => ({
@@ -48,7 +47,7 @@ export const detectedSecretsQueryRequestResourcesResponse = z.lazy(() => {
 export const detectedSecretsQueryRequestResourcesRequest = z.lazy(() => {
   return z
     .object({
-      type: resourcesType.optional(),
+      type: z.string().optional(),
       ids: z.array(z.string()).optional(),
     })
     .transform((data) => ({

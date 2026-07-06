@@ -6,10 +6,6 @@ import {
   workspaceUpdateCreatedByDataResponse,
 } from './workspace-update-created-by-data';
 import {
-  WorkspaceUpdateCategoryData,
-  workspaceUpdateCategoryData,
-} from './workspace-update-category-data';
-import {
   WorkspaceUpdateRelatedResourcesData,
   workspaceUpdateRelatedResourcesData,
   workspaceUpdateRelatedResourcesDataRequest,
@@ -31,7 +27,7 @@ export const workspaceUpdateData = z.lazy(() => {
     updatedBy: z.number().optional(),
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
-    category: workspaceUpdateCategoryData.optional(),
+    category: z.string().optional(),
     isPinned: z.boolean().optional(),
     relatedResources: z.array(workspaceUpdateRelatedResourcesData).max(10).optional(),
   });
@@ -70,7 +66,7 @@ export const workspaceUpdateDataResponse = z.lazy(() => {
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      category: workspaceUpdateCategoryData.optional(),
+      category: z.string().optional(),
       isPinned: z.boolean().optional(),
       relatedResources: z.array(workspaceUpdateRelatedResourcesDataResponse).max(10).optional(),
     })
@@ -105,7 +101,7 @@ export const workspaceUpdateDataRequest = z.lazy(() => {
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      category: workspaceUpdateCategoryData.optional(),
+      category: z.string().optional(),
       isPinned: z.boolean().optional(),
       relatedResources: z.array(workspaceUpdateRelatedResourcesDataRequest).max(10).optional(),
     })

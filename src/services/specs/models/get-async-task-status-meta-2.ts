@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  GetAsyncTaskStatusMetaModel2,
-  getAsyncTaskStatusMetaModel2,
-} from './get-async-task-status-meta-model-2';
 
 /**
  * Zod schema for the GetAsyncTaskStatusMeta2 model.
@@ -12,7 +8,7 @@ import {
 export const getAsyncTaskStatusMeta2 = z.lazy(() => {
   return z.object({
     action: z.string().optional(),
-    model: getAsyncTaskStatusMetaModel2.optional(),
+    model: z.string().optional(),
   });
 });
 
@@ -33,7 +29,7 @@ export const getAsyncTaskStatusMeta2Response = z.lazy(() => {
   return z
     .object({
       action: z.string().optional(),
-      model: getAsyncTaskStatusMetaModel2.optional(),
+      model: z.string().optional(),
     })
     .transform((data) => ({
       action: data['action'],
@@ -50,7 +46,7 @@ export const getAsyncTaskStatusMeta2Request = z.lazy(() => {
   return z
     .object({
       action: z.string().optional(),
-      model: getAsyncTaskStatusMetaModel2.optional(),
+      model: z.string().optional(),
     })
     .transform((data) => ({
       action: data['action'],

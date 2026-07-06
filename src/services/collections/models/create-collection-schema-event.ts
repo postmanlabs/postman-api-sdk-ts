@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { EventListen1, eventListen1 } from './event-listen-1';
 import { EventScript, eventScript, eventScriptRequest, eventScriptResponse } from './event-script';
 
 /**
@@ -9,7 +8,7 @@ import { EventScript, eventScript, eventScriptRequest, eventScriptResponse } fro
  */
 export const createCollectionSchemaEvent = z.lazy(() => {
   return z.object({
-    listen: eventListen1,
+    listen: z.string(),
     script: eventScript.optional(),
   });
 });
@@ -30,7 +29,7 @@ export type CreateCollectionSchemaEvent = z.infer<typeof createCollectionSchemaE
 export const createCollectionSchemaEventResponse = z.lazy(() => {
   return z
     .object({
-      listen: eventListen1,
+      listen: z.string(),
       script: eventScriptResponse.optional(),
     })
     .transform((data) => ({
@@ -47,7 +46,7 @@ export const createCollectionSchemaEventResponse = z.lazy(() => {
 export const createCollectionSchemaEventRequest = z.lazy(() => {
   return z
     .object({
-      listen: eventListen1,
+      listen: z.string(),
       script: eventScriptRequest.optional(),
     })
     .transform((data) => ({

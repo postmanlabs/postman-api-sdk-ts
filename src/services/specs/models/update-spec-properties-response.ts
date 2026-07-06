@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { SpecType, specType } from './spec-type';
 
 /**
  * Zod schema for the UpdateSpecPropertiesResponse model.
@@ -9,7 +8,7 @@ import { SpecType, specType } from './spec-type';
 export const updateSpecPropertiesResponse = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
-    type: specType.optional(),
+    type: z.string().optional(),
     createdBy: z.number().optional(),
     updatedBy: z.number().optional(),
     createdAt: z.string().optional(),
@@ -40,7 +39,7 @@ export const updateSpecPropertiesResponseResponse = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      type: specType.optional(),
+      type: z.string().optional(),
       createdBy: z.number().optional(),
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),
@@ -67,7 +66,7 @@ export const updateSpecPropertiesResponseRequest = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      type: specType.optional(),
+      type: z.string().optional(),
       createdBy: z.number().optional(),
       updatedBy: z.number().optional(),
       createdAt: z.string().optional(),

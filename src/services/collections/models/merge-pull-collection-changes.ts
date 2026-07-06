@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  MergePullCollectionChangesStrategy,
-  mergePullCollectionChangesStrategy,
-} from './merge-pull-collection-changes-strategy';
 
 /**
  * Zod schema for the MergePullCollectionChanges model.
@@ -11,7 +7,7 @@ import {
  */
 export const mergePullCollectionChanges = z.lazy(() => {
   return z.object({
-    strategy: mergePullCollectionChangesStrategy,
+    strategy: z.string(),
     source: z.string(),
     destination: z.string(),
   });
@@ -38,7 +34,7 @@ export type MergePullCollectionChanges = z.infer<typeof mergePullCollectionChang
 export const mergePullCollectionChangesResponse = z.lazy(() => {
   return z
     .object({
-      strategy: mergePullCollectionChangesStrategy,
+      strategy: z.string(),
       source: z.string(),
       destination: z.string(),
     })
@@ -57,7 +53,7 @@ export const mergePullCollectionChangesResponse = z.lazy(() => {
 export const mergePullCollectionChangesRequest = z.lazy(() => {
   return z
     .object({
-      strategy: mergePullCollectionChangesStrategy,
+      strategy: z.string(),
       source: z.string(),
       destination: z.string(),
     })

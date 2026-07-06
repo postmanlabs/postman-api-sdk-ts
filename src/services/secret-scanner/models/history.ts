@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { HistoryResolution, historyResolution } from './history-resolution';
 
 /**
  * Zod schema for the History model.
@@ -10,7 +9,7 @@ export const history = z.lazy(() => {
   return z.object({
     actor: z.number().optional(),
     createdAt: z.string().optional(),
-    resolution: historyResolution.optional(),
+    resolution: z.string().optional(),
   });
 });
 
@@ -38,7 +37,7 @@ export const historyResponse = z.lazy(() => {
     .object({
       actor: z.number().optional(),
       createdAt: z.string().optional(),
-      resolution: historyResolution.optional(),
+      resolution: z.string().optional(),
     })
     .transform((data) => ({
       actor: data['actor'],
@@ -57,7 +56,7 @@ export const historyRequest = z.lazy(() => {
     .object({
       actor: z.number().optional(),
       createdAt: z.string().optional(),
-      resolution: historyResolution.optional(),
+      resolution: z.string().optional(),
     })
     .transform((data) => ({
       actor: data['actor'],

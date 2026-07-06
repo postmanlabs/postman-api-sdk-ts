@@ -1,13 +1,5 @@
 import { z } from 'zod';
 import {
-  GetWorkspacesWorkspaceDataType,
-  getWorkspacesWorkspaceDataType,
-} from './get-workspaces-workspace-data-type';
-import {
-  GetWorkspacesWorkspaceDataVisibility,
-  getWorkspacesWorkspaceDataVisibility,
-} from './get-workspaces-workspace-data-visibility';
-import {
   GetWorkspacesScimObject,
   getWorkspacesScimObject,
   getWorkspacesScimObjectRequest,
@@ -23,8 +15,8 @@ export const getWorkspacesWorkspaceData = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
     name: z.string().optional(),
-    type: getWorkspacesWorkspaceDataType.optional(),
-    visibility: getWorkspacesWorkspaceDataVisibility.optional(),
+    type: z.string().optional(),
+    visibility: z.string().optional(),
     createdBy: z.string().optional(),
     about: z.string().optional(),
     createdAt: z.string().optional(),
@@ -64,8 +56,8 @@ export const getWorkspacesWorkspaceDataResponse = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      type: getWorkspacesWorkspaceDataType.optional(),
-      visibility: getWorkspacesWorkspaceDataVisibility.optional(),
+      type: z.string().optional(),
+      visibility: z.string().optional(),
       createdBy: z.string().optional(),
       about: z.string().optional(),
       createdAt: z.string().optional(),
@@ -95,8 +87,8 @@ export const getWorkspacesWorkspaceDataRequest = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      type: getWorkspacesWorkspaceDataType.optional(),
-      visibility: getWorkspacesWorkspaceDataVisibility.optional(),
+      type: z.string().optional(),
+      visibility: z.string().optional(),
       createdBy: z.string().optional(),
       about: z.string().optional(),
       createdAt: z.string().optional(),

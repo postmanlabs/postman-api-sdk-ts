@@ -5,8 +5,6 @@ import {
   teamEntityInfoRequest,
   teamEntityInfoResponse,
 } from './team-entity-info';
-import { CreateAccessRequestRole, createAccessRequestRole } from './create-access-request-role';
-import { RequestType, requestType } from './request-type';
 
 /**
  * Zod schema for the CreateAccessRequest model.
@@ -16,9 +14,9 @@ import { RequestType, requestType } from './request-type';
 export const createAccessRequest = z.lazy(() => {
   return z.object({
     entityList: z.array(teamEntityInfo),
-    role: createAccessRequestRole.nullable(),
+    role: z.string().nullable(),
     reason: z.string(),
-    requestType: requestType,
+    requestType: z.string(),
   });
 });
 
@@ -41,9 +39,9 @@ export const createAccessRequestResponse1 = z.lazy(() => {
   return z
     .object({
       entityList: z.array(teamEntityInfoResponse),
-      role: createAccessRequestRole.nullable(),
+      role: z.string().nullable(),
       reason: z.string(),
-      requestType: requestType,
+      requestType: z.string(),
     })
     .transform((data) => ({
       entityList: data['entityList'],
@@ -62,9 +60,9 @@ export const createAccessRequestRequest = z.lazy(() => {
   return z
     .object({
       entityList: z.array(teamEntityInfoRequest),
-      role: createAccessRequestRole.nullable(),
+      role: z.string().nullable(),
       reason: z.string(),
-      requestType: requestType,
+      requestType: z.string(),
     })
     .transform((data) => ({
       entityList: data['entityList'],

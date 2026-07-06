@@ -1,5 +1,5 @@
-import { AscDesc, ascDesc } from '../common/asc-desc';
-import { SortByCreatedAt, sortByCreatedAt } from './models/sort-by-created-at';
+import { AscDesc } from '../common/asc-desc';
+import { SortByCreatedAt } from './models/sort-by-created-at';
 
 export interface GetEnvironmentsParams {
   workspace?: string;

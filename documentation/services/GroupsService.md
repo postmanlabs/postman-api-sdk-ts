@@ -21,14 +21,14 @@ Gets all of a team's Postman [groups](https://learning.postman.com/docs/collabor
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.groups.getGroups();
+  const data = await postmanApiSdkSourceOverlayed.groups.getGroups();
 
   console.log(data);
 })();
@@ -54,14 +54,14 @@ Gets information about a Postman [user group](https://learning.postman.com/docs/
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.groups.getGroup(123);
+  const data = await postmanApiSdkSourceOverlayed.groups.getGroup(123);
 
   console.log(data);
 })();

@@ -1,15 +1,10 @@
 import { z } from 'zod';
-import { RequestMethod, requestMethod } from './request-method';
 import {
   ResponseHeader2_2,
   responseHeader2_2,
   responseHeader2_2Request,
   responseHeader2_2Response,
 } from '../../common/response-header-2-2';
-import {
-  UpdateCollectionResponseDataMode,
-  updateCollectionResponseDataMode,
-} from './update-collection-response-data-mode';
 import {
   RequestDataOptions,
   requestDataOptions,
@@ -33,9 +28,9 @@ export const updateCollectionResponse1 = z.lazy(() => {
     name: z.string().optional(),
     description: z.string().optional().nullable(),
     url: z.string().optional().nullable(),
-    method: requestMethod.optional(),
+    method: z.string().optional(),
     headers: z.array(responseHeader2_2).optional(),
-    dataMode: updateCollectionResponseDataMode.optional(),
+    dataMode: z.string().optional(),
     rawModeData: z.string().optional().nullable(),
     dataOptions: requestDataOptions.optional().nullable(),
     responseCode: updateCollectionResponseResponseCode.optional(),
@@ -85,9 +80,9 @@ export const updateCollectionResponse1Response = z.lazy(() => {
       name: z.string().optional(),
       description: z.string().optional().nullable(),
       url: z.string().optional().nullable(),
-      method: requestMethod.optional(),
+      method: z.string().optional(),
       headers: z.array(responseHeader2_2Response).optional(),
-      dataMode: updateCollectionResponseDataMode.optional(),
+      dataMode: z.string().optional(),
       rawModeData: z.string().optional().nullable(),
       dataOptions: requestDataOptionsResponse.optional().nullable(),
       responseCode: updateCollectionResponseResponseCodeResponse.optional(),
@@ -161,9 +156,9 @@ export const updateCollectionResponse1Request = z.lazy(() => {
       name: z.string().optional(),
       description: z.string().optional().nullable(),
       url: z.string().optional().nullable(),
-      method: requestMethod.optional(),
+      method: z.string().optional(),
       headers: z.array(responseHeader2_2Request).optional(),
-      dataMode: updateCollectionResponseDataMode.optional(),
+      dataMode: z.string().optional(),
       rawModeData: z.string().optional().nullable(),
       dataOptions: requestDataOptionsRequest.optional().nullable(),
       responseCode: updateCollectionResponseResponseCodeRequest.optional(),

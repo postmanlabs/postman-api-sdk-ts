@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  GetCollectionUpdateStatusStatus,
-  getCollectionUpdateStatusStatus,
-} from './get-collection-update-status-status';
 
 /**
  * Zod schema for the GetCollectionUpdateStatus model.
@@ -12,7 +8,7 @@ import {
 export const getCollectionUpdateStatus = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
-    status: getCollectionUpdateStatusStatus.optional(),
+    status: z.string().optional(),
   });
 });
 
@@ -33,7 +29,7 @@ export const getCollectionUpdateStatusResponse = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      status: getCollectionUpdateStatusStatus.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       id: data['id'],
@@ -50,7 +46,7 @@ export const getCollectionUpdateStatusRequest = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      status: getCollectionUpdateStatusStatus.optional(),
+      status: z.string().optional(),
     })
     .transform((data) => ({
       id: data['id'],

@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { RequestElementType, requestElementType } from './request-element-type';
 
 /**
  * Zod schema for the Element model.
@@ -12,7 +11,7 @@ export const element = z.lazy(() => {
     name: z.string().optional(),
     summary: z.string().optional().nullable(),
     description: z.string().optional().nullable(),
-    type: requestElementType.optional(),
+    type: z.string().optional(),
     createdBy: z.number().optional(),
     createdAt: z.string().optional(),
   });
@@ -43,7 +42,7 @@ export const elementResponse = z.lazy(() => {
       name: z.string().optional(),
       summary: z.string().optional().nullable(),
       description: z.string().optional().nullable(),
-      type: requestElementType.optional(),
+      type: z.string().optional(),
       createdBy: z.number().optional(),
       createdAt: z.string().optional(),
     })
@@ -70,7 +69,7 @@ export const elementRequest = z.lazy(() => {
       name: z.string().optional(),
       summary: z.string().optional().nullable(),
       description: z.string().optional().nullable(),
-      type: requestElementType.optional(),
+      type: z.string().optional(),
       createdBy: z.number().optional(),
       createdAt: z.string().optional(),
     })

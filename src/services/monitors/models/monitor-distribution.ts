@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { Region, region } from './region';
 
 /**
  * Zod schema for the MonitorDistribution model.
@@ -8,7 +7,7 @@ import { Region, region } from './region';
  */
 export const monitorDistribution = z.lazy(() => {
   return z.object({
-    region: region.optional(),
+    region: z.string().optional(),
   });
 });
 
@@ -27,7 +26,7 @@ export type MonitorDistribution = z.infer<typeof monitorDistribution>;
 export const monitorDistributionResponse = z.lazy(() => {
   return z
     .object({
-      region: region.optional(),
+      region: z.string().optional(),
     })
     .transform((data) => ({
       region: data['region'],
@@ -42,7 +41,7 @@ export const monitorDistributionResponse = z.lazy(() => {
 export const monitorDistributionRequest = z.lazy(() => {
   return z
     .object({
-      region: region.optional(),
+      region: z.string().optional(),
     })
     .transform((data) => ({
       region: data['region'],

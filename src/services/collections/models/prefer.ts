@@ -1,5 +1,5 @@
 import { z } from 'zod';
 
-export const prefer = z.literal('respond-async');
-
-export type Prefer = z.infer<typeof prefer>;
+export enum Prefer {
+  RESPOND_ASYNC = 'respond-async',
+}

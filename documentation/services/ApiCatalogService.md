@@ -45,16 +45,16 @@ Gets a list of all [discovered services](https://learning.postman.com/docs/api-c
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { DiscoveryServicesSource, PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const discoveryServicesSource = 'api_gateway_app';
+  const discoveryServicesSource = DiscoveryServicesSource.API_GATEWAY_APP;
 
-  const data = await postmanApiSdk.apiCatalog.getApiCatalogDiscoveryServices({
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.getApiCatalogDiscoveryServices({
     discoverySource: discoveryServicesSource,
     status: 'discovered',
     search: 'Order',
@@ -92,11 +92,11 @@ import {
   PostApiCatalogDiscoveryServices,
   PostApiCatalogDiscoveryServicesApiDefinitionData,
   PostApiCatalogDiscoveryServicesProviderMetadataData,
-  PostmanApiSdk,
-} from 'postman-api-sdk';
+  PostmanApiSdkSourceOverlayed,
+} from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -137,7 +137,7 @@ import {
     discoveredServices: [postApiCatalogDiscoveryServiceData],
   };
 
-  const data = await postmanApiSdk.apiCatalog.postApiCatalogDiscoveryServices(
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.postApiCatalogDiscoveryServices(
     postApiCatalogDiscoveryServices,
   );
 
@@ -165,14 +165,14 @@ Gets detailed information about a discovered service, including a base64-encoded
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.apiCatalog.getApiCatalogDiscoveryService(
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.getApiCatalogDiscoveryService(
     'c6ec74e7-14f8-498c-9470-7a654173bed6',
   );
 
@@ -205,14 +205,14 @@ Gets a list of services in a system environment. The response includes details a
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.apiCatalog.getApiCatalogServices({
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.getApiCatalogServices({
     systemEnvironmentId: '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
     name: 'acs',
     tags: 'acs',
@@ -246,14 +246,14 @@ Gets information about a service, including its health, traffic, compliance, own
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.apiCatalog.getApiCatalogService(
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.getApiCatalogService(
     'c6ec74e7-14f8-498c-9470-7a654173bed6',
     {
       systemEnvironmentId: '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
@@ -292,14 +292,14 @@ Get a list of observed API endpoints for a service and its performance metrics.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.apiCatalog.getApiCatalogServiceEndpoints(
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.getApiCatalogServiceEndpoints(
     'c6ec74e7-14f8-498c-9470-7a654173bed6',
     {
       systemEnvironmentId: '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
@@ -345,16 +345,16 @@ Gets a list of scheduled monitor runs for a service that includes summary statis
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { ApiCatalogServiceStatusFilter, PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const apiCatalogServiceStatusFilter = 'passed';
+  const apiCatalogServiceStatusFilter = ApiCatalogServiceStatusFilter.PASSED;
 
-  const data = await postmanApiSdk.apiCatalog.getApiCatalogServiceMonitorRuns(
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.getApiCatalogServiceMonitorRuns(
     'c6ec74e7-14f8-498c-9470-7a654173bed6',
     {
       systemEnvironmentId: '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
@@ -398,17 +398,21 @@ Gets a list of API specification lint runs for a service that includes summary s
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import {
+  ApiCatalogServiceSpecLintSeverityFilter,
+  ApiCatalogServiceStatusFilter,
+  PostmanApiSdkSourceOverlayed,
+} from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const apiCatalogServiceSpecLintSeverityFilter = 'info';
-  const apiCatalogServiceStatusFilter = 'passed';
+  const apiCatalogServiceSpecLintSeverityFilter = ApiCatalogServiceSpecLintSeverityFilter.INFO;
+  const apiCatalogServiceStatusFilter = ApiCatalogServiceStatusFilter.PASSED;
 
-  const data = await postmanApiSdk.apiCatalog.getApiCatalogServiceSpecificationLints(
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.getApiCatalogServiceSpecificationLints(
     'c6ec74e7-14f8-498c-9470-7a654173bed6',
     {
       specId: '73e15000-bc7a-4802-b80e-05fff18fd7f8',
@@ -457,16 +461,16 @@ Gets a paginated list of CI collection runs for a service that includes summary 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { ApiCatalogServiceStatusFilter, PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const apiCatalogServiceStatusFilter = 'passed';
+  const apiCatalogServiceStatusFilter = ApiCatalogServiceStatusFilter.PASSED;
 
-  const data = await postmanApiSdk.apiCatalog.getApiCatalogServiceCiRuns(
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.getApiCatalogServiceCiRuns(
     'c6ec74e7-14f8-498c-9470-7a654173bed6',
     {
       systemEnvironmentId: '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
@@ -511,14 +515,14 @@ Gets all of the authenticated team's system environments.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.apiCatalog.getApiCatalogSystemEnvironments({
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.getApiCatalogSystemEnvironments({
     isProduction: true,
     limit: 3,
     cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
@@ -548,10 +552,10 @@ Creates a system environment for the authenticated team.
 **Example Usage Code Snippet**
 
 ```typescript
-import { CreateApiCatalogSystemEnvironment, PostmanApiSdk } from 'postman-api-sdk';
+import { CreateApiCatalogSystemEnvironment, PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -563,7 +567,7 @@ import { CreateApiCatalogSystemEnvironment, PostmanApiSdk } from 'postman-api-sd
     isProduction: true,
   };
 
-  const data = await postmanApiSdk.apiCatalog.createApiCatalogSystemEnvironment(
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.createApiCatalogSystemEnvironment(
     createApiCatalogSystemEnvironment,
   );
 
@@ -591,14 +595,14 @@ Gets information about a system environment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.apiCatalog.getApiCatalogSystemEnvironment(
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.getApiCatalogSystemEnvironment(
     '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
   );
 
@@ -627,10 +631,10 @@ Updates a system environment's information. You can update one or more fields in
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk, UpdateApiCatalogSystemEnvironment } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed, UpdateApiCatalogSystemEnvironment } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -641,7 +645,7 @@ import { PostmanApiSdk, UpdateApiCatalogSystemEnvironment } from 'postman-api-sd
     isProduction: true,
   };
 
-  const data = await postmanApiSdk.apiCatalog.updateApiCatalogSystemEnvironment(
+  const data = await postmanApiSdkSourceOverlayed.apiCatalog.updateApiCatalogSystemEnvironment(
     '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
     updateApiCatalogSystemEnvironment,
   );
@@ -673,22 +677,23 @@ Gets the workspace-environment associations for a system environment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.apiCatalog.getApiCatalogSystemEnvironmentAssociations(
-    '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
-    {
-      workspaceId: '47d1b387-2485-482a-bf62-46ddd70a6d1e',
-      limit: 3,
-      cursor:
-        'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
-    },
-  );
+  const data =
+    await postmanApiSdkSourceOverlayed.apiCatalog.getApiCatalogSystemEnvironmentAssociations(
+      '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
+      {
+        workspaceId: '47d1b387-2485-482a-bf62-46ddd70a6d1e',
+        limit: 3,
+        cursor:
+          'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
+      },
+    );
 
   console.log(data);
 })();
@@ -716,10 +721,13 @@ Adds workspace-environment associations to a system environment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { AddApiCatalogSystemEnvironmentAssociations, PostmanApiSdk } from 'postman-api-sdk';
+import {
+  AddApiCatalogSystemEnvironmentAssociations,
+  PostmanApiSdkSourceOverlayed,
+} from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -727,13 +735,14 @@ import { AddApiCatalogSystemEnvironmentAssociations, PostmanApiSdk } from 'postm
     workspaceEnvironmentIds: ['12345678-4b076607-09cf-4f9d-8a9a-08c8f3cf4619'],
   };
 
-  const data = await postmanApiSdk.apiCatalog.addApiCatalogSystemEnvironmentAssociations(
-    '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
-    addApiCatalogSystemEnvironmentAssociations,
-    {
-      allowPartial: true,
-    },
-  );
+  const data =
+    await postmanApiSdkSourceOverlayed.apiCatalog.addApiCatalogSystemEnvironmentAssociations(
+      '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
+      addApiCatalogSystemEnvironmentAssociations,
+      {
+        allowPartial: true,
+      },
+    );
 
   console.log(data);
 })();
@@ -760,10 +769,13 @@ Removes workspace-environment associations from a system environment.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk, RemoveApiCatalogSystemEnvironmentAssociations } from 'postman-api-sdk';
+import {
+  PostmanApiSdkSourceOverlayed,
+  RemoveApiCatalogSystemEnvironmentAssociations,
+} from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
@@ -772,10 +784,11 @@ import { PostmanApiSdk, RemoveApiCatalogSystemEnvironmentAssociations } from 'po
       workspaceEnvironmentIds: ['12345678-4b076607-09cf-4f9d-8a9a-08c8f3cf4619'],
     };
 
-  const data = await postmanApiSdk.apiCatalog.removeApiCatalogSystemEnvironmentAssociations(
-    '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
-    removeApiCatalogSystemEnvironmentAssociations,
-  );
+  const data =
+    await postmanApiSdkSourceOverlayed.apiCatalog.removeApiCatalogSystemEnvironmentAssociations(
+      '23b554c1-c30c-483d-bf98-dbe9ab7b88a0',
+      removeApiCatalogSystemEnvironmentAssociations,
+    );
 
   console.log(data);
 })();

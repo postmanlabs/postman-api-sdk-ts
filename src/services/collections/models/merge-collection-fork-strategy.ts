@@ -1,8 +1,6 @@
 import { z } from 'zod';
 
-export const mergeCollectionForkStrategy = z.union([
-  z.literal('deleteSource'),
-  z.literal('updateSourceWithDestination'),
-]);
-
-export type MergeCollectionForkStrategy = z.infer<typeof mergeCollectionForkStrategy>;
+export enum MergeCollectionForkStrategy {
+  DELETE_SOURCE = 'deleteSource',
+  UPDATE_SOURCE_WITH_DESTINATION = 'updateSourceWithDestination',
+}

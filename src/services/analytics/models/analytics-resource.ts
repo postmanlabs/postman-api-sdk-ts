@@ -1,15 +1,13 @@
 import { z } from 'zod';
 
-export const analyticsResource = z.union([
-  z.literal('user'),
-  z.literal('team'),
-  z.literal('workspace'),
-  z.literal('ai'),
-  z.literal('api_development'),
-  z.literal('api_testing'),
-  z.literal('api_production'),
-  z.literal('api_distribution'),
-  z.literal('api_management'),
-]);
-
-export type AnalyticsResource = z.infer<typeof analyticsResource>;
+export enum AnalyticsResource {
+  USER = 'user',
+  TEAM = 'team',
+  WORKSPACE = 'workspace',
+  AI = 'ai',
+  API_DEVELOPMENT = 'api_development',
+  API_TESTING = 'api_testing',
+  API_PRODUCTION = 'api_production',
+  API_DISTRIBUTION = 'api_distribution',
+  API_MANAGEMENT = 'api_management',
+}

@@ -40,21 +40,29 @@ Gets analytics data based on the specified resource, metrics, and given filters 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import {
+  AnalyticsDuration,
+  AnalyticsEntityType,
+  AnalyticsMetrics,
+  AnalyticsResource,
+  AnalyticsUserType,
+  AnalyticsView,
+  PostmanApiSdkSourceOverlayed,
+} from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const analyticsResource = 'user';
-  const analyticsMetrics = 'active_users';
-  const analyticsView = 'detailed';
-  const analyticsDuration = 'last_30_days';
-  const analyticsUserType = 'new';
-  const analyticsEntityType = 'collection';
+  const analyticsResource = AnalyticsResource.USER;
+  const analyticsMetrics = AnalyticsMetrics.ACTIVE_USERS;
+  const analyticsView = AnalyticsView.DETAILED;
+  const analyticsDuration = AnalyticsDuration.LAST_30_DAYS;
+  const analyticsUserType = AnalyticsUserType.NEW_;
+  const analyticsEntityType = AnalyticsEntityType.COLLECTION;
 
-  const data = await postmanApiSdk.analytics.getAnalyticsData({
+  const data = await postmanApiSdkSourceOverlayed.analytics.getAnalyticsData({
     resource: analyticsResource,
     metrics: analyticsMetrics,
     view: analyticsView,
@@ -97,16 +105,16 @@ Returns a catalog of analytics resources and their corresponding metrics for use
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { AnalyticsMetrics, PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const analyticsMetrics = 'active_users';
+  const analyticsMetrics = AnalyticsMetrics.ACTIVE_USERS;
 
-  const data = await postmanApiSdk.analytics.getAnalyticsMetadata({
+  const data = await postmanApiSdkSourceOverlayed.analytics.getAnalyticsMetadata({
     include: 'parameters,response',
     resources: 'user,workspace,team',
     metrics: analyticsMetrics,

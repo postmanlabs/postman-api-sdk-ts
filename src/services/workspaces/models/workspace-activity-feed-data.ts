@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import { DataUser, dataUser, dataUserRequest, dataUserResponse } from './data-user';
-import { DataAction, dataAction } from './data-action';
 
 /**
  * Zod schema for the WorkspaceActivityFeedData model.
@@ -14,7 +13,7 @@ export const workspaceActivityFeedData = z.lazy(() => {
     updatedAt: z.string().optional(),
     id: z.number().optional(),
     user: dataUser.optional(),
-    action: dataAction.optional(),
+    action: z.string().optional(),
     elementType: z.string().optional(),
     trigger: z.string().optional(),
     elementId: z.string().optional(),
@@ -51,7 +50,7 @@ export const workspaceActivityFeedDataResponse = z.lazy(() => {
       updatedAt: z.string().optional(),
       id: z.number().optional(),
       user: dataUserResponse.optional(),
-      action: dataAction.optional(),
+      action: z.string().optional(),
       elementType: z.string().optional(),
       trigger: z.string().optional(),
       elementId: z.string().optional(),
@@ -84,7 +83,7 @@ export const workspaceActivityFeedDataRequest = z.lazy(() => {
       updatedAt: z.string().optional(),
       id: z.number().optional(),
       user: dataUserRequest.optional(),
-      action: dataAction.optional(),
+      action: z.string().optional(),
       elementType: z.string().optional(),
       trigger: z.string().optional(),
       elementId: z.string().optional(),

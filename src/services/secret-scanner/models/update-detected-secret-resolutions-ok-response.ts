@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  SuccessfulResponseResolution,
-  successfulResponseResolution,
-} from './successful-response-resolution';
 import { History, history, historyRequest, historyResponse } from './history';
 
 /**
@@ -14,7 +10,7 @@ export const updateDetectedSecretResolutionsOkResponse = z.lazy(() => {
   return z.object({
     secretHash: z.string().optional(),
     workspaceId: z.string().optional(),
-    resolution: successfulResponseResolution.optional(),
+    resolution: z.string().optional(),
     history: z.array(history).optional(),
   });
 });
@@ -46,7 +42,7 @@ export const updateDetectedSecretResolutionsOkResponseResponse = z.lazy(() => {
     .object({
       secretHash: z.string().optional(),
       workspaceId: z.string().optional(),
-      resolution: successfulResponseResolution.optional(),
+      resolution: z.string().optional(),
       history: z.array(historyResponse).optional(),
     })
     .transform((data) => ({
@@ -67,7 +63,7 @@ export const updateDetectedSecretResolutionsOkResponseRequest = z.lazy(() => {
     .object({
       secretHash: z.string().optional(),
       workspaceId: z.string().optional(),
-      resolution: successfulResponseResolution.optional(),
+      resolution: z.string().optional(),
       history: z.array(historyRequest).optional(),
     })
     .transform((data) => ({

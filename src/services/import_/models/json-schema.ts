@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { JsonSchemaType, jsonSchemaType } from './json-schema-type';
 import {
   GenerateCollectionOptions,
   generateCollectionOptions,
@@ -14,7 +13,7 @@ import {
  */
 export const jsonSchema = z.lazy(() => {
   return z.object({
-    type: jsonSchemaType,
+    type: z.string(),
     input: z.any(),
     options: generateCollectionOptions.optional(),
   });
@@ -37,7 +36,7 @@ export type JsonSchema = z.infer<typeof jsonSchema>;
 export const jsonSchemaResponse = z.lazy(() => {
   return z
     .object({
-      type: jsonSchemaType,
+      type: z.string(),
       input: z.any(),
       options: generateCollectionOptionsResponse.optional(),
     })
@@ -56,7 +55,7 @@ export const jsonSchemaResponse = z.lazy(() => {
 export const jsonSchemaRequest = z.lazy(() => {
   return z
     .object({
-      type: jsonSchemaType,
+      type: z.string(),
       input: z.any(),
       options: generateCollectionOptionsRequest.optional(),
     })

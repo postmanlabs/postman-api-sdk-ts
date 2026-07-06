@@ -5,10 +5,6 @@ import {
   updateMockServerResponseServerResponseHeadersRequest,
   updateMockServerResponseServerResponseHeadersResponse,
 } from './update-mock-server-response-server-response-headers';
-import {
-  UpdateMockServerResponseServerResponseLanguage,
-  updateMockServerResponseServerResponseLanguage,
-} from './update-mock-server-response-server-response-language';
 
 /**
  * Zod schema for the UpdateMockServerResponseServerResponse model.
@@ -20,7 +16,7 @@ export const updateMockServerResponseServerResponse = z.lazy(() => {
     name: z.string().optional(),
     statusCode: z.number().optional(),
     headers: z.array(updateMockServerResponseServerResponseHeaders).optional(),
-    language: updateMockServerResponseServerResponseLanguage.optional().nullable(),
+    language: z.string().optional().nullable(),
     body: z.string().optional(),
   });
 });
@@ -49,7 +45,7 @@ export const updateMockServerResponseServerResponseResponse = z.lazy(() => {
       name: z.string().optional(),
       statusCode: z.number().optional(),
       headers: z.array(updateMockServerResponseServerResponseHeadersResponse).optional(),
-      language: updateMockServerResponseServerResponseLanguage.optional().nullable(),
+      language: z.string().optional().nullable(),
       body: z.string().optional(),
     })
     .transform((data) => ({
@@ -72,7 +68,7 @@ export const updateMockServerResponseServerResponseRequest = z.lazy(() => {
       name: z.string().optional(),
       statusCode: z.number().optional(),
       headers: z.array(updateMockServerResponseServerResponseHeadersRequest).optional(),
-      language: updateMockServerResponseServerResponseLanguage.optional().nullable(),
+      language: z.string().optional().nullable(),
       body: z.string().optional(),
     })
     .transform((data) => ({

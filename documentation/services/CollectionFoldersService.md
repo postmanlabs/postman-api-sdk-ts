@@ -30,14 +30,14 @@ Gets all comments left by users in a folder.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.collectionFolders.getFolderComments(
+  const data = await postmanApiSdkSourceOverlayed.collectionFolders.getFolderComments(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-65a99e60-8e0a-4b6e-b79c-7d8264cc5caa',
   );
@@ -68,14 +68,20 @@ Creates a comment on a folder. To create a reply on an existing comment, include
 **Example Usage Code Snippet**
 
 ```typescript
-import { CommentCreate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api-sdk';
+import {
+  CommentCreate,
+  PostmanApiSdkSourceOverlayed,
+  TaggedUsers,
+  UserName,
+  UserNameType,
+} from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const userNameType = 'user';
+  const userNameType = UserNameType.USER;
 
   const userName: UserName = {
     type: userNameType,
@@ -92,7 +98,7 @@ import { CommentCreate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api
     tags: taggedUsers,
   };
 
-  const data = await postmanApiSdk.collectionFolders.createFolderComment(
+  const data = await postmanApiSdkSourceOverlayed.collectionFolders.createFolderComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-65a99e60-8e0a-4b6e-b79c-7d8264cc5caa',
     commentCreate,
@@ -125,14 +131,20 @@ Updates a comment on a folder. **Note:** This endpoint accepts a max of 10,000 c
 **Example Usage Code Snippet**
 
 ```typescript
-import { CommentUpdate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api-sdk';
+import {
+  CommentUpdate,
+  PostmanApiSdkSourceOverlayed,
+  TaggedUsers,
+  UserName,
+  UserNameType,
+} from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const userNameType = 'user';
+  const userNameType = UserNameType.USER;
 
   const userName: UserName = {
     type: userNameType,
@@ -148,7 +160,7 @@ import { CommentUpdate, PostmanApiSdk, TaggedUsers, UserName } from 'postman-api
     tags: taggedUsers,
   };
 
-  const data = await postmanApiSdk.collectionFolders.updateFolderComment(
+  const data = await postmanApiSdkSourceOverlayed.collectionFolders.updateFolderComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-65a99e60-8e0a-4b6e-b79c-7d8264cc5caa',
     46814,
@@ -177,14 +189,14 @@ Deletes a comment from a folder. On success, this returns an HTTP `204 No Conten
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.collectionFolders.deleteFolderComment(
+  const data = await postmanApiSdkSourceOverlayed.collectionFolders.deleteFolderComment(
     '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     '12345678-65a99e60-8e0a-4b6e-b79c-7d8264cc5caa',
     46814,

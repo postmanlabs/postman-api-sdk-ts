@@ -34,17 +34,17 @@ Gets a list of your team's generated audit events. For a complete list of all au
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { AscDescDefaultDesc, PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const ascDescDefaultDesc = 'asc';
-  const ascDescDefaultDesc1 = 'asc';
+  const ascDescDefaultDesc = AscDescDefaultDesc.ASC;
+  const ascDescDefaultDesc1 = AscDescDefaultDesc.ASC;
 
-  const data = await postmanApiSdk.auditLogs.getAuditLogs({
+  const data = await postmanApiSdkSourceOverlayed.auditLogs.getAuditLogs({
     userId: 12345678,
     action: 'team.scim_add_member',
     since: '2022-08-30',
@@ -72,14 +72,14 @@ Gets a complete list of all available audit log event actions.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApiSdk } from 'postman-api-sdk';
+import { PostmanApiSdkSourceOverlayed } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApiSdk = new PostmanApiSdk({
+  const postmanApiSdkSourceOverlayed = new PostmanApiSdkSourceOverlayed({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const data = await postmanApiSdk.auditLogs.getAuditLogEventActions();
+  const data = await postmanApiSdkSourceOverlayed.auditLogs.getAuditLogEventActions();
 
   console.log(data);
 })();

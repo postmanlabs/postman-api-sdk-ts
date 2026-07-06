@@ -5,7 +5,6 @@ import {
   documentationColorSettingsRequest,
   documentationColorSettingsResponse,
 } from './documentation-color-settings';
-import { DocumentationLayout, documentationLayout } from './documentation-layout';
 import {
   DocumentationCustomizationSettings,
   documentationCustomizationSettings,
@@ -22,7 +21,7 @@ export const publishDocumentation = z.lazy(() => {
   return z.object({
     environmentUid: z.string().optional(),
     customColor: documentationColorSettings,
-    documentationLayout: documentationLayout.optional(),
+    documentationLayout: z.string().optional(),
     customization: documentationCustomizationSettings,
   });
 });
@@ -50,7 +49,7 @@ export const publishDocumentationResponse1 = z.lazy(() => {
     .object({
       environmentUid: z.string().optional(),
       customColor: documentationColorSettingsResponse,
-      documentationLayout: documentationLayout.optional(),
+      documentationLayout: z.string().optional(),
       customization: documentationCustomizationSettingsResponse,
     })
     .transform((data) => ({
@@ -71,7 +70,7 @@ export const publishDocumentationRequest = z.lazy(() => {
     .object({
       environmentUid: z.string().optional(),
       customColor: documentationColorSettingsRequest,
-      documentationLayout: documentationLayout.optional(),
+      documentationLayout: z.string().optional(),
       customization: documentationCustomizationSettingsRequest,
     })
     .transform((data) => ({

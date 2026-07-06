@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { RoleDisplayName, roleDisplayName } from './role-display-name';
 import {
   InvitePartnerResponseResults,
   invitePartnerResponseResults,
@@ -18,7 +17,7 @@ export const invitePartnerResponse = z.lazy(() => {
     targetEntityId: z.string().optional(),
     roleId: z.string().optional(),
     action: z.string().optional(),
-    roleDisplayName: roleDisplayName.optional(),
+    roleDisplayName: z.string().optional(),
     results: z.array(invitePartnerResponseResults).optional(),
   });
 });
@@ -47,7 +46,7 @@ export const invitePartnerResponseResponse = z.lazy(() => {
       targetEntityId: z.string().optional(),
       roleId: z.string().optional(),
       action: z.string().optional(),
-      roleDisplayName: roleDisplayName.optional(),
+      roleDisplayName: z.string().optional(),
       results: z.array(invitePartnerResponseResultsResponse).optional(),
     })
     .transform((data) => ({
@@ -72,7 +71,7 @@ export const invitePartnerResponseRequest = z.lazy(() => {
       targetEntityId: z.string().optional(),
       roleId: z.string().optional(),
       action: z.string().optional(),
-      roleDisplayName: roleDisplayName.optional(),
+      roleDisplayName: z.string().optional(),
       results: z.array(invitePartnerResponseResultsRequest).optional(),
     })
     .transform((data) => ({

@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { ComponentContentFormat, componentContentFormat } from './component-content-format';
 
 /**
  * Zod schema for the UpdateComponentDraft model.
@@ -9,7 +8,7 @@ import { ComponentContentFormat, componentContentFormat } from './component-cont
 export const updateComponentDraft = z.lazy(() => {
   return z.object({
     content: z.string().optional(),
-    format: componentContentFormat.optional(),
+    format: z.string().optional(),
   });
 });
 
@@ -30,7 +29,7 @@ export const updateComponentDraftResponse1 = z.lazy(() => {
   return z
     .object({
       content: z.string().optional(),
-      format: componentContentFormat.optional(),
+      format: z.string().optional(),
     })
     .transform((data) => ({
       content: data['content'],
@@ -47,7 +46,7 @@ export const updateComponentDraftRequest = z.lazy(() => {
   return z
     .object({
       content: z.string().optional(),
-      format: componentContentFormat.optional(),
+      format: z.string().optional(),
     })
     .transform((data) => ({
       content: data['content'],

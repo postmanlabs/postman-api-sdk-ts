@@ -1,8 +1,4 @@
 import { z } from 'zod';
-import {
-  MergeCollectionForkStrategy,
-  mergeCollectionForkStrategy,
-} from './merge-collection-fork-strategy';
 
 /**
  * Zod schema for the MergeCollectionFork model.
@@ -13,7 +9,7 @@ export const mergeCollectionFork = z.lazy(() => {
   return z.object({
     destination: z.string(),
     source: z.string(),
-    strategy: mergeCollectionForkStrategy.optional(),
+    strategy: z.string().optional(),
   });
 });
 
@@ -39,7 +35,7 @@ export const mergeCollectionForkResponse = z.lazy(() => {
     .object({
       destination: z.string(),
       source: z.string(),
-      strategy: mergeCollectionForkStrategy.optional(),
+      strategy: z.string().optional(),
     })
     .transform((data) => ({
       destination: data['destination'],
@@ -58,7 +54,7 @@ export const mergeCollectionForkRequest = z.lazy(() => {
     .object({
       destination: z.string(),
       source: z.string(),
-      strategy: mergeCollectionForkStrategy.optional(),
+      strategy: z.string().optional(),
     })
     .transform((data) => ({
       destination: data['destination'],

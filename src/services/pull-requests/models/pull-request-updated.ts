@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { PullRequestUpdatedStatus, pullRequestUpdatedStatus } from './pull-request-updated-status';
 
 /**
  * Zod schema for the PullRequestUpdated model.
@@ -15,7 +14,7 @@ export const pullRequestUpdated = z.lazy(() => {
     forkType: z.string().optional(),
     id: z.string().optional(),
     sourceId: z.string().optional(),
-    status: pullRequestUpdatedStatus.optional(),
+    status: z.string().optional(),
     title: z.string().optional(),
     updatedAt: z.string().optional(),
   });
@@ -52,7 +51,7 @@ export const pullRequestUpdatedResponse = z.lazy(() => {
       forkType: z.string().optional(),
       id: z.string().optional(),
       sourceId: z.string().optional(),
-      status: pullRequestUpdatedStatus.optional(),
+      status: z.string().optional(),
       title: z.string().optional(),
       updatedAt: z.string().optional(),
     })
@@ -85,7 +84,7 @@ export const pullRequestUpdatedRequest = z.lazy(() => {
       forkType: z.string().optional(),
       id: z.string().optional(),
       sourceId: z.string().optional(),
-      status: pullRequestUpdatedStatus.optional(),
+      status: z.string().optional(),
       title: z.string().optional(),
       updatedAt: z.string().optional(),
     })

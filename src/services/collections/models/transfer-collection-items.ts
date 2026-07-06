@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { Mode, mode } from './mode';
 import { Target, target, targetRequest, targetResponse } from './target';
 import { Location, location, locationRequest, locationResponse } from './location';
 
@@ -11,7 +10,7 @@ import { Location, location, locationRequest, locationResponse } from './locatio
 export const transferCollectionItems = z.lazy(() => {
   return z.object({
     ids: z.array(z.string()),
-    mode: mode,
+    mode: z.string(),
     target: target,
     location: location,
   });
@@ -39,7 +38,7 @@ export const transferCollectionItemsResponse = z.lazy(() => {
   return z
     .object({
       ids: z.array(z.string()),
-      mode: mode,
+      mode: z.string(),
       target: targetResponse,
       location: locationResponse,
     })
@@ -60,7 +59,7 @@ export const transferCollectionItemsRequest = z.lazy(() => {
   return z
     .object({
       ids: z.array(z.string()),
-      mode: mode,
+      mode: z.string(),
       target: targetRequest,
       location: locationRequest,
     })

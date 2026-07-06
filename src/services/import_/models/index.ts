@@ -2,9 +2,9 @@ export type { ImportOpenApiDefinitionOkResponse } from './import-open-api-defini
 export type { SuccessfulResponseCollections } from './successful-response-collections';
 export type { ImportOpenApiDefinition } from './import-open-api-definition';
 export type { JsonSchema } from './json-schema';
-export type { JsonSchemaType } from './json-schema-type';
+export { JsonSchemaType } from './json-schema-type';
 export type { JsonStringified } from './json-stringified';
-export type { JsonStringifiedType } from './json-stringified-type';
+export { JsonStringifiedType } from './json-stringified-type';
 export type { ImportExportFile } from './import-export-file';
-export type { ImportExportFileType } from './import-export-file-type';
+export { ImportExportFileType } from './import-export-file-type';
 export type { ImportOpenApiDefinitionBadRequestResponse } from './import-open-api-definition-bad-request-response';

@@ -1,5 +1,8 @@
 import { z } from 'zod';
 
-export const roleId = z.union([z.literal('4'), z.literal('5'), z.literal('6'), z.literal('7')]);
-
-export type RoleId = z.infer<typeof roleId>;
+export enum RoleId {
+  _4 = '4',
+  _5 = '5',
+  _6 = '6',
+  _7 = '7',
+}

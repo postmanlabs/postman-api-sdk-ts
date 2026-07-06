@@ -1,12 +1,4 @@
 import { z } from 'zod';
-import {
-  GetMockServerMockConfigDelayType,
-  getMockServerMockConfigDelayType,
-} from './get-mock-server-mock-config-delay-type';
-import {
-  GetMockServerMockConfigDelayPreset,
-  getMockServerMockConfigDelayPreset,
-} from './get-mock-server-mock-config-delay-preset';
 
 /**
  * Zod schema for the GetMockServerMockConfigDelay model.
@@ -15,8 +7,8 @@ import {
  */
 export const getMockServerMockConfigDelay = z.lazy(() => {
   return z.object({
-    type: getMockServerMockConfigDelayType.optional(),
-    preset: getMockServerMockConfigDelayPreset.optional(),
+    type: z.string().optional(),
+    preset: z.string().optional(),
     duration: z.number().optional(),
   });
 });
@@ -44,8 +36,8 @@ export type GetMockServerMockConfigDelay = z.infer<typeof getMockServerMockConfi
 export const getMockServerMockConfigDelayResponse = z.lazy(() => {
   return z
     .object({
-      type: getMockServerMockConfigDelayType.optional(),
-      preset: getMockServerMockConfigDelayPreset.optional(),
+      type: z.string().optional(),
+      preset: z.string().optional(),
       duration: z.number().optional(),
     })
     .transform((data) => ({
@@ -63,8 +55,8 @@ export const getMockServerMockConfigDelayResponse = z.lazy(() => {
 export const getMockServerMockConfigDelayRequest = z.lazy(() => {
   return z
     .object({
-      type: getMockServerMockConfigDelayType.optional(),
-      preset: getMockServerMockConfigDelayPreset.optional(),
+      type: z.string().optional(),
+      preset: z.string().optional(),
       duration: z.number().optional(),
     })
     .transform((data) => ({

@@ -1,10 +1,8 @@
 import { z } from 'zod';
 
-export const invitePartnerResponseResultsStatus = z.union([
-  z.literal('EMAIL_SENT'),
-  z.literal('ALREADY_INVITED'),
-  z.literal('PARTNER_ADDED'),
-  z.literal('FAILED'),
-]);
-
-export type InvitePartnerResponseResultsStatus = z.infer<typeof invitePartnerResponseResultsStatus>;
+export enum InvitePartnerResponseResultsStatus {
+  EMAIL_SENT = 'EMAIL_SENT',
+  ALREADY_INVITED = 'ALREADY_INVITED',
+  PARTNER_ADDED = 'PARTNER_ADDED',
+  FAILED = 'FAILED',
+}

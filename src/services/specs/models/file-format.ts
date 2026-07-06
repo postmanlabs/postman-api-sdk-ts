@@ -1,11 +1,9 @@
 import { z } from 'zod';
 
-export const fileFormat = z.union([
-  z.literal('json'),
-  z.literal('yaml'),
-  z.literal('proto'),
-  z.literal('graphql'),
-  z.literal('smithy'),
-]);
-
-export type FileFormat = z.infer<typeof fileFormat>;
+export enum FileFormat {
+  JSON = 'json',
+  YAML = 'yaml',
+  PROTO = 'proto',
+  GRAPHQL = 'graphql',
+  SMITHY = 'smithy',
+}

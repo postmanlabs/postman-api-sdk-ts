@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { Resource, resource } from './resource';
 
 /**
  * Zod schema for the WorkspaceUpdateRelatedResourcesData model.
@@ -8,7 +7,7 @@ import { Resource, resource } from './resource';
  */
 export const workspaceUpdateRelatedResourcesData = z.lazy(() => {
   return z.object({
-    resource: resource,
+    resource: z.string(),
     resourceId: z.string(),
   });
 });
@@ -31,7 +30,7 @@ export type WorkspaceUpdateRelatedResourcesData = z.infer<
 export const workspaceUpdateRelatedResourcesDataResponse = z.lazy(() => {
   return z
     .object({
-      resource: resource,
+      resource: z.string(),
       resourceId: z.string(),
     })
     .transform((data) => ({
@@ -48,7 +47,7 @@ export const workspaceUpdateRelatedResourcesDataResponse = z.lazy(() => {
 export const workspaceUpdateRelatedResourcesDataRequest = z.lazy(() => {
   return z
     .object({
-      resource: resource,
+      resource: z.string(),
       resourceId: z.string(),
     })
     .transform((data) => ({

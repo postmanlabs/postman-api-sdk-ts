@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { DataRole, dataRole } from './data-role';
 import {
   DataEntityId,
   dataEntityId,
@@ -23,7 +22,7 @@ export const getTeamAccessRequestsData = z.lazy(() => {
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
     id: z.number().optional(),
-    role: dataRole.optional(),
+    role: z.string().optional(),
     requestType: z.string().optional(),
     reason: z.string().optional(),
     status: z.string().optional(),
@@ -64,7 +63,7 @@ export const getTeamAccessRequestsDataResponse = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       id: z.number().optional(),
-      role: dataRole.optional(),
+      role: z.string().optional(),
       requestType: z.string().optional(),
       reason: z.string().optional(),
       status: z.string().optional(),
@@ -101,7 +100,7 @@ export const getTeamAccessRequestsDataRequest = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       id: z.number().optional(),
-      role: dataRole.optional(),
+      role: z.string().optional(),
       requestType: z.string().optional(),
       reason: z.string().optional(),
       status: z.string().optional(),

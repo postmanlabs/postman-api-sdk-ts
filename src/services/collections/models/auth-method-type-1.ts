@@ -1,17 +1,15 @@
 import { z } from 'zod';
 
-export const authMethodType1 = z.union([
-  z.literal('noauth'),
-  z.literal('basic'),
-  z.literal('bearer'),
-  z.literal('apikey'),
-  z.literal('digest'),
-  z.literal('oauth1'),
-  z.literal('oauth2'),
-  z.literal('hawk'),
-  z.literal('awsv4'),
-  z.literal('ntlm'),
-  z.literal('edgegrid'),
-]);
-
-export type AuthMethodType1 = z.infer<typeof authMethodType1>;
+export enum AuthMethodType1 {
+  NOAUTH = 'noauth',
+  BASIC = 'basic',
+  BEARER = 'bearer',
+  APIKEY = 'apikey',
+  DIGEST = 'digest',
+  OAUTH1 = 'oauth1',
+  OAUTH2 = 'oauth2',
+  HAWK = 'hawk',
+  AWSV4 = 'awsv4',
+  NTLM = 'ntlm',
+  EDGEGRID = 'edgegrid',
+}

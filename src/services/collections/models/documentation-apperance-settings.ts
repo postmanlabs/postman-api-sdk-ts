@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { Default_, default_ } from './default_';
 import {
   DocumentationThemeSettings,
   documentationThemeSettings,
@@ -14,7 +13,7 @@ import {
  */
 export const documentationApperanceSettings = z.lazy(() => {
   return z.object({
-    default: default_.optional(),
+    default: z.string().optional(),
     themes: z.array(documentationThemeSettings).optional(),
   });
 });
@@ -35,7 +34,7 @@ export type DocumentationApperanceSettings = z.infer<typeof documentationApperan
 export const documentationApperanceSettingsResponse = z.lazy(() => {
   return z
     .object({
-      default: default_.optional(),
+      default: z.string().optional(),
       themes: z.array(documentationThemeSettingsResponse).optional(),
     })
     .transform((data) => ({
@@ -52,7 +51,7 @@ export const documentationApperanceSettingsResponse = z.lazy(() => {
 export const documentationApperanceSettingsRequest = z.lazy(() => {
   return z
     .object({
-      default: default_.optional(),
+      default: z.string().optional(),
       themes: z.array(documentationThemeSettingsRequest).optional(),
     })
     .transform((data) => ({

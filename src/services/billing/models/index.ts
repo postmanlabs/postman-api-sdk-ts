@@ -1,5 +1,5 @@
 export type { AccountInformation } from './account-information';
-export type { SalesChannel } from './sales-channel';
+export { SalesChannel } from './sales-channel';
 export type { InvoicesSlots } from './invoices-slots';
 export type { ErrorTypeTitleDetailStatusType } from './error-type-title-detail-status-type';
 export type { ErrorNameMessageError1 } from './error-name-message-error-1';
@@ -9,4 +9,4 @@ export type { AccountInvoice } from './account-invoice';
 export type { InvoicesTotal } from './invoices-total';
 export type { InvoicesLinks } from './invoices-links';
 export type { Web } from './web';
-export type { BillingAccountStatus } from './billing-account-status';
+export { BillingAccountStatus } from './billing-account-status';

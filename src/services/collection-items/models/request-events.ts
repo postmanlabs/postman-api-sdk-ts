@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { RequestEventsListen, requestEventsListen } from './request-events-listen';
 import {
   RequestEventsScript,
   requestEventsScript,
@@ -14,7 +13,7 @@ import {
  */
 export const requestEvents = z.lazy(() => {
   return z.object({
-    listen: requestEventsListen.optional(),
+    listen: z.string().optional(),
     script: requestEventsScript.optional(),
   });
 });
@@ -35,7 +34,7 @@ export type RequestEvents = z.infer<typeof requestEvents>;
 export const requestEventsResponse = z.lazy(() => {
   return z
     .object({
-      listen: requestEventsListen.optional(),
+      listen: z.string().optional(),
       script: requestEventsScriptResponse.optional(),
     })
     .transform((data) => ({
@@ -52,7 +51,7 @@ export const requestEventsResponse = z.lazy(() => {
 export const requestEventsRequest = z.lazy(() => {
   return z
     .object({
-      listen: requestEventsListen.optional(),
+      listen: z.string().optional(),
       script: requestEventsScriptRequest.optional(),
     })
     .transform((data) => ({

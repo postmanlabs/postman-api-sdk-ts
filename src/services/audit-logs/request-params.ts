@@ -1,4 +1,4 @@
-import { AscDescDefaultDesc, ascDescDefaultDesc } from '../common/asc-desc-default-desc';
+import { AscDescDefaultDesc } from '../common/asc-desc-default-desc';
 
 export interface GetAuditLogsParams {
   userId?: number;

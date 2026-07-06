@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { PanRequestElementType, panRequestElementType } from './pan-request-element-type';
 
 /**
  * Zod schema for the PanRequestElement model.
@@ -9,7 +8,7 @@ import { PanRequestElementType, panRequestElementType } from './pan-request-elem
 export const panRequestElement = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
-    type: panRequestElementType.optional(),
+    type: z.string().optional(),
     name: z.string().optional(),
     summary: z.string().optional().nullable(),
     description: z.string().optional().nullable(),
@@ -36,7 +35,7 @@ export const panRequestElementResponse = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      type: panRequestElementType.optional(),
+      type: z.string().optional(),
       name: z.string().optional(),
       summary: z.string().optional().nullable(),
       description: z.string().optional().nullable(),
@@ -59,7 +58,7 @@ export const panRequestElementRequest = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      type: panRequestElementType.optional(),
+      type: z.string().optional(),
       name: z.string().optional(),
       summary: z.string().optional().nullable(),
       description: z.string().optional().nullable(),

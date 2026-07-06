@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { Position, position } from './position';
 
 /**
  * Zod schema for the Location model.
@@ -10,7 +9,7 @@ export const location = z.lazy(() => {
   return z.object({
     id: z.string().optional().nullable(),
     model: z.string().optional().nullable(),
-    position: position,
+    position: z.string(),
   });
 });
 
@@ -43,7 +42,7 @@ export const locationResponse = z.lazy(() => {
     .object({
       id: z.string().optional().nullable(),
       model: z.string().optional().nullable(),
-      position: position,
+      position: z.string(),
     })
     .transform((data) => ({
       id: data['id'],
@@ -62,7 +61,7 @@ export const locationRequest = z.lazy(() => {
     .object({
       id: z.string().optional().nullable(),
       model: z.string().optional().nullable(),
-      position: position,
+      position: z.string(),
     })
     .transform((data) => ({
       id: data['id'],

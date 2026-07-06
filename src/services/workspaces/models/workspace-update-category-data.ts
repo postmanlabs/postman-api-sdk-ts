@@ -1,11 +1,9 @@
 import { z } from 'zod';
 
-export const workspaceUpdateCategoryData = z.union([
-  z.literal('improvement'),
-  z.literal('new_feature'),
-  z.literal('bug_fix'),
-  z.literal('breaking_change'),
-  z.literal('announcement'),
-]);
-
-export type WorkspaceUpdateCategoryData = z.infer<typeof workspaceUpdateCategoryData>;
+export enum WorkspaceUpdateCategoryData {
+  IMPROVEMENT = 'improvement',
+  NEW_FEATURE = 'new_feature',
+  BUG_FIX = 'bug_fix',
+  BREAKING_CHANGE = 'breaking_change',
+  ANNOUNCEMENT = 'announcement',
+}

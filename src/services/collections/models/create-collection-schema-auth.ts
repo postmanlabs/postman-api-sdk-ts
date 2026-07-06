@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { AuthMethodType1, authMethodType1 } from './auth-method-type-1';
 import {
   AuthAttributes,
   authAttributes,
@@ -14,7 +13,7 @@ import {
  */
 export const createCollectionSchemaAuth = z.lazy(() => {
   return z.object({
-    type: authMethodType1,
+    type: z.string(),
     noauth: z.any().optional(),
     apikey: z.array(authAttributes).optional(),
     awsv4: z.array(authAttributes).optional(),
@@ -55,7 +54,7 @@ export type CreateCollectionSchemaAuth = z.infer<typeof createCollectionSchemaAu
 export const createCollectionSchemaAuthResponse = z.lazy(() => {
   return z
     .object({
-      type: authMethodType1,
+      type: z.string(),
       noauth: z.any().optional(),
       apikey: z.array(authAttributesResponse).optional(),
       awsv4: z.array(authAttributesResponse).optional(),
@@ -92,7 +91,7 @@ export const createCollectionSchemaAuthResponse = z.lazy(() => {
 export const createCollectionSchemaAuthRequest = z.lazy(() => {
   return z
     .object({
-      type: authMethodType1,
+      type: z.string(),
       noauth: z.any().optional(),
       apikey: z.array(authAttributesRequest).optional(),
       awsv4: z.array(authAttributesRequest).optional(),

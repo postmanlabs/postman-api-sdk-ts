@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { TaskStatusResponseStatus, taskStatusResponseStatus } from './task-status-response-status';
 import {
   TaskStatusResponseDetails,
   taskStatusResponseDetails,
@@ -15,7 +14,7 @@ import {
 export const taskStatusResponse = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
-    status: taskStatusResponseStatus.optional(),
+    status: z.string().optional(),
     details: taskStatusResponseDetails.optional(),
   });
 });
@@ -38,7 +37,7 @@ export const taskStatusResponseResponse = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      status: taskStatusResponseStatus.optional(),
+      status: z.string().optional(),
       details: taskStatusResponseDetailsResponse.optional(),
     })
     .transform((data) => ({
@@ -57,7 +56,7 @@ export const taskStatusResponseRequest = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      status: taskStatusResponseStatus.optional(),
+      status: z.string().optional(),
       details: taskStatusResponseDetailsRequest.optional(),
     })
     .transform((data) => ({
