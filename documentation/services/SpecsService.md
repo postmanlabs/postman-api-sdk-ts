@@ -268,7 +268,7 @@ import { ElementId, ElementType, PostmanApi } from '@postman/api-sdk';
   });
 
   const elementType = ElementType.COLLECTIONS;
-  const elementId = 'labore fugiat ';
+  const elementId = 'in mollit n';
 
   const data = await postmanApi.specs.getAsyncSpecTaskStatus(
     elementType,

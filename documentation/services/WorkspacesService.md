@@ -425,7 +425,7 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const id = 'veniam dolor v';
+  const id = 'cupidatat ';
 
   const transferWorkspaceElementType = TransferWorkspaceElementType.COLLECTION;
 
