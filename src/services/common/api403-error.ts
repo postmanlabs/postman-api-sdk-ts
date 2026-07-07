@@ -11,7 +11,7 @@ import {
 import {
   ErrorTypeTitleMessageDetail,
   errorTypeTitleMessageDetailResponse,
-} from './models/error-type-title-message-detail';
+} from '../api/models/error-type-title-message-detail';
 
 export class Api403Error extends ThrowableError {
   constructor(

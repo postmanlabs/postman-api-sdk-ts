@@ -1,6 +1,6 @@
 {
   "sdkGenVersion": "1.5.1",
-  "date": "2026-07-07T15:25:19.940Z",
+  "date": "2026-07-07T15:33:06.169Z",
   "config": {
     "languages": [
       "typescript"
@@ -20,6 +20,9 @@
     "sdkVersion": "1.43.0",
     "customCode": {
       "trackChanges": true
+    },
+    "publishing": {
+      "releaseBranch": "main"
     },
     "httpClient": "fetch",
     "npmOrg": "postman",
@@ -2524,10 +2527,10 @@
     "documentation/services/BillingService.md": "fb0ec77ea2d246be8a5600234ee19e5f027711ea81d30ea33c047ac16e729fc1",
     "documentation/services/CollectionAccessKeysService.md": "01d215054a411051a0e998ab8252c96db0e2d3d28441e0fc80567d5679dcd767",
     "documentation/services/CollectionFoldersService.md": "dd51ccfc95a00e54ebcead1e3b97494cac3d0d61d654c05729d25f1260c483d2",
-    "documentation/services/CollectionItemsService.md": "bd35de1de75875bd9a8c621050ccfdf64ba3df3e5bd1eaf57abd2fd57cd66a94",
+    "documentation/services/CollectionItemsService.md": "8f10084ab959976a42201665f8bf81c8f9ce0f382d5f1d837709cc806f199124",
     "documentation/services/CollectionRequestsService.md": "ee42f00270bbe7c955094955b3f1bb0f74851dacb45333d28f9f3a9c796be1c2",
     "documentation/services/CollectionResponsesService.md": "8c84fbda22fbb31e36ba25869d563e0a3c38e3870838fee2ce964ae1c47ac6b0",
-    "documentation/services/CollectionsService.md": "075d28e76dccfa6a3f145f035ae4bc9a24e5bfc9171327d0a2bdad52df5b0ff1",
+    "documentation/services/CollectionsService.md": "f1ac9b2f7659e62e0656d40de8cd6efdc80ce2edbe0db475ebd242d40b88dd2b",
     "documentation/services/CommentsService.md": "cc3890b833096de9a53ab2d44ea27ce937a1088560d93f0586ea976c782a0a77",
     "documentation/services/ComponentsService.md": "345f57236bec2ac5cf485e020ea8a971711455e7ef128c69618cf89da42db1d3",
     "documentation/services/EnvironmentsService.md": "2c3b312a4b44cd52675bce4e4bcb2526978ba64706769018d0d55ebde02eb65d",
@@ -2542,13 +2545,13 @@
     "documentation/services/ScimService.md": "26164a3ea1fc32662644c09bf7f6d88669c4c32fe459e499f22261011f1a9a62",
     "documentation/services/SecretScannerService.md": "9abed38fd0e0c387f97f6d7b9a8102fc0d39372570c29ac202e5003c0a089098",
     "documentation/services/ServiceAccountsService.md": "66fbb286aa4bfb3f4f3df23677f1de5ac95aa1a99145bf71f415ac509ad555e8",
-    "documentation/services/SpecsService.md": "c7873b1f45ede9c6ba54a70533ffe7074b7da853f59b03681674751d0aba0426",
+    "documentation/services/SpecsService.md": "a5ac2f7fedafcf788215b54fae93275a76e0e82be231f643926085b1e8e462a2",
     "documentation/services/TagsService.md": "01acb31d67a27a8971aec74046babf1efe50725d520ce244794792ad3d991ac5",
-    "documentation/services/TeamsService.md": "b6aa9b5a4ff90c520bb99c91e340f42f424ca440f53cf94e5f4a69b6bada8133",
+    "documentation/services/TeamsService.md": "03d8e72f3b0b9e267c059ac26575602fc9b71728f67251e2107e1361cfc8e9e6",
     "documentation/services/UsersService.md": "58460731372ef71ed368e675c1120f312eaa9dcf06c8d0949236a9f0a1e34678",
     "documentation/services/WebhooksService.md": "71963780ffcfffb0aeaa222e1973113e753ba2e6e0ac715dba6f2a201f8c9d32",
-    "documentation/services/WorkspacesService.md": "a0879bdf5bcb2884f11368aeab50393d19d1709d9f76ffac393253fd4cca32df",
-    "documentation/snippets/snippets.json": "3cd5a7e78f675ce2e8c16ba3a7e05a34105a1d2f73138716a87ec3de9706c71c",
+    "documentation/services/WorkspacesService.md": "50aba424732e6ab85d5e62f769c4b717e996951fab40003eefc90163028cfb87",
+    "documentation/snippets/snippets.json": "d483534c10d5689ab239163c45fa5a82c79ccdc0edf1bdf126e890a37dbba31f",
     "examples/README.md": "6e9da2db746ac74ae1cf0c61404f741bac50845927bd506ee82d1a9f6c23c3ca",
     "examples/package.json": "20783dea6a2d44a2a35ade974fa44ac0d60de7ff3601632292c06f55ca498af0",
     "examples/src/index.ts": "6aa6f1544641ff487d083980abc745a26ffabfa5797dd6fae59a7afd4f340dd7",
