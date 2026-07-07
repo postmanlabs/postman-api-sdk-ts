@@ -1,0 +1,13 @@
+import { z } from 'zod';
+
+export enum SpecType {
+  OPENAPI_2_0 = 'OPENAPI:2.0',
+  OPENAPI_3_0 = 'OPENAPI:3.0',
+  OPENAPI_3_1 = 'OPENAPI:3.1',
+  ASYNCAPI_2_0 = 'ASYNCAPI:2.0',
+  ASYNCAPI_3_0 = 'ASYNCAPI:3.0',
+  PROTOBUF_2 = 'PROTOBUF:2',
+  PROTOBUF_3 = 'PROTOBUF:3',
+  GRAPHQL = 'GRAPHQL',
+  SMITHY_2_0 = 'SMITHY:2.0',
+}
