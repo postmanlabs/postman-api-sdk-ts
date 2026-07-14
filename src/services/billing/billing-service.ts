@@ -55,7 +55,6 @@ export class BillingService extends BaseService {
       .setMethod('GET')
       .setPath('/accounts')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -102,7 +101,6 @@ export class BillingService extends BaseService {
       .setMethod('GET')
       .setPath('/accounts/{accountId}/invoices')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

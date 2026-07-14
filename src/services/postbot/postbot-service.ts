@@ -55,7 +55,6 @@ Generates code for an AI agent tool using a collection and request from the Publ
       .setMethod('POST')
       .setPath('/postbot/generations/tool')
       .setRequestSchema(generateToolRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

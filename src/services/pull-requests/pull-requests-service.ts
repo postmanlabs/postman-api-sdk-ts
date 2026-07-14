@@ -78,7 +78,6 @@ export class PullRequestsService extends BaseService {
       .setMethod('GET')
       .setPath('/pull-requests/{pullRequestId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -122,7 +121,6 @@ export class PullRequestsService extends BaseService {
       .setMethod('PUT')
       .setPath('/pull-requests/{pullRequestId}')
       .setRequestSchema(updatePullRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -173,7 +171,6 @@ export class PullRequestsService extends BaseService {
       .setMethod('POST')
       .setPath('/pull-requests/{pullRequestId}/tasks')
       .setRequestSchema(reviewPullRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

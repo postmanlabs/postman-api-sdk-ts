@@ -6,7 +6,7 @@ A list of all methods in the `CollectionsService` service. Click on the method n
 | :------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [asyncMergePullCollectionFork](#asyncmergepullcollectionfork)             | [Merges](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-elements/#merge-changes-from-a-fork) a forked (source) collection and its parent (destination) collection asynchronously. To pull changes into a fork, pass the forked collection's ID as the `destination` value and the parent collection ID as the `source` value. The response returns a task `id` value, which you can use to track the merge's status with the GET `/collection-merges-tasks/{taskId}` endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | [asyncMergePullCollectionTaskStatus](#asyncmergepullcollectiontaskstatus) | Gets the status of a collection's merge or a pull changes task. **Note:** After a merge's success or failure, the task's status is only available for a period of 24 hours. Afterwards, this endpoint returns an HTTP `404 Not Found` response.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| [getCollections](#getcollections)                                         | Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections. **Note:** - It's recommended that you use pagination with this endpoint. Pagination improves endpoint performance. Unpaginated calls are considered deprecated and are subject to change. - Filtering with the `name` parameter when you also pass the `limit` and `offset` parameters is not supported. - If you pass an invalid workspace ID for the `workspace` query parameter, this endpoint returns an HTTP `200 OK` response with an empty array.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| [getCollections](#getcollections)                                         | Gets all of your [collections](https://www.postman.com/docs/collections). The response includes all of your subscribed collections. **Note:** - It's recommended that you use pagination with this endpoint. Pagination improves endpoint performance. Unpaginated calls are considered deprecated and are subject to change. - Filtering with the `name` parameter when you also pass the `limit` and `offset` parameters is not supported. - If you pass an invalid workspace ID for the `workspace` query parameter, this endpoint returns an HTTP `200 OK` response with an empty array.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | [createCollection](#createcollection)                                     | Creates a collection using the [Postman Collection v2.1.0 schema format](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). **Note:** If you do not include the `workspace` query parameter, the system creates the collection in the oldest personal Internal workspace you own.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | [getCollectionsForkedByUser](#getcollectionsforkedbyuser)                 | Gets a list of all the authenticated user's forked collections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | [createCollectionFork](#createcollectionfork)                             | Creates a [fork](https://learning.postman.com/docs/collaborating-in-postman/version-control/#creating-a-fork) from an existing collection into a workspace.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -120,7 +120,7 @@ import { PostmanApi } from '@postman/api-sdk';
 
 ## getCollections
 
-Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections. **Note:** - It's recommended that you use pagination with this endpoint. Pagination improves endpoint performance. Unpaginated calls are considered deprecated and are subject to change. - Filtering with the `name` parameter when you also pass the `limit` and `offset` parameters is not supported. - If you pass an invalid workspace ID for the `workspace` query parameter, this endpoint returns an HTTP `200 OK` response with an empty array.
+Gets all of your [collections](https://www.postman.com/docs/collections). The response includes all of your subscribed collections. **Note:** - It's recommended that you use pagination with this endpoint. Pagination improves endpoint performance. Unpaginated calls are considered deprecated and are subject to change. - Filtering with the `name` parameter when you also pass the `limit` and `offset` parameters is not supported. - If you pass an invalid workspace ID for the `workspace` query parameter, this endpoint returns an HTTP `200 OK` response with an empty array.
 
 - HTTP Method: `GET`
 - Endpoint: `/collections`
@@ -152,7 +152,7 @@ import { PostmanApi } from '@postman/api-sdk';
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     name: 'Test Collection',
     limit: 3,
-    offset: 10,
+    offset: 7,
   });
 
   console.log(data);
@@ -213,7 +213,7 @@ import {
   });
 
   const informationSchema1 =
-    InformationSchema1.HTTPS_SCHEMA_GETPOSTMAN_COM_JSON_COLLECTION_V2_1_0_COLLECTION_JSON;
+    InformationSchema1.HTTPS_SCHEMA_POSTMAN_COM_JSON_COLLECTION_V2_1_0_COLLECTION_JSON;
 
   const createCollectionSchemaInfo: CreateCollectionSchemaInfo = {
     name: 'Test Collection',
@@ -221,7 +221,7 @@ import {
     schema: informationSchema1,
   };
 
-  const variableInfoValue1 = 'quis ';
+  const variableInfoValue1 = 'consequat ';
 
   const variable: Variable = {
     key: 'username',
@@ -246,7 +246,7 @@ import {
 
   const authMethodType1 = AuthMethodType1.NOAUTH;
 
-  const authAttributesValue = 'aliqua ';
+  const authAttributesValue = 'culpa Ut';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -313,11 +313,11 @@ import {
     body: collectionRequestBody1,
   };
 
-  const responseHeader1 = 'laborum';
+  const responseHeader1 = 'minim ve';
 
   const itemResponse1: ItemResponse1 = {
     originalRequest: responseOriginalRequest1,
-    responseTime: 1.4,
+    responseTime: 6.83,
     header: responseHeader1,
     body: '{\n    "field": {}\n}',
     status: 'OK',
@@ -339,7 +339,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 2.51,
+    maxRedirects: 7.89,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -363,57 +363,13 @@ import {
     protocolProfileBehavior: protocolProfileBehavior,
   };
 
-  const createCollectionSchemaEvent1: CreateCollectionSchemaEvent = {
-    listen: eventListen1,
-    script: eventScript,
-  };
-
-  const variable1: Variable = {
-    key: 'username',
-    value: variableInfoValue1,
-    description: 'description',
-    disabled: true,
-  };
-
-  const createCollectionSchemaAuth1: CreateCollectionSchemaAuth = {
-    type: authMethodType1,
-    noauth: [],
-    apikey: [authAttributes],
-    awsv4: [authAttributes],
-    basic: [authAttributes],
-    bearer: [authAttributes],
-    digest: [authAttributes],
-    edgegrid: [authAttributes],
-    hawk: [authAttributes],
-    ntlm: [authAttributes],
-    oauth1: [authAttributes],
-    oauth2: [authAttributes],
-  };
-
-  const protocolProfileBehavior1: ProtocolProfileBehavior = {
-    strictSsl: true,
-    followRedirects: true,
-    maxRedirects: 2.51,
-    disableBodyPruning: true,
-    disableUrlEncoding: true,
-    disabledSystemHeaders: disabledSystemHeaders,
-    insecureHttpParser: true,
-    followOriginalHttpMethod: true,
-    followAuthorizationHeader: true,
-    protocolVersion: protocolVersion,
-    removeRefererHeaderOnRedirect: true,
-    tlsPreferServerCiphers: true,
-    tlsDisabledProtocols: ['tlsDisabledProtocols'],
-    tlsCipherSelection: ['tlsCipherSelection'],
-  };
-
   const createCollectionSchema: CreateCollectionSchema = {
     info: createCollectionSchemaInfo,
     item: [createCollectionSchemaItem],
-    event: [createCollectionSchemaEvent1],
-    variable: [variable1],
-    auth: createCollectionSchemaAuth1,
-    protocolProfileBehavior: protocolProfileBehavior1,
+    event: [createCollectionSchemaEvent],
+    variable: [variable],
+    auth: createCollectionSchemaAuth,
+    protocolProfileBehavior: protocolProfileBehavior,
   };
 
   const createCollection: CreateCollection = {
@@ -653,7 +609,7 @@ import {
   const prefer = Prefer.RESPOND_ASYNC;
 
   const informationSchema2 =
-    InformationSchema2.HTTPS_SCHEMA_GETPOSTMAN_COM_JSON_COLLECTION_V2_1_0_COLLECTION_JSON;
+    InformationSchema2.HTTPS_SCHEMA_POSTMAN_COM_JSON_COLLECTION_V2_1_0_COLLECTION_JSON;
 
   const modifyCollectionSchemaInfo: ModifyCollectionSchemaInfo = {
     name: 'Test Collection',
@@ -666,7 +622,7 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const variableInfoValue2 = 'fugiat id occae';
+  const variableInfoValue2 = 'eiusmod esse n';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -695,7 +651,7 @@ import {
 
   const authMethodType2 = AuthMethodType2.BASIC;
 
-  const authAttributesValue = 'aliqua ';
+  const authAttributesValue = 'culpa Ut';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -762,12 +718,12 @@ import {
     body: collectionRequestBody2,
   };
 
-  const responseHeader2_3 = 'culpa minim';
+  const responseHeader2_3 = 'in pariatur n';
 
   const itemResponse2: ItemResponse2 = {
     id: '33ffd2e3-59a8-4dfe-84fa-0a571984487b',
     originalRequest: responseOriginalRequest2,
-    responseTime: 3.41,
+    responseTime: 5.76,
     header: responseHeader2_3,
     body: 'body',
     status: 'OK',
@@ -792,7 +748,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 2.51,
+    maxRedirects: 7.89,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -810,7 +766,7 @@ import {
     id: '8d021b74-ecb5-460d-ac52-0d1e496d43d1',
     name: 'Test Request',
     description: 'This is a test request.',
-    variable: [variableList2],
+    variable: [variableList2_1],
     event: [collectionEvent],
     request: responseOriginalRequest2,
     response: [itemResponse2],
@@ -820,61 +776,13 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const collectionEvent1: CollectionEvent = {
-    id: '4981dd69-6138-45f6-990e-f122b267557f',
-    listen: eventListen2,
-    script: requestEventsScript,
-  };
-
-  const variableList2_11: VariableList2_1 = {
-    id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
-    key: 'userId',
-    description: "The user's ID.",
-    value: variableInfoValue2,
-    enabled: true,
-    disabled: true,
-  };
-
-  const collectionAuth1: CollectionAuth = {
-    type: authMethodType2,
-    apikey: [authAttributes],
-    awsv4: [authAttributes],
-    basic: [authAttributes],
-    bearer: [authAttributes],
-    digest: [authAttributes],
-    edgegrid: [authAttributes],
-    hawk: [authAttributes],
-    ntlm: [authAttributes],
-    oauth1: [authAttributes],
-    oauth2: [authAttributes],
-    jwt: [authAttributes],
-    asap: [authAttributes],
-  };
-
-  const protocolProfileBehavior1: ProtocolProfileBehavior = {
-    strictSsl: true,
-    followRedirects: true,
-    maxRedirects: 2.51,
-    disableBodyPruning: true,
-    disableUrlEncoding: true,
-    disabledSystemHeaders: disabledSystemHeaders,
-    insecureHttpParser: true,
-    followOriginalHttpMethod: true,
-    followAuthorizationHeader: true,
-    protocolVersion: protocolVersion,
-    removeRefererHeaderOnRedirect: true,
-    tlsPreferServerCiphers: true,
-    tlsDisabledProtocols: ['tlsDisabledProtocols'],
-    tlsCipherSelection: ['tlsCipherSelection'],
-  };
-
   const modifyCollectionSchema: ModifyCollectionSchema = {
     info: modifyCollectionSchemaInfo,
     item: [collectionItem],
-    event: [collectionEvent1],
-    variable: [variableList2],
-    auth: collectionAuth1,
-    protocolProfileBehavior: protocolProfileBehavior1,
+    event: [collectionEvent],
+    variable: [variableList2_1],
+    auth: collectionAuth,
+    protocolProfileBehavior: protocolProfileBehavior,
   };
 
   const replaceCollectionData: ReplaceCollectionData = {
@@ -940,7 +848,7 @@ import {
       'This collection makes a request to the Postman Echo service to get a list of request headers sent by an HTTP client.',
   };
 
-  const variableInfoValue2 = 'fugiat id occae';
+  const variableInfoValue2 = 'eiusmod esse n';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -953,7 +861,7 @@ import {
 
   const authMethodType2 = AuthMethodType2.BASIC;
 
-  const authAttributesValue = 'aliqua ';
+  const authAttributesValue = 'culpa Ut';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -995,7 +903,7 @@ import {
 
   const updateCollectionCollection: UpdateCollectionCollection = {
     info: updateCollectionCollectionInfo,
-    variable: [variableList2],
+    variable: [variableList2_1],
     auth: collectionAuth,
     events: [collectionEvent],
   };

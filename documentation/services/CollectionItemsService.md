@@ -154,7 +154,7 @@ import {
 
   const requestAuthType = RequestAuthType.BASIC;
 
-  const authAttributesValue = 'aliqua ';
+  const authAttributesValue = 'culpa Ut';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -584,7 +584,7 @@ import {
 
   const requestAuthType = RequestAuthType.BASIC;
 
-  const authAttributesValue = 'aliqua ';
+  const authAttributesValue = 'culpa Ut';
 
   const authAttributesType = AuthAttributesType.STRING_;
 

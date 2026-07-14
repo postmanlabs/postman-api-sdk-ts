@@ -60,7 +60,6 @@ export class ServiceAccountsService extends BaseService {
       .setMethod('POST')
       .setPath('/service-account-tokens')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

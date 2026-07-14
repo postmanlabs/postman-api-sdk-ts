@@ -4,7 +4,7 @@ import {
   commentData,
   commentDataRequest,
   commentDataResponse,
-} from './models/comment-data';
+} from '../api/models/comment-data';
 
 /**
  * Zod schema for the CommentResponseObject model.

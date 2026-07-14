@@ -1,7 +1,7 @@
 import { WorkspaceTypeQuery } from './models/workspace-type-query';
 import { WorkspaceIncludeQuery } from './models/workspace-include-query';
 import { WorkspaceElementTypeQuery } from './models/workspace-element-type-query';
-import { ElementType2 } from './models/element-type-2';
+import { ElementType3 } from './models/element-type-3';
 import { WorkspaceIncludeScimQuery } from './models/workspace-include-scim-query';
 
 export interface GetWorkspacesParams {
@@ -20,7 +20,7 @@ export interface GetWorkspaceParams {
 
 export interface GetWorkspaceActivityFeedParams {
   userId?: number | null;
-  elementType?: ElementType2 | null;
+  elementType?: ElementType3 | null;
   limit?: number;
   cursor?: string;
 }

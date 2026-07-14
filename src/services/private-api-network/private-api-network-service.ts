@@ -166,7 +166,6 @@ export class PrivateApiNetworkService extends BaseService {
       .setMethod('GET')
       .setPath('/network/private')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -264,7 +263,6 @@ export class PrivateApiNetworkService extends BaseService {
       .setMethod('POST')
       .setPath('/network/private')
       .setRequestSchema(addWorkspaceRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -319,7 +317,6 @@ export class PrivateApiNetworkService extends BaseService {
       .setMethod('PUT')
       .setPath('/network/private/workspace/{workspaceId}')
       .setRequestSchema(updatePanElementOrFolderRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -381,7 +378,6 @@ Removing a workspace does not delete it. It only removes it from the Private API
       .setMethod('DELETE')
       .setPath('/network/private/workspace/{workspaceId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -463,7 +459,6 @@ Removing a workspace does not delete it. It only removes it from the Private API
       .setMethod('GET')
       .setPath('/network/private/network-entity/request/all')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -556,7 +551,6 @@ Removing a workspace does not delete it. It only removes it from the Private API
       .setMethod('PUT')
       .setPath('/network/private/network-entity/request/{requestId}')
       .setRequestSchema(respondPanElementAddRequestBodyRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

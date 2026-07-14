@@ -211,7 +211,6 @@ export class EnvironmentsService extends BaseService {
       .setMethod('GET')
       .setPath('/environments')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -268,7 +267,6 @@ export class EnvironmentsService extends BaseService {
       .setMethod('POST')
       .setPath('/environments')
       .setRequestSchema(createEnvironmentRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -333,7 +331,6 @@ export class EnvironmentsService extends BaseService {
       .setMethod('GET')
       .setPath('/environments/{environmentId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -370,7 +367,7 @@ export class EnvironmentsService extends BaseService {
 
 - The request body size cannot exceed the maximum allowed size of 30MB.
 - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.
-- Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
+- Only [shared variable](https://learning.postman.com/docs/use/send-requests/variables/variables/#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
 
  * @param {string} environmentId - The environment's ID.
  * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
@@ -388,7 +385,6 @@ export class EnvironmentsService extends BaseService {
       .setMethod('PUT')
       .setPath('/environments/{environmentId}')
       .setRequestSchema(replaceEnvironmentDataRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -439,7 +435,7 @@ export class EnvironmentsService extends BaseService {
 - The request body size cannot exceed the maximum allowed size of 30MB.
 - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.
 - To add a description to an existing variable, use the `add` operation.
-- Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
+- Only [shared variable](https://learning.postman.com/docs/use/send-requests/variables/variables/#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
 
  * @param {string} environmentId - The environment's ID.
  * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
@@ -457,7 +453,6 @@ export class EnvironmentsService extends BaseService {
       .setMethod('PATCH')
       .setPath('/environments/{environmentId}')
       .setRequestSchema(patchEnvironmentRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -517,7 +512,6 @@ export class EnvironmentsService extends BaseService {
       .setMethod('DELETE')
       .setPath('/environments/{environmentId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -576,7 +570,6 @@ export class EnvironmentsService extends BaseService {
       .setMethod('GET')
       .setPath('/environments/{environmentId}/forks')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -649,7 +642,6 @@ export class EnvironmentsService extends BaseService {
       .setMethod('POST')
       .setPath('/environments/{environmentId}/forks')
       .setRequestSchema(forkEnvironmentRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -704,7 +696,6 @@ export class EnvironmentsService extends BaseService {
       .setMethod('POST')
       .setPath('/environments/{environmentId}/merges')
       .setRequestSchema(mergeEnvironmentForkRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -760,7 +751,6 @@ export class EnvironmentsService extends BaseService {
       .setMethod('POST')
       .setPath('/environments/{environmentUid}/pulls')
       .setRequestSchema(pullEnvironmentForkChangesRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

@@ -64,7 +64,6 @@ export class Import_Service extends BaseService {
       .setMethod('POST')
       .setPath('/import/openapi')
       .setRequestSchema(importOpenApiDefinitionRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

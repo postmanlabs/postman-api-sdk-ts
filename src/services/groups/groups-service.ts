@@ -62,7 +62,6 @@ export class GroupsService extends BaseService {
       .setMethod('GET')
       .setPath('/groups')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -106,7 +105,6 @@ export class GroupsService extends BaseService {
       .setMethod('GET')
       .setPath('/groups/{groupId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

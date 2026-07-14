@@ -358,7 +358,7 @@ Gets a workspace's [activity feed](https://learning.postman.com/docs/collaborati
 | :---------- | :---------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
 | workspaceId | string                                    | ✅       | The workspace's ID.                                                                                                                        |
 | userId      | number                                    | ❌       | Filter results by the given user ID.                                                                                                       |
-| elementType | [ElementType2](../models/ElementType2.md) | ❌       | A comma-separated list of elements to filter the results by.                                                                               |
+| elementType | [ElementType3](../models/ElementType3.md) | ❌       | A comma-separated list of elements to filter the results by.                                                                               |
 | limit       | number                                    | ❌       | The maximum number of rows to return in the response.                                                                                      |
 | cursor      | string                                    | ❌       | The pointer to the first record of the set of paginated results. To view the next response, use the `nextCursor` value for this parameter. |
 
@@ -369,20 +369,20 @@ Gets a workspace's [activity feed](https://learning.postman.com/docs/collaborati
 **Example Usage Code Snippet**
 
 ```typescript
-import { ElementType2, PostmanApi } from '@postman/api-sdk';
+import { ElementType3, PostmanApi } from '@postman/api-sdk';
 
 (async () => {
   const postmanApi = new PostmanApi({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const elementType2 = ElementType2.COLLECTION;
+  const elementType3 = ElementType3.COLLECTION;
 
   const data = await postmanApi.workspaces.getWorkspaceActivityFeed(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     {
       userId: 12345678,
-      elementType: elementType2,
+      elementType: elementType3,
       limit: 10,
       cursor:
         'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
@@ -425,7 +425,7 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const id = 'cupidatat ';
+  const id = 'voluptate in en';
 
   const transferWorkspaceElementType = TransferWorkspaceElementType.COLLECTION;
 

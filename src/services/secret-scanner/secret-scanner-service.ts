@@ -119,7 +119,6 @@ export class SecretScannerService extends BaseService {
       .setMethod('POST')
       .setPath('/detected-secrets-queries')
       .setRequestSchema(detectedSecretsQueryRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -194,7 +193,6 @@ export class SecretScannerService extends BaseService {
       .setMethod('PUT')
       .setPath('/detected-secrets/{secretId}')
       .setRequestSchema(updateSecretResolutionRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -267,7 +265,6 @@ export class SecretScannerService extends BaseService {
       .setMethod('GET')
       .setPath('/detected-secrets/{secretId}/locations')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -340,7 +337,6 @@ export class SecretScannerService extends BaseService {
       .setMethod('GET')
       .setPath('/secret-types')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

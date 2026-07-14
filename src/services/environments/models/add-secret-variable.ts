@@ -24,8 +24,8 @@ export const addSecretVariable = z.lazy(() => {
 });
 
 /**
- * Information about the variable stored in the Postman Vault. This property only returns when when a variable is defined as secret.
- * @typedef  {AddSecretVariable} addSecretVariable - Information about the variable stored in the Postman Vault. This property only returns when when a variable is defined as secret. - Information about the variable stored in the Postman Vault. This property only returns when when a variable is defined as secret.
+ * Information about the variable stored in the Postman Vault. This property only returns when a variable is defined as secret.
+ * @typedef  {AddSecretVariable} addSecretVariable - Information about the variable stored in the Postman Vault. This property only returns when a variable is defined as secret. - Information about the variable stored in the Postman Vault. This property only returns when a variable is defined as secret.
  * @property {boolean} - If true, the variable is enabled.
  * @property {string} - The variable's name.
  * @property {string} - The variable's value.

@@ -177,7 +177,6 @@ export class MonitorsService extends BaseService {
       .setMethod('GET')
       .setPath('/monitors')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -266,7 +265,6 @@ export class MonitorsService extends BaseService {
       .setMethod('POST')
       .setPath('/monitors')
       .setRequestSchema(createMonitorRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -321,7 +319,6 @@ export class MonitorsService extends BaseService {
       .setMethod('GET')
       .setPath('/monitors/{monitorId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -375,7 +372,6 @@ export class MonitorsService extends BaseService {
       .setMethod('PUT')
       .setPath('/monitors/{monitorId}')
       .setRequestSchema(updateMonitorRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -435,7 +431,6 @@ export class MonitorsService extends BaseService {
       .setMethod('DELETE')
       .setPath('/monitors/{monitorId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -496,7 +491,6 @@ export class MonitorsService extends BaseService {
       .setMethod('POST')
       .setPath('/monitors/{monitorId}/run')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -566,7 +560,6 @@ You can get a runner's ID in the Postman UI if you have an Admin or Super Admin 
       .setMethod('GET')
       .setPath('/runners/{runnerId}/instances')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -631,7 +624,6 @@ You can get a runner's ID in the Postman UI if you have a Team Admin or Super Ad
       .setMethod('GET')
       .setPath('/runners/{runnerId}/metrics')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
