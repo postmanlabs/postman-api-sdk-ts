@@ -62,7 +62,7 @@ export type { WorkspaceActivityFeed } from './workspace-activity-feed';
 export type { WorkspaceActivityFeedData } from './workspace-activity-feed-data';
 export type { DataUser } from './data-user';
 export { DataAction } from './data-action';
-export { ElementType2 } from './element-type-2';
+export { ElementType3 } from './element-type-3';
 export type { TransferWorkspaceElementResponse } from './transfer-workspace-element-response';
 export type { TransferWorkspaceElementResponseWorkspace } from './transfer-workspace-element-response-workspace';
 export type { ElementTransfers } from './element-transfers';

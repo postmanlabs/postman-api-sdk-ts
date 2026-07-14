@@ -1,0 +1,239 @@
+import { z } from 'zod';
+import {
+  SearchFilterPrivateApiNetwork,
+  searchFilterPrivateApiNetwork,
+  searchFilterPrivateApiNetworkRequest,
+  searchFilterPrivateApiNetworkResponse,
+} from './search-filter-private-api-network';
+import {
+  SearchFilterPublisherIsVerified,
+  searchFilterPublisherIsVerified,
+  searchFilterPublisherIsVerifiedRequest,
+  searchFilterPublisherIsVerifiedResponse,
+} from './search-filter-publisher-is-verified';
+import {
+  SearchFilterVisibility,
+  searchFilterVisibility,
+  searchFilterVisibilityRequest,
+  searchFilterVisibilityResponse,
+} from './search-filter-visibility';
+import {
+  SearchFilterWorkspaceId,
+  searchFilterWorkspaceId,
+  searchFilterWorkspaceIdRequest,
+  searchFilterWorkspaceIdResponse,
+} from './search-filter-workspace-id';
+import {
+  SearchFilterCollectionId,
+  searchFilterCollectionId,
+  searchFilterCollectionIdRequest,
+  searchFilterCollectionIdResponse,
+} from './search-filter-collection-id';
+import {
+  SearchFilterTags,
+  searchFilterTags,
+  searchFilterTagsRequest,
+  searchFilterTagsResponse,
+} from './search-filter-tags';
+import {
+  SearchFilterRequestHttpMethod,
+  searchFilterRequestHttpMethod,
+  searchFilterRequestHttpMethodRequest,
+  searchFilterRequestHttpMethodResponse,
+} from './search-filter-request-http-method';
+import {
+  SearchFilterRequestId,
+  searchFilterRequestId,
+  searchFilterRequestIdRequest,
+  searchFilterRequestIdResponse,
+} from './search-filter-request-id';
+import {
+  SearchFilterSpecId,
+  searchFilterSpecId,
+  searchFilterSpecIdRequest,
+  searchFilterSpecIdResponse,
+} from './search-filter-spec-id';
+import {
+  SearchFilterFlowId,
+  searchFilterFlowId,
+  searchFilterFlowIdRequest,
+  searchFilterFlowIdResponse,
+} from './search-filter-flow-id';
+import {
+  SearchFilterEnvironmentId,
+  searchFilterEnvironmentId,
+  searchFilterEnvironmentIdRequest,
+  searchFilterEnvironmentIdResponse,
+} from './search-filter-environment-id';
+import {
+  SearchFilterCreatedBy,
+  searchFilterCreatedBy,
+  searchFilterCreatedByRequest,
+  searchFilterCreatedByResponse,
+} from './search-filter-created-by';
+import {
+  SearchFilterOrgId,
+  searchFilterOrgId,
+  searchFilterOrgIdRequest,
+  searchFilterOrgIdResponse,
+} from './search-filter-org-id';
+import {
+  SearchFilterTeamId,
+  searchFilterTeamId,
+  searchFilterTeamIdRequest,
+  searchFilterTeamIdResponse,
+} from './search-filter-team-id';
+import {
+  SearchFilterGitConnected,
+  searchFilterGitConnected,
+  searchFilterGitConnectedRequest,
+  searchFilterGitConnectedResponse,
+} from './search-filter-git-connected';
+import {
+  SearchFilterRequestResourceType,
+  searchFilterRequestResourceType,
+  searchFilterRequestResourceTypeRequest,
+  searchFilterRequestResourceTypeResponse,
+} from './search-filter-request-resource-type';
+
+/**
+ * Zod schema for the SearchFilters model.
+ * Defines the structure and validation rules for this data type.
+ * This is the shape used in application code - what developers interact with.
+ */
+export const searchFilters = z.lazy(() => {
+  return z.object({
+    privateNetwork: searchFilterPrivateApiNetwork.optional(),
+    publisherIsVerified: searchFilterPublisherIsVerified.optional(),
+    visibility: searchFilterVisibility.optional(),
+    workspaceId: searchFilterWorkspaceId.optional(),
+    collectionId: searchFilterCollectionId.optional(),
+    tags: searchFilterTags.optional(),
+    method: searchFilterRequestHttpMethod.optional(),
+    requestId: searchFilterRequestId.optional(),
+    specificationId: searchFilterSpecId.optional(),
+    flowId: searchFilterFlowId.optional(),
+    environmentId: searchFilterEnvironmentId.optional(),
+    createdBy: searchFilterCreatedBy.optional(),
+    organizationId: searchFilterOrgId.optional(),
+    teamId: searchFilterTeamId.optional(),
+    isGitConnected: searchFilterGitConnected.optional(),
+    type: searchFilterRequestResourceType.optional(),
+  });
+});
+
+/**
+ * A single filter condition.
+ * @typedef  {SearchFilters} searchFilters - A single filter condition. - A single filter condition.
+ * @property {SearchFilterPrivateApiNetwork} - Filters by private API network membership. Supported for all element types.
+ * @property {SearchFilterPublisherIsVerified} - Filters by publisher verification status. Supported for all element types.
+ * @property {SearchFilterVisibility} - Filters by workspace visibility. Supported for all element types. One of:
+- `internal` — Only visible to the organization's team members.
+- `public` — Visible to all Postman users.
+- `partner` — Visible to assigned external partner users.
+
+ * @property {SearchFilterWorkspaceId} - Filters by workspace ID. Supported for all element types.
+ * @property {SearchFilterCollectionId} - Filters by collection ID. Supported for `requests` and `collections` only.
+ * @property {SearchFilterTags} - Filters by tags. Supported for `workspaces` and `collections`.
+ * @property {SearchFilterRequestHttpMethod} - Filters by HTTP method (for example, `GET` or `POST`). Supported for `requests` only.
+ * @property {SearchFilterRequestId} - Filters by request ID. Supported for `requests` only.
+ * @property {SearchFilterSpecId} - Filters by specification ID. Supported for `specs` only.
+ * @property {SearchFilterFlowId} - Filters by flow ID. Supported for `flows` only.
+ * @property {SearchFilterEnvironmentId} - Filters by environment ID. Supported for `environments` only.
+ * @property {SearchFilterCreatedBy} - Filters by the resource creator's user ID. Supported for all element types.
+ * @property {SearchFilterOrgId} - Filters by organization ID. Supported for all element types.
+ * @property {SearchFilterTeamId} - Filters by team ID. Supported for all element types.
+ * @property {SearchFilterGitConnected} - Filters by Git connection status. Supported for `workspaces`, `collections`, `requests`, `environments`, `specs`, and `flows`.
+ * @property {SearchFilterRequestResourceType} - Filters by resource type variant (for example, `http` or `grpc`). Supported for `requests` only.
+ */
+export type SearchFilters = z.infer<typeof searchFilters>;
+
+/**
+ * Zod schema for mapping API responses to the SearchFilters application shape.
+ * Handles any property name transformations from the API schema.
+ * If property names match the API schema exactly, this is identical to the application shape.
+ */
+export const searchFiltersResponse = z.lazy(() => {
+  return z
+    .object({
+      privateNetwork: searchFilterPrivateApiNetworkResponse.optional(),
+      publisherIsVerified: searchFilterPublisherIsVerifiedResponse.optional(),
+      visibility: searchFilterVisibilityResponse.optional(),
+      workspaceId: searchFilterWorkspaceIdResponse.optional(),
+      collectionId: searchFilterCollectionIdResponse.optional(),
+      tags: searchFilterTagsResponse.optional(),
+      method: searchFilterRequestHttpMethodResponse.optional(),
+      requestId: searchFilterRequestIdResponse.optional(),
+      specificationId: searchFilterSpecIdResponse.optional(),
+      flowId: searchFilterFlowIdResponse.optional(),
+      environmentId: searchFilterEnvironmentIdResponse.optional(),
+      createdBy: searchFilterCreatedByResponse.optional(),
+      organizationId: searchFilterOrgIdResponse.optional(),
+      teamId: searchFilterTeamIdResponse.optional(),
+      isGitConnected: searchFilterGitConnectedResponse.optional(),
+      type: searchFilterRequestResourceTypeResponse.optional(),
+    })
+    .transform((data) => ({
+      privateNetwork: data['privateNetwork'],
+      publisherIsVerified: data['publisherIsVerified'],
+      visibility: data['visibility'],
+      workspaceId: data['workspaceId'],
+      collectionId: data['collectionId'],
+      tags: data['tags'],
+      method: data['method'],
+      requestId: data['requestId'],
+      specificationId: data['specificationId'],
+      flowId: data['flowId'],
+      environmentId: data['environmentId'],
+      createdBy: data['createdBy'],
+      organizationId: data['organizationId'],
+      teamId: data['teamId'],
+      isGitConnected: data['isGitConnected'],
+      type: data['type'],
+    }));
+});
+
+/**
+ * Zod schema for mapping the SearchFilters application shape to API requests.
+ * Handles any property name transformations required by the API schema.
+ * If property names match the API schema exactly, this is identical to the application shape.
+ */
+export const searchFiltersRequest = z.lazy(() => {
+  return z
+    .object({
+      privateNetwork: searchFilterPrivateApiNetworkRequest.optional(),
+      publisherIsVerified: searchFilterPublisherIsVerifiedRequest.optional(),
+      visibility: searchFilterVisibilityRequest.optional(),
+      workspaceId: searchFilterWorkspaceIdRequest.optional(),
+      collectionId: searchFilterCollectionIdRequest.optional(),
+      tags: searchFilterTagsRequest.optional(),
+      method: searchFilterRequestHttpMethodRequest.optional(),
+      requestId: searchFilterRequestIdRequest.optional(),
+      specificationId: searchFilterSpecIdRequest.optional(),
+      flowId: searchFilterFlowIdRequest.optional(),
+      environmentId: searchFilterEnvironmentIdRequest.optional(),
+      createdBy: searchFilterCreatedByRequest.optional(),
+      organizationId: searchFilterOrgIdRequest.optional(),
+      teamId: searchFilterTeamIdRequest.optional(),
+      isGitConnected: searchFilterGitConnectedRequest.optional(),
+      type: searchFilterRequestResourceTypeRequest.optional(),
+    })
+    .transform((data) => ({
+      privateNetwork: data['privateNetwork'],
+      publisherIsVerified: data['publisherIsVerified'],
+      visibility: data['visibility'],
+      workspaceId: data['workspaceId'],
+      collectionId: data['collectionId'],
+      tags: data['tags'],
+      method: data['method'],
+      requestId: data['requestId'],
+      specificationId: data['specificationId'],
+      flowId: data['flowId'],
+      environmentId: data['environmentId'],
+      createdBy: data['createdBy'],
+      organizationId: data['organizationId'],
+      teamId: data['teamId'],
+      isGitConnected: data['isGitConnected'],
+      type: data['type'],
+    }));
+});

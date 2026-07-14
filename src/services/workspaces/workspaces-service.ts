@@ -372,7 +372,6 @@ export class WorkspacesService extends BaseService {
       .setMethod('POST')
       .setPath('/invitations')
       .setRequestSchema(managePartnerWorkspaceInvitesRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -455,7 +454,6 @@ This endpoint's response contains the visibility field. Visibility determines wh
       .setMethod('GET')
       .setPath('/workspaces')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -534,7 +532,6 @@ This endpoint's response contains the visibility field. Visibility determines wh
       .setMethod('POST')
       .setPath('/workspaces')
       .setRequestSchema(createWorkspaceRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -583,7 +580,6 @@ This endpoint's response contains the visibility field. Visibility determines wh
       .setMethod('GET')
       .setPath('/workspaces-roles')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -642,7 +638,6 @@ This endpoint's response contains the `visibility` field. [Visibility](https://l
       .setMethod('GET')
       .setPath('/workspaces/{workspaceId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -703,7 +698,6 @@ This endpoint's response contains the `visibility` field. [Visibility](https://l
       .setMethod('PUT')
       .setPath('/workspaces/{workspaceId}')
       .setRequestSchema(updateWorkspaceRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -758,7 +752,6 @@ This endpoint's response contains the `visibility` field. [Visibility](https://l
       .setMethod('DELETE')
       .setPath('/workspaces/{workspaceId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -793,7 +786,7 @@ This endpoint's response contains the `visibility` field. [Visibility](https://l
    * Gets a workspace's [activity feed](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/changelog-and-restoring-collections/#view-workspace-activity). Activity feeds return information about who added or removed collections, environments, or elements from a workspace, and users that join or leave a workspace.
    * @param {string} workspaceId - The workspace's ID.
    * @param {number} [params.userId] - Filter results by the given user ID.
-   * @param {ElementType2} [params.elementType] - A comma-separated list of elements to filter the results by.
+   * @param {ElementType3} [params.elementType] - A comma-separated list of elements to filter the results by.
    * @param {number} [params.limit] - The maximum number of rows to return in the response.
    * @param {string} [params.cursor] - The pointer to the first record of the set of paginated results. To view the next response, use the `nextCursor` value for this parameter.
    * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
@@ -820,7 +813,6 @@ This endpoint's response contains the `visibility` field. [Visibility](https://l
       .setMethod('GET')
       .setPath('/workspaces/{workspaceId}/activities')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -899,7 +891,6 @@ This endpoint does not support transferring elements from team workspaces to per
       .setMethod('POST')
       .setPath('/workspaces/{workspaceId}/element-transfers')
       .setRequestSchema(transferWorkspaceElementRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -952,7 +943,6 @@ This endpoint does not support transferring elements from team workspaces to per
       .setMethod('GET')
       .setPath('/workspaces/{workspaceId}/global-variables')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -994,7 +984,6 @@ This endpoint does not support transferring elements from team workspaces to per
       .setMethod('PUT')
       .setPath('/workspaces/{workspaceId}/global-variables')
       .setRequestSchema(updateGlobalVariablesRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1043,7 +1032,6 @@ Partner roles don't support SCIM IDs.
       .setMethod('GET')
       .setPath('/workspaces/{workspaceId}/roles')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1115,7 +1103,6 @@ Partner roles don't support SCIM IDs.
       .setMethod('PATCH')
       .setPath('/workspaces/{workspaceId}/roles')
       .setRequestSchema(updateWorkspaceRolesRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1193,7 +1180,6 @@ Partner roles don't support SCIM IDs.
       .setMethod('PATCH')
       .setPath('/workspaces/{workspaceId}/transfers')
       .setRequestSchema(transferWorkspaceToTeamRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1259,7 +1245,6 @@ Partner roles don't support SCIM IDs.
       .setMethod('GET')
       .setPath('/workspaces/{workspaceId}/updates')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1326,7 +1311,6 @@ Partner roles don't support SCIM IDs.
       .setMethod('POST')
       .setPath('/workspaces/{workspaceId}/updates')
       .setRequestSchema(createWorkspaceUpdateRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1393,7 +1377,6 @@ Partner roles don't support SCIM IDs.
       .setMethod('GET')
       .setPath('/workspaces/{workspaceId}/updates/{updateId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1457,7 +1440,6 @@ This endpoint requires the `application/merge-patch+json` Content-Type header.
       .setMethod('PATCH')
       .setPath('/workspaces/{workspaceId}/updates/{updateId}')
       .setRequestSchema(updateWorkspaceUpdateRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1528,7 +1510,6 @@ This endpoint requires the `application/merge-patch+json` Content-Type header.
       .setMethod('DELETE')
       .setPath('/workspaces/{workspaceId}/updates/{updateId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

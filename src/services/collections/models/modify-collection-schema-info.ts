@@ -24,7 +24,7 @@ export const modifyCollectionSchemaInfo = z.lazy(() => {
  * @property {string} - The collection's name.
  * @property {string} - The collection's Postman ID. This field exists for Postman Collection Format v1 compatibility.
  * @property {string} - The collection's description.
- * @property {InformationSchema2} - The "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" Postman Collection Format v2.1.0 schema.
+ * @property {InformationSchema2} - The "https://schema.postman.com/json/collection/v2.1.0/collection.json" Postman Collection Format v2.1.0 schema.
  * @property {string} - The date and time when the collection was last updated.
  * @property {string} - The date and time when the collection was created.
  * @property {string} - The user ID of the person who last updated the collection.

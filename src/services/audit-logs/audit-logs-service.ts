@@ -76,7 +76,6 @@ export class AuditLogsService extends BaseService {
       .setMethod('GET')
       .setPath('/audit/logs')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -151,7 +150,6 @@ export class AuditLogsService extends BaseService {
       .setMethod('GET')
       .setPath('/audit-actions')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

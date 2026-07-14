@@ -110,6 +110,120 @@ export class TagsService extends BaseService {
   }
 
   /**
+   * Gets all the tags associated with an API.
+   * @param {string} apiId - The API's ID.
+   * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
+   * @returns {Promise<HttpResponse<SuccessResponse>>} - Success Response
+   */
+  async getApiTags(apiId: string, requestConfig?: Partial<SdkConfig>): Promise<SuccessResponse> {
+    const resolvedConfig = this.getResolvedConfig(this.getApiTagsConfig, requestConfig);
+    const request = new RequestBuilder()
+      .setConfig(resolvedConfig)
+      .setBaseUrl(resolvedConfig)
+      .setMethod('GET')
+      .setPath('/apis/{apiId}/tags')
+      .setRequestSchema(z.any())
+      .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
+      .setRequestContentType(ContentType.Json)
+      .addResponse({
+        schema: successResponseResponse,
+        contentType: ContentType.Json,
+        status: 200,
+      })
+      .addError({
+        error: ApiErrorNameMessage,
+        contentType: ContentType.Json,
+        status: 400,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 401,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 403,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 404,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 500,
+      })
+      .addPathParam({
+        key: 'apiId',
+        value: apiId,
+      })
+      .build();
+    return this.client.callDirect<SuccessResponse>(request);
+  }
+
+  /**
+   * Updates an API's associated tags. This endpoint replaces all existing tags with those you pass in the request body.
+   * @param {string} apiId - The API's ID.
+   * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
+   * @returns {Promise<HttpResponse<SuccessResponse>>} - Success Response
+   */
+  async updateApiTags(
+    apiId: string,
+    body: UpdateTags,
+    requestConfig?: Partial<SdkConfig>,
+  ): Promise<SuccessResponse> {
+    const resolvedConfig = this.getResolvedConfig(this.updateApiTagsConfig, requestConfig);
+    const request = new RequestBuilder()
+      .setConfig(resolvedConfig)
+      .setBaseUrl(resolvedConfig)
+      .setMethod('PUT')
+      .setPath('/apis/{apiId}/tags')
+      .setRequestSchema(updateTagsRequest)
+      .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
+      .setRequestContentType(ContentType.Json)
+      .addResponse({
+        schema: successResponseResponse,
+        contentType: ContentType.Json,
+        status: 200,
+      })
+      .addError({
+        error: ApiTag400Error,
+        contentType: ContentType.Json,
+        status: 400,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 401,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 403,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 404,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 500,
+      })
+      .addPathParam({
+        key: 'apiId',
+        value: apiId,
+      })
+      .addHeaderParam({ key: 'Content-Type', value: 'application/json' })
+      .addBody(body)
+      .build();
+    return this.client.callDirect<SuccessResponse>(request);
+  }
+
+  /**
    * Gets all the tags associated with a collection.
    * @param {string} collectionId - The collection's unique ID.
    * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
@@ -126,7 +240,6 @@ export class TagsService extends BaseService {
       .setMethod('GET')
       .setPath('/collections/{collectionId}/tags')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -175,7 +288,6 @@ export class TagsService extends BaseService {
       .setMethod('PUT')
       .setPath('/collections/{collectionId}/tags')
       .setRequestSchema(updateTagsRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -250,7 +362,6 @@ Tagging is available on Postman [**Solo**, **Team**, and **Enterprise** plans](h
       .setMethod('GET')
       .setPath('/tags/{slug}/entities')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -324,7 +435,6 @@ Tagging is available on Postman [**Solo**, **Team**, and **Enterprise** plans](h
       .setMethod('GET')
       .setPath('/workspaces/{workspaceId}/tags')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -378,7 +488,6 @@ Tagging is available on Postman [**Solo**, **Team**, and **Enterprise** plans](h
       .setMethod('PUT')
       .setPath('/workspaces/{workspaceId}/tags')
       .setRequestSchema(updateTagsRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

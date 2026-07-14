@@ -41,7 +41,6 @@ Comment thread IDs return in the GET `/comments` response for [collections](http
       .setMethod('POST')
       .setPath('/comments-resolutions/{threadId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

@@ -207,7 +207,6 @@ export class TeamsService extends BaseService {
       .setMethod('GET')
       .setPath('/teams')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -273,7 +272,6 @@ export class TeamsService extends BaseService {
       .setMethod('POST')
       .setPath('/teams')
       .setRequestSchema(createTeamRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -337,7 +335,6 @@ export class TeamsService extends BaseService {
       .setMethod('GET')
       .setPath('/teams/{teamId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -402,7 +399,6 @@ export class TeamsService extends BaseService {
       .setMethod('GET')
       .setPath('/teams/{teamId}/access-requests')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -475,7 +471,6 @@ If a team discovery is enabled, the team's access request is automatically appro
       .setMethod('POST')
       .setPath('/teams/{teamId}/access-requests')
       .setRequestSchema(createAccessRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -538,7 +533,6 @@ If a team discovery is enabled, the team's access request is automatically appro
       .setMethod('POST')
       .setPath('/teams/{teamId}/access-requests/{requestId}')
       .setRequestSchema(approveDenyAccessRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -614,7 +608,6 @@ If you remove a role from a group or team, then all members lose the that role's
       .setMethod('POST')
       .setPath('/teams/{teamId}/bulk-members')
       .setRequestSchema(manageTeamMemberRolesRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -672,7 +665,6 @@ If you remove a role from a group or team, then all members lose the that role's
       .setMethod('DELETE')
       .setPath('/teams/{teamId}/bulk-members')
       .setRequestSchema(removeTeamMembersRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -731,7 +723,6 @@ If you remove a role from a group or team, then all members lose the that role's
       .setMethod('GET')
       .setPath('/teams/{teamId}/settings')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -780,7 +771,6 @@ If you remove a role from a group or team, then all members lose the that role's
       .setMethod('PUT')
       .setPath('/teams/{teamId}/settings')
       .setRequestSchema(updateTeamSettingsRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

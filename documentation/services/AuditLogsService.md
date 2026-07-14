@@ -42,7 +42,6 @@ import { AscDescDefaultDesc, PostmanApi } from '@postman/api-sdk';
   });
 
   const ascDescDefaultDesc = AscDescDefaultDesc.ASC;
-  const ascDescDefaultDesc1 = AscDescDefaultDesc.ASC;
 
   const data = await postmanApi.auditLogs.getAuditLogs({
     userId: 12345678,
@@ -51,7 +50,7 @@ import { AscDescDefaultDesc, PostmanApi } from '@postman/api-sdk';
     until: '2022-09-15',
     limit: 50,
     cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
-    orderBy: ascDescDefaultDesc1,
+    orderBy: ascDescDefaultDesc,
   });
 
   console.log(data);

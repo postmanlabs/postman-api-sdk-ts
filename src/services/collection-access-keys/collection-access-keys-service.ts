@@ -75,7 +75,6 @@ export class CollectionAccessKeysService extends BaseService {
       .setMethod('GET')
       .setPath('/collection-access-keys')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -137,7 +136,6 @@ On success, this returns an HTTP `204 No Content` response.
       .setMethod('DELETE')
       .setPath('/collection-access-keys/{keyId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

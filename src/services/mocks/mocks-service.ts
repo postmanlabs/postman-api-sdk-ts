@@ -235,7 +235,6 @@ If you pass both the `teamId` and `workspace` query parameters, this endpoint on
       .setMethod('GET')
       .setPath('/mocks')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -289,7 +288,6 @@ If you pass both the `teamId` and `workspace` query parameters, this endpoint on
       .setMethod('POST')
       .setPath('/mocks')
       .setRequestSchema(createMockRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -336,7 +334,6 @@ If you pass both the `teamId` and `workspace` query parameters, this endpoint on
       .setMethod('GET')
       .setPath('/mocks/{mockId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -385,7 +382,6 @@ If you pass both the `teamId` and `workspace` query parameters, this endpoint on
       .setMethod('PUT')
       .setPath('/mocks/{mockId}')
       .setRequestSchema(updateMockRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -437,7 +433,6 @@ If you pass both the `teamId` and `workspace` query parameters, this endpoint on
       .setMethod('DELETE')
       .setPath('/mocks/{mockId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -516,7 +511,6 @@ Call logs have a retention period based on your [Postman plan](https://www.postm
       .setMethod('GET')
       .setPath('/mocks/{mockId}/call-logs')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -613,7 +607,6 @@ Call logs have a retention period based on your [Postman plan](https://www.postm
       .setMethod('POST')
       .setPath('/mocks/{mockId}/publish')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -666,7 +659,6 @@ Call logs have a retention period based on your [Postman plan](https://www.postm
       .setMethod('DELETE')
       .setPath('/mocks/{mockId}/unpublish')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -719,7 +711,6 @@ Call logs have a retention period based on your [Postman plan](https://www.postm
       .setMethod('GET')
       .setPath('/mocks/{mockId}/server-responses')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -779,7 +770,6 @@ You can create multiple server responses for a mock server, but only one mock se
       .setMethod('POST')
       .setPath('/mocks/{mockId}/server-responses')
       .setRequestSchema(createMockServerResponseRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -836,7 +826,6 @@ You can create multiple server responses for a mock server, but only one mock se
       .setMethod('GET')
       .setPath('/mocks/{mockId}/server-responses/{serverResponseId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -894,7 +883,6 @@ You can create multiple server responses for a mock server, but only one mock se
       .setMethod('PUT')
       .setPath('/mocks/{mockId}/server-responses/{serverResponseId}')
       .setRequestSchema(updateMockServerResponseRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -958,7 +946,6 @@ You can create multiple server responses for a mock server, but only one mock se
       .setMethod('DELETE')
       .setPath('/mocks/{mockId}/server-responses/{serverResponseId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

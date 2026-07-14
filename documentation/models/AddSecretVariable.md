@@ -1,6 +1,6 @@
 # AddSecretVariable
 
-Information about the variable stored in the Postman Vault. This property only returns when when a variable is defined as secret.
+Information about the variable stored in the Postman Vault. This property only returns when a variable is defined as secret.
 
 **Properties**
 

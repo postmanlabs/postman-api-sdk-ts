@@ -53,7 +53,6 @@ If you do not include the `workspace` query parameter, the system creates the we
       .setMethod('POST')
       .setPath('/webhooks')
       .setRequestSchema(createWebhookRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

@@ -90,7 +90,6 @@ export class CollectionResponsesService extends BaseService {
       .setMethod('GET')
       .setPath('/collections/{collectionId}/responses/{responseId}/comments')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -154,7 +153,6 @@ This endpoint accepts a max of 10,000 characters.
       .setMethod('POST')
       .setPath('/collections/{collectionId}/responses/{responseId}/comments')
       .setRequestSchema(commentCreateRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -222,7 +220,6 @@ This endpoint accepts a max of 10,000 characters.
       .setMethod('PUT')
       .setPath('/collections/{collectionId}/responses/{responseId}/comments/{commentId}')
       .setRequestSchema(commentUpdateRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -293,7 +290,6 @@ Deleting the first comment of a thread deletes all the comments in the thread.
       .setMethod('DELETE')
       .setPath('/collections/{collectionId}/responses/{responseId}/comments/{commentId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

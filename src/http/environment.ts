@@ -4,5 +4,5 @@
  */
 export enum Environment {
   /** DEFAULT environment base URL */
-  DEFAULT = 'https://api.getpostman.com',
+  DEFAULT = 'https://api.postman.com',
 }

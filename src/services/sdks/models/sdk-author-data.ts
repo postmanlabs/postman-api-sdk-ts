@@ -1,0 +1,55 @@
+import { z } from 'zod';
+
+/**
+ * Zod schema for the SdkAuthorData model.
+ * Defines the structure and validation rules for this data type.
+ * This is the shape used in application code - what developers interact with.
+ */
+export const sdkAuthorData = z.lazy(() => {
+  return z.object({
+    name: z.string(),
+    email: z.string().optional(),
+  });
+});
+
+/**
+ * Information about the author of the generated SDK.
+ * @typedef  {SdkAuthorData} sdkAuthorData - Information about the author of the generated SDK. - Information about the author of the generated SDK.
+ * @property {string} - The author's name.
+ * @property {string} - The author's email address.
+ */
+export type SdkAuthorData = z.infer<typeof sdkAuthorData>;
+
+/**
+ * Zod schema for mapping API responses to the SdkAuthorData application shape.
+ * Handles any property name transformations from the API schema.
+ * If property names match the API schema exactly, this is identical to the application shape.
+ */
+export const sdkAuthorDataResponse = z.lazy(() => {
+  return z
+    .object({
+      name: z.string(),
+      email: z.string().optional(),
+    })
+    .transform((data) => ({
+      name: data['name'],
+      email: data['email'],
+    }));
+});
+
+/**
+ * Zod schema for mapping the SdkAuthorData application shape to API requests.
+ * Handles any property name transformations required by the API schema.
+ * If property names match the API schema exactly, this is identical to the application shape.
+ */
+export const sdkAuthorDataRequest = z.lazy(() => {
+  return z
+    .object({
+      name: z.string(),
+      email: z.string().optional(),
+    })
+    .transform((data) => ({
+      name: data['name'],
+      email: data['email'],
+    }));
+});

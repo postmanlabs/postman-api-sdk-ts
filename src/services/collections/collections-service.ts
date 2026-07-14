@@ -535,7 +535,6 @@ The response returns a task `id` value, which you can use to track the merge's s
       .setMethod('PUT')
       .setPath('/collection-merges')
       .setRequestSchema(mergePullCollectionChangesRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -593,7 +592,6 @@ After a merge's success or failure, the task's status is only available for a pe
       .setMethod('GET')
       .setPath('/collection-merges-tasks/{taskId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -630,7 +628,7 @@ After a merge's success or failure, the task's status is only available for a pe
   }
 
   /**
- * Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections.
+ * Gets all of your [collections](https://www.postman.com/docs/collections). The response includes all of your subscribed collections.
 **Note:**
 
 - It's recommended that you use pagination with this endpoint. Pagination improves endpoint performance. Unpaginated calls are considered deprecated and are subject to change.
@@ -661,7 +659,6 @@ After a merge's success or failure, the task's status is only available for a pe
       .setMethod('GET')
       .setPath('/collections')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -722,7 +719,6 @@ If you do not include the `workspace` query parameter, the system creates the co
       .setMethod('POST')
       .setPath('/collections')
       .setRequestSchema(createCollectionRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -782,7 +778,6 @@ If you do not include the `workspace` query parameter, the system creates the co
       .setMethod('GET')
       .setPath('/collections/collection-forks')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -842,7 +837,6 @@ If you do not include the `workspace` query parameter, the system creates the co
       .setMethod('POST')
       .setPath('/collections/fork/{collectionId}')
       .setRequestSchema(createCollectionForkRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -897,7 +891,6 @@ Merges a forked collection back into its parent collection. You must have the [E
       .setMethod('POST')
       .setPath('/collections/merge')
       .setRequestSchema(mergeCollectionForkRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -954,7 +947,6 @@ Merges a forked collection back into its parent collection. You must have the [E
       .setMethod('GET')
       .setPath('/collections/{collectionId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1025,7 +1017,6 @@ Merges a forked collection back into its parent collection. You must have the [E
       .setMethod('PUT')
       .setPath('/collections/{collectionId}')
       .setRequestSchema(replaceCollectionDataRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1100,7 +1091,6 @@ Merges a forked collection back into its parent collection. You must have the [E
       .setMethod('PATCH')
       .setPath('/collections/{collectionId}')
       .setRequestSchema(updateCollectionRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1160,7 +1150,6 @@ Merges a forked collection back into its parent collection. You must have the [E
       .setMethod('DELETE')
       .setPath('/collections/{collectionId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1208,7 +1197,6 @@ Merges a forked collection back into its parent collection. You must have the [E
       .setMethod('GET')
       .setPath('/collections/{collectionId}/comments')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1269,7 +1257,6 @@ This endpoint accepts a max of 10,000 characters.
       .setMethod('POST')
       .setPath('/collections/{collectionId}/comments')
       .setRequestSchema(commentCreateRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1334,7 +1321,6 @@ This endpoint accepts a max of 10,000 characters.
       .setMethod('PUT')
       .setPath('/collections/{collectionId}/comments/{commentId}')
       .setRequestSchema(commentUpdateRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1402,7 +1388,6 @@ Deleting the first comment of a thread deletes all the comments in the thread.
       .setMethod('DELETE')
       .setPath('/collections/{collectionId}/comments/{commentId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1462,7 +1447,6 @@ Use the GET `/collection-duplicate-tasks/{taskId}` endpoint to get the duplicati
       .setMethod('POST')
       .setPath('/collections/{collectionId}/duplicates')
       .setRequestSchema(duplicateCollectionRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1526,7 +1510,6 @@ Use the GET `/collection-duplicate-tasks/{taskId}` endpoint to get the duplicati
       .setMethod('GET')
       .setPath('/collections/{collectionId}/forks')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1595,7 +1578,6 @@ Use the GET `/collection-duplicate-tasks/{taskId}` endpoint to get the duplicati
       .setMethod('PUT')
       .setPath('/collections/{collectionId}/public-documentations')
       .setRequestSchema(publishDocumentationRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1650,7 +1632,6 @@ Use the GET `/collection-duplicate-tasks/{taskId}` endpoint to get the duplicati
       .setMethod('DELETE')
       .setPath('/collections/{collectionId}/public-documentations')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1706,7 +1687,6 @@ Use the GET `/collection-duplicate-tasks/{taskId}` endpoint to get the duplicati
       .setMethod('PUT')
       .setPath('/collections/{collectionId}/pulls')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1757,7 +1737,6 @@ Use the GET `/collection-duplicate-tasks/{taskId}` endpoint to get the duplicati
       .setMethod('GET')
       .setPath('/collections/{collectionId}/pull-requests')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1804,7 +1783,6 @@ Use the GET `/collection-duplicate-tasks/{taskId}` endpoint to get the duplicati
       .setMethod('POST')
       .setPath('/collections/{collectionId}/pull-requests')
       .setRequestSchema(createPullRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1854,7 +1832,6 @@ Use the GET `/collection-duplicate-tasks/{taskId}` endpoint to get the duplicati
       .setMethod('GET')
       .setPath('/collections/{collectionId}/roles')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1913,7 +1890,6 @@ Use the GET `/collection-duplicate-tasks/{taskId}` endpoint to get the duplicati
       .setMethod('PATCH')
       .setPath('/collections/{collectionId}/roles')
       .setRequestSchema(updateCollectionRolesRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -1982,7 +1958,6 @@ This endpoint may take a few minutes to return an updated `isSourceAhead` status
       .setMethod('GET')
       .setPath('/collections/{collectionId}/source-status')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -2040,7 +2015,6 @@ This does not create an API.
       .setMethod('GET')
       .setPath('/collections/{collectionId}/transformations')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -2094,7 +2068,6 @@ This does not create an API.
       .setMethod('POST')
       .setPath('/collection-folders-transfers')
       .setRequestSchema(transferCollectionItemsRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -2137,7 +2110,6 @@ This does not create an API.
       .setMethod('POST')
       .setPath('/collection-requests-transfers')
       .setRequestSchema(transferCollectionItemsRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -2180,7 +2152,6 @@ This does not create an API.
       .setMethod('POST')
       .setPath('/collection-responses-transfers')
       .setRequestSchema(transferCollectionItemsRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -2224,7 +2195,6 @@ This does not create an API.
       .setMethod('GET')
       .setPath('/collection-duplicate-tasks/{taskId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -2285,7 +2255,6 @@ This does not create an API.
       .setMethod('GET')
       .setPath('/collection-updates-tasks/{taskId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

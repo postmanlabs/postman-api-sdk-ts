@@ -35,9 +35,9 @@ The collection's schema format.
 
 **Properties**
 
-| Name                                                               | Type   | Required | Description                                                            |
-| :----------------------------------------------------------------- | :----- | :------- | :--------------------------------------------------------------------- |
-| HTTPS_SCHEMA_GETPOSTMAN_COM_JSON_COLLECTION_V2_1_0_COLLECTION_JSON | string | ✅       | "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" |
+| Name                                                            | Type   | Required | Description                                                         |
+| :-------------------------------------------------------------- | :----- | :------- | :------------------------------------------------------------------ |
+| HTTPS_SCHEMA_POSTMAN_COM_JSON_COLLECTION_V2_1_0_COLLECTION_JSON | string | ✅       | "https://schema.postman.com/json/collection/v2.1.0/collection.json" |
 
 # CreateApiCollectionOperationType
 
