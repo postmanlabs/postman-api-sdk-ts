@@ -41,4 +41,8 @@ export enum AnalyticsMetrics {
   PARTNER = 'partner',
   PUBLIC_ = 'public',
   WORKSPACE_ACTIVITY = 'workspace_activity',
+  MEMBERS_OVERTIME = 'members_overtime',
+  MEMBER_INVITES = 'member_invites',
+  INVITES_SENT = 'invites_sent',
+  INVITES_ACCEPTED = 'invites_accepted',
 }

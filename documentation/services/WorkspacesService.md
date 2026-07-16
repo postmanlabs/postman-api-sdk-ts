@@ -425,7 +425,7 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const id = 'anim pariatu';
+  const id = 'cillum labo';
 
   const transferWorkspaceElementType = TransferWorkspaceElementType.COLLECTION;
 
