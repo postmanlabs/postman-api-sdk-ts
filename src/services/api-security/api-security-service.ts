@@ -60,7 +60,6 @@ export class ApiSecurityService extends BaseService {
       .setMethod('POST')
       .setPath('/security/api-validation')
       .setRequestSchema(schemaValidationRequestBodyRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

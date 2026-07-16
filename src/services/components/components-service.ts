@@ -191,7 +191,6 @@ export class ComponentsService extends BaseService {
       .setMethod('GET')
       .setPath('/components')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -254,7 +253,6 @@ export class ComponentsService extends BaseService {
       .setMethod('POST')
       .setPath('/components')
       .setRequestSchema(createComponentRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -314,7 +312,6 @@ export class ComponentsService extends BaseService {
       .setMethod('GET')
       .setPath('/components/{componentId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -389,7 +386,6 @@ You can't update a name and archived state in a single call. To change both prop
       .setMethod('PATCH')
       .setPath('/components/{componentId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -454,7 +450,6 @@ You can't update a name and archived state in a single call. To change both prop
       .setMethod('GET')
       .setPath('/components/{componentId}/drafts')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -517,7 +512,6 @@ You can't update archived components.
       .setMethod('PATCH')
       .setPath('/components/{componentId}/drafts')
       .setRequestSchema(updateComponentDraftRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -585,7 +579,6 @@ You can't update archived components.
       .setMethod('GET')
       .setPath('/components/{componentId}/versions')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -652,7 +645,6 @@ You can't publish a new version of an archived component. Reactivate the compone
       .setMethod('POST')
       .setPath('/components/{componentId}/versions')
       .setRequestSchema(createComponentVersionRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -722,7 +714,6 @@ You can't publish a new version of an archived component. Reactivate the compone
       .setMethod('GET')
       .setPath('/components/{componentId}/versions/{versionId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

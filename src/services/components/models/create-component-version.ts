@@ -25,7 +25,7 @@ export const createComponentVersion = z.lazy(() => {
 /**
  *
  * @typedef  {CreateComponentVersion} createComponentVersion
- * @property {string} - The component version's label. This must begin and end with a an alphanumeric character and may only contain letters, digits, dots, underscores, plus signs, and hyphens and cannot exceed 60 characters.
+ * @property {string} - The component version's label. This must begin and end with an alphanumeric character and may only contain letters, digits, dots, underscores, plus signs, and hyphens and cannot exceed 60 characters.
  * @property {CreateComponentVersionSource} - The source to publish the version from. Defaults to the component's current draft.
  */
 export type CreateComponentVersion = z.infer<typeof createComponentVersion>;

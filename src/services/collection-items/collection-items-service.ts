@@ -249,7 +249,6 @@ It is recommended that you pass the `name` property in the request body. If you 
       .setMethod('POST')
       .setPath('/collections/{collectionId}/folders')
       .setRequestSchema(createFolderRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -310,7 +309,6 @@ It is recommended that you pass the `name` property in the request body. If you 
       .setMethod('POST')
       .setPath('/collections/{collectionId}/requests')
       .setRequestSchema(createRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -375,7 +373,6 @@ It is recommended that you pass the `name` property in the request body. If you 
       .setMethod('POST')
       .setPath('/collections/{collectionId}/responses')
       .setRequestSchema(createCollectionResponseRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -440,7 +437,6 @@ It is recommended that you pass the `name` property in the request body. If you 
       .setMethod('GET')
       .setPath('/collections/{collectionId}/folders/{folderId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -511,7 +507,6 @@ This endpoint acts like a PATCH method. It only updates the values that you pass
       .setMethod('PUT')
       .setPath('/collections/{collectionId}/folders/{folderId}')
       .setRequestSchema(updateFolderRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -572,7 +567,6 @@ This endpoint acts like a PATCH method. It only updates the values that you pass
       .setMethod('DELETE')
       .setPath('/collections/{collectionId}/folders/{folderId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -635,7 +629,6 @@ This endpoint acts like a PATCH method. It only updates the values that you pass
       .setMethod('GET')
       .setPath('/collections/{collectionId}/requests/{requestId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -710,7 +703,6 @@ This endpoint acts like a PATCH method. It only updates the values that you pass
       .setMethod('PUT')
       .setPath('/collections/{collectionId}/requests/{requestId}')
       .setRequestSchema(updateRequestRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -774,7 +766,6 @@ This endpoint acts like a PATCH method. It only updates the values that you pass
       .setMethod('DELETE')
       .setPath('/collections/{collectionId}/requests/{requestId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -837,7 +828,6 @@ This endpoint acts like a PATCH method. It only updates the values that you pass
       .setMethod('GET')
       .setPath('/collections/{collectionId}/responses/{responseId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -912,7 +902,6 @@ This endpoint acts like a PATCH method. It only updates the values that you pass
       .setMethod('PUT')
       .setPath('/collections/{collectionId}/responses/{responseId}')
       .setRequestSchema(updateCollectionResponse1Request)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -976,7 +965,6 @@ This endpoint acts like a PATCH method. It only updates the values that you pass
       .setMethod('DELETE')
       .setPath('/collections/{collectionId}/responses/{responseId}')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

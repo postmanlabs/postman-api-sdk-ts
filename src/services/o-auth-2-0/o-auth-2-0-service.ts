@@ -112,7 +112,6 @@ This endpoint uses Basic Auth. You must pass a valid client ID and client secret
       .setMethod('POST')
       .setPath('/oauth2/token/revoke')
       .setRequestSchema(revokeOauthTokenRequest)
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

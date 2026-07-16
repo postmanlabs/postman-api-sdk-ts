@@ -130,7 +130,6 @@ For a list of metrics and their related `resource` value, call the GET `/analyti
       .setMethod('GET')
       .setPath('/analytics')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
@@ -248,7 +247,6 @@ If you don't pass this query parameter, then the response returns all metadata f
       .setMethod('GET')
       .setPath('/analytics-metadata')
       .setRequestSchema(z.any())
-      .addBasicAuth(resolvedConfig?.username, resolvedConfig?.password)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

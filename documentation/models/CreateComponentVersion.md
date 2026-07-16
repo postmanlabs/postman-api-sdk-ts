@@ -2,10 +2,10 @@
 
 **Properties**
 
-| Name   | Type                         | Required | Description                                                                                                                                                                                               |
-| :----- | :--------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| label  | string                       | ✅       | The component version's label. This must begin and end with a an alphanumeric character and may only contain letters, digits, dots, underscores, plus signs, and hyphens and cannot exceed 60 characters. |
-| source | CreateComponentVersionSource | ❌       | The source to publish the version from. Defaults to the component's current draft.                                                                                                                        |
+| Name   | Type                         | Required | Description                                                                                                                                                                                             |
+| :----- | :--------------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| label  | string                       | ✅       | The component version's label. This must begin and end with an alphanumeric character and may only contain letters, digits, dots, underscores, plus signs, and hyphens and cannot exceed 60 characters. |
+| source | CreateComponentVersionSource | ❌       | The source to publish the version from. Defaults to the component's current draft.                                                                                                                      |
 
 # CreateComponentVersionSource
 

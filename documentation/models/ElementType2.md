@@ -1,11 +1,10 @@
 # ElementType2
 
+The type of Postman element.
+
 **Properties**
 
-| Name        | Type   | Required | Description   |
-| :---------- | :----- | :------- | :------------ |
-| COLLECTION  | string | ✅       | "collection"  |
-| WORKSPACE   | string | ✅       | "workspace"   |
-| ENVIRONMENT | string | ✅       | "environment" |
-| MOCK        | string | ✅       | "mock"        |
-| MONITOR     | string | ✅       | "monitor"     |
+| Name       | Type   | Required | Description  |
+| :--------- | :----- | :------- | :----------- |
+| COLLECTION | string | ✅       | "collection" |
+| SPEC       | string | ✅       | "spec"       |
