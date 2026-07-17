@@ -8,7 +8,7 @@ import { SyncOptions, syncOptions, syncOptionsRequest, syncOptionsResponse } fro
  */
 export const apiSpecSyncOptions = z.lazy(() => {
   return z.object({
-    syncOptions: syncOptions,
+    syncOptions: syncOptions.optional(),
   });
 });
 
@@ -27,7 +27,7 @@ export type ApiSpecSyncOptions = z.infer<typeof apiSpecSyncOptions>;
 export const apiSpecSyncOptionsResponse = z.lazy(() => {
   return z
     .object({
-      syncOptions: syncOptionsResponse,
+      syncOptions: syncOptionsResponse.optional(),
     })
     .transform((data) => ({
       syncOptions: data['syncOptions'],
@@ -42,7 +42,7 @@ export const apiSpecSyncOptionsResponse = z.lazy(() => {
 export const apiSpecSyncOptionsRequest = z.lazy(() => {
   return z
     .object({
-      syncOptions: syncOptionsRequest,
+      syncOptions: syncOptionsRequest.optional(),
     })
     .transform((data) => ({
       syncOptions: data['syncOptions'],

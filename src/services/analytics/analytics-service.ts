@@ -52,7 +52,7 @@ export class AnalyticsService extends BaseService {
 This endpoint only accepts the following resource:metric query parameter combinations:
 - `user` — `workspace_active_users`, `active_users`
 - `workspace` — `elements_in_workspace`, `active_workspaces`, `api_calls`, `active_collections`, `response_status`, `pending_invites`, `needs_attention`, `success_rate`, `user_requests`, `collection_error_aggregate`
-- `team` — `user_api_journey`, `workspace_distribution`, `internal_workspace_distribution`, `license_consumption`, `members`, `last_autoflex_cycle`, `partner_engagement_funnel`
+- `team` — `user_api_journey`, `workspace_distribution`, `internal_workspace_distribution`, `license_consumption`, `members`, `last_autoflex_cycle`, `partner_engagement_funnel` `members_overtime` , `member_invites`, `invites_sent` , `invites_accepted`
 - `ai` — `top_agent_models_by_usage`, `activity_distribution`, `peak_activity`, `usage_leaderboard`, `credit_usage_by_model`, `messages_sent`, `credit_usage`, `agent_mode_sessions`, `new_vs_returning_users`, `agent_mode_users`
 - `api_development` — `active_workspaces`, `entity_activity`, `top_entities`
 - `api_testing` — `runs`, `functional_test_runs`, `performance_test_runs`
@@ -65,8 +65,8 @@ The `view` query parameter only accepts the following values when called with th
 - `detailed`, `summary`, or `trends` — `api_development:entity_activity`, `api_testing:functional_test_runs` , `api_testing:performance_test_runs`, `api_production:monitor_runs`, `api_production:flow_executions`
 - `summary` or `trend` — `api_development:active_workspaces`, `api_testing:runs`, `api_distribution:active_workspaces`, `api_management:workspace_activity`
 - `summary` only — `workspace:elements_in_workspace`, `workspace:workspace_active_users`, `workspace:api_calls`, `workspace:response_status`, `team:user_api_journey`, `team:workspace_distribution`, `team:internal_workspace_distribution`, `team:license_consumption`
-- `detailed` only — `workspace:active_collections`, `workspace:user_requests`, `api_development:top_entities`, `api_management:popular_workspaces`
-- `trends` only — No resource:metric pair restrictions.
+- `detailed` only — `workspace:active_collections`, `workspace:user_requests`, `api_development:top_entities`, `api_management:popular_workspaces` , `team:invites_sent` , `team:invites_accepted`
+- `trend` only — `team:members_overtime`, `team:member_invites`
 
  * @param {AnalyticsResource} params.resource - Returns metrics and insights for API usage, success, and workspace/team trends in Postman:
 
