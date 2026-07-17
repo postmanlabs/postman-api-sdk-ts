@@ -1,20 +1,20 @@
-# PostmanApi TypeScript SDK 1.44.0
+# PostmanApi TypeScript SDK 1.44.1
 
 Welcome to the PostmanApi SDK documentation. This guide will help you get started with integrating and using the PostmanApi SDK in your project.
 
 ## Versions
 
-- SDK version: `1.44.0`
+- SDK version: `1.44.1`
 
 ## About the API
 
 The Postman API enables you to programmatically access data stored in your Postman account.
 
+For a comprehensive set of examples of requests and responses, see the [**Postman API** collection](https://www.postman.com/postman/workspace/postman-public-workspace/documentation/12959542-c8142d51-e97c-46b6-bd77-52bb66712c9a).
+
 **Note:**
 
 Certain endpoints may be unavailable depending on your region and/or Postman plan.
-
-For a comprehensive set of examples of requests and responses, see the [**Postman API** collection](https://www.postman.com/postman/workspace/postman-public-workspace/documentation/12959542-c8142d51-e97c-46b6-bd77-52bb66712c9a).
 
 ## Getting started
 

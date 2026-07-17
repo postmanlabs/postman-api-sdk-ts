@@ -268,7 +268,7 @@ import { ElementId, ElementType, PostmanApi } from '@postman/api-sdk';
   });
 
   const elementType = ElementType.COLLECTIONS;
-  const elementId = 'cupidatat do';
+  const elementId = 'ad occaeca';
 
   const data = await postmanApi.specs.getAsyncSpecTaskStatus(
     elementType,
@@ -512,6 +512,7 @@ import { ApiSpecSyncOptions, PostmanApi, SyncOptions } from '@postman/api-sdk';
 
   const syncOptions: SyncOptions = {
     syncExamples: true,
+    deleteOrphanedRequests: true,
   };
 
   const apiSpecSyncOptions: ApiSpecSyncOptions = {
