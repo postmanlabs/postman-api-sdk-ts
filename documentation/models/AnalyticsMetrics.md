@@ -44,3 +44,7 @@
 | PARTNER                         | string | ✅       | "partner"                         |
 | PUBLIC\_                        | string | ✅       | "public"                          |
 | WORKSPACE_ACTIVITY              | string | ✅       | "workspace_activity"              |
+| MEMBERS_OVERTIME                | string | ✅       | "members_overtime"                |
+| MEMBER_INVITES                  | string | ✅       | "member_invites"                  |
+| INVITES_SENT                    | string | ✅       | "invites_sent"                    |
+| INVITES_ACCEPTED                | string | ✅       | "invites_accepted"                |

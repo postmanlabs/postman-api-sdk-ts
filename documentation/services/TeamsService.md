@@ -217,7 +217,7 @@ import {
 
   const teamEntityInfoEntityType = TeamEntityInfoEntityType.USER;
 
-  const teamEntityInfoEntityId = 10;
+  const teamEntityInfoEntityId = 1;
 
   const teamEntityInfo: TeamEntityInfo = {
     entityType: teamEntityInfoEntityType,
@@ -412,7 +412,7 @@ import {
 
   const teamEntityInfoEntityType = TeamEntityInfoEntityType.USER;
 
-  const teamEntityInfoEntityId = 10;
+  const teamEntityInfoEntityId = 1;
 
   const teamEntityInfo: TeamEntityInfo = {
     entityType: teamEntityInfoEntityType,
