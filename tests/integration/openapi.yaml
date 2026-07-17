@@ -4,9 +4,11 @@ info:
   description: |
     The Postman API enables you to programmatically access data stored in your Postman account.
 
-    > Certain endpoints may be unavailable depending on your region and/or Postman plan.
-
     For a comprehensive set of examples of requests and responses, see the [**Postman API** collection](https://www.postman.com/postman/workspace/postman-public-workspace/documentation/12959542-c8142d51-e97c-46b6-bd77-52bb66712c9a).
+
+    **Note:**
+
+    Certain endpoints may be unavailable depending on your region and/or Postman plan.
 
     ## Getting started
 
@@ -30,9 +32,7 @@ info:
     All items in Postman, such as collections, workspaces, and APIs, have IDs and UIDs:
 
     - An ID is the unique ID assigned to a Postman item. For example, `ec29121c-5203-409f-9e84-e83ffc10f226`.
-    - The UID is the **full** ID of a Postman item. This value is the item's unique ID concatenated with the user ID. For example, in the `12345678-ec29121c-5203-409f-9e84-e83ffc10f226` UID:
-        - `12345678` is the user's ID.
-        - `ec29121c-5203-409f-9e84-e83ffc10f226` is the item's ID.
+    - The UID is the **full** ID of a Postman item. This value is the item's unique ID concatenated with the user ID. For example, in the `12345678-ec29121c-5203-409f-9e84-e83ffc10f226` UID, where `12345678` is the user's ID and  `ec29121c-5203-409f-9e84-e83ffc10f226` is the item's ID.
 
     ### Enum values
 
@@ -52,7 +52,7 @@ info:
 
     Postman uses API keys for authentication. The API key tells the API server that the request came from you. Everything that you have access to in Postman is accessible with your API key. You can [generate](https://learning.postman.com/docs/developer/postman-api/authentication/#generate-a-postman-api-key) a Postman API key in the [**API keys**](https://postman.postman.co/settings/me/api-keys) section of your Postman account settings.
 
-    You must include an API key in each request to the Postman API with the `X-API-Key` request header. In Postman, you can store your API key as a [vault secret](https://learning.postman.com/docs/sending-requests/postman-vault/postman-vault-secrets/) or an [environment variable](https://www.getpostman.com/docs/environments). The Postman API [collection](https://www.getpostman.com/docs/collections) will use it to make API calls.
+    You must include an API key in each request to the Postman API with the `X-API-Key` request header. In Postman, you can store your API key as a [vault secret](https://learning.postman.com/docs/sending-requests/postman-vault/postman-vault-secrets/) or an [environment variable](https://www.postman.com/docs/environments). The Postman API [collection](https://www.postman.com/docs/collections) will use it to make API calls.
 
     ### SCIM authentication
 
@@ -64,7 +64,11 @@ info:
 
     ## Rate and usage limits
 
-    API access [rate limits](https://learning.postman.com/docs/developer/postman-api/postman-api-rate-limits/) apply at a per-user basis in unit time. The limit is **300 requests per minute**. Postman Monitors, as well as the GET `/collections`, GET `/workspaces`, and GET `/workspaces/{id}` endpoints have a rate limit of **10 calls in 10 seconds**. Workspace updates endpoints have a rate limit of rate limit of **20 requests per minute per user**. The POST `/service-account-tokens` endpoint has a rate limit of **10 requests per 10 second window per user**.
+    API access [rate limits](https://learning.postman.com/docs/developer/postman-api/postman-api-rate-limits/) apply at a per-user basis in unit time. The limit is **300 requests per minute**.
+
+    - Postman Monitors, as well as the GET `/collections`, GET `/workspaces`, and GET `/workspaces/{id}` endpoints have a rate limit of **10 calls in 10 seconds**.
+    - Workspace updates endpoints have a rate limit of **20 requests per minute per user**.
+    - The POST `/service-account-tokens` endpoint has a rate limit of **10 requests per 10 second window per user**.
 
     Depending on your [plan](https://www.postman.com/pricing/), you may also have [usage limits](https://learning.postman.com/docs/billing/resource-usage/). Every API response includes headers to help you identify the status of your use limits. For more information, see [Track Postman API call limits](https://learning.postman.com/docs/developer/postman-api/postman-api-rate-limits/).
 
@@ -85,20 +89,17 @@ info:
 
     - [Postman Terms of Service](http://www.postman.com/legal/terms/)
     - [Postman Privacy Policy](https://www.postman.com/legal/privacy-policy/)
-  version: 1.43.0
+  version: 1.44.1
   termsOfService: https://www.postman.com/legal/terms/
   contact:
     name: Postman Support
     email: help@postman.com
     url: https://www.postman.com/community/
 servers:
-  - url: https://api.getpostman.com
+  - url: https://api.postman.com
   - url: https://api.eu.postman.com
 security:
   - PostmanApiKey: []
-  - scimApiKey: []
-  - basicAuth: []
-  - noAuth: []
 tags:
   - name: Access Requests
     description: The **Access Requests** endpoints enable you to manage Postman team
@@ -111,12 +112,17 @@ tags:
       environments, or elements from a workspace, and users that join or leave a
       workspace.
   - name: Analytics
-    description: The **Analytics** endpoints you to explore Postman's [analytics
+    description: >
+      The **Analytics** endpoints enable you to explore Postman's [analytics
       reports](https://postman.postman.co/reports/overview) programmatically.
       They provide visibility into usage patterns, workspace and collection
       activity, API performance, license distribution, and partner onboarding
       flow. Use these endpoints to incorporate analytics directly into your
       pipelines, dashboards, and internal agents.
+
+
+      These endpoints are only available on Postman
+      [**Enterprise**](https://www.postman.com/pricing/) plans.
   - name: API
     description: |
       **These endpoints are deprecated in Postman v12 and later.**
@@ -128,11 +134,15 @@ tags:
     description: These endpoints enable you to migrate your API Builder APIs to Spec
       Hub for Postman v12 and later.
   - name: API Catalog
-    description: The [API
-      Catalog](https://learning.postman.com/docs/api-catalog/overview) endpoints
-      enable you to manage your centralized APIs and services. It enables you to
-      connect your source code to the API Catalog, and it automatically shows
-      you all your APIs in one place.
+    description: >
+      The [API Catalog](https://learning.postman.com/docs/api-catalog/overview)
+      endpoints enable you to manage your centralized APIs and services, connect
+      your source code to the API Catalog, and automatically display all your
+      APIs in one place.
+
+
+      These endpoints are only available on Postman
+      [**Enterprise**](https://www.postman.com/pricing/) plans.
   - name: API Governance
     description: The **API Governance** endpoints enable you to manage the [your API
       governance](https://learning.postman.com/docs/api-governance/api-governance-overview/).
@@ -338,6 +348,34 @@ tags:
       - **Read (GET)** — 300 requests per minute.
 
       If you reach the rate limit, the API will return an HTTP `429 Too Many Requests` response.
+  - name: SDKs
+    description: >
+      The [**SDKs**](https://learning.postman.com/docs/sdk-generator/overview)
+      endpoints turn Postman Collections and specifications into client SDKs for
+      TypeScript, Python, Java, Kotlin, C#, Go, PHP, Ruby, and Rust. It
+      generates type-safe libraries with automatic methods, inferred types, and
+      API documentation.
+
+
+      These endpoints are only available on Postman [**Team** and
+      **Enterprise**](https://www.postman.com/pricing/) plans. The automatic
+      pull request update feature is only available to **Enterprise** plan
+      users.
+  - name: SDK Git Connections
+    description: >
+      These endpoints manage Git repository connections and pull requests that
+      ship SDK updates.
+
+
+      **Note:**
+
+
+      The automatic pull request update feature is only available to
+      **Enterprise** plan users. If the user is on a **Team** plan, this value
+      is always `false`.
+  - name: Search
+    description: The **Search** endpoints enable you to search for Postman elements,
+      such as workspaces, collections, specifications, and other resources.
   - name: Secret Scanner
     description: The **Secret Scanner** endpoints enable you to manage the secrets
       detected by Postman's [Secret
@@ -514,7 +552,8 @@ paths:
 
         - `team` — `user_api_journey`, `workspace_distribution`,
         `internal_workspace_distribution`, `license_consumption`, `members`,
-        `last_autoflex_cycle`, `partner_engagement_funnel`
+        `last_autoflex_cycle`, `partner_engagement_funnel` `members_overtime` ,
+        `member_invites`, `invites_sent` , `invites_accepted`
 
         - `ai` — `top_agent_models_by_usage`, `activity_distribution`,
         `peak_activity`, `usage_leaderboard`, `credit_usage_by_model`,
@@ -561,10 +600,12 @@ paths:
 
         - `detailed` only — `workspace:active_collections`,
         `workspace:user_requests`, `api_development:top_entities`,
-        `api_management:popular_workspaces`
+        `api_management:popular_workspaces` , `team:invites_sent` ,
+        `team:invites_accepted`
 
-        - `trends` only — No resource:metric pair restrictions.
+        - `trend` only — `team:members_overtime`, `team:member_invites`
       operationId: getAnalyticsData
+      x-postman-plan: Enterprise
       tags:
         - Analytics
       parameters:
@@ -771,7 +812,7 @@ paths:
       summary: Get all collections
       description: >
         Gets all of your
-        [collections](https://www.getpostman.com/docs/collections). The response
+        [collections](https://www.postman.com/docs/collections). The response
         includes all of your subscribed collections.
 
 
@@ -916,6 +957,9 @@ paths:
           $ref: "#/components/responses/common401Error"
         "500":
           $ref: "#/components/responses/common500Error"
+      security:
+        - PostmanApiKey: []
+        - {}
       parameters:
         - $ref: "#/components/parameters/collectionAccessKeyQuery"
         - $ref: "#/components/parameters/collectionModelQuery"
@@ -2653,7 +2697,7 @@ paths:
         - The request body size cannot exceed the maximum allowed size of 30MB.
         - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.
         - To add a description to an existing variable, use the `add` operation.
-        - Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
+        - Only [shared variable](https://learning.postman.com/docs/use/send-requests/variables/variables/#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
       operationId: patchEnvironment
       tags:
         - Environments
@@ -2681,7 +2725,7 @@ paths:
 
         - The request body size cannot exceed the maximum allowed size of 30MB.
         - If you receive an HTTP `411 Length Required` error response, manually pass the `Content-Length` header and its value in the request header.
-        - Only [shared variable](https://learning.postman.com/docs/sending-requests/variables/variables#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
+        - Only [shared variable](https://learning.postman.com/docs/use/send-requests/variables/variables/#share-variable-values) values can be modified through the Postman API. A shared variable is an environment variable with its value synced and stored in the Postman cloud, and can be accessed by your teammates in the environment's workspace.
       operationId: putEnvironment
       tags:
         - Environments
@@ -3849,6 +3893,393 @@ paths:
         - $ref: "#/components/parameters/tagsEntitiesDirection"
         - $ref: "#/components/parameters/tagsCursor"
         - $ref: "#/components/parameters/tagsEntityType"
+  /sdks:
+    post:
+      summary: Generate an SDK
+      description: >
+        Creates an asynchronous generation job for a single SDK (in one
+        language) from a collection or specification.
+
+
+        To get the status of an SDK's generation, use the GET `/sdks/{sdkId}`
+        endpoint and track its `buildStatus`. When the status is the `succeeded`
+        value, the SDK is ready to download. You can also use the URL in the
+        POST response's `Location` header.
+
+
+        **Note:**
+
+
+        The request body is determined by the given `language` value, so only
+        provide the properties relevant to that language's SDK.
+      operationId: createSdk
+      x-postman-plan: Enterprise and Team
+      tags:
+        - SDKs
+      requestBody:
+        $ref: "#/components/requestBodies/createSdk"
+      responses:
+        "202":
+          $ref: "#/components/responses/createSdk"
+        "400":
+          $ref: "#/components/responses/sdk400ErrorInvalidCreateRequest"
+        "401":
+          $ref: "#/components/responses/common401Error"
+        "403":
+          $ref: "#/components/responses/common403Error"
+        "422":
+          $ref: "#/components/responses/sdk422Error"
+        "429":
+          $ref: "#/components/responses/common429Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
+    get:
+      summary: Get all SDKs
+      description: >
+        Lists all SDKs the authenticated user has access to.
+
+
+        **Note:**
+
+
+        - Use the `sdkIds` parameter to get the generation build status of
+        multiple SDKs in a single call.
+
+        - When you pass the `sdkIds` value, other filters are ignored and the
+        response contains only the accessible SDKs from this list.
+      operationId: getSdks
+      x-postman-plan: Enterprise and Team
+      tags:
+        - SDKs
+      parameters:
+        - $ref: "#/components/parameters/sdkWorkspaceId"
+        - $ref: "#/components/parameters/sdkIds"
+        - $ref: "#/components/parameters/sdkBuildStatusFilter"
+        - $ref: "#/components/parameters/sdkLanguageFilter"
+        - $ref: "#/components/parameters/sdkSourceId"
+        - $ref: "#/components/parameters/cursor"
+        - $ref: "#/components/parameters/limitDefault25"
+      responses:
+        "200":
+          $ref: "#/components/responses/getSdks"
+        "400":
+          $ref: "#/components/responses/sdk400ErrorInvalidListQuery"
+        "401":
+          $ref: "#/components/responses/common401Error"
+        "403":
+          $ref: "#/components/responses/common403Error"
+        "429":
+          $ref: "#/components/responses/common429Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
+  /sdks/{sdkId}:
+    get:
+      summary: Get an SDK
+      description: Returns information about the SDK, including the current build job
+        status.
+      operationId: getSdk
+      x-postman-plan: Enterprise and Team
+      tags:
+        - SDKs
+      responses:
+        "200":
+          $ref: "#/components/responses/getSdk"
+        "401":
+          $ref: "#/components/responses/common401Error"
+        "403":
+          $ref: "#/components/responses/common403Error"
+        "404":
+          $ref: "#/components/responses/common404Error"
+        "429":
+          $ref: "#/components/responses/common429Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
+    delete:
+      summary: Delete an SDK
+      description: >
+        Deletes an SDK record and its stored archive. On success, this returns a
+        `204 No Content` response.
+
+
+        **Note:**
+
+
+        You can't use this endpoint to cancel a generation job that's still in
+        progress.
+      operationId: deleteSdk
+      x-postman-plan: Enterprise and Team
+      tags:
+        - SDKs
+      responses:
+        "204":
+          description: Deleted
+        "401":
+          $ref: "#/components/responses/common401Error"
+        "403":
+          $ref: "#/components/responses/common403Error"
+        "404":
+          $ref: "#/components/responses/common404Error"
+        "409":
+          $ref: "#/components/responses/sdk409Error"
+        "429":
+          $ref: "#/components/responses/common429Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
+    parameters:
+      - $ref: "#/components/parameters/sdkId"
+  /sdks/{sdkId}/downloads:
+    get:
+      summary: Get an SDK's download URL
+      description: >
+        Gets a short-lived signed URL for the generated SDK archive (zip). The
+        generated URL is created on demand and expires within a few minutes.
+
+
+        **Note:**
+
+
+        The API doesn't stream the archive directly to keep responses small and
+        predictable. Use the returned URL to download the SDK zip file.
+      operationId: getSdkDownloadUrl
+      x-postman-plan: Enterprise and Team
+      tags:
+        - SDKs
+      responses:
+        "200":
+          $ref: "#/components/responses/getSdkDownloadUrl"
+        "401":
+          $ref: "#/components/responses/common401Error"
+        "403":
+          $ref: "#/components/responses/common403Error"
+        "404":
+          $ref: "#/components/responses/common404Error"
+        "409":
+          $ref: "#/components/responses/sdk409Error"
+        "429":
+          $ref: "#/components/responses/common429Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
+    parameters:
+      - $ref: "#/components/parameters/sdkId"
+  /sdk-git-connections:
+    get:
+      summary: Get all SDK Git connections
+      description: Gets all Git repository connections the authenticated user has
+        access to in the given workspace. Each connection links one Postman
+        Collection or specification and one SDK language to a target Git
+        repository.
+      operationId: getSdkGitConnections
+      x-postman-plan: Enterprise and Team
+      tags:
+        - SDKs
+        - SDK Git Connections
+      parameters:
+        - $ref: "#/components/parameters/sdkGitConnectionWorkspaceId"
+        - $ref: "#/components/parameters/sdkSourceId"
+        - $ref: "#/components/parameters/sdkLanguageFilter"
+        - $ref: "#/components/parameters/sdkGitConnectionStatusFilter"
+        - $ref: "#/components/parameters/sdkGitConnectionRepositoryUrl"
+        - $ref: "#/components/parameters/cursor"
+        - $ref: "#/components/parameters/limitDefault25"
+      responses:
+        "200":
+          $ref: "#/components/responses/getSdkGitConnections"
+        "400":
+          $ref: "#/components/responses/sdkGitConnection400Error"
+        "401":
+          $ref: "#/components/responses/common401Error"
+        "403":
+          $ref: "#/components/responses/common403Error"
+        "429":
+          $ref: "#/components/responses/common429Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
+    post:
+      summary: Connect a Git repository to an SDK
+      description: >
+        Connects a Postman source element (collection or specification) to a Git
+        repository for one SDK language. This creates a new connection in the
+
+        `active` state.
+
+
+        **Note:**
+
+        - Each source and language pair maps to a single connection. If a
+        connection already exists for the pair, this returns `409 Conflict`
+        response.
+
+        - To update an existing connection, use the PUT
+        `/sdk-git-connections/{sdkGitConnectionId}` endpoint.
+
+        - The `autoUpdatePullRequestsEnabled` property is only available to
+        **Enterprise** plan users. If the user is on a **Team** plan, this value
+        is always `false`.
+      operationId: createSdkGitConnection
+      x-postman-plan: Enterprise and Team
+      tags:
+        - SDKs
+        - SDK Git Connections
+      requestBody:
+        $ref: "#/components/requestBodies/createSdkGitConnection"
+      responses:
+        "201":
+          $ref: "#/components/responses/createSdkGitConnectionResponse"
+        "400":
+          $ref: "#/components/responses/sdkGitConnection400Error"
+        "401":
+          $ref: "#/components/responses/common401Error"
+        "403":
+          $ref: "#/components/responses/common403Error"
+        "409":
+          $ref: "#/components/responses/sdk409Error"
+        "429":
+          $ref: "#/components/responses/common429Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
+  /sdk-git-connections/{sdkGitConnectionId}:
+    get:
+      summary: Get an SDK Git connection
+      description: Gets information about an SDK's Git connection. The response
+        includes the SDK currently sent to the targetBranch and the most recent
+        SDK-update pull request.
+      operationId: getSdkGitConnection
+      x-postman-plan: Enterprise and Team
+      tags:
+        - SDKs
+        - SDK Git Connections
+      responses:
+        "200":
+          $ref: "#/components/responses/getSdkGitConnection"
+        "401":
+          $ref: "#/components/responses/common401Error"
+        "403":
+          $ref: "#/components/responses/common403Error"
+        "404":
+          $ref: "#/components/responses/common404Error"
+        "429":
+          $ref: "#/components/responses/common429Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
+    put:
+      summary: Update an SDK Git connection
+      description: >
+        Updates the Git connection's lifecycle status:
+
+
+        - `active` — Connects or reconnects the repository. All auto-update pull
+        requests resume.
+
+        - `disconnected` — Disconnects the repository, and no further
+        auto-update pull requests are opened. The historical pull request record
+        is preserved and remains queryable.
+
+
+        **Note:**
+
+
+        - The `autoUpdatePullRequestsEnabled` property is only available to
+        **Enterprise** plan users and defaults to `true`. If the user is on a
+        **Team** plan, this value is always `false`.
+
+        - This action is idempotent. Setting the fields to their current values
+        is a no-op and still returns the connection.
+
+        - The `inaccessible` status is system-determined and can't be set with
+        this endpoint.
+      operationId: updateSdkGitConnection
+      x-postman-plan: Enterprise and Team
+      tags:
+        - SDKs
+        - SDK Git Connections
+      requestBody:
+        $ref: "#/components/requestBodies/updateSdkGitConnection"
+      responses:
+        "200":
+          $ref: "#/components/responses/updateSdkGitConnectionResponse"
+        "400":
+          $ref: "#/components/responses/sdkGitConnection400Error"
+        "401":
+          $ref: "#/components/responses/common401Error"
+        "403":
+          $ref: "#/components/responses/common403Error"
+        "404":
+          $ref: "#/components/responses/common404Error"
+        "422":
+          $ref: "#/components/responses/sdk422Error"
+        "429":
+          $ref: "#/components/responses/common429Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
+    parameters:
+      - $ref: "#/components/parameters/sdkGitConnectionId"
+  /sdk-git-connections/{sdkGitConnectionId}/pull-requests:
+    get:
+      summary: Get an SDK Git connection's pull requests
+      description: >
+        Lists all SDK update pull requests for the Git connection, in order of
+        newest first by its `updatedAt` property.
+
+
+        **Note:**
+
+
+        Direct push requests to the base branch are not returned in the response
+        if a Git connection is configured to push only some changes directly to
+        a base branch.
+      operationId: getSdkGitConnectionPullRequests
+      x-postman-plan: Enterprise and Team
+      tags:
+        - SDKs
+        - SDK Git Connections
+      parameters:
+        - $ref: "#/components/parameters/sdkGitConnectionPRStatusFilter"
+        - $ref: "#/components/parameters/cursor"
+        - $ref: "#/components/parameters/limitDefault25"
+      responses:
+        "200":
+          $ref: "#/components/responses/getSdkGitConnectionPullRequests"
+        "401":
+          $ref: "#/components/responses/common401Error"
+        "403":
+          $ref: "#/components/responses/common403Error"
+        "404":
+          $ref: "#/components/responses/common404Error"
+        "429":
+          $ref: "#/components/responses/common429Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
+    parameters:
+      - $ref: "#/components/parameters/sdkGitConnectionId"
+  /search:
+    post:
+      summary: Search Postman resources
+      description: >
+        Searches Postman for resources such as workspaces, collections,
+        requests, and other resource types. You can filter results by ownership,
+        visibility, tags, and other criteria.
+
+
+        **Note:**
+
+
+        If you call this endpoint without an API key, the response only returns
+        publicly-available resources.
+      operationId: searchPostmanResources
+      tags:
+        - Search
+      requestBody:
+        $ref: "#/components/requestBodies/searchPostmanResources"
+      responses:
+        "200":
+          $ref: "#/components/responses/searchPostmanResourcesResponse"
+        "400":
+          $ref: "#/components/responses/searchPostman400Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
+    parameters:
+      - $ref: "#/components/parameters/limitDefault10Max25"
+      - $ref: "#/components/parameters/cursor"
   /service-account-tokens:
     post:
       summary: Generate a Service Account Token
@@ -5187,9 +5618,6 @@ components:
     basicAuth:
       type: http
       scheme: basic
-    noAuth:
-      type: http
-      scheme: none
     PostmanApiKey:
       type: apiKey
       in: header
@@ -5456,6 +5884,10 @@ components:
         - partner
         - public
         - workspace_activity
+        - members_overtime
+        - member_invites
+        - invites_sent
+        - invites_accepted
       example: active_workspaces
     analyticsView:
       type: string
@@ -8761,8 +9193,8 @@ components:
                   format: url
                   description: The collection's schema format.
                   enum:
-                    - https://schema.getpostman.com/json/collection/v2.1.0/collection.json
-                  example: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+                    - https://schema.postman.com/json/collection/v2.1.0/collection.json
+                  example: https://schema.postman.com/json/collection/v2.1.0/collection.json
             item:
               type: array
               description: Information about the requests and responses in the collection. For
@@ -8840,7 +9272,7 @@ components:
               type: string
               format: url
               description: A URL to the collection's schema.
-              example: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+              example: https://schema.postman.com/json/collection/v2.1.0/collection.json
             _postman_id:
               type: string
               description: The collection's Postman ID.
@@ -9985,7 +10417,7 @@ components:
               type: string
               format: url
               description: The endpoint URL that created the task.
-              example: https://api.getpostman.com/apis/5360b75f-447e-467c-9299-12fd6c92450d/collections/e726de58-f1b3-4edd-a8a7-2579dc799d39/sync
+              example: https://api.postman.com/apis/5360b75f-447e-467c-9299-12fd6c92450d/collections/e726de58-f1b3-4edd-a8a7-2579dc799d39/sync
             model:
               type: string
               description: The model for which the task is performing the operation.
@@ -10026,7 +10458,7 @@ components:
                       url:
                         type: string
                         description: The task's assigned resource URL.
-                        example: https://api.getpostman.com/apis/5360b75f-447e-467c-9299-12fd6c92450d/collections/e726de58-f1b3-4edd-a8a7-2579dc799d39
+                        example: https://api.postman.com/apis/5360b75f-447e-467c-9299-12fd6c92450d/collections/e726de58-f1b3-4edd-a8a7-2579dc799d39
             - type: object
               title: Task Error Information
               description: Information about the error that occurred during the task's
@@ -10845,11 +11277,11 @@ components:
         schema:
           type: string
           description: The
-            "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+            "https://schema.postman.com/json/collection/v2.1.0/collection.json"
             Postman Collection Format v2.1.0 schema.
           enum:
-            - https://schema.getpostman.com/json/collection/v2.1.0/collection.json
-          example: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+            - https://schema.postman.com/json/collection/v2.1.0/collection.json
+          example: https://schema.postman.com/json/collection/v2.1.0/collection.json
     variable:
       title: Variable Info
       description: Information about the variable.
@@ -12263,7 +12695,7 @@ components:
                   type: string
                   format: url
                   description: A URL to the collection's schema.
-                  example: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+                  example: https://schema.postman.com/json/collection/v2.1.0/collection.json
                 fork:
                   type: object
                   description: If the collection was forked from another collection, this object
@@ -12341,11 +12773,11 @@ components:
         schema:
           type: string
           description: The
-            "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+            "https://schema.postman.com/json/collection/v2.1.0/collection.json"
             Postman Collection Format v2.1.0 schema.
           enum:
-            - https://schema.getpostman.com/json/collection/v2.1.0/collection.json
-          example: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+            - https://schema.postman.com/json/collection/v2.1.0/collection.json
+          example: https://schema.postman.com/json/collection/v2.1.0/collection.json
         updatedAt:
           type: string
           format: date-time
@@ -12956,7 +13388,7 @@ components:
           type: string
           format: url
           description: The public URL of the published documentation.
-          example: https://documenter.getpostman-beta.com/view/12345678/6n1Xaix
+          example: https://documenter.postman.com/view/12345678/6n1Xaix
         id:
           type: string
           description: The published documentation's ID.
@@ -14952,7 +15384,7 @@ components:
           minLength: 1
           maxLength: 60
           pattern: ^[a-zA-Z0-9]([a-zA-Z0-9._+-]{0,58}[a-zA-Z0-9])?$
-          description: The component version's label. This must begin and end with a an
+          description: The component version's label. This must begin and end with an
             alphanumeric character and may only contain letters, digits, dots,
             underscores, plus signs, and hyphens and cannot exceed 60
             characters.
@@ -15600,7 +16032,7 @@ components:
       type: object
       title: Add Secret Variable
       description: Information about the variable stored in the Postman Vault. This
-        property only returns when when a variable is defined as secret.
+        property only returns when a variable is defined as secret.
       properties:
         enabled:
           type: boolean
@@ -16734,7 +17166,7 @@ components:
                 format: uri
                 description: An invitation link. This only returns for the `EMAIL_SENT` and
                   `ALREADY_INVITED` statuses.
-                example: https://go.getpostman.com/invite-signup?invite_code=XXX
+                example: https://go.postman.com/invite-signup?invite_code=XXX
     managePartnerWorkspaceInvitesRemovePartnerResponse:
       title: Remove Partner Response
       type: object
@@ -18305,7 +18737,7 @@ components:
           type: string
           format: url
           description: The request's URL.
-          example: http://echo.getpostman.com/post
+          example: http://echo.postman.com/post
         body:
           type: object
           description: Information about the request body, such as Content-Length.
@@ -18564,7 +18996,7 @@ components:
                 type: string
                 format: url
                 description: The element's HREF.
-                example: https://api.getpostman.com/workspaces/1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
+                example: https://api.postman.com/workspaces/1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
         folders:
           deprecated: true
           type: array
@@ -18656,7 +19088,7 @@ components:
           type: string
           format: url
           description: The element's Postman URL.
-          example: https://api.getpostman.com/workspaces/1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
+          example: https://api.postman.com/workspaces/1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
         parentFolderId:
           deprecated: true
           type: integer
@@ -20273,7 +20705,7 @@ components:
             location:
               type: string
               format: url
-              example: https://api.getpostman.com/scim/v2/ServiceProviderConfig
+              example: https://api.postman.com/scim/v2/ServiceProviderConfig
     scimUserFilter:
       type: string
       example: userName eq "taylor-lee%40example.com"
@@ -20639,6 +21071,1296 @@ components:
                     format: email
                     description: The user's email address.
                     example: taylor.lee@example.com
+    sdkId:
+      type: string
+      description: The SDK's ID.
+      example: 9c4e7d1a-2b3c-4f5e-8a9b-1c2d3e4f5a6b
+    sdkBuildStatus:
+      type: string
+      description: >
+        The SDK's build lifecycle:
+
+        - `queued` — Accepted but not yet started.
+
+        - `in_progress` — The SDK generation is running and in progress.
+
+        - `succeeded` — The archive is built and available for download.
+
+        - `failed` — The SDK generation failed. For information, check the
+        `error` response.
+      enum:
+        - queued
+        - in_progress
+        - succeeded
+        - failed
+      example: succeeded
+    sdkLanguage:
+      type: string
+      description: The target output language for the generated SDK.
+      enum:
+        - typescript
+        - python
+        - go
+        - java
+        - csharp
+        - ruby
+        - php
+        - kotlin
+        - rust
+        - cli
+      example: typescript
+    sdkSourceId:
+      type: string
+      example: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+    elementType-2:
+      type: string
+      description: The type of Postman element.
+      enum:
+        - collection
+        - spec
+      example: collection
+    sdkSource:
+      type: object
+      description: The collection or specification that the SDK is generated from.
+      required:
+        - type
+        - id
+      properties:
+        type:
+          $ref: "#/components/schemas/elementType-2"
+        id:
+          type: string
+          description: The ID of the Postman Collection or specification in Postman.
+          example: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+    sdkErrorBuildStatusFailure:
+      type: object
+      description: Information about the SDK build's status when `buildStatus` is `failed`.
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          description: The build failure's error code.
+          example: spec_validation_failed
+        message:
+          type: string
+          description: Information about the build failure.
+          example: "OpenAPI spec failed validation: missing operationId on GET /foo"
+    sdkGitConnectionPRStatus:
+      type: string
+      description: The lifecycle status of a pull request.
+      enum:
+        - open
+        - merged
+        - closed
+      example: merged
+    simpleSdkGitConnectionPullRequest:
+      type: object
+      required:
+        - url
+        - status
+        - sdkId
+      properties:
+        url:
+          type: string
+          format: uri
+          description: The pull request's URL.
+          example: https://git.example.com/engineering/engineering-sdk/pull/87
+        status:
+          $ref: "#/components/schemas/sdkGitConnectionPRStatus"
+        sdkId:
+          $ref: "#/components/schemas/sdkId"
+    sdkPullRequest:
+      type: object
+      description: If the SDK was shipped (or proposed for shipping) through a Git
+        connection, this is a compact representation of the pull request that
+        shipped it. Otherwise, this returns a `null` value.
+      nullable: true
+      allOf:
+        - $ref: "#/components/schemas/simpleSdkGitConnectionPullRequest"
+    sdk:
+      type: object
+      description: Information about the generated SDK.
+      required:
+        - id
+        - language
+        - source
+        - workspaceId
+        - buildStatus
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          $ref: "#/components/schemas/sdkId"
+        language:
+          $ref: "#/components/schemas/sdkLanguage"
+        source:
+          $ref: "#/components/schemas/sdkSource"
+        workspaceId:
+          type: string
+          description: The ID of the workspace that owns the SDK, derived from the source
+            entity.
+          example: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        version:
+          type: string
+          description: The generated SDK's semantic version ID. This value is
+            automatically assigned by the release/changelog pipeline.
+          example: 1.0.0
+        buildStatus:
+          $ref: "#/components/schemas/sdkBuildStatus"
+        error:
+          $ref: "#/components/schemas/sdkErrorBuildStatusFailure"
+        pullRequest:
+          $ref: "#/components/schemas/sdkPullRequest"
+        createdAt:
+          type: string
+          format: date-time
+          description: The date and time at which the SDK was created.
+          example: 2026-05-30T10:21:14Z
+        updatedAt:
+          type: string
+          format: date-time
+          description: The date and time at which the SDK was last updated.
+          example: 2026-05-30T10:21:14Z
+    metaNextCursorTotal:
+      type: object
+      description: The response's meta information for paginated results.
+      properties:
+        nextCursor:
+          type: string
+          nullable: true
+          description: The pagination cursor that points to the next record in the results
+            set.
+          example: bmV4dDppZDpZWEpqYUdsMllXeEVRaXhtWldWa2MxOHlNREkxWHpFc01UTXpNelE0
+        total:
+          type: integer
+          minimum: 0
+          description: The number of records found.
+          example: 1
+    sdkList:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          description: A list of SDKs.
+          items:
+            $ref: "#/components/schemas/sdk"
+        meta:
+          $ref: "#/components/schemas/metaNextCursorTotal"
+    sdkError:
+      type: object
+      required:
+        - type
+        - title
+        - status
+      properties:
+        type:
+          type: string
+          format: uri
+          description: The [URI reference](https://www.rfc-editor.org/rfc/rfc3986) that
+            identifies the type of problem.
+          example: https://api.postman.com/problems/invalid-request
+        title:
+          type: string
+          description: A short summary of the problem.
+          example: Invalid request
+        status:
+          type: integer
+          format: http-status-code
+          description: The error's HTTP status code.
+          example: 400
+        detail:
+          type: string
+          description: Information about the error.
+          example: "`typescriptOptions.npmName` is not a valid npm package name."
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the
+            problem.
+          example: /sdks
+        requestId:
+          type: string
+          description: The request's ID.
+          example: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+    sdkAuthorData:
+      type: object
+      description: Information about the author of the generated SDK.
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: The author's name.
+          example: Engineering
+        email:
+          type: string
+          format: email
+          description: The author's email address.
+          example: engineering@example.com
+    httpCodesToRetry:
+      type: integer
+      description: An HTTP status code.
+      minimum: 200
+      maximum: 599
+      example: 429
+    sdkRetryOptions:
+      type: object
+      description: Retry behavior baked into the generated SDK's HTTP client. A
+        power-user option; sensible defaults apply for any field left unset.
+      required:
+        - retryDelay
+      properties:
+        enabled:
+          type: boolean
+          default: true
+          description: If true, the generated SDK includes retry behavior.
+          example: true
+        maxAttempts:
+          type: integer
+          default: 3
+          description: The maximum number of attempts to try before giving up.
+          example: 3
+        retryDelay:
+          type: integer
+          default: 150
+          description: The base wait between attempts, in milliseconds.
+          example: 150
+        maxDelay:
+          type: integer
+          minimum: 0
+          description: The maximum wait between attempts, in milliseconds.
+          example: 3000
+        backOffFactor:
+          type: number
+          exclusiveMinimum: true
+          minimum: 0
+          description: The exponent base used to compute exponential backoff between
+            attempts.
+          example: 2
+        retryDelayJitter:
+          type: integer
+          minimum: 0
+          description: The maximum random jitter added to wait times, in milliseconds.
+          example: 100
+        httpCodesToRetry:
+          type: array
+          description: A list of HTTP status codes that the SDK attempts its retries on.
+          items:
+            $ref: "#/components/schemas/httpCodesToRetry"
+        httpMethodsToRetry:
+          type: array
+          description: A list of the HTTP methods that the SDK attempts its retries on.
+          items:
+            type: string
+            enum:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
+              - HEAD
+              - OPTIONS
+              - CONNECT
+              - TRACE
+            example: GET
+    typescriptOptions:
+      type: object
+      description: TypeScript-specific SDK generation options.
+      properties:
+        npmOrg:
+          type: string
+          description: An npm organization's scope. Don't include a trailing slash.
+          example: "@engineering"
+        npmName:
+          type: string
+          description: The unscoped npm package's name.
+          example: engineering-sdk
+    pythonOptions:
+      type: object
+      description: Python-specific SDK generation options.
+      properties:
+        pypiPackageName:
+          type: string
+          description: The PyPI package's name.
+          example: engineering-sdk
+    goOptions:
+      type: object
+      description: Go-specific SDK generation options.
+      properties:
+        goModuleName:
+          type: string
+          description: The Go module path written into the `go.mod` definition file.
+          example: github.com/engineering/engineering-sdk
+    javaOptions:
+      type: object
+      description: Java-specific SDK generation options.
+      properties:
+        groupId:
+          type: string
+          description: The Maven group ID written into the `pom.xml` dependencies file.
+          example: com.engineering
+        artifactId:
+          type: string
+          description: The Maven artifact ID written into the `pom.xml` dependencies file.
+          example: engineering-sdk
+    csharpOptions:
+      type: object
+      description: C#-specific SDK generation options.
+      properties:
+        packageId:
+          type: string
+          description: The NuGet package's ID.
+          example: engineering.Sdk
+    rubyOptions:
+      type: object
+      description: Ruby-specific generation options.
+      properties:
+        gemName:
+          type: string
+          description: The RubyGems gem's name.
+          example: engineering-sdk
+    phpOptions:
+      type: object
+      description: PHP-specific SDK generation options.
+      properties:
+        packageName:
+          type: string
+          description: The composer package name, in `vendor/package` format.
+          example: engineering/sdk
+    kotlinOptions:
+      type: object
+      description: Kotlin-specific SDK generation options.
+      properties:
+        groupId:
+          type: string
+          description: The Maven group ID written into the `pom.xml` dependencies file.
+          example: com.engineering
+        artifactId:
+          type: string
+          description: The Maven artifact ID written into the `pom.xml` dependencies file.
+          example: engineering-sdk
+    rustOptions:
+      type: object
+      description: Rust-specific SDK generation options.
+      properties:
+        packageName:
+          type: string
+          description: The crates.io package's name.
+          example: engineering-sdk
+    cliOptions:
+      type: object
+      description: CLI-specific SDK generation options.
+      properties:
+        goModuleName:
+          type: string
+          description: The Go module's path for the generated CLI.
+          example: github.com/engineering/engineering-cli
+    createSdk:
+      type: object
+      description: >
+        **Note:**
+
+
+        - Only the object passed in the request body that matches the value in
+        the `language` property gets read, and all other objects are ignored.
+
+        - The language option object is optional. When the language identifier
+        is omitted, it's derived from the `source` element name and its
+        workspace.
+      required:
+        - source
+        - language
+      properties:
+        source:
+          $ref: "#/components/schemas/sdkSource"
+        language:
+          $ref: "#/components/schemas/sdkLanguage"
+        authors:
+          type: array
+          description: A list of package authors written into the generated manifest.
+          items:
+            $ref: "#/components/schemas/sdkAuthorData"
+        retry:
+          $ref: "#/components/schemas/sdkRetryOptions"
+        typescriptOptions:
+          $ref: "#/components/schemas/typescriptOptions"
+        pythonOptions:
+          $ref: "#/components/schemas/pythonOptions"
+        goOptions:
+          $ref: "#/components/schemas/goOptions"
+        javaOptions:
+          $ref: "#/components/schemas/javaOptions"
+        csharpOptions:
+          $ref: "#/components/schemas/csharpOptions"
+        rubyOptions:
+          $ref: "#/components/schemas/rubyOptions"
+        phpOptions:
+          $ref: "#/components/schemas/phpOptions"
+        kotlinOptions:
+          $ref: "#/components/schemas/kotlinOptions"
+        rustOptions:
+          $ref: "#/components/schemas/rustOptions"
+        cliOptions:
+          $ref: "#/components/schemas/cliOptions"
+    sdkDownload:
+      type: object
+      required:
+        - id
+        - language
+        - url
+        - expiresAt
+      properties:
+        id:
+          $ref: "#/components/schemas/sdkId"
+        language:
+          $ref: "#/components/schemas/sdkLanguage"
+        url:
+          type: string
+          format: uri
+          description: A short-lived signed URL to the generated SDK archive (zip).
+          example: https://sdk-gen-artifacts.s3.amazonaws.com/...signed...
+        expiresAt:
+          type: string
+          format: date-time
+          description: The date and time at which the signed URL expires.
+          example: 2026-05-30T10:21:14Z
+    sdkGitConnectionStatus:
+      type: string
+      description: >
+        The lifecycle status of the Git connection:
+
+        - `active` — The connection is live and all opened pull requests ship
+        SDK updates into the repository.
+
+        - `disconnected` — The connection was explicitly disconnected by the
+        owner, and no pull requests can be opened. The historical record is
+        preserved.
+
+        - `inaccessible` — Access to the repository was revoked or its no longer
+        reachable.
+      enum:
+        - active
+        - disconnected
+        - inaccessible
+      example: active
+    sdkGitConnectionRepositoryUrl:
+      type: string
+      format: uri
+      description: Filter results by the canonical URL of the target Git repository.
+      example: https://git.example.com/engineering/engineering-sdk
+    sdkGitConnectionId:
+      type: string
+      description: The Git connection's ID.
+      example: 8d4f7c1a-2b3e-4f5a-9c8d-1a2b3c4d5e6f
+    autoUpdatePullRequestsEnabled:
+      type: boolean
+      description: >
+        If true, pull requests are opened automatically whenever the source
+        changes or a new version of the SDK generator is released. If false,
+        pull requests are opened automatically, but only for manually-triggered
+        SDK regeneration. If `autoUpdatePullRequestsEnabled` isn't set, the
+        default behavior depends on the user's Postman plan:
+
+
+        - **Enterprise** plan users — Defaults to the `true` value.
+
+        - **Team** plan users and read only — Defaults to the `false` value.
+      example: true
+    sdkGitConnection:
+      type: object
+      description: Information about the SDK's Git connection to a Postman element.
+      required:
+        - sdkGitConnectionId
+        - source
+        - language
+        - status
+        - repositoryUrl
+        - targetBranch
+        - autoUpdatePullRequestsEnabled
+        - pullRequests
+        - createdAt
+        - updatedAt
+      properties:
+        sdkGitConnectionId:
+          $ref: "#/components/schemas/sdkGitConnectionId"
+        source:
+          $ref: "#/components/schemas/sdkSource"
+        language:
+          $ref: "#/components/schemas/sdkLanguage"
+        status:
+          $ref: "#/components/schemas/sdkGitConnectionStatus"
+        repositoryUrl:
+          type: string
+          format: uri
+          description: The canonical URL of the target Git repository.
+          example: https://git.example.com/engineering/engineering-sdk
+        targetBranch:
+          type: string
+          default: main
+          description: The branch the SDK is published to. This defaults to the `main`
+            value.
+          example: main
+        autoUpdatePullRequestsEnabled:
+          $ref: "#/components/schemas/autoUpdatePullRequestsEnabled"
+        sdk:
+          $ref: "#/components/schemas/sdk"
+        pullRequests:
+          type: array
+          description: A list of SDK update pull requests on the Git connection, in order
+            of newest first by its `updatedAt` property. This returns an empty
+            value if no pull requests have been opened yet. For full pull
+            request details, use the GET
+            `/sdk-git-connections/{sdkGitConnectionId}/pull-requests` endpoint.
+          items:
+            $ref: "#/components/schemas/simpleSdkGitConnectionPullRequest"
+        createdAt:
+          type: string
+          format: date-time
+          description: The date and time at which the Git connection was created.
+          example: 2026-05-30T10:21:14Z
+        updatedAt:
+          type: string
+          format: date-time
+          description: The date and time at which the Git connection was last updated.
+          example: 2026-05-30T10:21:14Z
+    sdkGitConnectionList:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          description: A list of SDK Git connections.
+          items:
+            $ref: "#/components/schemas/sdkGitConnection"
+        meta:
+          $ref: "#/components/schemas/metaNextCursorTotal"
+    createSdkGitConnection:
+      type: object
+      required:
+        - source
+        - language
+        - repositoryUrl
+      properties:
+        source:
+          $ref: "#/components/schemas/sdkSource"
+        language:
+          $ref: "#/components/schemas/sdkLanguage"
+        repositoryUrl:
+          type: string
+          format: uri
+          description: The canonical URL of the target Git repository.
+          example: https://git.example.com/acme/acme-sdk
+        targetBranch:
+          type: string
+          default: main
+          description: The branch the SDK is published to. Defaults to `main`.
+          example: main
+        autoUpdatePullRequestsEnabled:
+          $ref: "#/components/schemas/autoUpdatePullRequestsEnabled"
+    updateSdkGitConnection:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          type: string
+          description: The updated SDK Git connection lifecycle state.
+          enum:
+            - active
+            - disconnected
+          example: active
+        autoUpdatePullRequestsEnabled:
+          $ref: "#/components/schemas/autoUpdatePullRequestsEnabled"
+    sdkGitConnectionPullRequest:
+      type: object
+      description: Information about a pull request that shipped the SDK update.
+      required:
+        - number
+        - url
+        - status
+        - createdAt
+        - updatedAt
+      properties:
+        number:
+          type: integer
+          minimum: 1
+          description: The pull request's ID.
+          example: 87
+        url:
+          type: string
+          format: uri
+          description: The pull request's URL.
+          example: https://git.example.com/engineering/engineering-sdk/pull/87
+        status:
+          $ref: "#/components/schemas/sdkGitConnectionPRStatus"
+        sdk:
+          $ref: "#/components/schemas/sdk"
+        createdAt:
+          type: string
+          format: date-time
+          description: The date and time at which the pull request was created.
+          example: 2026-05-30T10:21:14Z
+        updatedAt:
+          type: string
+          format: date-time
+          description: The date and time at which the pull request was last updated.
+          example: 2026-05-30T10:21:14Z
+    sdkGitConnectionPullRequestList:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          description: A list of SDK update pull requests on the Git connection.
+          items:
+            $ref: "#/components/schemas/sdkGitConnectionPullRequest"
+        meta:
+          $ref: "#/components/schemas/metaNextCursorTotal"
+    limitDefault10Max25:
+      type: integer
+      default: 10
+      minimum: 1
+      maximum: 25
+    searchFilterPrivateApiNetwork:
+      type: object
+      description: Filters by private API network membership. Supported for all
+        element types.
+      properties:
+        $eq:
+          type: boolean
+          description: If true, return only resources that are part of the Private API
+            Network.
+          example: true
+        $ne:
+          type: boolean
+          description: If true, exclude resources that are part of the Private API Network.
+          example: true
+    searchFilterPublisherIsVerified:
+      type: object
+      description: Filters by publisher verification status. Supported for all element
+        types.
+      properties:
+        $eq:
+          type: boolean
+          description: If true, return only results from verified publishers.
+          example: true
+        $ne:
+          type: boolean
+          description: If true, exclude results from verified publishers.
+          example: true
+    searchFilterVisibility:
+      type: object
+      description: >
+        Filters by workspace visibility. Supported for all element types. One
+        of:
+
+        - `internal` — Only visible to the organization's team members.
+
+        - `public` — Visible to all Postman users.
+
+        - `partner` — Visible to assigned external partner users.
+      properties:
+        $eq:
+          type: string
+          description: The visibility value to match.
+          enum:
+            - internal
+            - public
+            - partner
+          example: internal
+        $ne:
+          type: string
+          description: The visibility value to exclude.
+          enum:
+            - internal
+            - public
+            - partner
+          example: internal
+    searchFilterWorkspaceId:
+      type: object
+      description: Filters by workspace ID. Supported for all element types.
+      properties:
+        $eq:
+          type: string
+          description: The workspace ID to match.
+          example: 1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
+        $ne:
+          type: string
+          description: The workspace ID to exclude.
+          example: 1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
+        $in:
+          type: array
+          description: A list of workspace IDs to match.
+          items:
+            $ref: "#/components/schemas/workspaceId"
+        $nin:
+          type: array
+          description: A list of workspace IDs to exclude.
+          items:
+            $ref: "#/components/schemas/workspaceId"
+    searchFilterCollectionId:
+      type: object
+      description: Filters by collection ID. Supported for `requests` and
+        `collections` only.
+      properties:
+        $eq:
+          type: string
+          description: The collection ID to match.
+          example: 12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2
+        $ne:
+          type: string
+          description: The collection ID to exclude.
+          example: 12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2
+        $in:
+          type: array
+          description: A list of collection IDs to match.
+          items:
+            $ref: "#/components/schemas/collectionUid"
+        $nin:
+          type: array
+          description: A list of collection IDs to exclude.
+          items:
+            $ref: "#/components/schemas/collectionUid"
+    tagName:
+      type: string
+      example: FEATURE
+    searchFilterTags:
+      type: object
+      description: Filters by tags. Supported for `workspaces` and `collections`.
+      properties:
+        $eq:
+          type: string
+          description: The tag to match.
+          example: FEATURE
+        $ne:
+          type: string
+          description: The tag to exclude.
+          example: FEATURE
+        $in:
+          type: array
+          description: A list of tags to match.
+          items:
+            $ref: "#/components/schemas/tagName"
+        $nin:
+          type: array
+          description: A list of tags to exclude.
+          items:
+            $ref: "#/components/schemas/tagName"
+    httpMethod:
+      type: string
+      example: POST
+    searchFilterRequestHttpMethod:
+      type: object
+      description: Filters by HTTP method (for example, `GET` or `POST`). Supported
+        for `requests` only.
+      properties:
+        $eq:
+          type: string
+          description: The HTTP method to match.
+          example: POST
+        $ne:
+          type: string
+          description: The HTTP method to exclude.
+          example: POST
+        $in:
+          type: array
+          description: A list of HTTP methods to match.
+          items:
+            $ref: "#/components/schemas/httpMethod"
+        $nin:
+          type: array
+          description: A list of HTTP methods to exclude.
+          items:
+            $ref: "#/components/schemas/httpMethod"
+    searchFilterRequestId:
+      type: object
+      description: Filters by request ID. Supported for `requests` only.
+      properties:
+        $eq:
+          type: string
+          description: The request ID to match.
+          example: c82dd02c-4870-4907-8fcb-593a876cf05b
+        $ne:
+          type: string
+          description: The request ID to exclude.
+          example: c82dd02c-4870-4907-8fcb-593a876cf05b
+        $in:
+          type: array
+          description: A list of request IDs to match.
+          items:
+            $ref: "#/components/schemas/collectionRequestId"
+        $nin:
+          type: array
+          description: A list of request IDs to exclude.
+          items:
+            $ref: "#/components/schemas/collectionRequestId"
+    searchFilterSpecId:
+      type: object
+      description: Filters by specification ID. Supported for `specs` only.
+      properties:
+        $eq:
+          type: string
+          description: The specification ID to match.
+          example: 73e15000-bc7a-4802-b80e-05fff18fd7f8
+        $ne:
+          type: string
+          description: The specification ID to exclude.
+          example: 73e15000-bc7a-4802-b80e-05fff18fd7f8
+        $in:
+          type: array
+          description: A list of specification IDs to match.
+          items:
+            $ref: "#/components/schemas/specId"
+        $nin:
+          type: array
+          description: A list of specification IDs to exclude.
+          items:
+            $ref: "#/components/schemas/specId"
+    flowId:
+      type: string
+      example: 66e05eb68905ca003d6f57d4
+    searchFilterFlowId:
+      type: object
+      description: Filters by flow ID. Supported for `flows` only.
+      properties:
+        $eq:
+          type: string
+          description: The flow ID to match.
+          example: 66e05eb68905ca003d6f57d4
+        $ne:
+          type: string
+          description: The flow ID to exclude.
+          example: 66e05eb68905ca003d6f57d4
+        $in:
+          type: array
+          description: A list of flow IDs to match.
+          items:
+            $ref: "#/components/schemas/flowId"
+        $nin:
+          type: array
+          description: A list of flow IDs to exclude.
+          items:
+            $ref: "#/components/schemas/flowId"
+    searchFilterEnvironmentId:
+      type: object
+      description: Filters by environment ID. Supported for `environments` only.
+      properties:
+        $eq:
+          type: string
+          description: The environment ID to match.
+          example: 5daabc50-8451-43f6-922d-96b403b4f28e
+        $ne:
+          type: string
+          description: The environment ID to exclude.
+          example: 5daabc50-8451-43f6-922d-96b403b4f28e
+        $in:
+          type: array
+          description: A list of environment IDs to match.
+          items:
+            $ref: "#/components/schemas/environmentId"
+        $nin:
+          type: array
+          description: A list of environment IDs to exclude.
+          items:
+            $ref: "#/components/schemas/environmentId"
+    createdByString:
+      type: string
+      example: "12345678"
+    searchFilterCreatedBy:
+      type: object
+      description: Filters by the resource creator's user ID. Supported for all
+        element types.
+      properties:
+        $eq:
+          type: string
+          description: The creator ID to match.
+          example: "12345678"
+        $ne:
+          type: string
+          description: The creator ID to exclude.
+          example: "12345678"
+        $in:
+          type: array
+          description: A list of creator IDs to match.
+          items:
+            $ref: "#/components/schemas/createdByString"
+        $nin:
+          type: array
+          description: A list of creator IDs to exclude.
+          items:
+            $ref: "#/components/schemas/createdByString"
+    organizationIdString:
+      type: string
+      example: "1"
+    searchFilterOrgId:
+      type: object
+      description: Filters by organization ID. Supported for all element types.
+      properties:
+        $eq:
+          type: string
+          description: The organization ID to match.
+          example: "1"
+        $ne:
+          type: string
+          description: The organization ID to exclude.
+          example: "1"
+        $in:
+          type: array
+          description: A list of organization IDs to match.
+          items:
+            $ref: "#/components/schemas/organizationIdString"
+        $nin:
+          type: array
+          description: A list of organization IDs to exclude.
+          items:
+            $ref: "#/components/schemas/organizationIdString"
+    teamIdString:
+      type: string
+      example: "123"
+    searchFilterTeamId:
+      type: object
+      description: Filters by team ID. Supported for all element types.
+      properties:
+        $eq:
+          type: string
+          description: The team ID to match.
+          example: "123"
+        $ne:
+          type: string
+          description: The team ID to exclude.
+          example: "123"
+        $in:
+          type: array
+          description: A list of team IDs to match.
+          items:
+            $ref: "#/components/schemas/teamIdString"
+        $nin:
+          type: array
+          description: A list of team IDs to exclude.
+          items:
+            $ref: "#/components/schemas/teamIdString"
+    searchFilterGitConnected:
+      type: object
+      description: Filters by Git connection status. Supported for `workspaces`,
+        `collections`, `requests`, `environments`, `specs`, and `flows`.
+      properties:
+        $eq:
+          type: boolean
+          description: If true, return only resources connected to Git.
+          example: true
+        $ne:
+          type: boolean
+          description: If true, exclude resources connected to Git.
+          example: true
+    collectionRequestResourceType:
+      type: string
+      example: http
+    searchFilterRequestResourceType:
+      type: object
+      description: Filters by resource type variant (for example, `http` or `grpc`).
+        Supported for `requests` only.
+      properties:
+        $eq:
+          type: string
+          description: The resource type to match.
+          example: http
+        $ne:
+          type: string
+          description: The resource type to exclude.
+          example: http
+        $in:
+          type: array
+          description: A list of resource types to match.
+          items:
+            $ref: "#/components/schemas/collectionRequestResourceType"
+        $nin:
+          type: array
+          description: A list of resource types to exclude.
+          items:
+            $ref: "#/components/schemas/collectionRequestResourceType"
+    searchFilters:
+      type: object
+      minProperties: 1
+      maxProperties: 1
+      description: A single filter condition.
+      properties:
+        privateNetwork:
+          $ref: "#/components/schemas/searchFilterPrivateApiNetwork"
+        publisherIsVerified:
+          $ref: "#/components/schemas/searchFilterPublisherIsVerified"
+        visibility:
+          $ref: "#/components/schemas/searchFilterVisibility"
+        workspaceId:
+          $ref: "#/components/schemas/searchFilterWorkspaceId"
+        collectionId:
+          $ref: "#/components/schemas/searchFilterCollectionId"
+        tags:
+          $ref: "#/components/schemas/searchFilterTags"
+        method:
+          $ref: "#/components/schemas/searchFilterRequestHttpMethod"
+        requestId:
+          $ref: "#/components/schemas/searchFilterRequestId"
+        specificationId:
+          $ref: "#/components/schemas/searchFilterSpecId"
+        flowId:
+          $ref: "#/components/schemas/searchFilterFlowId"
+        environmentId:
+          $ref: "#/components/schemas/searchFilterEnvironmentId"
+        createdBy:
+          $ref: "#/components/schemas/searchFilterCreatedBy"
+        organizationId:
+          $ref: "#/components/schemas/searchFilterOrgId"
+        teamId:
+          $ref: "#/components/schemas/searchFilterTeamId"
+        isGitConnected:
+          $ref: "#/components/schemas/searchFilterGitConnected"
+        type:
+          $ref: "#/components/schemas/searchFilterRequestResourceType"
+    searchFilterAndOperation:
+      type: array
+      description: A list of filter conditions that must all be true. Each item must
+        contain exactly one filter.
+      items:
+        $ref: "#/components/schemas/searchFilters"
+    searchPostmanResources:
+      type: object
+      required:
+        - elementType
+      properties:
+        q:
+          type: string
+          description: The search query text. This is case-insensitive.
+          example: postman
+        elementType:
+          type: string
+          description: The type of Postman resource to search for.
+          enum:
+            - requests
+            - collections
+            - workspaces
+            - environments
+            - flows
+            - specs
+          example: requests
+        ownership:
+          type: string
+          default: organization
+          description: |
+            The ownership scope for search results. One of:
+            - `organization` (default) — Resources owned by the user's team.
+            - `external` — Resources not owned by the user's team.
+            - `all` — All resources regardless of ownership.
+          enum:
+            - organization
+            - external
+            - all
+          example: organization
+        filters:
+          type: object
+          description: The search filters to narrow results.
+          required:
+            - $and
+          properties:
+            $and:
+              $ref: "#/components/schemas/searchFilterAndOperation"
+    searchMetaData:
+      type: object
+      description: Pagination metadata for the search results.
+      properties:
+        nextCursor:
+          type: string
+          description: The pagination cursor that points to the next record in the results
+            set.
+          example: eyJsaW1pdCI6MTAsImZyb20iOjEwfQ==
+        q:
+          type: string
+          description: The search query text.
+          example: How to create a DB in notion?
+        total:
+          type: integer
+          description: The number of records found.
+          example: 2
+    searchResourceTeamData:
+      type: object
+      nullable: true
+      description: Information about the team associated with the resource. This
+        returns a null value for the `user` publisher type.
+      properties:
+        id:
+          type: string
+          nullable: true
+          description: The team's ID.
+          example: "123"
+        name:
+          type: string
+          nullable: true
+          description: The team's name.
+          example: API Testing Team
+    searchRequestsCollectionData:
+      type: object
+      description: Information about the collection containing the resource. Returns
+        only for requests.
+      properties:
+        id:
+          type: string
+          description: The collection's ID.
+          example: 12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2
+        name:
+          type: string
+          description: The collection's name.
+          example: API Testing Collection
+    searchResourceWorkspacesData:
+      type: object
+      description: Information about the workspace containing the resource.
+      properties:
+        id:
+          type: string
+          description: The workspace's ID.
+          example: 1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
+        name:
+          type: string
+          description: The workspace's name.
+          example: API Testing
+    searchResourceOrganizationData:
+      type: object
+      nullable: true
+      description: Information about the organization that published the resource.
+        This returns a null value for the `user` publisher type.
+      properties:
+        id:
+          type: string
+          nullable: true
+          description: The organization's ID.
+          example: "1"
+        name:
+          type: string
+          nullable: true
+          description: The organization's name.
+          example: API Engineering Org
+        isVerified:
+          type: boolean
+          description: If true, the organization is verified by Postman.
+          example: false
+    searchResourceWebData:
+      type: object
+      description: The link to view the resource in the Postman web app.
+      properties:
+        href:
+          type: string
+          format: uri
+          description: The URL to view the resource in the Postman web app.
+          example: https://go.postman.co/request/12345678-b4c5d6e7-f8a9-0123-bcde-456789012345
+    searchResourceLinksSelfData:
+      type: object
+      description: The link to the resource through the Postman API.
+      properties:
+        href:
+          type: string
+          format: uri
+          description: The URL to access the resource through the Postman API.
+          example: https://api.postman.com/collections/12345678-33445566-1122-3344-5566-778899001122/requests/12345678-b4c5d6e7-f8a9-0123-bcde-456789012345
+    searchResourceLinksData:
+      type: object
+      description: Information about the resource's hypermedia links.
+      properties:
+        web:
+          $ref: "#/components/schemas/searchResourceWebData"
+        self:
+          $ref: "#/components/schemas/searchResourceLinksSelfData"
+    searchPostmanResourcesResponseData:
+      type: object
+      description: Information about the Postman resource.
+      properties:
+        id:
+          type: string
+          description: The resource's ID.
+          example: 12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2
+        name:
+          type: string
+          description: The resource's name.
+          example: Get Team Members
+        method:
+          type: string
+          description: The request's HTTP method. Returns only for requests.
+          example: GET
+        type:
+          type: string
+          description: The resource type variant, such as HTTP or gRPC. Returns only for
+            requests.
+          example: http
+        description:
+          type: string
+          description: A brief description of the resource, if available.
+          example: Retrieve all team members
+        summary:
+          type: string
+          description: A brief summary of the resource, if available. Returns only for
+            workspaces and collections.
+          example: A collection of requests to manage team members
+        url:
+          type: string
+          format: uri
+          description: The request URL of the resource. Returns only for requests.
+          example: https://postman-echo.com/get?team=alpha
+        tags:
+          type: array
+          description: A list of tags associated with the resource. Returns only for
+            workspaces and collections.
+          items:
+            $ref: "#/components/schemas/tagName"
+        specificationId:
+          type: string
+          description: The specification's ID. Returns only for specifications.
+          example: 73e15000-bc7a-4802-b80e-05fff18fd7f8
+        specificationType:
+          type: string
+          description: The specification's type. Returns only for specifications.
+          example: OPENAPI:3.0
+        specificationName:
+          type: string
+          description: The specification's name. Returns only for specifications.
+          example: Test API
+        isPrivateNetworkEntity:
+          type: boolean
+          description: Whether the resource is part of a private API network.
+          example: false
+        createdBy:
+          type: string
+          description: The ID of the user who created the resource.
+          example: "12345678"
+        team:
+          $ref: "#/components/schemas/searchResourceTeamData"
+        isGitConnected:
+          type: boolean
+          description: If true, the resource is connected to Git. Returns only for
+            workspaces, collections, requests, specifications, and flows.
+          example: false
+        collection:
+          $ref: "#/components/schemas/searchRequestsCollectionData"
+        workspace:
+          $ref: "#/components/schemas/searchResourceWorkspacesData"
+        organization:
+          $ref: "#/components/schemas/searchResourceOrganizationData"
+        links:
+          $ref: "#/components/schemas/searchResourceLinksData"
+    searchPostmanResourcesResponse:
+      type: object
+      properties:
+        meta:
+          $ref: "#/components/schemas/searchMetaData"
+        data:
+          type: array
+          description: A list of Postman elements that match the search query and filters.
+          items:
+            $ref: "#/components/schemas/searchPostmanResourcesResponseData"
     serviceAccountApiKey:
       type: string
       example: PMAK-xxxx-xxxx-xxxx-xxxx
@@ -21054,8 +22776,7 @@ components:
           example: Sample API
     apiSpecSyncOptions:
       type: object
-      required:
-        - syncOptions
+      minProperties: 1
       properties:
         syncOptions:
           type: object
@@ -21063,8 +22784,15 @@ components:
           properties:
             syncExamples:
               type: boolean
+              default: true
               description: If true, updates made to examples in the specification or to
                 example values in the generated collection stay synchronized.
+              example: true
+            deleteOrphanedRequests:
+              type: boolean
+              default: true
+              description: If true, deletes requests and endpoints that no longer exist in the
+                source during sync.
               example: true
     specFileData:
       title: Spec File Information
@@ -22514,7 +24242,7 @@ components:
             webhookUrl:
               type: string
               description: The webhook's URL.
-              example: https://newman-api.getpostman.com/run/12345678/267a6e99-b6da-407c-a96f-03be2d6282fb
+              example: https://newman-api.postman.com/run/12345678/267a6e99-b6da-407c-a96f-03be2d6282fb
             uid:
               type: string
               format: uid
@@ -23074,7 +24802,7 @@ components:
       type: integer
       nullable: true
       example: 12345678
-    elementType-2:
+    elementType-3:
       type: string
       nullable: true
       enum:
@@ -23746,6 +25474,12 @@ components:
         error:
           name: AuthenticationError
           message: Invalid API Key. Every request requires a valid API Key to be sent.
+    common401ErrorInvalidApiKey:
+      value:
+        type: https://api.postman.com/problems/unauthorized
+        title: Unauthorized
+        status: 401
+        detail: A valid API key must be provided in the request header.
     common401ErrorMissingApiKey:
       value:
         type: https://api.postman.com/problems/unauthorized
@@ -24041,13 +25775,32 @@ components:
                 - metric: members
                   description: Detailed team member list including profile, role and invitation
                     metadata.
+                - metric: members_overtime
+                  description: Monthly trend of the total team member count over the selected
+                    duration. Useful for tracking team growth or contraction
+                    over time.
+                - metric: member_invites
+                  description: Monthly trend of team member invites, showing how many invites were
+                    sent and accepted each month over the selected duration.
+                - metric: invites_sent
+                  description: Detailed list of member invites sent. Pair with
+                    `filter[period]=YYYY-MM` for a specific month or
+                    `filter[period]=YYYY-MM-DD` for a specific day; when
+                    omitted, all invites for the team are returned (subject to
+                    pagination).
+                - metric: invites_accepted
+                  description: Detailed list of member invites accepted. Pair with
+                    `filter[period]=YYYY-MM` for a specific month or
+                    `filter[period]=YYYY-MM-DD` for a specific day; when
+                    omitted, all accepted invites for the team are returned
+                    (subject to pagination).
                 - metric: last_autoflex_cycle
                   description: Detailed team members captured in the most recent AutoFlex billing
                     cycle.
                 - metric: partner_engagement_funnel
                   description: Partner engagement funnel, providing insights into partner
                     activation and onboarding. Helps organizations measure the
-                    effectiveness of  their partner programs and identify
+                    effectiveness of their partner programs and identify
                     engagement opportunities.
               resource: team
               description: Team-level metrics and insights on team activity, license
@@ -26378,6 +28131,12 @@ components:
         title: Forbidden
         detail: You are not authorized to perform this action.
         status: 403
+    common403ErrorNoAccessToResource:
+      value:
+        type: https://api.postman.com/problems/forbidden
+        title: Forbidden
+        status: 403
+        detail: You do not have access to the requested resource.
     common403ErrorPermissionDenied:
       value:
         type: https://api.postman.com/problems/forbidden
@@ -26528,8 +28287,8 @@ components:
                 - originalRequest:
                     url:
                       host:
-                        - https://api.getpostman.com
-                      raw: https://api.getpostman.com/spacecrafts/:spacecraftId
+                        - https://api.postman.com
+                      raw: https://api.postman.com/spacecrafts/:spacecraftId
                       variable:
                         - description: (Required) The unique identifier of the spacecraft
                           key: spacecraftId
@@ -26563,8 +28322,8 @@ components:
                 - originalRequest:
                     url:
                       host:
-                        - https://api.getpostman.com
-                      raw: https://api.getpostman.com/spacecrafts/:spacecraftId
+                        - https://api.postman.com
+                      raw: https://api.postman.com/spacecrafts/:spacecraftId
                       variable:
                         - description: (Required) The unique identifier of the spacecraft
                           key: spacecraftId
@@ -26595,8 +28354,8 @@ components:
                 - originalRequest:
                     url:
                       host:
-                        - https://api.getpostman.com
-                      raw: https://api.getpostman.com/spacecrafts/:spacecraftId
+                        - https://api.postman.com
+                      raw: https://api.postman.com/spacecrafts/:spacecraftId
                       variable:
                         - description: (Required) The unique identifier of the spacecraft
                           key: spacecraftId
@@ -26628,8 +28387,8 @@ components:
               request:
                 url:
                   host:
-                    - https://api.getpostman.com
-                  raw: https://api.getpostman.com/spacecrafts/:spacecraftId
+                    - https://api.postman.com
+                  raw: https://api.postman.com/spacecrafts/:spacecraftId
                   variable:
                     - description: (Required) The unique identifier of the spacecraft
                       key: spacecraftId
@@ -26654,7 +28413,7 @@ components:
           info:
             description: Buy or rent spacecrafts
             _postman_id: e726de58-f1b3-4edd-a8a7-2579dc799d39
-            schema: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+            schema: https://schema.postman.com/json/collection/v2.1.0/collection.json
             name: Generated
           variable:
             - value: /
@@ -26673,8 +28432,8 @@ components:
               - originalRequest:
                   url:
                     host:
-                      - https://api.getpostman.com
-                    raw: https://api.getpostman.com/spacecrafts/:spacecraftId
+                      - https://api.postman.com
+                    raw: https://api.postman.com/spacecrafts/:spacecraftId
                     variable:
                       - description: (Required) The unique identifier of the spacecraft
                         key: spacecraftId
@@ -26708,8 +28467,8 @@ components:
               - originalRequest:
                   url:
                     host:
-                      - https://api.getpostman.com
-                    raw: https://api.getpostman.com/spacecrafts/:spacecraftId
+                      - https://api.postman.com
+                    raw: https://api.postman.com/spacecrafts/:spacecraftId
                     variable:
                       - description: (Required) The unique identifier of the spacecraft
                         key: spacecraftId
@@ -26740,8 +28499,8 @@ components:
               - originalRequest:
                   url:
                     host:
-                      - https://api.getpostman.com
-                    raw: https://api.getpostman.com/spacecrafts/:spacecraftId
+                      - https://api.postman.com
+                    raw: https://api.postman.com/spacecrafts/:spacecraftId
                     variable:
                       - description: (Required) The unique identifier of the spacecraft
                         key: spacecraftId
@@ -26773,8 +28532,8 @@ components:
             request:
               url:
                 host:
-                  - https://api.getpostman.com
-                raw: https://api.getpostman.com/spacecrafts/:spacecraftId
+                  - https://api.postman.com
+                raw: https://api.postman.com/spacecrafts/:spacecraftId
                 variable:
                   - description: (Required) The unique identifier of the spacecraft
                     key: spacecraftId
@@ -26799,7 +28558,7 @@ components:
         info:
           description: Buy or rent spacecrafts
           _postman_id: e726de58-f1b3-4edd-a8a7-2579dc799d39
-          schema: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+          schema: https://schema.postman.com/json/collection/v2.1.0/collection.json
           name: Generated
         variable:
           - value: /
@@ -27909,7 +29668,7 @@ components:
       value:
         id: 66ae9950-0869-4e65-96b0-1e0e47e771af
         meta:
-          url: https://api.getpostman.com/apis/5360b75f-447e-467c-9299-12fd6c92450d/collections/e726de58-f1b3-4edd-a8a7-2579dc799d39/sync
+          url: https://api.postman.com/apis/5360b75f-447e-467c-9299-12fd6c92450d/collections/e726de58-f1b3-4edd-a8a7-2579dc799d39/sync
           model: collection
           action: update
         status: failed
@@ -28270,7 +30029,7 @@ components:
             name: Test Collection
             description: This collection makes a request to the Postman Echo service to get
               a list of request headers sent by an HTTP client.
-            schema: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+            schema: https://schema.postman.com/json/collection/v2.1.0/collection.json
           variable:
             - key: userId
               value: "12345678"
@@ -28288,7 +30047,7 @@ components:
                       - "});"
                     type: text/javascript
               request:
-                url: https://echo.getpostman.com/headers
+                url: https://echo.postman.com/headers
                 method: GET
                 header:
                   - key: Content-Type
@@ -28365,7 +30124,7 @@ components:
             _postman_id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
             name: Test Collection
             description: This is a test.
-            schema: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+            schema: https://schema.postman.com/json/collection/v2.1.0/collection.json
             updatedAt: 2023-10-09T18:34:58.000Z
             createdAt: 2023-10-09T18:34:58.000Z
             lastUpdatedBy: "12345678"
@@ -28625,11 +30384,11 @@ components:
                         raw:
                           language: json
                     url:
-                      raw: http://api.getpostman.com/v1/request?id=12345678
+                      raw: http://api.postman.com/v1/request?id=12345678
                       protocol: http
                       host:
                         - api
-                        - getpostman
+                        - postman
                         - com
                       path:
                         - v1
@@ -28730,11 +30489,11 @@ components:
                             raw:
                               language: json
                         url:
-                          raw: http://api.getpostman.com/v1/request?id=test-api
+                          raw: http://api.postman.com/v1/request?id=test-api
                           protocol: http
                           host:
                             - api
-                            - getpostman
+                            - postman
                             - com
                           path:
                             - v1
@@ -28783,11 +30542,11 @@ components:
                         raw:
                           language: json
                     url:
-                      raw: http://api.getpostman.com/v1/request
+                      raw: http://api.postman.com/v1/request
                       protocol: http
                       host:
                         - api
-                        - getpostman
+                        - postman
                         - com
                       path:
                         - v1
@@ -28813,11 +30572,11 @@ components:
                             raw:
                               language: json
                         url:
-                          raw: http://api.getpostman.com/v1/request
+                          raw: http://api.postman.com/v1/request
                           protocol: http
                           host:
                             - api
-                            - getpostman
+                            - postman
                             - com
                           path:
                             - v1
@@ -29039,11 +30798,11 @@ components:
                     method: GET
                     header: []
                     url:
-                      raw: http://api.getpostman.com/v1/request
+                      raw: http://api.postman.com/v1/request
                       protocol: http
                       host:
                         - api
-                        - getpostman
+                        - postman
                         - com
                       path:
                         - v1
@@ -29192,7 +30951,7 @@ components:
               label: Collection fork
               createdAt: 2024-07-17T13:12:43.000Z
               from: 87654321-c8142d52-f97d-46a7-bc77-52bb99713o1n
-            schema: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+            schema: https://schema.postman.com/json/collection/v2.1.0/collection.json
             updatedAt: 2023-10-13T08:14:22.000Z
             createdAt: 2023-10-08T13:04:28.000Z
             uid: 12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2
@@ -29226,7 +30985,7 @@ components:
           info:
             name: Test User Collection
             description: This is a basic test user collection.
-            schema: https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+            schema: https://schema.postman.com/json/collection/v2.1.0/collection.json
           item:
             - name: Get a user
               event:
@@ -29263,11 +31022,11 @@ components:
                 method: GET
                 header: []
                 url:
-                  raw: http://api.getpostman.com/v1/:userId
+                  raw: http://api.postman.com/v1/:userId
                   protocol: http
                   host:
                     - api
-                    - getpostman
+                    - postman
                     - com
                   path:
                     - v1
@@ -29284,11 +31043,11 @@ components:
                     method: GET
                     header: []
                     url:
-                      raw: http://api.getpostman.com/v1/:userId
+                      raw: http://api.postman.com/v1/:userId
                       protocol: http
                       host:
                         - api
-                        - getpostman
+                        - postman
                         - com
                       path:
                         - v1
@@ -29322,11 +31081,11 @@ components:
                 method: DELETE
                 header: []
                 url:
-                  raw: http://api.getpostman.com/v1/:userId
+                  raw: http://api.postman.com/v1/:userId
                   protocol: http
                   host:
                     - api
-                    - getpostman
+                    - postman
                     - com
                   path:
                     - v1
@@ -29343,11 +31102,11 @@ components:
                     method: DELETE
                     header: []
                     url:
-                      raw: http://api.getpostman.com/v1/:userId
+                      raw: http://api.postman.com/v1/:userId
                       protocol: http
                       host:
                         - api
-                        - getpostman
+                        - postman
                         - com
                       path:
                         - v1
@@ -29499,7 +31258,7 @@ components:
         collection:
           variable:
             - key: userId
-              value: 12345678
+              value: "12345678"
               disabled: true
               description: The user's ID.
             - enabled: true
@@ -29753,7 +31512,7 @@ components:
           highlight: EF5B25
           rightSidebar: "303030"
           topBar: FFFFFF
-        publicUrl: https://documenter.getpostman-beta.com/view/12345678/6n31uVF
+        publicUrl: https://documenter.postman.com/view/12345678/6n31uVF
         id: 6n31uVF
         collectionId: ea39a259-0c9b-4a5c-a2e6-bddadb8f8e6f
     documentation400ErrorBadRequest:
@@ -30351,7 +32110,7 @@ components:
             }
           language: json
           rawDataType: null
-          requestObject: '{"data":null,"dataMode":"raw","dataOptions":{"raw":{"language":"json"}},"headerData":[{"key":"Accept","value":"application/vnd.example.v1+json","description":"","type":"text","enabled":true}],"method":"GET","pathVariableData":[],"queryParams":[{"key":"id","value":"test-api","equals":true,"description":null,"enabled":true}],"url":"http://api.getpostman.com/v1/request?id=test-api","headers":"Accept:
+          requestObject: '{"data":null,"dataMode":"raw","dataOptions":{"raw":{"language":"json"}},"headerData":[{"key":"Accept","value":"application/vnd.example.v1+json","description":"","type":"text","enabled":true}],"method":"GET","pathVariableData":[],"queryParams":[{"key":"id","value":"test-api","equals":true,"description":null,"enabled":true}],"url":"http://api.postman.com/v1/request?id=test-api","headers":"Accept:
             application/vnd.example.v1+json\n","pathVariables":{},"protocolProfileBehavior":{"disableBodyPruning":true},"rawModeData":"","graphqlModeData":{}}'
           createdAt: 2023-09-07T14:39:52.000Z
           updatedAt: 2023-09-07T14:41:08.000Z
@@ -30809,6 +32568,12 @@ components:
         title: Not Found
         status: 404
         detail: The requested resource was not found.
+    common404ErrorResourceDoesNotExist:
+      value:
+        type: https://api.postman.com/problems/not-found
+        title: Not Found
+        status: 404
+        detail: The requested resource does not exist.
     getCollectionUpdatesTasks:
       value:
         id: 66ae9950-0869-4e65-96b0-1e0e47e771af
@@ -32093,11 +33858,11 @@ components:
             email: alex.cruz@example.com
           - status: ALREADY_INVITED
             email: mike.brown@xample.com
-            invitationLink: https://go.getpostman.com/invite-signup?invite_code=XXX
+            invitationLink: https://go.postman.com/invite-signup?invite_code=XXX
             message: Pending invite exists
           - status: EMAIL_SENT
             email: sara.smith@example.com
-            invitationLink: https://go.getpostman.com/invite-signup?invite_code=XXX
+            invitationLink: https://go.postman.com/invite-signup?invite_code=XXX
     managePartnerWorkspaceInvitesInvitePartnerPartialSuccessResponse:
       value:
         action: invite_partner
@@ -32112,7 +33877,7 @@ components:
             email: alex.cruz@example.com
           - status: ALREADY_INVITED
             email: mike.brown@xample.com
-            invitationLink: https://go.getpostman.com/invite-signup?invite_code=XXX
+            invitationLink: https://go.postman.com/invite-signup?invite_code=XXX
             message: Pending invite exists
           - email: sara.smith@example.com
             status: FAILED
@@ -32889,14 +34654,14 @@ components:
                 name: Sample POST Request
               request:
                 method: POST
-                url: http://echo.getpostman.com/post
+                url: http://echo.postman.com/post
                 headers:
                   Content-Type: application/json
                   User-Agent: PostmanRuntime/7.29.0
                   Accept: "*/*"
                   Cache-Control: no-cache
                   Postman-Token: null
-                  Host: echo.getpostman.com
+                  Host: echo.postman.com
                   Accept-Encoding: gzip, deflate, br
                   Connection: keep-alive
                   Content-Length: "0"
@@ -32952,7 +34717,7 @@ components:
             name: Billing Team Workspace
             summary: The Billing team's workspace.
             description: null
-            href: https://api.getpostman.com/workspaces/1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
+            href: https://api.postman.com/workspaces/1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
           - addedAt: 2024-11-29T06:31:26.000Z
             addedBy: 12345678
             createdBy: 12345678
@@ -32965,7 +34730,7 @@ components:
             name: Test Workspace
             summary: This is a test workspace.
             description: null
-            href: https://api.getpostman.com/workspaces/41f6dc6d-d8ab-45c6-8506-74a25acf5d5f
+            href: https://api.postman.com/workspaces/41f6dc6d-d8ab-45c6-8506-74a25acf5d5f
         folders: []
         meta:
           limit: 1000
@@ -32988,7 +34753,7 @@ components:
         name: Billing Team Workspace
         summary: The Billing team's workspace.
         description: null
-        href: https://api.getpostman.com/workspaces/1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
+        href: https://api.postman.com/workspaces/1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
         parentFolderId: null
     pan404ErrorElement:
       value:
@@ -33271,6 +35036,13 @@ components:
         title: Too Many Requests
         detail: You have exceeded your request limit
         status: 429
+    common429ErrorRateLimitExceeded:
+      value:
+        type: https://api.postman.com/problems/rate-limit-exceeded
+        title: Too Many Requests
+        status: 429
+        detail: Rate limit exceeded. Retry after the period indicated by the Retry-After
+          header.
     pullRequest409ErrorConflict:
       value:
         type: https://api.postman.com/problems/conflict
@@ -33799,7 +35571,7 @@ components:
             type: oauthbearertoken
         meta:
           resourceType: ServiceProviderConfig
-          location: https://api.getpostman.com/scim/v2/ServiceProviderConfig
+          location: https://api.postman.com/scim/v2/ServiceProviderConfig
     getScimUserResources:
       value:
         schemas:
@@ -33953,6 +35725,507 @@ components:
           - op: replace
             path: userName
             value: taylor.lee@example.com
+    sdkList:
+      value:
+        data:
+          - id: 5b1c8e4a-9d10-4f7a-91d0-2c2f3a4b5c6d
+            language: typescript
+            source:
+              type: collection
+              id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+            workspaceId: 7f6c5d4e-3b2a-1234-9876-abcdef012345
+            version: 1.0.0
+            buildStatus: succeeded
+            createdAt: 2026-06-02T14:11:09Z
+            updatedAt: 2026-06-02T14:12:55Z
+        meta:
+          nextCursor: null
+          total: 1
+    sdkListFailed:
+      value:
+        data:
+          - id: 7e3a1b2c-4d5e-6f7a-8b9c-0d1e2f3a4b5c
+            language: python
+            source:
+              type: spec
+              id: 9a7b6c5d-4e3f-2a1b-0c9d-8e7f6a5b4c3d
+            workspaceId: 7f6c5d4e-3b2a-1234-9876-abcdef012345
+            buildStatus: failed
+            error:
+              code: spec_validation_failed
+              message: "OpenAPI spec failed validation: missing operationId on GET /foo"
+            createdAt: 2026-06-02T14:11:09Z
+            updatedAt: 2026-06-02T14:11:42Z
+        meta:
+          nextCursor: null
+          total: 1
+    sdkListByLanguage:
+      value:
+        data:
+          - id: 8f4b2c3d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+            language: go
+            source:
+              type: collection
+              id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+            workspaceId: 7f6c5d4e-3b2a-1234-9876-abcdef012345
+            buildStatus: in_progress
+            createdAt: 2026-06-02T15:02:00Z
+            updatedAt: 2026-06-02T15:02:05Z
+        meta:
+          nextCursor: null
+          total: 1
+    sdkListBatchPoll:
+      value:
+        data:
+          - id: 5b1c8e4a-9d10-4f7a-91d0-2c2f3a4b5c6d
+            language: typescript
+            source:
+              type: collection
+              id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+            workspaceId: 7f6c5d4e-3b2a-1234-9876-abcdef012345
+            version: 1.0.0
+            buildStatus: succeeded
+            createdAt: 2026-06-02T14:11:09Z
+            updatedAt: 2026-06-02T14:12:55Z
+          - id: 6c2d9f5b-ae21-5089-a2e1-3d3f4b5c6d7e
+            language: java
+            source:
+              type: collection
+              id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+            workspaceId: 7f6c5d4e-3b2a-1234-9876-abcdef012345
+            buildStatus: queued
+            createdAt: 2026-06-02T16:00:00Z
+            updatedAt: 2026-06-02T16:00:00Z
+        meta:
+          nextCursor: null
+          total: 2
+    sdk400ErrorInvalidListQuery:
+      value:
+        type: https://api.postman.com/problems/sdks/invalid-list-query
+        title: Invalid list query
+        status: 400
+        detail: "`cursor` is malformed or expired."
+        instance: /sdks
+        requestId: 3a51a64f-1234-4ce5-9e2a-c7d2b9a0b8f5
+    createSdkTypescript:
+      value:
+        language: typescript
+        source:
+          type: collection
+          id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        authors:
+          - name: engineering Engineering
+            email: sdk@engineering.com
+        retry:
+          maxAttempts: 5
+          retryDelay: 200
+          httpCodesToRetry:
+            - 429
+            - 503
+        typescriptOptions:
+          npmOrg: "@engineering"
+          npmName: engineering-sdk
+    createSdkPython:
+      value:
+        language: python
+        source:
+          type: collection
+          id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        pythonOptions:
+          pypiPackageName: engineering-sdk
+    createSdkGo:
+      value:
+        language: go
+        source:
+          type: spec
+          id: 9a7b6c5d-4e3f-2a1b-0c9d-8e7f6a5b4c3d
+        goOptions:
+          goModuleName: github.com/engineering/engineering-sdk
+    createSdkJava:
+      value:
+        language: java
+        source:
+          type: collection
+          id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        javaOptions:
+          groupId: com.engineering
+          artifactId: engineering-sdk
+    createSdkCsharp:
+      value:
+        language: csharp
+        source:
+          type: spec
+          id: 9a7b6c5d-4e3f-2a1b-0c9d-8e7f6a5b4c3d
+        csharpOptions:
+          packageId: engineering.Sdk
+    createSdkRuby:
+      value:
+        language: ruby
+        source:
+          type: collection
+          id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        rubyOptions:
+          gemName: engineering-sdk
+    createSdkPhp:
+      value:
+        language: php
+        source:
+          type: spec
+          id: 9a7b6c5d-4e3f-2a1b-0c9d-8e7f6a5b4c3d
+        phpOptions:
+          packageName: engineering/sdk
+    createSdkKotlin:
+      value:
+        language: kotlin
+        source:
+          type: spec
+          id: 9a7b6c5d-4e3f-2a1b-0c9d-8e7f6a5b4c3d
+        kotlinOptions:
+          groupId: com.engineering
+          artifactId: engineering-sdk
+    createSdkRust:
+      value:
+        language: rust
+        source:
+          type: collection
+          id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        rustOptions:
+          packageName: engineering-sdk
+    createSdkCli:
+      value:
+        language: cli
+        source:
+          type: collection
+          id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        cliOptions:
+          goModuleName: github.com/engineering/engineering-cli
+    sdk400ErrorInvalidCreateRequest:
+      value:
+        type: https://api.postman.com/problems/sdks/invalid-create-request
+        title: Invalid SDK creation request
+        status: 400
+        detail: "`language` must be one of: typescript, python, go, java, csharp, ruby,
+          php, kotlin, rust, cli."
+        instance: /sdks
+        requestId: 7f23c2c2-9c4f-4a5e-8a3b-d6d6f9f1b3a7
+    sdk422ErrorUnsupportedLanguageForSourceType:
+      value:
+        type: https://api.postman.com/problems/unprocessable-entity
+        title: Unprocessable Entity
+        status: 422
+        detail: The requested language is not supported for this source type.
+    sdk:
+      value:
+        id: 5b1c8e4a-9d10-4f7a-91d0-2c2f3a4b5c6d
+        language: typescript
+        source:
+          type: collection
+          id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        workspaceId: 7f6c5d4e-3b2a-1234-9876-abcdef012345
+        version: 1.0.0
+        buildStatus: succeeded
+        createdAt: 2026-06-02T14:11:09Z
+        updatedAt: 2026-06-02T14:12:55Z
+    sdk409ErrorRequestConflict:
+      value:
+        type: https://api.postman.com/problems/conflict
+        title: Conflict
+        status: 409
+        detail: The request conflicts with the current state of the resource.
+    sdkGitConnection409ErrorAlreadyConnected:
+      value:
+        type: https://api.postman.com/problems/sdk-git-connections/already-connected
+        title: Git connection already exists
+        status: 409
+        detail: A connection already exists for this source and typescript SDK. Use PUT
+          to change it.
+        instance: /sdk-git-connections
+        requestId: 3d4e5f6a-7890-4bc1-9def-0123456789ab
+    sdkDownload:
+      value:
+        id: 5b1c8e4a-9d10-4f7a-91d0-2c2f3a4b5c6d
+        language: typescript
+        url: https://sdk-gen-artifacts.s3.amazonaws.com/...signed...
+        expiresAt: 2026-06-03T17:35:00Z
+    sdkGitConnectionList:
+      value:
+        data:
+          - sdkGitConnectionId: 8d4f7c1a-2b3e-4f5a-9c8d-1a2b3c4d5e6f
+            source:
+              type: collection
+              id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+            language: typescript
+            status: active
+            repositoryUrl: https://git.example.com/engineering/engineering-sdk
+            targetBranch: main
+            autoUpdatePullRequestsEnabled: true
+            pullRequests:
+              - url: https://git.example.com/engineering/engineering-sdk/pull/87
+                status: open
+                sdkId: 9c4e7d1a-2b3c-4f5e-8a9b-1c2d3e4f5a6b
+            createdAt: 2026-04-12T09:00:00Z
+            updatedAt: 2026-05-30T10:21:14Z
+        meta:
+          nextCursor: null
+          total: 1
+    sdkGitConnection400ErrorInvalidListQuery:
+      value:
+        type: https://api.postman.com/problems/sdk-git-connections/invalid-list-query
+        title: Invalid git connection list query
+        status: 400
+        detail: "`workspaceId` is required."
+        instance: /sdk-git-connections
+        requestId: e1b2c3d4-5678-49ab-9012-3456789abcde
+    sdkGitConnection400ErrorInvalidCreateRequest:
+      value:
+        type: https://api.postman.com/problems/sdk-git-connections/invalid-create-request
+        title: Invalid git connection request
+        status: 400
+        detail: Repository engineering/engineering-sdk is already connected to a python
+          SDK. Each SDK language must use its own repository.
+        instance: /sdk-git-connections
+        requestId: 2c3d4e5f-6789-4ab0-9cde-0123456789ab
+    sdkGitConnection400ErrorInvalidStatusTransition:
+      value:
+        type: https://api.postman.com/problems/sdk-git-connections/invalid-status-transition
+        title: Invalid git connection status
+        status: 400
+        detail: "`status` must be `active` or `disconnected`; `inaccessible` is
+          system-determined and cannot be set."
+        instance: /sdk-git-connections/8d4f7c1a-2b3e-4f5a-9c8d-1a2b3c4d5e6f
+        requestId: 0d6f7e8a-1234-49bc-9def-0123456789ab
+    createSdkGitConnection:
+      value:
+        source:
+          type: collection
+          id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        language: typescript
+        repositoryUrl: https://git.example.com/engineering/engineering-sdk
+        targetBranch: main
+        autoUpdatePullRequestsEnabled: true
+    createSdkGitConnectionManual:
+      value:
+        source:
+          type: collection
+          id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        language: typescript
+        repositoryUrl: https://git.example.com/engineering/engineering-sdk
+        autoUpdatePullRequestsEnabled: false
+    sdkGitConnection:
+      value:
+        sdkGitConnectionId: 8d4f7c1a-2b3e-4f5a-9c8d-1a2b3c4d5e6f
+        source:
+          type: collection
+          id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+        language: typescript
+        status: active
+        repositoryUrl: https://git.example.com/engineering/engineering-sdk
+        targetBranch: main
+        autoUpdatePullRequestsEnabled: true
+        pullRequests:
+          - url: https://git.example.com/engineering/engineering-sdk/pull/87
+            status: open
+            sdkId: 9c4e7d1a-2b3c-4f5e-8a9b-1c2d3e4f5a6b
+        createdAt: 2026-04-12T09:00:00Z
+        updatedAt: 2026-05-30T10:21:14Z
+    updateSdkGitConnection:
+      value:
+        status: disconnected
+    updateSdkGitConnectionAutoUpdate:
+      value:
+        status: active
+        autoUpdatePullRequestsEnabled: true
+    sdkGitConnectionPullRequestList:
+      value:
+        data:
+          - number: 87
+            url: https://git.example.com/engineering/engineering-sdk/pull/87
+            status: merged
+            sdk:
+              id: 9c4e7d1a-2b3c-4f5e-8a9b-1c2d3e4f5a6b
+              language: typescript
+              source:
+                type: collection
+                id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+              workspaceId: 7f6c5d4e-3b2a-1234-9876-abcdef012345
+              version: 1.0.4
+              buildStatus: succeeded
+              createdAt: 2026-05-30T10:11:09Z
+              updatedAt: 2026-05-30T10:12:55Z
+            createdAt: 2026-05-30T10:15:00Z
+            updatedAt: 2026-05-30T10:21:14Z
+        meta:
+          nextCursor: null
+          total: 1
+    searchPostmanResourcesWorkspaces:
+      value:
+        q: test workspace
+        elementType: workspaces
+        ownership: organization
+        filters:
+          $and:
+            - publisherIsVerified:
+                $ne: true
+    searchPostmanResourcesPublicWorkspaces:
+      value:
+        q: test
+        elementType: requests
+        ownership: organization
+        filters:
+          $and:
+            - visibility:
+                $eq: internal
+    searchPostmanResourcesPublicWorkspacesVerifiedPublishers:
+      value:
+        q: testing
+        elementType: requests
+        ownership: all
+        filters:
+          $and:
+            - visibility:
+                $eq: public
+            - publisherIsVerified:
+                $eq: true
+    searchPostmanResourcesPartnerWorkspaces:
+      value:
+        q: payment gateway
+        elementType: requests
+        ownership: external
+        filters:
+          $and:
+            - visibility:
+                $eq: partner
+    searchPostmanResourcesPrivateApiNetwork:
+      value:
+        q: testing
+        elementType: requests
+        filters:
+          $and:
+            - privateNetwork:
+                $eq: true
+    searchPostmanResourcesExternalPublicApis:
+      value:
+        q: weather forecast
+        elementType: requests
+        ownership: external
+        filters:
+          $and:
+            - visibility:
+                $eq: public
+    searchPostmanResourcesFlows:
+      value:
+        q: demo flow
+        elementType: flows
+        ownership: organization
+        filters:
+          $and:
+            - visibility:
+                $eq: internal
+    searchPostmanResourcesInternalApisOrg:
+      value:
+        q: testing
+        elementType: requests
+        ownership: organization
+        filters:
+          $and:
+            - visibility:
+                $eq: internal
+    searchPostmanResourcesRequestsNeFilter:
+      value:
+        q: Get all invoices
+        elementType: requests
+        filters:
+          $and:
+            - publisherIsVerified:
+                $ne: false
+    searchPostmanResourcesResponsePublicWorkspaces:
+      value:
+        data:
+          - method: GET
+            description: Retrieve all team members
+            url: https://postman-echo.com/get?team=api-team
+            name: Get Team Members
+            id: 12345678-a1b2c3d4-e5f6-7890-abcd-ef1234567890
+            collection:
+              id: 12345678-11223344-5566-7788-99aa-bbccddeeff00
+              name: API Team
+            workspace:
+              id: d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f90
+              name: API Team Workspace
+            links:
+              web:
+                href: https://go.postman.co/request/12345678-a1b2c3d4-e5f6-7890-abcd-ef1234567890
+              self:
+                href: https://api.postman.com/collections/12345678-11223344-5566-7788-99aa-bbccddeeff00/requests/12345678-a1b2c3d4-e5f6-7890-abcd-ef1234567890
+            organization:
+              id: "1"
+              name: API Team Devs
+              isVerified: false
+            team:
+              id: "123"
+              name: API Team Devs
+            createdBy: "12345678"
+            isGitConnected: false
+          - method: POST
+            description: Create workspace
+            url: https://postman-echo.com/post
+            name: Create Workspace
+            id: 12345678-f0e1d2c3-b4a5-9687-7654-321fedcba098
+            collection:
+              id: 12345678-aabbccdd-eeff-0011-2233-445566778899
+              name: Workspace Operations
+            workspace:
+              id: d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f90
+              name: API Team Workspace
+            links:
+              web:
+                href: https://go.postman.co/request/12345678-f0e1d2c3-b4a5-9687-7654-321fedcba098
+              self:
+                href: https://api.postman.com/collections/12345678-aabbccdd-eeff-0011-2233-445566778899/requests/12345678-f0e1d2c3-b4a5-9687-7654-321fedcba098
+            organization:
+              id: "1"
+              name: API Team Devs
+              isVerified: false
+            team:
+              id: "123"
+              name: API Team Devs
+            createdBy: "12345678"
+            isGitConnected: false
+        meta:
+          q: team
+          total: 2
+          nextCursor: eyJmcm9tIjoxMH0=
+    searchPostmanResourcesNoResultsFound:
+      value:
+        data: []
+        meta:
+          q: testing
+          total: 0
+    searchPostman400ErrorMissingElementTypeProperty:
+      value:
+        type: https://api.postman.com/problems/bad-request
+        title: Bad Request
+        status: 400
+        detail: body must have required property 'elementType'
+    searchPostman400ErrorInvalidOwnershipValue:
+      value:
+        type: https://api.postman.com/problems/bad-request
+        title: Bad Request
+        status: 400
+        detail: "/ownership must be equal to one of the allowed values: organization,
+          external, all"
+    searchPostman400ErrorInvalidOwnershipAndVisibilityCombination:
+      value:
+        type: https://api.postman.com/problems/bad-request
+        title: Bad Request
+        status: 400
+        detail: ownership=external cannot be combined with visibility=internal
+    searchPostman400ErrorInvalidPrivateNetworkAndOwnershipCombination:
+      value:
+        type: https://api.postman.com/problems/bad-request
+        title: Bad Request
+        status: 400
+        detail: privateNetwork=true can only be used with ownership=organization
     generateServiceAccountTokenResponse:
       value:
         access_token: 6994754074765fc179e6b941f61b469858e6d79157e0c3ae23b6d290177ca87487601df9efb7cd624dcef85c7278ace24673f973a20fdae1220c17cba6db3a27
@@ -35024,10 +37297,12 @@ components:
       value:
         syncOptions:
           syncExamples: true
+          deleteOrphanedRequests: true
     updateSpecSyncOptionsResponse:
       value:
         syncOptions:
           syncExamples: true
+          deleteOrphanedRequests: true
     apiSpecSyncOptions400ErrorMalformedRequest:
       value:
         title: Malformed request
@@ -36925,7 +39200,7 @@ components:
           id: 1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
           name: Test Webhook
           collection: 12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2
-          webhookUrl: https://newman-api.getpostman.com/run/12345678/267a6e99-b6da-407c-a96f-03be2d6282fb
+          webhookUrl: https://newman-api.postman.com/run/12345678/267a6e99-b6da-407c-a96f-03be2d6282fb
           uid: 12345678-1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
     createWebhookParamMissing400Error:
       value:
@@ -37986,6 +40261,8 @@ components:
               $ref: "#/components/examples/common401Error"
             Authentication Error:
               $ref: "#/components/examples/common401ErrorAuthentication"
+            Invalid API Key:
+              $ref: "#/components/examples/common401ErrorInvalidApiKey"
             Missing API Key:
               $ref: "#/components/examples/common401ErrorMissingApiKey"
             Not Authorized:
@@ -38368,6 +40645,8 @@ components:
               $ref: "#/components/examples/common403ErrorWorkspaceAccess"
             Not Authorized:
               $ref: "#/components/examples/common403ErrorForbiddenNotAuthorized"
+            No Access to Resource:
+              $ref: "#/components/examples/common403ErrorNoAccessToResource"
             Permission Denied:
               $ref: "#/components/examples/common403ErrorPermissionDenied"
             Feature Unavailable:
@@ -39757,6 +42036,8 @@ components:
               $ref: "#/components/examples/common404Error"
             Resource Not Found:
               $ref: "#/components/examples/common404ErrorResourceNotFound"
+            Resource Does Not Exist:
+              $ref: "#/components/examples/common404ErrorResourceDoesNotExist"
     getCollectionUpdatesTasks:
       description: Successful Response
       content:
@@ -40731,6 +43012,8 @@ components:
           examples:
             Too Many Requests:
               $ref: "#/components/examples/rateLimit429ErrorTooManyRequests"
+            Rate Limit Exceeded:
+              $ref: "#/components/examples/common429ErrorRateLimitExceeded"
     getPullRequest:
       description: Successful Response
       content:
@@ -41128,6 +43411,180 @@ components:
               $ref: "#/components/examples/scimUserDomainInvalidEmail400Error"
             Unverified Domain:
               $ref: "#/components/examples/scimUserDomainUnverified400Error"
+    getSdks:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            anyOf:
+              - $ref: "#/components/schemas/sdkList"
+          examples:
+            A Page of SDKs:
+              $ref: "#/components/examples/sdkList"
+            Filter by Failed Builds:
+              $ref: "#/components/examples/sdkListFailed"
+            Filter by Language:
+              $ref: "#/components/examples/sdkListByLanguage"
+            Batch-poll by ID:
+              $ref: "#/components/examples/sdkListBatchPoll"
+    sdk400ErrorInvalidListQuery:
+      description: Invalid Query
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/sdkError"
+          examples:
+            Malformed cursor Value:
+              $ref: "#/components/examples/sdk400ErrorInvalidListQuery"
+    createSdk:
+      description: Successful Response
+      headers:
+        Location:
+          description: The URL of the created SDK resource.
+          schema:
+            type: string
+            format: uri
+            example: https://api.postman.com/sdks/9c4e7d1a-2b3c-4f5e-8a9b-1c2d3e4f5a6b
+    sdk400ErrorInvalidCreateRequest:
+      description: Malformed Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/sdkError"
+          examples:
+            Invalid Create Request:
+              $ref: "#/components/examples/sdk400ErrorInvalidCreateRequest"
+    sdk422Error:
+      description: Unprocessable Entity
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/commonErrorTypeTitleDetailStatus"
+          examples:
+            Unsupported Language:
+              $ref: "#/components/examples/sdk422ErrorUnsupportedLanguageForSourceType"
+    getSdk:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/sdk"
+          examples:
+            Successful Response:
+              $ref: "#/components/examples/sdk"
+    sdk409Error:
+      description: Conflict
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/commonErrorTypeTitleDetailStatus"
+          examples:
+            Conflict:
+              $ref: "#/components/examples/sdk409ErrorRequestConflict"
+            Git Connection Already Exists:
+              $ref: "#/components/examples/sdkGitConnection409ErrorAlreadyConnected"
+    getSdkDownloadUrl:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/sdkDownload"
+          examples:
+            Successful Response:
+              $ref: "#/components/examples/sdkDownload"
+    getSdkGitConnections:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/sdkGitConnectionList"
+          examples:
+            Successful Response:
+              $ref: "#/components/examples/sdkGitConnectionList"
+    sdkGitConnection400Error:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/sdkError"
+          examples:
+            Missing workspaceId Parameter:
+              $ref: "#/components/examples/sdkGitConnection400ErrorInvalidListQuery"
+            Git Connection Already Exists:
+              $ref: "#/components/examples/sdkGitConnection400ErrorInvalidCreateRequest"
+            Invalid Transition Status:
+              $ref: "#/components/examples/sdkGitConnection400ErrorInvalidStatusTransition"
+    createSdkGitConnectionResponse:
+      description: Successful Response
+      headers:
+        Location:
+          description: The URL of the created Git connection resource.
+          schema:
+            type: string
+            format: uri
+            example: https://api.postman.com/sdks/9c4e7d1a-2b3c-4f5e-8a9b-1c2d3e4f5a6b
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/sdkGitConnection"
+          examples:
+            Created Git Connection:
+              $ref: "#/components/examples/sdkGitConnection"
+    getSdkGitConnection:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/sdkGitConnection"
+          examples:
+            Successful Response:
+              $ref: "#/components/examples/sdkGitConnection"
+    updateSdkGitConnectionResponse:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/sdkGitConnection"
+          examples:
+            Successful Response:
+              $ref: "#/components/examples/sdkGitConnection"
+    getSdkGitConnectionPullRequests:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/sdkGitConnectionPullRequestList"
+          examples:
+            Successful Response:
+              $ref: "#/components/examples/sdkGitConnectionPullRequestList"
+    searchPostmanResourcesResponse:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/searchPostmanResourcesResponse"
+          examples:
+            Search Team's Public Workspace:
+              $ref: "#/components/examples/searchPostmanResourcesResponsePublicWorkspaces"
+            No Results Found:
+              $ref: "#/components/examples/searchPostmanResourcesNoResultsFound"
+    searchPostman400Error:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/commonErrorTypeTitleDetailStatus"
+          examples:
+            Missing elementType Property:
+              $ref: "#/components/examples/searchPostman400ErrorMissingElementTypeProperty"
+            Invalid ownership Value:
+              $ref: "#/components/examples/searchPostman400ErrorInvalidOwnershipValue"
+            Invalid ownership And Visibility Combination:
+              $ref: "#/components/examples/searchPostman400ErrorInvalidOwnershipAndVisibility\
+                Combination"
+            Invalid privateNetwork and ownership Combination:
+              $ref: "#/components/examples/searchPostman400ErrorInvalidPrivateNetworkAndOwner\
+                shipCombination"
     generateServiceAccountToken:
       description: Token Created
       content:
@@ -43357,6 +45814,89 @@ components:
       description: The user's SCIM ID.
       schema:
         $ref: "#/components/schemas/scimId"
+    sdkWorkspaceId:
+      name: workspaceId
+      in: query
+      required: true
+      description: The ID of the workspace that contains the SDK.
+      schema:
+        $ref: "#/components/schemas/workspaceId"
+    sdkIds:
+      name: sdkIds
+      in: query
+      style: form
+      explode: false
+      description: A comma-separated list of SDK IDs to return in the response. If you
+        pass this query parameter with other filters, the other filters are
+        ignored.
+      schema:
+        type: array
+        maxItems: 100
+        items:
+          $ref: "#/components/schemas/sdkId"
+    sdkBuildStatusFilter:
+      name: buildStatus
+      in: query
+      description: Filter results by build status.
+      schema:
+        $ref: "#/components/schemas/sdkBuildStatus"
+    sdkLanguageFilter:
+      name: language
+      in: query
+      description: Filter results by SDK language.
+      schema:
+        $ref: "#/components/schemas/sdkLanguage"
+    sdkSourceId:
+      name: sourceId
+      in: query
+      description: Filter results by the originating Postman Collection or specification ID.
+      schema:
+        $ref: "#/components/schemas/sdkSourceId"
+    sdkId:
+      name: sdkId
+      in: path
+      required: true
+      description: The SDK's ID.
+      schema:
+        $ref: "#/components/schemas/sdkId"
+    sdkGitConnectionWorkspaceId:
+      name: workspaceId
+      in: query
+      required: true
+      description: The ID of the workspace that owns the source entities.
+      schema:
+        $ref: "#/components/schemas/workspaceId"
+    sdkGitConnectionStatusFilter:
+      name: status
+      in: query
+      description: Filter results by connection status.
+      schema:
+        $ref: "#/components/schemas/sdkGitConnectionStatus"
+    sdkGitConnectionRepositoryUrl:
+      name: repositoryUrl
+      in: query
+      description: Filter results by the canonical URL of the target Git repository.
+      schema:
+        $ref: "#/components/schemas/sdkGitConnectionRepositoryUrl"
+    sdkGitConnectionId:
+      name: sdkGitConnectionId
+      in: path
+      required: true
+      description: The Git connection's ID.
+      schema:
+        $ref: "#/components/schemas/sdkGitConnectionId"
+    sdkGitConnectionPRStatusFilter:
+      name: status
+      in: query
+      description: Filter results by pull request status.
+      schema:
+        $ref: "#/components/schemas/sdkGitConnectionPRStatus"
+    limitDefault10Max25:
+      name: limit
+      in: query
+      description: The maximum number of results to return per page.
+      schema:
+        $ref: "#/components/schemas/limitDefault10Max25"
     serviceAccountApiKey:
       name: x-api-key
       in: header
@@ -43529,7 +46069,7 @@ components:
       name: elementType
       description: A comma-separated list of elements to filter the results by.
       schema:
-        $ref: "#/components/schemas/elementType-2"
+        $ref: "#/components/schemas/elementType-3"
     limitDefault15:
       name: limit
       in: query
@@ -44248,6 +46788,80 @@ components:
               $ref: "#/components/examples/updateScimUserPatch"
             Update SCIM User Username:
               $ref: "#/components/examples/updateScimUserPatchEmail"
+    createSdk:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/createSdk"
+          examples:
+            Create a TypeScript SDK:
+              $ref: "#/components/examples/createSdkTypescript"
+            Generate a Python SDK:
+              $ref: "#/components/examples/createSdkPython"
+            Generate a Go SDK:
+              $ref: "#/components/examples/createSdkGo"
+            Generate a Java SDK:
+              $ref: "#/components/examples/createSdkJava"
+            Generate a C# SDK:
+              $ref: "#/components/examples/createSdkCsharp"
+            Generate a Ruby SDK:
+              $ref: "#/components/examples/createSdkRuby"
+            Generate a PHP SDK:
+              $ref: "#/components/examples/createSdkPhp"
+            Generate a Kotlin SDK:
+              $ref: "#/components/examples/createSdkKotlin"
+            Generate a Rust SDK:
+              $ref: "#/components/examples/createSdkRust"
+            Generate a CLI SDK:
+              $ref: "#/components/examples/createSdkCli"
+    createSdkGitConnection:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/createSdkGitConnection"
+          examples:
+            Connect a Repository:
+              $ref: "#/components/examples/createSdkGitConnection"
+            Connect Without Automatic Pull Requests:
+              $ref: "#/components/examples/createSdkGitConnectionManual"
+    updateSdkGitConnection:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/updateSdkGitConnection"
+          examples:
+            Disconnect an SDK Git Connection:
+              $ref: "#/components/examples/updateSdkGitConnection"
+            Enable Automatic Pull Requests:
+              $ref: "#/components/examples/updateSdkGitConnectionAutoUpdate"
+    searchPostmanResources:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/searchPostmanResources"
+          examples:
+            Search Workspaces:
+              $ref: "#/components/examples/searchPostmanResourcesWorkspaces"
+            Search Team's Public Workspaces:
+              $ref: "#/components/examples/searchPostmanResourcesPublicWorkspaces"
+            Search Public Workspaces with Verified Publishers:
+              $ref: "#/components/examples/searchPostmanResourcesPublicWorkspacesVerifiedPubl\
+                ishers"
+            Search Partner Workspaces:
+              $ref: "#/components/examples/searchPostmanResourcesPartnerWorkspaces"
+            Search Private API Network:
+              $ref: "#/components/examples/searchPostmanResourcesPrivateApiNetwork"
+            Search External Public APIs:
+              $ref: "#/components/examples/searchPostmanResourcesExternalPublicApis"
+            Search Flows:
+              $ref: "#/components/examples/searchPostmanResourcesFlows"
+            Search Internal APIs in Organization:
+              $ref: "#/components/examples/searchPostmanResourcesInternalApisOrg"
+            Search Requests with $ne Filter:
+              $ref: "#/components/examples/searchPostmanResourcesRequestsNeFilter"
     createSpec:
       content:
         application/json:

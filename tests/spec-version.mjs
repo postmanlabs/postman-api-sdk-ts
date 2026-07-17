@@ -1,6 +1,6 @@
 // Self-contained ESM — no dependencies, runs with plain `node` (the SDK repo has no tsx).
-// Shared by the factory (bootstrap-prune-pr, deliver-custom-code, generate) and by the
-// scaffolded tests/publish/resolve-version.mjs downstream.
+// Shared by the factory (deliver-custom-code, generate) and by the scaffolded
+// tests/publish/resolve-version.mjs downstream.
 
 /**
  * Returns `info.version` from an OpenAPI spec — the version that will be published.
