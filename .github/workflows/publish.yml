@@ -44,7 +44,7 @@ jobs:
         # Fails loudly if this version is already on npm — we trust the upstream
         # spec to bump info.version and never republish or auto-suffix.
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.POSTMAN_NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --provenance --access public
 
       - name: Tag the release and publish notes
