@@ -152,7 +152,7 @@ import { PostmanApi } from '@postman/api-sdk';
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     name: 'Test Collection',
     limit: 3,
-    offset: 5,
+    offset: 7,
   });
 
   console.log(data);
@@ -221,7 +221,7 @@ import {
     schema: informationSchema1,
   };
 
-  const variableInfoValue1 = 'sunt do ea ';
+  const variableInfoValue1 = 'estqui';
 
   const variable: Variable = {
     key: 'username',
@@ -246,7 +246,7 @@ import {
 
   const authMethodType1 = AuthMethodType1.NOAUTH;
 
-  const authAttributesValue = 'examet velit ';
+  const authAttributesValue = 'consecte';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -313,11 +313,11 @@ import {
     body: collectionRequestBody1,
   };
 
-  const responseHeader1 = 'dolore';
+  const responseHeader1 = 'cupidatat';
 
   const itemResponse1: ItemResponse1 = {
     originalRequest: responseOriginalRequest1,
-    responseTime: 2.54,
+    responseTime: 2.08,
     header: responseHeader1,
     body: '{\n    "field": {}\n}',
     status: 'OK',
@@ -339,7 +339,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 9.84,
+    maxRedirects: 3.47,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -622,7 +622,7 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const variableInfoValue2 = 'et aliqua';
+  const variableInfoValue2 = 'Excep';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -651,7 +651,7 @@ import {
 
   const authMethodType2 = AuthMethodType2.BASIC;
 
-  const authAttributesValue = 'examet velit ';
+  const authAttributesValue = 'consecte';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -718,12 +718,12 @@ import {
     body: collectionRequestBody2,
   };
 
-  const responseHeader2_3 = 'sed lab';
+  const responseHeader2_3 = 'consequat Duis ';
 
   const itemResponse2: ItemResponse2 = {
     id: '33ffd2e3-59a8-4dfe-84fa-0a571984487b',
     originalRequest: responseOriginalRequest2,
-    responseTime: 6.86,
+    responseTime: 3.15,
     header: responseHeader2_3,
     body: 'body',
     status: 'OK',
@@ -748,7 +748,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 9.84,
+    maxRedirects: 3.47,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -848,7 +848,7 @@ import {
       'This collection makes a request to the Postman Echo service to get a list of request headers sent by an HTTP client.',
   };
 
-  const variableInfoValue2 = 'et aliqua';
+  const variableInfoValue2 = 'Excep';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -861,7 +861,7 @@ import {
 
   const authMethodType2 = AuthMethodType2.BASIC;
 
-  const authAttributesValue = 'examet velit ';
+  const authAttributesValue = 'consecte';
 
   const authAttributesType = AuthAttributesType.STRING_;
 

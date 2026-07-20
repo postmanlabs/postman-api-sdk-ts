@@ -2,6 +2,8 @@ import { Environment } from './http/environment';
 import { SdkConfig } from './http/types';
 import { BillingService } from './services/billing';
 import { AnalyticsService } from './services/analytics';
+import { ApiCatalogService } from './services/api-catalog';
+import { ApiService } from './services/api';
 import { SpecsService } from './services/specs';
 import { TagsService } from './services/tags';
 import { AuditLogsService } from './services/audit-logs';
@@ -26,6 +28,7 @@ import { OAuth2_0Service } from './services/o-auth-2-0';
 import { PostbotService } from './services/postbot';
 import { PullRequestsService } from './services/pull-requests';
 import { ApiSecurityService } from './services/api-security';
+import { ScimService } from './services/scim';
 import { SdksService } from './services/sdks';
 import { SearchService } from './services/search';
 import { ServiceAccountsService } from './services/service-accounts';
@@ -34,6 +37,8 @@ import { WebhooksService } from './services/webhooks';
 
 export * from './services/billing';
 export * from './services/analytics';
+export * from './services/api-catalog';
+export * from './services/api';
 export * from './services/specs';
 export * from './services/tags';
 export * from './services/audit-logs';
@@ -58,6 +63,7 @@ export * from './services/o-auth-2-0';
 export * from './services/postbot';
 export * from './services/pull-requests';
 export * from './services/api-security';
+export * from './services/scim';
 export * from './services/sdks';
 export * from './services/search';
 export * from './services/service-accounts';
@@ -72,6 +78,10 @@ export class PostmanApi {
   public readonly billing: BillingService;
 
   public readonly analytics: AnalyticsService;
+
+  public readonly apiCatalog: ApiCatalogService;
+
+  public readonly api: ApiService;
 
   public readonly specs: SpecsService;
 
@@ -121,6 +131,8 @@ export class PostmanApi {
 
   public readonly apiSecurity: ApiSecurityService;
 
+  public readonly scim: ScimService;
+
   public readonly sdks: SdksService;
 
   public readonly search: SearchService;
@@ -135,6 +147,10 @@ export class PostmanApi {
     this.billing = new BillingService(this.config);
 
     this.analytics = new AnalyticsService(this.config);
+
+    this.apiCatalog = new ApiCatalogService(this.config);
+
+    this.api = new ApiService(this.config);
 
     this.specs = new SpecsService(this.config);
 
@@ -184,6 +200,8 @@ export class PostmanApi {
 
     this.apiSecurity = new ApiSecurityService(this.config);
 
+    this.scim = new ScimService(this.config);
+
     this.sdks = new SdksService(this.config);
 
     this.search = new SearchService(this.config);
@@ -198,6 +216,8 @@ export class PostmanApi {
   set baseUrl(baseUrl: string) {
     this.billing.baseUrl = baseUrl;
     this.analytics.baseUrl = baseUrl;
+    this.apiCatalog.baseUrl = baseUrl;
+    this.api.baseUrl = baseUrl;
     this.specs.baseUrl = baseUrl;
     this.tags.baseUrl = baseUrl;
     this.auditLogs.baseUrl = baseUrl;
@@ -222,6 +242,7 @@ export class PostmanApi {
     this.postbot.baseUrl = baseUrl;
     this.pullRequests.baseUrl = baseUrl;
     this.apiSecurity.baseUrl = baseUrl;
+    this.scim.baseUrl = baseUrl;
     this.sdks.baseUrl = baseUrl;
     this.search.baseUrl = baseUrl;
     this.serviceAccounts.baseUrl = baseUrl;
@@ -232,6 +253,8 @@ export class PostmanApi {
   set environment(environment: Environment) {
     this.billing.baseUrl = environment;
     this.analytics.baseUrl = environment;
+    this.apiCatalog.baseUrl = environment;
+    this.api.baseUrl = environment;
     this.specs.baseUrl = environment;
     this.tags.baseUrl = environment;
     this.auditLogs.baseUrl = environment;
@@ -256,6 +279,7 @@ export class PostmanApi {
     this.postbot.baseUrl = environment;
     this.pullRequests.baseUrl = environment;
     this.apiSecurity.baseUrl = environment;
+    this.scim.baseUrl = environment;
     this.sdks.baseUrl = environment;
     this.search.baseUrl = environment;
     this.serviceAccounts.baseUrl = environment;
@@ -266,6 +290,8 @@ export class PostmanApi {
   set timeoutMs(timeoutMs: number) {
     this.billing.timeoutMs = timeoutMs;
     this.analytics.timeoutMs = timeoutMs;
+    this.apiCatalog.timeoutMs = timeoutMs;
+    this.api.timeoutMs = timeoutMs;
     this.specs.timeoutMs = timeoutMs;
     this.tags.timeoutMs = timeoutMs;
     this.auditLogs.timeoutMs = timeoutMs;
@@ -290,6 +316,7 @@ export class PostmanApi {
     this.postbot.timeoutMs = timeoutMs;
     this.pullRequests.timeoutMs = timeoutMs;
     this.apiSecurity.timeoutMs = timeoutMs;
+    this.scim.timeoutMs = timeoutMs;
     this.sdks.timeoutMs = timeoutMs;
     this.search.timeoutMs = timeoutMs;
     this.serviceAccounts.timeoutMs = timeoutMs;
@@ -300,6 +327,8 @@ export class PostmanApi {
   set username(username: string) {
     this.billing.username = username;
     this.analytics.username = username;
+    this.apiCatalog.username = username;
+    this.api.username = username;
     this.specs.username = username;
     this.tags.username = username;
     this.auditLogs.username = username;
@@ -324,6 +353,7 @@ export class PostmanApi {
     this.postbot.username = username;
     this.pullRequests.username = username;
     this.apiSecurity.username = username;
+    this.scim.username = username;
     this.sdks.username = username;
     this.search.username = username;
     this.serviceAccounts.username = username;
@@ -334,6 +364,8 @@ export class PostmanApi {
   set password(password: string) {
     this.billing.password = password;
     this.analytics.password = password;
+    this.apiCatalog.password = password;
+    this.api.password = password;
     this.specs.password = password;
     this.tags.password = password;
     this.auditLogs.password = password;
@@ -358,6 +390,7 @@ export class PostmanApi {
     this.postbot.password = password;
     this.pullRequests.password = password;
     this.apiSecurity.password = password;
+    this.scim.password = password;
     this.sdks.password = password;
     this.search.password = password;
     this.serviceAccounts.password = password;
@@ -368,6 +401,8 @@ export class PostmanApi {
   set apiKey(apiKey: string) {
     this.billing.apiKey = apiKey;
     this.analytics.apiKey = apiKey;
+    this.apiCatalog.apiKey = apiKey;
+    this.api.apiKey = apiKey;
     this.specs.apiKey = apiKey;
     this.tags.apiKey = apiKey;
     this.auditLogs.apiKey = apiKey;
@@ -392,6 +427,7 @@ export class PostmanApi {
     this.postbot.apiKey = apiKey;
     this.pullRequests.apiKey = apiKey;
     this.apiSecurity.apiKey = apiKey;
+    this.scim.apiKey = apiKey;
     this.sdks.apiKey = apiKey;
     this.search.apiKey = apiKey;
     this.serviceAccounts.apiKey = apiKey;
@@ -402,6 +438,8 @@ export class PostmanApi {
   set apiKeyHeader(apiKeyHeader: string) {
     this.billing.apiKeyHeader = apiKeyHeader;
     this.analytics.apiKeyHeader = apiKeyHeader;
+    this.apiCatalog.apiKeyHeader = apiKeyHeader;
+    this.api.apiKeyHeader = apiKeyHeader;
     this.specs.apiKeyHeader = apiKeyHeader;
     this.tags.apiKeyHeader = apiKeyHeader;
     this.auditLogs.apiKeyHeader = apiKeyHeader;
@@ -426,6 +464,7 @@ export class PostmanApi {
     this.postbot.apiKeyHeader = apiKeyHeader;
     this.pullRequests.apiKeyHeader = apiKeyHeader;
     this.apiSecurity.apiKeyHeader = apiKeyHeader;
+    this.scim.apiKeyHeader = apiKeyHeader;
     this.sdks.apiKeyHeader = apiKeyHeader;
     this.search.apiKeyHeader = apiKeyHeader;
     this.serviceAccounts.apiKeyHeader = apiKeyHeader;

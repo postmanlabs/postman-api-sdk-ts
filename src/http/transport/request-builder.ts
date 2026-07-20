@@ -52,7 +52,7 @@ export class RequestBuilder<Page extends unknown[] = unknown[]> {
     };
     this.addHeaderParam({
       key: 'User-Agent',
-      value: 'postman-codegen/1.6.0 @postman/api-sdk/1.44.1 (typescript)',
+      value: 'postman-codegen/1.7.0 @postman/api-sdk/1.44.1 (typescript)',
     });
   }
 
