@@ -20,9 +20,17 @@ jobs:
         with:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
+          cache: 'npm' # committed package-lock.json makes resolution reproducible + cacheable
 
+      # Reproducible install from the committed lockfile (fails if it drifts from package.json).
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm ci
+
+      # Re-enabled auditing (PSTAPI-1528). Gate the RELEASE on the shipped tree's supply
+      # chain — a high/critical advisory in a production dependency blocks the publish.
+      # Dev-only build tools (not shipped to consumers) don't gate the release.
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
 
       - name: Typecheck
         run: npm run test

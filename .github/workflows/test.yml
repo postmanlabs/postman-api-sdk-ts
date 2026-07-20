@@ -14,9 +14,17 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: '24'
+          cache: 'npm' # committed package-lock.json makes resolution reproducible + cacheable
 
+      # Reproducible install from the committed lockfile (fails if it drifts from package.json).
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm ci
+
+      # Re-enabled auditing (PSTAPI-1528). Gate on the SHIPPED tree only — the published
+      # artifact's supply chain. Dev-only build tools (e.g. tsup/esbuild) are not shipped
+      # to consumers, so their advisories don't fail the build.
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
 
       - name: Typecheck
         run: npm run test
