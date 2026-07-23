@@ -26,15 +26,23 @@ export class ErrorTitleType extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = errorTitleTypeResponse.parse(response);
+  static from(message: string, response?: unknown): ErrorTitleType {
+    const error = new ErrorTitleType(message, response);
+    const result = errorTitleTypeResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof errorTitleTypeResponse
+    >;
 
-    this.title = parsedResponse.title;
-    this.type = parsedResponse.type;
+    error.title = parsedResponse.title;
+    error.type = parsedResponse.type;
+
+    return error;
   }
 
   public throw() {
-    const error = new ErrorTitleType(this.message, this.response);
+    const error = ErrorTitleType.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

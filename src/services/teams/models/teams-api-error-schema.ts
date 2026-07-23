@@ -44,18 +44,26 @@ export class TeamsApiErrorSchema extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = teamsApiErrorSchemaResponse.parse(response);
+  static from(message: string, response?: unknown): TeamsApiErrorSchema {
+    const error = new TeamsApiErrorSchema(message, response);
+    const result = teamsApiErrorSchemaResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof teamsApiErrorSchemaResponse
+    >;
 
-    this.type = parsedResponse.type;
-    this.status = parsedResponse.status;
-    this.title = parsedResponse.title;
-    this.detail = parsedResponse.detail;
-    this.instance = parsedResponse.instance;
+    error.type = parsedResponse.type;
+    error.status = parsedResponse.status;
+    error.title = parsedResponse.title;
+    error.detail = parsedResponse.detail;
+    error.instance = parsedResponse.instance;
+
+    return error;
   }
 
   public throw() {
-    const error = new TeamsApiErrorSchema(this.message, this.response);
+    const error = TeamsApiErrorSchema.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

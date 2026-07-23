@@ -52,6 +52,7 @@ export const createSdk = z.lazy(() => {
   return z.object({
     source: sdkSource,
     language: z.string(),
+    sdkVersion: z.string().optional(),
     authors: z.array(sdkAuthorData).optional(),
     retry: sdkRetryOptions.optional(),
     typescriptOptions: typescriptOptions.optional(),
@@ -84,6 +85,7 @@ export const createSdk = z.lazy(() => {
 
  * @property {SdkSource} - The collection or specification that the SDK is generated from.
  * @property {SdkLanguage} - The target output language for the generated SDK.
+ * @property {string} - An optional override for the SDK version. If this isn't provided, the next version is resolved from the latest auto-pull request.
  * @property {SdkAuthorData[]} - A list of package authors written into the generated manifest.
  * @property {SdkRetryOptions} - Retry behavior baked into the generated SDK's HTTP client. A power-user option; sensible defaults apply for any field left unset.
  * @property {TypescriptOptions} - TypeScript-specific SDK generation options.
@@ -109,6 +111,7 @@ export const createSdkResponse = z.lazy(() => {
     .object({
       source: sdkSourceResponse,
       language: z.string(),
+      sdkVersion: z.string().optional(),
       authors: z.array(sdkAuthorDataResponse).optional(),
       retry: sdkRetryOptionsResponse.optional(),
       typescriptOptions: typescriptOptionsResponse.optional(),
@@ -125,6 +128,7 @@ export const createSdkResponse = z.lazy(() => {
     .transform((data) => ({
       source: data['source'],
       language: data['language'],
+      sdkVersion: data['sdkVersion'],
       authors: data['authors'],
       retry: data['retry'],
       typescriptOptions: data['typescriptOptions'],
@@ -150,6 +154,7 @@ export const createSdkRequest = z.lazy(() => {
     .object({
       source: sdkSourceRequest,
       language: z.string(),
+      sdkVersion: z.string().optional(),
       authors: z.array(sdkAuthorDataRequest).optional(),
       retry: sdkRetryOptionsRequest.optional(),
       typescriptOptions: typescriptOptionsRequest.optional(),
@@ -166,6 +171,7 @@ export const createSdkRequest = z.lazy(() => {
     .transform((data) => ({
       source: data['source'],
       language: data['language'],
+      sdkVersion: data['sdkVersion'],
       authors: data['authors'],
       retry: data['retry'],
       typescriptOptions: data['typescriptOptions'],

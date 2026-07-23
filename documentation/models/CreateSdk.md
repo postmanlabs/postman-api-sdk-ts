@@ -8,6 +8,7 @@
 | :---------------- | :---------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------- |
 | source            | [SdkSource](SdkSource.md)                 | ✅       | The collection or specification that the SDK is generated from.                                                                   |
 | language          | [SdkLanguage](SdkLanguage.md)             | ✅       | The target output language for the generated SDK.                                                                                 |
+| sdkVersion        | string                                    | ❌       | An optional override for the SDK version. If this isn't provided, the next version is resolved from the latest auto-pull request. |
 | authors           | [SdkAuthorData](SdkAuthorData.md)[]       | ❌       | A list of package authors written into the generated manifest.                                                                    |
 | retry             | [SdkRetryOptions](SdkRetryOptions.md)     | ❌       | Retry behavior baked into the generated SDK's HTTP client. A power-user option; sensible defaults apply for any field left unset. |
 | typescriptOptions | [TypescriptOptions](TypescriptOptions.md) | ❌       | TypeScript-specific SDK generation options.                                                                                       |

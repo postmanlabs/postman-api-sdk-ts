@@ -28,14 +28,22 @@ export class ErrorTitleDetailsMessage extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = errorTitleDetailsMessageResponse.parse(response);
+  static from(message: string, response?: unknown): ErrorTitleDetailsMessage {
+    const error = new ErrorTitleDetailsMessage(message, response);
+    const result = errorTitleDetailsMessageResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof errorTitleDetailsMessageResponse
+    >;
 
-    this.error = parsedResponse.error;
+    error.error = parsedResponse.error;
+
+    return error;
   }
 
   public throw() {
-    const error = new ErrorTitleDetailsMessage(this.message, this.response);
+    const error = ErrorTitleDetailsMessage.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

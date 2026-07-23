@@ -180,6 +180,7 @@ import {
   const createSdk: CreateSdk = {
     source: sdkSource,
     language: sdkLanguage,
+    sdkVersion: '1.0.0',
     authors: [sdkAuthorData],
     retry: sdkRetryOptions,
     typescriptOptions: typescriptOptions,

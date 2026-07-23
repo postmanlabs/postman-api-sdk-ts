@@ -19,22 +19,30 @@ export const addWorkspaceToPrivateNetworkNotFoundResponseResponse = z.lazy(() =>
 });
 
 export class AddWorkspaceToPrivateNetworkNotFoundResponse extends ThrowableError {
-  public name: string;
+  public name!: string;
 
   constructor(
     public message: string,
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = addWorkspaceToPrivateNetworkNotFoundResponseResponse.parse(response);
+  static from(message: string, response?: unknown): AddWorkspaceToPrivateNetworkNotFoundResponse {
+    const error = new AddWorkspaceToPrivateNetworkNotFoundResponse(message, response);
+    const result = addWorkspaceToPrivateNetworkNotFoundResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof addWorkspaceToPrivateNetworkNotFoundResponseResponse
+    >;
 
-    this.name = parsedResponse.name || 'Error';
-    this.message = parsedResponse.message || '';
+    error.name = parsedResponse.name || 'Error';
+    error.message = parsedResponse.message || '';
+
+    return error;
   }
 
   public throw() {
-    const error = new AddWorkspaceToPrivateNetworkNotFoundResponse(this.message, this.response);
+    const error = AddWorkspaceToPrivateNetworkNotFoundResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

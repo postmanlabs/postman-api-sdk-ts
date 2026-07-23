@@ -34,17 +34,25 @@ export class DeleteCollectionAccessKeyNotFoundResponse extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = deleteCollectionAccessKeyNotFoundResponseResponse.parse(response);
+  static from(message: string, response?: unknown): DeleteCollectionAccessKeyNotFoundResponse {
+    const error = new DeleteCollectionAccessKeyNotFoundResponse(message, response);
+    const result = deleteCollectionAccessKeyNotFoundResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof deleteCollectionAccessKeyNotFoundResponseResponse
+    >;
 
-    this.type = parsedResponse.type;
-    this.title = parsedResponse.title;
-    this.status = parsedResponse.status;
-    this.detail = parsedResponse.detail;
+    error.type = parsedResponse.type;
+    error.title = parsedResponse.title;
+    error.status = parsedResponse.status;
+    error.detail = parsedResponse.detail;
+
+    return error;
   }
 
   public throw() {
-    const error = new DeleteCollectionAccessKeyNotFoundResponse(this.message, this.response);
+    const error = DeleteCollectionAccessKeyNotFoundResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

@@ -28,14 +28,22 @@ export class GetMockServerResponsesNotFoundResponse extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = getMockServerResponsesNotFoundResponseResponse.parse(response);
+  static from(message: string, response?: unknown): GetMockServerResponsesNotFoundResponse {
+    const error = new GetMockServerResponsesNotFoundResponse(message, response);
+    const result = getMockServerResponsesNotFoundResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof getMockServerResponsesNotFoundResponseResponse
+    >;
 
-    this.error = parsedResponse.error;
+    error.error = parsedResponse.error;
+
+    return error;
   }
 
   public throw() {
-    const error = new GetMockServerResponsesNotFoundResponse(this.message, this.response);
+    const error = GetMockServerResponsesNotFoundResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

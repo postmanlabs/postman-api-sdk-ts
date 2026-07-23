@@ -28,14 +28,22 @@ export class Forbidden extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = forbiddenResponse.parse(response);
+  static from(message: string, response?: unknown): Forbidden {
+    const error = new Forbidden(message, response);
+    const result = forbiddenResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof forbiddenResponse
+    >;
 
-    this.error = parsedResponse.error;
+    error.error = parsedResponse.error;
+
+    return error;
   }
 
   public throw() {
-    const error = new Forbidden(this.message, this.response);
+    const error = Forbidden.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

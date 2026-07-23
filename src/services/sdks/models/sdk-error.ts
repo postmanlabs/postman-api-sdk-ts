@@ -31,9 +31,9 @@ export const sdkErrorResponse = z.lazy(() => {
 });
 
 export class SdkError extends ThrowableError {
-  public type: string;
-  public title: string;
-  public status: number;
+  public type!: string;
+  public title!: string;
+  public status!: number;
   public detail?: string;
   public instance?: string;
   public requestId?: string;
@@ -42,19 +42,27 @@ export class SdkError extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = sdkErrorResponse.parse(response);
+  static from(message: string, response?: unknown): SdkError {
+    const error = new SdkError(message, response);
+    const result = sdkErrorResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof sdkErrorResponse
+    >;
 
-    this.type = parsedResponse.type;
-    this.title = parsedResponse.title;
-    this.status = parsedResponse.status;
-    this.detail = parsedResponse.detail;
-    this.instance = parsedResponse.instance;
-    this.requestId = parsedResponse.requestId;
+    error.type = parsedResponse.type;
+    error.title = parsedResponse.title;
+    error.status = parsedResponse.status;
+    error.detail = parsedResponse.detail;
+    error.instance = parsedResponse.instance;
+    error.requestId = parsedResponse.requestId;
+
+    return error;
   }
 
   public throw() {
-    const error = new SdkError(this.message, this.response);
+    const error = SdkError.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

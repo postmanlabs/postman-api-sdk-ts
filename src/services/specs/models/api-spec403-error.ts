@@ -19,12 +19,12 @@ export class ApiSpec403Error extends ThrowableError {
 
   throw() {
     if (errorTypeTitleDetailStatusResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeTitleDetailStatus(this.message, this.response);
+      const error = ErrorTypeTitleDetailStatus.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (errorTypeTitleDetailStatusInstanceResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeTitleDetailStatusInstance(this.message, this.response);
+      const error = ErrorTypeTitleDetailStatusInstance.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }

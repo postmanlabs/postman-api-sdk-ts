@@ -20,17 +20,17 @@ export class MigrateApiToSpecHub400Error extends ThrowableError {
 
   throw() {
     if (errorTitleMessageResponse.safeParse(this.response).success) {
-      const error = new ErrorTitleMessage(this.message, this.response);
+      const error = ErrorTitleMessage.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (errorTitleDetailsMessageResponse.safeParse(this.response).success) {
-      const error = new ErrorTitleDetailsMessage(this.message, this.response);
+      const error = ErrorTitleDetailsMessage.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (errorTypeNameMessageTitleResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeNameMessageTitle(this.message, this.response);
+      const error = ErrorTypeNameMessageTitle.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }

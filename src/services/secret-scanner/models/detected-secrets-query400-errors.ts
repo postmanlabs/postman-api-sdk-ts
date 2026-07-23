@@ -19,12 +19,12 @@ export class DetectedSecretsQuery400Errors extends ThrowableError {
 
   throw() {
     if (errorTypeTitleStatusInstanceResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeTitleStatusInstance(this.message, this.response);
+      const error = ErrorTypeTitleStatusInstance.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (errorTypeTitleDetailStatusInstanceResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeTitleDetailStatusInstance(this.message, this.response);
+      const error = ErrorTypeTitleDetailStatusInstance.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }

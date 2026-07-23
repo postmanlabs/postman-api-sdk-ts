@@ -26,15 +26,23 @@ export class OauthTokenError extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = oauthTokenErrorResponse.parse(response);
+  static from(message: string, response?: unknown): OauthTokenError {
+    const error = new OauthTokenError(message, response);
+    const result = oauthTokenErrorResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof oauthTokenErrorResponse
+    >;
 
-    this.error = parsedResponse.error;
-    this.errorDescription = parsedResponse.errorDescription;
+    error.error = parsedResponse.error;
+    error.errorDescription = parsedResponse.errorDescription;
+
+    return error;
   }
 
   public throw() {
-    const error = new OauthTokenError(this.message, this.response);
+    const error = OauthTokenError.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

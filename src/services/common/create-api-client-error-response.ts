@@ -36,16 +36,24 @@ export class CreateApiClientErrorResponse extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = createApiClientErrorResponseResponse.parse(response);
+  static from(message: string, response?: unknown): CreateApiClientErrorResponse {
+    const error = new CreateApiClientErrorResponse(message, response);
+    const result = createApiClientErrorResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof createApiClientErrorResponseResponse
+    >;
 
-    this.type = parsedResponse.type;
-    this.title = parsedResponse.title;
-    this.detail = parsedResponse.detail;
+    error.type = parsedResponse.type;
+    error.title = parsedResponse.title;
+    error.detail = parsedResponse.detail;
+
+    return error;
   }
 
   public throw() {
-    const error = new CreateApiClientErrorResponse(this.message, this.response);
+    const error = CreateApiClientErrorResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

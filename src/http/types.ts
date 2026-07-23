@@ -148,6 +148,7 @@ export interface RetryOptions {
   maxDelayMs?: number;
   backoffFactor?: number;
   jitterMs?: number;
+  maxRetryAfterDelayMs?: number;
   statusCodesToRetry?: number[];
   httpMethodsToRetry?: HttpMethod[];
 }

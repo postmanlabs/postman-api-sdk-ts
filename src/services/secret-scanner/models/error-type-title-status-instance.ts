@@ -34,17 +34,25 @@ export class ErrorTypeTitleStatusInstance extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = errorTypeTitleStatusInstanceResponse.parse(response);
+  static from(message: string, response?: unknown): ErrorTypeTitleStatusInstance {
+    const error = new ErrorTypeTitleStatusInstance(message, response);
+    const result = errorTypeTitleStatusInstanceResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof errorTypeTitleStatusInstanceResponse
+    >;
 
-    this.type = parsedResponse.type;
-    this.title = parsedResponse.title;
-    this.status = parsedResponse.status;
-    this.instance = parsedResponse.instance;
+    error.type = parsedResponse.type;
+    error.title = parsedResponse.title;
+    error.status = parsedResponse.status;
+    error.instance = parsedResponse.instance;
+
+    return error;
   }
 
   public throw() {
-    const error = new ErrorTypeTitleStatusInstance(this.message, this.response);
+    const error = ErrorTypeTitleStatusInstance.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

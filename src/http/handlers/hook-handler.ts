@@ -64,7 +64,7 @@ export class HookHandler implements RequestHandler {
           // typed error still surfaces instead of a SyntaxError crash.
         }
       }
-      const customError = new error.error((json as any)?.message || '', json);
+      const customError = error.error.from((json as any)?.message || '', json);
       // Attach metadata to custom error for analytics tracking
       customError.metadata = response.metadata;
       customError.throw();

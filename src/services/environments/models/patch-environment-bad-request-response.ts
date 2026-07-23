@@ -44,18 +44,26 @@ export class PatchEnvironmentBadRequestResponse extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = patchEnvironmentBadRequestResponseResponse.parse(response);
+  static from(message: string, response?: unknown): PatchEnvironmentBadRequestResponse {
+    const error = new PatchEnvironmentBadRequestResponse(message, response);
+    const result = patchEnvironmentBadRequestResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof patchEnvironmentBadRequestResponseResponse
+    >;
 
-    this.title = parsedResponse.title;
-    this.status = parsedResponse.status;
-    this.detail = parsedResponse.detail;
-    this.type = parsedResponse.type;
-    this.instance = parsedResponse.instance;
+    error.title = parsedResponse.title;
+    error.status = parsedResponse.status;
+    error.detail = parsedResponse.detail;
+    error.type = parsedResponse.type;
+    error.instance = parsedResponse.instance;
+
+    return error;
   }
 
   public throw() {
-    const error = new PatchEnvironmentBadRequestResponse(this.message, this.response);
+    const error = PatchEnvironmentBadRequestResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

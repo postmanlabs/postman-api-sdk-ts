@@ -28,14 +28,22 @@ export class InternalServerError extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = internalServerErrorResponse.parse(response);
+  static from(message: string, response?: unknown): InternalServerError {
+    const error = new InternalServerError(message, response);
+    const result = internalServerErrorResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof internalServerErrorResponse
+    >;
 
-    this.error = parsedResponse.error;
+    error.error = parsedResponse.error;
+
+    return error;
   }
 
   public throw() {
-    const error = new InternalServerError(this.message, this.response);
+    const error = InternalServerError.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

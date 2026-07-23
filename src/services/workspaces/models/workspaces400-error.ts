@@ -17,17 +17,17 @@ export class Workspaces400Error extends ThrowableError {
 
   throw() {
     if (workspaces400Error1Response.safeParse(this.response).success) {
-      const error = new Workspaces400Error1(this.message, this.response);
+      const error = Workspaces400Error1.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (workspaces400Error2Response.safeParse(this.response).success) {
-      const error = new Workspaces400Error2(this.message, this.response);
+      const error = Workspaces400Error2.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (getAuditLogEventActionsClientErrorResponseResponse.safeParse(this.response).success) {
-      const error = new GetAuditLogEventActionsClientErrorResponse(this.message, this.response);
+      const error = GetAuditLogEventActionsClientErrorResponse.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }

@@ -38,18 +38,26 @@ export class ErrorTypeTitleDetailStatusInstance extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = errorTypeTitleDetailStatusInstanceResponse.parse(response);
+  static from(message: string, response?: unknown): ErrorTypeTitleDetailStatusInstance {
+    const error = new ErrorTypeTitleDetailStatusInstance(message, response);
+    const result = errorTypeTitleDetailStatusInstanceResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof errorTypeTitleDetailStatusInstanceResponse
+    >;
 
-    this.type = parsedResponse.type;
-    this.title = parsedResponse.title;
-    this.detail = parsedResponse.detail;
-    this.status = parsedResponse.status;
-    this.instance = parsedResponse.instance;
+    error.type = parsedResponse.type;
+    error.title = parsedResponse.title;
+    error.detail = parsedResponse.detail;
+    error.status = parsedResponse.status;
+    error.instance = parsedResponse.instance;
+
+    return error;
   }
 
   public throw() {
-    const error = new ErrorTypeTitleDetailStatusInstance(this.message, this.response);
+    const error = ErrorTypeTitleDetailStatusInstance.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

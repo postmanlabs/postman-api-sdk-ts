@@ -19,22 +19,30 @@ export const workspaces400Error2Response = z.lazy(() => {
 });
 
 export class Workspaces400Error2 extends ThrowableError {
-  public name: string;
+  public name!: string;
 
   constructor(
     public message: string,
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = workspaces400Error2Response.parse(response);
+  static from(message: string, response?: unknown): Workspaces400Error2 {
+    const error = new Workspaces400Error2(message, response);
+    const result = workspaces400Error2Response.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof workspaces400Error2Response
+    >;
 
-    this.name = parsedResponse.name || 'Error';
-    this.message = parsedResponse.message || '';
+    error.name = parsedResponse.name || 'Error';
+    error.message = parsedResponse.message || '';
+
+    return error;
   }
 
   public throw() {
-    const error = new Workspaces400Error2(this.message, this.response);
+    const error = Workspaces400Error2.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }
