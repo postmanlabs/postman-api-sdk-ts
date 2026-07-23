@@ -11,6 +11,7 @@ import {
   generateOauthTokenResponseResponse,
 } from './models/generate-oauth-token-response';
 import { OauthTokenError } from './models/oauth-token-error';
+import { Common500Error } from '../common/common500-error';
 import { RevokeOauthToken, revokeOauthTokenRequest } from './models/revoke-oauth-token';
 import {
   RevokeOauthTokenResponse,
@@ -85,6 +86,11 @@ This endpoint uses Basic Auth. You must pass a valid client ID and client secret
         contentType: ContentType.Json,
         status: 404,
       })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
+      })
       .addHeaderParam({ key: 'Content-Type', value: 'application/json' })
       .addBody(body)
       .build();
@@ -123,6 +129,11 @@ This endpoint uses Basic Auth. You must pass a valid client ID and client secret
         error: OauthTokenError,
         contentType: ContentType.Json,
         status: 404,
+      })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
       })
       .addHeaderParam({ key: 'Content-Type', value: 'application/json' })
       .addBody(body)

@@ -28,14 +28,22 @@ export class GetCollectionForksNotFoundResponse extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = getCollectionForksNotFoundResponseResponse.parse(response);
+  static from(message: string, response?: unknown): GetCollectionForksNotFoundResponse {
+    const error = new GetCollectionForksNotFoundResponse(message, response);
+    const result = getCollectionForksNotFoundResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof getCollectionForksNotFoundResponseResponse
+    >;
 
-    this.error = parsedResponse.error;
+    error.error = parsedResponse.error;
+
+    return error;
   }
 
   public throw() {
-    const error = new GetCollectionForksNotFoundResponse(this.message, this.response);
+    const error = GetCollectionForksNotFoundResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

@@ -30,16 +30,24 @@ export class GetTaggedEntitiesBadRequestResponse extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = getTaggedEntitiesBadRequestResponseResponse.parse(response);
+  static from(message: string, response?: unknown): GetTaggedEntitiesBadRequestResponse {
+    const error = new GetTaggedEntitiesBadRequestResponse(message, response);
+    const result = getTaggedEntitiesBadRequestResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof getTaggedEntitiesBadRequestResponseResponse
+    >;
 
-    this.error = parsedResponse.error;
-    this.message = parsedResponse.message || '';
-    this.statusCode = parsedResponse.statusCode;
+    error.error = parsedResponse.error;
+    error.message = parsedResponse.message || '';
+    error.statusCode = parsedResponse.statusCode;
+
+    return error;
   }
 
   public throw() {
-    const error = new GetTaggedEntitiesBadRequestResponse(this.message, this.response);
+    const error = GetTaggedEntitiesBadRequestResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

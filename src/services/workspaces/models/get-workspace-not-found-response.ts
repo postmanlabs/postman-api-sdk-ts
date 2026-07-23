@@ -28,14 +28,22 @@ export class GetWorkspaceNotFoundResponse extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = getWorkspaceNotFoundResponseResponse.parse(response);
+  static from(message: string, response?: unknown): GetWorkspaceNotFoundResponse {
+    const error = new GetWorkspaceNotFoundResponse(message, response);
+    const result = getWorkspaceNotFoundResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof getWorkspaceNotFoundResponseResponse
+    >;
 
-    this.error = parsedResponse.error;
+    error.error = parsedResponse.error;
+
+    return error;
   }
 
   public throw() {
-    const error = new GetWorkspaceNotFoundResponse(this.message, this.response);
+    const error = GetWorkspaceNotFoundResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

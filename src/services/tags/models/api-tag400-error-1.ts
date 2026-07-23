@@ -30,16 +30,24 @@ export class ApiTag400Error1 extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = apiTag400Error1Response.parse(response);
+  static from(message: string, response?: unknown): ApiTag400Error1 {
+    const error = new ApiTag400Error1(message, response);
+    const result = apiTag400Error1Response.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof apiTag400Error1Response
+    >;
 
-    this.title = parsedResponse.title;
-    this.detail = parsedResponse.detail;
-    this.status = parsedResponse.status;
+    error.title = parsedResponse.title;
+    error.detail = parsedResponse.detail;
+    error.status = parsedResponse.status;
+
+    return error;
   }
 
   public throw() {
-    const error = new ApiTag400Error1(this.message, this.response);
+    const error = ApiTag400Error1.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

@@ -19,22 +19,30 @@ export const apiErrorNameMessageResponse = z.lazy(() => {
 });
 
 export class ApiErrorNameMessage extends ThrowableError {
-  public name: string;
+  public name!: string;
 
   constructor(
     public message: string,
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = apiErrorNameMessageResponse.parse(response);
+  static from(message: string, response?: unknown): ApiErrorNameMessage {
+    const error = new ApiErrorNameMessage(message, response);
+    const result = apiErrorNameMessageResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof apiErrorNameMessageResponse
+    >;
 
-    this.name = parsedResponse.name || 'Error';
-    this.message = parsedResponse.message || '';
+    error.name = parsedResponse.name || 'Error';
+    error.message = parsedResponse.message || '';
+
+    return error;
   }
 
   public throw() {
-    const error = new ApiErrorNameMessage(this.message, this.response);
+    const error = ApiErrorNameMessage.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

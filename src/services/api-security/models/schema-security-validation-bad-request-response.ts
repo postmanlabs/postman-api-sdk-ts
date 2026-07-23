@@ -28,14 +28,22 @@ export class SchemaSecurityValidationBadRequestResponse extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = schemaSecurityValidationBadRequestResponseResponse.parse(response);
+  static from(message: string, response?: unknown): SchemaSecurityValidationBadRequestResponse {
+    const error = new SchemaSecurityValidationBadRequestResponse(message, response);
+    const result = schemaSecurityValidationBadRequestResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof schemaSecurityValidationBadRequestResponseResponse
+    >;
 
-    this.error = parsedResponse.error;
+    error.error = parsedResponse.error;
+
+    return error;
   }
 
   public throw() {
-    const error = new SchemaSecurityValidationBadRequestResponse(this.message, this.response);
+    const error = SchemaSecurityValidationBadRequestResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

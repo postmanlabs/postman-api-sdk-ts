@@ -23,17 +23,17 @@ export class Common400Error extends ThrowableError {
 
   throw() {
     if (createApiClientErrorResponseResponse.safeParse(this.response).success) {
-      const error = new CreateApiClientErrorResponse(this.message, this.response);
+      const error = CreateApiClientErrorResponse.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (errorTypeTitleDetailStatusResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeTitleDetailStatus(this.message, this.response);
+      const error = ErrorTypeTitleDetailStatus.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (errorNameMessageDetailsResponse.safeParse(this.response).success) {
-      const error = new ErrorNameMessageDetails(this.message, this.response);
+      const error = ErrorNameMessageDetails.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }

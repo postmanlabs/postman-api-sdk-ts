@@ -34,17 +34,25 @@ export class PartnerAndPersonalWorkspaceRolesUnsupported extends ThrowableError 
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = partnerAndPersonalWorkspaceRolesUnsupportedResponse.parse(response);
+  static from(message: string, response?: unknown): PartnerAndPersonalWorkspaceRolesUnsupported {
+    const error = new PartnerAndPersonalWorkspaceRolesUnsupported(message, response);
+    const result = partnerAndPersonalWorkspaceRolesUnsupportedResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof partnerAndPersonalWorkspaceRolesUnsupportedResponse
+    >;
 
-    this.detail = parsedResponse.detail;
-    this.link = parsedResponse.link;
-    this.status = parsedResponse.status;
-    this.title = parsedResponse.title;
+    error.detail = parsedResponse.detail;
+    error.link = parsedResponse.link;
+    error.status = parsedResponse.status;
+    error.title = parsedResponse.title;
+
+    return error;
   }
 
   public throw() {
-    const error = new PartnerAndPersonalWorkspaceRolesUnsupported(this.message, this.response);
+    const error = PartnerAndPersonalWorkspaceRolesUnsupported.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

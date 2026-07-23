@@ -167,6 +167,11 @@ export class AuditLogsService extends BaseService {
         contentType: ContentType.Json,
         status: 403,
       })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
+      })
       .build();
     return this.client.callDirect<AuditLogAction[]>(request);
   }

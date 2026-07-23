@@ -11,7 +11,7 @@ import {
 import {
   ErrorTypeTitleMessageDetail,
   errorTypeTitleMessageDetailResponse,
-} from './models/error-type-title-message-detail';
+} from '../api/models/error-type-title-message-detail';
 
 export class Api403Error extends ThrowableError {
   constructor(
@@ -23,17 +23,17 @@ export class Api403Error extends ThrowableError {
 
   throw() {
     if (createApiClientErrorResponseResponse.safeParse(this.response).success) {
-      const error = new CreateApiClientErrorResponse(this.message, this.response);
+      const error = CreateApiClientErrorResponse.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (errorTypeTitleDetailStatusResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeTitleDetailStatus(this.message, this.response);
+      const error = ErrorTypeTitleDetailStatus.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (errorTypeTitleMessageDetailResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeTitleMessageDetail(this.message, this.response);
+      const error = ErrorTypeTitleMessageDetail.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }

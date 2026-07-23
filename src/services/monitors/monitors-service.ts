@@ -587,6 +587,11 @@ You can get a runner's ID in the Postman UI if you have an Admin or Super Admin 
         contentType: ContentType.Json,
         status: 404,
       })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
+      })
       .addPathParam({
         key: 'runnerId',
         value: runnerId,
@@ -645,6 +650,11 @@ You can get a runner's ID in the Postman UI if you have a Team Admin or Super Ad
         error: ErrorTypeTitleDetailCreatedAt,
         contentType: ContentType.Json,
         status: 404,
+      })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
       })
       .addPathParam({
         key: 'runnerId',

@@ -56,7 +56,7 @@ If the outage persists or you receive any other form of an HTTP `5XX` error, [co
 
 ## Authentication
 
-Postman uses API keys for authentication. The API key tells the API server that the request came from you. Everything that you have access to in Postman is accessible with your API key. You can [generate](https://learning.postman.com/docs/developer/postman-api/authentication/#generate-a-postman-api-key) a Postman API key in the [**API keys**](https://postman.postman.co/settings/me/api-keys) section of your Postman account settings.
+Postman uses API keys for authentication. The API key tells the API server that the request came from you. Everything that you have access to in Postman is accessible with your API key. You can [generate](https://learning.postman.com/docs/developer/postman-api/authentication/#generate-a-postman-api-key) a Postman API key in the [**API keys**](https://go.postman.co/settings/me/api-keys) section of your Postman account settings.
 
 You must include an API key in each request to the Postman API with the `X-API-Key` request header. In Postman, you can store your API key as a [vault secret](https://learning.postman.com/docs/sending-requests/postman-vault/postman-vault-secrets/) or an [environment variable](https://www.postman.com/docs/environments). The Postman API [collection](https://www.postman.com/docs/collections) will use it to make API calls.
 

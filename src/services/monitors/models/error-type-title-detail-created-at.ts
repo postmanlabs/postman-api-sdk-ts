@@ -34,17 +34,25 @@ export class ErrorTypeTitleDetailCreatedAt extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = errorTypeTitleDetailCreatedAtResponse.parse(response);
+  static from(message: string, response?: unknown): ErrorTypeTitleDetailCreatedAt {
+    const error = new ErrorTypeTitleDetailCreatedAt(message, response);
+    const result = errorTypeTitleDetailCreatedAtResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof errorTypeTitleDetailCreatedAtResponse
+    >;
 
-    this.type = parsedResponse.type;
-    this.title = parsedResponse.title;
-    this.detail = parsedResponse.detail;
-    this.createdAt = parsedResponse.createdAt;
+    error.type = parsedResponse.type;
+    error.title = parsedResponse.title;
+    error.detail = parsedResponse.detail;
+    error.createdAt = parsedResponse.createdAt;
+
+    return error;
   }
 
   public throw() {
-    const error = new ErrorTypeTitleDetailCreatedAt(this.message, this.response);
+    const error = ErrorTypeTitleDetailCreatedAt.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

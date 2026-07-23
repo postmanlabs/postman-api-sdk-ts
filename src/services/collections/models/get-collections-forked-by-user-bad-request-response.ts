@@ -28,14 +28,22 @@ export class GetCollectionsForkedByUserBadRequestResponse extends ThrowableError
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = getCollectionsForkedByUserBadRequestResponseResponse.parse(response);
+  static from(message: string, response?: unknown): GetCollectionsForkedByUserBadRequestResponse {
+    const error = new GetCollectionsForkedByUserBadRequestResponse(message, response);
+    const result = getCollectionsForkedByUserBadRequestResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof getCollectionsForkedByUserBadRequestResponseResponse
+    >;
 
-    this.error = parsedResponse.error;
+    error.error = parsedResponse.error;
+
+    return error;
   }
 
   public throw() {
-    const error = new GetCollectionsForkedByUserBadRequestResponse(this.message, this.response);
+    const error = GetCollectionsForkedByUserBadRequestResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

@@ -419,6 +419,11 @@ export class SpecsService extends BaseService {
         contentType: ContentType.Json,
         status: 404,
       })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
+      })
       .addPathParam({
         key: 'collectionUid',
         value: collectionUid,
@@ -476,6 +481,11 @@ export class SpecsService extends BaseService {
         contentType: ContentType.Json,
         status: 423,
       })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
+      })
       .addPathParam({
         key: 'collectionUid',
         value: collectionUid,
@@ -531,6 +541,11 @@ export class SpecsService extends BaseService {
         error: ErrorTypeTitleDetailStatus,
         contentType: ContentType.Json,
         status: 404,
+      })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
       })
       .addPathParam({
         key: 'collectionUid',

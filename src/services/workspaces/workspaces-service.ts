@@ -840,6 +840,11 @@ This endpoint's response contains the `visibility` field. [Visibility](https://l
         contentType: ContentType.Json,
         status: 404,
       })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
+      })
       .addPathParam({
         key: 'workspaceId',
         value: workspaceId,
@@ -912,6 +917,11 @@ This endpoint does not support transferring elements from team workspaces to per
         error: ErrorTypeTitleDetailStatus,
         contentType: ContentType.Json,
         status: 404,
+      })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
       })
       .addPathParam({
         key: 'workspaceId',

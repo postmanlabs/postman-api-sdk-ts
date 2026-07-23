@@ -32,15 +32,23 @@ export class Workspaces400Error1 extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = workspaces400Error1Response.parse(response);
+  static from(message: string, response?: unknown): Workspaces400Error1 {
+    const error = new Workspaces400Error1(message, response);
+    const result = workspaces400Error1Response.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof workspaces400Error1Response
+    >;
 
-    this.error = parsedResponse.error;
-    this.statusCode = parsedResponse.statusCode;
+    error.error = parsedResponse.error;
+    error.statusCode = parsedResponse.statusCode;
+
+    return error;
   }
 
   public throw() {
-    const error = new Workspaces400Error1(this.message, this.response);
+    const error = Workspaces400Error1.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

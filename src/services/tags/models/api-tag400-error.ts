@@ -16,12 +16,12 @@ export class ApiTag400Error extends ThrowableError {
 
   throw() {
     if (apiTag400Error1Response.safeParse(this.response).success) {
-      const error = new ApiTag400Error1(this.message, this.response);
+      const error = ApiTag400Error1.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (apiErrorNameMessageResponse.safeParse(this.response).success) {
-      const error = new ApiErrorNameMessage(this.message, this.response);
+      const error = ApiErrorNameMessage.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }

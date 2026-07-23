@@ -425,7 +425,7 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const id = 'aliquip amet';
+  const id = 'est a';
 
   const transferWorkspaceElementType = TransferWorkspaceElementType.COLLECTION;
 

@@ -34,17 +34,25 @@ export class GenerateToolBadRequestResponse extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = generateToolBadRequestResponseResponse.parse(response);
+  static from(message: string, response?: unknown): GenerateToolBadRequestResponse {
+    const error = new GenerateToolBadRequestResponse(message, response);
+    const result = generateToolBadRequestResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof generateToolBadRequestResponseResponse
+    >;
 
-    this.detail = parsedResponse.detail;
-    this.status = parsedResponse.status;
-    this.title = parsedResponse.title;
-    this.type = parsedResponse.type;
+    error.detail = parsedResponse.detail;
+    error.status = parsedResponse.status;
+    error.title = parsedResponse.title;
+    error.type = parsedResponse.type;
+
+    return error;
   }
 
   public throw() {
-    const error = new GenerateToolBadRequestResponse(this.message, this.response);
+    const error = GenerateToolBadRequestResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

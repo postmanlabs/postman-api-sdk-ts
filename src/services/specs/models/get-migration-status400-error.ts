@@ -28,14 +28,22 @@ export class GetMigrationStatus400Error extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = getMigrationStatus400ErrorResponse.parse(response);
+  static from(message: string, response?: unknown): GetMigrationStatus400Error {
+    const error = new GetMigrationStatus400Error(message, response);
+    const result = getMigrationStatus400ErrorResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof getMigrationStatus400ErrorResponse
+    >;
 
-    this.error = parsedResponse.error;
+    error.error = parsedResponse.error;
+
+    return error;
   }
 
   public throw() {
-    const error = new GetMigrationStatus400Error(this.message, this.response);
+    const error = GetMigrationStatus400Error.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

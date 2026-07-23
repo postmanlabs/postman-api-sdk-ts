@@ -21,8 +21,10 @@ export interface ResponseDefinition {
  * Used to throw typed errors based on content type and status code.
  */
 export interface ErrorDefinition {
-  /** Constructor for the error class to instantiate */
-  error: new (...args: any[]) => ThrowableError;
+  /** The error class to instantiate, exposing a static `from` factory */
+  error: (new (...args: any[]) => ThrowableError) & {
+    from(message: string, response?: unknown): ThrowableError;
+  };
   /** The content type of this error response */
   contentType: ContentType;
   /** The HTTP status code this error applies to */

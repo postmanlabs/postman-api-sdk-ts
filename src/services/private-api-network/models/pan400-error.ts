@@ -19,12 +19,12 @@ export class Pan400Error extends ThrowableError {
 
   throw() {
     if (addWorkspaceToPrivateNetworkNotFoundResponseResponse.safeParse(this.response).success) {
-      const error = new AddWorkspaceToPrivateNetworkNotFoundResponse(this.message, this.response);
+      const error = AddWorkspaceToPrivateNetworkNotFoundResponse.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (getAuditLogEventActionsClientErrorResponseResponse.safeParse(this.response).success) {
-      const error = new GetAuditLogEventActionsClientErrorResponse(this.message, this.response);
+      const error = GetAuditLogEventActionsClientErrorResponse.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }

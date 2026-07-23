@@ -16,12 +16,12 @@ export class Teams400Error extends ThrowableError {
 
   throw() {
     if (teamsApiErrorSchemaResponse.safeParse(this.response).success) {
-      const error = new TeamsApiErrorSchema(this.message, this.response);
+      const error = TeamsApiErrorSchema.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (errorTypeTitleDetailStatusInstanceResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeTitleDetailStatusInstance(this.message, this.response);
+      const error = ErrorTypeTitleDetailStatusInstance.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }

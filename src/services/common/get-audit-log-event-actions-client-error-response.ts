@@ -28,14 +28,22 @@ export class GetAuditLogEventActionsClientErrorResponse extends ThrowableError {
     protected response?: unknown,
   ) {
     super(message);
+  }
 
-    const parsedResponse = getAuditLogEventActionsClientErrorResponseResponse.parse(response);
+  static from(message: string, response?: unknown): GetAuditLogEventActionsClientErrorResponse {
+    const error = new GetAuditLogEventActionsClientErrorResponse(message, response);
+    const result = getAuditLogEventActionsClientErrorResponseResponse.safeParse(response);
+    const parsedResponse = (result.success ? result.data : response || {}) as z.infer<
+      typeof getAuditLogEventActionsClientErrorResponseResponse
+    >;
 
-    this.error = parsedResponse.error;
+    error.error = parsedResponse.error;
+
+    return error;
   }
 
   public throw() {
-    const error = new GetAuditLogEventActionsClientErrorResponse(this.message, this.response);
+    const error = GetAuditLogEventActionsClientErrorResponse.from(this.message, this.response);
     error.metadata = this.metadata;
     throw error;
   }

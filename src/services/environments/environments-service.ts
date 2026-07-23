@@ -485,6 +485,11 @@ export class EnvironmentsService extends BaseService {
         contentType: ContentType.Json,
         status: 413,
       })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
+      })
       .addPathParam({
         key: 'environmentId',
         value: environmentId,

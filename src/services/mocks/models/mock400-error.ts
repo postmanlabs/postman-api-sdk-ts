@@ -19,12 +19,12 @@ export class Mock400Error extends ThrowableError {
 
   throw() {
     if (getAuditLogEventActionsClientErrorResponseResponse.safeParse(this.response).success) {
-      const error = new GetAuditLogEventActionsClientErrorResponse(this.message, this.response);
+      const error = GetAuditLogEventActionsClientErrorResponse.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (errorNameMessageDetailsResponse.safeParse(this.response).success) {
-      const error = new ErrorNameMessageDetails(this.message, this.response);
+      const error = ErrorNameMessageDetails.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }

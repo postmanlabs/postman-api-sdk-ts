@@ -19,12 +19,12 @@ export class SecretScanner403Error extends ThrowableError {
 
   throw() {
     if (errorTypeTitleDetailStatusResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeTitleDetailStatus(this.message, this.response);
+      const error = ErrorTypeTitleDetailStatus.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
     if (errorTypeTitleStatusInstanceResponse.safeParse(this.response).success) {
-      const error = new ErrorTypeTitleStatusInstance(this.message, this.response);
+      const error = ErrorTypeTitleStatusInstance.from(this.message, this.response);
       error.metadata = this.metadata;
       error.throw();
     }
