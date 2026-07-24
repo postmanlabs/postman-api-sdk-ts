@@ -1,6 +1,6 @@
 {
   "sdkGenVersion": "1.7.1",
-  "date": "2026-07-23T13:49:45.164Z",
+  "date": "2026-07-24T14:34:18.747Z",
   "config": {
     "languages": [
       "typescript"
@@ -18,16 +18,20 @@
     "responseHeaders": false,
     "sdkName": "Postman API",
     "sdkVersion": "1.44.1",
+    "specLocation": {
+      "bucketName": "us-prod-sdk-gen-api-specs",
+      "bucketKey": "specification-snapshots/3001f4e4-5f9d-4bac-9f57-b2c4d483508f/1784903653184.yaml"
+    },
     "customCode": {
       "trackChanges": true
     },
     "customCodeLocation": {
       "bucketName": "us-prod-sdk-gen-api-code-gen-input",
-      "bucketKey": "custom-code/github/74/ac961577-716a-4396-89e6-de0d846da209.zip"
+      "bucketKey": "custom-code/github/74/0ce02236-7f43-4d3f-86d8-08b27183fda9.zip"
     },
     "previousArtifactLocation": {
       "bucketName": "us-prod-sdk-gen-api-code-gen-uploads",
-      "bucketKey": "c717c7ca-e6d2-4e0d-acef-3db80ef34250/Postman API-typescript-1.44.1.zip"
+      "bucketKey": "9dfe8f77-1d89-47f1-b431-0fd9d68ef8de/Postman API-typescript-1.44.1.zip"
     },
     "publishing": {
       "releaseBranch": "main"
@@ -2734,10 +2738,10 @@
     "documentation/services/BillingService.md": "fb0ec77ea2d246be8a5600234ee19e5f027711ea81d30ea33c047ac16e729fc1",
     "documentation/services/CollectionAccessKeysService.md": "01d215054a411051a0e998ab8252c96db0e2d3d28441e0fc80567d5679dcd767",
     "documentation/services/CollectionFoldersService.md": "dd51ccfc95a00e54ebcead1e3b97494cac3d0d61d654c05729d25f1260c483d2",
-    "documentation/services/CollectionItemsService.md": "9f82d84e6ac759cc0511015f05279d726445a2f144f61b9399f81c761be8f69b",
+    "documentation/services/CollectionItemsService.md": "a67de11f4b6906b1f45c746882bb045991988bfd3b323333a66d28a29efcb959",
     "documentation/services/CollectionRequestsService.md": "ee42f00270bbe7c955094955b3f1bb0f74851dacb45333d28f9f3a9c796be1c2",
     "documentation/services/CollectionResponsesService.md": "8c84fbda22fbb31e36ba25869d563e0a3c38e3870838fee2ce964ae1c47ac6b0",
-    "documentation/services/CollectionsService.md": "6b5d5244ddff3fa5607011b5e8a1911f61f917fca8566627cb2774461bdb37b9",
+    "documentation/services/CollectionsService.md": "aeeb3fe55d15cd8fcc818daa16deb19ffb1172dd170b36ca7ed8a419af575dc0",
     "documentation/services/CommentsService.md": "cc3890b833096de9a53ab2d44ea27ce937a1088560d93f0586ea976c782a0a77",
     "documentation/services/ComponentsService.md": "345f57236bec2ac5cf485e020ea8a971711455e7ef128c69618cf89da42db1d3",
     "documentation/services/EnvironmentsService.md": "c3bdbc03c68d70d50be3117084b4dc7abc9ae714e2a7cafe455ea6f6daf013e1",
@@ -2754,19 +2758,19 @@
     "documentation/services/SearchService.md": "c30f376ba77e7c699f27ffa3a861cf3a0ec6cc85f1b3e2d69e44d2aedf6fc815",
     "documentation/services/SecretScannerService.md": "9abed38fd0e0c387f97f6d7b9a8102fc0d39372570c29ac202e5003c0a089098",
     "documentation/services/ServiceAccountsService.md": "66fbb286aa4bfb3f4f3df23677f1de5ac95aa1a99145bf71f415ac509ad555e8",
-    "documentation/services/SpecsService.md": "624e8d6798b173ccfd943a153602019d1b547a04af0b90ad242a1f46c62e17a2",
+    "documentation/services/SpecsService.md": "775d324d1e59c3f86c6e3bfaab4d8d55d7857d804117c1dd425b16c8c2ea7c85",
     "documentation/services/TagsService.md": "01acb31d67a27a8971aec74046babf1efe50725d520ce244794792ad3d991ac5",
-    "documentation/services/TeamsService.md": "d4bf2681f092541969aa30b9af7ecdd265e8b38eba489b7861e6b20e0fb97d47",
+    "documentation/services/TeamsService.md": "3303cdf5052d205a6c71858cf59b4057752419bdf572300e5088f716e389fa08",
     "documentation/services/UsersService.md": "58460731372ef71ed368e675c1120f312eaa9dcf06c8d0949236a9f0a1e34678",
     "documentation/services/WebhooksService.md": "71963780ffcfffb0aeaa222e1973113e753ba2e6e0ac715dba6f2a201f8c9d32",
-    "documentation/services/WorkspacesService.md": "ec17aa17846801c6003e8fca99df897fe4372af5597879bd236a60469c7f6458",
-    "documentation/snippets/snippets.json": "bb8cc818ad143c7dc6260611b1863b03c012045ccb474cdc89d3e6f00a19558f",
+    "documentation/services/WorkspacesService.md": "626d9451107f673a7471db36ca0567c71291074a9e7c788b4dc3001cfd9590dd",
+    "documentation/snippets/snippets.json": "6b49c43f93df4a87fedfc4fb03eb0b43cd10f82bff4db111c951b3a7ecf2898b",
     "examples/README.md": "6e9da2db746ac74ae1cf0c61404f741bac50845927bd506ee82d1a9f6c23c3ca",
     "examples/package.json": "cfe66a1f503caaccc270ed92478392c4e3063380aeaf83dcc7329b9e67f8940c",
     "examples/src/index.ts": "6aa6f1544641ff487d083980abc745a26ffabfa5797dd6fae59a7afd4f340dd7",
     "examples/tsconfig.json": "e579a7e4376879a28f9efc87311e036b44acef879d2851690d26526509856d63",
     "package.json": "e52354e6659875264368e43614092d7958bdea3c775c372f67b677e36a9d35e5",
-    "prettier.config.js": "2fe33fda52344779fcf235afa8152cfd356880dc3161da09403dc26231bc72d9",
+    "prettier.config.js": "b3f990b4c84640a705ded29e3343d8e3d70ddc4b88431d10d47c23f568470cfd",
     "scripts/prepublish.sh": "651cd87546cc25d69210f55dc4310d47007c53b719da1da8b3bd9acb098defcf",
     "src/http/client.ts": "349c2725fbbeac67a4479fe1be2b8c0c3788ac8368ef722e3d1fdcd686f68717",
     "src/http/environment.ts": "fcbe25f4e1d1ec9748169d76f0a312a274d869055fc3192594f222b6e1d81355",

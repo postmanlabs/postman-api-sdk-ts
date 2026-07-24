@@ -4,6 +4,8 @@ A list of all methods in the `SpecsService` service. Click on the method name to
 
 | Methods                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | :---------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [getMigrationStatus](#getmigrationstatus)                   | Returns the status of an API Builder definition's migration to Spec Hub.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| [migrateApiToSpecHub](#migrateapitospechub)                 | Migrates an API Builder definition to a [Spec Hub](https://learning.postman.com/docs/design-apis/specifications/overview) specification. You can migrate the definition to an existing workspace, or create a new workspace to migrate the definition into. On success, this returns an HTTP `202 Created` response. You can use the GET `/apis/{apiId}/spec-migrations` endpoint to check the migration status. **Note:** - This returns an HTTP `200 OK` response if the given API ID isn't an API Builder definition. - To migrate a Git-linked API Builder definition to Spec Hub, you must create a new workspace. Migration to an existing workspace isn't supported. |
 | [getGeneratedCollectionSpecs](#getgeneratedcollectionspecs) | Gets the API specification generated for the given collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | [generateSpecFromCollection](#generatespecfromcollection)   | Generates an OpenAPI 2.0, 3.0, or 3.1 specification for the given collection. The response contains a polling link to the task status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | [syncCollectionWithSpec](#synccollectionwithspec)           | Syncs a collection generated from an API specification. This is an asynchronous endpoint that returns an HTTP `202 Accepted` response. **Note:** - This endpoint only supports the OpenAPI 2.0, 3.0, and 3.1 specification types. - You can only sync collections generated from the given spec ID.                                                                                                                                                                                                                                                                                                                                                                         |
@@ -26,6 +28,80 @@ A list of all methods in the `SpecsService` service. Click on the method name to
 | [getSpecVersionTag](#getspecversiontag)                     | Gets information about a specification's version tag. The response returns a snapshot of a specification at a point in time that lets you track changes to your specifications over time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | [getSpecVersionTags](#getspecversiontags)                   | Gets a list of a specification's version tags.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | [createSpecVersionTag](#createspecversiontag)               | Creates a version tag for a specification. Version tags are snapshots of a specification at a point in time that let you to track changes to your specifications over time. **Note:** Conflicts can occur if you try to create a version tag for a changelog group that already has a version tag. To resolve this, make new changes to the specification to create a new changelog group, then create a version tag on that new changelog group.                                                                                                                                                                                                                           |
+
+## getMigrationStatus
+
+Returns the status of an API Builder definition's migration to Spec Hub.
+
+- HTTP Method: `GET`
+- Endpoint: `/apis/{apiId}/spec-migrations`
+
+**Parameters**
+
+| Name  | Type   | Required | Description   |
+| :---- | :----- | :------- | :------------ |
+| apiId | string | ✅       | The API's ID. |
+
+**Return Type**
+
+`GetMigrationStatus`
+
+**Example Usage Code Snippet**
+
+```typescript
+import { PostmanApi } from '@postman/api-sdk';
+
+(async () => {
+  const postmanApi = new PostmanApi({
+    apiKey: 'YOUR_API_KEY',
+  });
+
+  const data = await postmanApi.specs.getMigrationStatus('90ca9f5a-c4c4-11ed-afa1-0242ac120002');
+
+  console.log(data);
+})();
+```
+
+## migrateApiToSpecHub
+
+Migrates an API Builder definition to a [Spec Hub](https://learning.postman.com/docs/design-apis/specifications/overview) specification. You can migrate the definition to an existing workspace, or create a new workspace to migrate the definition into. On success, this returns an HTTP `202 Created` response. You can use the GET `/apis/{apiId}/spec-migrations` endpoint to check the migration status. **Note:** - This returns an HTTP `200 OK` response if the given API ID isn't an API Builder definition. - To migrate a Git-linked API Builder definition to Spec Hub, you must create a new workspace. Migration to an existing workspace isn't supported.
+
+- HTTP Method: `POST`
+- Endpoint: `/apis/{apiId}/spec-migrations`
+
+**Parameters**
+
+| Name  | Type                                                    | Required | Description       |
+| :---- | :------------------------------------------------------ | :------- | :---------------- |
+| body  | [MigrateApiToSpecHub](../models/MigrateApiToSpecHub.md) | ❌       | The request body. |
+| apiId | string                                                  | ✅       | The API's ID.     |
+
+**Return Type**
+
+`MigrateToSpecHubResponse`
+
+**Example Usage Code Snippet**
+
+```typescript
+import { MigrateApiToSpecHub, MigrateToExistingWorkspace, PostmanApi } from '@postman/api-sdk';
+
+(async () => {
+  const postmanApi = new PostmanApi({
+    apiKey: 'YOUR_API_KEY',
+  });
+
+  const migrateToExistingWorkspace: MigrateToExistingWorkspace = {
+    workspaceId: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
+  };
+
+  const data = await postmanApi.specs.migrateApiToSpecHub(
+    '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
+    migrateToExistingWorkspace,
+  );
+
+  console.log(data);
+})();
+```
 
 ## getGeneratedCollectionSpecs
 
@@ -192,7 +268,7 @@ import { ElementId, ElementType, PostmanApi } from '@postman/api-sdk';
   });
 
   const elementType = ElementType.COLLECTIONS;
-  const elementId = 'ullamco';
+  const elementId = 'nisi dese';
 
   const data = await postmanApi.specs.getAsyncSpecTaskStatus(
     elementType,
