@@ -33,8 +33,6 @@ module.exports = {
       files: '*.md',
       options: {
         parser: 'markdown',
-        phpVersion: '8.0',
-        trailingCommaPHP: false,
       },
     },
   ],
