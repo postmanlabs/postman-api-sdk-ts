@@ -12,7 +12,9 @@
     "test": "tsc --noEmit",
     "build": "tsup-node src/index.ts --format cjs,esm --dts --clean",
     "prepublishOnly": "chmod +x ./scripts/prepublish.sh && ./scripts/prepublish.sh && npm run build",
-    "test-example": "cd examples && tsc --noEmit"
+    "test-example": "cd examples && tsc --noEmit",
+    "test:integration": "vitest --run --config tests/vitest.integration.config.ts",
+    "test:all": "vitest --run --config tests/vitest.config.ts"
   },
   "keywords": [
     "typescript",
@@ -26,9 +28,17 @@
   ],
   "author": "Postman Support",
   "devDependencies": {
-    "typescript": "5.3.3",
+    "@types/express": "^5.0.6",
     "@types/node": "^22.14.0",
-    "tsup": "^6.7.0"
+    "@types/sinon": "^21.0.1",
+    "@types/supertest": "^7.2.0",
+    "express": "^5.2.1",
+    "sinon": "^22.0.0",
+    "supertest": "^7.2.2",
+    "tsup": "^6.7.0",
+    "typescript": "5.3.3",
+    "vitest": "^4.0.0",
+    "yaml": "^2.6.0"
   },
   "dependencies": {
     "zod": "3.22.3"

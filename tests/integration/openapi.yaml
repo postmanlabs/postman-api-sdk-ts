@@ -50,7 +50,7 @@ info:
 
     ## Authentication
 
-    Postman uses API keys for authentication. The API key tells the API server that the request came from you. Everything that you have access to in Postman is accessible with your API key. You can [generate](https://learning.postman.com/docs/developer/postman-api/authentication/#generate-a-postman-api-key) a Postman API key in the [**API keys**](https://postman.postman.co/settings/me/api-keys) section of your Postman account settings.
+    Postman uses API keys for authentication. The API key tells the API server that the request came from you. Everything that you have access to in Postman is accessible with your API key. You can [generate](https://learning.postman.com/docs/developer/postman-api/authentication/#generate-a-postman-api-key) a Postman API key in the [**API keys**](https://go.postman.co/settings/me/api-keys) section of your Postman account settings.
 
     You must include an API key in each request to the Postman API with the `X-API-Key` request header. In Postman, you can store your API key as a [vault secret](https://learning.postman.com/docs/sending-requests/postman-vault/postman-vault-secrets/) or an [environment variable](https://www.postman.com/docs/environments). The Postman API [collection](https://www.postman.com/docs/collections) will use it to make API calls.
 
@@ -699,6 +699,8 @@ paths:
           $ref: "#/components/responses/auditLogs400Error"
         "403":
           $ref: "#/components/responses/auditLogs403Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
   /collection-access-keys:
     get:
       summary: Get collection access keys
@@ -1348,6 +1350,8 @@ paths:
           $ref: "#/components/responses/apiSpec403Error"
         "404":
           $ref: "#/components/responses/apiSpec404Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
     post:
       summary: Generate spec from collection
       description: Generates an OpenAPI 2.0, 3.0, or 3.1 specification for the given
@@ -1367,6 +1371,8 @@ paths:
           $ref: "#/components/responses/apiSpec404Error"
         "423":
           $ref: "#/components/responses/apiSpec423ErrorLocked"
+        "500":
+          $ref: "#/components/responses/common500Error"
     parameters:
       - $ref: "#/components/parameters/collectionUniqueId"
       - $ref: "#/components/parameters/elementTypeSpec"
@@ -1872,6 +1878,8 @@ paths:
           $ref: "#/components/responses/api403Error"
         "404":
           $ref: "#/components/responses/apiSpec404Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
     parameters:
       - $ref: "#/components/parameters/collectionUniqueId"
   /collections/{collectionId}/folders/{folderId}:
@@ -2716,6 +2724,8 @@ paths:
           $ref: "#/components/responses/common411Error"
         "413":
           $ref: "#/components/responses/common413Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
     put:
       summary: Replace an environment's data
       description: |
@@ -3625,6 +3635,8 @@ paths:
           $ref: "#/components/responses/oauthToken400Error"
         "404":
           $ref: "#/components/responses/oauthToken404Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
       security:
         - basicAuth: []
   /oauth2/token/revoke:
@@ -3652,6 +3664,8 @@ paths:
           $ref: "#/components/responses/revokeOauthTokenResponse"
         "404":
           $ref: "#/components/responses/oauthToken404Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
       security:
         - {}
   /postbot/generations/tool:
@@ -3778,6 +3792,8 @@ paths:
           $ref: "#/components/responses/common403Error"
         "404":
           $ref: "#/components/responses/runner404Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
       parameters:
         - $ref: "#/components/parameters/limitDefault25"
         - $ref: "#/components/parameters/cursor"
@@ -3812,6 +3828,8 @@ paths:
           $ref: "#/components/responses/common403Error"
         "404":
           $ref: "#/components/responses/runner404Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
     parameters:
       - $ref: "#/components/parameters/runnerId"
   /secret-types:
@@ -5274,6 +5292,8 @@ paths:
           $ref: "#/components/responses/common403Error"
         "404":
           $ref: "#/components/responses/workspaceCommon404Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
       parameters:
         - $ref: "#/components/parameters/workspaceId"
         - $ref: "#/components/parameters/userIdQuery"
@@ -5305,6 +5325,8 @@ paths:
           $ref: "#/components/responses/transferWorkspaceElement403Error"
         "404":
           $ref: "#/components/responses/transferWorkspaceElement404Error"
+        "500":
+          $ref: "#/components/responses/common500Error"
     parameters:
       - $ref: "#/components/parameters/workspaceId"
   /workspaces/{workspaceId}/global-variables:
@@ -21479,6 +21501,11 @@ components:
           $ref: "#/components/schemas/sdkSource"
         language:
           $ref: "#/components/schemas/sdkLanguage"
+        sdkVersion:
+          type: string
+          description: An optional override for the SDK version. If this isn't provided,
+            the next version is resolved from the latest auto-pull request.
+          example: 1.0.0
         authors:
           type: array
           description: A list of package authors written into the generated manifest.
