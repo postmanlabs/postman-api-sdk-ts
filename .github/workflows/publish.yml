@@ -6,7 +6,7 @@ on:
 
 permissions:
   contents: write # create the git tag + GitHub release
-  id-token: write # npm provenance (OIDC)
+  id-token: write # mint the OIDC token npm trusted publishing authenticates with
 
 jobs:
   publish:
@@ -48,12 +48,25 @@ jobs:
           npm version "$VERSION" --no-git-tag-version --allow-same-version
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
 
-      - name: Publish to npm with provenance
+      - name: Publish to npm via trusted publishing (OIDC)
+        # Authenticates with the npm trusted publisher configured for this repo +
+        # workflow (EFSUP-8215) — no long-lived token. npm exchanges the GitHub OIDC
+        # token minted by `id-token: write` for a short-lived publish token, which is
+        # why NODE_AUTH_TOKEN is deliberately absent: leaving a token here would let
+        # the job fall back to token auth and silently pass without exercising OIDC.
+        #
+        # `--access restricted` keeps this first validation release private. Flip it to
+        # `public` when the package goes public.
+        #
+        # `--provenance` is deliberately absent. npm cannot attest a package built in a
+        # non-public repo, and this repo is `internal`, so the explicit flag would fail
+        # with EUSAGE ("Can't generate provenance for new or private package"). npm's
+        # own auto-enable path is also inert here — it requires
+        # `repository_visibility === 'public'` — so nothing has to opt out.
+        #
         # Fails loudly if this version is already on npm — we trust the upstream
         # spec to bump info.version and never republish or auto-suffix.
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.POSTMAN_NPM_TOKEN }}
-        run: npm publish --provenance --access public
+        run: npm publish --access restricted
 
       - name: Tag the release and publish notes
         # Runs only after a successful publish, so a duplicate-version failure
