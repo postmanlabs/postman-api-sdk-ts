@@ -33,6 +33,8 @@ jobs:
         run: npm run test:all
 
       # No token, no network publish — packs the tarball and validates that the package
-      # name, scope, and access resolve. Fails the PR before merge if they're wrong.
+      # name and scope resolve. Fails the PR before merge if they're wrong.
+      # Uses `npm pack` (not `npm publish --dry-run`): the latter contacts the registry
+      # and errors on an already-published version, so it would fail every non-release PR.
       - name: Validate publish resolution (dry-run)
-        run: npm publish --dry-run --access public
+        run: npm pack --dry-run
