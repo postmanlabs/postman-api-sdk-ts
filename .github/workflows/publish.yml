@@ -5,8 +5,8 @@ on:
     branches: ['main']
 
 permissions:
-  contents: write # create the git tag + GitHub release
-  id-token: write # mint the OIDC token npm trusted publishing authenticates with
+  contents: write
+  id-token: write
 
 jobs:
   publish:
@@ -14,21 +14,17 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 0 # full history so release notes diff against the last tag
+          fetch-depth: 0
 
       - uses: actions/setup-node@v6
         with:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
-          cache: 'npm' # committed package-lock.json makes resolution reproducible + cacheable
+          cache: 'npm'
 
-      # Reproducible install from the committed lockfile (fails if it drifts from package.json).
       - name: Install dependencies
         run: npm ci
 
-      # Re-enabled auditing (PSTAPI-1528). Gate the RELEASE on the shipped tree's supply
-      # chain — a high/critical advisory in a production dependency blocks the publish.
-      # Dev-only build tools (not shipped to consumers) don't gate the release.
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
 
@@ -49,31 +45,10 @@ jobs:
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
 
       - name: Publish to npm via trusted publishing (OIDC)
-        # Authenticates with the npm trusted publisher configured for this repo +
-        # workflow (EFSUP-8215) — no long-lived token. npm exchanges the GitHub OIDC
-        # token minted by `id-token: write` for a short-lived publish token, which is
-        # why NODE_AUTH_TOKEN is deliberately absent: leaving a token here would let
-        # the job fall back to token auth and silently pass without exercising OIDC.
-        #
-        # `--access public` flips the package public and keeps it that way. The flag is
-        # load-bearing: for an already-published package npm defaults to *not changing*
-        # the current access level, so omitting it would leave the restricted status set
-        # by the validation release (#45) in place.
-        #
-        # `--provenance` is deliberately absent. npm cannot attest a package built in a
-        # non-public repo, and this repo is still `internal`, so the explicit flag would
-        # fail with EUSAGE ("Can't generate provenance for new or private package").
-        # npm's own auto-enable path is also inert here — it requires
-        # `repository_visibility === 'public'` — so nothing has to opt out. Add the flag
-        # once the repo itself is public.
-        #
-        # Fails loudly if this version is already on npm — we trust the upstream
-        # spec to bump info.version and never republish or auto-suffix.
-        run: npm publish --access public
+        # TODO: add --provenance once the repo is public (npm can't attest provenance for an internal repo)
+        run: npm publish
 
       - name: Tag the release and publish notes
-        # Runs only after a successful publish, so a duplicate-version failure
-        # above leaves no orphan tag or release.
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release create "v$VERSION" --generate-notes --title "v$VERSION" --target "$GITHUB_SHA"
