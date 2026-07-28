@@ -55,18 +55,21 @@ jobs:
         # why NODE_AUTH_TOKEN is deliberately absent: leaving a token here would let
         # the job fall back to token auth and silently pass without exercising OIDC.
         #
-        # `--access restricted` keeps this first validation release private. Flip it to
-        # `public` when the package goes public.
+        # `--access public` flips the package public and keeps it that way. The flag is
+        # load-bearing: for an already-published package npm defaults to *not changing*
+        # the current access level, so omitting it would leave the restricted status set
+        # by the validation release (#45) in place.
         #
         # `--provenance` is deliberately absent. npm cannot attest a package built in a
-        # non-public repo, and this repo is `internal`, so the explicit flag would fail
-        # with EUSAGE ("Can't generate provenance for new or private package"). npm's
-        # own auto-enable path is also inert here — it requires
-        # `repository_visibility === 'public'` — so nothing has to opt out.
+        # non-public repo, and this repo is still `internal`, so the explicit flag would
+        # fail with EUSAGE ("Can't generate provenance for new or private package").
+        # npm's own auto-enable path is also inert here — it requires
+        # `repository_visibility === 'public'` — so nothing has to opt out. Add the flag
+        # once the repo itself is public.
         #
         # Fails loudly if this version is already on npm — we trust the upstream
         # spec to bump info.version and never republish or auto-suffix.
-        run: npm publish --access restricted
+        run: npm publish --access public
 
       - name: Tag the release and publish notes
         # Runs only after a successful publish, so a duplicate-version failure

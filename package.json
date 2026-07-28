@@ -27,6 +27,7 @@
     "README.md"
   ],
   "author": "Postman Support",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^22.14.0",
