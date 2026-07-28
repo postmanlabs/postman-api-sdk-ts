@@ -1,0 +1,40 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches: ['main']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'npm' # committed package-lock.json makes resolution reproducible + cacheable
+
+      # Reproducible install from the committed lockfile (fails if it drifts from package.json).
+      - name: Install dependencies
+        run: npm ci
+
+      # Re-enabled auditing (PSTAPI-1528). Gate on the SHIPPED tree only — the published
+      # artifact's supply chain. Dev-only build tools (e.g. tsup/esbuild) are not shipped
+      # to consumers, so their advisories don't fail the build.
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Typecheck
+        run: npm run test
+
+      - name: Test (harness units + integration sweep)
+        run: npm run test:all
+
+      # No token, no network publish — packs the tarball and validates that the package
+      # name and scope resolve. Fails the PR before merge if they're wrong.
+      # Uses `npm pack` (not `npm publish --dry-run`): the latter contacts the registry
+      # and errors on an already-published version, so it would fail every non-release PR.
+      - name: Validate publish resolution (dry-run)
+        run: npm pack --dry-run
