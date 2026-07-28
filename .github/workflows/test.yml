@@ -35,4 +35,4 @@ jobs:
       # No token, no network publish — packs the tarball and validates that the package
       # name, scope, and access resolve. Fails the PR before merge if they're wrong.
       - name: Validate publish resolution (dry-run)
-        run: npm publish --dry-run --access restricted
+        run: npm publish --dry-run --access public
