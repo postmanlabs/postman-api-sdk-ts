@@ -1,10 +1,4 @@
 import { z } from 'zod';
-import {
-  UpdateCollectionCollection,
-  updateCollectionCollection,
-  updateCollectionCollectionRequest,
-  updateCollectionCollectionResponse,
-} from './update-collection-collection';
 
 /**
  * Zod schema for the UpdateCollection model.
@@ -13,14 +7,15 @@ import {
  */
 export const updateCollection = z.lazy(() => {
   return z.object({
-    collection: updateCollectionCollection.optional(),
+    collection: z.any().optional(),
   });
 });
 
 /**
- *
- * @typedef  {UpdateCollection} updateCollection
- * @property {UpdateCollectionCollection}
+ * 
+ * @typedef  {UpdateCollection} updateCollection   
+ * @property {any} - The collection updates to apply. You must pass at least one of the following: `info`, `variable`, `auth`, or `events`. Unsupported properties are rejected.
+
  */
 export type UpdateCollection = z.infer<typeof updateCollection>;
 
@@ -32,7 +27,7 @@ export type UpdateCollection = z.infer<typeof updateCollection>;
 export const updateCollectionResponse = z.lazy(() => {
   return z
     .object({
-      collection: updateCollectionCollectionResponse.optional(),
+      collection: z.any().optional(),
     })
     .transform((data) => ({
       collection: data['collection'],
@@ -47,7 +42,7 @@ export const updateCollectionResponse = z.lazy(() => {
 export const updateCollectionRequest = z.lazy(() => {
   return z
     .object({
-      collection: updateCollectionCollectionRequest.optional(),
+      collection: z.any().optional(),
     })
     .transform((data) => ({
       collection: data['collection'],

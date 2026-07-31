@@ -18,11 +18,11 @@ import {
   collectionEventResponse,
 } from './collection-event';
 import {
-  VariableList2,
-  variableList2,
-  variableList2Request,
-  variableList2Response,
-} from './variable-list-2';
+  CollectionVariableList,
+  collectionVariableList,
+  collectionVariableListRequest,
+  collectionVariableListResponse,
+} from './collection-variable-list';
 import {
   CollectionAuth,
   collectionAuth,
@@ -46,7 +46,7 @@ export const modifyCollectionSchema = z.lazy(() => {
     info: modifyCollectionSchemaInfo,
     item: z.array(collectionItem),
     event: z.array(collectionEvent).optional(),
-    variable: z.array(variableList2).optional(),
+    variable: z.array(collectionVariableList).optional(),
     auth: collectionAuth.optional(),
     protocolProfileBehavior: protocolProfileBehavior.optional(),
   });
@@ -58,7 +58,7 @@ export const modifyCollectionSchema = z.lazy(() => {
  * @property {ModifyCollectionSchemaInfo} - Information about the collection.
  * @property {CollectionItem[]}
  * @property {CollectionEvent[]} - A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID.
- * @property {VariableList2[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
+ * @property {CollectionVariableList[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
  * @property {CollectionAuth} - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
  * @property {ProtocolProfileBehavior} - The [settings](https://learning.postman.com/docs/sending-requests/create-requests/request-settings/) used to alter the [Protocol Profile Behavior](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md) of sending a request.
  */
@@ -75,7 +75,7 @@ export const modifyCollectionSchemaResponse = z.lazy(() => {
       info: modifyCollectionSchemaInfoResponse,
       item: z.array(collectionItemResponse),
       event: z.array(collectionEventResponse).optional(),
-      variable: z.array(variableList2Response).optional(),
+      variable: z.array(collectionVariableListResponse).optional(),
       auth: collectionAuthResponse.optional(),
       protocolProfileBehavior: protocolProfileBehaviorResponse.optional(),
     })
@@ -100,7 +100,7 @@ export const modifyCollectionSchemaRequest = z.lazy(() => {
       info: modifyCollectionSchemaInfoRequest,
       item: z.array(collectionItemRequest),
       event: z.array(collectionEventRequest).optional(),
-      variable: z.array(variableList2Request).optional(),
+      variable: z.array(collectionVariableListRequest).optional(),
       auth: collectionAuthRequest.optional(),
       protocolProfileBehavior: protocolProfileBehaviorRequest.optional(),
     })

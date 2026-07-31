@@ -21,8 +21,9 @@ export class QuerySerializer extends Serializer {
     const query: string[] = [];
 
     queryParams.forEach((param) => {
-      // Skip parameters with undefined values
-      if (param.value === undefined) {
+      // Skip parameters with null or undefined values so they are omitted
+      // from the query string entirely (avoids sending `key=null`).
+      if (param.value === undefined || param.value === null) {
         return;
       }
 

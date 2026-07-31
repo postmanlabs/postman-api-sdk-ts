@@ -152,7 +152,7 @@ import { PostmanApi } from '@postman/api-sdk';
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     name: 'Test Collection',
     limit: 3,
-    offset: 10,
+    offset: 3,
   });
 
   console.log(data);
@@ -221,7 +221,7 @@ import {
     schema: informationSchema1,
   };
 
-  const variableInfoValue1 = 'laborum ';
+  const variableInfoValue1 = 'voluptat';
 
   const variable: Variable = {
     key: 'username',
@@ -246,7 +246,7 @@ import {
 
   const authMethodType1 = AuthMethodType1.NOAUTH;
 
-  const authAttributesValue = 'adsit dolor i';
+  const authAttributesValue = 'Lorem ali';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -313,11 +313,11 @@ import {
     body: collectionRequestBody1,
   };
 
-  const responseHeader1 = 'ex occaecat ';
+  const responseHeader1 = 'ea eiusmod';
 
   const itemResponse1: ItemResponse1 = {
     originalRequest: responseOriginalRequest1,
-    responseTime: 6.59,
+    responseTime: 8.17,
     header: responseHeader1,
     body: '{\n    "field": {}\n}',
     status: 'OK',
@@ -339,7 +339,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 8.14,
+    maxRedirects: 1.48,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -584,6 +584,7 @@ import {
   CollectionRequestBodyFile2,
   CollectionRequestBodyGraphql2,
   CollectionRequestBodyUrlencoded2,
+  CollectionVariableInfo,
   DisabledSystemHeaders,
   EventListen2,
   InformationSchema2,
@@ -622,7 +623,7 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const variableInfoValue2 = 'mollit magna';
+  const variableInfoValue2 = 'amet dolor id';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -651,7 +652,7 @@ import {
 
   const authMethodType2 = AuthMethodType2.BASIC;
 
-  const authAttributesValue = 'adsit dolor i';
+  const authAttributesValue = 'Lorem ali';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -718,12 +719,12 @@ import {
     body: collectionRequestBody2,
   };
 
-  const responseHeader2_3 = 'consectetur r';
+  const responseHeader2_3 = 'voluptate u';
 
   const itemResponse2: ItemResponse2 = {
     id: '33ffd2e3-59a8-4dfe-84fa-0a571984487b',
     originalRequest: responseOriginalRequest2,
-    responseTime: 4.14,
+    responseTime: 5,
     header: responseHeader2_3,
     body: 'body',
     status: 'OK',
@@ -748,7 +749,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 8.14,
+    maxRedirects: 1.48,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -776,11 +777,19 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
+  const collectionVariableInfoValue = 'ut labo';
+
+  const collectionVariableInfo: CollectionVariableInfo = {
+    key: 'userId',
+    value: collectionVariableInfoValue,
+    disabled: true,
+  };
+
   const modifyCollectionSchema: ModifyCollectionSchema = {
     info: modifyCollectionSchemaInfo,
     item: [collectionItem],
     event: [collectionEvent],
-    variable: [variableList2_1],
+    variable: [collectionVariableInfo],
     auth: collectionAuth,
     protocolProfileBehavior: protocolProfileBehavior,
   };
@@ -822,94 +831,15 @@ Updates specific collection information, such as its name, events, or its variab
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  AuthAttributes,
-  AuthAttributesType,
-  AuthMethodType2,
-  CollectionAuth,
-  CollectionEvent,
-  EventListen2,
-  PostmanApi,
-  RequestEventsScript,
-  UpdateCollection,
-  UpdateCollectionCollection,
-  UpdateCollectionCollectionInfo,
-  VariableList2_1,
-} from '@postman/api-sdk';
+import { PostmanApi, UpdateCollection } from '@postman/api-sdk';
 
 (async () => {
   const postmanApi = new PostmanApi({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const updateCollectionCollectionInfo: UpdateCollectionCollectionInfo = {
-    name: 'Test Collection v2',
-    description:
-      'This collection makes a request to the Postman Echo service to get a list of request headers sent by an HTTP client.',
-  };
-
-  const variableInfoValue2 = 'mollit magna';
-
-  const variableList2_1: VariableList2_1 = {
-    id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
-    key: 'userId',
-    description: "The user's ID.",
-    value: variableInfoValue2,
-    enabled: true,
-    disabled: true,
-  };
-
-  const authMethodType2 = AuthMethodType2.BASIC;
-
-  const authAttributesValue = 'adsit dolor i';
-
-  const authAttributesType = AuthAttributesType.STRING_;
-
-  const authAttributes: AuthAttributes = {
-    key: 'algorithm',
-    value: authAttributesValue,
-    type: authAttributesType,
-  };
-
-  const collectionAuth: CollectionAuth = {
-    type: authMethodType2,
-    apikey: [authAttributes],
-    awsv4: [authAttributes],
-    basic: [authAttributes],
-    bearer: [authAttributes],
-    digest: [authAttributes],
-    edgegrid: [authAttributes],
-    hawk: [authAttributes],
-    ntlm: [authAttributes],
-    oauth1: [authAttributes],
-    oauth2: [authAttributes],
-    jwt: [authAttributes],
-    asap: [authAttributes],
-  };
-
-  const eventListen2 = EventListen2.TEST;
-
-  const requestEventsScript: RequestEventsScript = {
-    id: '4981dd69-6138-45f6-990e-f122b267557f',
-    type: 'text/javascript',
-    exec: ['var data = JSON.parse(responseBody);'],
-  };
-
-  const collectionEvent: CollectionEvent = {
-    id: '4981dd69-6138-45f6-990e-f122b267557f',
-    listen: eventListen2,
-    script: requestEventsScript,
-  };
-
-  const updateCollectionCollection: UpdateCollectionCollection = {
-    info: updateCollectionCollectionInfo,
-    variable: [variableList2_1],
-    auth: collectionAuth,
-    events: [collectionEvent],
-  };
-
   const updateCollection: UpdateCollection = {
-    collection: updateCollectionCollection,
+    collection: {},
   };
 
   const data = await postmanApi.collections.patchCollection(
