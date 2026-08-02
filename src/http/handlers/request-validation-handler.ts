@@ -107,7 +107,11 @@ export class RequestValidationHandler implements RequestHandler {
       return params.toString();
     }
 
-    if (typeof validatedBody === 'object' && !Array.isArray(validatedBody)) {
+    if (
+      typeof validatedBody === 'object' &&
+      validatedBody !== null &&
+      !Array.isArray(validatedBody)
+    ) {
       const params = new URLSearchParams();
       for (const [key, value] of Object.entries(validatedBody)) {
         if (value != null) {

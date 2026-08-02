@@ -20,7 +20,7 @@ export class CookieSerializer {
 
     const cookies: Record<string, string> = {};
     cookieParams.forEach((param) => {
-      if (!param.key || param.value === undefined) {
+      if (!param.key || param.value === undefined || param.value === null) {
         return;
       }
       cookies[param.key] = this.serializeCookieValue(param);

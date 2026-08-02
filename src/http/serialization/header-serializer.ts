@@ -20,7 +20,9 @@ export class HeaderSerializer extends Serializer {
 
     const headers: HeadersInit = {};
     headerParams.forEach((param) => {
-      if (!param.key) {
+      // Skip headers without a key or with null/undefined values so they are
+      // omitted entirely (avoids sending a literal `null` header value).
+      if (!param.key || param.value === undefined || param.value === null) {
         return;
       }
       headers[param.key] = this.serializeValue(param);

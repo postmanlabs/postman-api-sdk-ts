@@ -156,6 +156,13 @@ export class RetryHandler implements RequestHandler {
       return null;
     }
 
+    // retry-after-ms (milliseconds) is a non-standard but finer-grained hint some APIs send
+    // (e.g. OpenAI); it takes precedence over the whole-second Retry-After.
+    const retryAfterMs = headers['retry-after-ms'];
+    if (retryAfterMs !== undefined && /^\d+(\.\d+)?$/.test(retryAfterMs.trim())) {
+      return Math.min(Number(retryAfterMs.trim()), maxRetryAfterDelayMs);
+    }
+
     const seconds = this.parseRetryAfter(headers['retry-after']);
     if (seconds !== null) {
       return Math.min(Math.max(seconds * 1000, 0), maxRetryAfterDelayMs);

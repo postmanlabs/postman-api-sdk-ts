@@ -54,7 +54,7 @@ export type { MergeCollectionFork } from './merge-collection-fork';
 export { MergeCollectionForkStrategy } from './merge-collection-fork-strategy';
 export type { CollectionInformation } from './collection-information';
 export type { CollectionInformationCollection } from './collection-information-collection';
-export type { CollectionInformationCollectionInfo } from './collection-information-collection-info';
+export type { CollectionInfo } from './collection-info';
 export type { InfoFork } from './info-fork';
 export type { CollectionItem } from './collection-item';
 export type { VariableList2 } from './variable-list-2';
@@ -75,6 +75,10 @@ export type { CollectionRequestBodyFile2 } from './collection-request-body-file-
 export type { CollectionRequestBodyGraphql2 } from './collection-request-body-graphql-2';
 export type { ItemResponse2 } from './item-response-2';
 export type { ResponseHeader2_3 } from './response-header-2-3';
+export type { CollectionVariableList } from './collection-variable-list';
+export type { CollectionVariableInfo } from './collection-variable-info';
+export type { CollectionVariableInfoValue } from './collection-variable-info-value';
+export type { CollectionSecretVariableInfo } from './collection-secret-variable-info';
 export { CollectionModelQuery } from './collection-model-query';
 export type { PutCollectionOkResponse } from './put-collection-ok-response';
 export type { CollectionUpdatedCollection1 } from './collection-updated-collection-1';
@@ -88,8 +92,6 @@ export type { CollectionUpdatedAsyncTask } from './collection-updated-async-task
 export type { PatchCollectionOkResponse } from './patch-collection-ok-response';
 export type { CollectionUpdatedCollection2 } from './collection-updated-collection-2';
 export type { UpdateCollection } from './update-collection';
-export type { UpdateCollectionCollection } from './update-collection-collection';
-export type { UpdateCollectionCollectionInfo } from './update-collection-collection-info';
 export type { CollectionDeleted } from './collection-deleted';
 export type { CollectionDeletedCollection } from './collection-deleted-collection';
 export type { DuplicateCollectionResponse } from './duplicate-collection-response';

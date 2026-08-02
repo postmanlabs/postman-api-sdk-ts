@@ -199,7 +199,7 @@ export class ResponseValidationHandler implements RequestHandler {
    */
   private validate<T>(request: Request, response: ResponseDefinition, data: any): T {
     if (request.config.validation?.responseValidation ?? true) {
-      return response.schema.parse(data);
+      return response.schema.parse(data) as T;
     }
     return data;
   }

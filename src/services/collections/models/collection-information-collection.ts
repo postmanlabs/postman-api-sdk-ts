@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  CollectionInformationCollectionInfo,
-  collectionInformationCollectionInfo,
-  collectionInformationCollectionInfoRequest,
-  collectionInformationCollectionInfoResponse,
-} from './collection-information-collection-info';
+  CollectionInfo,
+  collectionInfo,
+  collectionInfoRequest,
+  collectionInfoResponse,
+} from './collection-info';
 import {
   CollectionItem,
   collectionItem,
@@ -24,11 +24,11 @@ import {
   collectionEventResponse,
 } from './collection-event';
 import {
-  VariableList2,
-  variableList2,
-  variableList2Request,
-  variableList2Response,
-} from './variable-list-2';
+  CollectionVariableList,
+  collectionVariableList,
+  collectionVariableListRequest,
+  collectionVariableListResponse,
+} from './collection-variable-list';
 
 /**
  * Zod schema for the CollectionInformationCollection model.
@@ -37,11 +37,11 @@ import {
  */
 export const collectionInformationCollection = z.lazy(() => {
   return z.object({
-    info: collectionInformationCollectionInfo.optional(),
+    info: collectionInfo.optional(),
     item: z.array(collectionItem).optional(),
     auth: collectionAuth.optional(),
     event: z.array(collectionEvent).optional(),
-    variable: z.array(variableList2).optional(),
+    variable: z.array(collectionVariableList).optional(),
     additionalProperties: z.record(z.unknown()).optional(),
   });
 });
@@ -49,11 +49,11 @@ export const collectionInformationCollection = z.lazy(() => {
 /**
  * For a complete list of this endpoint's possible values, use the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
  * @typedef  {CollectionInformationCollection} collectionInformationCollection - For a complete list of this endpoint's possible values, use the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). - For a complete list of this endpoint's possible values, use the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @property {CollectionInformationCollectionInfo} - Information about the collection.
+ * @property {CollectionInfo} - Information about the collection.
  * @property {CollectionItem[]}
  * @property {CollectionAuth} - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
  * @property {CollectionEvent[]} - A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID.
- * @property {VariableList2[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
+ * @property {CollectionVariableList[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
  */
 export type CollectionInformationCollection = z.infer<typeof collectionInformationCollection>;
 
@@ -65,11 +65,11 @@ export type CollectionInformationCollection = z.infer<typeof collectionInformati
 export const collectionInformationCollectionResponse = z.lazy(() => {
   return z
     .object({
-      info: collectionInformationCollectionInfoResponse.optional(),
+      info: collectionInfoResponse.optional(),
       item: z.array(collectionItemResponse).optional(),
       auth: collectionAuthResponse.optional(),
       event: z.array(collectionEventResponse).optional(),
-      variable: z.array(variableList2Response).optional(),
+      variable: z.array(collectionVariableListResponse).optional(),
     })
     .passthrough()
     .transform((data) => {
@@ -99,11 +99,11 @@ export const collectionInformationCollectionResponse = z.lazy(() => {
 export const collectionInformationCollectionRequest = z.lazy(() => {
   return z
     .object({
-      info: collectionInformationCollectionInfoRequest.optional(),
+      info: collectionInfoRequest.optional(),
       item: z.array(collectionItemRequest).optional(),
       auth: collectionAuthRequest.optional(),
       event: z.array(collectionEventRequest).optional(),
-      variable: z.array(variableList2Request).optional(),
+      variable: z.array(collectionVariableListRequest).optional(),
       additionalProperties: z.record(z.unknown()).optional(),
     })
     .transform((data) => ({

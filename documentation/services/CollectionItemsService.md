@@ -154,7 +154,7 @@ import {
 
   const requestAuthType = RequestAuthType.BASIC;
 
-  const authAttributesValue = 'adsit dolor i';
+  const authAttributesValue = 'Lorem ali';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -584,7 +584,7 @@ import {
 
   const requestAuthType = RequestAuthType.BASIC;
 
-  const authAttributesValue = 'adsit dolor i';
+  const authAttributesValue = 'Lorem ali';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
