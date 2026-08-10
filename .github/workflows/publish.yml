@@ -34,14 +34,15 @@ jobs:
       - name: Test (harness units + integration sweep)
         run: npm run test:all
 
-      - name: Pin the package version to the spec's info.version
-        env:
-          SPEC_PATH: tests/integration/openapi.yaml
+      # `package.json` is the version of record: every merge to `main` publishes whatever version
+      # is in the tree. That assumes the merge carried a bump — a merge that didn't will fail here,
+      # because npm rejects a re-publish. Stopgap until the SDK owns a version independent of the
+      # spec's `info.version` (PSTAPI-1620).
+      - name: Read the version to publish
         run: |
           set -euo pipefail
-          VERSION="$(node tests/publish/resolve-version.mjs)"
+          VERSION="$(node -p 'require("./package.json").version')"
           echo "Publishing version $VERSION"
-          npm version "$VERSION" --no-git-tag-version --allow-same-version
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
 
       - name: Publish to npm via trusted publishing (OIDC)
