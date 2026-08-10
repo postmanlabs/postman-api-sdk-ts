@@ -425,7 +425,7 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const id = 'mollit';
+  const id = 'adipis';
 
   const transferWorkspaceElementType = TransferWorkspaceElementType.COLLECTION;
 
