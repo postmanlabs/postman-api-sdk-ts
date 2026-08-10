@@ -1,16 +1,31 @@
-name: Publish
+name: _publish
 
 on:
-  push:
-    branches: ['main']
-
-permissions:
-  contents: write
-  id-token: write
+  workflow_call:
+    inputs:
+      registry-url:
+        required: true
+        type: string
+      scope:
+        required: false
+        type: string
+        default: ''
+      use-oidc:
+        required: false
+        type: boolean
+        default: false
+    secrets:
+      node-auth-token:
+        required: false
+    outputs:
+      version:
+        value: ${{ jobs.publish.outputs.version }}
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -19,7 +34,8 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: ${{ inputs.registry-url }}
+          scope: ${{ inputs.scope }}
           cache: 'npm'
 
       - name: Install dependencies
@@ -39,17 +55,19 @@ jobs:
       # because npm rejects a re-publish. Stopgap until the SDK owns a version independent of the
       # spec's `info.version` (PSTAPI-1620).
       - name: Read the version to publish
+        id: version
         run: |
           set -euo pipefail
           VERSION="$(node -p 'require("./package.json").version')"
           echo "Publishing version $VERSION"
-          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
-      - name: Publish to npm via trusted publishing (OIDC)
-        # TODO: add --provenance once the repo is public (npm can't attest provenance for an internal repo)
-        run: npm publish
+      - name: Publish via OIDC trusted publishing
+        if: ${{ inputs.use-oidc }}
+        run: npm publish --registry=${{ inputs.registry-url }} --provenance
 
-      - name: Tag the release and publish notes
+      - name: Publish with token auth
+        if: ${{ !inputs.use-oidc }}
+        run: npm publish --registry=${{ inputs.registry-url }}
         env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh release create "v$VERSION" --generate-notes --title "v$VERSION" --target "$GITHUB_SHA"
+          NODE_AUTH_TOKEN: ${{ secrets.node-auth-token }}
