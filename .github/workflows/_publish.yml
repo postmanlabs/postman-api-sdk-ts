@@ -10,6 +10,10 @@ on:
         required: false
         type: string
         default: ''
+      package-name:
+        required: false
+        type: string
+        default: ''
       use-oidc:
         required: false
         type: boolean
@@ -61,6 +65,12 @@ jobs:
           VERSION="$(node -p 'require("./package.json").version')"
           echo "Publishing version $VERSION"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      # GitHub Packages ties an npm scope to a real GitHub org/user installation — it must
+      # match the repo owner (postmanlabs), not the npmjs.org package scope (@postman).
+      - name: Set package name for this registry
+        if: ${{ inputs.package-name != '' }}
+        run: npm pkg set name="${{ inputs.package-name }}"
 
       - name: Publish via OIDC trusted publishing
         if: ${{ inputs.use-oidc }}

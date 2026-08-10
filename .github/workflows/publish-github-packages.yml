@@ -12,7 +12,8 @@ jobs:
       packages: write
     with:
       registry-url: 'https://npm.pkg.github.com'
-      scope: '@postman'
+      scope: '@postmanlabs'
+      package-name: '@postmanlabs/api-sdk'
       use-oidc: false
     secrets:
       node-auth-token: ${{ secrets.GITHUB_TOKEN }}
