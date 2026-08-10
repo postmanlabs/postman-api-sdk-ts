@@ -1,0 +1,29 @@
+name: Publish to npm
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  publish:
+    uses: ./.github/workflows/_publish.yml
+    permissions:
+      contents: read
+      id-token: write
+    with:
+      registry-url: 'https://registry.npmjs.org'
+      use-oidc: true
+
+  release:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Tag the release and publish notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.publish.outputs.version }}
+        run: gh release create "v$VERSION" --generate-notes --title "v$VERSION" --target "$GITHUB_SHA"
