@@ -14,11 +14,10 @@ export const updatePullRequest = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdatePullRequest} updatePullRequest
- * @property {string} - The pull request's updated title.
- * @property {string} - The updated pull request description.
- * @property {string[]} - An updated list of the pull request's assigned reviewers. This replaces all existing users assigned to the pull request with those you pass in the request body.
+ * @typedef {UpdatePullRequest} updatePullRequest
+ * @property {string} title - The pull request's updated title.
+ * @property {string} description - The updated pull request description.
+ * @property {string[]} reviewers - An updated list of the pull request's assigned reviewers. This replaces all existing users assigned to the pull request with those you pass in the request body.
  */
 export type UpdatePullRequest = z.infer<typeof updatePullRequest>;
 

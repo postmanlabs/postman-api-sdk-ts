@@ -13,8 +13,8 @@ export const collectionRequestBodyFile2 = z.lazy(() => {
 
 /**
  * If the `mode` value is `file`, an object containing the file request information.
- * @typedef  {CollectionRequestBodyFile2} collectionRequestBodyFile2 - If the `mode` value is `file`, an object containing the file request information. - If the `mode` value is `file`, an object containing the file request information.
- * @property {string} - The name of the file to upload (not its path). A null value indicates that no file is selected as a part of the request body.
+ * @typedef {CollectionRequestBodyFile2} collectionRequestBodyFile2
+ * @property {string} src - The name of the file to upload (not its path). A null value indicates that no file is selected as a part of the request body.
  */
 export type CollectionRequestBodyFile2 = z.infer<typeof collectionRequestBodyFile2>;
 

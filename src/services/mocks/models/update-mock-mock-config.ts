@@ -13,8 +13,8 @@ export const updateMockMockConfig = z.lazy(() => {
 
 /**
  * The mock server's configuration settings.
- * @typedef  {UpdateMockMockConfig} updateMockMockConfig - The mock server's configuration settings. - The mock server's configuration settings.
- * @property {string} - The server response ID. This sets the given server response as the default response for each request. To deactivate a server response, pass a null value.
+ * @typedef {UpdateMockMockConfig} updateMockMockConfig
+ * @property {string} serverResponseId - The server response ID. This sets the given server response as the default response for each request. To deactivate a server response, pass a null value.
  */
 export type UpdateMockMockConfig = z.infer<typeof updateMockMockConfig>;
 

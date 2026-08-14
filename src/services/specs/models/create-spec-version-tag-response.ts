@@ -18,9 +18,8 @@ export const createSpecVersionTagResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateSpecVersionTagResponse} createSpecVersionTagResponse
- * @property {CreateSpecVersionTagResponseData} - Information about the created version tag.
+ * @typedef {CreateSpecVersionTagResponse} createSpecVersionTagResponse
+ * @property {CreateSpecVersionTagResponseData} data - Information about the created version tag.
  */
 export type CreateSpecVersionTagResponse = z.infer<typeof createSpecVersionTagResponse>;
 

@@ -15,12 +15,11 @@ export const successfulResponseOperations = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SuccessfulResponseOperations} successfulResponseOperations
- * @property {number} - The operation's limit value.
- * @property {string} - The operation's name.
- * @property {number} - The operation's overage value.
- * @property {number} - The operation's current usage value.
+ * @typedef {SuccessfulResponseOperations} successfulResponseOperations
+ * @property {number} limit - The operation's limit value.
+ * @property {string} name - The operation's name.
+ * @property {number} overage - The operation's overage value.
+ * @property {number} usage - The operation's current usage value.
  */
 export type SuccessfulResponseOperations = z.infer<typeof successfulResponseOperations>;
 

@@ -23,14 +23,13 @@ export const teamsAccessRequestData = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {TeamsAccessRequestData} teamsAccessRequestData
- * @property {string} - The entity type.
- * @property {TeamsAccessRequestDataEntityId} - The entity's ID.
- * @property {string} - The entity's role.
- * @property {string} - The entity's previous role. This value only returns if the entity's role is modified.
- * @property {string} - The request's status.
- * @property {string} - The reason for the access request. This only returns if there's an issue with the request.
+ * @typedef {TeamsAccessRequestData} teamsAccessRequestData
+ * @property {string} entityType - The entity type.
+ * @property {TeamsAccessRequestDataEntityId} entityId - The entity's ID.
+ * @property {string} role - The entity's role.
+ * @property {string} previousRole - The entity's previous role. This value only returns if the entity's role is modified.
+ * @property {string} status - The request's status.
+ * @property {string} reason - The reason for the access request. This only returns if there's an issue with the request.
  */
 export type TeamsAccessRequestData = z.infer<typeof teamsAccessRequestData>;
 

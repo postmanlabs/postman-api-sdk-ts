@@ -13,8 +13,8 @@ export const successfulMigration = z.lazy(() => {
 
 /**
  * Information about the migration.
- * @typedef  {SuccessfulMigration} successfulMigration - Information about the migration. - Information about the migration.
- * @property {string} - The ID of the workspace the definition was migrated to.
+ * @typedef {SuccessfulMigration} successfulMigration
+ * @property {string} workspaceId - The ID of the workspace the definition was migrated to.
  */
 export type SuccessfulMigration = z.infer<typeof successfulMigration>;
 

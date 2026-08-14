@@ -23,14 +23,13 @@ export const invitePartnerResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {InvitePartnerResponse} invitePartnerResponse
- * @property {string} - The target entity.
- * @property {string} - The target entity's ID.
- * @property {string} - The role ID assigned to the users.
- * @property {string} - The action peformed.
- * @property {RoleDisplayName} - The assigned role's display name.
- * @property {InvitePartnerResponseResults[]} - A list of the action results for each email address.
+ * @typedef {InvitePartnerResponse} invitePartnerResponse
+ * @property {string} targetEntity - The target entity.
+ * @property {string} targetEntityId - The target entity's ID.
+ * @property {string} roleId - The role ID assigned to the users.
+ * @property {string} action - The action peformed.
+ * @property {RoleDisplayName} roleDisplayName - The assigned role's display name.
+ * @property {InvitePartnerResponseResults[]} results - A list of the action results for each email address.
  */
 export type InvitePartnerResponse = z.infer<typeof invitePartnerResponse>;
 

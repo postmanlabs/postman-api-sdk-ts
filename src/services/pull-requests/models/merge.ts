@@ -13,8 +13,8 @@ export const merge = z.lazy(() => {
 
 /**
  * Information about the current progress of the pull request's merge.
- * @typedef  {Merge} merge - Information about the current progress of the pull request's merge. - Information about the current progress of the pull request's merge.
- * @property {MergeStatus} - The pull request's current merge status:
+ * @typedef {Merge} merge
+ * @property {MergeStatus} status - The pull request's current merge status:
 - `inactive` — There is no merge in progress.
 - `inprogress` — The pull request is currently merging.
 - `failed` — The pull request's merge failed.

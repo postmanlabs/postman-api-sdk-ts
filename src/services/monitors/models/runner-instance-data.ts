@@ -19,14 +19,14 @@ export const runnerInstanceData = z.lazy(() => {
 
 /**
  * Information about the runner instance.
- * @typedef  {RunnerInstanceData} runnerInstanceData - Information about the runner instance. - Information about the runner instance.
- * @property {string} - The runner instance's ID.
- * @property {string} - The hostname of the machine where the runner instance is running.
- * @property {string} - The runner instance's unique ID.
- * @property {string} - The version of the [Postman CLI](https://learning.postman.com/docs/postman-cli/postman-cli-overview/) used to start the runner instance.
- * @property {string} - The operating system of the machine where the runner instance is running.
- * @property {string} - The runner's ID.
- * @property {string} - The last date and time the runner instance sent results to the Postman cloud.
+ * @typedef {RunnerInstanceData} runnerInstanceData
+ * @property {string} id - The runner instance's ID.
+ * @property {string} hostname - The hostname of the machine where the runner instance is running.
+ * @property {string} uniqueId - The runner instance's unique ID.
+ * @property {string} cliVersion - The version of the [Postman CLI](https://learning.postman.com/docs/postman-cli/postman-cli-overview/) used to start the runner instance.
+ * @property {string} osType - The operating system of the machine where the runner instance is running.
+ * @property {string} runnerId - The runner's ID.
+ * @property {string} lastPingedAt - The last date and time the runner instance sent results to the Postman cloud.
  */
 export type RunnerInstanceData = z.infer<typeof runnerInstanceData>;
 

@@ -23,11 +23,11 @@ export const callLogsRequest1 = z.lazy(() => {
 
 /**
  * The server response's request information.
- * @typedef  {CallLogsRequest1} callLogsRequest1 - The server response's request information. - The server response's request information.
- * @property {string} - The request method.
- * @property {string} - The request's path.
- * @property {RequestHeaders} - The request's headers.
- * @property {RequestBody} - The request's body information.
+ * @typedef {CallLogsRequest1} callLogsRequest1
+ * @property {string} method - The request method.
+ * @property {string} path - The request's path.
+ * @property {RequestHeaders} headers - The request's headers.
+ * @property {RequestBody} body - The request's body information.
  */
 export type CallLogsRequest1 = z.infer<typeof callLogsRequest1>;
 

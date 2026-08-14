@@ -22,11 +22,11 @@ export const monitorLastRun = z.lazy(() => {
 
 /**
  * Information about the monitor's previous run.
- * @typedef  {MonitorLastRun} monitorLastRun - Information about the monitor's previous run. - Information about the monitor's previous run.
- * @property {string} - The monitor's status after its last run.
- * @property {string} - The date and time at which the monitor's previous run started.
- * @property {string} - The date and time at which the monitor's previous run completed.
- * @property {MonitorRunStats} - Information about the monitor run's stats.
+ * @typedef {MonitorLastRun} monitorLastRun
+ * @property {string} status - The monitor's status after its last run.
+ * @property {string} startedAt - The date and time at which the monitor's previous run started.
+ * @property {string} finishedAt - The date and time at which the monitor's previous run completed.
+ * @property {MonitorRunStats} stats - Information about the monitor run's stats.
  */
 export type MonitorLastRun = z.infer<typeof monitorLastRun>;
 

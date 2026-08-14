@@ -15,12 +15,11 @@ export const query = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {Query} query
- * @property {string} - The query parameter's key.
- * @property {string} - The key's value.
- * @property {boolean} - If true, the query parameter isn't sent with the request.
- * @property {string} - The query parameter's description.
+ * @typedef {Query} query
+ * @property {string} key - The query parameter's key.
+ * @property {string} value - The key's value.
+ * @property {boolean} disabled - If true, the query parameter isn't sent with the request.
+ * @property {string} description - The query parameter's description.
  */
 export type Query = z.infer<typeof query>;
 

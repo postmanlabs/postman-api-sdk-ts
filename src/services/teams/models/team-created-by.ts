@@ -11,9 +11,7 @@ export const teamCreatedBy = z.lazy(() => {
 
 /**
  * The user ID of the user who created the team.
- * @typedef  {TeamCreatedBy} teamCreatedBy - The user ID of the user who created the team. - The user ID of the user who created the team.
- * @property {number}
- * @property {string}
+ * @typedef {TeamCreatedBy} teamCreatedBy
  */
 export type TeamCreatedBy = z.infer<typeof teamCreatedBy>;
 

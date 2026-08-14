@@ -14,12 +14,12 @@ export const group = z.lazy(() => {
 
 /**
  * Information about the group role.
- * @typedef  {Group} group - Information about the group role. - Information about the group role.
- * @property {GroupRole} - The role type:
+ * @typedef {Group} group
+ * @property {GroupRole} role - The role type:
 - `VIEWER` — Can view, fork, and export collections.
 - `EDITOR` — Can edit collections directly.
 
- * @property {number} - The role's ID.
+ * @property {number} id - The role's ID.
  */
 export type Group = z.infer<typeof group>;
 

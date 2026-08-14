@@ -32,21 +32,21 @@ export const protocolProfileBehavior = z.lazy(() => {
 
 /**
  * The [settings](https://learning.postman.com/docs/sending-requests/create-requests/request-settings/) used to alter the [Protocol Profile Behavior](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md) of sending a request.
- * @typedef  {ProtocolProfileBehavior} protocolProfileBehavior - The [settings](https://learning.postman.com/docs/sending-requests/create-requests/request-settings/) used to alter the [Protocol Profile Behavior](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md) of sending a request. - The [settings](https://learning.postman.com/docs/sending-requests/create-requests/request-settings/) used to alter the [Protocol Profile Behavior](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md) of sending a request.
- * @property {boolean} - If true, enables certificate verification.
- * @property {boolean} - If true, follow HTTP 3xx responses as redirects.
- * @property {number} - The maximum number of redirects to follow.
- * @property {boolean} - If true, disables request body pruning for the GET, COPY, HEAD, PURGE, and UNLOCK methods.
- * @property {boolean} - If true, disables the percent encoding of auth, path, query, and fragment URL segments.
- * @property {DisabledSystemHeaders} - Disable the system headers which are added implicitly.
- * @property {boolean} - If true, uses an insecure HTTP parser that accepts invalid HTTP headers.
- * @property {boolean} - If true, redirects with the original HTTP method. Redirects with the GET HTTP method by default.
- * @property {boolean} - If true, retains the `authorization` header when a redirect happens to a different hostname.
- * @property {ProtocolVersion} - The HTTP protocol version to use. Supports the `http1`, `http2`, and `auto` values.
- * @property {boolean} - If true, removes the `referer` header when a redirect happens.
- * @property {boolean} - If true, uses the server's cipher suite order instead of the client's during negotiation.
- * @property {string[]} - The SSL and TLS protocol versions to disable during negotiation.
- * @property {string[]} - The order of cipher suites that the SSL server profile uses to establish a secure connection.
+ * @typedef {ProtocolProfileBehavior} protocolProfileBehavior
+ * @property {boolean} strictSsl - If true, enables certificate verification.
+ * @property {boolean} followRedirects - If true, follow HTTP 3xx responses as redirects.
+ * @property {number} maxRedirects - The maximum number of redirects to follow.
+ * @property {boolean} disableBodyPruning - If true, disables request body pruning for the GET, COPY, HEAD, PURGE, and UNLOCK methods.
+ * @property {boolean} disableUrlEncoding - If true, disables the percent encoding of auth, path, query, and fragment URL segments.
+ * @property {DisabledSystemHeaders} disabledSystemHeaders - Disable the system headers which are added implicitly.
+ * @property {boolean} insecureHttpParser - If true, uses an insecure HTTP parser that accepts invalid HTTP headers.
+ * @property {boolean} followOriginalHttpMethod - If true, redirects with the original HTTP method. Redirects with the GET HTTP method by default.
+ * @property {boolean} followAuthorizationHeader - If true, retains the `authorization` header when a redirect happens to a different hostname.
+ * @property {ProtocolVersion} protocolVersion - The HTTP protocol version to use. Supports the `http1`, `http2`, and `auto` values.
+ * @property {boolean} removeRefererHeaderOnRedirect - If true, removes the `referer` header when a redirect happens.
+ * @property {boolean} tlsPreferServerCiphers - If true, uses the server's cipher suite order instead of the client's during negotiation.
+ * @property {string[]} tlsDisabledProtocols - The SSL and TLS protocol versions to disable during negotiation.
+ * @property {string[]} tlsCipherSelection - The order of cipher suites that the SSL server profile uses to establish a secure connection.
  */
 export type ProtocolProfileBehavior = z.infer<typeof protocolProfileBehavior>;
 

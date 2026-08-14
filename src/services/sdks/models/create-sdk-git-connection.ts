@@ -17,13 +17,12 @@ export const createSdkGitConnection = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {CreateSdkGitConnection} createSdkGitConnection   
- * @property {SdkSource} - The collection or specification that the SDK is generated from.
- * @property {SdkLanguage} - The target output language for the generated SDK.
- * @property {string} - The canonical URL of the target Git repository.
- * @property {string} - The branch the SDK is published to. Defaults to `main`.
- * @property {boolean} - If true, pull requests are opened automatically whenever the source changes or a new version of the SDK generator is released. If false, pull requests are opened automatically, but only for manually-triggered SDK regeneration. If `autoUpdatePullRequestsEnabled` isn't set, the default behavior depends on the user's Postman plan:
+ * @typedef {CreateSdkGitConnection} createSdkGitConnection
+ * @property {SdkSource} source - The collection or specification that the SDK is generated from.
+ * @property {SdkLanguage} language - The target output language for the generated SDK.
+ * @property {string} repositoryUrl - The canonical URL of the target Git repository.
+ * @property {string} targetBranch - The branch the SDK is published to. Defaults to `main`.
+ * @property {boolean} autoUpdatePullRequestsEnabled - If true, pull requests are opened automatically whenever the source changes or a new version of the SDK generator is released. If false, pull requests are opened automatically, but only for manually-triggered SDK regeneration. If `autoUpdatePullRequestsEnabled` isn't set, the default behavior depends on the user's Postman plan:
 
 - ``Enterprise`` plan users — Defaults to the `true` value.
 - ``Team`` plan users and read only — Defaults to the `false` value.

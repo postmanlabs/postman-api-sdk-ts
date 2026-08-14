@@ -18,9 +18,8 @@ export const createGetTeamResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateGetTeamResponse} createGetTeamResponse
- * @property {CreateGetTeamResponseTeam} - Information about the team.
+ * @typedef {CreateGetTeamResponse} createGetTeamResponse
+ * @property {CreateGetTeamResponseTeam} team - Information about the team.
  */
 export type CreateGetTeamResponse = z.infer<typeof createGetTeamResponse>;
 

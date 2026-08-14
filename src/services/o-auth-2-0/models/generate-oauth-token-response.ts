@@ -14,11 +14,10 @@ export const generateOauthTokenResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GenerateOauthTokenResponse} generateOauthTokenResponse
- * @property {string} - A Postman OAuth 2.0 access token.
- * @property {number} - The time the token expires, in milliseconds.
- * @property {TokenType} - The `Bearer` token type.
+ * @typedef {GenerateOauthTokenResponse} generateOauthTokenResponse
+ * @property {string} accessToken - A Postman OAuth 2.0 access token.
+ * @property {number} expiresIn - The time the token expires, in milliseconds.
+ * @property {TokenType} tokenType - The `Bearer` token type.
  */
 export type GenerateOauthTokenResponse = z.infer<typeof generateOauthTokenResponse>;
 

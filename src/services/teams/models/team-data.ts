@@ -28,17 +28,17 @@ export const teamData = z.lazy(() => {
 
 /**
  * Information about the team.
- * @typedef  {TeamData} teamData - Information about the team. - Information about the team.
- * @property {string} - The date and time at which the team was created.
- * @property {string} - The date and time at which the team was last updated.
- * @property {number} - The team's ID.
- * @property {string} - The team's name.
- * @property {string} - The team's handle.
- * @property {string} - A description about the team.
- * @property {number} - The team's organization ID.
- * @property {TeamDataCreatedBy} - The user ID of the user who created the team.
- * @property {boolean} - If true, the team is active.
- * @property {number} - The number of members in the team.
+ * @typedef {TeamData} teamData
+ * @property {string} createdAt - The date and time at which the team was created.
+ * @property {string} updatedAt - The date and time at which the team was last updated.
+ * @property {number} id - The team's ID.
+ * @property {string} name - The team's name.
+ * @property {string} handle - The team's handle.
+ * @property {string} description - A description about the team.
+ * @property {number} organizationId - The team's organization ID.
+ * @property {TeamDataCreatedBy} createdBy - The user ID of the user who created the team.
+ * @property {boolean} enabled - If true, the team is active.
+ * @property {number} memberCount - The number of members in the team.
  */
 export type TeamData = z.infer<typeof teamData>;
 

@@ -21,11 +21,10 @@ export const getAsyncCollectionTaskStatus1 = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAsyncCollectionTaskStatus1} getAsyncCollectionTaskStatus1
- * @property {GetAsyncTaskStatusMeta2} - The response's non-standard meta information.
- * @property {Details} - Information about the task's resources.
- * @property {GetAsyncTaskStatusStatus2} - The task's current status.
+ * @typedef {GetAsyncCollectionTaskStatus1} getAsyncCollectionTaskStatus1
+ * @property {GetAsyncTaskStatusMeta2} meta - The response's non-standard meta information.
+ * @property {Details} details - Information about the task's resources.
+ * @property {GetAsyncTaskStatusStatus2} status - The task's current status.
  */
 export type GetAsyncCollectionTaskStatus1 = z.infer<typeof getAsyncCollectionTaskStatus1>;
 

@@ -16,11 +16,11 @@ export const createPullRequest = z.lazy(() => {
 
 /**
  * Information about the pull request.
- * @typedef  {CreatePullRequest} createPullRequest - Information about the pull request. - Information about the pull request.
- * @property {string} - The title of the pull request.
- * @property {string} - The pull request's description.
- * @property {string[]} - A list of reviewers to assign to the pull request.
- * @property {string} - The collection ID to merge the pull request into.
+ * @typedef {CreatePullRequest} createPullRequest
+ * @property {string} title - The title of the pull request.
+ * @property {string} description - The pull request's description.
+ * @property {string[]} reviewers - A list of reviewers to assign to the pull request.
+ * @property {string} destinationId - The collection ID to merge the pull request into.
  */
 export type CreatePullRequest = z.infer<typeof createPullRequest>;
 

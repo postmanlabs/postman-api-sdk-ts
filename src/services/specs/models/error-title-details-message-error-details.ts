@@ -13,8 +13,8 @@ export const errorTitleDetailsMessageErrorDetails = z.lazy(() => {
 
 /**
  * Information about the error.
- * @typedef  {ErrorTitleDetailsMessageErrorDetails} errorTitleDetailsMessageErrorDetails - Information about the error. - Information about the error.
- * @property {string} - The workspace's ID.
+ * @typedef {ErrorTitleDetailsMessageErrorDetails} errorTitleDetailsMessageErrorDetails
+ * @property {string} workspaceId - The workspace's ID.
  */
 export type ErrorTitleDetailsMessageErrorDetails = z.infer<
   typeof errorTitleDetailsMessageErrorDetails

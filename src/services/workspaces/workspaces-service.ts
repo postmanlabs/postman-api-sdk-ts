@@ -423,7 +423,7 @@ This endpoint's response contains the visibility field. Visibility determines wh
 
  * @param {WorkspaceTypeQuery} [params.type] - The type of workspace to filter the response by.
  * @param {number} [params.createdBy] - Return only workspaces created by a specific user ID. For multiple users, pass this value as a comma-separated list of user IDs. The response only returns workspaces that you have access to.
- * @param {WorkspaceIncludeQuery} [params.include] - Include the following information in the endpoint's response:
+ * @param {WorkspacesIncludeQuery} [params.include] - Include the following information in the endpoint's response:
 - `mocks:deactivated` — Include all deactivated mock servers in the response.
 - `scim` — Return the SCIM user IDs of the workspace creator and who last modified it.
 
@@ -618,9 +618,10 @@ This endpoint's response contains the `visibility` field. [Visibility](https://l
 - `partner` — Only invited team members and [partners](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/) can access the workspace ([**Team** and **Enterprise** plans only](https://www.postman.com/pricing)).
 
  * @param {string} workspaceId - The workspace's ID.
- * @param {WorkspaceIncludeQuery} [params.include] - Include the following information in the endpoint's response:
-- `mocks:deactivated` — Include all deactivated mock servers in the response.
+ * @param {string} [params.include] - A comma-separated list of values to include in the endpoint's response:
 - `scim` — Return the SCIM user IDs of the workspace creator and who last modified it.
+- `team` — Return the workspace's team ID. Returns a null value if the workspace isn't associated with a team.
+- `mocks:deactivated` — Include all deactivated mock servers in the response.
 
  * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
  * @returns {Promise<HttpResponse<GetWorkspaceOkResponse>>} - Successful Response
@@ -631,7 +632,7 @@ This endpoint's response contains the `visibility` field. [Visibility](https://l
     requestConfig?: Partial<SdkConfig>,
   ): Promise<GetWorkspaceOkResponse> {
     const resolvedConfig = this.getResolvedConfig(this.getWorkspaceConfig, requestConfig);
-    z.object({ include: z.unknown().optional() }).parse(params ?? {});
+    z.object({ include: z.string().optional() }).parse(params ?? {});
     const request = new RequestBuilder()
       .setConfig(resolvedConfig)
       .setBaseUrl(resolvedConfig)

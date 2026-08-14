@@ -25,14 +25,14 @@ export const auditLogEvent = z.lazy(() => {
 
 /**
  * Information about the audit log event.
- * @typedef  {AuditLogEvent} auditLogEvent - Information about the audit log event. - Information about the audit log event.
- * @property {number} - The audit event's ID.
- * @property {string} - The IP address of the user that performed the action.
- * @property {string} - The user agent information.
- * @property {string} - The action performed by the user.
- * @property {string} - The date and time at which the event occurred.
- * @property {string} - The audit event's description.
- * @property {AuditLogData} - Information about the audit log.
+ * @typedef {AuditLogEvent} auditLogEvent
+ * @property {number} id - The audit event's ID.
+ * @property {string} ip - The IP address of the user that performed the action.
+ * @property {string} userAgent - The user agent information.
+ * @property {string} action - The action performed by the user.
+ * @property {string} timestamp - The date and time at which the event occurred.
+ * @property {string} message - The audit event's description.
+ * @property {AuditLogData} data - Information about the audit log.
  */
 export type AuditLogEvent = z.infer<typeof auditLogEvent>;
 

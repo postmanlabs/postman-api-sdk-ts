@@ -13,8 +13,8 @@ export const searchResourceWebData = z.lazy(() => {
 
 /**
  * The link to view the resource in the Postman web app.
- * @typedef  {SearchResourceWebData} searchResourceWebData - The link to view the resource in the Postman web app. - The link to view the resource in the Postman web app.
- * @property {string} - The URL to view the resource in the Postman web app.
+ * @typedef {SearchResourceWebData} searchResourceWebData
+ * @property {string} href - The URL to view the resource in the Postman web app.
  */
 export type SearchResourceWebData = z.infer<typeof searchResourceWebData>;
 

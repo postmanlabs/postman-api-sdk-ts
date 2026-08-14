@@ -12,9 +12,8 @@ export const pullEnvironmentForkChanges = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PullEnvironmentForkChanges} pullEnvironmentForkChanges
- * @property {string} - The source environment's unique ID to pull data from.
+ * @typedef {PullEnvironmentForkChanges} pullEnvironmentForkChanges
+ * @property {string} source - The source environment's unique ID to pull data from.
  */
 export type PullEnvironmentForkChanges = z.infer<typeof pullEnvironmentForkChanges>;
 

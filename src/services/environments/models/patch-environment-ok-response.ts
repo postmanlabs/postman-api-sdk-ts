@@ -18,9 +18,8 @@ export const patchEnvironmentOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PatchEnvironmentOkResponse} patchEnvironmentOkResponse
- * @property {PatchEnvironmentInfo} - Information about the environment.
+ * @typedef {PatchEnvironmentOkResponse} patchEnvironmentOkResponse
+ * @property {PatchEnvironmentInfo} environment - Information about the environment.
  */
 export type PatchEnvironmentOkResponse = z.infer<typeof patchEnvironmentOkResponse>;
 

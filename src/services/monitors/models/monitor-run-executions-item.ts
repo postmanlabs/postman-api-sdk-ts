@@ -13,8 +13,8 @@ export const monitorRunExecutionsItem = z.lazy(() => {
 
 /**
  * Information about the executed item.
- * @typedef  {MonitorRunExecutionsItem} monitorRunExecutionsItem - Information about the executed item. - Information about the executed item.
- * @property {string} - The executed item's name.
+ * @typedef {MonitorRunExecutionsItem} monitorRunExecutionsItem
+ * @property {string} name - The executed item's name.
  */
 export type MonitorRunExecutionsItem = z.infer<typeof monitorRunExecutionsItem>;
 

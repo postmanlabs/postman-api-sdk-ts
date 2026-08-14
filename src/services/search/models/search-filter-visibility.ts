@@ -18,17 +18,9 @@ export const searchFilterVisibility = z.lazy(() => {
 - `public` — Visible to all Postman users.
 - `partner` — Visible to assigned external partner users.
 
- * @typedef  {SearchFilterVisibility} searchFilterVisibility - Filters by workspace visibility. Supported for all element types. One of:
-- `internal` — Only visible to the organization's team members.
-- `public` — Visible to all Postman users.
-- `partner` — Visible to assigned external partner users.
- - Filters by workspace visibility. Supported for all element types. One of:
-- `internal` — Only visible to the organization's team members.
-- `public` — Visible to all Postman users.
-- `partner` — Visible to assigned external partner users.
-
- * @property {Eq} - The visibility value to match.
- * @property {Ne} - The visibility value to exclude.
+ * @typedef {SearchFilterVisibility} searchFilterVisibility
+ * @property {Eq} _eq - The visibility value to match.
+ * @property {Ne} _ne - The visibility value to exclude.
  */
 export type SearchFilterVisibility = z.infer<typeof searchFilterVisibility>;
 

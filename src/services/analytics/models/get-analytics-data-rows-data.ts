@@ -10,12 +10,7 @@ export const getAnalyticsDataRowsData = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAnalyticsDataRowsData} getAnalyticsDataRowsData
- * @property {string}
- * @property {number}
- * @property {number}
- * @property {boolean}
+ * @typedef {GetAnalyticsDataRowsData} getAnalyticsDataRowsData
  */
 export type GetAnalyticsDataRowsData = z.infer<typeof getAnalyticsDataRowsData>;
 

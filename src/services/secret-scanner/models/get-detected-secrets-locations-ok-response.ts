@@ -25,10 +25,9 @@ export const getDetectedSecretsLocationsOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetDetectedSecretsLocationsOkResponse} getDetectedSecretsLocationsOkResponse
- * @property {SuccessfulResponseData2[]}
- * @property {SuccessfulResponseMeta2}
+ * @typedef {GetDetectedSecretsLocationsOkResponse} getDetectedSecretsLocationsOkResponse
+ * @property {SuccessfulResponseData2[]} data
+ * @property {SuccessfulResponseMeta2} meta
  */
 export type GetDetectedSecretsLocationsOkResponse = z.infer<
   typeof getDetectedSecretsLocationsOkResponse

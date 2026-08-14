@@ -16,11 +16,11 @@ export const searchFilterTags = z.lazy(() => {
 
 /**
  * Filters by tags. Supported for `workspaces` and `collections`.
- * @typedef  {SearchFilterTags} searchFilterTags - Filters by tags. Supported for `workspaces` and `collections`. - Filters by tags. Supported for `workspaces` and `collections`.
- * @property {string} - The tag to match.
- * @property {string} - The tag to exclude.
- * @property {string[]} - A list of tags to match.
- * @property {string[]} - A list of tags to exclude.
+ * @typedef {SearchFilterTags} searchFilterTags
+ * @property {string} _eq - The tag to match.
+ * @property {string} _ne - The tag to exclude.
+ * @property {string[]} _in - A list of tags to match.
+ * @property {string[]} _nin - A list of tags to exclude.
  */
 export type SearchFilterTags = z.infer<typeof searchFilterTags>;
 

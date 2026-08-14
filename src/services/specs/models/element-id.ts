@@ -10,10 +10,7 @@ export const elementId = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ElementId} elementId
- * @property {string}
- * @property {string}
+ * @typedef {ElementId} elementId
  */
 export type ElementId = z.infer<typeof elementId>;
 

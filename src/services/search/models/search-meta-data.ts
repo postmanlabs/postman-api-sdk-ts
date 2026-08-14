@@ -15,10 +15,10 @@ export const searchMetaData = z.lazy(() => {
 
 /**
  * Pagination metadata for the search results.
- * @typedef  {SearchMetaData} searchMetaData - Pagination metadata for the search results. - Pagination metadata for the search results.
- * @property {string} - The pagination cursor that points to the next record in the results set.
- * @property {string} - The search query text.
- * @property {number} - The number of records found.
+ * @typedef {SearchMetaData} searchMetaData
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
+ * @property {string} q - The search query text.
+ * @property {number} total - The number of records found.
  */
 export type SearchMetaData = z.infer<typeof searchMetaData>;
 

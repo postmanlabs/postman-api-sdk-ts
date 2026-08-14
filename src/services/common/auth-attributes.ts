@@ -21,10 +21,10 @@ export const authAttributes = z.lazy(() => {
 
 /**
  * Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
- * @typedef  {AuthAttributes} authAttributes - Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/). - Information about the supported Postman [authorization type](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
- * @property {string} - The auth method's key value.
- * @property {AuthAttributesValue} - The key's value.
- * @property {AuthAttributesType} - The value's type.
+ * @typedef {AuthAttributes} authAttributes
+ * @property {string} key - The auth method's key value.
+ * @property {AuthAttributesValue} value - The key's value.
+ * @property {AuthAttributesType} type - The value's type.
  */
 export type AuthAttributes = z.infer<typeof authAttributes>;
 

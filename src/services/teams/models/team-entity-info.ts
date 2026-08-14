@@ -19,10 +19,9 @@ export const teamEntityInfo = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {TeamEntityInfo} teamEntityInfo
- * @property {TeamEntityInfoEntityType} - The entity type.
- * @property {TeamEntityInfoEntityId} - The entity's ID.
+ * @typedef {TeamEntityInfo} teamEntityInfo
+ * @property {TeamEntityInfoEntityType} entityType - The entity type.
+ * @property {TeamEntityInfoEntityId} entityId - The entity's ID.
  */
 export type TeamEntityInfo = z.infer<typeof teamEntityInfo>;
 

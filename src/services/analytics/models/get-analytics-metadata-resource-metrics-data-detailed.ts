@@ -30,13 +30,13 @@ export const getAnalyticsMetadataResourceMetricsDataDetailed = z.lazy(() => {
 
 /**
  * Information about the resource's metric.
- * @typedef  {GetAnalyticsMetadataResourceMetricsDataDetailed} getAnalyticsMetadataResourceMetricsDataDetailed - Information about the resource's metric. - Information about the resource's metric.
- * @property {string} - The metric's name.
- * @property {string} - A description of the metric.
- * @property {string} - The metric's data type.
- * @property {boolean} - If true, the metric is required.
- * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParameters} - Information about the metric's parameters.
- * @property {GetAnalyticsMetadataResourceMetricsDataDetailedResponse1} - Information about the metric's `response` parameters.
+ * @typedef {GetAnalyticsMetadataResourceMetricsDataDetailed} getAnalyticsMetadataResourceMetricsDataDetailed
+ * @property {string} metric - The metric's name.
+ * @property {string} description - A description of the metric.
+ * @property {string} type - The metric's data type.
+ * @property {boolean} isRequired - If true, the metric is required.
+ * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParameters} parameters - Information about the metric's parameters.
+ * @property {GetAnalyticsMetadataResourceMetricsDataDetailedResponse1} response - Information about the metric's `response` parameters.
  */
 export type GetAnalyticsMetadataResourceMetricsDataDetailed = z.infer<
   typeof getAnalyticsMetadataResourceMetricsDataDetailed

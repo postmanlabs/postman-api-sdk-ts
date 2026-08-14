@@ -20,11 +20,10 @@ export const collectionFolderInfo = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionFolderInfo} collectionFolderInfo
- * @property {string} - The folder's ID.
- * @property {any} - A Postman-specific response that contains information about the internal performed operation.
- * @property {CollectionFolderInfoData} - Information about the folder. For a complete list of properties, refer to the ``Folders`` entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
+ * @typedef {CollectionFolderInfo} collectionFolderInfo
+ * @property {string} modelId - The folder's ID.
+ * @property {any} meta - A Postman-specific response that contains information about the internal performed operation.
+ * @property {CollectionFolderInfoData} data - Information about the folder. For a complete list of properties, refer to the ``Folders`` entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
  */
 export type CollectionFolderInfo = z.infer<typeof collectionFolderInfo>;
 

@@ -20,10 +20,7 @@ export const getAnalyticsDataData = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAnalyticsDataData} getAnalyticsDataData
- * @property {AnalyticsDataSummary}
- * @property {AnalyticsDataPartnerEngagementFunnel}
+ * @typedef {GetAnalyticsDataData} getAnalyticsDataData
  */
 export type GetAnalyticsDataData = z.infer<typeof getAnalyticsDataData>;
 

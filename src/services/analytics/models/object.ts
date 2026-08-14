@@ -20,9 +20,9 @@ export const object = z.lazy(() => {
 
 /**
  * Information about the filter parameters.
- * @typedef  {Object} object - Information about the filter parameters. - Information about the filter parameters.
- * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersData} - Information about the filter.
- * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersData} - Information about the filter.
+ * @typedef {Object} object
+ * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersData} workspaceType - Information about the filter.
+ * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersData} duration - Information about the filter.
  */
 export type Object = z.infer<typeof object>;
 

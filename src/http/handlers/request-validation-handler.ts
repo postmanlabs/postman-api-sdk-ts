@@ -62,7 +62,6 @@ export class RequestValidationHandler implements RequestHandler {
         throw error;
       }
     } else if (
-      request.requestContentType === ContentType.Xml ||
       request.requestContentType === ContentType.Text ||
       request.requestContentType === ContentType.Image ||
       request.requestContentType === ContentType.Binary

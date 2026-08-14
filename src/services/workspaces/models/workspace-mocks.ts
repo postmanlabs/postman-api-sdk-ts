@@ -16,11 +16,11 @@ export const workspaceMocks = z.lazy(() => {
 
 /**
  * Information about the mock server.
- * @typedef  {WorkspaceMocks} workspaceMocks - Information about the mock server. - Information about the mock server.
- * @property {string} - The mock server's ID.
- * @property {string} - The mock server's name.
- * @property {string} - The mock server's unique ID.
- * @property {boolean} - If true, the mock server is not active. Mock servers deactivate when a linked collection or environment is deleted.
+ * @typedef {WorkspaceMocks} workspaceMocks
+ * @property {string} id - The mock server's ID.
+ * @property {string} name - The mock server's name.
+ * @property {string} uid - The mock server's unique ID.
+ * @property {boolean} deactivated - If true, the mock server is not active. Mock servers deactivate when a linked collection or environment is deleted.
  */
 export type WorkspaceMocks = z.infer<typeof workspaceMocks>;
 

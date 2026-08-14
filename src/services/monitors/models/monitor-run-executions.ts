@@ -40,13 +40,12 @@ export const monitorRunExecutions = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MonitorRunExecutions} monitorRunExecutions
- * @property {number} - The execution ID.
- * @property {MonitorRunExecutionsItem} - Information about the executed item.
- * @property {MonitorRunRequests} - Information about the monitor run's requests.
- * @property {MonitorRunResponses} - Information about the monitor run's response.
- * @property {MonitorRunErrors[]} - If the execution encounter errors, a list of errors and their information.
+ * @typedef {MonitorRunExecutions} monitorRunExecutions
+ * @property {number} id - The execution ID.
+ * @property {MonitorRunExecutionsItem} item - Information about the executed item.
+ * @property {MonitorRunRequests} request - Information about the monitor run's requests.
+ * @property {MonitorRunResponses} response - Information about the monitor run's response.
+ * @property {MonitorRunErrors[]} errors - If the execution encounter errors, a list of errors and their information.
  */
 export type MonitorRunExecutions = z.infer<typeof monitorRunExecutions>;
 

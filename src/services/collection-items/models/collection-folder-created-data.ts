@@ -36,20 +36,20 @@ export const collectionFolderCreatedData = z.lazy(() => {
 
 /**
  * Information about the collection folder. For a complete list of properties, refer to the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @typedef  {CollectionFolderCreatedData} collectionFolderCreatedData - Information about the collection folder. For a complete list of properties, refer to the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). - Information about the collection folder. For a complete list of properties, refer to the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @property {string} - The folder's ID.
- * @property {string} - The folder's name.
- * @property {string[]} - A list of request IDs and their order in the created folder.
- * @property {string} - The user ID of the folder's owner.
- * @property {string} - Information about the folder.
- * @property {string[]} - A list of folders.
- * @property {string[]} - A list of requests.
- * @property {string} - The folder's creation date and time.
- * @property {string} - The date and time at which the folder was last updated.
- * @property {string} - The collection ID that the folder belongs to.
- * @property {string} - The folder's description.
- * @property {string[]} - A list of folder IDs and their order in the collection.
- * @property {string} - The user ID of the user that last updated the folder.
+ * @typedef {CollectionFolderCreatedData} collectionFolderCreatedData
+ * @property {string} id - The folder's ID.
+ * @property {string} name - The folder's name.
+ * @property {string[]} order - A list of request IDs and their order in the created folder.
+ * @property {string} owner - The user ID of the folder's owner.
+ * @property {string} folder - Information about the folder.
+ * @property {string[]} folders - A list of folders.
+ * @property {string[]} requests - A list of requests.
+ * @property {string} createdAt - The folder's creation date and time.
+ * @property {string} updatedAt - The date and time at which the folder was last updated.
+ * @property {string} collection - The collection ID that the folder belongs to.
+ * @property {string} description - The folder's description.
+ * @property {string[]} foldersOrder - A list of folder IDs and their order in the collection.
+ * @property {string} lastUpdatedBy - The user ID of the user that last updated the folder.
  */
 export type CollectionFolderCreatedData = z.infer<typeof collectionFolderCreatedData>;
 

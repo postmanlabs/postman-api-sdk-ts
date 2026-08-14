@@ -15,12 +15,11 @@ export const createMockMock = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateMockMock} createMockMock
- * @property {string} - The unique ID of the mock's associated collection.
- * @property {string} - The unique ID of the mock's associated environment.
- * @property {string} - The mock server's name.
- * @property {boolean} - If true, the mock server is set private. By default, mock servers are public and can receive requests from anyone and anywhere.
+ * @typedef {CreateMockMock} createMockMock
+ * @property {string} collection - The unique ID of the mock's associated collection.
+ * @property {string} environment - The unique ID of the mock's associated environment.
+ * @property {string} name - The mock server's name.
+ * @property {boolean} private - If true, the mock server is set private. By default, mock servers are public and can receive requests from anyone and anywhere.
  */
 export type CreateMockMock = z.infer<typeof createMockMock>;
 

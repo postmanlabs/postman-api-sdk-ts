@@ -19,12 +19,11 @@ export const createComponent = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateComponent} createComponent
- * @property {string} - The component's name. This must be unique within the team and can only contain letters, digits, hyphens, underscores, and periods and can't exceed 60 characters.
- * @property {ComponentType} - The component's type. Corresponds to the specification that the component's content adheres to.
- * @property {string} - The component's content, up to a maximum of 500 KB (UTF-8).
- * @property {ComponentContentFormat} - The component's content format.
+ * @typedef {CreateComponent} createComponent
+ * @property {string} name - The component's name. This must be unique within the team and can only contain letters, digits, hyphens, underscores, and periods and can't exceed 60 characters.
+ * @property {ComponentType} type - The component's type. Corresponds to the specification that the component's content adheres to.
+ * @property {string} content - The component's content, up to a maximum of 500 KB (UTF-8).
+ * @property {ComponentContentFormat} format - The component's content format.
  */
 export type CreateComponent = z.infer<typeof createComponent>;
 

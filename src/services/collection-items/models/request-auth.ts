@@ -31,20 +31,20 @@ export const requestAuth = z.lazy(() => {
 
 /**
  * The request's authentication information.
- * @typedef  {RequestAuth} requestAuth - The request's authentication information. - The request's authentication information.
- * @property {RequestAuthType} - The authorization type.
- * @property {AuthAttributes[]} - The API key's authentication information.
- * @property {AuthAttributes[]} - The attributes for AWS Signature authentication.
- * @property {AuthAttributes[]} - The attributes for Basic Auth.
- * @property {AuthAttributes[]} - The attributes for Bearer Token authentication.
- * @property {AuthAttributes[]} - The attributes for Digest access authentication.
- * @property {AuthAttributes[]} - The attributes for Akamai Edgegrid authentication.
- * @property {AuthAttributes[]} - The attributes for Hawk authentication.
- * @property {AuthAttributes[]} - The attributes for NTLM authentication.
- * @property {AuthAttributes[]} - The attributes for OAuth1 authentication.
- * @property {AuthAttributes[]} - The attributes for OAuth2 authentication.
- * @property {AuthAttributes[]} - The attributes for JWT authentication.
- * @property {AuthAttributes[]} - The attributes for ASAP authentication.
+ * @typedef {RequestAuth} requestAuth
+ * @property {RequestAuthType} type - The authorization type.
+ * @property {AuthAttributes[]} apikey - The API key's authentication information.
+ * @property {AuthAttributes[]} awsv4 - The attributes for AWS Signature authentication.
+ * @property {AuthAttributes[]} basic - The attributes for Basic Auth.
+ * @property {AuthAttributes[]} bearer - The attributes for Bearer Token authentication.
+ * @property {AuthAttributes[]} digest - The attributes for Digest access authentication.
+ * @property {AuthAttributes[]} edgegrid - The attributes for Akamai Edgegrid authentication.
+ * @property {AuthAttributes[]} hawk - The attributes for Hawk authentication.
+ * @property {AuthAttributes[]} ntlm - The attributes for NTLM authentication.
+ * @property {AuthAttributes[]} oauth1 - The attributes for OAuth1 authentication.
+ * @property {AuthAttributes[]} oauth2 - The attributes for OAuth2 authentication.
+ * @property {AuthAttributes[]} jwt - The attributes for JWT authentication.
+ * @property {AuthAttributes[]} asap - The attributes for ASAP authentication.
  */
 export type RequestAuth = z.infer<typeof requestAuth>;
 

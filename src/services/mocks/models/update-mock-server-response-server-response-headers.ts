@@ -14,9 +14,9 @@ export const updateMockServerResponseServerResponseHeaders = z.lazy(() => {
 
 /**
  * Information about the key-value pair.
- * @typedef  {UpdateMockServerResponseServerResponseHeaders} updateMockServerResponseServerResponseHeaders - Information about the key-value pair. - Information about the key-value pair.
- * @property {string} - The request header's key value.
- * @property {string} - The request header's value. This value defines the corresponding value for the header key.
+ * @typedef {UpdateMockServerResponseServerResponseHeaders} updateMockServerResponseServerResponseHeaders
+ * @property {string} key - The request header's key value.
+ * @property {string} value - The request header's value. This value defines the corresponding value for the header key.
  */
 export type UpdateMockServerResponseServerResponseHeaders = z.infer<
   typeof updateMockServerResponseServerResponseHeaders

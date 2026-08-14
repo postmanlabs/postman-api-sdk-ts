@@ -23,17 +23,17 @@ export const workspaceActivityFeedData = z.lazy(() => {
 
 /**
  * Information about the workspace's activity.
- * @typedef  {WorkspaceActivityFeedData} workspaceActivityFeedData - Information about the workspace's activity. - Information about the workspace's activity.
- * @property {string} - The workspace's ID.
- * @property {string} - The date and time at which the element was created.
- * @property {string} - The date and time at which the element was updated.
- * @property {number} - The activity feed's ID.
- * @property {DataUser} - Information about the user that performed the activity.
- * @property {DataAction} - The action that occurred in the workspace.
- * @property {string} - The element type.
- * @property {string} - The trigger that caused the workspace action (`create`, `update`, or `destroy`).
- * @property {string} - The element's ID.
- * @property {string} - The element's name.
+ * @typedef {WorkspaceActivityFeedData} workspaceActivityFeedData
+ * @property {string} workspaceId - The workspace's ID.
+ * @property {string} createdAt - The date and time at which the element was created.
+ * @property {string} updatedAt - The date and time at which the element was updated.
+ * @property {number} id - The activity feed's ID.
+ * @property {DataUser} user - Information about the user that performed the activity.
+ * @property {DataAction} action - The action that occurred in the workspace.
+ * @property {string} elementType - The element type.
+ * @property {string} trigger - The trigger that caused the workspace action (`create`, `update`, or `destroy`).
+ * @property {string} elementId - The element's ID.
+ * @property {string} elementName - The element's name.
  */
 export type WorkspaceActivityFeedData = z.infer<typeof workspaceActivityFeedData>;
 

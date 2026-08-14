@@ -25,20 +25,20 @@ export const elements = z.lazy(() => {
 
 /**
  * Information about the Private API Network element.
- * @typedef  {Elements} elements - Information about the Private API Network element. - Information about the Private API Network element.
- * @property {string} - The date and time at which the element was created.
- * @property {number} - The user who created the element.
- * @property {string} - The date and time at which the element was last updated.
- * @property {number} - The user ID of the user who updated the element.
- * @property {string} - The date and time at which the element was published to your team's Private API Network. This value is the same as the `updatedAt` value.
- * @property {number} - The user ID of the user who published the element.
- * @property {string} - The element's description.
- * @property {string} - The element's ID.
- * @property {string} - The element's name.
- * @property {string} - The element's summary.
- * @property {string} - The `workspace` element type.
- * @property {number} - The `0` value.
- * @property {string} - The element's HREF.
+ * @typedef {Elements} elements
+ * @property {string} createdAt - The date and time at which the element was created.
+ * @property {number} createdBy - The user who created the element.
+ * @property {string} updatedAt - The date and time at which the element was last updated.
+ * @property {number} updatedBy - The user ID of the user who updated the element.
+ * @property {string} addedAt - The date and time at which the element was published to your team's Private API Network. This value is the same as the `updatedAt` value.
+ * @property {number} addedBy - The user ID of the user who published the element.
+ * @property {string} description - The element's description.
+ * @property {string} id - The element's ID.
+ * @property {string} name - The element's name.
+ * @property {string} summary - The element's summary.
+ * @property {string} type - The `workspace` element type.
+ * @property {number} parentFolderId - The `0` value.
+ * @property {string} href - The element's HREF.
  */
 export type Elements = z.infer<typeof elements>;
 

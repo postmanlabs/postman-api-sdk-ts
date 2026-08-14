@@ -26,15 +26,15 @@ export const collectionsListCollections = z.lazy(() => {
 
 /**
  * Information about the collection.
- * @typedef  {CollectionsListCollections} collectionsListCollections - Information about the collection. - Information about the collection.
- * @property {string} - The collection's ID.
- * @property {string} - The collection's name.
- * @property {string} - The owner of the collection.
- * @property {string} - The collection's creation date and time.
- * @property {string} - The date and time at which the collection was last updated.
- * @property {string} - The collection's unique ID.
- * @property {CollectionsFork} - If the collection is [forked](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities), the fork's information.
- * @property {boolean} - If true, the collection is public and visible to all users.
+ * @typedef {CollectionsListCollections} collectionsListCollections
+ * @property {string} id - The collection's ID.
+ * @property {string} name - The collection's name.
+ * @property {string} owner - The owner of the collection.
+ * @property {string} createdAt - The collection's creation date and time.
+ * @property {string} updatedAt - The date and time at which the collection was last updated.
+ * @property {string} uid - The collection's unique ID.
+ * @property {CollectionsFork} fork - If the collection is [forked](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities), the fork's information.
+ * @property {boolean} isPublic - If true, the collection is public and visible to all users.
  */
 export type CollectionsListCollections = z.infer<typeof collectionsListCollections>;
 

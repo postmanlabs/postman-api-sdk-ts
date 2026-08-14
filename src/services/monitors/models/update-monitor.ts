@@ -18,9 +18,8 @@ export const updateMonitor = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdateMonitor} updateMonitor
- * @property {UpdateMonitorMonitor} - Information about the monitor.
+ * @typedef {UpdateMonitor} updateMonitor
+ * @property {UpdateMonitorMonitor} monitor - Information about the monitor.
  */
 export type UpdateMonitor = z.infer<typeof updateMonitor>;
 

@@ -18,9 +18,8 @@ export const commentUpdatedCreatedObject = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CommentUpdatedCreatedObject} commentUpdatedCreatedObject
- * @property {CommentUpdatedCreatedObjectData}
+ * @typedef {CommentUpdatedCreatedObject} commentUpdatedCreatedObject
+ * @property {CommentUpdatedCreatedObjectData} data
  */
 export type CommentUpdatedCreatedObject = z.infer<typeof commentUpdatedCreatedObject>;
 

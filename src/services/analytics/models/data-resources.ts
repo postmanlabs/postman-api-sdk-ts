@@ -20,10 +20,7 @@ export const dataResources = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {DataResources} dataResources
- * @property {AnalyticsMetadataResourceData} - Information about the resource.
- * @property {AnalyticsMetadataWithParametersAndResponseData} - Detailed information about the resource including its metrics, parameters, and response schema.
+ * @typedef {DataResources} dataResources
  */
 export type DataResources = z.infer<typeof dataResources>;
 

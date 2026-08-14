@@ -14,9 +14,9 @@ export const searchFilterPrivateApiNetwork = z.lazy(() => {
 
 /**
  * Filters by private API network membership. Supported for all element types.
- * @typedef  {SearchFilterPrivateApiNetwork} searchFilterPrivateApiNetwork - Filters by private API network membership. Supported for all element types. - Filters by private API network membership. Supported for all element types.
- * @property {boolean} - If true, return only resources that are part of the Private API Network.
- * @property {boolean} - If true, exclude resources that are part of the Private API Network.
+ * @typedef {SearchFilterPrivateApiNetwork} searchFilterPrivateApiNetwork
+ * @property {boolean} _eq - If true, return only resources that are part of the Private API Network.
+ * @property {boolean} _ne - If true, exclude resources that are part of the Private API Network.
  */
 export type SearchFilterPrivateApiNetwork = z.infer<typeof searchFilterPrivateApiNetwork>;
 

@@ -30,13 +30,13 @@ export const itemResponse1 = z.lazy(() => {
 
 /**
  * Information about the request's response.
- * @typedef  {ItemResponse1} itemResponse1 - Information about the request's response. - Information about the request's response.
- * @property {ResponseOriginalRequest1} - Information about the collection request.
- * @property {number} - The time taken by the request to complete. If a number, the unit is milliseconds. If the response is manually created, this can be set as null.
- * @property {ResponseHeader1}
- * @property {string} - The raw text of the response.
- * @property {string} - The response's status.
- * @property {number} - The response status code.
+ * @typedef {ItemResponse1} itemResponse1
+ * @property {ResponseOriginalRequest1} originalRequest - Information about the collection request.
+ * @property {number} responseTime - The time taken by the request to complete. If a number, the unit is milliseconds. If the response is manually created, this can be set as null.
+ * @property {ResponseHeader1} header
+ * @property {string} body - The raw text of the response.
+ * @property {string} status - The response's status.
+ * @property {number} code - The response status code.
  */
 export type ItemResponse1 = z.infer<typeof itemResponse1>;
 

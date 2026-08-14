@@ -11,10 +11,7 @@ export const variableInfoValue2 = z.lazy(() => {
 
 /**
  * The key's value.
- * @typedef  {VariableInfoValue2} variableInfoValue2 - The key's value. - The key's value.
- * @property {string}
- * @property {boolean}
- * @property {number}
+ * @typedef {VariableInfoValue2} variableInfoValue2
  */
 export type VariableInfoValue2 = z.infer<typeof variableInfoValue2>;
 

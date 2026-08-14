@@ -12,9 +12,8 @@ export const monitorDistribution = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MonitorDistribution} monitorDistribution
- * @property {Region} - The assigned distribution region.
+ * @typedef {MonitorDistribution} monitorDistribution
+ * @property {Region} region - The assigned distribution region.
  */
 export type MonitorDistribution = z.infer<typeof monitorDistribution>;
 

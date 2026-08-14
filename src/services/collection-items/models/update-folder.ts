@@ -15,9 +15,9 @@ export const updateFolder = z.lazy(() => {
 
 /**
  * The folder properties to update. For a complete list of properties, refer to the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
- * @typedef  {UpdateFolder} updateFolder - The folder properties to update. For a complete list of properties, refer to the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json). - The folder properties to update. For a complete list of properties, refer to the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
- * @property {string} - The folder's name.
- * @property {string} - The folder's description.
+ * @typedef {UpdateFolder} updateFolder
+ * @property {string} name - The folder's name.
+ * @property {string} description - The folder's description.
  */
 export type UpdateFolder = z.infer<typeof updateFolder>;
 

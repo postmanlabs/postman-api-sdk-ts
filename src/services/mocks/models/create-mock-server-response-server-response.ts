@@ -22,13 +22,12 @@ export const createMockServerResponseServerResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateMockServerResponseServerResponse} createMockServerResponseServerResponse
- * @property {string} - The server response's name.
- * @property {number} - The server response's 5xx HTTP response code. This property only accepts 5xx values.
- * @property {CreateMockServerResponseServerResponseHeaders[]} - The server response's request headers, such as Content-Type, Accept, encoding, and other information.
- * @property {CreateMockServerResponseServerResponseLanguage} - The server response's body language type.
- * @property {string} - The server response's body that returns when calling the mock server.
+ * @typedef {CreateMockServerResponseServerResponse} createMockServerResponseServerResponse
+ * @property {string} name - The server response's name.
+ * @property {number} statusCode - The server response's 5xx HTTP response code. This property only accepts 5xx values.
+ * @property {CreateMockServerResponseServerResponseHeaders[]} headers - The server response's request headers, such as Content-Type, Accept, encoding, and other information.
+ * @property {CreateMockServerResponseServerResponseLanguage} language - The server response's body language type.
+ * @property {string} body - The server response's body that returns when calling the mock server.
  */
 export type CreateMockServerResponseServerResponse = z.infer<
   typeof createMockServerResponseServerResponse

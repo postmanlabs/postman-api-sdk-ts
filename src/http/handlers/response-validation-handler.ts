@@ -78,7 +78,6 @@ export class ResponseValidationHandler implements RequestHandler {
       [ContentType.Image]: this.decodeFile,
       [ContentType.MultipartFormData]: this.decodeMultipartFormData,
       [ContentType.Text]: this.decodeText,
-      [ContentType.Xml]: this.decodeText,
       [ContentType.FormUrlEncoded]: this.decodeFormUrlEncoded,
       [ContentType.EventStream]: this.decodeEventStream,
     };

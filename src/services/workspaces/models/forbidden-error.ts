@@ -16,13 +16,12 @@ export const forbiddenError = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ForbiddenError} forbiddenError
- * @property {number} - The error's HTTP status code.
- * @property {string} - The error name.
- * @property {string} - The error message.
- * @property {string} - Information about the error.
- * @property {string} - The URI reference that identifies the specific occurrence of the problem.
+ * @typedef {ForbiddenError} forbiddenError
+ * @property {number} status - The error's HTTP status code.
+ * @property {string} name - The error name.
+ * @property {string} message - The error message.
+ * @property {string} detail - Information about the error.
+ * @property {string} instance - The URI reference that identifies the specific occurrence of the problem.
  */
 export type ForbiddenError = z.infer<typeof forbiddenError>;
 

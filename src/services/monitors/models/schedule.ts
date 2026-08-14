@@ -15,10 +15,10 @@ export const schedule = z.lazy(() => {
 
 /**
  * Information about the monitor's schedule.
- * @typedef  {Schedule} schedule - Information about the monitor's schedule. - Information about the monitor's schedule.
- * @property {string} - The monitor's POSIX cron frequency value.
- * @property {string} - The date and time of monitor's next scheduled run.
- * @property {string} - The monitor's timezone.
+ * @typedef {Schedule} schedule
+ * @property {string} cron - The monitor's POSIX cron frequency value.
+ * @property {string} nextRun - The date and time of monitor's next scheduled run.
+ * @property {string} timezone - The monitor's timezone.
  */
 export type Schedule = z.infer<typeof schedule>;
 

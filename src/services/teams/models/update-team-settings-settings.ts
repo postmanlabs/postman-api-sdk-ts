@@ -14,9 +14,9 @@ export const updateTeamSettingsSettings = z.lazy(() => {
 
 /**
  * Information about the team settings.
- * @typedef  {UpdateTeamSettingsSettings} updateTeamSettingsSettings - Information about the team settings. - Information about the team settings.
- * @property {RfaForAddMember} - If enabled, admins must approve any new team members before they can join.
- * @property {RfaForAddCollaborator} - If enabled, collaborators require approval before they can access the team's workspaces.
+ * @typedef {UpdateTeamSettingsSettings} updateTeamSettingsSettings
+ * @property {RfaForAddMember} rfaForAddMember - If enabled, admins must approve any new team members before they can join.
+ * @property {RfaForAddCollaborator} rfaForAddCollaborator - If enabled, collaborators require approval before they can access the team's workspaces.
  */
 export type UpdateTeamSettingsSettings = z.infer<typeof updateTeamSettingsSettings>;
 

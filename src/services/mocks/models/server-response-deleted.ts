@@ -27,16 +27,16 @@ export const serverResponseDeleted = z.lazy(() => {
 
 /**
  * Information about the deleted server response.
- * @typedef  {ServerResponseDeleted} serverResponseDeleted - Information about the deleted server response. - Information about the deleted server response.
- * @property {string} - The server response's ID.
- * @property {string} - The server response's name.
- * @property {number} - The server response's 5xx HTTP response code.
- * @property {ServerResponseDeletedHeaders[]} - The server response's request headers, such as Content-Type, Accept, encoding, and other information.
- * @property {ServerResponseDeletedLanguage} - The server response's body language type.
- * @property {string} - The server response's body that returns when calling the mock server.
- * @property {string} - The user ID of the user who created the server response.
- * @property {string} - The user ID of the user who last updated the server response.
- * @property {string} - The date and time at which the server response was created.
+ * @typedef {ServerResponseDeleted} serverResponseDeleted
+ * @property {string} id - The server response's ID.
+ * @property {string} name - The server response's name.
+ * @property {number} statusCode - The server response's 5xx HTTP response code.
+ * @property {ServerResponseDeletedHeaders[]} headers - The server response's request headers, such as Content-Type, Accept, encoding, and other information.
+ * @property {ServerResponseDeletedLanguage} language - The server response's body language type.
+ * @property {string} body - The server response's body that returns when calling the mock server.
+ * @property {string} createdBy - The user ID of the user who created the server response.
+ * @property {string} updatedBy - The user ID of the user who last updated the server response.
+ * @property {string} createdAt - The date and time at which the server response was created.
  */
 export type ServerResponseDeleted = z.infer<typeof serverResponseDeleted>;
 

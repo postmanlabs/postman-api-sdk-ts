@@ -20,10 +20,7 @@ export const collectionVariableList = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionVariableList} collectionVariableList
- * @property {CollectionVariableInfo} - Information about a collection-level variable. Collection variables don't support `id`, `description`, or `enabled` fields. Use `disabled` to control whether a variable is active.
- * @property {CollectionSecretVariableInfo} - Information about a collection-level secret variable. Collection variables don't have an `id` field.
+ * @typedef {CollectionVariableList} collectionVariableList
  */
 export type CollectionVariableList = z.infer<typeof collectionVariableList>;
 

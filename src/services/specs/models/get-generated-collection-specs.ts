@@ -25,10 +25,9 @@ export const getGeneratedCollectionSpecs = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetGeneratedCollectionSpecs} getGeneratedCollectionSpecs
- * @property {CollectionSpecInformation[]} - A list of the collection's generated API specficiations.
- * @property {GetGeneratedCollectionSpecsMeta} - The response's meta information for paginated results.
+ * @typedef {GetGeneratedCollectionSpecs} getGeneratedCollectionSpecs
+ * @property {CollectionSpecInformation[]} specs - A list of the collection's generated API specficiations.
+ * @property {GetGeneratedCollectionSpecsMeta} meta - The response's meta information for paginated results.
  */
 export type GetGeneratedCollectionSpecs = z.infer<typeof getGeneratedCollectionSpecs>;
 

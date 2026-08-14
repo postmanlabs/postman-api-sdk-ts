@@ -28,10 +28,10 @@ export const collectionRolesInfo = z.lazy(() => {
 
 /**
  * Information about the collection's roles.
- * @typedef  {CollectionRolesInfo} collectionRolesInfo - Information about the collection's roles. - Information about the collection's roles.
- * @property {Group[]} - A list of the collection's group roles.
- * @property {CollectionRolesInfoTeam[]} - A list of the collection's team roles.
- * @property {CollectionRolesInfoUser[]} - A list of the collection's user roles.
+ * @typedef {CollectionRolesInfo} collectionRolesInfo
+ * @property {Group[]} group - A list of the collection's group roles.
+ * @property {CollectionRolesInfoTeam[]} team - A list of the collection's team roles.
+ * @property {CollectionRolesInfoUser[]} user - A list of the collection's user roles.
  */
 export type CollectionRolesInfo = z.infer<typeof collectionRolesInfo>;
 

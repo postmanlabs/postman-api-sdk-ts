@@ -157,10 +157,10 @@ Updates a component: - `name` — Rename the component. The new name must be uni
 
 **Parameters**
 
-| Name        | Type   | Required | Description         |
-| :---------- | :----- | :------- | :------------------ |
-| body        | any    | ❌       | The request body.   |
-| componentId | string | ✅       | The component's ID. |
+| Name        | Type                                            | Required | Description         |
+| :---------- | :---------------------------------------------- | :------- | :------------------ |
+| body        | [UpdateComponent](../models/UpdateComponent.md) | ❌       | The request body.   |
+| componentId | string                                          | ✅       | The component's ID. |
 
 **Return Type**
 
@@ -169,16 +169,19 @@ Updates a component: - `name` — Rename the component. The new name must be uni
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApi } from '@postman/api-sdk';
+import { PostmanApi, UpdateComponent } from '@postman/api-sdk';
 
 (async () => {
   const postmanApi = new PostmanApi({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const input = {};
+  const updateComponent = [];
 
-  const data = await postmanApi.components.updateComponent('01KT964C30J3DPJQKEACZH39N8', input);
+  const data = await postmanApi.components.updateComponent(
+    '01KT964C30J3DPJQKEACZH39N8',
+    updateComponent,
+  );
 
   console.log(data);
 })();

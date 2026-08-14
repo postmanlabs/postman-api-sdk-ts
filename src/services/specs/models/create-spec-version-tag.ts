@@ -12,9 +12,8 @@ export const createSpecVersionTag = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateSpecVersionTag} createSpecVersionTag
- * @property {string} - The version tag's name.
+ * @typedef {CreateSpecVersionTag} createSpecVersionTag
+ * @property {string} name - The version tag's name.
  */
 export type CreateSpecVersionTag = z.infer<typeof createSpecVersionTag>;
 

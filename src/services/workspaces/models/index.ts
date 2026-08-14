@@ -28,7 +28,7 @@ export { GetWorkspacesWorkspaceDataVisibility } from './get-workspaces-workspace
 export type { GetWorkspacesScimObject } from './get-workspaces-scim-object';
 export type { SuccessfulResponseMeta4 } from './successful-response-meta-4';
 export { WorkspaceTypeQuery } from './workspace-type-query';
-export { WorkspaceIncludeQuery } from './workspace-include-query';
+export { WorkspacesIncludeQuery } from './workspaces-include-query';
 export { WorkspaceElementTypeQuery } from './workspace-element-type-query';
 export type { BadRequestError2 } from './bad-request-error-2';
 export type { CreateWorkspaceOkResponse } from './create-workspace-ok-response';

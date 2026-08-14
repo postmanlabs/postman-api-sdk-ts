@@ -28,19 +28,18 @@ export const workspaceUpdatePostPatchResponseData = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {WorkspaceUpdatePostPatchResponseData} workspaceUpdatePostPatchResponseData
- * @property {number} - The workspace update's ID.
- * @property {string} - The title of the workspace update.
- * @property {string} - The content of the workspace update.
- * @property {string} - The ID of the workspace in which the workspace update was created.
- * @property {number} - The user ID of the user that created the workspace update.
- * @property {number} - The ID of the user who last updated the workspace update.
- * @property {string} - The date and time at which the workspace update was created.
- * @property {string} - The date and time at which the workspace update was last updated.
- * @property {WorkspaceUpdateCategoryData} - The update's assigned category.
- * @property {boolean} - If true, the workspace update is pinned to the top of the workspace updates list.
- * @property {WorkspaceUpdateRelatedResourcesData[]} - A list containing the update's related elements. Related elements include links to collections, requests, folders, and saved examples in the update.
+ * @typedef {WorkspaceUpdatePostPatchResponseData} workspaceUpdatePostPatchResponseData
+ * @property {number} id - The workspace update's ID.
+ * @property {string} topic - The title of the workspace update.
+ * @property {string} description - The content of the workspace update.
+ * @property {string} workspaceId - The ID of the workspace in which the workspace update was created.
+ * @property {number} createdBy - The user ID of the user that created the workspace update.
+ * @property {number} updatedBy - The ID of the user who last updated the workspace update.
+ * @property {string} createdAt - The date and time at which the workspace update was created.
+ * @property {string} updatedAt - The date and time at which the workspace update was last updated.
+ * @property {WorkspaceUpdateCategoryData} category - The update's assigned category.
+ * @property {boolean} isPinned - If true, the workspace update is pinned to the top of the workspace updates list.
+ * @property {WorkspaceUpdateRelatedResourcesData[]} relatedResources - A list containing the update's related elements. Related elements include links to collections, requests, folders, and saved examples in the update.
  */
 export type WorkspaceUpdatePostPatchResponseData = z.infer<
   typeof workspaceUpdatePostPatchResponseData

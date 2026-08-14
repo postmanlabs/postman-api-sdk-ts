@@ -13,10 +13,10 @@ export const searchFilterGitConnected = z.lazy(() => {
 });
 
 /**
- * Filters by Git connection status. Supported for `workspaces`, `collections`, `requests`, `environments`, `specs`, and `flows`.
- * @typedef  {SearchFilterGitConnected} searchFilterGitConnected - Filters by Git connection status. Supported for `workspaces`, `collections`, `requests`, `environments`, `specs`, and `flows`. - Filters by Git connection status. Supported for `workspaces`, `collections`, `requests`, `environments`, `specs`, and `flows`.
- * @property {boolean} - If true, return only resources connected to Git.
- * @property {boolean} - If true, exclude resources connected to Git.
+ * Filters by Git connection status. Supported for `workspaces`, `collections`, `requests`, `environments`, `specs`, `flows`, and `documents`.
+ * @typedef {SearchFilterGitConnected} searchFilterGitConnected
+ * @property {boolean} _eq - If true, return only resources connected to Git.
+ * @property {boolean} _ne - If true, exclude resources connected to Git.
  */
 export type SearchFilterGitConnected = z.infer<typeof searchFilterGitConnected>;
 

@@ -14,9 +14,9 @@ export const scim = z.lazy(() => {
 
 /**
  * An object containing SCIM user IDs. This object only returns if you pass the `include=scim` query parameter.
- * @typedef  {Scim} scim - An object containing SCIM user IDs. This object only returns if you pass the `include=scim` query parameter. - An object containing SCIM user IDs. This object only returns if you pass the `include=scim` query parameter.
- * @property {string} - The SCIM user ID of the user who created the workspace.
- * @property {string} - The SCIM user ID of the user who last updated the workspace.
+ * @typedef {Scim} scim
+ * @property {string} createdBy - The SCIM user ID of the user who created the workspace.
+ * @property {string} updatedBy - The SCIM user ID of the user who last updated the workspace.
  */
 export type Scim = z.infer<typeof scim>;
 

@@ -19,15 +19,7 @@ export const latestVersion = z.lazy(() => {
 
 To return detailed information about the component's latest version, pass the `latestVersion` value for the `expand` parameter.
 
- * @typedef  {LatestVersion} latestVersion - Information about the component's latest version. This property only returns only when you pass the `latestVersion` value for the `include` parameter.
-
-To return detailed information about the component's latest version, pass the `latestVersion` value for the `expand` parameter.
- - Information about the component's latest version. This property only returns only when you pass the `latestVersion` value for the `include` parameter.
-
-To return detailed information about the component's latest version, pass the `latestVersion` value for the `expand` parameter.
-
- * @property {string} 
- * @property {ComponentVersionData} - Information about a component's version.
+ * @typedef {LatestVersion} latestVersion
  */
 export type LatestVersion = z.infer<typeof latestVersion>;
 

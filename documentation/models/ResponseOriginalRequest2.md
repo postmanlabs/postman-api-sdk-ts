@@ -24,7 +24,7 @@ Information about the collection's request body.
 | mode       | any                                                                       | ❌       | The data associated with the request.                                                   |
 | raw        | string                                                                    | ❌       | If the `mode` value is `raw`, the raw content of the request body.                      |
 | urlencoded | [CollectionRequestBodyUrlencoded2](CollectionRequestBodyUrlencoded2.md)[] | ❌       | A list of x-www-form-encoded key/value pairs.                                           |
-| formdata   | any[]                                                                     | ❌       | If the `mode` value is `formdata`, then a list of form-data key/pair values.            |
+| formdata   | [CollectionRequestBodyFormdata4](CollectionRequestBodyFormdata4.md)[]     | ❌       | If the `mode` value is `formdata`, then a list of form-data key/pair values.            |
 | file       | CollectionRequestBodyFile2                                                | ❌       | If the `mode` value is `file`, an object containing the file request information.       |
 | graphql    | CollectionRequestBodyGraphql2                                             | ❌       | If the `mode` value is `graphql`, an object containing the GraphQL request information. |
 | options    | any                                                                       | ❌       | Additional configurations and options set for various modes.                            |

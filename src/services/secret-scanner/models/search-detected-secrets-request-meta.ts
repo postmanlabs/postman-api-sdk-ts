@@ -15,10 +15,10 @@ export const searchDetectedSecretsRequestMeta = z.lazy(() => {
 
 /**
  * The response's meta information for paginated results.
- * @typedef  {SearchDetectedSecretsRequestMeta} searchDetectedSecretsRequestMeta - The response's meta information for paginated results. - The response's meta information for paginated results.
- * @property {number} - The maximum number of records in the paginated response.
- * @property {string} - The pagination cursor that points to the next record in the results set.
- * @property {number} - The number of records that match the defined criteria. This is only returned when the `include` query parameter is passed with the `meta.total` value.
+ * @typedef {SearchDetectedSecretsRequestMeta} searchDetectedSecretsRequestMeta
+ * @property {number} limit - The maximum number of records in the paginated response.
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
+ * @property {number} total - The number of records that match the defined criteria. This is only returned when the `include` query parameter is passed with the `meta.total` value.
  */
 export type SearchDetectedSecretsRequestMeta = z.infer<typeof searchDetectedSecretsRequestMeta>;
 

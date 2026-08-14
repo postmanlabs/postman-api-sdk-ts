@@ -20,9 +20,9 @@ export const createEnvironmentEnvironment = z.lazy(() => {
 
 /**
  * Information about the environment.
- * @typedef  {CreateEnvironmentEnvironment} createEnvironmentEnvironment - Information about the environment. - Information about the environment.
- * @property {string} - The environment's name.
- * @property {CreateEnvironmentEnvironmentValues[]} - Information about the environment's variables.
+ * @typedef {CreateEnvironmentEnvironment} createEnvironmentEnvironment
+ * @property {string} name - The environment's name.
+ * @property {CreateEnvironmentEnvironmentValues[]} values - Information about the environment's variables.
  */
 export type CreateEnvironmentEnvironment = z.infer<typeof createEnvironmentEnvironment>;
 

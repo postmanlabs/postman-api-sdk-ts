@@ -18,9 +18,8 @@ export const pullEnvironmentOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PullEnvironmentOkResponse} pullEnvironmentOkResponse
- * @property {SuccessfulResponseEnvironment3} - Information about the merged environment.
+ * @typedef {PullEnvironmentOkResponse} pullEnvironmentOkResponse
+ * @property {SuccessfulResponseEnvironment3} environment - Information about the merged environment.
  */
 export type PullEnvironmentOkResponse = z.infer<typeof pullEnvironmentOkResponse>;
 

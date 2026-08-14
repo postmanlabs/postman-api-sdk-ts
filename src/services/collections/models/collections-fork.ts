@@ -15,10 +15,10 @@ export const collectionsFork = z.lazy(() => {
 
 /**
  * If the collection is [forked](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities), the fork's information.
- * @typedef  {CollectionsFork} collectionsFork - If the collection is [forked](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities), the fork's information. - If the collection is [forked](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities), the fork's information.
- * @property {string} - The fork's label.
- * @property {string} - The fork's creation date and time.
- * @property {string} - The unique ID of the fork's source collection.
+ * @typedef {CollectionsFork} collectionsFork
+ * @property {string} label - The fork's label.
+ * @property {string} createdAt - The fork's creation date and time.
+ * @property {string} from - The unique ID of the fork's source collection.
  */
 export type CollectionsFork = z.infer<typeof collectionsFork>;
 

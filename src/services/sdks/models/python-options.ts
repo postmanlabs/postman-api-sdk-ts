@@ -13,8 +13,8 @@ export const pythonOptions = z.lazy(() => {
 
 /**
  * Python-specific SDK generation options.
- * @typedef  {PythonOptions} pythonOptions - Python-specific SDK generation options. - Python-specific SDK generation options.
- * @property {string} - The PyPI package's name.
+ * @typedef {PythonOptions} pythonOptions
+ * @property {string} pypiPackageName - The PyPI package's name.
  */
 export type PythonOptions = z.infer<typeof pythonOptions>;
 

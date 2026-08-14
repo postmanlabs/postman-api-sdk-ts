@@ -16,11 +16,11 @@ export const runnerMeta = z.lazy(() => {
 
 /**
  * The response's meta information for paginated results.
- * @typedef  {RunnerMeta} runnerMeta - The response's meta information for paginated results. - The response's meta information for paginated results.
- * @property {string} - The `runnerInstance` value.
- * @property {string} - The `find` value.
- * @property {string} - The reference URL to the resource.
- * @property {string} - The pagination cursor that points to the next record in the results set.
+ * @typedef {RunnerMeta} runnerMeta
+ * @property {string} model - The `runnerInstance` value.
+ * @property {string} action - The `find` value.
+ * @property {string} url - The reference URL to the resource.
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
  */
 export type RunnerMeta = z.infer<typeof runnerMeta>;
 

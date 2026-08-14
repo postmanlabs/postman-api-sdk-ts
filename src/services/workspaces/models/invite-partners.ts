@@ -23,17 +23,17 @@ export const invitePartners = z.lazy(() => {
 
 /**
  * Invite partners to a Partner Workspace.
- * @typedef  {InvitePartners} invitePartners - Invite partners to a Partner Workspace. - Invite partners to a Partner Workspace.
- * @property {InvitePartnersAction} - The `invite_partner` action.
- * @property {InvitePartnersTargetEntity} - The `workspace` value.
- * @property {string} - The Partner Workspace's ID.
- * @property {RoleId} - The role ID to assign to invited partners:
+ * @typedef {InvitePartners} invitePartners
+ * @property {InvitePartnersAction} action - The `invite_partner` action.
+ * @property {InvitePartnersTargetEntity} targetEntity - The `workspace` value.
+ * @property {string} targetEntityId - The Partner Workspace's ID.
+ * @property {RoleId} roleId - The role ID to assign to invited partners:
 - `4` — Viewer
 - `5` — Editor
 - `6` — Viewer and Partner Lead
 - `7` — Editor and Partner Lead
 
- * @property {ManagePartnerWorkspaceInvitesTargetObjectEmails} - The target on which to perform the action.
+ * @property {ManagePartnerWorkspaceInvitesTargetObjectEmails} target - The target on which to perform the action.
  */
 export type InvitePartners = z.infer<typeof invitePartners>;
 

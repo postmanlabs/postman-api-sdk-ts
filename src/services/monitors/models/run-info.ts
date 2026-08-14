@@ -15,10 +15,10 @@ export const runInfo = z.lazy(() => {
 
 /**
  * Information about the monitor.
- * @typedef  {RunInfo} runInfo - Information about the monitor. - Information about the monitor.
- * @property {string} - The monitor's ID.
- * @property {string} - The monitor run's status.
- * @property {string} - A message that details the monitor run's current status.
+ * @typedef {RunInfo} runInfo
+ * @property {string} monitorId - The monitor's ID.
+ * @property {string} status - The monitor run's status.
+ * @property {string} message - A message that details the monitor run's current status.
  */
 export type RunInfo = z.infer<typeof runInfo>;
 

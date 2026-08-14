@@ -14,11 +14,10 @@ export const simpleSdkGitConnectionPullRequest = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SimpleSdkGitConnectionPullRequest} simpleSdkGitConnectionPullRequest
- * @property {string} - The pull request's URL.
- * @property {SdkGitConnectionPrStatus} - The lifecycle status of a pull request.
- * @property {string} - The SDK's ID.
+ * @typedef {SimpleSdkGitConnectionPullRequest} simpleSdkGitConnectionPullRequest
+ * @property {string} url - The pull request's URL.
+ * @property {SdkGitConnectionPrStatus} status - The lifecycle status of a pull request.
+ * @property {string} sdkId - The SDK's ID.
  */
 export type SimpleSdkGitConnectionPullRequest = z.infer<typeof simpleSdkGitConnectionPullRequest>;
 

@@ -13,10 +13,9 @@ export const createSpecFile = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateSpecFile} createSpecFile
- * @property {string} - The file's path. Accepts JSON or YAML files.
- * @property {string} - The file's stringified contents.
+ * @typedef {CreateSpecFile} createSpecFile
+ * @property {string} path - The file's path. Accepts JSON or YAML files.
+ * @property {string} content - The file's stringified contents.
  */
 export type CreateSpecFile = z.infer<typeof createSpecFile>;
 

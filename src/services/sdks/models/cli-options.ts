@@ -13,8 +13,8 @@ export const cliOptions = z.lazy(() => {
 
 /**
  * CLI-specific SDK generation options.
- * @typedef  {CliOptions} cliOptions - CLI-specific SDK generation options. - CLI-specific SDK generation options.
- * @property {string} - The Go module's path for the generated CLI.
+ * @typedef {CliOptions} cliOptions
+ * @property {string} goModuleName - The Go module's path for the generated CLI.
  */
 export type CliOptions = z.infer<typeof cliOptions>;
 

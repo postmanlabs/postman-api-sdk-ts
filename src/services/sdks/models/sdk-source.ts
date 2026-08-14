@@ -14,9 +14,9 @@ export const sdkSource = z.lazy(() => {
 
 /**
  * The collection or specification that the SDK is generated from.
- * @typedef  {SdkSource} sdkSource - The collection or specification that the SDK is generated from. - The collection or specification that the SDK is generated from.
- * @property {ElementType2} - The type of Postman element.
- * @property {string} - The ID of the Postman Collection or specification in Postman.
+ * @typedef {SdkSource} sdkSource
+ * @property {ElementType2} type - The type of Postman element.
+ * @property {string} id - The ID of the Postman Collection or specification in Postman.
  */
 export type SdkSource = z.infer<typeof sdkSource>;
 

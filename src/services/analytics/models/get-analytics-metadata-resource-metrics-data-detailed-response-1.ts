@@ -26,9 +26,9 @@ export const getAnalyticsMetadataResourceMetricsDataDetailedResponse1 = z.lazy((
 
 /**
  * Information about the metric's `response` parameters.
- * @typedef  {GetAnalyticsMetadataResourceMetricsDataDetailedResponse1} getAnalyticsMetadataResourceMetricsDataDetailedResponse1 - Information about the metric's `response` parameters. - Information about the metric's `response` parameters.
- * @property {GetAnalyticsMetadataResourceMetricsDataDetailedData} - Information about the metric's `detailed` parameter.
- * @property {GetAnalyticsMetadataResourceMetricsDataSummaryData} - Information about the metric's `summary` parameter.
+ * @typedef {GetAnalyticsMetadataResourceMetricsDataDetailedResponse1} getAnalyticsMetadataResourceMetricsDataDetailedResponse1
+ * @property {GetAnalyticsMetadataResourceMetricsDataDetailedData} detailed - Information about the metric's `detailed` parameter.
+ * @property {GetAnalyticsMetadataResourceMetricsDataSummaryData} summary - Information about the metric's `summary` parameter.
  */
 export type GetAnalyticsMetadataResourceMetricsDataDetailedResponse1 = z.infer<
   typeof getAnalyticsMetadataResourceMetricsDataDetailedResponse1

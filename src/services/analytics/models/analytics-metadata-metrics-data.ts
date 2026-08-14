@@ -14,9 +14,9 @@ export const analyticsMetadataMetricsData = z.lazy(() => {
 
 /**
  * Information about the resource's metric.
- * @typedef  {AnalyticsMetadataMetricsData} analyticsMetadataMetricsData - Information about the resource's metric. - Information about the resource's metric.
- * @property {string} - The metric's name.
- * @property {string} - A description of the metric.
+ * @typedef {AnalyticsMetadataMetricsData} analyticsMetadataMetricsData
+ * @property {string} metric - The metric's name.
+ * @property {string} description - A description of the metric.
  */
 export type AnalyticsMetadataMetricsData = z.infer<typeof analyticsMetadataMetricsData>;
 

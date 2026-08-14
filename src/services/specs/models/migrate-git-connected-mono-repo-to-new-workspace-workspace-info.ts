@@ -13,8 +13,8 @@ export const migrateGitConnectedMonoRepoToNewWorkspaceWorkspaceInfo = z.lazy(() 
 
 /**
  * Information about the new workspace.
- * @typedef  {MigrateGitConnectedMonoRepoToNewWorkspaceWorkspaceInfo} migrateGitConnectedMonoRepoToNewWorkspaceWorkspaceInfo - Information about the new workspace. - Information about the new workspace.
- * @property {string} - The name of the workspace to create and migrate the definition to.
+ * @typedef {MigrateGitConnectedMonoRepoToNewWorkspaceWorkspaceInfo} migrateGitConnectedMonoRepoToNewWorkspaceWorkspaceInfo
+ * @property {string} name - The name of the workspace to create and migrate the definition to.
  */
 export type MigrateGitConnectedMonoRepoToNewWorkspaceWorkspaceInfo = z.infer<
   typeof migrateGitConnectedMonoRepoToNewWorkspaceWorkspaceInfo

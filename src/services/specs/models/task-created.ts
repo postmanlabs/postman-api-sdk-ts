@@ -13,10 +13,9 @@ export const taskCreated = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {TaskCreated} taskCreated
- * @property {string} - The created task ID. You can use this ID to track the status of the task.
- * @property {string} - The URL to get or poll the status of a generated spec task.
+ * @typedef {TaskCreated} taskCreated
+ * @property {string} taskId - The created task ID. You can use this ID to track the status of the task.
+ * @property {string} url - The URL to get or poll the status of a generated spec task.
  */
 export type TaskCreated = z.infer<typeof taskCreated>;
 

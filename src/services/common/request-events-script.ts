@@ -15,10 +15,10 @@ export const requestEventsScript = z.lazy(() => {
 
 /**
  * Information about the Javascript code that can be used to to perform setup or teardown operations in a response.
- * @typedef  {RequestEventsScript} requestEventsScript - Information about the Javascript code that can be used to to perform setup or teardown operations in a response. - Information about the Javascript code that can be used to to perform setup or teardown operations in a response.
- * @property {string} - The script's ID.
- * @property {string} - The type of script. For example, `text/javascript`.
- * @property {string[]} - A list of script strings, where each line represents a line of code. Separate lines makes it easy to track script changes.
+ * @typedef {RequestEventsScript} requestEventsScript
+ * @property {string} id - The script's ID.
+ * @property {string} type - The type of script. For example, `text/javascript`.
+ * @property {string[]} exec - A list of script strings, where each line represents a line of code. Separate lines makes it easy to track script changes.
  */
 export type RequestEventsScript = z.infer<typeof requestEventsScript>;
 

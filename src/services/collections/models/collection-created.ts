@@ -18,9 +18,8 @@ export const collectionCreated = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionCreated} collectionCreated
- * @property {CollectionCreatedCollection}
+ * @typedef {CollectionCreated} collectionCreated
+ * @property {CollectionCreatedCollection} collection
  */
 export type CollectionCreated = z.infer<typeof collectionCreated>;
 

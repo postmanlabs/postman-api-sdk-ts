@@ -11,9 +11,7 @@ export const id = z.lazy(() => {
 
 /**
  * The workspace element's ID.
- * @typedef  {Id} id - The workspace element's ID. - The workspace element's ID.
- * @property {string}
- * @property {string}
+ * @typedef {Id} id
  */
 export type Id = z.infer<typeof id>;
 

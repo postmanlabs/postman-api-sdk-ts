@@ -13,10 +13,9 @@ export const collectionUpdatedAsyncTask = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionUpdatedAsyncTask} collectionUpdatedAsyncTask
- * @property {string} - The collection update task's ID. Use this value to get the update's status with the GET `/collection-updates-tasks/{taskId}` endpoint.
- * @property {string} - The task's current status.
+ * @typedef {CollectionUpdatedAsyncTask} collectionUpdatedAsyncTask
+ * @property {string} id - The collection update task's ID. Use this value to get the update's status with the GET `/collection-updates-tasks/{taskId}` endpoint.
+ * @property {string} status - The task's current status.
  */
 export type CollectionUpdatedAsyncTask = z.infer<typeof collectionUpdatedAsyncTask>;
 

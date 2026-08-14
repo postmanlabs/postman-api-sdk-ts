@@ -28,17 +28,17 @@ export const collectionRequestCreatedData = z.lazy(() => {
 
 /**
  * Information about the created request. For a complete list of properties, refer to the **Request** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @typedef  {CollectionRequestCreatedData} collectionRequestCreatedData - Information about the created request. For a complete list of properties, refer to the **Request** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). - Information about the created request. For a complete list of properties, refer to the **Request** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @property {string} - The request's ID.
- * @property {string} - The request's name.
- * @property {string} - The user ID of the request's owner.
- * @property {string} - Information about the request's parent folder.
- * @property {string[]} - A list of the request's responses.
- * @property {string} - The collection ID that the request belongs to.
- * @property {string[]} - A list of response IDs and their order in the folder.
- * @property {string} - The requeset's creation date and time.
- * @property {string} - The date and time at which the request was last updated.
- * @property {string} - The user ID of the user that last updated the folder.
+ * @typedef {CollectionRequestCreatedData} collectionRequestCreatedData
+ * @property {string} id - The request's ID.
+ * @property {string} name - The request's name.
+ * @property {string} owner - The user ID of the request's owner.
+ * @property {string} folder - Information about the request's parent folder.
+ * @property {string[]} responses - A list of the request's responses.
+ * @property {string} collection - The collection ID that the request belongs to.
+ * @property {string[]} responsesOrder - A list of response IDs and their order in the folder.
+ * @property {string} createdAt - The requeset's creation date and time.
+ * @property {string} updatedAt - The date and time at which the request was last updated.
+ * @property {string} lastUpdatedBy - The user ID of the user that last updated the folder.
  */
 export type CollectionRequestCreatedData = z.infer<typeof collectionRequestCreatedData>;
 

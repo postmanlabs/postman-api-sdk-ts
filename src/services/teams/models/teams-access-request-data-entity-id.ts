@@ -11,9 +11,7 @@ export const teamsAccessRequestDataEntityId = z.lazy(() => {
 
 /**
  * The entity's ID.
- * @typedef  {TeamsAccessRequestDataEntityId} teamsAccessRequestDataEntityId - The entity's ID. - The entity's ID.
- * @property {number}
- * @property {string}
+ * @typedef {TeamsAccessRequestDataEntityId} teamsAccessRequestDataEntityId
  */
 export type TeamsAccessRequestDataEntityId = z.infer<typeof teamsAccessRequestDataEntityId>;
 

@@ -22,13 +22,12 @@ export const manageTeamMemberRolesResponseResult = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ManageTeamMemberRolesResponseResult} manageTeamMemberRolesResponseResult
- * @property {string} - The entity type.
- * @property {ManageTeamMemberRolesResponseResultEntityId} - The entity's ID.
- * @property {string} - The user's role.
- * @property {string} - The user's previous role. This value only returns if the user's role is modified.
- * @property {string} - The request's status.
+ * @typedef {ManageTeamMemberRolesResponseResult} manageTeamMemberRolesResponseResult
+ * @property {string} entityType - The entity type.
+ * @property {ManageTeamMemberRolesResponseResultEntityId} entityId - The entity's ID.
+ * @property {string} role - The user's role.
+ * @property {string} previousRole - The user's previous role. This value only returns if the user's role is modified.
+ * @property {string} status - The request's status.
  */
 export type ManageTeamMemberRolesResponseResult = z.infer<
   typeof manageTeamMemberRolesResponseResult

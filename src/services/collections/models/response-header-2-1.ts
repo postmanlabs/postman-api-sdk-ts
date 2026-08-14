@@ -16,11 +16,11 @@ export const responseHeader2_1 = z.lazy(() => {
 
 /**
  * Information about the header.
- * @typedef  {ResponseHeader2_1} responseHeader2_1 - Information about the header. - Information about the header.
- * @property {string} - The header's key, such as `Content-Type` or `X-Custom-Header`.
- * @property {string} - The header key's value.
- * @property {boolean} - If true, the current header isn't sent with requests.
- * @property {string} - The header's description.
+ * @typedef {ResponseHeader2_1} responseHeader2_1
+ * @property {string} key - The header's key, such as `Content-Type` or `X-Custom-Header`.
+ * @property {string} value - The header key's value.
+ * @property {boolean} disabled - If true, the current header isn't sent with requests.
+ * @property {string} description - The header's description.
  */
 export type ResponseHeader2_1 = z.infer<typeof responseHeader2_1>;
 

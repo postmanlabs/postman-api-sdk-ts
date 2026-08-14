@@ -18,9 +18,8 @@ export const workspaceRolesUpdated = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {WorkspaceRolesUpdated} workspaceRolesUpdated
- * @property {WorkspaceRolesUpdatedRoles[]}
+ * @typedef {WorkspaceRolesUpdated} workspaceRolesUpdated
+ * @property {WorkspaceRolesUpdatedRoles[]} roles
  */
 export type WorkspaceRolesUpdated = z.infer<typeof workspaceRolesUpdated>;
 

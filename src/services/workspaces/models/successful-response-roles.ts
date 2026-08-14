@@ -21,10 +21,10 @@ export const successfulResponseRoles = z.lazy(() => {
 
 /**
  * Information about the workspace's roles.
- * @typedef  {SuccessfulResponseRoles} successfulResponseRoles - Information about the workspace's roles. - Information about the workspace's roles.
- * @property {WorkspaceRoleData[]} - The list of user roles in the workspace.
- * @property {WorkspaceRoleData[]} - The list of user group roles in the workspace.
- * @property {WorkspaceRoleData[]} - The list of partner in the workspace.
+ * @typedef {SuccessfulResponseRoles} successfulResponseRoles
+ * @property {WorkspaceRoleData[]} user - The list of user roles in the workspace.
+ * @property {WorkspaceRoleData[]} usergroup - The list of user group roles in the workspace.
+ * @property {WorkspaceRoleData[]} partner - The list of partner in the workspace.
  */
 export type SuccessfulResponseRoles = z.infer<typeof successfulResponseRoles>;
 

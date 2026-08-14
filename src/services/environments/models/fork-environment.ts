@@ -12,9 +12,8 @@ export const forkEnvironment = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ForkEnvironment} forkEnvironment
- * @property {string} - The forked environment's label.
+ * @typedef {ForkEnvironment} forkEnvironment
+ * @property {string} forkName - The forked environment's label.
  */
 export type ForkEnvironment = z.infer<typeof forkEnvironment>;
 

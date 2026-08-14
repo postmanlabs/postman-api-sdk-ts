@@ -14,9 +14,9 @@ export const workspaceUpdatedWorkspace = z.lazy(() => {
 
 /**
  * Information about the updated workspace.
- * @typedef  {WorkspaceUpdatedWorkspace} workspaceUpdatedWorkspace - Information about the updated workspace. - Information about the updated workspace.
- * @property {string} - The workspace's ID.
- * @property {string} - The workspace's name.
+ * @typedef {WorkspaceUpdatedWorkspace} workspaceUpdatedWorkspace
+ * @property {string} id - The workspace's ID.
+ * @property {string} name - The workspace's name.
  */
 export type WorkspaceUpdatedWorkspace = z.infer<typeof workspaceUpdatedWorkspace>;
 

@@ -21,12 +21,11 @@ export const removePartnerResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RemovePartnerResponse} removePartnerResponse
- * @property {string} - The target entity type.
- * @property {string} - The target entity's ID.
- * @property {string} - The action performed.
- * @property {RemovePartnerResponseResults[]} - A list of the action results.
+ * @typedef {RemovePartnerResponse} removePartnerResponse
+ * @property {string} targetEntity - The target entity type.
+ * @property {string} targetEntityId - The target entity's ID.
+ * @property {string} action - The action performed.
+ * @property {RemovePartnerResponseResults[]} results - A list of the action results.
  */
 export type RemovePartnerResponse = z.infer<typeof removePartnerResponse>;
 

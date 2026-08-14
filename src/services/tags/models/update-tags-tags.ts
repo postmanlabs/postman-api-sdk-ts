@@ -17,8 +17,8 @@ export const updateTagsTags = z.lazy(() => {
 
 /**
  * Information about the tag.
- * @typedef  {UpdateTagsTags} updateTagsTags - Information about the tag. - Information about the tag.
- * @property {string} - The tag's ID within a team or individual (non-team) user scope.
+ * @typedef {UpdateTagsTags} updateTagsTags
+ * @property {string} slug - The tag's ID within a team or individual (non-team) user scope.
  */
 export type UpdateTagsTags = z.infer<typeof updateTagsTags>;
 

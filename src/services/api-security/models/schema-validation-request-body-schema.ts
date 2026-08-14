@@ -14,11 +14,10 @@ export const schemaValidationRequestBodySchema = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SchemaValidationRequestBodySchema} schemaValidationRequestBodySchema
- * @property {SchemaLanguage} - The definition format.
- * @property {string} - The stringified API definition.
- * @property {SchemaType} - The definition type.
+ * @typedef {SchemaValidationRequestBodySchema} schemaValidationRequestBodySchema
+ * @property {SchemaLanguage} language - The definition format.
+ * @property {string} schema - The stringified API definition.
+ * @property {SchemaType} type - The definition type.
  */
 export type SchemaValidationRequestBodySchema = z.infer<typeof schemaValidationRequestBodySchema>;
 

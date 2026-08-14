@@ -15,10 +15,10 @@ export const infoFork = z.lazy(() => {
 
 /**
  * If the collection was forked from another collection, this object contains information about the fork.
- * @typedef  {InfoFork} infoFork - If the collection was forked from another collection, this object contains information about the fork. - If the collection was forked from another collection, this object contains information about the fork.
- * @property {string} - The fork's label.
- * @property {string} - The date and time at which the collection was forked.
- * @property {string} - The source (parent) collection's unique ID.
+ * @typedef {InfoFork} infoFork
+ * @property {string} label - The fork's label.
+ * @property {string} createdAt - The date and time at which the collection was forked.
+ * @property {string} from - The source (parent) collection's unique ID.
  */
 export type InfoFork = z.infer<typeof infoFork>;
 

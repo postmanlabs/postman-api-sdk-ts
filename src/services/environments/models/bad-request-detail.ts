@@ -11,9 +11,7 @@ export const badRequestDetail = z.lazy(() => {
 
 /**
  * Details about the occurrence of the error.
- * @typedef  {BadRequestDetail} badRequestDetail - Details about the occurrence of the error. - Details about the occurrence of the error.
- * @property {string}
- * @property {string[]}
+ * @typedef {BadRequestDetail} badRequestDetail
  */
 export type BadRequestDetail = z.infer<typeof badRequestDetail>;
 

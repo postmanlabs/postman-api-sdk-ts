@@ -33,18 +33,17 @@ export const publishDocumentationResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PublishDocumentationResponse} publishDocumentationResponse
- * @property {boolean} - If true, the documentation is published.
- * @property {string} - The documentation's default layout style.
- * @property {DocumentationCustomizationSettings} - Information about the documentation's customization.
- * @property {string} - The date and time at which the documentation was published.
- * @property {string} - The user ID of the user that published the documentation.
- * @property {string} - The unique ID of the environment published with the collection documentation.
- * @property {DocumentationColorSettings} - The theme's colors, in six digit hexcode. The values in this object must match the hexcode values of either the `light` or `dark` theme defined in the `appearance` object.
- * @property {string} - The public URL of the published documentation.
- * @property {string} - The published documentation's ID.
- * @property {string} - The collection's ID.
+ * @typedef {PublishDocumentationResponse} publishDocumentationResponse
+ * @property {boolean} published - If true, the documentation is published.
+ * @property {string} documentationLayout - The documentation's default layout style.
+ * @property {DocumentationCustomizationSettings} customization - Information about the documentation's customization.
+ * @property {string} publishDate - The date and time at which the documentation was published.
+ * @property {string} publisherId - The user ID of the user that published the documentation.
+ * @property {string} environmentUid - The unique ID of the environment published with the collection documentation.
+ * @property {DocumentationColorSettings} customColor - The theme's colors, in six digit hexcode. The values in this object must match the hexcode values of either the `light` or `dark` theme defined in the `appearance` object.
+ * @property {string} publicUrl - The public URL of the published documentation.
+ * @property {string} id - The published documentation's ID.
+ * @property {string} collectionId - The collection's ID.
  */
 export type PublishDocumentationResponse = z.infer<typeof publishDocumentationResponse>;
 

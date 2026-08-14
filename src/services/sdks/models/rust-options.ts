@@ -13,8 +13,8 @@ export const rustOptions = z.lazy(() => {
 
 /**
  * Rust-specific SDK generation options.
- * @typedef  {RustOptions} rustOptions - Rust-specific SDK generation options. - Rust-specific SDK generation options.
- * @property {string} - The crates.io package's name.
+ * @typedef {RustOptions} rustOptions
+ * @property {string} packageName - The crates.io package's name.
  */
 export type RustOptions = z.infer<typeof rustOptions>;
 

@@ -14,9 +14,9 @@ export const searchFilterPublisherIsVerified = z.lazy(() => {
 
 /**
  * Filters by publisher verification status. Supported for all element types.
- * @typedef  {SearchFilterPublisherIsVerified} searchFilterPublisherIsVerified - Filters by publisher verification status. Supported for all element types. - Filters by publisher verification status. Supported for all element types.
- * @property {boolean} - If true, return only results from verified publishers.
- * @property {boolean} - If true, exclude results from verified publishers.
+ * @typedef {SearchFilterPublisherIsVerified} searchFilterPublisherIsVerified
+ * @property {boolean} _eq - If true, return only results from verified publishers.
+ * @property {boolean} _ne - If true, exclude results from verified publishers.
  */
 export type SearchFilterPublisherIsVerified = z.infer<typeof searchFilterPublisherIsVerified>;
 

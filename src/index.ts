@@ -23,6 +23,7 @@ import { MocksService } from './services/mocks';
 import { MonitorsService } from './services/monitors';
 import { PrivateApiNetworkService } from './services/private-api-network';
 import { OAuth2_0Service } from './services/o-auth-2-0';
+import { PackagesService } from './services/packages';
 import { PostbotService } from './services/postbot';
 import { PullRequestsService } from './services/pull-requests';
 import { ApiSecurityService } from './services/api-security';
@@ -55,6 +56,7 @@ export * from './services/mocks';
 export * from './services/monitors';
 export * from './services/private-api-network';
 export * from './services/o-auth-2-0';
+export * from './services/packages';
 export * from './services/postbot';
 export * from './services/pull-requests';
 export * from './services/api-security';
@@ -114,6 +116,8 @@ export class PostmanApi {
   public readonly privateApiNetwork: PrivateApiNetworkService;
 
   public readonly oAuth2_0: OAuth2_0Service;
+
+  public readonly packages: PackagesService;
 
   public readonly postbot: PostbotService;
 
@@ -178,6 +182,8 @@ export class PostmanApi {
 
     this.oAuth2_0 = new OAuth2_0Service(this.config);
 
+    this.packages = new PackagesService(this.config);
+
     this.postbot = new PostbotService(this.config);
 
     this.pullRequests = new PullRequestsService(this.config);
@@ -219,6 +225,7 @@ export class PostmanApi {
     this.monitors.baseUrl = baseUrl;
     this.privateApiNetwork.baseUrl = baseUrl;
     this.oAuth2_0.baseUrl = baseUrl;
+    this.packages.baseUrl = baseUrl;
     this.postbot.baseUrl = baseUrl;
     this.pullRequests.baseUrl = baseUrl;
     this.apiSecurity.baseUrl = baseUrl;
@@ -253,6 +260,7 @@ export class PostmanApi {
     this.monitors.baseUrl = environment;
     this.privateApiNetwork.baseUrl = environment;
     this.oAuth2_0.baseUrl = environment;
+    this.packages.baseUrl = environment;
     this.postbot.baseUrl = environment;
     this.pullRequests.baseUrl = environment;
     this.apiSecurity.baseUrl = environment;
@@ -287,6 +295,7 @@ export class PostmanApi {
     this.monitors.timeoutMs = timeoutMs;
     this.privateApiNetwork.timeoutMs = timeoutMs;
     this.oAuth2_0.timeoutMs = timeoutMs;
+    this.packages.timeoutMs = timeoutMs;
     this.postbot.timeoutMs = timeoutMs;
     this.pullRequests.timeoutMs = timeoutMs;
     this.apiSecurity.timeoutMs = timeoutMs;
@@ -321,6 +330,7 @@ export class PostmanApi {
     this.monitors.username = username;
     this.privateApiNetwork.username = username;
     this.oAuth2_0.username = username;
+    this.packages.username = username;
     this.postbot.username = username;
     this.pullRequests.username = username;
     this.apiSecurity.username = username;
@@ -355,6 +365,7 @@ export class PostmanApi {
     this.monitors.password = password;
     this.privateApiNetwork.password = password;
     this.oAuth2_0.password = password;
+    this.packages.password = password;
     this.postbot.password = password;
     this.pullRequests.password = password;
     this.apiSecurity.password = password;
@@ -389,6 +400,7 @@ export class PostmanApi {
     this.monitors.apiKey = apiKey;
     this.privateApiNetwork.apiKey = apiKey;
     this.oAuth2_0.apiKey = apiKey;
+    this.packages.apiKey = apiKey;
     this.postbot.apiKey = apiKey;
     this.pullRequests.apiKey = apiKey;
     this.apiSecurity.apiKey = apiKey;
@@ -423,6 +435,7 @@ export class PostmanApi {
     this.monitors.apiKeyHeader = apiKeyHeader;
     this.privateApiNetwork.apiKeyHeader = apiKeyHeader;
     this.oAuth2_0.apiKeyHeader = apiKeyHeader;
+    this.packages.apiKeyHeader = apiKeyHeader;
     this.postbot.apiKeyHeader = apiKeyHeader;
     this.pullRequests.apiKeyHeader = apiKeyHeader;
     this.apiSecurity.apiKeyHeader = apiKeyHeader;

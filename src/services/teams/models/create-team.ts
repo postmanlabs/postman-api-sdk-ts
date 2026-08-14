@@ -13,10 +13,9 @@ export const createTeam = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateTeam} createTeam
- * @property {string} - The team's name. Accepts only alphanumeric characters and spaces.
- * @property {string} - The team's description.
+ * @typedef {CreateTeam} createTeam
+ * @property {string} name - The team's name. Accepts only alphanumeric characters and spaces.
+ * @property {string} description - The team's description.
  */
 export type CreateTeam = z.infer<typeof createTeam>;
 

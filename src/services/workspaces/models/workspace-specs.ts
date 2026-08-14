@@ -15,10 +15,10 @@ export const workspaceSpecs = z.lazy(() => {
 
 /**
  * Information about the API specification.
- * @typedef  {WorkspaceSpecs} workspaceSpecs - Information about the API specification. - Information about the API specification.
- * @property {string} - The API specification's ID.
- * @property {string} - The API specification's name.
- * @property {string} - The API specification's unique ID.
+ * @typedef {WorkspaceSpecs} workspaceSpecs
+ * @property {string} id - The API specification's ID.
+ * @property {string} name - The API specification's name.
+ * @property {string} uid - The API specification's unique ID.
  */
 export type WorkspaceSpecs = z.infer<typeof workspaceSpecs>;
 

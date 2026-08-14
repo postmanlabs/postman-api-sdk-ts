@@ -19,14 +19,14 @@ export const accessRequest = z.lazy(() => {
 
 /**
  * Information about the access request.
- * @typedef  {AccessRequest} accessRequest - Information about the access request. - Information about the access request.
- * @property {number} - The access request's ID.
- * @property {string} - The access request type.
- * @property {string} - The reason the access request was created.
- * @property {string} - The access request's status.
- * @property {string} - The entity type.
- * @property {number} - The entity's ID.
- * @property {number} - The user ID of the user who created the access request.
+ * @typedef {AccessRequest} accessRequest
+ * @property {number} id - The access request's ID.
+ * @property {string} requestType - The access request type.
+ * @property {string} reason - The reason the access request was created.
+ * @property {string} status - The access request's status.
+ * @property {string} objectType - The entity type.
+ * @property {number} objectId - The entity's ID.
+ * @property {number} createdBy - The user ID of the user who created the access request.
  */
 export type AccessRequest = z.infer<typeof accessRequest>;
 

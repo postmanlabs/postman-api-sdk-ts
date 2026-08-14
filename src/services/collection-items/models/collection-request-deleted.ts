@@ -21,12 +21,11 @@ export const collectionRequestDeleted = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionRequestDeleted} collectionRequestDeleted
- * @property {string} - The request's ID.
- * @property {any} - A Postman-specific response that contains information about the internal performed operation.
- * @property {CollectionRequestDeletedData} - The request's information.
- * @property {number} - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
+ * @typedef {CollectionRequestDeleted} collectionRequestDeleted
+ * @property {string} modelId - The request's ID.
+ * @property {any} meta - A Postman-specific response that contains information about the internal performed operation.
+ * @property {CollectionRequestDeletedData} data - The request's information.
+ * @property {number} revision - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
  */
 export type CollectionRequestDeleted = z.infer<typeof collectionRequestDeleted>;
 

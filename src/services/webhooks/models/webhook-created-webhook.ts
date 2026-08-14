@@ -16,13 +16,12 @@ export const webhookCreatedWebhook = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {WebhookCreatedWebhook} webhookCreatedWebhook
- * @property {string} - The webhook's ID.
- * @property {string} - The webhook's name.
- * @property {string} - The unique ID of the collection that triggers when calling this webhook.
- * @property {string} - The webhook's URL.
- * @property {string} - The webhook's unique ID.
+ * @typedef {WebhookCreatedWebhook} webhookCreatedWebhook
+ * @property {string} id - The webhook's ID.
+ * @property {string} name - The webhook's name.
+ * @property {string} collection - The unique ID of the collection that triggers when calling this webhook.
+ * @property {string} webhookUrl - The webhook's URL.
+ * @property {string} uid - The webhook's unique ID.
  */
 export type WebhookCreatedWebhook = z.infer<typeof webhookCreatedWebhook>;
 

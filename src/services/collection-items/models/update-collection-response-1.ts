@@ -48,24 +48,24 @@ export const updateCollectionResponse1 = z.lazy(() => {
 
 /**
  * The response properties to update. For a complete list of properties, refer to the **Response** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
- * @typedef  {UpdateCollectionResponse1} updateCollectionResponse1 - The response properties to update. For a complete list of properties, refer to the **Response** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json). - The response properties to update. For a complete list of properties, refer to the **Response** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
- * @property {string} - The response's name.
- * @property {string} - The response's description.
- * @property {string} - The associated request's URL.
- * @property {RequestMethod} - The request's HTTP method.
- * @property {ResponseHeader2_2[]} - A list of headers.
- * @property {UpdateCollectionResponseDataMode} - The associated request body's data mode.
- * @property {string} - The associated request body's raw mode data.
- * @property {RequestDataOptions} - Additional configurations and options set for the request body's various data modes.
- * @property {UpdateCollectionResponseResponseCode} - The response's HTTP response code information.
- * @property {string} - The response's HTTP status text.
- * @property {string} - The time taken by the request to complete, in milliseconds.
- * @property {string} - The response's cookie data.
- * @property {string} - The response's MIME type.
- * @property {string} - The raw text of the response body.
- * @property {string} - The response body's language type.
- * @property {string} - The response's raw data type.
- * @property {string} - A JSON-stringified representation of the associated request.
+ * @typedef {UpdateCollectionResponse1} updateCollectionResponse1
+ * @property {string} name - The response's name.
+ * @property {string} description - The response's description.
+ * @property {string} url - The associated request's URL.
+ * @property {RequestMethod} method - The request's HTTP method.
+ * @property {ResponseHeader2_2[]} headers - A list of headers.
+ * @property {UpdateCollectionResponseDataMode} dataMode - The associated request body's data mode.
+ * @property {string} rawModeData - The associated request body's raw mode data.
+ * @property {RequestDataOptions} dataOptions - Additional configurations and options set for the request body's various data modes.
+ * @property {UpdateCollectionResponseResponseCode} responseCode - The response's HTTP response code information.
+ * @property {string} status - The response's HTTP status text.
+ * @property {string} time - The time taken by the request to complete, in milliseconds.
+ * @property {string} cookies - The response's cookie data.
+ * @property {string} mime - The response's MIME type.
+ * @property {string} text - The raw text of the response body.
+ * @property {string} language - The response body's language type.
+ * @property {string} rawDataType - The response's raw data type.
+ * @property {string} requestObject - A JSON-stringified representation of the associated request.
  */
 export type UpdateCollectionResponse1 = z.infer<typeof updateCollectionResponse1>;
 

@@ -19,14 +19,14 @@ export const createUpdateSpecFileResponse = z.lazy(() => {
 
 /**
  * Information about the API specification file.
- * @typedef  {CreateUpdateSpecFileResponse} createUpdateSpecFileResponse - Information about the API specification file. - Information about the API specification file.
- * @property {string} - The date and time at which the file was created.
- * @property {number} - The user ID of the user that created the file.
- * @property {string} - The file's ID.
- * @property {string} - The file's path.
- * @property {string} - The date and time at which the file was updated.
- * @property {number} - The ID of the user who updated the file.
- * @property {CreateUpdateSpecFileResponseType} - The type of file:
+ * @typedef {CreateUpdateSpecFileResponse} createUpdateSpecFileResponse
+ * @property {string} createdAt - The date and time at which the file was created.
+ * @property {number} createdBy - The user ID of the user that created the file.
+ * @property {string} id - The file's ID.
+ * @property {string} path - The file's path.
+ * @property {string} updatedAt - The date and time at which the file was updated.
+ * @property {number} updatedBy - The ID of the user who updated the file.
+ * @property {CreateUpdateSpecFileResponseType} type - The type of file:
 - `ROOT` — The file containing the full OpenAPI structure. This serves as the entry point for the API spec and references other (`DEFAULT`) spec files. Multi-file specs can only have one root file.
 - `DEFAULT` — A file referenced by the `ROOT` file.
 

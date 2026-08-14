@@ -25,10 +25,9 @@ export const searchPostmanResourcesResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SearchPostmanResourcesResponse} searchPostmanResourcesResponse
- * @property {SearchMetaData} - Pagination metadata for the search results.
- * @property {SearchPostmanResourcesResponseData[]} - A list of Postman elements that match the search query and filters.
+ * @typedef {SearchPostmanResourcesResponse} searchPostmanResourcesResponse
+ * @property {SearchMetaData} meta - Pagination metadata for the search results.
+ * @property {SearchPostmanResourcesResponseData[]} data - A list of Postman elements that match the search query and filters.
  */
 export type SearchPostmanResourcesResponse = z.infer<typeof searchPostmanResourcesResponse>;
 

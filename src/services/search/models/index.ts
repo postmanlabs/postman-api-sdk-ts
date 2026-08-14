@@ -25,6 +25,7 @@ export type { SearchFilterRequestHttpMethod } from './search-filter-request-http
 export type { SearchFilterRequestId } from './search-filter-request-id';
 export type { SearchFilterSpecId } from './search-filter-spec-id';
 export type { SearchFilterFlowId } from './search-filter-flow-id';
+export type { SearchFilterWorkspaceDocuments } from './search-filter-workspace-documents';
 export type { SearchFilterEnvironmentId } from './search-filter-environment-id';
 export type { SearchFilterCreatedBy } from './search-filter-created-by';
 export type { SearchFilterOrgId } from './search-filter-org-id';

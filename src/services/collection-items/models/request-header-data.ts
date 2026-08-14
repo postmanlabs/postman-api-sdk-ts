@@ -14,11 +14,10 @@ export const requestHeaderData = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RequestHeaderData} requestHeaderData
- * @property {string} - The header's key.
- * @property {string} - The header's value.
- * @property {string} - The header's description.
+ * @typedef {RequestHeaderData} requestHeaderData
+ * @property {string} key - The header's key.
+ * @property {string} value - The header's value.
+ * @property {string} description - The header's description.
  */
 export type RequestHeaderData = z.infer<typeof requestHeaderData>;
 

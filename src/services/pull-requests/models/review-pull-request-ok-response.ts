@@ -16,17 +16,16 @@ export const reviewPullRequestOkResponse = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {ReviewPullRequestOkResponse} reviewPullRequestOkResponse   
- * @property {string} - The pull request's ID.
- * @property {ReviewedBy} - Information about the user who reviewed the pull request review.
- * @property {string} - The pull request's current review status:
+ * @typedef {ReviewPullRequestOkResponse} reviewPullRequestOkResponse
+ * @property {string} id - The pull request's ID.
+ * @property {ReviewedBy} reviewedBy - Information about the user who reviewed the pull request review.
+ * @property {string} status - The pull request's current review status:
 - `open` — The pull request is still open.
 - `approved` — The pull request was approved by its reviewers.
 - `declined` — The pull request was not approved by its reviewers.
 - `merged` — The pull request was merged.
 
- * @property {string} - The date and time at which the pull request was updated.
+ * @property {string} updatedAt - The date and time at which the pull request was updated.
  */
 export type ReviewPullRequestOkResponse = z.infer<typeof reviewPullRequestOkResponse>;
 

@@ -16,17 +16,16 @@ export const updateDetectedSecretResolutionsOkResponse = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {UpdateDetectedSecretResolutionsOkResponse} updateDetectedSecretResolutionsOkResponse   
- * @property {string} - The SHA-256 hash of the detected secret.
- * @property {string} - The ID of the workspace that contains the secret.
- * @property {SuccessfulResponseResolution} - The secret's current resolution status:
+ * @typedef {UpdateDetectedSecretResolutionsOkResponse} updateDetectedSecretResolutionsOkResponse
+ * @property {string} secretHash - The SHA-256 hash of the detected secret.
+ * @property {string} workspaceId - The ID of the workspace that contains the secret.
+ * @property {SuccessfulResponseResolution} resolution - The secret's current resolution status:
 - `ACTIVE` — The secret is active.
 - `FALSE_POSITIVE` — The discovered secret is not an actual secret.
 - `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue.
 - `ACCEPTED_RISK` — The Secret Scanner found the secret, but user accepts the risk of publishing it.
 
- * @property {History[]} - The history of the secret's resolution status changes.
+ * @property {History[]} history - The history of the secret's resolution status changes.
  */
 export type UpdateDetectedSecretResolutionsOkResponse = z.infer<
   typeof updateDetectedSecretResolutionsOkResponse

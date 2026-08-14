@@ -13,10 +13,9 @@ export const detectedSecretsQueryRequestResources = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {DetectedSecretsQueryRequestResources} detectedSecretsQueryRequestResources
- * @property {ResourcesType} - The type of resource.
- * @property {string[]} - A list of resource IDs.
+ * @typedef {DetectedSecretsQueryRequestResources} detectedSecretsQueryRequestResources
+ * @property {ResourcesType} type - The type of resource.
+ * @property {string[]} ids - A list of resource IDs.
  */
 export type DetectedSecretsQueryRequestResources = z.infer<
   typeof detectedSecretsQueryRequestResources

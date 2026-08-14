@@ -14,9 +14,9 @@ export const requestHeaders = z.lazy(() => {
 
 /**
  * The request's headers.
- * @typedef  {RequestHeaders} requestHeaders - The request's headers. - The request's headers.
- * @property {string} - The request header's name.
- * @property {string} - The request header's value.
+ * @typedef {RequestHeaders} requestHeaders
+ * @property {string} key - The request header's name.
+ * @property {string} value - The request header's value.
  */
 export type RequestHeaders = z.infer<typeof requestHeaders>;
 

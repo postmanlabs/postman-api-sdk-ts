@@ -21,6 +21,7 @@ The type of Postman resource to search for.
 | COLLECTIONS  | string | ✅       | "collections"  |
 | WORKSPACES   | string | ✅       | "workspaces"   |
 | ENVIRONMENTS | string | ✅       | "environments" |
+| DOCUMENTS    | string | ✅       | "documents"    |
 | FLOWS        | string | ✅       | "flows"        |
 | SPECS        | string | ✅       | "specs"        |
 

@@ -12,9 +12,8 @@ export const userGroupsInfo = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UserGroupsInfo} userGroupsInfo
- * @property {TeamRoles[]} - A list of the user group's roles. The array's name is the group's ID.
+ * @typedef {UserGroupsInfo} userGroupsInfo
+ * @property {TeamRoles[]} _userGroupId_ - A list of the user group's roles. The array's name is the group's ID.
  */
 export type UserGroupsInfo = z.infer<typeof userGroupsInfo>;
 

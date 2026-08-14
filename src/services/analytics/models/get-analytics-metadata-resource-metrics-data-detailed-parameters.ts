@@ -33,10 +33,10 @@ export const getAnalyticsMetadataResourceMetricsDataDetailedParameters = z.lazy(
 
 /**
  * Information about the metric's parameters.
- * @typedef  {GetAnalyticsMetadataResourceMetricsDataDetailedParameters} getAnalyticsMetadataResourceMetricsDataDetailedParameters - Information about the metric's parameters. - Information about the metric's parameters.
- * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParametersView} - Information about the `view` parameter.
- * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFilters}
- * @property {GetAnalticsMetadataPaginationData} - Information about the metric's pagination parameters.
+ * @typedef {GetAnalyticsMetadataResourceMetricsDataDetailedParameters} getAnalyticsMetadataResourceMetricsDataDetailedParameters
+ * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParametersView} view - Information about the `view` parameter.
+ * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFilters} filters
+ * @property {GetAnalticsMetadataPaginationData} pagination - Information about the metric's pagination parameters.
  */
 export type GetAnalyticsMetadataResourceMetricsDataDetailedParameters = z.infer<
   typeof getAnalyticsMetadataResourceMetricsDataDetailedParameters

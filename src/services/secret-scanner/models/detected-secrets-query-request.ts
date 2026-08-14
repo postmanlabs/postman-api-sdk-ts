@@ -23,14 +23,13 @@ export const detectedSecretsQueryRequest = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {DetectedSecretsQueryRequest} detectedSecretsQueryRequest
- * @property {boolean} - If true, return secrets with a `resolved` status.
- * @property {string[]} - A list of secrets types to query. For a list of valid IDs, use the GET `/secret-types` endpoint.
- * @property {Statuses[]} - A list of the types of resolution statuses to query.
- * @property {DetectedSecretsQueryRequestResources[]} - A list of resources to query. If you use this query, you cannot also pass the `workspaceIds` query.
- * @property {string[]} - A list of workspaces IDs to query. If you use this query, you cannot also pass the `resources` query.
- * @property {WorkspaceVisibilities[]} - A list of workspace [visibility settings](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) to query. This currently supports the `team` and `public` settings.
+ * @typedef {DetectedSecretsQueryRequest} detectedSecretsQueryRequest
+ * @property {boolean} resolved - If true, return secrets with a `resolved` status.
+ * @property {string[]} secretTypes - A list of secrets types to query. For a list of valid IDs, use the GET `/secret-types` endpoint.
+ * @property {Statuses[]} statuses - A list of the types of resolution statuses to query.
+ * @property {DetectedSecretsQueryRequestResources[]} resources - A list of resources to query. If you use this query, you cannot also pass the `workspaceIds` query.
+ * @property {string[]} workspaceIds - A list of workspaces IDs to query. If you use this query, you cannot also pass the `resources` query.
+ * @property {WorkspaceVisibilities[]} workspaceVisibilities - A list of workspace [visibility settings](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) to query. This currently supports the `team` and `public` settings.
  */
 export type DetectedSecretsQueryRequest = z.infer<typeof detectedSecretsQueryRequest>;
 

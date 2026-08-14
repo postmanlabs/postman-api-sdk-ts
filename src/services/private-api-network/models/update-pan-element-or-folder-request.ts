@@ -18,9 +18,8 @@ export const updatePanElementOrFolderRequest = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdatePanElementOrFolderRequest} updatePanElementOrFolderRequest
- * @property {UpdateWorkspaceWorkspace2}
+ * @typedef {UpdatePanElementOrFolderRequest} updatePanElementOrFolderRequest
+ * @property {UpdateWorkspaceWorkspace2} workspace
  */
 export type UpdatePanElementOrFolderRequest = z.infer<typeof updatePanElementOrFolderRequest>;
 

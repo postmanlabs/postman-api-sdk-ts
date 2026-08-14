@@ -13,8 +13,8 @@ export const successfulResponseEnvironment2 = z.lazy(() => {
 
 /**
  * Information about the merged environment.
- * @typedef  {SuccessfulResponseEnvironment2} successfulResponseEnvironment2 - Information about the merged environment. - Information about the merged environment.
- * @property {string} - The merged environment's ID.
+ * @typedef {SuccessfulResponseEnvironment2} successfulResponseEnvironment2
+ * @property {string} uid - The merged environment's ID.
  */
 export type SuccessfulResponseEnvironment2 = z.infer<typeof successfulResponseEnvironment2>;
 

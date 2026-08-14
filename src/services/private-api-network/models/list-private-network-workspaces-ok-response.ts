@@ -16,11 +16,10 @@ export const listPrivateNetworkWorkspacesOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ListPrivateNetworkWorkspacesOkResponse} listPrivateNetworkWorkspacesOkResponse
- * @property {Elements[]} - A list of Private API Network elements.
- * @property {any[]} - This property is deprecated and only returns an empty array.
- * @property {Meta} - The response's non-standard meta information.
+ * @typedef {ListPrivateNetworkWorkspacesOkResponse} listPrivateNetworkWorkspacesOkResponse
+ * @property {Elements[]} elements - A list of Private API Network elements.
+ * @property {any[]} folders - This property is deprecated and only returns an empty array.
+ * @property {Meta} meta - The response's non-standard meta information.
  */
 export type ListPrivateNetworkWorkspacesOkResponse = z.infer<
   typeof listPrivateNetworkWorkspacesOkResponse

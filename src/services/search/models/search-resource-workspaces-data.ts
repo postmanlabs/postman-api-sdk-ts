@@ -14,9 +14,9 @@ export const searchResourceWorkspacesData = z.lazy(() => {
 
 /**
  * Information about the workspace containing the resource.
- * @typedef  {SearchResourceWorkspacesData} searchResourceWorkspacesData - Information about the workspace containing the resource. - Information about the workspace containing the resource.
- * @property {string} - The workspace's ID.
- * @property {string} - The workspace's name.
+ * @typedef {SearchResourceWorkspacesData} searchResourceWorkspacesData
+ * @property {string} id - The workspace's ID.
+ * @property {string} name - The workspace's name.
  */
 export type SearchResourceWorkspacesData = z.infer<typeof searchResourceWorkspacesData>;
 

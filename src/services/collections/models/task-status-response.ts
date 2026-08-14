@@ -20,11 +20,10 @@ export const taskStatusResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {TaskStatusResponse} taskStatusResponse
- * @property {string} - The task's ID.
- * @property {TaskStatusResponseStatus} - The task's current status.
- * @property {TaskStatusResponseDetails} - If the task failed, an object containing information about the error.
+ * @typedef {TaskStatusResponse} taskStatusResponse
+ * @property {string} id - The task's ID.
+ * @property {TaskStatusResponseStatus} status - The task's current status.
+ * @property {TaskStatusResponseDetails} details - If the task failed, an object containing information about the error.
  */
 export type TaskStatusResponse = z.infer<typeof taskStatusResponse>;
 

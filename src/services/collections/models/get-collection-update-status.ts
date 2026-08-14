@@ -13,10 +13,9 @@ export const getCollectionUpdateStatus = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetCollectionUpdateStatus} getCollectionUpdateStatus
- * @property {string} - The task's ID.
- * @property {GetCollectionUpdateStatusStatus} - The task's current status.
+ * @typedef {GetCollectionUpdateStatus} getCollectionUpdateStatus
+ * @property {string} id - The task's ID.
+ * @property {GetCollectionUpdateStatusStatus} status - The task's current status.
  */
 export type GetCollectionUpdateStatus = z.infer<typeof getCollectionUpdateStatus>;
 

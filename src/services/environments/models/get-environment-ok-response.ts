@@ -18,9 +18,8 @@ export const getEnvironmentOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetEnvironmentOkResponse} getEnvironmentOkResponse
- * @property {GetEnvironmentInfo} - Information about the environment.
+ * @typedef {GetEnvironmentOkResponse} getEnvironmentOkResponse
+ * @property {GetEnvironmentInfo} environment - Information about the environment.
  */
 export type GetEnvironmentOkResponse = z.infer<typeof getEnvironmentOkResponse>;
 

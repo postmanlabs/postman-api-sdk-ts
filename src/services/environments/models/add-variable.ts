@@ -17,15 +17,15 @@ export const addVariable = z.lazy(() => {
 
 /**
  * Information about the variable.
- * @typedef  {AddVariable} addVariable - Information about the variable. - Information about the variable.
- * @property {boolean} - If true, the variable is enabled.
- * @property {string} - The variable's name.
- * @property {string} - The variable's value.
- * @property {AddVariableType} - The variable's type:
+ * @typedef {AddVariable} addVariable
+ * @property {boolean} enabled - If true, the variable is enabled.
+ * @property {string} key - The variable's name.
+ * @property {string} value - The variable's value.
+ * @property {AddVariableType} type - The variable's type:
 - `secret` — The variable value is masked.
 - `default` — The variable value is visible in plain text.
 
- * @property {string} - The variable's description.
+ * @property {string} description - The variable's description.
  */
 export type AddVariable = z.infer<typeof addVariable>;
 

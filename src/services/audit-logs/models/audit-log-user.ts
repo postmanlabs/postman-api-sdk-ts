@@ -16,11 +16,11 @@ export const auditLogUser = z.lazy(() => {
 
 /**
  * Information about the user.
- * @typedef  {AuditLogUser} auditLogUser - Information about the user. - Information about the user.
- * @property {string} - The user's name.
- * @property {string} - The user's username.
- * @property {string} - The user's email address.
- * @property {number} - The user's ID.
+ * @typedef {AuditLogUser} auditLogUser
+ * @property {string} name - The user's name.
+ * @property {string} username - The user's username.
+ * @property {string} email - The user's email address.
+ * @property {number} id - The user's ID.
  */
 export type AuditLogUser = z.infer<typeof auditLogUser>;
 

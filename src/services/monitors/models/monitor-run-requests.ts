@@ -17,12 +17,12 @@ export const monitorRunRequests = z.lazy(() => {
 
 /**
  * Information about the monitor run's requests.
- * @typedef  {MonitorRunRequests} monitorRunRequests - Information about the monitor run's requests. - Information about the monitor run's requests.
- * @property {string} - The HTTP request method.
- * @property {string} - The request's URL.
- * @property {any} - Information about the request body, such as Content-Length.
- * @property {any} - Information about the request headers, such as Content-Type, Accept, encoding, and other information.
- * @property {string} - The date and time of the request.
+ * @typedef {MonitorRunRequests} monitorRunRequests
+ * @property {string} method - The HTTP request method.
+ * @property {string} url - The request's URL.
+ * @property {any} body - Information about the request body, such as Content-Length.
+ * @property {any} headers - Information about the request headers, such as Content-Type, Accept, encoding, and other information.
+ * @property {string} timestamp - The date and time of the request.
  */
 export type MonitorRunRequests = z.infer<typeof monitorRunRequests>;
 

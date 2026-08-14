@@ -18,9 +18,8 @@ export const getAnalyticsData = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAnalyticsData} getAnalyticsData
- * @property {GetAnalyticsDataData}
+ * @typedef {GetAnalyticsData} getAnalyticsData
+ * @property {GetAnalyticsDataData} data
  */
 export type GetAnalyticsData = z.infer<typeof getAnalyticsData>;
 

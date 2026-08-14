@@ -14,9 +14,9 @@ export const kotlinOptions = z.lazy(() => {
 
 /**
  * Kotlin-specific SDK generation options.
- * @typedef  {KotlinOptions} kotlinOptions - Kotlin-specific SDK generation options. - Kotlin-specific SDK generation options.
- * @property {string} - The Maven group ID written into the `pom.xml` dependencies file.
- * @property {string} - The Maven artifact ID written into the `pom.xml` dependencies file.
+ * @typedef {KotlinOptions} kotlinOptions
+ * @property {string} groupId - The Maven group ID written into the `pom.xml` dependencies file.
+ * @property {string} artifactId - The Maven artifact ID written into the `pom.xml` dependencies file.
  */
 export type KotlinOptions = z.infer<typeof kotlinOptions>;
 

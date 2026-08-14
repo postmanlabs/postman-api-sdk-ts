@@ -19,14 +19,14 @@ export const getEnvironmentsInfo = z.lazy(() => {
 
 /**
  * Information about the environment.
- * @typedef  {GetEnvironmentsInfo} getEnvironmentsInfo - Information about the environment. - Information about the environment.
- * @property {string} - The environment's ID.
- * @property {string} - The environment's name.
- * @property {string} - The date and time at which the environment was created.
- * @property {string} - The date and time at which the environment was last updated.
- * @property {string} - The environment owner's ID.
- * @property {string} - The environment's unique ID.
- * @property {boolean} - If true, the environment is public and visible to all users.
+ * @typedef {GetEnvironmentsInfo} getEnvironmentsInfo
+ * @property {string} id - The environment's ID.
+ * @property {string} name - The environment's name.
+ * @property {string} createdAt - The date and time at which the environment was created.
+ * @property {string} updatedAt - The date and time at which the environment was last updated.
+ * @property {string} owner - The environment owner's ID.
+ * @property {string} uid - The environment's unique ID.
+ * @property {boolean} isPublic - If true, the environment is public and visible to all users.
  */
 export type GetEnvironmentsInfo = z.infer<typeof getEnvironmentsInfo>;
 

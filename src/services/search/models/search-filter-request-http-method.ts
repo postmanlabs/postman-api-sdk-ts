@@ -16,11 +16,11 @@ export const searchFilterRequestHttpMethod = z.lazy(() => {
 
 /**
  * Filters by HTTP method (for example, `GET` or `POST`). Supported for `requests` only.
- * @typedef  {SearchFilterRequestHttpMethod} searchFilterRequestHttpMethod - Filters by HTTP method (for example, `GET` or `POST`). Supported for `requests` only. - Filters by HTTP method (for example, `GET` or `POST`). Supported for `requests` only.
- * @property {string} - The HTTP method to match.
- * @property {string} - The HTTP method to exclude.
- * @property {string[]} - A list of HTTP methods to match.
- * @property {string[]} - A list of HTTP methods to exclude.
+ * @typedef {SearchFilterRequestHttpMethod} searchFilterRequestHttpMethod
+ * @property {string} _eq - The HTTP method to match.
+ * @property {string} _ne - The HTTP method to exclude.
+ * @property {string[]} _in - A list of HTTP methods to match.
+ * @property {string[]} _nin - A list of HTTP methods to exclude.
  */
 export type SearchFilterRequestHttpMethod = z.infer<typeof searchFilterRequestHttpMethod>;
 

@@ -13,8 +13,8 @@ export const monitorRetrySettings = z.lazy(() => {
 
 /**
  * Information about the monitor's retry settings.
- * @typedef  {MonitorRetrySettings} monitorRetrySettings - Information about the monitor's retry settings. - Information about the monitor's retry settings.
- * @property {number} - The number of times to reattempt a monitor run if it fails or errors. This may impact your [monitor usage](https://learning.postman.com/docs/monitoring-your-api/monitor-usage/#view-monitor-usage).
+ * @typedef {MonitorRetrySettings} monitorRetrySettings
+ * @property {number} attempts - The number of times to reattempt a monitor run if it fails or errors. This may impact your [monitor usage](https://learning.postman.com/docs/monitoring-your-api/monitor-usage/#view-monitor-usage).
  */
 export type MonitorRetrySettings = z.infer<typeof monitorRetrySettings>;
 

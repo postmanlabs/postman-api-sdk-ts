@@ -25,10 +25,9 @@ export const collectionForksInfo = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionForksInfo} collectionForksInfo
- * @property {CollectionForksInfoData[]} - A list of the collection's forks.
- * @property {CollectionForksInfoMeta} - The response's meta information for paginated results.
+ * @typedef {CollectionForksInfo} collectionForksInfo
+ * @property {CollectionForksInfoData[]} data - A list of the collection's forks.
+ * @property {CollectionForksInfoMeta} meta - The response's meta information for paginated results.
  */
 export type CollectionForksInfo = z.infer<typeof collectionForksInfo>;
 

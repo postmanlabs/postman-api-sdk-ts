@@ -21,12 +21,11 @@ export const collectionFolderDeleted = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionFolderDeleted} collectionFolderDeleted
- * @property {CollectionFolderDeletedData} - The folder's information.
- * @property {any} - A Postman-specific response that contains information about the internal performed operation.
- * @property {string} - The folder's ID.
- * @property {number} - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
+ * @typedef {CollectionFolderDeleted} collectionFolderDeleted
+ * @property {CollectionFolderDeletedData} data - The folder's information.
+ * @property {any} meta - A Postman-specific response that contains information about the internal performed operation.
+ * @property {string} modelId - The folder's ID.
+ * @property {number} revision - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
  */
 export type CollectionFolderDeleted = z.infer<typeof collectionFolderDeleted>;
 

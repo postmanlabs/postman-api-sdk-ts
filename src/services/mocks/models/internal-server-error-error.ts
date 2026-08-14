@@ -13,10 +13,9 @@ export const internalServerErrorError = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {InternalServerErrorError} internalServerErrorError
- * @property {string} - The error name.
- * @property {string} - The error message.
+ * @typedef {InternalServerErrorError} internalServerErrorError
+ * @property {string} type - The error name.
+ * @property {string} message - The error message.
  */
 export type InternalServerErrorError = z.infer<typeof internalServerErrorError>;
 

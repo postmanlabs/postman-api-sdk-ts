@@ -18,9 +18,8 @@ export const mockDeleted = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MockDeleted} mockDeleted
- * @property {MockDeletedMock} - Information about the mock server.
+ * @typedef {MockDeleted} mockDeleted
+ * @property {MockDeletedMock} mock - Information about the mock server.
  */
 export type MockDeleted = z.infer<typeof mockDeleted>;
 

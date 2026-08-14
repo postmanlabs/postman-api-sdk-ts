@@ -20,10 +20,7 @@ export const managePartnerWorkspaceInvitesTargetObjectUserId = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ManagePartnerWorkspaceInvitesTargetObjectUserId} managePartnerWorkspaceInvitesTargetObjectUserId
- * @property {RemoveFromWorkspace} - The target on which to perform the action.
- * @property {RemoveFromTeamPartnership} - The target on which to perform the action.
+ * @typedef {ManagePartnerWorkspaceInvitesTargetObjectUserId} managePartnerWorkspaceInvitesTargetObjectUserId
  */
 export type ManagePartnerWorkspaceInvitesTargetObjectUserId = z.infer<
   typeof managePartnerWorkspaceInvitesTargetObjectUserId

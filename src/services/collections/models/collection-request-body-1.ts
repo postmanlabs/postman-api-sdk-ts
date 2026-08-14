@@ -6,6 +6,12 @@ import {
   collectionRequestBodyUrlencoded1Response,
 } from './collection-request-body-urlencoded-1';
 import {
+  CollectionRequestBodyFormdata3,
+  collectionRequestBodyFormdata3,
+  collectionRequestBodyFormdata3Request,
+  collectionRequestBodyFormdata3Response,
+} from './collection-request-body-formdata-3';
+import {
   CollectionRequestBodyFile1,
   collectionRequestBodyFile1,
   collectionRequestBodyFile1Request,
@@ -28,7 +34,7 @@ export const collectionRequestBody1 = z.lazy(() => {
     mode: z.any().optional(),
     raw: z.string().optional(),
     urlencoded: z.array(collectionRequestBodyUrlencoded1).optional(),
-    formdata: z.array(z.any()).optional(),
+    formdata: z.array(collectionRequestBodyFormdata3).optional(),
     file: collectionRequestBodyFile1.optional(),
     graphql: collectionRequestBodyGraphql1.optional(),
     options: z.any().optional(),
@@ -37,14 +43,14 @@ export const collectionRequestBody1 = z.lazy(() => {
 
 /**
  * Information about the collection's request body. To set this to "none", pass an empty object.
- * @typedef  {CollectionRequestBody1} collectionRequestBody1 - Information about the collection's request body. To set this to "none", pass an empty object. - Information about the collection's request body. To set this to "none", pass an empty object.
- * @property {any} - The data associated with the request.
- * @property {string} - If the `mode` value is `raw`, the raw content of the request body.
- * @property {CollectionRequestBodyUrlencoded1[]} - A list of x-www-form-encoded key/value pairs.
- * @property {any[]} - If the `mode` value is `formdata`, then a list of form-data key/pair values.
- * @property {CollectionRequestBodyFile1} - If the `mode` value is `file`, an object containing the file request information.
- * @property {CollectionRequestBodyGraphql1} - If the `mode` value is `graphql`, an object containing the GraphQL request information.
- * @property {any} - Additional configurations and options set for various modes.
+ * @typedef {CollectionRequestBody1} collectionRequestBody1
+ * @property {any} mode - The data associated with the request.
+ * @property {string} raw - If the `mode` value is `raw`, the raw content of the request body.
+ * @property {CollectionRequestBodyUrlencoded1[]} urlencoded - A list of x-www-form-encoded key/value pairs.
+ * @property {CollectionRequestBodyFormdata3[]} formdata - If the `mode` value is `formdata`, then a list of form-data key/pair values.
+ * @property {CollectionRequestBodyFile1} file - If the `mode` value is `file`, an object containing the file request information.
+ * @property {CollectionRequestBodyGraphql1} graphql - If the `mode` value is `graphql`, an object containing the GraphQL request information.
+ * @property {any} options - Additional configurations and options set for various modes.
  */
 export type CollectionRequestBody1 = z.infer<typeof collectionRequestBody1>;
 
@@ -59,7 +65,7 @@ export const collectionRequestBody1Response = z.lazy(() => {
       mode: z.any().optional(),
       raw: z.string().optional(),
       urlencoded: z.array(collectionRequestBodyUrlencoded1Response).optional(),
-      formdata: z.array(z.any()).optional(),
+      formdata: z.array(collectionRequestBodyFormdata3Response).optional(),
       file: collectionRequestBodyFile1Response.optional(),
       graphql: collectionRequestBodyGraphql1Response.optional(),
       options: z.any().optional(),
@@ -86,7 +92,7 @@ export const collectionRequestBody1Request = z.lazy(() => {
       mode: z.any().optional(),
       raw: z.string().optional(),
       urlencoded: z.array(collectionRequestBodyUrlencoded1Request).optional(),
-      formdata: z.array(z.any()).optional(),
+      formdata: z.array(collectionRequestBodyFormdata3Request).optional(),
       file: collectionRequestBodyFile1Request.optional(),
       graphql: collectionRequestBodyGraphql1Request.optional(),
       options: z.any().optional(),

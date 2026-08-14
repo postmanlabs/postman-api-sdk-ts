@@ -34,11 +34,11 @@ export const successfulResponseRun = z.lazy(() => {
 
 /**
  * Information about the monitor run. If you pass the `async=true` query parameter, the response does not return the `stats`, `executions`, and `failures` responses. To get this information for an asynchronous run, call the GET `/monitors/{id}` endpoint.
- * @typedef  {SuccessfulResponseRun} successfulResponseRun - Information about the monitor run. If you pass the `async=true` query parameter, the response does not return the `stats`, `executions`, and `failures` responses. To get this information for an asynchronous run, call the GET `/monitors/{id}` endpoint. - Information about the monitor run. If you pass the `async=true` query parameter, the response does not return the `stats`, `executions`, and `failures` responses. To get this information for an asynchronous run, call the GET `/monitors/{id}` endpoint.
- * @property {MonitorRunInformation} - Information about the monitor.
- * @property {MonitorRunStats} - Information about the monitor run's stats.
- * @property {MonitorRunExecutions[]} - Information about the monitor run's executions.
- * @property {any[]} - If the monitor run failed, information about the run's failures.
+ * @typedef {SuccessfulResponseRun} successfulResponseRun
+ * @property {MonitorRunInformation} info - Information about the monitor.
+ * @property {MonitorRunStats} stats - Information about the monitor run's stats.
+ * @property {MonitorRunExecutions[]} executions - Information about the monitor run's executions.
+ * @property {any[]} failures - If the monitor run failed, information about the run's failures.
  */
 export type SuccessfulResponseRun = z.infer<typeof successfulResponseRun>;
 

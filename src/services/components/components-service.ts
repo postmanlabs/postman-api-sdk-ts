@@ -22,6 +22,7 @@ import {
 } from './models/create-component-response';
 import { Common403Error } from '../common/common403-error';
 import { GetComponent, getComponentResponse } from './models/get-component';
+import { UpdateComponent, updateComponentRequest } from './models/update-component';
 import {
   UpdateComponentResponse,
   updateComponentResponseResponse,
@@ -376,7 +377,7 @@ You can't update a name and archived state in a single call. To change both prop
  */
   async updateComponent(
     componentId: string,
-    body: any,
+    body: UpdateComponent,
     requestConfig?: Partial<SdkConfig>,
   ): Promise<UpdateComponentResponse> {
     const resolvedConfig = this.getResolvedConfig(this.updateComponentConfig, requestConfig);
@@ -385,7 +386,7 @@ You can't update a name and archived state in a single call. To change both prop
       .setBaseUrl(resolvedConfig)
       .setMethod('PATCH')
       .setPath('/components/{componentId}')
-      .setRequestSchema(z.any())
+      .setRequestSchema(updateComponentRequest)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

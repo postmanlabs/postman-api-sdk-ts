@@ -13,8 +13,8 @@ export const goOptions = z.lazy(() => {
 
 /**
  * Go-specific SDK generation options.
- * @typedef  {GoOptions} goOptions - Go-specific SDK generation options. - Go-specific SDK generation options.
- * @property {string} - The Go module path written into the `go.mod` definition file.
+ * @typedef {GoOptions} goOptions
+ * @property {string} goModuleName - The Go module path written into the `go.mod` definition file.
  */
 export type GoOptions = z.infer<typeof goOptions>;
 

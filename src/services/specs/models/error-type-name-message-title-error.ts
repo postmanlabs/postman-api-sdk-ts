@@ -15,12 +15,11 @@ export const errorTypeNameMessageTitleError = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ErrorTypeNameMessageTitleError} errorTypeNameMessageTitleError
- * @property {string} - A short summary of the problem.
- * @property {string} - The error name.
- * @property {string} - The error message.
- * @property {string} - A short summary of the problem.
+ * @typedef {ErrorTypeNameMessageTitleError} errorTypeNameMessageTitleError
+ * @property {string} type - A short summary of the problem.
+ * @property {string} name - The error name.
+ * @property {string} message - The error message.
+ * @property {string} title - A short summary of the problem.
  */
 export type ErrorTypeNameMessageTitleError = z.infer<typeof errorTypeNameMessageTitleError>;
 

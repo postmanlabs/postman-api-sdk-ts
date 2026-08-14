@@ -26,14 +26,14 @@ export const mockCreateUpdateResponseMockConfig = z.lazy(() => {
 
 /**
  * Information about the mock server's configuration.
- * @typedef  {MockCreateUpdateResponseMockConfig} mockCreateUpdateResponseMockConfig - Information about the mock server's configuration. - Information about the mock server's configuration.
- * @property {boolean} - If true, the mock server matches the request's body to the body of the saved examples.
- * @property {boolean} - If true, the mock server matches the request's headers in the `header` array to the headers of the saved examples.
- * @property {string[]} - A list of header key values.
- * @property {boolean} - If true, match query parameters to the saved examples.
- * @property {boolean} - If true, use wildcard variable matching.
- * @property {MockCreateUpdateResponseMockConfigDelay} - Information about the mock server's simulated network delay settings. This returns a null value if there are no configured network delay settings.
- * @property {string} - The ID of mock server's default response for requests. All calls to the mock server will return the defined response.
+ * @typedef {MockCreateUpdateResponseMockConfig} mockCreateUpdateResponseMockConfig
+ * @property {boolean} matchBody - If true, the mock server matches the request's body to the body of the saved examples.
+ * @property {boolean} matchHeader - If true, the mock server matches the request's headers in the `header` array to the headers of the saved examples.
+ * @property {string[]} headers - A list of header key values.
+ * @property {boolean} matchQueryParams - If true, match query parameters to the saved examples.
+ * @property {boolean} matchWildcards - If true, use wildcard variable matching.
+ * @property {MockCreateUpdateResponseMockConfigDelay} delay - Information about the mock server's simulated network delay settings. This returns a null value if there are no configured network delay settings.
+ * @property {string} serverResponseId - The ID of mock server's default response for requests. All calls to the mock server will return the defined response.
  */
 export type MockCreateUpdateResponseMockConfig = z.infer<typeof mockCreateUpdateResponseMockConfig>;
 

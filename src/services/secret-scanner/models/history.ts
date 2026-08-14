@@ -14,11 +14,10 @@ export const history = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {History} history   
- * @property {number} - The ID of the user that updated the secret's resolution status.
- * @property {string} - The date and time at which the resolution status was updated.
- * @property {HistoryResolution} - The secret's updated resolution status:
+ * @typedef {History} history
+ * @property {number} actor - The ID of the user that updated the secret's resolution status.
+ * @property {string} createdAt - The date and time at which the resolution status was updated.
+ * @property {HistoryResolution} resolution - The secret's updated resolution status:
 - `ACTIVE` — The secret is active.
 - `FALSE_POSITIVE` — The discovered secret is not an actual secret.
 - `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue.

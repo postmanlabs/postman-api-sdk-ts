@@ -13,10 +13,9 @@ export const workspaceUpdateRelatedResourcesData = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {WorkspaceUpdateRelatedResourcesData} workspaceUpdateRelatedResourcesData
- * @property {Resource} - The type of linked resource.
- * @property {string} - The linked resource's ID.
+ * @typedef {WorkspaceUpdateRelatedResourcesData} workspaceUpdateRelatedResourcesData
+ * @property {Resource} resource - The type of linked resource.
+ * @property {string} resourceId - The linked resource's ID.
  */
 export type WorkspaceUpdateRelatedResourcesData = z.infer<
   typeof workspaceUpdateRelatedResourcesData

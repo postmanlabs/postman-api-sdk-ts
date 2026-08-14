@@ -14,9 +14,9 @@ export const target = z.lazy(() => {
 
 /**
  * Information about the item transfer's destination location.
- * @typedef  {Target} target - Information about the item transfer's destination location. - Information about the item transfer's destination location.
- * @property {string} - The UID of the destination collection, folder, or request.
- * @property {TargetModel} - The collection, folder, or request that the items will be transferred to. For response transfers, use the `request` value.
+ * @typedef {Target} target
+ * @property {string} id - The UID of the destination collection, folder, or request.
+ * @property {TargetModel} model - The collection, folder, or request that the items will be transferred to. For response transfers, use the `request` value.
  */
 export type Target = z.infer<typeof target>;
 

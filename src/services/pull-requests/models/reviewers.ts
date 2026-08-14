@@ -13,10 +13,9 @@ export const reviewers = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {Reviewers} reviewers   
- * @property {string} - The reviewer's user ID.
- * @property {string} - The reviewer's review status response. One of:
+ * @typedef {Reviewers} reviewers
+ * @property {string} id - The reviewer's user ID.
+ * @property {string} status - The reviewer's review status response. One of:
 - `approved`
 - `declined`
 

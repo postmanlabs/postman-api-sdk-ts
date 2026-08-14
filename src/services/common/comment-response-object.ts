@@ -18,9 +18,8 @@ export const commentResponseObject = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CommentResponseObject} commentResponseObject
- * @property {CommentData[]} - A list of comments.
+ * @typedef {CommentResponseObject} commentResponseObject
+ * @property {CommentData[]} data - A list of comments.
  */
 export type CommentResponseObject = z.infer<typeof commentResponseObject>;
 

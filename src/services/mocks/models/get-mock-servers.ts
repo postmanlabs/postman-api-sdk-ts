@@ -18,9 +18,8 @@ export const getMockServers = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetMockServers} getMockServers
- * @property {GetMockServersMocks[]} - A list of mock servers.
+ * @typedef {GetMockServers} getMockServers
+ * @property {GetMockServersMocks[]} mocks - A list of mock servers.
  */
 export type GetMockServers = z.infer<typeof getMockServers>;
 

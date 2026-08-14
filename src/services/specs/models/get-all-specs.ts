@@ -25,10 +25,9 @@ export const getAllSpecs = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAllSpecs} getAllSpecs
- * @property {GetGeneratedCollectionSpecsMeta} - The response's meta information for paginated results.
- * @property {GetAllSpecsSpecs[]} - A list of API specifications.
+ * @typedef {GetAllSpecs} getAllSpecs
+ * @property {GetGeneratedCollectionSpecsMeta} meta - The response's meta information for paginated results.
+ * @property {GetAllSpecsSpecs[]} specs - A list of API specifications.
  */
 export type GetAllSpecs = z.infer<typeof getAllSpecs>;
 

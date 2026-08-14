@@ -30,13 +30,13 @@ export const approveDenyAccessRequestResponseResult = z.lazy(() => {
 
 /**
  * Information about the approved or denied access request.
- * @typedef  {ApproveDenyAccessRequestResponseResult} approveDenyAccessRequestResponseResult - Information about the approved or denied access request. - Information about the approved or denied access request.
- * @property {string} - The entity type.
- * @property {ApproveDenyAccessRequestResponseResultEntityId} - The entity's ID.
- * @property {string} - The requested team role.
- * @property {string} - The entity's previous role. This value only returns if the entity's role is modified.
- * @property {string} - The access request's status.
- * @property {AccessRequest} - Information about the access request.
+ * @typedef {ApproveDenyAccessRequestResponseResult} approveDenyAccessRequestResponseResult
+ * @property {string} entityType - The entity type.
+ * @property {ApproveDenyAccessRequestResponseResultEntityId} entityId - The entity's ID.
+ * @property {string} role - The requested team role.
+ * @property {string} previousRole - The entity's previous role. This value only returns if the entity's role is modified.
+ * @property {string} status - The access request's status.
+ * @property {AccessRequest} accessRequest - Information about the access request.
  */
 export type ApproveDenyAccessRequestResponseResult = z.infer<
   typeof approveDenyAccessRequestResponseResult

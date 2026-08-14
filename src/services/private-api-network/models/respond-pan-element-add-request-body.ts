@@ -19,10 +19,9 @@ export const respondPanElementAddRequestBody = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RespondPanElementAddRequestBody} respondPanElementAddRequestBody
- * @property {RespondPanElementAddRequestBodyStatus} - The request's approval status.
- * @property {RespondPanElementAddRequestBodyResponse1} - If the request is denied, the response to the user's request.
+ * @typedef {RespondPanElementAddRequestBody} respondPanElementAddRequestBody
+ * @property {RespondPanElementAddRequestBodyStatus} status - The request's approval status.
+ * @property {RespondPanElementAddRequestBodyResponse1} response - If the request is denied, the response to the user's request.
  */
 export type RespondPanElementAddRequestBody = z.infer<typeof respondPanElementAddRequestBody>;
 

@@ -13,10 +13,9 @@ export const importExportFile = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ImportExportFile} importExportFile
- * @property {ImportExportFileType} - The `file` type value.
- * @property {ArrayBuffer} - A .zip file containing the definition file.
+ * @typedef {ImportExportFile} importExportFile
+ * @property {ImportExportFileType} type - The `file` type value.
+ * @property {ArrayBuffer} input - A .zip file containing the definition file.
  */
 export type ImportExportFile = z.infer<typeof importExportFile>;
 

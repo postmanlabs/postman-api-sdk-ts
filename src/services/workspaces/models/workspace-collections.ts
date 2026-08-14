@@ -15,10 +15,10 @@ export const workspaceCollections = z.lazy(() => {
 
 /**
  * Information about the collection.
- * @typedef  {WorkspaceCollections} workspaceCollections - Information about the collection. - Information about the collection.
- * @property {string} - The collection's ID.
- * @property {string} - The collection's name.
- * @property {string} - The collection's unique ID.
+ * @typedef {WorkspaceCollections} workspaceCollections
+ * @property {string} id - The collection's ID.
+ * @property {string} name - The collection's name.
+ * @property {string} uid - The collection's unique ID.
  */
 export type WorkspaceCollections = z.infer<typeof workspaceCollections>;
 

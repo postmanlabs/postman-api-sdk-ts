@@ -14,9 +14,9 @@ export const searchResourceTeamData = z.lazy(() => {
 
 /**
  * Information about the team associated with the resource. This returns a null value for the `user` publisher type.
- * @typedef  {SearchResourceTeamData} searchResourceTeamData - Information about the team associated with the resource. This returns a null value for the `user` publisher type. - Information about the team associated with the resource. This returns a null value for the `user` publisher type.
- * @property {string} - The team's ID.
- * @property {string} - The team's name.
+ * @typedef {SearchResourceTeamData} searchResourceTeamData
+ * @property {string} id - The team's ID.
+ * @property {string} name - The team's name.
  */
 export type SearchResourceTeamData = z.infer<typeof searchResourceTeamData>;
 

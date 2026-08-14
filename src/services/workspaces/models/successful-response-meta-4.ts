@@ -13,8 +13,8 @@ export const successfulResponseMeta4 = z.lazy(() => {
 
 /**
  * The response's meta information for paginated results. This object only returns if you pass the `limit` query parameter.
- * @typedef  {SuccessfulResponseMeta4} successfulResponseMeta4 - The response's meta information for paginated results. This object only returns if you pass the `limit` query parameter. - The response's meta information for paginated results. This object only returns if you pass the `limit` query parameter.
- * @property {string} - The pagination cursor that points to the next record in the results set.
+ * @typedef {SuccessfulResponseMeta4} successfulResponseMeta4
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
  */
 export type SuccessfulResponseMeta4 = z.infer<typeof successfulResponseMeta4>;
 

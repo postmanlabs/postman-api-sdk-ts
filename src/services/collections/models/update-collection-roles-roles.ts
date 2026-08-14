@@ -20,11 +20,10 @@ export const updateCollectionRolesRoles = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdateCollectionRolesRoles} updateCollectionRolesRoles
- * @property {RolesOp} - The operation to perform on the path.
- * @property {UpdateCollectionRolesRolesPath} - The resource to perform the action on.
- * @property {UpdateCollectionRolesRolesValue[]}
+ * @typedef {UpdateCollectionRolesRoles} updateCollectionRolesRoles
+ * @property {RolesOp} op - The operation to perform on the path.
+ * @property {UpdateCollectionRolesRolesPath} path - The resource to perform the action on.
+ * @property {UpdateCollectionRolesRolesValue[]} value
  */
 export type UpdateCollectionRolesRoles = z.infer<typeof updateCollectionRolesRoles>;
 

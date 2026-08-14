@@ -15,10 +15,10 @@ export const getAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersDat
 
 /**
  * Information about the filter.
- * @typedef  {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersData} getAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersData - Information about the filter. - Information about the filter.
- * @property {string} - The parameter's type.
- * @property {boolean} - If true, the parameter is required.
- * @property {string[]} - A list of the parameter's accepted values.
+ * @typedef {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersData} getAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersData
+ * @property {string} type - The parameter's type.
+ * @property {boolean} isRequired - If true, the parameter is required.
+ * @property {string[]} allowedValues - A list of the parameter's accepted values.
  */
 export type GetAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersData = z.infer<
   typeof getAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersData

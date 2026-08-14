@@ -18,9 +18,8 @@ export const putEnvironmentOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PutEnvironmentOkResponse} putEnvironmentOkResponse
- * @property {EnvironmentUpdatedEnvironment} - Information about the environment.
+ * @typedef {PutEnvironmentOkResponse} putEnvironmentOkResponse
+ * @property {EnvironmentUpdatedEnvironment} environment - Information about the environment.
  */
 export type PutEnvironmentOkResponse = z.infer<typeof putEnvironmentOkResponse>;
 

@@ -17,18 +17,18 @@ export const createWorkspaceWorkspace = z.lazy(() => {
 
 /**
  * Information about the workspace.
- * @typedef  {CreateWorkspaceWorkspace} createWorkspaceWorkspace - Information about the workspace. - Information about the workspace.
- * @property {string} - The workspace's name.
- * @property {CreateWorkspaceWorkspaceType} - The type of workspace:
+ * @typedef {CreateWorkspaceWorkspace} createWorkspaceWorkspace
+ * @property {string} name - The workspace's name.
+ * @property {CreateWorkspaceWorkspaceType} type - The type of workspace:
 - `personal`
 - `private` — Private workspaces are available on Postman [``Team`` and ``Enterprise`` plans](https://www.postman.com/pricing).
 - `public`
 - `team`
 - `partner` — [Partner Workspaces](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/) are available on Postman [``Team`` and ``Enterprise`` plans](https://www.postman.com/pricing)).
 
- * @property {string} - The workspace's description.
- * @property {string} - A brief summary about the workspace.
- * @property {string} - The team ID to assign to the workspace. This property is required if Postman [Organizations](https://learning.postman.com/docs/administration/managing-your-team/overview) is enabled.
+ * @property {string} description - The workspace's description.
+ * @property {string} about - A brief summary about the workspace.
+ * @property {string} teamId - The team ID to assign to the workspace. This property is required if Postman [Organizations](https://learning.postman.com/docs/administration/managing-your-team/overview) is enabled.
  */
 export type CreateWorkspaceWorkspace = z.infer<typeof createWorkspaceWorkspace>;
 

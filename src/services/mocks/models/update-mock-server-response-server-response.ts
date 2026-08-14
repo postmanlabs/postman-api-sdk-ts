@@ -22,13 +22,12 @@ export const updateMockServerResponseServerResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdateMockServerResponseServerResponse} updateMockServerResponseServerResponse
- * @property {string} - The server response's name.
- * @property {number} - The server response's 5xx HTTP response code. This property only accepts [5xx values](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml).
- * @property {UpdateMockServerResponseServerResponseHeaders[]} - The server response's request headers, such as Content-Type, Accept, encoding, and other information.
- * @property {UpdateMockServerResponseServerResponseLanguage} - The server response's body language type.
- * @property {string} - The server response's body that returns when you call the mock server.
+ * @typedef {UpdateMockServerResponseServerResponse} updateMockServerResponseServerResponse
+ * @property {string} name - The server response's name.
+ * @property {number} statusCode - The server response's 5xx HTTP response code. This property only accepts [5xx values](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml).
+ * @property {UpdateMockServerResponseServerResponseHeaders[]} headers - The server response's request headers, such as Content-Type, Accept, encoding, and other information.
+ * @property {UpdateMockServerResponseServerResponseLanguage} language - The server response's body language type.
+ * @property {string} body - The server response's body that returns when you call the mock server.
  */
 export type UpdateMockServerResponseServerResponse = z.infer<
   typeof updateMockServerResponseServerResponse

@@ -12,9 +12,8 @@ export const getSpecVersionTagsMeta = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetSpecVersionTagsMeta} getSpecVersionTagsMeta
- * @property {string} - The pagination cursor that points to the next record in the results set.
+ * @typedef {GetSpecVersionTagsMeta} getSpecVersionTagsMeta
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
  */
 export type GetSpecVersionTagsMeta = z.infer<typeof getSpecVersionTagsMeta>;
 

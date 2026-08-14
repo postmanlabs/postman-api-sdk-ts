@@ -13,10 +13,9 @@ export const createMockServerResponseServerResponseHeaders = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateMockServerResponseServerResponseHeaders} createMockServerResponseServerResponseHeaders
- * @property {string} - The request header's key value.
- * @property {string} - The request header's value.
+ * @typedef {CreateMockServerResponseServerResponseHeaders} createMockServerResponseServerResponseHeaders
+ * @property {string} key - The request header's key value.
+ * @property {string} value - The request header's value.
  */
 export type CreateMockServerResponseServerResponseHeaders = z.infer<
   typeof createMockServerResponseServerResponseHeaders

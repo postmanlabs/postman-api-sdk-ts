@@ -18,9 +18,8 @@ export const sourceCollectionStatus = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SourceCollectionStatus} sourceCollectionStatus
- * @property {SourceCollectionStatusCollection}
+ * @typedef {SourceCollectionStatus} sourceCollectionStatus
+ * @property {SourceCollectionStatusCollection} collection
  */
 export type SourceCollectionStatus = z.infer<typeof sourceCollectionStatus>;
 

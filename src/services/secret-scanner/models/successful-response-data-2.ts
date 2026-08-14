@@ -21,16 +21,16 @@ export const successfulResponseData2 = z.lazy(() => {
 
 /**
  * Information about the secret finding locations.
- * @typedef  {SuccessfulResponseData2} successfulResponseData2 - Information about the secret finding locations. - Information about the secret finding locations.
- * @property {boolean} - If true, the resource in which the secret was found was deleted.
- * @property {number} - The ID of the user who exposed the secret.
- * @property {string} - The location where the secret was found.
- * @property {number} - The number of times the secret occurs in the location.
- * @property {string} - The parent resource's unique ID. If the resource is a request, folder, or example, this value is a collection ID. If the resource is a collection, globals, or environment, this is the resource's ID.
- * @property {string} - The unique ID of the resource where the secret was detected.
- * @property {string} - The type of resource in which the secret was detected.
- * @property {string} - The date and time at which the secret was detected.
- * @property {string} - The URL to the resource that contains the secret.
+ * @typedef {SuccessfulResponseData2} successfulResponseData2
+ * @property {boolean} isResourceDeleted - If true, the resource in which the secret was found was deleted.
+ * @property {number} leakedBy - The ID of the user who exposed the secret.
+ * @property {string} location - The location where the secret was found.
+ * @property {number} occurrences - The number of times the secret occurs in the location.
+ * @property {string} parentResourceId - The parent resource's unique ID. If the resource is a request, folder, or example, this value is a collection ID. If the resource is a collection, globals, or environment, this is the resource's ID.
+ * @property {string} resourceId - The unique ID of the resource where the secret was detected.
+ * @property {string} resourceType - The type of resource in which the secret was detected.
+ * @property {string} detectedAt - The date and time at which the secret was detected.
+ * @property {string} url - The URL to the resource that contains the secret.
  */
 export type SuccessfulResponseData2 = z.infer<typeof successfulResponseData2>;
 

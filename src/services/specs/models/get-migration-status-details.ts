@@ -20,10 +20,7 @@ export const getMigrationStatusDetails = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetMigrationStatusDetails} getMigrationStatusDetails
- * @property {SuccessfulMigration} - Information about the migration.
- * @property {MigrationFailed} - Information about the migration.
+ * @typedef {GetMigrationStatusDetails} getMigrationStatusDetails
  */
 export type GetMigrationStatusDetails = z.infer<typeof getMigrationStatusDetails>;
 

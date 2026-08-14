@@ -11,9 +11,7 @@ export const approveDenyAccessRequestResponseResultEntityId = z.lazy(() => {
 
 /**
  * The entity's ID.
- * @typedef  {ApproveDenyAccessRequestResponseResultEntityId} approveDenyAccessRequestResponseResultEntityId - The entity's ID. - The entity's ID.
- * @property {number}
- * @property {string}
+ * @typedef {ApproveDenyAccessRequestResponseResultEntityId} approveDenyAccessRequestResponseResultEntityId
  */
 export type ApproveDenyAccessRequestResponseResultEntityId = z.infer<
   typeof approveDenyAccessRequestResponseResultEntityId

@@ -17,11 +17,7 @@ export const managePartnerWorkspaceInvites = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ManagePartnerWorkspaceInvites} managePartnerWorkspaceInvites
- * @property {InvitePartners} - Invite partners to a Partner Workspace.
- * @property {RemovePartners} - The request body for removing partners from a Partner Workspace.
- * @property {RemovePartnerFromPartnership} - The request body for removing partners from partnership with a team.
+ * @typedef {ManagePartnerWorkspaceInvites} managePartnerWorkspaceInvites
  */
 export type ManagePartnerWorkspaceInvites = z.infer<typeof managePartnerWorkspaceInvites>;
 

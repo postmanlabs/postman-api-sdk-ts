@@ -20,10 +20,7 @@ export const variableList2 = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {VariableList2} variableList2
- * @property {VariableList2_1} - Information about the variable.
- * @property {SecretVariableInfo} - Information about the secret variable.
+ * @typedef {VariableList2} variableList2
  */
 export type VariableList2 = z.infer<typeof variableList2>;
 

@@ -17,12 +17,12 @@ export const monitorRunResponses = z.lazy(() => {
 
 /**
  * Information about the monitor run's response.
- * @typedef  {MonitorRunResponses} monitorRunResponses - Information about the monitor run's response. - Information about the monitor run's response.
- * @property {any} - Information about the request body, such as Content-Length.
- * @property {number} - The response's HTTP status code.
- * @property {any} - Information about the response headers, such as Content-Type, Accept, encoding, and other information.
- * @property {number} - The response size, in bytes.
- * @property {number} - The response time, in milliseconds.
+ * @typedef {MonitorRunResponses} monitorRunResponses
+ * @property {any} body - Information about the request body, such as Content-Length.
+ * @property {number} code - The response's HTTP status code.
+ * @property {any} headers - Information about the response headers, such as Content-Type, Accept, encoding, and other information.
+ * @property {number} responseSize - The response size, in bytes.
+ * @property {number} responseTime - The response time, in milliseconds.
  */
 export type MonitorRunResponses = z.infer<typeof monitorRunResponses>;
 

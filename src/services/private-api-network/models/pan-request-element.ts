@@ -17,12 +17,12 @@ export const panRequestElement = z.lazy(() => {
 
 /**
  * Information about the requested element.
- * @typedef  {PanRequestElement} panRequestElement - Information about the requested element. - Information about the requested element.
- * @property {string} - The element's ID.
- * @property {PanRequestElementType} - The `workspace` element type.
- * @property {string} - The element's name.
- * @property {string} - The element's short summary.
- * @property {string} - The element's description.
+ * @typedef {PanRequestElement} panRequestElement
+ * @property {string} id - The element's ID.
+ * @property {PanRequestElementType} type - The `workspace` element type.
+ * @property {string} name - The element's name.
+ * @property {string} summary - The element's short summary.
+ * @property {string} description - The element's description.
  */
 export type PanRequestElement = z.infer<typeof panRequestElement>;
 

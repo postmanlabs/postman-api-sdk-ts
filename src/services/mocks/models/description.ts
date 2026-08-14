@@ -14,9 +14,9 @@ export const description = z.lazy(() => {
 
 /**
  * The response header's description information.
- * @typedef  {Description} description - The response header's description information. - The response header's description information.
- * @property {string} - The response header description's content.
- * @property {string} - The response header description's media type.
+ * @typedef {Description} description
+ * @property {string} content - The response header description's content.
+ * @property {string} type - The response header description's media type.
  */
 export type Description = z.infer<typeof description>;
 

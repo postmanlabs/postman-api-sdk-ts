@@ -12,9 +12,8 @@ export const updateSpecProperties = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdateSpecProperties} updateSpecProperties
- * @property {string} - The spec's name.
+ * @typedef {UpdateSpecProperties} updateSpecProperties
+ * @property {string} name - The spec's name.
  */
 export type UpdateSpecProperties = z.infer<typeof updateSpecProperties>;
 

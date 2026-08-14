@@ -14,9 +14,9 @@ export const syncOptions = z.lazy(() => {
 
 /**
  * Information about the specification sync options.
- * @typedef  {SyncOptions} syncOptions - Information about the specification sync options. - Information about the specification sync options.
- * @property {boolean} - If true, updates made to examples in the specification or to example values in the generated collection stay synchronized.
- * @property {boolean} - If true, deletes requests and endpoints that no longer exist in the source during sync.
+ * @typedef {SyncOptions} syncOptions
+ * @property {boolean} syncExamples - If true, updates made to examples in the specification or to example values in the generated collection stay synchronized.
+ * @property {boolean} deleteOrphanedRequests - If true, deletes requests and endpoints that no longer exist in the source during sync.
  */
 export type SyncOptions = z.infer<typeof syncOptions>;
 

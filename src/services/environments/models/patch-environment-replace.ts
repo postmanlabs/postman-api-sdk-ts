@@ -14,14 +14,13 @@ export const patchEnvironmentReplace = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {PatchEnvironmentReplace} patchEnvironmentReplace   
- * @property {string} - The `replace` operation.
- * @property {string} - The [JSON Pointer syntax](https://datatracker.ietf.org/doc/html/rfc6901) that indicates the entry to update, in `/values/#/{value}` format, where:
+ * @typedef {PatchEnvironmentReplace} patchEnvironmentReplace
+ * @property {string} op - The `replace` operation.
+ * @property {string} path - The [JSON Pointer syntax](https://datatracker.ietf.org/doc/html/rfc6901) that indicates the entry to update, in `/values/#/{value}` format, where:
 - `#` — The entry ID. The first record begins at the `0` value.
 - `{value}` — The variable property to update. Accepts `key`, `value`, `type`, and `enable`.
 
- * @property {string} - The variable's value.
+ * @property {string} value - The variable's value.
  */
 export type PatchEnvironmentReplace = z.infer<typeof patchEnvironmentReplace>;
 

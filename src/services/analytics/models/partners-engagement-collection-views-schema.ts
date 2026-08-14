@@ -18,9 +18,8 @@ export const partnersEngagementCollectionViewsSchema = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PartnersEngagementCollectionViewsSchema} partnersEngagementCollectionViewsSchema
- * @property {GetAnalyticsDataColumnsData[]} - A list of column entries.
+ * @typedef {PartnersEngagementCollectionViewsSchema} partnersEngagementCollectionViewsSchema
+ * @property {GetAnalyticsDataColumnsData[]} columns - A list of column entries.
  */
 export type PartnersEngagementCollectionViewsSchema = z.infer<
   typeof partnersEngagementCollectionViewsSchema

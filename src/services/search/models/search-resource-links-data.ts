@@ -26,9 +26,9 @@ export const searchResourceLinksData = z.lazy(() => {
 
 /**
  * Information about the resource's hypermedia links.
- * @typedef  {SearchResourceLinksData} searchResourceLinksData - Information about the resource's hypermedia links. - Information about the resource's hypermedia links.
- * @property {SearchResourceWebData} - The link to view the resource in the Postman web app.
- * @property {SearchResourceLinksSelfData} - The link to the resource through the Postman API.
+ * @typedef {SearchResourceLinksData} searchResourceLinksData
+ * @property {SearchResourceWebData} web - The link to view the resource in the Postman web app.
+ * @property {SearchResourceLinksSelfData} self - The link to the resource through the Postman API.
  */
 export type SearchResourceLinksData = z.infer<typeof searchResourceLinksData>;
 

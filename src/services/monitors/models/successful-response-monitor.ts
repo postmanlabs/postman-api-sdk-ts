@@ -58,22 +58,22 @@ export const successfulResponseMonitor = z.lazy(() => {
 
 /**
  * Information about the monitor.
- * @typedef  {SuccessfulResponseMonitor} successfulResponseMonitor - Information about the monitor. - Information about the monitor.
- * @property {string} - The monitor's ID.
- * @property {string} - The monitor's name.
- * @property {string} - The monitor's unique ID.
- * @property {number} - The ID of monitor's owner.
- * @property {boolean} - If true, the monitor is active and makes calls to the specified URL.
- * @property {number} - Stop email notifications after the given number consecutive failures.
- * @property {string} - The unique ID of the monitor's associated collection.
- * @property {string} - The unique ID of the monitor's associated environment.
- * @property {string} - The job ID of the monitor's latest run.
- * @property {MonitorOptions} - Information about the monitor's option settings.
- * @property {MonitorNotifications} - Information about the monitor's notification settings.
- * @property {MonitorDistribution[]} - A list of the monitor's [geographic regions](https://learning.postman.com/docs/monitoring-your-api/setting-up-monitor/#add-regions).
- * @property {Schedule} - Information about the monitor's schedule.
- * @property {MonitorRetrySettings} - Information about the monitor's retry settings.
- * @property {MonitorLastRun} - Information about the monitor's previous run.
+ * @typedef {SuccessfulResponseMonitor} successfulResponseMonitor
+ * @property {string} id - The monitor's ID.
+ * @property {string} name - The monitor's name.
+ * @property {string} uid - The monitor's unique ID.
+ * @property {number} owner - The ID of monitor's owner.
+ * @property {boolean} active - If true, the monitor is active and makes calls to the specified URL.
+ * @property {number} notificationLimit - Stop email notifications after the given number consecutive failures.
+ * @property {string} collectionUid - The unique ID of the monitor's associated collection.
+ * @property {string} environmentUid - The unique ID of the monitor's associated environment.
+ * @property {string} jobId - The job ID of the monitor's latest run.
+ * @property {MonitorOptions} options - Information about the monitor's option settings.
+ * @property {MonitorNotifications} notifications - Information about the monitor's notification settings.
+ * @property {MonitorDistribution[]} distribution - A list of the monitor's [geographic regions](https://learning.postman.com/docs/monitoring-your-api/setting-up-monitor/#add-regions).
+ * @property {Schedule} schedule - Information about the monitor's schedule.
+ * @property {MonitorRetrySettings} retry - Information about the monitor's retry settings.
+ * @property {MonitorLastRun} lastRun - Information about the monitor's previous run.
  */
 export type SuccessfulResponseMonitor = z.infer<typeof successfulResponseMonitor>;
 

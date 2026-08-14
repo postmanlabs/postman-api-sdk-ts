@@ -17,12 +17,12 @@ export const environmentForkInfo = z.lazy(() => {
 
 /**
  * Information about the forked environment.
- * @typedef  {EnvironmentForkInfo} environmentForkInfo - Information about the forked environment. - Information about the forked environment.
- * @property {string} - The forked environment's unique ID.
- * @property {string} - The forked environment's label.
- * @property {string} - The date and time at which the fork was created.
- * @property {string} - The user who created the environment fork.
- * @property {string} - The date and time at which the fork was last updated.
+ * @typedef {EnvironmentForkInfo} environmentForkInfo
+ * @property {string} forkId - The forked environment's unique ID.
+ * @property {string} forkName - The forked environment's label.
+ * @property {string} createdAt - The date and time at which the fork was created.
+ * @property {string} createdBy - The user who created the environment fork.
+ * @property {string} updatedAt - The date and time at which the fork was last updated.
  */
 export type EnvironmentForkInfo = z.infer<typeof environmentForkInfo>;
 

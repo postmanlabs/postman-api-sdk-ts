@@ -15,10 +15,10 @@ export const documentationColorSettings = z.lazy(() => {
 
 /**
  * The theme's colors, in six digit hexcode. The values in this object must match the hexcode values of either the `light` or `dark` theme defined in the `appearance` object.
- * @typedef  {DocumentationColorSettings} documentationColorSettings - The theme's colors, in six digit hexcode. The values in this object must match the hexcode values of either the `light` or `dark` theme defined in the `appearance` object. - The theme's colors, in six digit hexcode. The values in this object must match the hexcode values of either the `light` or `dark` theme defined in the `appearance` object.
- * @property {string} - The hexcode color code for the documentation's highlighting.
- * @property {string} - The hexcode color code for the documentation's right sidebar color.
- * @property {string} - The hexcode color code for the documentation's top bar color.
+ * @typedef {DocumentationColorSettings} documentationColorSettings
+ * @property {string} highlight - The hexcode color code for the documentation's highlighting.
+ * @property {string} rightSidebar - The hexcode color code for the documentation's right sidebar color.
+ * @property {string} topBar - The hexcode color code for the documentation's top bar color.
  */
 export type DocumentationColorSettings = z.infer<typeof documentationColorSettings>;
 

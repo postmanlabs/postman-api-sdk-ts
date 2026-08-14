@@ -18,9 +18,8 @@ export const getComponent = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetComponent} getComponent
- * @property {ComponentData} - Information about the component.
+ * @typedef {GetComponent} getComponent
+ * @property {ComponentData} data - Information about the component.
  */
 export type GetComponent = z.infer<typeof getComponent>;
 

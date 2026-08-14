@@ -18,9 +18,8 @@ export const collectionInformation = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionInformation} collectionInformation
- * @property {CollectionInformationCollection} - For a complete list of this endpoint's possible values, use the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
+ * @typedef {CollectionInformation} collectionInformation
+ * @property {CollectionInformationCollection} collection - For a complete list of this endpoint's possible values, use the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
  */
 export type CollectionInformation = z.infer<typeof collectionInformation>;
 

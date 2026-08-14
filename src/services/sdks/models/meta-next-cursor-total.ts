@@ -14,9 +14,9 @@ export const metaNextCursorTotal = z.lazy(() => {
 
 /**
  * The response's meta information for paginated results.
- * @typedef  {MetaNextCursorTotal} metaNextCursorTotal - The response's meta information for paginated results. - The response's meta information for paginated results.
- * @property {string} - The pagination cursor that points to the next record in the results set.
- * @property {number} - The number of records found.
+ * @typedef {MetaNextCursorTotal} metaNextCursorTotal
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
+ * @property {number} total - The number of records found.
  */
 export type MetaNextCursorTotal = z.infer<typeof metaNextCursorTotal>;
 

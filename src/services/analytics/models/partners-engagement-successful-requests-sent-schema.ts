@@ -18,9 +18,8 @@ export const partnersEngagementSuccessfulRequestsSentSchema = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PartnersEngagementSuccessfulRequestsSentSchema} partnersEngagementSuccessfulRequestsSentSchema
- * @property {GetAnalyticsDataColumnsData[]} - A list of column entries.
+ * @typedef {PartnersEngagementSuccessfulRequestsSentSchema} partnersEngagementSuccessfulRequestsSentSchema
+ * @property {GetAnalyticsDataColumnsData[]} columns - A list of column entries.
  */
 export type PartnersEngagementSuccessfulRequestsSentSchema = z.infer<
   typeof partnersEngagementSuccessfulRequestsSentSchema

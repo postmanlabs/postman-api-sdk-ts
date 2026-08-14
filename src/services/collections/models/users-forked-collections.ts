@@ -25,10 +25,9 @@ export const usersForkedCollections = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UsersForkedCollections} usersForkedCollections
- * @property {UsersForkedCollectionsData[]} - A list of the user's forked collections.
- * @property {UsersForkedCollectionsMeta} - The response's meta information for paginated results.
+ * @typedef {UsersForkedCollections} usersForkedCollections
+ * @property {UsersForkedCollectionsData[]} data - A list of the user's forked collections.
+ * @property {UsersForkedCollectionsMeta} meta - The response's meta information for paginated results.
  */
 export type UsersForkedCollections = z.infer<typeof usersForkedCollections>;
 

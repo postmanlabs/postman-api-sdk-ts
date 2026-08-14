@@ -12,9 +12,8 @@ export const orgsInfo = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {OrgsInfo} orgsInfo
- * @property {TeamRoles[]} - A list of the organization's roles. The array's name is the organization's ID.
+ * @typedef {OrgsInfo} orgsInfo
+ * @property {TeamRoles[]} _orgId_ - A list of the organization's roles. The array's name is the organization's ID.
  */
 export type OrgsInfo = z.infer<typeof orgsInfo>;
 

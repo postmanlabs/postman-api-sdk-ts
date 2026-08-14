@@ -20,10 +20,9 @@ export const getTeams = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetTeams} getTeams
- * @property {TeamData[]} - A list of teams.
- * @property {GetTeamsMetadata} - The response's meta information for paginated results.
+ * @typedef {GetTeams} getTeams
+ * @property {TeamData[]} data - A list of teams.
+ * @property {GetTeamsMetadata} metadata - The response's meta information for paginated results.
  */
 export type GetTeams = z.infer<typeof getTeams>;
 

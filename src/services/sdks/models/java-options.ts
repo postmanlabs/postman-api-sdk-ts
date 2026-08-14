@@ -14,9 +14,9 @@ export const javaOptions = z.lazy(() => {
 
 /**
  * Java-specific SDK generation options.
- * @typedef  {JavaOptions} javaOptions - Java-specific SDK generation options. - Java-specific SDK generation options.
- * @property {string} - The Maven group ID written into the `pom.xml` dependencies file.
- * @property {string} - The Maven artifact ID written into the `pom.xml` dependencies file.
+ * @typedef {JavaOptions} javaOptions
+ * @property {string} groupId - The Maven group ID written into the `pom.xml` dependencies file.
+ * @property {string} artifactId - The Maven artifact ID written into the `pom.xml` dependencies file.
  */
 export type JavaOptions = z.infer<typeof javaOptions>;
 

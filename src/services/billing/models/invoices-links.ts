@@ -14,8 +14,8 @@ export const invoicesLinks = z.lazy(() => {
 
 /**
  * A [JSON API spec](https://jsonapi.org/format/#document-links) object containing hypermedia links.
- * @typedef  {InvoicesLinks} invoicesLinks - A [JSON API spec](https://jsonapi.org/format/#document-links) object containing hypermedia links. - A [JSON API spec](https://jsonapi.org/format/#document-links) object containing hypermedia links.
- * @property {Web} - An object containing web-based account references.
+ * @typedef {InvoicesLinks} invoicesLinks
+ * @property {Web} web - An object containing web-based account references.
  */
 export type InvoicesLinks = z.infer<typeof invoicesLinks>;
 

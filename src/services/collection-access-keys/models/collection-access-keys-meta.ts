@@ -14,9 +14,9 @@ export const collectionAccessKeysMeta = z.lazy(() => {
 
 /**
  * The response's non-standard metadata information.
- * @typedef  {CollectionAccessKeysMeta} collectionAccessKeysMeta - The response's non-standard metadata information. - The response's non-standard metadata information.
- * @property {string} - The pagination cursor that points to the next record in the results set.
- * @property {string} - The pagination cursor to previous set of response data.
+ * @typedef {CollectionAccessKeysMeta} collectionAccessKeysMeta
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
+ * @property {string} prevCursor - The pagination cursor to previous set of response data.
  */
 export type CollectionAccessKeysMeta = z.infer<typeof collectionAccessKeysMeta>;
 

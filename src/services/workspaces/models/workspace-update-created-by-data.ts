@@ -15,10 +15,10 @@ export const workspaceUpdateCreatedByData = z.lazy(() => {
 
 /**
  * Information about the user that created the workspace update.
- * @typedef  {WorkspaceUpdateCreatedByData} workspaceUpdateCreatedByData - Information about the user that created the workspace update. - Information about the user that created the workspace update.
- * @property {number} - The user ID of the user that created the workspace update.
- * @property {string} - The display name of the user that created the workspace update.
- * @property {string} - The username of the user that created the workspace update.
+ * @typedef {WorkspaceUpdateCreatedByData} workspaceUpdateCreatedByData
+ * @property {number} id - The user ID of the user that created the workspace update.
+ * @property {string} name - The display name of the user that created the workspace update.
+ * @property {string} username - The username of the user that created the workspace update.
  */
 export type WorkspaceUpdateCreatedByData = z.infer<typeof workspaceUpdateCreatedByData>;
 

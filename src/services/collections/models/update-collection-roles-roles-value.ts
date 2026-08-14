@@ -14,9 +14,9 @@ export const updateCollectionRolesRolesValue = z.lazy(() => {
 
 /**
  * Information about the updated role.
- * @typedef  {UpdateCollectionRolesRolesValue} updateCollectionRolesRolesValue - Information about the updated role. - Information about the updated role.
- * @property {number} - The user, group, or team's ID.
- * @property {ValueRole} - The role type:
+ * @typedef {UpdateCollectionRolesRolesValue} updateCollectionRolesRolesValue
+ * @property {number} id - The user, group, or team's ID.
+ * @property {ValueRole} role - The role type:
 - `VIEWER` — Can view, fork, and export collections.
 - `EDITOR` — Can edit collections directly.
  */

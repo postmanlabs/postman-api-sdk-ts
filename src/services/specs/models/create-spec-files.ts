@@ -12,10 +12,7 @@ export const createSpecFiles = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateSpecFiles} createSpecFiles
- * @property {MultiFileSpec}
- * @property {SingleFileSpec}
+ * @typedef {CreateSpecFiles} createSpecFiles
  */
 export type CreateSpecFiles = z.infer<typeof createSpecFiles>;
 

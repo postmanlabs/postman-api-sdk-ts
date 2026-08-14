@@ -22,11 +22,11 @@ export const removePartners = z.lazy(() => {
 
 /**
  * The request body for removing partners from a Partner Workspace.
- * @typedef  {RemovePartners} removePartners - The request body for removing partners from a Partner Workspace. - The request body for removing partners from a Partner Workspace.
- * @property {RemovePartnersTargetEntity} - The `workspace` value.
- * @property {string} - The Partner Workspace ID from which to remove partners.
- * @property {RemovePartnersAction} - The `remove_partner` action.
- * @property {ManagePartnerWorkspaceInvitesTargetObjectUserId}
+ * @typedef {RemovePartners} removePartners
+ * @property {RemovePartnersTargetEntity} targetEntity - The `workspace` value.
+ * @property {string} targetEntityId - The Partner Workspace ID from which to remove partners.
+ * @property {RemovePartnersAction} action - The `remove_partner` action.
+ * @property {ManagePartnerWorkspaceInvitesTargetObjectUserId} target
  */
 export type RemovePartners = z.infer<typeof removePartners>;
 

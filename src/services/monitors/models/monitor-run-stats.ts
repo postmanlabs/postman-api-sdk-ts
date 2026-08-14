@@ -26,14 +26,14 @@ export const monitorRunStats = z.lazy(() => {
 
 /**
  * Information about the monitor run's stats.
- * @typedef  {MonitorRunStats} monitorRunStats - Information about the monitor run's stats. - Information about the monitor run's stats.
- * @property {Assertions} - Information about the monitor's tests.
- * @property {MonitorRunStatsRequests} - Information about the monitor's requests.
- * @property {number} - The number of monitor runs across the selected monitor regions.
- * @property {number} - The number of errors encountered during the monitor's run.
- * @property {number} - The number of runs terminated.
- * @property {number} - The total time it took to run the monitor, in milliseconds.
- * @property {number} - The total response size. This includes the runs in all the selected regions.
+ * @typedef {MonitorRunStats} monitorRunStats
+ * @property {Assertions} assertions - Information about the monitor's tests.
+ * @property {MonitorRunStatsRequests} requests - Information about the monitor's requests.
+ * @property {number} runCount - The number of monitor runs across the selected monitor regions.
+ * @property {number} errorCount - The number of errors encountered during the monitor's run.
+ * @property {number} abortedCount - The number of runs terminated.
+ * @property {number} responseLatency - The total time it took to run the monitor, in milliseconds.
+ * @property {number} responseSize - The total response size. This includes the runs in all the selected regions.
  */
 export type MonitorRunStats = z.infer<typeof monitorRunStats>;
 

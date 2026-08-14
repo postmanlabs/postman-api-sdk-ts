@@ -20,15 +20,15 @@ export const monitorRunInformation = z.lazy(() => {
 
 /**
  * Information about the monitor.
- * @typedef  {MonitorRunInformation} monitorRunInformation - Information about the monitor. - Information about the monitor.
- * @property {string} - The monitor's run job ID.
- * @property {string} - The unique ID of the monitor's associated collection.
- * @property {string} - The unique ID of the monitor's associated environment.
- * @property {string} - The monitor's ID.
- * @property {string} - The monitor's name.
- * @property {string} - The monitor run's status.
- * @property {string} - The date and time at which the monitor run began.
- * @property {string} - The date and time at which the monitor's run completed.
+ * @typedef {MonitorRunInformation} monitorRunInformation
+ * @property {string} jobId - The monitor's run job ID.
+ * @property {string} collectionUid - The unique ID of the monitor's associated collection.
+ * @property {string} environmentUid - The unique ID of the monitor's associated environment.
+ * @property {string} monitorId - The monitor's ID.
+ * @property {string} name - The monitor's name.
+ * @property {string} status - The monitor run's status.
+ * @property {string} startedAt - The date and time at which the monitor run began.
+ * @property {string} finishedAt - The date and time at which the monitor's run completed.
  */
 export type MonitorRunInformation = z.infer<typeof monitorRunInformation>;
 

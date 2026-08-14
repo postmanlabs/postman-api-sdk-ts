@@ -58,20 +58,20 @@ export const updateRequest = z.lazy(() => {
 
 /**
  * The request properties to update. For a complete list of properties, refer to the **Request** property in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
- * @typedef  {UpdateRequest} updateRequest - The request properties to update. For a complete list of properties, refer to the **Request** property in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json). - The request properties to update. For a complete list of properties, refer to the **Request** property in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
- * @property {string} - The request's name.
- * @property {string} - The request's description.
- * @property {RequestMethod} - The request's HTTP method.
- * @property {string} - The request's URL.
- * @property {RequestHeaderData[]} - The request's headers.
- * @property {RequestQueryParams[]} - The request's query parameters.
- * @property {UpdateRequestDataMode} - The request body's data mode.
- * @property {RequestData[]} - The request body's form data.
- * @property {string} - The request body's raw mode data.
- * @property {RequestGraphqlModeData} - The request body's GraphQL mode data.
- * @property {RequestDataOptions} - Additional configurations and options set for the request body's various data modes.
- * @property {RequestAuth} - The request's authentication information.
- * @property {RequestEvents[]} - A list of scripts configured to run when specific events occur.
+ * @typedef {UpdateRequest} updateRequest
+ * @property {string} name - The request's name.
+ * @property {string} description - The request's description.
+ * @property {RequestMethod} method - The request's HTTP method.
+ * @property {string} url - The request's URL.
+ * @property {RequestHeaderData[]} headerData - The request's headers.
+ * @property {RequestQueryParams[]} queryParams - The request's query parameters.
+ * @property {UpdateRequestDataMode} dataMode - The request body's data mode.
+ * @property {RequestData[]} data - The request body's form data.
+ * @property {string} rawModeData - The request body's raw mode data.
+ * @property {RequestGraphqlModeData} graphqlModeData - The request body's GraphQL mode data.
+ * @property {RequestDataOptions} dataOptions - Additional configurations and options set for the request body's various data modes.
+ * @property {RequestAuth} auth - The request's authentication information.
+ * @property {RequestEvents[]} events - A list of scripts configured to run when specific events occur.
  */
 export type UpdateRequest = z.infer<typeof updateRequest>;
 

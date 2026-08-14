@@ -14,9 +14,9 @@ export const createSpecVersionTagResponseData = z.lazy(() => {
 
 /**
  * Information about the created version tag.
- * @typedef  {CreateSpecVersionTagResponseData} createSpecVersionTagResponseData - Information about the created version tag. - Information about the created version tag.
- * @property {string} - The version tag's ID.
- * @property {string} - The version tag's name.
+ * @typedef {CreateSpecVersionTagResponseData} createSpecVersionTagResponseData
+ * @property {string} id - The version tag's ID.
+ * @property {string} name - The version tag's name.
  */
 export type CreateSpecVersionTagResponseData = z.infer<typeof createSpecVersionTagResponseData>;
 

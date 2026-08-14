@@ -18,9 +18,8 @@ export const getAnalyticsMetadata = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAnalyticsMetadata} getAnalyticsMetadata
- * @property {GetAnalyticsMetadataData} - The Analytics API's metadata information.
+ * @typedef {GetAnalyticsMetadata} getAnalyticsMetadata
+ * @property {GetAnalyticsMetadataData} data - The Analytics API's metadata information.
  */
 export type GetAnalyticsMetadata = z.infer<typeof getAnalyticsMetadata>;
 

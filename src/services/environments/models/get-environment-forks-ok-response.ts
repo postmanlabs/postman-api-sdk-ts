@@ -25,10 +25,9 @@ export const getEnvironmentForksOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetEnvironmentForksOkResponse} getEnvironmentForksOkResponse
- * @property {EnvironmentForkInfo[]} - A list of the environment's forks.
- * @property {EnvironmentForksMeta} - The response's meta information for paginated results.
+ * @typedef {GetEnvironmentForksOkResponse} getEnvironmentForksOkResponse
+ * @property {EnvironmentForkInfo[]} data - A list of the environment's forks.
+ * @property {EnvironmentForksMeta} meta - The response's meta information for paginated results.
  */
 export type GetEnvironmentForksOkResponse = z.infer<typeof getEnvironmentForksOkResponse>;
 

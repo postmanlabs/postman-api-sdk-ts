@@ -23,12 +23,12 @@ export const analyticsMetadataWithParametersAndResponseData = z.lazy(() => {
 
 /**
  * Detailed information about the resource including its metrics, parameters, and response schema.
- * @typedef  {AnalyticsMetadataWithParametersAndResponseData} analyticsMetadataWithParametersAndResponseData - Detailed information about the resource including its metrics, parameters, and response schema. - Detailed information about the resource including its metrics, parameters, and response schema.
- * @property {string} - The name of the resource.
- * @property {string} - A description of the resource.
- * @property {string} - The metric's data type.
- * @property {boolean} - If true, the metric is required.
- * @property {GetAnalyticsMetadataResourceMetricsDataDetailed[]} - A list of the resource's detailed accepted metrics values.
+ * @typedef {AnalyticsMetadataWithParametersAndResponseData} analyticsMetadataWithParametersAndResponseData
+ * @property {string} resource - The name of the resource.
+ * @property {string} description - A description of the resource.
+ * @property {string} type - The metric's data type.
+ * @property {boolean} isRequired - If true, the metric is required.
+ * @property {GetAnalyticsMetadataResourceMetricsDataDetailed[]} metrics - A list of the resource's detailed accepted metrics values.
  */
 export type AnalyticsMetadataWithParametersAndResponseData = z.infer<
   typeof analyticsMetadataWithParametersAndResponseData

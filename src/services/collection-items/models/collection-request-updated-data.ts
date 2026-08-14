@@ -21,15 +21,15 @@ export const collectionRequestUpdatedData = z.lazy(() => {
 
 /**
  * Information about the updated request. For a complete list of properties, refer to the **Request** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @typedef  {CollectionRequestUpdatedData} collectionRequestUpdatedData - Information about the updated request. For a complete list of properties, refer to the **Request** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). - Information about the updated request. For a complete list of properties, refer to the **Request** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @property {string} - The request's ID.
- * @property {string} - The request's name.
- * @property {string} - The request's description.
- * @property {string} - The request's creation date and time.
- * @property {string} - The date and time at which the request was last updated.
- * @property {string} - The user ID of the request's owner.
- * @property {string} - The user ID of the user that last updated the request.
- * @property {number} - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
+ * @typedef {CollectionRequestUpdatedData} collectionRequestUpdatedData
+ * @property {string} id - The request's ID.
+ * @property {string} name - The request's name.
+ * @property {string} description - The request's description.
+ * @property {string} createdAt - The request's creation date and time.
+ * @property {string} updatedAt - The date and time at which the request was last updated.
+ * @property {string} owner - The user ID of the request's owner.
+ * @property {string} lastUpdatedBy - The user ID of the user that last updated the request.
+ * @property {number} lastRevision - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
  */
 export type CollectionRequestUpdatedData = z.infer<typeof collectionRequestUpdatedData>;
 

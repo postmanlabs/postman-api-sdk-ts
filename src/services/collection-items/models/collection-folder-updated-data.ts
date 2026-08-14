@@ -23,17 +23,17 @@ export const collectionFolderUpdatedData = z.lazy(() => {
 
 /**
  * The folder's updated information, including the updated properties. For a complete list of properties, refer to the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
- * @typedef  {CollectionFolderUpdatedData} collectionFolderUpdatedData - The folder's updated information, including the updated properties. For a complete list of properties, refer to the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json). - The folder's updated information, including the updated properties. For a complete list of properties, refer to the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
- * @property {string} - The folder's ID.
- * @property {string} - The folder's name.
- * @property {string} - The folder's description.
- * @property {string} - The folder's creation date and time.
- * @property {string} - The date and time at which the folder was last updated.
- * @property {string} - The user ID of the folder's owner.
- * @property {string} - The user ID of the user that last updated the folder.
- * @property {number} - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
- * @property {string} - The collection ID that the folder belongs to.
- * @property {string} - Information about the folder.
+ * @typedef {CollectionFolderUpdatedData} collectionFolderUpdatedData
+ * @property {string} id - The folder's ID.
+ * @property {string} name - The folder's name.
+ * @property {string} description - The folder's description.
+ * @property {string} createdAt - The folder's creation date and time.
+ * @property {string} updatedAt - The date and time at which the folder was last updated.
+ * @property {string} owner - The user ID of the folder's owner.
+ * @property {string} lastUpdatedBy - The user ID of the user that last updated the folder.
+ * @property {number} lastRevision - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
+ * @property {string} collection - The collection ID that the folder belongs to.
+ * @property {string} folder - Information about the folder.
  */
 export type CollectionFolderUpdatedData = z.infer<typeof collectionFolderUpdatedData>;
 

@@ -13,8 +13,8 @@ export const updateComponentDraftResponse = z.lazy(() => {
 
 /**
  * Information about the component draft.
- * @typedef  {UpdateComponentDraftResponse} updateComponentDraftResponse - Information about the component draft. - Information about the component draft.
- * @property {string} - The component draft's ID.
+ * @typedef {UpdateComponentDraftResponse} updateComponentDraftResponse
+ * @property {string} id - The component draft's ID.
  */
 export type UpdateComponentDraftResponse = z.infer<typeof updateComponentDraftResponse>;
 

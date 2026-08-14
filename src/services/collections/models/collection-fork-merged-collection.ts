@@ -13,10 +13,9 @@ export const collectionForkMergedCollection = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionForkMergedCollection} collectionForkMergedCollection
- * @property {string} - The source collection's ID.
- * @property {string} - The source collection's unique ID.
+ * @typedef {CollectionForkMergedCollection} collectionForkMergedCollection
+ * @property {string} id - The source collection's ID.
+ * @property {string} uid - The source collection's unique ID.
  */
 export type CollectionForkMergedCollection = z.infer<typeof collectionForkMergedCollection>;
 

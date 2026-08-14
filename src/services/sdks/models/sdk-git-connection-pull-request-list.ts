@@ -25,10 +25,9 @@ export const sdkGitConnectionPullRequestList = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SdkGitConnectionPullRequestList} sdkGitConnectionPullRequestList
- * @property {SdkGitConnectionPullRequest[]} - A list of SDK update pull requests on the Git connection.
- * @property {MetaNextCursorTotal} - The response's meta information for paginated results.
+ * @typedef {SdkGitConnectionPullRequestList} sdkGitConnectionPullRequestList
+ * @property {SdkGitConnectionPullRequest[]} data - A list of SDK update pull requests on the Git connection.
+ * @property {MetaNextCursorTotal} meta - The response's meta information for paginated results.
  */
 export type SdkGitConnectionPullRequestList = z.infer<typeof sdkGitConnectionPullRequestList>;
 

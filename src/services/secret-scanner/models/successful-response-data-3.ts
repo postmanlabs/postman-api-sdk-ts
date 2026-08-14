@@ -15,10 +15,10 @@ export const successfulResponseData3 = z.lazy(() => {
 
 /**
  * Information about the secret type.
- * @typedef  {SuccessfulResponseData3} successfulResponseData3 - Information about the secret type. - Information about the secret type.
- * @property {string} - The name of the secret type.
- * @property {string} - The ID of the secret type.
- * @property {SuccessfulResponseDataType} - The origin of the secret type:
+ * @typedef {SuccessfulResponseData3} successfulResponseData3
+ * @property {string} name - The name of the secret type.
+ * @property {string} id - The ID of the secret type.
+ * @property {SuccessfulResponseDataType} type - The origin of the secret type:
 - `DEFAULT` — Supported by default in Postman.
 - `TEAM_REGEX` — A custom regex added by an Admin or Super Admin user in the ``Configure Alerts`` section of the [``Team Settings``](https://learning.postman.com/docs/administration/team-settings/) interface.
 

@@ -13,8 +13,8 @@ export const getTeamsMetadata = z.lazy(() => {
 
 /**
  * The response's meta information for paginated results.
- * @typedef  {GetTeamsMetadata} getTeamsMetadata - The response's meta information for paginated results. - The response's meta information for paginated results.
- * @property {string} - The pagination cursor that points to the next record in the results set.
+ * @typedef {GetTeamsMetadata} getTeamsMetadata
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
  */
 export type GetTeamsMetadata = z.infer<typeof getTeamsMetadata>;
 

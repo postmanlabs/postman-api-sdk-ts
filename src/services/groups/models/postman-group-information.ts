@@ -22,17 +22,17 @@ export const postmanGroupInformation = z.lazy(() => {
 
 /**
  * Information about the group.
- * @typedef  {PostmanGroupInformation} postmanGroupInformation - Information about the group. - Information about the group.
- * @property {number} - The group's ID.
- * @property {number} - The group's Postman team ID.
- * @property {string} - The group's name.
- * @property {string} - The group's summary.
- * @property {number} - The ID of ther user who created the group.
- * @property {string} - The date and time at which the group was created.
- * @property {string} - The date and time at which the group was updated.
- * @property {number[]} - The group members' IDs.
- * @property {string[]} - The group's roles.
- * @property {number[]} - The group's managers.
+ * @typedef {PostmanGroupInformation} postmanGroupInformation
+ * @property {number} id - The group's ID.
+ * @property {number} teamId - The group's Postman team ID.
+ * @property {string} name - The group's name.
+ * @property {string} summary - The group's summary.
+ * @property {number} createdBy - The ID of ther user who created the group.
+ * @property {string} createdAt - The date and time at which the group was created.
+ * @property {string} updatedAt - The date and time at which the group was updated.
+ * @property {number[]} members - The group members' IDs.
+ * @property {string[]} roles - The group's roles.
+ * @property {number[]} managers - The group's managers.
  */
 export type PostmanGroupInformation = z.infer<typeof postmanGroupInformation>;
 

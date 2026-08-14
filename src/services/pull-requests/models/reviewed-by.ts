@@ -15,10 +15,10 @@ export const reviewedBy = z.lazy(() => {
 
 /**
  * Information about the user who reviewed the pull request review.
- * @typedef  {ReviewedBy} reviewedBy - Information about the user who reviewed the pull request review. - Information about the user who reviewed the pull request review.
- * @property {number} - The user's ID.
- * @property {string} - The user's name.
- * @property {string} - The user's username.
+ * @typedef {ReviewedBy} reviewedBy
+ * @property {number} id - The user's ID.
+ * @property {string} name - The user's name.
+ * @property {string} username - The user's username.
  */
 export type ReviewedBy = z.infer<typeof reviewedBy>;
 

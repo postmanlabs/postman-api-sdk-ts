@@ -15,12 +15,11 @@ export const getAnalyticsDataColumnsData = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAnalyticsDataColumnsData} getAnalyticsDataColumnsData
- * @property {string} - The name of the column.
- * @property {GetAnalyticsDataColumnsDataType} - The data type of the column.
- * @property {string} - The data type's format.
- * @property {string} - A description of what the column represents.
+ * @typedef {GetAnalyticsDataColumnsData} getAnalyticsDataColumnsData
+ * @property {string} name - The name of the column.
+ * @property {GetAnalyticsDataColumnsDataType} type - The data type of the column.
+ * @property {string} format - The data type's format.
+ * @property {string} description - A description of what the column represents.
  */
 export type GetAnalyticsDataColumnsData = z.infer<typeof getAnalyticsDataColumnsData>;
 

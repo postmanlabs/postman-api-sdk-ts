@@ -14,9 +14,9 @@ export const updateWorkspaceRolesRolesValue = z.lazy(() => {
 
 /**
  * Information about the user, user group, or partner role.
- * @typedef  {UpdateWorkspaceRolesRolesValue} updateWorkspaceRolesRolesValue - Information about the user, user group, or partner role. - Information about the user, user group, or partner role.
- * @property {string} - The user, user group, or partner's ID. To use SCIM IDs for users or user groups, include the `identifierType=scim` header in the request.
- * @property {string} - The user or user group's role ID:
+ * @typedef {UpdateWorkspaceRolesRolesValue} updateWorkspaceRolesRolesValue
+ * @property {string} id - The user, user group, or partner's ID. To use SCIM IDs for users or user groups, include the `identifierType=scim` header in the request.
+ * @property {string} role - The user or user group's role ID:
 - `1` — Viewer.  Can view and collaborate on all resources.
 - `2` — Editor. Can create and edit all resources.
 - `3` — Admin. Can manage people and all resources.

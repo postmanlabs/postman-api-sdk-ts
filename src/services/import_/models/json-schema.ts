@@ -20,11 +20,10 @@ export const jsonSchema = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {JsonSchema} jsonSchema
- * @property {JsonSchemaType} - The `json` type value.
- * @property {any} - An object that contains a valid JSON OpenAPI definition. For more information, read the [OpenAPI documentation](https://swagger.io/docs/specification/basic-structure/).
- * @property {GenerateCollectionOptions} - The advanced creation options and their values. For more details, see Postman's [OpenAPI to Postman Collection Converter OPTIONS documentation](https://github.com/postmanlabs/openapi-to-postman/blob/develop/OPTIONS.md). These properties are case-sensitive.
+ * @typedef {JsonSchema} jsonSchema
+ * @property {JsonSchemaType} type - The `json` type value.
+ * @property {any} input - An object that contains a valid JSON OpenAPI definition. For more information, read the [OpenAPI documentation](https://swagger.io/docs/specification/basic-structure/).
+ * @property {GenerateCollectionOptions} options - The advanced creation options and their values. For more details, see Postman's [OpenAPI to Postman Collection Converter OPTIONS documentation](https://github.com/postmanlabs/openapi-to-postman/blob/develop/OPTIONS.md). These properties are case-sensitive.
  */
 export type JsonSchema = z.infer<typeof jsonSchema>;
 

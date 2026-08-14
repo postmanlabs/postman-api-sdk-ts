@@ -16,11 +16,11 @@ export const successfulResponseSource = z.lazy(() => {
 
 /**
  * Information about the pull request's source (parent) element.
- * @typedef  {SuccessfulResponseSource} successfulResponseSource - Information about the pull request's source (parent) element. - Information about the pull request's source (parent) element.
- * @property {string} - The pull request's source ID.
- * @property {string} - The source element's name.
- * @property {string} - The name of the fork created from the source element.
- * @property {boolean} - If true, whether the element is present and not deleted.
+ * @typedef {SuccessfulResponseSource} successfulResponseSource
+ * @property {string} id - The pull request's source ID.
+ * @property {string} name - The source element's name.
+ * @property {string} forkName - The name of the fork created from the source element.
+ * @property {boolean} exists - If true, whether the element is present and not deleted.
  */
 export type SuccessfulResponseSource = z.infer<typeof successfulResponseSource>;
 

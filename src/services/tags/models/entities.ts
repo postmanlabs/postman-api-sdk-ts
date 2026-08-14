@@ -13,10 +13,9 @@ export const entities = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {Entities} entities
- * @property {string} - The element's unique ID.
- * @property {EntitiesEntityType} - The type of Postman element.
+ * @typedef {Entities} entities
+ * @property {string} entityId - The element's unique ID.
+ * @property {EntitiesEntityType} entityType - The type of Postman element.
  */
 export type Entities = z.infer<typeof entities>;
 

@@ -18,9 +18,8 @@ export const teamUsersInformation = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {TeamUsersInformation} teamUsersInformation
- * @property {UserInformation[]} - A list of users on the team.
+ * @typedef {TeamUsersInformation} teamUsersInformation
+ * @property {UserInformation[]} data - A list of users on the team.
  */
 export type TeamUsersInformation = z.infer<typeof teamUsersInformation>;
 

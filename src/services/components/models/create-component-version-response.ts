@@ -13,8 +13,8 @@ export const createComponentVersionResponse = z.lazy(() => {
 
 /**
  * Information about the component version.
- * @typedef  {CreateComponentVersionResponse} createComponentVersionResponse - Information about the component version. - Information about the component version.
- * @property {string} - The component version's ID.
+ * @typedef {CreateComponentVersionResponse} createComponentVersionResponse
+ * @property {string} id - The component version's ID.
  */
 export type CreateComponentVersionResponse = z.infer<typeof createComponentVersionResponse>;
 

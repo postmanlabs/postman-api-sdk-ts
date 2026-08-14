@@ -19,8 +19,8 @@ export const getWorkspaceGlobalVariablesOkResponse = z.lazy(() => {
 
 /**
  * Information about the workspace's global variables.
- * @typedef  {GetWorkspaceGlobalVariablesOkResponse} getWorkspaceGlobalVariablesOkResponse - Information about the workspace's global variables. - Information about the workspace's global variables.
- * @property {GlobalVariableInfo[]} - A list of the workspace's global variables.
+ * @typedef {GetWorkspaceGlobalVariablesOkResponse} getWorkspaceGlobalVariablesOkResponse
+ * @property {GlobalVariableInfo[]} values - A list of the workspace's global variables.
  */
 export type GetWorkspaceGlobalVariablesOkResponse = z.infer<
   typeof getWorkspaceGlobalVariablesOkResponse

@@ -29,12 +29,12 @@ export const callLogs = z.lazy(() => {
 
 /**
  * Information about the mock server's server response.
- * @typedef  {CallLogs} callLogs - Information about the mock server's server response. - Information about the mock server's server response.
- * @property {string} - The server response's ID.
- * @property {string} - The server response's name.
- * @property {string} - The date and time at which the server response was served.
- * @property {CallLogsRequest1} - The server response's request information.
- * @property {CallLogsResponse1} - The server response's response information.
+ * @typedef {CallLogs} callLogs
+ * @property {string} id - The server response's ID.
+ * @property {string} responseName - The server response's name.
+ * @property {string} servedAt - The date and time at which the server response was served.
+ * @property {CallLogsRequest1} request - The server response's request information.
+ * @property {CallLogsResponse1} response - The server response's response information.
  */
 export type CallLogs = z.infer<typeof callLogs>;
 

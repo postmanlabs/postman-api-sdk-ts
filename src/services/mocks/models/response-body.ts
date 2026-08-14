@@ -13,8 +13,8 @@ export const responseBody = z.lazy(() => {
 
 /**
  * The response's body information.
- * @typedef  {ResponseBody} responseBody - The response's body information. - The response's body information.
- * @property {string} - The response body's contents.
+ * @typedef {ResponseBody} responseBody
+ * @property {string} data - The response body's contents.
  */
 export type ResponseBody = z.infer<typeof responseBody>;
 

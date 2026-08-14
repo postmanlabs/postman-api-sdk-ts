@@ -14,9 +14,9 @@ export const successfulResponseTask = z.lazy(() => {
 
 /**
  * Information about the merge task.
- * @typedef  {SuccessfulResponseTask} successfulResponseTask - Information about the merge task. - Information about the merge task.
- * @property {string} - The task's ID.
- * @property {string} - The task's status.
+ * @typedef {SuccessfulResponseTask} successfulResponseTask
+ * @property {string} id - The task's ID.
+ * @property {string} status - The task's status.
  */
 export type SuccessfulResponseTask = z.infer<typeof successfulResponseTask>;
 

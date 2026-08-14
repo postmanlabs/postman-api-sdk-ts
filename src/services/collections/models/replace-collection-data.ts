@@ -18,9 +18,8 @@ export const replaceCollectionData = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ReplaceCollectionData} replaceCollectionData
- * @property {ModifyCollectionSchema}
+ * @typedef {ReplaceCollectionData} replaceCollectionData
+ * @property {ModifyCollectionSchema} collection
  */
 export type ReplaceCollectionData = z.infer<typeof replaceCollectionData>;
 

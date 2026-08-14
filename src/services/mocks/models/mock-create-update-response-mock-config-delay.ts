@@ -15,10 +15,10 @@ export const mockCreateUpdateResponseMockConfigDelay = z.lazy(() => {
 
 /**
  * Information about the mock server's simulated network delay settings. This returns a null value if there are no configured network delay settings.
- * @typedef  {MockCreateUpdateResponseMockConfigDelay} mockCreateUpdateResponseMockConfigDelay - Information about the mock server's simulated network delay settings. This returns a null value if there are no configured network delay settings. - Information about the mock server's simulated network delay settings. This returns a null value if there are no configured network delay settings.
- * @property {MockCreateUpdateResponseMockConfigDelayType} - The `fixed` value.
- * @property {number} - For custom network delays, the custom configured delay, in milliseconds.
- * @property {MockCreateUpdateResponseMockConfigDelayPreset} - The simulated fixed network delay value:
+ * @typedef {MockCreateUpdateResponseMockConfigDelay} mockCreateUpdateResponseMockConfigDelay
+ * @property {MockCreateUpdateResponseMockConfigDelayType} type - The `fixed` value.
+ * @property {number} duration - For custom network delays, the custom configured delay, in milliseconds.
+ * @property {MockCreateUpdateResponseMockConfigDelayPreset} preset - The simulated fixed network delay value:
 - `1` — 2G (300 ms).
 - `2` — 3G (100 ms).
 The object does not return this value for custom delay values.

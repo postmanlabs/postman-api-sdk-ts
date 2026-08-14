@@ -14,9 +14,9 @@ export const collectionForksInfoMeta = z.lazy(() => {
 
 /**
  * The response's meta information for paginated results.
- * @typedef  {CollectionForksInfoMeta} collectionForksInfoMeta - The response's meta information for paginated results. - The response's meta information for paginated results.
- * @property {string} - The pagination cursor that points to the next record in the results set.
- * @property {number} - The total number of forked collections.
+ * @typedef {CollectionForksInfoMeta} collectionForksInfoMeta
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
+ * @property {number} total - The total number of forked collections.
  */
 export type CollectionForksInfoMeta = z.infer<typeof collectionForksInfoMeta>;
 

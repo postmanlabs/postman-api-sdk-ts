@@ -25,10 +25,9 @@ export const collectionAccessKeys = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionAccessKeys} collectionAccessKeys
- * @property {CollectionAccessKeysData[]} - A list of collection access keys.
- * @property {CollectionAccessKeysMeta} - The response's non-standard metadata information.
+ * @typedef {CollectionAccessKeys} collectionAccessKeys
+ * @property {CollectionAccessKeysData[]} data - A list of collection access keys.
+ * @property {CollectionAccessKeysMeta} meta - The response's non-standard metadata information.
  */
 export type CollectionAccessKeys = z.infer<typeof collectionAccessKeys>;
 

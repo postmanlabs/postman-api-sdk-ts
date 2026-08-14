@@ -11,9 +11,7 @@ export const errorNameMessageDetailsErrorDetails = z.lazy(() => {
 
 /**
  * Information about the error.
- * @typedef  {ErrorNameMessageDetailsErrorDetails} errorNameMessageDetailsErrorDetails - Information about the error. - Information about the error.
- * @property {any}
- * @property {string[]}
+ * @typedef {ErrorNameMessageDetailsErrorDetails} errorNameMessageDetailsErrorDetails
  */
 export type ErrorNameMessageDetailsErrorDetails = z.infer<
   typeof errorNameMessageDetailsErrorDetails

@@ -21,12 +21,11 @@ export const createAccessRequest = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateAccessRequest} createAccessRequest
- * @property {TeamEntityInfo[]} - A list of the entities for which to create access requests.
- * @property {CreateAccessRequestRole} - The team role to request.
- * @property {string} - The reason for the access request.
- * @property {RequestType} - The type of access request.
+ * @typedef {CreateAccessRequest} createAccessRequest
+ * @property {TeamEntityInfo[]} entityList - A list of the entities for which to create access requests.
+ * @property {CreateAccessRequestRole} role - The team role to request.
+ * @property {string} reason - The reason for the access request.
+ * @property {RequestType} requestType - The type of access request.
  */
 export type CreateAccessRequest = z.infer<typeof createAccessRequest>;
 

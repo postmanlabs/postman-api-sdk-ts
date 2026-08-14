@@ -20,11 +20,10 @@ export const collectionResponseUpdated = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionResponseUpdated} collectionResponseUpdated
- * @property {CollectionResponseUpdatedData} - Information about the updated response. For a complete list of response properties, refer to the ``Response`` entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @property {any} - A Postman-specific response that contains information about the internal performed operation.
- * @property {string} - The response's ID.
+ * @typedef {CollectionResponseUpdated} collectionResponseUpdated
+ * @property {CollectionResponseUpdatedData} data - Information about the updated response. For a complete list of response properties, refer to the ``Response`` entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
+ * @property {any} meta - A Postman-specific response that contains information about the internal performed operation.
+ * @property {string} modelId - The response's ID.
  */
 export type CollectionResponseUpdated = z.infer<typeof collectionResponseUpdated>;
 

@@ -14,12 +14,12 @@ export const collectionRolesInfoTeam = z.lazy(() => {
 
 /**
  * Information about the team role.
- * @typedef  {CollectionRolesInfoTeam} collectionRolesInfoTeam - Information about the team role. - Information about the team role.
- * @property {TeamRole} - The role type:
+ * @typedef {CollectionRolesInfoTeam} collectionRolesInfoTeam
+ * @property {TeamRole} role - The role type:
 - `VIEWER` — Can view, fork, and export collections.
 - `EDITOR` — Can edit collections directly.
 
- * @property {number} - The role's ID.
+ * @property {number} id - The role's ID.
  */
 export type CollectionRolesInfoTeam = z.infer<typeof collectionRolesInfoTeam>;
 

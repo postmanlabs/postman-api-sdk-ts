@@ -20,11 +20,10 @@ export const asyncTaskFailed = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {AsyncTaskFailed} asyncTaskFailed
- * @property {string} - Details about the generation error.
- * @property {AsyncTaskFailedMeta} - The response's non-standard meta information.
- * @property {AsyncTaskFailedStatus} - The task's current status.
+ * @typedef {AsyncTaskFailed} asyncTaskFailed
+ * @property {string} details - Details about the generation error.
+ * @property {AsyncTaskFailedMeta} meta - The response's non-standard meta information.
+ * @property {AsyncTaskFailedStatus} status - The task's current status.
  */
 export type AsyncTaskFailed = z.infer<typeof asyncTaskFailed>;
 

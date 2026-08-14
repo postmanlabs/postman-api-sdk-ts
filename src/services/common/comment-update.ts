@@ -20,9 +20,9 @@ export const commentUpdate = z.lazy(() => {
 
 /**
  * Information about the comment.
- * @typedef  {CommentUpdate} commentUpdate - Information about the comment. - Information about the comment.
- * @property {string} - The contents of the comment.
- * @property {TaggedUsers} - Information about users tagged in the `body` comment.
+ * @typedef {CommentUpdate} commentUpdate
+ * @property {string} body - The contents of the comment.
+ * @property {TaggedUsers} tags - Information about users tagged in the `body` comment.
  */
 export type CommentUpdate = z.infer<typeof commentUpdate>;
 

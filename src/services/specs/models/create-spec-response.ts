@@ -18,15 +18,14 @@ export const createSpecResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateSpecResponse} createSpecResponse
- * @property {string} - The API specification's name.
- * @property {SpecType} - The type of API specification.
- * @property {string} - The specification's ID.
- * @property {string} - The date and time at which the specification file was created.
- * @property {string} - The date and time at which the file was last updated.
- * @property {number} - The user ID of the user that created the file.
- * @property {number} - The user ID of the user that last updated the specification file.
+ * @typedef {CreateSpecResponse} createSpecResponse
+ * @property {string} name - The API specification's name.
+ * @property {SpecType} type - The type of API specification.
+ * @property {string} id - The specification's ID.
+ * @property {string} createdAt - The date and time at which the specification file was created.
+ * @property {string} updatedAt - The date and time at which the file was last updated.
+ * @property {number} createdBy - The user ID of the user that created the file.
+ * @property {number} updatedBy - The user ID of the user that last updated the specification file.
  */
 export type CreateSpecResponse = z.infer<typeof createSpecResponse>;
 

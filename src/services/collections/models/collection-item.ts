@@ -53,18 +53,18 @@ export const collectionItem = z.lazy(() => {
 
 /**
  * Information about the collection request or folder.
- * @typedef  {CollectionItem} collectionItem - Information about the collection request or folder. - Information about the collection request or folder.
- * @property {string} - The collection item's ID.
- * @property {string} - The item's name.
- * @property {string} - The item's description.
- * @property {VariableList2[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
- * @property {CollectionEvent[]} - A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID.
- * @property {ResponseOriginalRequest2} - Information about the collection request.
- * @property {ItemResponse2[]} - A list of the collection's responses.
- * @property {ProtocolProfileBehavior} - The [settings](https://learning.postman.com/docs/sending-requests/create-requests/request-settings/) used to alter the [Protocol Profile Behavior](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md) of sending a request.
- * @property {string} - The date and time at which the collection item was created.
- * @property {string} - The date and time at which the collection item was updated.
- * @property {string} - The collection item's unique ID.
+ * @typedef {CollectionItem} collectionItem
+ * @property {string} id - The collection item's ID.
+ * @property {string} name - The item's name.
+ * @property {string} description - The item's description.
+ * @property {VariableList2[]} variable - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
+ * @property {CollectionEvent[]} event - A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID.
+ * @property {ResponseOriginalRequest2} request - Information about the collection request.
+ * @property {ItemResponse2[]} response - A list of the collection's responses.
+ * @property {ProtocolProfileBehavior} protocolProfileBehavior - The [settings](https://learning.postman.com/docs/sending-requests/create-requests/request-settings/) used to alter the [Protocol Profile Behavior](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md) of sending a request.
+ * @property {string} createdAt - The date and time at which the collection item was created.
+ * @property {string} updatedAt - The date and time at which the collection item was updated.
+ * @property {string} uid - The collection item's unique ID.
  */
 export type CollectionItem = z.infer<typeof collectionItem>;
 

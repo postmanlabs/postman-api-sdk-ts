@@ -15,16 +15,16 @@ export const getMockServerMockConfigDelay = z.lazy(() => {
 
 /**
  * Information about the mock server's simulated network delay settings. This returns a null value if there are no configured network delay settings.
- * @typedef  {GetMockServerMockConfigDelay} getMockServerMockConfigDelay - Information about the mock server's simulated network delay settings. This returns a null value if there are no configured network delay settings. - Information about the mock server's simulated network delay settings. This returns a null value if there are no configured network delay settings.
- * @property {GetMockServerMockConfigDelayType} - The type of simulated delay value:
+ * @typedef {GetMockServerMockConfigDelay} getMockServerMockConfigDelay
+ * @property {GetMockServerMockConfigDelayType} type - The type of simulated delay value:
 - `fixed` — The delay value is a fixed value.
 
- * @property {GetMockServerMockConfigDelayPreset} - The simulated fixed network delay value:
+ * @property {GetMockServerMockConfigDelayPreset} preset - The simulated fixed network delay value:
 - `1` — 2G (300 ms).
 - `2` — 3G (100 ms).
 The object does not return this value for custom delay values.
 
- * @property {number} - The configured delay, in milliseconds.
+ * @property {number} duration - The configured delay, in milliseconds.
  */
 export type GetMockServerMockConfigDelay = z.infer<typeof getMockServerMockConfigDelay>;
 

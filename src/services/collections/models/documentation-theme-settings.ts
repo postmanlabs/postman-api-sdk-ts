@@ -20,11 +20,10 @@ export const documentationThemeSettings = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {DocumentationThemeSettings} documentationThemeSettings
- * @property {DocumentationThemeSettingsName} - The `light` or `dark` theme.
- * @property {DocumentationColorSettings} - The theme's colors, in six digit hexcode. The values in this object must match the hexcode values of either the `light` or `dark` theme defined in the `appearance` object.
- * @property {string} - The URL to the documentation's logo image. By default, public documentation uses your team logo.
+ * @typedef {DocumentationThemeSettings} documentationThemeSettings
+ * @property {DocumentationThemeSettingsName} name - The `light` or `dark` theme.
+ * @property {DocumentationColorSettings} colors - The theme's colors, in six digit hexcode. The values in this object must match the hexcode values of either the `light` or `dark` theme defined in the `appearance` object.
+ * @property {string} logo - The URL to the documentation's logo image. By default, public documentation uses your team logo.
  */
 export type DocumentationThemeSettings = z.infer<typeof documentationThemeSettings>;
 

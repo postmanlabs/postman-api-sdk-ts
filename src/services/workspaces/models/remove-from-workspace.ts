@@ -18,8 +18,8 @@ export const removeFromWorkspace = z.lazy(() => {
 
 /**
  * The target on which to perform the action.
- * @typedef  {RemoveFromWorkspace} removeFromWorkspace - The target on which to perform the action. - The target on which to perform the action.
- * @property {string[]} - A list of partner user IDs to remove from the Partner Workspace.
+ * @typedef {RemoveFromWorkspace} removeFromWorkspace
+ * @property {string[]} userIds - A list of partner user IDs to remove from the Partner Workspace.
  */
 export type RemoveFromWorkspace = z.infer<typeof removeFromWorkspace>;
 

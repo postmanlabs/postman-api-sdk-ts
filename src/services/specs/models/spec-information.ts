@@ -20,15 +20,15 @@ export const specInformation = z.lazy(() => {
 
 /**
  * Information about the API specification.
- * @typedef  {SpecInformation} specInformation - Information about the API specification. - Information about the API specification.
- * @property {string} - The specification's ID.
- * @property {FileFormat} - The specification's file format.
- * @property {string} - The specification's name.
- * @property {SpecType} - The type of API specification.
- * @property {number} - The user ID of the user that created the specification.
- * @property {number} - The ID of the user who updated the specification.
- * @property {string} - The date and time at which the specification was created.
- * @property {string} - The date and time at which the specification was updated.
+ * @typedef {SpecInformation} specInformation
+ * @property {string} id - The specification's ID.
+ * @property {FileFormat} fileFormat - The specification's file format.
+ * @property {string} name - The specification's name.
+ * @property {SpecType} type - The type of API specification.
+ * @property {number} createdBy - The user ID of the user that created the specification.
+ * @property {number} updatedBy - The ID of the user who updated the specification.
+ * @property {string} createdAt - The date and time at which the specification was created.
+ * @property {string} updatedAt - The date and time at which the specification was updated.
  */
 export type SpecInformation = z.infer<typeof specInformation>;
 

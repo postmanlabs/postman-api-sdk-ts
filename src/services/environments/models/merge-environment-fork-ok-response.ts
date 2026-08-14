@@ -18,9 +18,8 @@ export const mergeEnvironmentForkOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MergeEnvironmentForkOkResponse} mergeEnvironmentForkOkResponse
- * @property {SuccessfulResponseEnvironment2} - Information about the merged environment.
+ * @typedef {MergeEnvironmentForkOkResponse} mergeEnvironmentForkOkResponse
+ * @property {SuccessfulResponseEnvironment2} environment - Information about the merged environment.
  */
 export type MergeEnvironmentForkOkResponse = z.infer<typeof mergeEnvironmentForkOkResponse>;
 

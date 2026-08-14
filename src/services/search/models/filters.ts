@@ -19,8 +19,8 @@ export const filters = z.lazy(() => {
 
 /**
  * The search filters to narrow results.
- * @typedef  {Filters} filters - The search filters to narrow results. - The search filters to narrow results.
- * @property {SearchFilters[]} - A list of filter conditions that must all be true. Each item must contain exactly one filter.
+ * @typedef {Filters} filters
+ * @property {SearchFilters[]} _and - A list of filter conditions that must all be true. Each item must contain exactly one filter.
  */
 export type Filters = z.infer<typeof filters>;
 

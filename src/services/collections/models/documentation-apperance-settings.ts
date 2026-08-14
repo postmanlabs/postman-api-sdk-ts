@@ -20,9 +20,9 @@ export const documentationApperanceSettings = z.lazy(() => {
 
 /**
  * Information about the documentation appearance, such as colors and theme.
- * @typedef  {DocumentationApperanceSettings} documentationApperanceSettings - Information about the documentation appearance, such as colors and theme. - Information about the documentation appearance, such as colors and theme.
- * @property {Default_} - The default color theme (`light` or `dark`). Documentation uses the given theme value by default.
- * @property {DocumentationThemeSettings[]} - A list of theme settings for the `light` and `dark` themes.
+ * @typedef {DocumentationApperanceSettings} documentationApperanceSettings
+ * @property {Default_} default - The default color theme (`light` or `dark`). Documentation uses the given theme value by default.
+ * @property {DocumentationThemeSettings[]} themes - A list of theme settings for the `light` and `dark` themes.
  */
 export type DocumentationApperanceSettings = z.infer<typeof documentationApperanceSettings>;
 

@@ -12,9 +12,8 @@ export const migrateToExistingWorkspace = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MigrateToExistingWorkspace} migrateToExistingWorkspace
- * @property {string} - The ID of an existing workspace to migrate the definition to.
+ * @typedef {MigrateToExistingWorkspace} migrateToExistingWorkspace
+ * @property {string} workspaceId - The ID of an existing workspace to migrate the definition to.
  */
 export type MigrateToExistingWorkspace = z.infer<typeof migrateToExistingWorkspace>;
 

@@ -31,26 +31,26 @@ export const sdkGitConnection = z.lazy(() => {
 
 /**
  * Information about the SDK's Git connection to a Postman element.
- * @typedef  {SdkGitConnection} sdkGitConnection - Information about the SDK's Git connection to a Postman element. - Information about the SDK's Git connection to a Postman element.
- * @property {string} - The Git connection's ID.
- * @property {SdkSource} - The collection or specification that the SDK is generated from.
- * @property {SdkLanguage} - The target output language for the generated SDK.
- * @property {SdkGitConnectionStatus} - The lifecycle status of the Git connection:
+ * @typedef {SdkGitConnection} sdkGitConnection
+ * @property {string} sdkGitConnectionId - The Git connection's ID.
+ * @property {SdkSource} source - The collection or specification that the SDK is generated from.
+ * @property {SdkLanguage} language - The target output language for the generated SDK.
+ * @property {SdkGitConnectionStatus} status - The lifecycle status of the Git connection:
 - `active` — The connection is live and all opened pull requests ship SDK updates into the repository.
 - `disconnected` — The connection was explicitly disconnected by the owner, and no pull requests can be opened. The historical record is preserved.
 - `inaccessible` — Access to the repository was revoked or its no longer reachable.
 
- * @property {string} - The canonical URL of the target Git repository.
- * @property {string} - The branch the SDK is published to. This defaults to the `main` value.
- * @property {boolean} - If true, pull requests are opened automatically whenever the source changes or a new version of the SDK generator is released. If false, pull requests are opened automatically, but only for manually-triggered SDK regeneration. If `autoUpdatePullRequestsEnabled` isn't set, the default behavior depends on the user's Postman plan:
+ * @property {string} repositoryUrl - The canonical URL of the target Git repository.
+ * @property {string} targetBranch - The branch the SDK is published to. This defaults to the `main` value.
+ * @property {boolean} autoUpdatePullRequestsEnabled - If true, pull requests are opened automatically whenever the source changes or a new version of the SDK generator is released. If false, pull requests are opened automatically, but only for manually-triggered SDK regeneration. If `autoUpdatePullRequestsEnabled` isn't set, the default behavior depends on the user's Postman plan:
 
 - ``Enterprise`` plan users — Defaults to the `true` value.
 - ``Team`` plan users and read only — Defaults to the `false` value.
 
- * @property {Sdk} - Information about the generated SDK.
- * @property {SimpleSdkGitConnectionPullRequest[]} - A list of SDK update pull requests on the Git connection, in order of newest first by its `updatedAt` property. This returns an empty value if no pull requests have been opened yet. For full pull request details, use the GET `/sdk-git-connections/{sdkGitConnectionId}/pull-requests` endpoint.
- * @property {string} - The date and time at which the Git connection was created.
- * @property {string} - The date and time at which the Git connection was last updated.
+ * @property {Sdk} sdk - Information about the generated SDK.
+ * @property {SimpleSdkGitConnectionPullRequest[]} pullRequests - A list of SDK update pull requests on the Git connection, in order of newest first by its `updatedAt` property. This returns an empty value if no pull requests have been opened yet. For full pull request details, use the GET `/sdk-git-connections/{sdkGitConnectionId}/pull-requests` endpoint.
+ * @property {string} createdAt - The date and time at which the Git connection was created.
+ * @property {string} updatedAt - The date and time at which the Git connection was last updated.
  */
 export type SdkGitConnection = z.infer<typeof sdkGitConnection>;
 

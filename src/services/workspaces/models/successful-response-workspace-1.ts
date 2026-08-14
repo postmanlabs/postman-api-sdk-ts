@@ -14,9 +14,9 @@ export const successfulResponseWorkspace1 = z.lazy(() => {
 
 /**
  * Information about the created workspace.
- * @typedef  {SuccessfulResponseWorkspace1} successfulResponseWorkspace1 - Information about the created workspace. - Information about the created workspace.
- * @property {string} - The workspace's ID.
- * @property {string} - The workspace's name.
+ * @typedef {SuccessfulResponseWorkspace1} successfulResponseWorkspace1
+ * @property {string} id - The workspace's ID.
+ * @property {string} name - The workspace's name.
  */
 export type SuccessfulResponseWorkspace1 = z.infer<typeof successfulResponseWorkspace1>;
 

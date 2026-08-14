@@ -15,9 +15,9 @@ export const environmentVariableSource = z.lazy(() => {
 
 /**
  * Information about the source of the variable's value.
- * @typedef  {EnvironmentVariableSource} environmentVariableSource - Information about the source of the variable's value. - Information about the source of the variable's value.
- * @property {Postman} - Information about the Postman-specific source of the variable's value.
- * @property {Provider} - The secret's provider.
+ * @typedef {EnvironmentVariableSource} environmentVariableSource
+ * @property {Postman} postman - Information about the Postman-specific source of the variable's value.
+ * @property {Provider} provider - The secret's provider.
  */
 export type EnvironmentVariableSource = z.infer<typeof environmentVariableSource>;
 

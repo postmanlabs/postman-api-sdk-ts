@@ -14,9 +14,9 @@ export const searchRequestsCollectionData = z.lazy(() => {
 
 /**
  * Information about the collection containing the resource. Returns only for requests.
- * @typedef  {SearchRequestsCollectionData} searchRequestsCollectionData - Information about the collection containing the resource. Returns only for requests. - Information about the collection containing the resource. Returns only for requests.
- * @property {string} - The collection's ID.
- * @property {string} - The collection's name.
+ * @typedef {SearchRequestsCollectionData} searchRequestsCollectionData
+ * @property {string} id - The collection's ID.
+ * @property {string} name - The collection's name.
  */
 export type SearchRequestsCollectionData = z.infer<typeof searchRequestsCollectionData>;
 
