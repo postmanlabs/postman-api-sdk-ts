@@ -1,0 +1,40 @@
+name: Publish to npm
+
+# The FILENAME of this workflow is load-bearing: npmjs.org's trusted publisher for
+# @postman/api-sdk is pinned to `publish.yml`, and when the publish runs through a
+# `workflow_call` npm validates the CALLING workflow's filename, not the one holding the
+# `npm publish` step (https://docs.npmjs.com/trusted-publishers, "Troubleshooting").
+# Renaming this file breaks the OIDC token exchange, and npm then answers the publish
+# with a bare `404 Not Found - PUT` instead of an auth error. Keep it in sync with the
+# trusted publisher config on npmjs.org.
+
+on:
+  push:
+    branches: ['main']
+  # Lets a publish that failed for a non-code reason (registry auth, a dist-tag
+  # conflict) be retried without an empty commit on `main`.
+  workflow_dispatch:
+
+jobs:
+  publish:
+    uses: ./.github/workflows/_publish.yml
+    permissions:
+      contents: read
+      id-token: write
+    with:
+      registry-url: 'https://registry.npmjs.org'
+      use-oidc: true
+
+  release:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Tag the release and publish notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.publish.outputs.version }}
+        run: gh release create "v$VERSION" --generate-notes --title "v$VERSION" --target "$GITHUB_SHA"

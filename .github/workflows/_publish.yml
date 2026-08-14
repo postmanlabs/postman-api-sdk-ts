@@ -72,6 +72,13 @@ jobs:
         if: ${{ inputs.package-name != '' }}
         run: npm pkg set name="${{ inputs.package-name }}"
 
+      # Both publishes let npm apply `latest` implicitly, which npm refuses when the
+      # registry already holds a HIGHER version than the one being published. So a version
+      # that reaches a registry by mistake blocks every later publish to it until that
+      # version is removed — it can't be published past. See PSTAPI-1620.
+      #
+      # The OIDC path is validated against the trusted publisher configured on npmjs.org,
+      # which pins the CALLER workflow's filename — see the header of `publish.yml`.
       - name: Publish via OIDC trusted publishing
         if: ${{ inputs.use-oidc }}
         run: npm publish --registry=${{ inputs.registry-url }} --provenance
