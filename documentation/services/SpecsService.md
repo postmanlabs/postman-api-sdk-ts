@@ -192,7 +192,7 @@ import { ElementId, ElementType, PostmanApi } from '@postman/api-sdk';
   });
 
   const elementType = ElementType.COLLECTIONS;
-  const elementId = 'consectetu';
+  const elementId = 'exercitation e';
 
   const data = await postmanApi.specs.getAsyncSpecTaskStatus(
     elementType,
