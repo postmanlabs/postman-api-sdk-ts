@@ -1,10 +1,10 @@
-# PostmanApi TypeScript SDK 2.0.0
+# PostmanApi TypeScript SDK 1.45.0
 
 Welcome to the PostmanApi SDK documentation. This guide will help you get started with integrating and using the PostmanApi SDK in your project.
 
 ## Versions
 
-- SDK version: `2.0.0`
+- SDK version: `1.45.0`
 
 ## About the API
 
