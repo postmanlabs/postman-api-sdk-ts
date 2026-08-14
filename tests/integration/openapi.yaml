@@ -69,6 +69,7 @@ info:
     - Postman Monitors, as well as the GET `/collections`, GET `/workspaces`, and GET `/workspaces/{id}` endpoints have a rate limit of **10 calls in 10 seconds**.
     - Workspace updates endpoints have a rate limit of **20 requests per minute per user**.
     - The POST `/service-account-tokens` endpoint has a rate limit of **10 requests per 10 second window per user**.
+    - The POST `/import/openapi` endpoint has a rate limit of **10 requests in 10 seconds**.
 
     Depending on your [plan](https://www.postman.com/pricing/), you may also have [usage limits](https://learning.postman.com/docs/billing/resource-usage/). Every API response includes headers to help you identify the status of your use limits. For more information, see [Track Postman API call limits](https://learning.postman.com/docs/developer/postman-api/postman-api-rate-limits/).
 
@@ -89,7 +90,7 @@ info:
 
     - [Postman Terms of Service](http://www.postman.com/legal/terms/)
     - [Postman Privacy Policy](https://www.postman.com/legal/privacy-policy/)
-  version: 1.44.1
+  version: 1.45.0
   termsOfService: https://www.postman.com/legal/terms/
   contact:
     name: Postman Support
@@ -281,6 +282,12 @@ tags:
       **Note:**
 
       These endpoints use Basic Auth. You must pass a valid client ID and client secret for the username and password, respectively.
+  - name: Packages
+    description: The **Packages** endpoints enable you to manage your team's
+      [Postman Package
+      Library](https://learning.postman.com/docs/tests-and-scripts/write-scripts/packages/package-library).
+      The package library lets you store and share your team's commonly used
+      scripts as reusable packages in Postman.
   - name: Partner Workspaces
     description: These endpoints enable you to manage your [Partner
       Workspaces](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/overview/).
@@ -2915,6 +2922,7 @@ paths:
 
         **Note:**
 
+        - This endpoint has a rate limit of **10 requests per 10 seconds**.
         - The Postman web app does not support the `file` input method type.
         - If you do not include the `workspace` query parameter, the system imports the definition into the oldest personal Internal workspace you own.
         - For an example of importing a file, see the [Postman API collection](https://www.postman.com/postman/postman-public-workspace/example/12959542-08d74ce2-8150-4f72-99a7-11e60492eb47).
@@ -3668,6 +3676,137 @@ paths:
           $ref: "#/components/responses/common500Error"
       security:
         - {}
+  /packages:
+    post:
+      summary: Create a package
+      description: Creates a package and its index script as a Postman Package Library
+        resource.
+      operationId: createPackage
+      tags:
+        - Packages
+      requestBody:
+        $ref: "#/components/requestBodies/createPackage"
+      responses:
+        "201":
+          $ref: "#/components/responses/createPackageResponse"
+        "400":
+          $ref: "#/components/responses/packages400Error"
+        "401":
+          $ref: "#/components/responses/packages401Error"
+        "403":
+          $ref: "#/components/responses/packages403Error"
+        "409":
+          $ref: "#/components/responses/packages409Error"
+        "429":
+          $ref: "#/components/responses/packages429Error"
+        "500":
+          $ref: "#/components/responses/packages500Error"
+      parameters:
+        - $ref: "#/components/parameters/workspaceQueryTrue"
+    get:
+      summary: Get all packages
+      description: |
+        Gets all active packages available to the authenticated user.
+
+        **Note:**
+
+        Script content isn't included in response.
+      operationId: getPackages
+      tags:
+        - Packages
+      responses:
+        "200":
+          $ref: "#/components/responses/getPackages"
+        "400":
+          $ref: "#/components/responses/packages400Error"
+        "401":
+          $ref: "#/components/responses/packages401Error"
+        "403":
+          $ref: "#/components/responses/packages403Error"
+        "429":
+          $ref: "#/components/responses/packages429Error"
+        "500":
+          $ref: "#/components/responses/packages500Error"
+      parameters:
+        - $ref: "#/components/parameters/limitDefault100Max100"
+        - $ref: "#/components/parameters/cursor"
+  /packages/{packageId}:
+    get:
+      summary: Get a package
+      description: Gets an active package's metadata and its current index script content.
+      operationId: getPackage
+      tags:
+        - Packages
+      responses:
+        "200":
+          $ref: "#/components/responses/getPackage"
+        "400":
+          $ref: "#/components/responses/packages400Error"
+        "401":
+          $ref: "#/components/responses/packages401Error"
+        "403":
+          $ref: "#/components/responses/packages403Error"
+        "404":
+          $ref: "#/components/responses/packages404Error"
+        "429":
+          $ref: "#/components/responses/packages429Error"
+        "500":
+          $ref: "#/components/responses/packages500Error"
+    patch:
+      summary: Update a package
+      description: Updates a package's description and/or index script content.
+      operationId: updatePackage
+      tags:
+        - Packages
+      requestBody:
+        $ref: "#/components/requestBodies/updatePackage"
+      responses:
+        "200":
+          $ref: "#/components/responses/updatePackageResponse"
+        "400":
+          $ref: "#/components/responses/packages400Error"
+        "401":
+          $ref: "#/components/responses/packages401Error"
+        "403":
+          $ref: "#/components/responses/packages403Error"
+        "404":
+          $ref: "#/components/responses/packages404Error"
+        "429":
+          $ref: "#/components/responses/packages429Error"
+        "500":
+          $ref: "#/components/responses/packages500Error"
+    delete:
+      summary: Delete a package
+      description: >
+        Deletes the package and its associated index script content. On success,
+        this returns an HTTP `204 No Content` response.
+
+
+        **Note:**
+
+
+        The endpoint returns an HTTP `204 No Content` response even if the
+        package no longer exists.
+      operationId: deletePackage
+      tags:
+        - Packages
+      responses:
+        "204":
+          description: Package Deleted
+        "400":
+          $ref: "#/components/responses/packages400Error"
+        "401":
+          $ref: "#/components/responses/packages401Error"
+        "403":
+          $ref: "#/components/responses/packages403Error"
+        "404":
+          $ref: "#/components/responses/packages404Error"
+        "429":
+          $ref: "#/components/responses/packages429Error"
+        "500":
+          $ref: "#/components/responses/packages500Error"
+    parameters:
+      - $ref: "#/components/parameters/packageId"
   /postbot/generations/tool:
     post:
       deprecated: true
@@ -5142,7 +5281,7 @@ paths:
       parameters:
         - $ref: "#/components/parameters/workspaceTypeQuery"
         - $ref: "#/components/parameters/workspaceCreatedBy"
-        - $ref: "#/components/parameters/workspaceIncludeQuery"
+        - $ref: "#/components/parameters/workspacesIncludeQuery"
         - $ref: "#/components/parameters/workspaceElementTypeQuery"
         - $ref: "#/components/parameters/workspaceElementIdQuery"
         - $ref: "#/components/parameters/cursor"
@@ -7010,7 +7149,6 @@ components:
                   enum:
                     - passed
                     - failed
-                    - null
                   example: failed
             cliRun:
               type: object
@@ -7026,7 +7164,6 @@ components:
                   enum:
                     - passed
                     - failed
-                    - null
                   example: failed
             specLint:
               type: object
@@ -7042,7 +7179,6 @@ components:
                   enum:
                     - passed
                     - failed
-                    - null
                   example: passed
         createdAt:
           type: string
@@ -7217,7 +7353,6 @@ components:
               enum:
                 - passed
                 - failed
-                - null
               example: failed
             totalMonitors:
               type: integer
@@ -7264,7 +7399,6 @@ components:
               enum:
                 - passed
                 - failed
-                - null
               example: failed
             activePipelines:
               type: integer
@@ -7307,7 +7441,6 @@ components:
               enum:
                 - passed
                 - failed
-                - null
               example: passed
             totalSpecs:
               type: integer
@@ -12684,6 +12817,65 @@ components:
           format: uid
           description: The collection item's unique ID.
           example: 12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551
+    collection-variable:
+      title: Collection Variable Info
+      description: Information about a collection-level variable. Collection variables
+        don't support `id`, `description`, or `enabled` fields. Use `disabled`
+        to control whether a variable is active.
+      type: object
+      properties:
+        key:
+          type: string
+          description: The variable's key (name).
+          example: userId
+        value:
+          anyOf:
+            - type: string
+              title: string
+            - type: boolean
+              title: boolean
+            - type: integer
+              title: integer
+          description: The key's value.
+          example: "{{userId}}"
+        disabled:
+          type: boolean
+          default: false
+          description: If true, the variable is not enabled.
+    collection-secret-variable:
+      title: Collection Secret Variable Info
+      description: Information about a collection-level secret variable. Collection
+        variables don't have an `id` field.
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          default: true
+          description: If true, the variable is enabled.
+          example: true
+        key:
+          type: string
+          description: The variable's key (name).
+          example: userId
+        secret:
+          $ref: "#/components/schemas/environmentSecret"
+        source:
+          $ref: "#/components/schemas/environmentVariableSource"
+        description:
+          type: string
+          maxLength: 512
+          description: The variable's description.
+          example: The user's ID.
+    collection-variable-list:
+      title: Collection Variables
+      type: array
+      description: A list of the collection's
+        [variables](https://learning.postman.com/docs/sending-requests/variables/variables/).
+        Make certain not to include sensitive information in variables.
+      items:
+        anyOf:
+          - $ref: "#/components/schemas/collection-variable"
+          - $ref: "#/components/schemas/collection-secret-variable"
     getCollection:
       title: Collection Information
       type: object
@@ -12765,7 +12957,7 @@ components:
             event:
               $ref: "#/components/schemas/event-list-2"
             variable:
-              $ref: "#/components/schemas/variable-list-2"
+              $ref: "#/components/schemas/collection-variable-list"
     Prefer:
       type: string
       enum:
@@ -12834,7 +13026,7 @@ components:
         event:
           $ref: "#/components/schemas/event-list-2"
         variable:
-          $ref: "#/components/schemas/variable-list-2"
+          $ref: "#/components/schemas/collection-variable-list"
         auth:
           $ref: "#/components/schemas/auth-2"
         protocolProfileBehavior:
@@ -12899,17 +13091,84 @@ components:
               format: uid
               description: The deleted collection's unique ID.
               example: 12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2
+    collection-script:
+      title: Script
+      type: object
+      description: Information about the Javascript code that runs on a
+        collection-level event. Unlike request-level scripts, collection-level
+        scripts require a client-supplied `id` value.
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: The script's ID. You must supply a value (for example, a UUID) when
+            creating or updating collection-level events.
+          example: 4981dd69-6138-45f6-990e-f122b267557f
+        type:
+          type: string
+          description: The type of script. For example, `text/javascript`.
+          example: text/javascript
+        exec:
+          type: array
+          description: A list of script strings, where each line represents a line of
+            code. Separate lines makes it easy to track script changes.
+          items:
+            type: string
+            nullable: true
+            example: var data = JSON.parse(responseBody);
+    collection-event:
+      title: Event
+      type: object
+      description: Information about a collection-level event. Collection events don't
+        accept a top-level `id`; the event is identified by its `script.id`
+        value, which the client must supply.
+      required:
+        - listen
+      properties:
+        listen:
+          type: string
+          description: The `prerequest` (pre-request) or `test` (post-response) value.
+          enum:
+            - test
+            - prerequest
+          example: test
+        script:
+          $ref: "#/components/schemas/collection-script"
+    collection-event-list:
+      title: Event List
+      type: array
+      description: A list of scripts configured to run when specific events occur on
+        the collection. Each event's `script.id` value must be supplied by the
+        client.
+      items:
+        $ref: "#/components/schemas/collection-event"
     patchCollection:
       title: Update Collection
       type: object
       properties:
         collection:
           type: object
+          description: >
+            The collection updates to apply. You must pass at least one of the
+            following: `info`, `variable`, `auth`, or `events`. Unsupported
+            properties are rejected.
+          additionalProperties: false
+          anyOf:
+            - required:
+                - info
+            - required:
+                - variable
+            - required:
+                - auth
+            - required:
+                - events
           properties:
             info:
               type: object
               description: An object that contains the collection's updated name and
                 description.
+              additionalProperties: false
               properties:
                 name:
                   type: string
@@ -12921,11 +13180,16 @@ components:
                   example: This collection makes a request to the Postman Echo service to get a
                     list of request headers sent by an HTTP client.
             variable:
-              $ref: "#/components/schemas/variable-list-2"
+              type: array
+              description: A list of the collection's variables to add or update. Secret
+                variables can't be set through this endpoint; manage cloud or
+                vault-backed secrets through environments instead.
+              items:
+                $ref: "#/components/schemas/collection-variable"
             auth:
               $ref: "#/components/schemas/auth-2"
             events:
-              $ref: "#/components/schemas/event-list-2"
+              $ref: "#/components/schemas/collection-event-list"
     patchCollectionResponse:
       title: Collection Updated
       type: object
@@ -15871,7 +16135,7 @@ components:
             obfuscatedSecret:
               type: string
               description: The secret's obfuscated value.
-              example: PMAK-EXAMPLE-VALUE-******ba
+              example: PMAK-644781584627df042afa6655-******ba
             secretHash:
               type: string
               description: The secret's SHA-256 hash.
@@ -19453,6 +19717,181 @@ components:
           type: string
           description: The `true` value.
           example: "true"
+    limitDefault100Max100:
+      type: integer
+      default: 100
+      minimum: 1
+      maximum: 100
+      example: 10
+    packageListData:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - name
+        - description
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: string
+          description: The package's unique ID.
+          example: 3b60f5f3-cd98-4e04-b560-3eb039fe85d8
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+          pattern: ^[a-z][a-z0-9_-]*$
+          description: The package's immutable, lowercase import name.
+          example: my-math-package
+        description:
+          type: string
+          maxLength: 500
+          pattern: ^[ -~]*$
+          description: The package's description.
+          example: This package contains utility functions to do math.
+        createdAt:
+          type: string
+          format: date-time
+          description: The date and time at which the package was created.
+          example: 2026-08-01T20:11:17.000Z
+        updatedAt:
+          type: string
+          format: date-time
+          description: The date and time at which the package was last updated.
+          example: 2026-08-01T20:11:17.000Z
+    getPackages:
+      type: object
+      additionalProperties: false
+      required:
+        - meta
+        - data
+      properties:
+        meta:
+          $ref: "#/components/schemas/meta"
+        data:
+          description: A list of active packages.
+          type: array
+          items:
+            $ref: "#/components/schemas/packageListData"
+    createPackage:
+      type: object
+      additionalProperties: false
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+          pattern: ^[a-zA-Z][a-zA-Z0-9_-]*$
+          description: The package's import name. The service stores this value in
+            lowercase.
+          example: my-math-package
+        description:
+          type: string
+          maxLength: 500
+          pattern: ^[ -~]*$
+          default: ""
+          description: The package's description. This value may be empty and only
+            supports printable ASCII characters.
+          example: A package that provides math functions.
+        script:
+          type: string
+          maxLength: 512000
+          default: ""
+          description: The package's initial index script content. This value may be empty.
+          example: "module.exports = { add: (a, b) => a + b };"
+    packageData:
+      type: object
+      additionalProperties: false
+      description: Information about the package.
+      required:
+        - id
+        - name
+        - description
+        - script
+        - createdBy
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: string
+          description: The package's ID.
+          example: 3b60f5f3-cd98-4e04-b560-3eb039fe85d8
+        name:
+          type: string
+          minLength: 1
+          maxLength: 200
+          pattern: ^[a-z][a-z0-9_-]*$
+          description: The package's immutable, lowercase import name.
+          example: my-math-package
+        description:
+          type: string
+          maxLength: 500
+          pattern: ^[ -~]*$
+          description: The package's description. This value may be empty and only
+            supports printable ASCII characters.
+          example: This package contains utility functions to do math.
+        script:
+          type: string
+          maxLength: 512000
+          description: The package's current index script content. This value may be empty.
+          example: "module.exports = { add: (a, b) => a + b };"
+        createdBy:
+          type: integer
+          minimum: 1
+          description: The user ID of the user who created the package.
+          example: 123456
+        createdAt:
+          type: string
+          format: date-time
+          description: The date and time at which the package was created.
+          example: 2026-08-01T20:11:17.000Z
+        updatedAt:
+          type: string
+          format: date-time
+          description: The date and time at which the package or its script was last
+            updated.
+          example: 2026-08-01T20:11:17.000Z
+    createPackageResponse:
+      title: Unified Package
+      description: Information about the created package and its index script content.
+      allOf:
+        - $ref: "#/components/schemas/packageData"
+    packageId:
+      type: string
+      example: 3b60f5f3-cd98-4e04-b560-3eb039fe85d8
+    unifiedPackageResponse:
+      type: object
+      title: Unified Package
+      description: Information about the created package and its index script content.
+      properties:
+        data:
+          $ref: "#/components/schemas/packageData"
+    getPackage:
+      allOf:
+        - $ref: "#/components/schemas/unifiedPackageResponse"
+    updatePackage:
+      type: object
+      additionalProperties: false
+      minProperties: 1
+      properties:
+        description:
+          type: string
+          maxLength: 500
+          pattern: ^[ -~]*$
+          description: The package's description. This value may be empty and only
+            supports printable ASCII characters.
+          example: A package that provides math functions.
+        script:
+          type: string
+          maxLength: 512000
+          description: The package's index script content. This value may be empty.
+          example: "module.exports = { add: (a, b) => a + b };"
+    updatePackageResponse:
+      allOf:
+        - $ref: "#/components/schemas/packageData"
     generateTool:
       title: Generate Tool
       type: object
@@ -21976,6 +22415,31 @@ components:
           description: A list of flow IDs to exclude.
           items:
             $ref: "#/components/schemas/flowId"
+    workspaceDocumentId:
+      type: string
+      example: 28d729e0-67f6-4551-9667-c3cc4e7b920f
+    searchFilterWorkspaceDocuments:
+      type: object
+      description: Filters by workspace document ID. Supported for workspace documents.
+      properties:
+        $eq:
+          type: string
+          description: The workspace document ID to match.
+          example: "1"
+        $ne:
+          type: string
+          description: The workspace document ID to exclude.
+          example: "1"
+        $in:
+          type: array
+          description: A list of workspace document IDs to match.
+          items:
+            $ref: "#/components/schemas/workspaceDocumentId"
+        $nin:
+          type: array
+          description: A list of workspace document IDs to exclude.
+          items:
+            $ref: "#/components/schemas/workspaceDocumentId"
     searchFilterEnvironmentId:
       type: object
       description: Filters by environment ID. Supported for `environments` only.
@@ -22077,7 +22541,8 @@ components:
     searchFilterGitConnected:
       type: object
       description: Filters by Git connection status. Supported for `workspaces`,
-        `collections`, `requests`, `environments`, `specs`, and `flows`.
+        `collections`, `requests`, `environments`, `specs`, `flows`, and
+        `documents`.
       properties:
         $eq:
           type: boolean
@@ -22139,6 +22604,8 @@ components:
           $ref: "#/components/schemas/searchFilterSpecId"
         flowId:
           $ref: "#/components/schemas/searchFilterFlowId"
+        documentId:
+          $ref: "#/components/schemas/searchFilterWorkspaceDocuments"
         environmentId:
           $ref: "#/components/schemas/searchFilterEnvironmentId"
         createdBy:
@@ -22174,6 +22641,7 @@ components:
             - collections
             - workspaces
             - environments
+            - documents
             - flows
             - specs
           example: requests
@@ -22320,8 +22788,9 @@ components:
           example: GET
         type:
           type: string
-          description: The resource type variant, such as HTTP or gRPC. Returns only for
-            requests.
+          description: The resource type variant. For requests, returns the protocol. For
+            workspace documents, the document's format, such as Markdown.
+            Returns only for requests and documents.
           example: http
         description:
           type: string
@@ -22337,6 +22806,11 @@ components:
           format: uri
           description: The request URL of the resource. Returns only for requests.
           example: https://postman-echo.com/get?team=alpha
+        isPinnedToWorkspace:
+          example: false
+          type: boolean
+          description: If true, the workspace document is pinned to its workspace. Returns
+            only for workspace documents.
         tags:
           type: array
           description: A list of tags associated with the resource. Returns only for
@@ -24287,9 +24761,9 @@ components:
     workspaceCreatedBy:
       type: integer
       example: 12345678
-    workspaceIncludeQuery:
+    workspacesIncludeQuery:
       type: string
-      example: mocks:deactivated
+      example: scim
       enum:
         - mocks:deactivated
         - scim
@@ -24556,6 +25030,10 @@ components:
               description: The list of partner in the workspace.
               items:
                 $ref: "#/components/schemas/workspaceRoleData"
+    workspaceIncludeQuery:
+      type: string
+      pattern: ^(?!.*(?:^|,)(team|scim|mocks:deactivated),(?:.*,)?\1(?:$|,))(team|scim|mocks:deactivated)(,(team|scim|mocks:deactivated))*$
+      example: team,scim
     getWorkspace:
       title: Successful Response
       type: object
@@ -24624,6 +25102,10 @@ components:
               type: string
               description: A brief summary about the workspace.
               example: This is a team workspace.
+            team:
+              type: string
+              description: The workspace's team ID.
+              example: "1"
             collections:
               type: array
               description: The workspace's collections.
@@ -31315,6 +31797,11 @@ components:
         error:
           name: badRequest
           message: "Invalid parameters: ('property') for key: 'collection.events.script'"
+    collectionPatch400ErrorParamInvalidEventsId:
+      value:
+        error:
+          name: badRequest
+          message: "Invalid parameters: ('id') for key: 'collection.events'"
     collectionPatch400ErrorParamInvalidVariables:
       value:
         error:
@@ -33021,7 +33508,7 @@ components:
           cursor: MTIyNjY5Nw==
           limit: 2
           nextCursor: null
-          obfuscatedSecret: PMAK-EXAMPLE-VALUE-******ba
+          obfuscatedSecret: PMAK-644781584627df042afa6655-******ba
           secretHash: 0096b35ef6621d7571f106fefee5b10e8ed360cc9bf04f343f267ca4ff65bb5d
           secretType: Postman API Key
           total: 3
@@ -34910,6 +35397,108 @@ components:
     revokeOauthTokenResponse:
       value:
         success: "true"
+    getPackages:
+      value:
+        meta:
+          nextCursor: null
+        data:
+          - id: 018d8463-4d17-7568-871f-5bd24dd45868
+            name: my-utils
+            description: Shared utility scripts
+            createdAt: 2026-07-24T10:30:00.000Z
+            updatedAt: 2026-07-24T10:30:00.000Z
+    packages400ErrorInvalidFormatLength:
+      value:
+        type: https://api.postman.com/problems/bad-request
+        title: The request is invalid or improperly formatted.
+        instance: /packages/3b60f5f3-cd98-4e04-b560-3eb039fe85d8
+        detail: Blob ID must be 36 characters (6).
+        createdAt: 2026-01-31T03:05:18.370Z
+    packages401ErrorUnauthorized:
+      value:
+        type: https://api.postman.com/problems/unauthorized
+        title: You are not authenticated by the server.
+        instance: /packages
+        detail: You are not authenticated by the server.
+        createdAt: 2026-01-31T03:05:18.370Z
+    packages403ErrorForbidden:
+      value:
+        type: https://api.postman.com/problems/forbidden
+        title: You do not have the permissions to perform this action.
+        instance: /packages
+        detail: You need to be a member of this team to view this package.
+        createdAt: 2026-01-31T03:05:18.370Z
+    packages429ErrorRateLimitExceeded:
+      value:
+        type: https://api.postman.com/problems/rate-limit-exceeded
+        title: You've reached the limit for your plan
+        instance: /packages
+        detail: You've reached the limit for number of Packages.
+        createdAt: 2026-01-31T03:05:18.370Z
+    packages500ErrorInternalServerError:
+      value:
+        type: https://api.postman.com/problems/internal-server-error
+        title: Something went wrong with the server.
+        instance: /packages
+        detail: Something went wrong with the server.
+        createdAt: 2026-01-31T03:05:18.370Z
+    createPackage:
+      value:
+        name: my-math-package
+        description: This package contains utility functions to do math.
+        script: "module.exports = { add: (a, b) => a + b };"
+    createPackageResponse:
+      value:
+        id: 3b60f5f3-cd98-4e04-b560-3eb039fe85d8
+        name: my-math-package
+        description: This package contains utility functions to do math.
+        script: "module.exports = { add: (a, b) => a + b };"
+        createdBy: 12345678
+        createdAt: 2026-08-01T20:11:17.000Z
+        updatedAt: 2026-08-01T20:11:17.000Z
+    packages409ErrorConflict:
+      value:
+        type: https://api.postman.com/problems/conflict
+        title: The resource conflicts with an existing resource.
+        instance: /packages
+        detail: A package with this name already exists.
+        createdAt: 2026-01-31T03:05:18.370Z
+    getPackageUnifiedPackage:
+      value:
+        id: 3b60f5f3-cd98-4e04-b560-3eb039fe85d8
+        name: my-math-package
+        description: This package contains utility functions to do math.
+        script: "module.exports = { add: (a, b) => a + b };"
+        createdBy: 12345678
+        createdAt: 2026-08-01T20:11:17.000Z
+        updatedAt: 2026-08-01T20:11:17.000Z
+    packages404ErrorBlobNotFound:
+      value:
+        type: https://api.postman.com/problems/not-found
+        title: The resource you are trying to access does not exist.
+        instance: /packages/3b60f5f3-cd98-4e04-b560-3eb039fe85d8
+        detail: The blob 1ec6fb87-77a9-42b0-b3a1-14e54ad8b066 does not exist.
+        createdAt: 2026-01-31T03:05:18.370Z
+    packages404ErrorPackageNotFound:
+      value:
+        type: https://api.postman.com/problems/not-found
+        title: The resource you are trying to access does not exist.
+        instance: /packages/3b60f5f3-cd98-4e04-b560-3eb039fe85d8
+        detail: The package 1ec6fb87-77a9-42b0-b3a1-14e54ad8b066 does not exist.
+        createdAt: 2026-01-31T03:05:18.370Z
+    updatePackage:
+      value:
+        description: Updated math utility functions.
+        script: "module.exports = { add: (a, b) => a + b };"
+    updatePackageResponse:
+      value:
+        id: 3b60f5f3-cd98-4e04-b560-3eb039fe85d8
+        name: my-math-package
+        description: Updated math utility functions.
+        script: "module.exports = { add: (a, b) => a + b };"
+        createdBy: 12345678
+        createdAt: 2026-08-01T20:11:17.000Z
+        updatedAt: 2026-08-01T20:11:17.000Z
     generateTool:
       value:
         collectionId: 12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2
@@ -39495,6 +40084,48 @@ components:
           scim:
             createdBy: 405775fe15ed41872a8eea4c8aa2b38cda9749812cc55c99
             updatedBy: 405775fe15ed41872a8eea4c8aa2b38cda9749812cc55c99
+    getWorkspaceIncludeTeamScimId:
+      value:
+        id: 1f0df51a-8658-4ee8-a2a1-d2567dfa09a9
+        name: Team Workspace
+        type: team
+        description: This is a team workspace.
+        visibility: team
+        createdBy: "12345678"
+        updatedBy: "12345678"
+        teamId: "1"
+        createdAt: 2022-07-06T16:18:32.000Z
+        updatedAt: 2022-07-06T20:55:13.000Z
+        about: Team workspace.
+        collections:
+          - id: 12ece9e1-2abf-4edc-8e34-de66e74114d2
+            name: Test Collection
+            uid: 12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2
+        environments:
+          - id: 5daabc50-8451-43f6-922d-96b403b4f28e
+            name: Test Environment
+            uid: 12345678-5daabc50-8451-43f6-922d-96b403b4f28e
+        mocks:
+          - id: e3d951bf-873f-49ac-a658-b2dcb91d3289
+            name: Test Mock
+            uid: 12345678-e3d951bf-873f-49ac-a658-b2dcb91d3289
+            deactivated: false
+        monitors:
+          - id: 1e6b6cc1-c760-48e0-968f-4bfaeeae9af1
+            name: Test Monitor
+            uid: 12345678-1e6b6cc1-c760-48e0-968f-4bfaeeae9af1
+            deactivated: false
+        apis:
+          - id: 387c2863-6ee3-4a56-8210-225f774edade
+            name: Test API
+            uid: 12345678-387c2863-6ee3-4a56-8210-225f774edade
+        specs:
+          - id: 73e15000-bc7a-4802-b80e-05fff18fd7f8
+            name: Sample API
+            uid: 12345678-73e15000-bc7a-4802-b80e-05fff18fd7f8
+        scim:
+          createdBy: 405775fe15ed41872a8eea4c8aa2b38cda9749812cc55c99
+          updatedBy: 405775fe15ed41872a8eea4c8aa2b38cda9749812cc55c99
     workspace404ErrorNotFound:
       value:
         error:
@@ -41497,6 +42128,8 @@ components:
               $ref: "#/components/examples/collectionPatch400ErrorParamInvalidAuth"
             Invalid events Parameter:
               $ref: "#/components/examples/collectionPatch400ErrorParamInvalidEvents"
+            Invalid events id Parameter:
+              $ref: "#/components/examples/collectionPatch400ErrorParamInvalidEventsId"
             Invalid variable Parameter:
               $ref: "#/components/examples/collectionPatch400ErrorParamInvalidVariables"
             Missing apikey Parameter:
@@ -43000,6 +43633,107 @@ components:
           examples:
             Token Revoked:
               $ref: "#/components/examples/revokeOauthTokenResponse"
+    getPackages:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/getPackages"
+          examples:
+            Successful Response:
+              $ref: "#/components/examples/getPackages"
+    packages400Error:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/commonErrorTypeTitleDetailStatusInstance"
+          examples:
+            Invalid Format:
+              $ref: "#/components/examples/packages400ErrorInvalidFormatLength"
+    packages401Error:
+      description: Unauthorized
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/commonErrorTypeTitleDetailStatusInstance"
+          examples:
+            Unauthorized:
+              $ref: "#/components/examples/packages401ErrorUnauthorized"
+    packages403Error:
+      description: Forbidden
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/commonErrorTypeTitleDetailStatusInstance"
+          examples:
+            Forbidden:
+              $ref: "#/components/examples/packages403ErrorForbidden"
+    packages429Error:
+      description: Rate Limit Exceeded
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/commonErrorTypeTitleDetailStatusInstance"
+          examples:
+            Rate Limit Exceeded:
+              $ref: "#/components/examples/packages429ErrorRateLimitExceeded"
+    packages500Error:
+      description: Internal Server Error
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/commonErrorTypeTitleDetailStatusInstance"
+          examples:
+            Internal Server Error:
+              $ref: "#/components/examples/packages500ErrorInternalServerError"
+    createPackageResponse:
+      description: Package Created
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/createPackageResponse"
+          examples:
+            Package Created:
+              $ref: "#/components/examples/createPackageResponse"
+    packages409Error:
+      description: Conflict
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/commonErrorTypeTitleDetailStatusInstance"
+          examples:
+            Conflict:
+              $ref: "#/components/examples/packages409ErrorConflict"
+    getPackage:
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/getPackage"
+          examples:
+            Unified Package:
+              $ref: "#/components/examples/getPackageUnifiedPackage"
+    packages404Error:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/commonErrorTypeTitleDetailStatusInstance"
+          examples:
+            Blob Not Found:
+              $ref: "#/components/examples/packages404ErrorBlobNotFound"
+            Package Not Found:
+              $ref: "#/components/examples/packages404ErrorPackageNotFound"
+    updatePackageResponse:
+      description: Package Updated
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/updatePackageResponse"
+          examples:
+            Package Updated:
+              $ref: "#/components/examples/updatePackageResponse"
     generateTool:
       description: Successful Response
       content:
@@ -44142,6 +44876,8 @@ components:
               $ref: "#/components/examples/getWorkspace"
             Include SCIM IDs:
               $ref: "#/components/examples/getWorkspaceIncludeScimIds"
+            Include Team ID and SCIM IDs:
+              $ref: "#/components/examples/getWorkspaceIncludeTeamScimId"
     workspace404ErrorNotFound:
       description: Not Found
       content:
@@ -45731,6 +46467,19 @@ components:
       description: The request's ID.
       schema:
         $ref: "#/components/schemas/panRequestId"
+    limitDefault100Max100:
+      name: limit
+      in: query
+      description: The maximum number of packages to return.
+      schema:
+        $ref: "#/components/schemas/limitDefault100Max100"
+    packageId:
+      name: packageId
+      in: path
+      required: true
+      description: The package's ID.
+      schema:
+        $ref: "#/components/schemas/packageId"
     pullRequestId:
       name: pullRequestId
       in: path
@@ -46047,7 +46796,7 @@ components:
         response only returns workspaces that you have access to.
       schema:
         $ref: "#/components/schemas/workspaceCreatedBy"
-    workspaceIncludeQuery:
+    workspacesIncludeQuery:
       name: include
       in: query
       description: >
@@ -46059,7 +46808,7 @@ components:
         - `scim` — Return the SCIM user IDs of the workspace creator and who
         last modified it.
       schema:
-        $ref: "#/components/schemas/workspaceIncludeQuery"
+        $ref: "#/components/schemas/workspacesIncludeQuery"
     workspaceElementTypeQuery:
       name: elementType
       in: query
@@ -46085,6 +46834,22 @@ components:
         Request response.
       schema:
         $ref: "#/components/schemas/limitMax100"
+    workspaceIncludeQuery:
+      name: include
+      in: query
+      description: >
+        A comma-separated list of values to include in the endpoint's response:
+
+        - `scim` — Return the SCIM user IDs of the workspace creator and who
+        last modified it.
+
+        - `team` — Return the workspace's team ID. Returns a null value if the
+        workspace isn't associated with a team.
+
+        - `mocks:deactivated` — Include all deactivated mock servers in the
+        response.
+      schema:
+        $ref: "#/components/schemas/workspaceIncludeQuery"
     userIdQuery:
       in: query
       name: userId
@@ -46725,6 +47490,24 @@ components:
           examples:
             Revoke an OAuth Token:
               $ref: "#/components/examples/revokeOauthToken"
+    createPackage:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/createPackage"
+          examples:
+            Create Package:
+              $ref: "#/components/examples/createPackage"
+    updatePackage:
+      required: true
+      content:
+        application/merge-patch+json:
+          schema:
+            $ref: "#/components/schemas/updatePackage"
+          examples:
+            Update Package:
+              $ref: "#/components/examples/updatePackage"
     generateTool:
       content:
         application/json:
