@@ -74,30 +74,22 @@ export const createSdk = z.lazy(() => {
 - Only the object passed in the request body that matches the value in the `language` property gets read, and all other objects are ignored.
 - The language option object is optional. When the language identifier is omitted, it's derived from the `source` element name and its workspace.
 
- * @typedef  {CreateSdk} createSdk - **Note:**
-
-- Only the object passed in the request body that matches the value in the `language` property gets read, and all other objects are ignored.
-- The language option object is optional. When the language identifier is omitted, it's derived from the `source` element name and its workspace.
- - **Note:**
-
-- Only the object passed in the request body that matches the value in the `language` property gets read, and all other objects are ignored.
-- The language option object is optional. When the language identifier is omitted, it's derived from the `source` element name and its workspace.
-
- * @property {SdkSource} - The collection or specification that the SDK is generated from.
- * @property {SdkLanguage} - The target output language for the generated SDK.
- * @property {string} - An optional override for the SDK version. If this isn't provided, the next version is resolved from the latest auto-pull request.
- * @property {SdkAuthorData[]} - A list of package authors written into the generated manifest.
- * @property {SdkRetryOptions} - Retry behavior baked into the generated SDK's HTTP client. A power-user option; sensible defaults apply for any field left unset.
- * @property {TypescriptOptions} - TypeScript-specific SDK generation options.
- * @property {PythonOptions} - Python-specific SDK generation options.
- * @property {GoOptions} - Go-specific SDK generation options.
- * @property {JavaOptions} - Java-specific SDK generation options.
- * @property {CsharpOptions} - C#-specific SDK generation options.
- * @property {RubyOptions} - Ruby-specific generation options.
- * @property {PhpOptions} - PHP-specific SDK generation options.
- * @property {KotlinOptions} - Kotlin-specific SDK generation options.
- * @property {RustOptions} - Rust-specific SDK generation options.
- * @property {CliOptions} - CLI-specific SDK generation options.
+ * @typedef {CreateSdk} createSdk
+ * @property {SdkSource} source - The collection or specification that the SDK is generated from.
+ * @property {SdkLanguage} language - The target output language for the generated SDK.
+ * @property {string} sdkVersion - An optional override for the SDK version. If this isn't provided, the next version is resolved from the latest auto-pull request.
+ * @property {SdkAuthorData[]} authors - A list of package authors written into the generated manifest.
+ * @property {SdkRetryOptions} retry - Retry behavior baked into the generated SDK's HTTP client. A power-user option; sensible defaults apply for any field left unset.
+ * @property {TypescriptOptions} typescriptOptions - TypeScript-specific SDK generation options.
+ * @property {PythonOptions} pythonOptions - Python-specific SDK generation options.
+ * @property {GoOptions} goOptions - Go-specific SDK generation options.
+ * @property {JavaOptions} javaOptions - Java-specific SDK generation options.
+ * @property {CsharpOptions} csharpOptions - C#-specific SDK generation options.
+ * @property {RubyOptions} rubyOptions - Ruby-specific generation options.
+ * @property {PhpOptions} phpOptions - PHP-specific SDK generation options.
+ * @property {KotlinOptions} kotlinOptions - Kotlin-specific SDK generation options.
+ * @property {RustOptions} rustOptions - Rust-specific SDK generation options.
+ * @property {CliOptions} cliOptions - CLI-specific SDK generation options.
  */
 export type CreateSdk = z.infer<typeof createSdk>;
 

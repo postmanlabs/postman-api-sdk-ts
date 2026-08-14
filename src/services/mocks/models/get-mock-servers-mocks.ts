@@ -25,19 +25,19 @@ export const getMockServersMocks = z.lazy(() => {
 
 /**
  * Information about the mock server.
- * @typedef  {GetMockServersMocks} getMockServersMocks - Information about the mock server. - Information about the mock server.
- * @property {string} - The mock server's ID.
- * @property {string} - The ID of mock server's owner.
- * @property {string} - The mock server's unique ID.
- * @property {string} - The unique ID of the mock's associated collection.
- * @property {string} - The mock server URL.
- * @property {MocksConfig} - Information about the mock server's configuration.
- * @property {string} - The date and time at which the mock server was created.
- * @property {string} - The mock server's associated environment ID.
- * @property {boolean} - If true, the mock server is public and visible to all users. This field does not indicate the mock server's access control status.
- * @property {string} - The mock server's name.
- * @property {boolean} - If true, the mock server is not active. Mock servers deactivate when a linked collection or environment is deleted.
- * @property {string} - The date and time at which the mock server was last updated.
+ * @typedef {GetMockServersMocks} getMockServersMocks
+ * @property {string} id - The mock server's ID.
+ * @property {string} owner - The ID of mock server's owner.
+ * @property {string} uid - The mock server's unique ID.
+ * @property {string} collection - The unique ID of the mock's associated collection.
+ * @property {string} mockUrl - The mock server URL.
+ * @property {MocksConfig} config - Information about the mock server's configuration.
+ * @property {string} createdAt - The date and time at which the mock server was created.
+ * @property {string} environment - The mock server's associated environment ID.
+ * @property {boolean} isPublic - If true, the mock server is public and visible to all users. This field does not indicate the mock server's access control status.
+ * @property {string} name - The mock server's name.
+ * @property {boolean} deactivated - If true, the mock server is not active. Mock servers deactivate when a linked collection or environment is deleted.
+ * @property {string} updatedAt - The date and time at which the mock server was last updated.
  */
 export type GetMockServersMocks = z.infer<typeof getMockServersMocks>;
 

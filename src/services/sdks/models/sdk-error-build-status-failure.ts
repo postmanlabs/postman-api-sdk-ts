@@ -14,9 +14,9 @@ export const sdkErrorBuildStatusFailure = z.lazy(() => {
 
 /**
  * Information about the SDK build's status when `buildStatus` is `failed`.
- * @typedef  {SdkErrorBuildStatusFailure} sdkErrorBuildStatusFailure - Information about the SDK build's status when `buildStatus` is `failed`. - Information about the SDK build's status when `buildStatus` is `failed`.
- * @property {string} - The build failure's error code.
- * @property {string} - Information about the build failure.
+ * @typedef {SdkErrorBuildStatusFailure} sdkErrorBuildStatusFailure
+ * @property {string} code - The build failure's error code.
+ * @property {string} message - Information about the build failure.
  */
 export type SdkErrorBuildStatusFailure = z.infer<typeof sdkErrorBuildStatusFailure>;
 

@@ -21,19 +21,19 @@ export const getSpecFile = z.lazy(() => {
 
 /**
  * Information about the API specification file.
- * @typedef  {GetSpecFile} getSpecFile - Information about the API specification file. - Information about the API specification file.
- * @property {string} - The file's ID.
- * @property {string} - The file's name.
- * @property {string} - The file's path.
- * @property {number} - The user ID of the user that created the file.
- * @property {number} - The ID of the user who updated the file.
- * @property {string} - The date and time at which the file was created.
- * @property {string} - The date and time at which the file was updated.
- * @property {GetSpecFileType} - The type of file:
+ * @typedef {GetSpecFile} getSpecFile
+ * @property {string} id - The file's ID.
+ * @property {string} name - The file's name.
+ * @property {string} path - The file's path.
+ * @property {number} createdBy - The user ID of the user that created the file.
+ * @property {number} updatedBy - The ID of the user who updated the file.
+ * @property {string} createdAt - The date and time at which the file was created.
+ * @property {string} updatedAt - The date and time at which the file was updated.
+ * @property {GetSpecFileType} type - The type of file:
 - `ROOT` — A file containing the full OpenAPI structure and references other (DEFAULT) spec files.
 - `DEFAULT` — A file referenced by the `ROOT` file.
 
- * @property {string} - The file's stringified contents.
+ * @property {string} content - The file's stringified contents.
  */
 export type GetSpecFile = z.infer<typeof getSpecFile>;
 

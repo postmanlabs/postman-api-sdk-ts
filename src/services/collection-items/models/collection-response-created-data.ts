@@ -19,13 +19,13 @@ export const collectionResponseCreatedData = z.lazy(() => {
 
 /**
  * Information about the response. For a complete list of properties, refer to the **Response** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @typedef  {CollectionResponseCreatedData} collectionResponseCreatedData - Information about the response. For a complete list of properties, refer to the **Response** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). - Information about the response. For a complete list of properties, refer to the **Response** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @property {string} - The response's ID.
- * @property {string} - The user ID of the response's owner.
- * @property {string} - The request ID of the response's associated request.
- * @property {string} - The date and time at which the response was created.
- * @property {string} - The date and time at which the response was last updated.
- * @property {string} - The user ID of the user who last updated the response.
+ * @typedef {CollectionResponseCreatedData} collectionResponseCreatedData
+ * @property {string} id - The response's ID.
+ * @property {string} owner - The user ID of the response's owner.
+ * @property {string} request - The request ID of the response's associated request.
+ * @property {string} createdAt - The date and time at which the response was created.
+ * @property {string} updatedAt - The date and time at which the response was last updated.
+ * @property {string} lastUpdatedBy - The user ID of the user who last updated the response.
  */
 export type CollectionResponseCreatedData = z.infer<typeof collectionResponseCreatedData>;
 

@@ -1,6 +1,6 @@
 # SearchFilterGitConnected
 
-Filters by Git connection status. Supported for `workspaces`, `collections`, `requests`, `environments`, `specs`, and `flows`.
+Filters by Git connection status. Supported for `workspaces`, `collections`, `requests`, `environments`, `specs`, `flows`, and `documents`.
 
 **Properties**
 

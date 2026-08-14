@@ -25,10 +25,9 @@ export const collectionsList = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionsList} collectionsList
- * @property {CollectionsListCollections[]}
- * @property {MetaLimitOffsetTotal} - The response's meta information for paginated results.
+ * @typedef {CollectionsList} collectionsList
+ * @property {CollectionsListCollections[]} collections
+ * @property {MetaLimitOffsetTotal} meta - The response's meta information for paginated results.
  */
 export type CollectionsList = z.infer<typeof collectionsList>;
 

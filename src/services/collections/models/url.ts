@@ -12,9 +12,7 @@ export const url = z.lazy(() => {
 
 /**
  * Information about the URL.
- * @typedef  {Url} url - Information about the URL. - Information about the URL.
- * @property {string}
- * @property {Url2}
+ * @typedef {Url} url
  */
 export type Url = z.infer<typeof url>;
 

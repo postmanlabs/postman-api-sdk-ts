@@ -14,9 +14,9 @@ export const asyncTaskFailedMeta = z.lazy(() => {
 
 /**
  * The response's non-standard meta information.
- * @typedef  {AsyncTaskFailedMeta} asyncTaskFailedMeta - The response's non-standard meta information. - The response's non-standard meta information.
- * @property {string} - The task's action.
- * @property {AsyncTaskFailedMetaModel} - The model for which the task is performing the operation.
+ * @typedef {AsyncTaskFailedMeta} asyncTaskFailedMeta
+ * @property {string} action - The task's action.
+ * @property {AsyncTaskFailedMetaModel} model - The model for which the task is performing the operation.
  */
 export type AsyncTaskFailedMeta = z.infer<typeof asyncTaskFailedMeta>;
 

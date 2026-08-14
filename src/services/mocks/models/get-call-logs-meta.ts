@@ -13,8 +13,8 @@ export const getCallLogsMeta = z.lazy(() => {
 
 /**
  * The response's non-standard meta information.
- * @typedef  {GetCallLogsMeta} getCallLogsMeta - The response's non-standard meta information. - The response's non-standard meta information.
- * @property {string} - The pagination cursor that points to the next record in the results set.
+ * @typedef {GetCallLogsMeta} getCallLogsMeta
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
  */
 export type GetCallLogsMeta = z.infer<typeof getCallLogsMeta>;
 

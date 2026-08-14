@@ -13,10 +13,9 @@ export const taskResourcesResources2 = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {TaskResourcesResources2} taskResourcesResources2
- * @property {string} - The ID of the assigned resource.
- * @property {string} - The task's assigned resource URL.
+ * @typedef {TaskResourcesResources2} taskResourcesResources2
+ * @property {string} id - The ID of the assigned resource.
+ * @property {string} url - The task's assigned resource URL.
  */
 export type TaskResourcesResources2 = z.infer<typeof taskResourcesResources2>;
 

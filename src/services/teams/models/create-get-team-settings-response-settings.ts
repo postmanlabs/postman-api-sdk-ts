@@ -13,10 +13,9 @@ export const createGetTeamSettingsResponseSettings = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateGetTeamSettingsResponseSettings} createGetTeamSettingsResponseSettings
- * @property {string} - If enabled, admins must approve any new team members before they can join.
- * @property {string} - If enabled, collaborators require approval before they can access the team's workspaces.
+ * @typedef {CreateGetTeamSettingsResponseSettings} createGetTeamSettingsResponseSettings
+ * @property {string} rfaForAddMember - If enabled, admins must approve any new team members before they can join.
+ * @property {string} rfaForAddCollaborator - If enabled, collaborators require approval before they can access the team's workspaces.
  */
 export type CreateGetTeamSettingsResponseSettings = z.infer<
   typeof createGetTeamSettingsResponseSettings

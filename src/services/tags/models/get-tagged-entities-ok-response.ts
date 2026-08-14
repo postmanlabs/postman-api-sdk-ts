@@ -25,10 +25,9 @@ export const getTaggedEntitiesOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetTaggedEntitiesOkResponse} getTaggedEntitiesOkResponse
- * @property {SuccessfulResponseData1} - An object containing the paginated elements.
- * @property {SuccessfulResponseMeta1} - The response's pagination information.
+ * @typedef {GetTaggedEntitiesOkResponse} getTaggedEntitiesOkResponse
+ * @property {SuccessfulResponseData1} data - An object containing the paginated elements.
+ * @property {SuccessfulResponseMeta1} meta - The response's pagination information.
  */
 export type GetTaggedEntitiesOkResponse = z.infer<typeof getTaggedEntitiesOkResponse>;
 

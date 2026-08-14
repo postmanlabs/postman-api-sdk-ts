@@ -13,10 +13,9 @@ export const mergeEnvironmentFork = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MergeEnvironmentFork} mergeEnvironmentFork
- * @property {string} - The source environment's unique ID to merge data from.
- * @property {boolean} - If true, the forked environment will be deleted.
+ * @typedef {MergeEnvironmentFork} mergeEnvironmentFork
+ * @property {string} source - The source environment's unique ID to merge data from.
+ * @property {boolean} deleteSource - If true, the forked environment will be deleted.
  */
 export type MergeEnvironmentFork = z.infer<typeof mergeEnvironmentFork>;
 

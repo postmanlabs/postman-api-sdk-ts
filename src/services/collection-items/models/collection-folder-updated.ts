@@ -21,12 +21,11 @@ export const collectionFolderUpdated = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionFolderUpdated} collectionFolderUpdated
- * @property {CollectionFolderUpdatedData} - The folder's updated information, including the updated properties. For a complete list of properties, refer to the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
- * @property {any} - A Postman-specific response that contains information about the internal performed operation.
- * @property {string} - The folder's ID.
- * @property {number} - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
+ * @typedef {CollectionFolderUpdated} collectionFolderUpdated
+ * @property {CollectionFolderUpdatedData} data - The folder's updated information, including the updated properties. For a complete list of properties, refer to the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
+ * @property {any} meta - A Postman-specific response that contains information about the internal performed operation.
+ * @property {string} modelId - The folder's ID.
+ * @property {number} revision - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
  */
 export type CollectionFolderUpdated = z.infer<typeof collectionFolderUpdated>;
 

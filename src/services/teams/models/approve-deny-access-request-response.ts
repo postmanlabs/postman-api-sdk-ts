@@ -18,9 +18,8 @@ export const approveDenyAccessRequestResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ApproveDenyAccessRequestResponse} approveDenyAccessRequestResponse
- * @property {ApproveDenyAccessRequestResponseResult} - Information about the approved or denied access request.
+ * @typedef {ApproveDenyAccessRequestResponse} approveDenyAccessRequestResponse
+ * @property {ApproveDenyAccessRequestResponseResult} result - Information about the approved or denied access request.
  */
 export type ApproveDenyAccessRequestResponse = z.infer<typeof approveDenyAccessRequestResponse>;
 

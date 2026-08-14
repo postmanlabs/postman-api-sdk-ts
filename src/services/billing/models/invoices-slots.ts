@@ -16,11 +16,11 @@ export const invoicesSlots = z.lazy(() => {
 
 /**
  * Information about the team's slots.
- * @typedef  {InvoicesSlots} invoicesSlots - Information about the team's slots. - Information about the team's slots.
- * @property {number} - The number of the team's available slots.
- * @property {number} - The number of currently-billed team members.
- * @property {number} - The total number of slots available to the team.
- * @property {number} - The number of unbilled slots if [auto-flex billing](https://learning.postman.com/auto-flex-policy/) is available.
+ * @typedef {InvoicesSlots} invoicesSlots
+ * @property {number} available - The number of the team's available slots.
+ * @property {number} consumed - The number of currently-billed team members.
+ * @property {number} total - The total number of slots available to the team.
+ * @property {number} unbilled - The number of unbilled slots if [auto-flex billing](https://learning.postman.com/auto-flex-policy/) is available.
  */
 export type InvoicesSlots = z.infer<typeof invoicesSlots>;
 

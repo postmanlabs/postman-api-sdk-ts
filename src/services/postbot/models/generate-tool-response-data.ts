@@ -13,8 +13,8 @@ export const generateToolResponseData = z.lazy(() => {
 
 /**
  * The generated response data.
- * @typedef  {GenerateToolResponseData} generateToolResponseData - The generated response data. - The generated response data.
- * @property {string} - The generated tool code.
+ * @typedef {GenerateToolResponseData} generateToolResponseData
+ * @property {string} text - The generated tool code.
  */
 export type GenerateToolResponseData = z.infer<typeof generateToolResponseData>;
 

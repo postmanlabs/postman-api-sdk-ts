@@ -18,9 +18,8 @@ export const createMonitor = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateMonitor} createMonitor
- * @property {CreateMonitorMonitor} - Information about the monitor.
+ * @typedef {CreateMonitor} createMonitor
+ * @property {CreateMonitorMonitor} monitor - Information about the monitor.
  */
 export type CreateMonitor = z.infer<typeof createMonitor>;
 

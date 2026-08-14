@@ -20,9 +20,9 @@ export const replaceEnvironmentDataEnvironment = z.lazy(() => {
 
 /**
  * Information about the environment.
- * @typedef  {ReplaceEnvironmentDataEnvironment} replaceEnvironmentDataEnvironment - Information about the environment. - Information about the environment.
- * @property {string} - The environment's name.
- * @property {ReplaceEnvironmentDataEnvironmentValues[]} - Information about the environment's variables.
+ * @typedef {ReplaceEnvironmentDataEnvironment} replaceEnvironmentDataEnvironment
+ * @property {string} name - The environment's name.
+ * @property {ReplaceEnvironmentDataEnvironmentValues[]} values - Information about the environment's variables.
  */
 export type ReplaceEnvironmentDataEnvironment = z.infer<typeof replaceEnvironmentDataEnvironment>;
 

@@ -13,8 +13,8 @@ export const respondPanElementAddRequestBodyResponse1 = z.lazy(() => {
 
 /**
  * If the request is denied, the response to the user's request.
- * @typedef  {RespondPanElementAddRequestBodyResponse1} respondPanElementAddRequestBodyResponse1 - If the request is denied, the response to the user's request. - If the request is denied, the response to the user's request.
- * @property {string} - A message that details why the user's request was denied.
+ * @typedef {RespondPanElementAddRequestBodyResponse1} respondPanElementAddRequestBodyResponse1
+ * @property {string} message - A message that details why the user's request was denied.
  */
 export type RespondPanElementAddRequestBodyResponse1 = z.infer<
   typeof respondPanElementAddRequestBodyResponse1

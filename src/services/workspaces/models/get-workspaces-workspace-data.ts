@@ -27,22 +27,22 @@ export const getWorkspacesWorkspaceData = z.lazy(() => {
 
 /**
  * Information about the workspace.
- * @typedef  {GetWorkspacesWorkspaceData} getWorkspacesWorkspaceData - Information about the workspace. - Information about the workspace.
- * @property {string} - The workspace's ID.
- * @property {string} - The workspace's name.
- * @property {GetWorkspacesWorkspaceDataType} - The type of workspace.
- * @property {GetWorkspacesWorkspaceDataVisibility} - The workspace's visibility. [Visibility](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) determines who can access the workspace:
+ * @typedef {GetWorkspacesWorkspaceData} getWorkspacesWorkspaceData
+ * @property {string} id - The workspace's ID.
+ * @property {string} name - The workspace's name.
+ * @property {GetWorkspacesWorkspaceDataType} type - The type of workspace.
+ * @property {GetWorkspacesWorkspaceDataVisibility} visibility - The workspace's visibility. [Visibility](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) determines who can access the workspace:
 - `personal` — Only you can access the workspace.
 - `team` — All team members can access the workspace.
 - `private` — Only invited team members can access the workspace ([``Team`` and ``Enterprise`` plans only](https://www.postman.com/pricing)).
 - `public` — Everyone can access the workspace.
 - `partner` — Only invited team members and [partners](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/) can access the workspace ([``Team`` and ``Enterprise`` plans only](https://www.postman.com/pricing)).
 
- * @property {string} - The user who created the workspace. The response only returns workspaces that you have access to.
- * @property {string} - A brief summary about the workspace.
- * @property {string} - The date and time at which the workspace was created.
- * @property {string} - The date and time at which the workspace was last updated.
- * @property {GetWorkspacesScimObject} - An object containing SCIM user IDs. This object only returns if you pass the `include=scim` query parameter.
+ * @property {string} createdBy - The user who created the workspace. The response only returns workspaces that you have access to.
+ * @property {string} about - A brief summary about the workspace.
+ * @property {string} createdAt - The date and time at which the workspace was created.
+ * @property {string} updatedAt - The date and time at which the workspace was last updated.
+ * @property {GetWorkspacesScimObject} scim - An object containing SCIM user IDs. This object only returns if you pass the `include=scim` query parameter.
  */
 export type GetWorkspacesWorkspaceData = z.infer<typeof getWorkspacesWorkspaceData>;
 

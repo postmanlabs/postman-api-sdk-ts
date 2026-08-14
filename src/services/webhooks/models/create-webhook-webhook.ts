@@ -14,11 +14,10 @@ export const createWebhookWebhook = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateWebhookWebhook} createWebhookWebhook
- * @property {string} - The unique ID of the collection to trigger when calling this webhook.
- * @property {string} - The unique ID of the environment to trigger when calling this webhook.
- * @property {string} - The webhook's name. On success, the system creates a new monitor with this name in the ``Monitors`` tab.
+ * @typedef {CreateWebhookWebhook} createWebhookWebhook
+ * @property {string} collection - The unique ID of the collection to trigger when calling this webhook.
+ * @property {string} environment - The unique ID of the environment to trigger when calling this webhook.
+ * @property {string} name - The webhook's name. On success, the system creates a new monitor with this name in the ``Monitors`` tab.
  */
 export type CreateWebhookWebhook = z.infer<typeof createWebhookWebhook>;
 

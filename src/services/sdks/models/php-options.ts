@@ -13,8 +13,8 @@ export const phpOptions = z.lazy(() => {
 
 /**
  * PHP-specific SDK generation options.
- * @typedef  {PhpOptions} phpOptions - PHP-specific SDK generation options. - PHP-specific SDK generation options.
- * @property {string} - The composer package name, in `vendor/package` format.
+ * @typedef {PhpOptions} phpOptions
+ * @property {string} packageName - The composer package name, in `vendor/package` format.
  */
 export type PhpOptions = z.infer<typeof phpOptions>;
 

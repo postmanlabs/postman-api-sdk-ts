@@ -14,9 +14,9 @@ export const collectionResponseCreatedResponseCode = z.lazy(() => {
 
 /**
  * The response's HTTP response code information.
- * @typedef  {CollectionResponseCreatedResponseCode} collectionResponseCreatedResponseCode - The response's HTTP response code information. - The response's HTTP response code information.
- * @property {number} - The response's HTTP response status code.
- * @property {string} - The name of the status code.
+ * @typedef {CollectionResponseCreatedResponseCode} collectionResponseCreatedResponseCode
+ * @property {number} code - The response's HTTP response status code.
+ * @property {string} name - The name of the status code.
  */
 export type CollectionResponseCreatedResponseCode = z.infer<
   typeof collectionResponseCreatedResponseCode

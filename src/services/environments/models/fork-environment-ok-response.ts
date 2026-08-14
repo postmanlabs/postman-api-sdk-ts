@@ -18,9 +18,8 @@ export const forkEnvironmentOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ForkEnvironmentOkResponse} forkEnvironmentOkResponse
- * @property {SuccessfulResponseEnvironment1} - Information about the forked environment.
+ * @typedef {ForkEnvironmentOkResponse} forkEnvironmentOkResponse
+ * @property {SuccessfulResponseEnvironment1} environment - Information about the forked environment.
  */
 export type ForkEnvironmentOkResponse = z.infer<typeof forkEnvironmentOkResponse>;
 

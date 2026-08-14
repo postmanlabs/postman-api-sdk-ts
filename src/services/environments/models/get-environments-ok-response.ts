@@ -18,9 +18,8 @@ export const getEnvironmentsOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetEnvironmentsOkResponse} getEnvironmentsOkResponse
- * @property {GetEnvironmentsInfo[]} - A list of environments.
+ * @typedef {GetEnvironmentsOkResponse} getEnvironmentsOkResponse
+ * @property {GetEnvironmentsInfo[]} environments - A list of environments.
  */
 export type GetEnvironmentsOkResponse = z.infer<typeof getEnvironmentsOkResponse>;
 

@@ -18,9 +18,8 @@ export const removeTeamMembers = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RemoveTeamMembers} removeTeamMembers
- * @property {TeamEntityInfo[]} - A list of entities to remove.
+ * @typedef {RemoveTeamMembers} removeTeamMembers
+ * @property {TeamEntityInfo[]} entities - A list of entities to remove.
  */
 export type RemoveTeamMembers = z.infer<typeof removeTeamMembers>;
 

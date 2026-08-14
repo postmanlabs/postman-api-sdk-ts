@@ -13,8 +13,8 @@ export const raw = z.lazy(() => {
 
 /**
  * Options for the `raw` data mode.
- * @typedef  {Raw} raw - Options for the `raw` data mode. - Options for the `raw` data mode.
- * @property {string} - The raw mode data's language type.
+ * @typedef {Raw} raw
+ * @property {string} language - The raw mode data's language type.
  */
 export type Raw = z.infer<typeof raw>;
 

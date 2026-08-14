@@ -31,20 +31,20 @@ export const collectionAuth = z.lazy(() => {
 
 /**
  * The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
- * @typedef  {CollectionAuth} collectionAuth - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/). - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
- * @property {AuthMethodType2} - The authorization type.
- * @property {AuthAttributes[]} - The API key's authentication information.
- * @property {AuthAttributes[]} - The attributes for [AWS Signature](https://learning.postman.com/docs/sending-requests/authorization/aws-signature/) authentication.
- * @property {AuthAttributes[]} - The attributes for [Basic Auth](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/#basic-auth).
- * @property {AuthAttributes[]} - The attributes for [Bearer Token](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/#bearer-token) authentication.
- * @property {AuthAttributes[]} - The attributes for [Digest](https://learning.postman.com/docs/sending-requests/authorization/digest-auth/) access authentication.
- * @property {AuthAttributes[]} - The attributes for [Akamai Edgegrid](https://learning.postman.com/docs/sending-requests/authorization/akamai-edgegrid/) authentication.
- * @property {AuthAttributes[]} - The attributes for [Hawk](https://learning.postman.com/docs/sending-requests/authorization/hawk-authentication/) authentication.
- * @property {AuthAttributes[]} - The attributes for [NTLM](https://learning.postman.com/docs/sending-requests/authorization/ntlm-authentication/) authentication.
- * @property {AuthAttributes[]} - The attributes for [OAuth1](https://learning.postman.com/docs/sending-requests/authorization/oauth-10/) authentication.
- * @property {AuthAttributes[]} - The attributes for [OAuth2](https://learning.postman.com/docs/sending-requests/authorization/oauth-20/) authentication.
- * @property {AuthAttributes[]} - The attributes for JWT (JSON Web Token). Includes the `payload`, `secret`, `algorithm`, `addTokenTo`, and `headerPrefix` properties.
- * @property {AuthAttributes[]} - The attributes for ASAP (Atlassian S2S Authentication Protocol). Includes the `kid`, `aud`, `iss`, `alg`, `privateKey`, and `claims` properties.
+ * @typedef {CollectionAuth} collectionAuth
+ * @property {AuthMethodType2} type - The authorization type.
+ * @property {AuthAttributes[]} apikey - The API key's authentication information.
+ * @property {AuthAttributes[]} awsv4 - The attributes for [AWS Signature](https://learning.postman.com/docs/sending-requests/authorization/aws-signature/) authentication.
+ * @property {AuthAttributes[]} basic - The attributes for [Basic Auth](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/#basic-auth).
+ * @property {AuthAttributes[]} bearer - The attributes for [Bearer Token](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/#bearer-token) authentication.
+ * @property {AuthAttributes[]} digest - The attributes for [Digest](https://learning.postman.com/docs/sending-requests/authorization/digest-auth/) access authentication.
+ * @property {AuthAttributes[]} edgegrid - The attributes for [Akamai Edgegrid](https://learning.postman.com/docs/sending-requests/authorization/akamai-edgegrid/) authentication.
+ * @property {AuthAttributes[]} hawk - The attributes for [Hawk](https://learning.postman.com/docs/sending-requests/authorization/hawk-authentication/) authentication.
+ * @property {AuthAttributes[]} ntlm - The attributes for [NTLM](https://learning.postman.com/docs/sending-requests/authorization/ntlm-authentication/) authentication.
+ * @property {AuthAttributes[]} oauth1 - The attributes for [OAuth1](https://learning.postman.com/docs/sending-requests/authorization/oauth-10/) authentication.
+ * @property {AuthAttributes[]} oauth2 - The attributes for [OAuth2](https://learning.postman.com/docs/sending-requests/authorization/oauth-20/) authentication.
+ * @property {AuthAttributes[]} jwt - The attributes for JWT (JSON Web Token). Includes the `payload`, `secret`, `algorithm`, `addTokenTo`, and `headerPrefix` properties.
+ * @property {AuthAttributes[]} asap - The attributes for ASAP (Atlassian S2S Authentication Protocol). Includes the `kid`, `aud`, `iss`, `alg`, `privateKey`, and `claims` properties.
  */
 export type CollectionAuth = z.infer<typeof collectionAuth>;
 

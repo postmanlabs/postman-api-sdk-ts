@@ -16,11 +16,11 @@ export const searchFilterTeamId = z.lazy(() => {
 
 /**
  * Filters by team ID. Supported for all element types.
- * @typedef  {SearchFilterTeamId} searchFilterTeamId - Filters by team ID. Supported for all element types. - Filters by team ID. Supported for all element types.
- * @property {string} - The team ID to match.
- * @property {string} - The team ID to exclude.
- * @property {string[]} - A list of team IDs to match.
- * @property {string[]} - A list of team IDs to exclude.
+ * @typedef {SearchFilterTeamId} searchFilterTeamId
+ * @property {string} _eq - The team ID to match.
+ * @property {string} _ne - The team ID to exclude.
+ * @property {string[]} _in - A list of team IDs to match.
+ * @property {string[]} _nin - A list of team IDs to exclude.
  */
 export type SearchFilterTeamId = z.infer<typeof searchFilterTeamId>;
 

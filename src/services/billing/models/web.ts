@@ -13,8 +13,8 @@ export const web = z.lazy(() => {
 
 /**
  * An object containing web-based account references.
- * @typedef  {Web} web - An object containing web-based account references. - An object containing web-based account references.
- * @property {string} - A URL where you can download the invoice in PDF and view details.
+ * @typedef {Web} web
+ * @property {string} href - A URL where you can download the invoice in PDF and view details.
  */
 export type Web = z.infer<typeof web>;
 

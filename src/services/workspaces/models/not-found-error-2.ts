@@ -14,11 +14,10 @@ export const notFoundError2 = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {NotFoundError2} notFoundError2
- * @property {string} - The error name.
- * @property {string} - The error message.
- * @property {number} - The error's HTTP status code.
+ * @typedef {NotFoundError2} notFoundError2
+ * @property {string} name - The error name.
+ * @property {string} message - The error message.
+ * @property {number} statusCode - The error's HTTP status code.
  */
 export type NotFoundError2 = z.infer<typeof notFoundError2>;
 

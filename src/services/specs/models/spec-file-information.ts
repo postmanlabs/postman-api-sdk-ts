@@ -20,15 +20,15 @@ export const specFileInformation = z.lazy(() => {
 
 /**
  * Information about the API specification file.
- * @typedef  {SpecFileInformation} specFileInformation - Information about the API specification file. - Information about the API specification file.
- * @property {string} - The file's ID.
- * @property {string} - The file's path.
- * @property {string} - The file's name.
- * @property {number} - The user ID of the user that created the file.
- * @property {number} - The ID of the user who updated the file.
- * @property {string} - The date and time at which the file was created.
- * @property {string} - The date and time at which the file was updated.
- * @property {SpecFileInformationType} - The type of file:
+ * @typedef {SpecFileInformation} specFileInformation
+ * @property {string} id - The file's ID.
+ * @property {string} path - The file's path.
+ * @property {string} name - The file's name.
+ * @property {number} createdBy - The user ID of the user that created the file.
+ * @property {number} updatedBy - The ID of the user who updated the file.
+ * @property {string} createdAt - The date and time at which the file was created.
+ * @property {string} updatedAt - The date and time at which the file was updated.
+ * @property {SpecFileInformationType} type - The type of file:
 - `ROOT` — A file containing the full OpenAPI structure and references other (DEFAULT) spec files.
 - `DEFAULT` — A file referenced by the `ROOT` file.
 

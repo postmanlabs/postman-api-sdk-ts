@@ -13,10 +13,9 @@ export const serverResponseDeletedHeaders = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ServerResponseDeletedHeaders} serverResponseDeletedHeaders
- * @property {string} - The request header's key value.
- * @property {string} - The request header's value.
+ * @typedef {ServerResponseDeletedHeaders} serverResponseDeletedHeaders
+ * @property {string} key - The request header's key value.
+ * @property {string} value - The request header's value.
  */
 export type ServerResponseDeletedHeaders = z.infer<typeof serverResponseDeletedHeaders>;
 

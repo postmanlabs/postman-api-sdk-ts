@@ -24,13 +24,13 @@ export const mocksConfig = z.lazy(() => {
 
 /**
  * Information about the mock server's configuration.
- * @typedef  {MocksConfig} mocksConfig - Information about the mock server's configuration. - Information about the mock server's configuration.
- * @property {MocksConfigDelay} - Information about the mock server's simulated network delay settings. This returns a null value if there are no configured network delay settings.
- * @property {string[]} - A list of the mock server's headers.
- * @property {boolean} - If true, match the request body.
- * @property {boolean} - If true, match query parameters.
- * @property {boolean} - If true, use wildcard variable matching.
- * @property {string} - The ID of mock server's default response for requests. All calls to the mock server will return the defined response.
+ * @typedef {MocksConfig} mocksConfig
+ * @property {MocksConfigDelay} delay - Information about the mock server's simulated network delay settings. This returns a null value if there are no configured network delay settings.
+ * @property {string[]} headers - A list of the mock server's headers.
+ * @property {boolean} matchBody - If true, match the request body.
+ * @property {boolean} matchQueryParams - If true, match query parameters.
+ * @property {boolean} matchWildcards - If true, use wildcard variable matching.
+ * @property {string} serverResponseId - The ID of mock server's default response for requests. All calls to the mock server will return the defined response.
  */
 export type MocksConfig = z.infer<typeof mocksConfig>;
 

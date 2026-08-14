@@ -14,9 +14,9 @@ export const collectionChangesPulledCollection = z.lazy(() => {
 
 /**
  * Information about the updated collection fork.
- * @typedef  {CollectionChangesPulledCollection} collectionChangesPulledCollection - Information about the updated collection fork. - Information about the updated collection fork.
- * @property {string} - The ID of the forked collection the changes were pulled into.
- * @property {string} - The ID of the source collection the changes were pulled from.
+ * @typedef {CollectionChangesPulledCollection} collectionChangesPulledCollection
+ * @property {string} destinationId - The ID of the forked collection the changes were pulled into.
+ * @property {string} sourceId - The ID of the source collection the changes were pulled from.
  */
 export type CollectionChangesPulledCollection = z.infer<typeof collectionChangesPulledCollection>;
 

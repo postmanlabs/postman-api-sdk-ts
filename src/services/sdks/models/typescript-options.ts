@@ -14,9 +14,9 @@ export const typescriptOptions = z.lazy(() => {
 
 /**
  * TypeScript-specific SDK generation options.
- * @typedef  {TypescriptOptions} typescriptOptions - TypeScript-specific SDK generation options. - TypeScript-specific SDK generation options.
- * @property {string} - An npm organization's scope. Don't include a trailing slash.
- * @property {string} - The unscoped npm package's name.
+ * @typedef {TypescriptOptions} typescriptOptions
+ * @property {string} npmOrg - An npm organization's scope. Don't include a trailing slash.
+ * @property {string} npmName - The unscoped npm package's name.
  */
 export type TypescriptOptions = z.infer<typeof typescriptOptions>;
 

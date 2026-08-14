@@ -20,15 +20,15 @@ export const sdkRetryOptions = z.lazy(() => {
 
 /**
  * Retry behavior baked into the generated SDK's HTTP client. A power-user option; sensible defaults apply for any field left unset.
- * @typedef  {SdkRetryOptions} sdkRetryOptions - Retry behavior baked into the generated SDK's HTTP client. A power-user option; sensible defaults apply for any field left unset. - Retry behavior baked into the generated SDK's HTTP client. A power-user option; sensible defaults apply for any field left unset.
- * @property {boolean} - If true, the generated SDK includes retry behavior.
- * @property {number} - The maximum number of attempts to try before giving up.
- * @property {number} - The base wait between attempts, in milliseconds.
- * @property {number} - The maximum wait between attempts, in milliseconds.
- * @property {number} - The exponent base used to compute exponential backoff between attempts.
- * @property {number} - The maximum random jitter added to wait times, in milliseconds.
- * @property {number[]} - A list of HTTP status codes that the SDK attempts its retries on.
- * @property {HttpMethodsToRetry[]} - A list of the HTTP methods that the SDK attempts its retries on.
+ * @typedef {SdkRetryOptions} sdkRetryOptions
+ * @property {boolean} enabled - If true, the generated SDK includes retry behavior.
+ * @property {number} maxAttempts - The maximum number of attempts to try before giving up.
+ * @property {number} retryDelay - The base wait between attempts, in milliseconds.
+ * @property {number} maxDelay - The maximum wait between attempts, in milliseconds.
+ * @property {number} backOffFactor - The exponent base used to compute exponential backoff between attempts.
+ * @property {number} retryDelayJitter - The maximum random jitter added to wait times, in milliseconds.
+ * @property {number[]} httpCodesToRetry - A list of HTTP status codes that the SDK attempts its retries on.
+ * @property {HttpMethodsToRetry[]} httpMethodsToRetry - A list of the HTTP methods that the SDK attempts its retries on.
  */
 export type SdkRetryOptions = z.infer<typeof sdkRetryOptions>;
 

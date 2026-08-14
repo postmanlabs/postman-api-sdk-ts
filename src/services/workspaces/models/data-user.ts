@@ -16,11 +16,11 @@ export const dataUser = z.lazy(() => {
 
 /**
  * Information about the user that performed the activity.
- * @typedef  {DataUser} dataUser - Information about the user that performed the activity. - Information about the user that performed the activity.
- * @property {number} - The user's ID.
- * @property {string} - The user's Postman username.
- * @property {boolean} - If true, the user is a [Partner](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#partner-team-and-partner-workspace-roles) in the workspace.
- * @property {string} - The user's name.
+ * @typedef {DataUser} dataUser
+ * @property {number} id - The user's ID.
+ * @property {string} username - The user's Postman username.
+ * @property {boolean} isPartner - If true, the user is a [Partner](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#partner-team-and-partner-workspace-roles) in the workspace.
+ * @property {string} name - The user's name.
  */
 export type DataUser = z.infer<typeof dataUser>;
 

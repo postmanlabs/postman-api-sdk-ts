@@ -16,11 +16,11 @@ export const searchFilterRequestId = z.lazy(() => {
 
 /**
  * Filters by request ID. Supported for `requests` only.
- * @typedef  {SearchFilterRequestId} searchFilterRequestId - Filters by request ID. Supported for `requests` only. - Filters by request ID. Supported for `requests` only.
- * @property {string} - The request ID to match.
- * @property {string} - The request ID to exclude.
- * @property {string[]} - A list of request IDs to match.
- * @property {string[]} - A list of request IDs to exclude.
+ * @typedef {SearchFilterRequestId} searchFilterRequestId
+ * @property {string} _eq - The request ID to match.
+ * @property {string} _ne - The request ID to exclude.
+ * @property {string[]} _in - A list of request IDs to match.
+ * @property {string[]} _nin - A list of request IDs to exclude.
  */
 export type SearchFilterRequestId = z.infer<typeof searchFilterRequestId>;
 

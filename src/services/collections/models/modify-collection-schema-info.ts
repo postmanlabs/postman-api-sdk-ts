@@ -20,15 +20,15 @@ export const modifyCollectionSchemaInfo = z.lazy(() => {
 
 /**
  * Information about the collection.
- * @typedef  {ModifyCollectionSchemaInfo} modifyCollectionSchemaInfo - Information about the collection. - Information about the collection.
- * @property {string} - The collection's name.
- * @property {string} - The collection's Postman ID. This field exists for Postman Collection Format v1 compatibility.
- * @property {string} - The collection's description.
- * @property {InformationSchema2} - The "https://schema.postman.com/json/collection/v2.1.0/collection.json" Postman Collection Format v2.1.0 schema.
- * @property {string} - The date and time when the collection was last updated.
- * @property {string} - The date and time when the collection was created.
- * @property {string} - The user ID of the person who last updated the collection.
- * @property {string} - The collection's unique ID.
+ * @typedef {ModifyCollectionSchemaInfo} modifyCollectionSchemaInfo
+ * @property {string} name - The collection's name.
+ * @property {string} _postmanId - The collection's Postman ID. This field exists for Postman Collection Format v1 compatibility.
+ * @property {string} description - The collection's description.
+ * @property {InformationSchema2} schema - The "https://schema.postman.com/json/collection/v2.1.0/collection.json" Postman Collection Format v2.1.0 schema.
+ * @property {string} updatedAt - The date and time when the collection was last updated.
+ * @property {string} createdat - The date and time when the collection was created.
+ * @property {string} lastUpdatedBy - The user ID of the person who last updated the collection.
+ * @property {string} uid - The collection's unique ID.
  */
 export type ModifyCollectionSchemaInfo = z.infer<typeof modifyCollectionSchemaInfo>;
 

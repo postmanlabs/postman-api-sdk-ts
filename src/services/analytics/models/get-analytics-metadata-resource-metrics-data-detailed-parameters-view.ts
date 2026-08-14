@@ -16,11 +16,11 @@ export const getAnalyticsMetadataResourceMetricsDataDetailedParametersView = z.l
 
 /**
  * Information about the `view` parameter.
- * @typedef  {GetAnalyticsMetadataResourceMetricsDataDetailedParametersView} getAnalyticsMetadataResourceMetricsDataDetailedParametersView - Information about the `view` parameter. - Information about the `view` parameter.
- * @property {string} - The parameter's type.
- * @property {boolean} - If true, the parameter is required.
- * @property {string[]} - A list of the parameter's accepted values.
- * @property {string} - The parameter's description.
+ * @typedef {GetAnalyticsMetadataResourceMetricsDataDetailedParametersView} getAnalyticsMetadataResourceMetricsDataDetailedParametersView
+ * @property {string} type - The parameter's type.
+ * @property {boolean} isRequired - If true, the parameter is required.
+ * @property {string[]} allowedValues - A list of the parameter's accepted values.
+ * @property {string} description - The parameter's description.
  */
 export type GetAnalyticsMetadataResourceMetricsDataDetailedParametersView = z.infer<
   typeof getAnalyticsMetadataResourceMetricsDataDetailedParametersView

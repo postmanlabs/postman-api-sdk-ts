@@ -20,10 +20,7 @@ export const getAsyncCollectionTaskStatus = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAsyncCollectionTaskStatus} getAsyncCollectionTaskStatus
- * @property {GetAsyncCollectionTaskStatus1}
- * @property {AsyncTaskFailed}
+ * @typedef {GetAsyncCollectionTaskStatus} getAsyncCollectionTaskStatus
  */
 export type GetAsyncCollectionTaskStatus = z.infer<typeof getAsyncCollectionTaskStatus>;
 

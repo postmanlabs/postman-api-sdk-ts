@@ -20,11 +20,10 @@ export const generateTool = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GenerateTool} generateTool
- * @property {string} - The public collection's request ID.
- * @property {string} - The Public API Network collection's ID.
- * @property {GenerateToolConfig} - Information about the request.
+ * @typedef {GenerateTool} generateTool
+ * @property {string} requestId - The public collection's request ID.
+ * @property {string} collectionId - The Public API Network collection's ID.
+ * @property {GenerateToolConfig} config - Information about the request.
  */
 export type GenerateTool = z.infer<typeof generateTool>;
 

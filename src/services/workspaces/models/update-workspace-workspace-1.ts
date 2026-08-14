@@ -15,15 +15,14 @@ export const updateWorkspaceWorkspace1 = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {UpdateWorkspaceWorkspace1} updateWorkspaceWorkspace1   
- * @property {string} - The workspace's new name.
- * @property {UpdateWorkspaceWorkspaceType} - The new workspace visibility [type](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility). This property does not support the following workspace visibility changes:
+ * @typedef {UpdateWorkspaceWorkspace1} updateWorkspaceWorkspace1
+ * @property {string} name - The workspace's new name.
+ * @property {UpdateWorkspaceWorkspaceType} type - The new workspace visibility [type](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility). This property does not support the following workspace visibility changes:
 - `private` to `public`, `public` to `private`, and `private` to `personal` for Free and Basic [plans](https://www.postman.com/pricing/).
 - `public` to `personal` for team users.
 
- * @property {string} - The new workspace description.
- * @property {string} - A brief summary about the workspace.
+ * @property {string} description - The new workspace description.
+ * @property {string} about - A brief summary about the workspace.
  */
 export type UpdateWorkspaceWorkspace1 = z.infer<typeof updateWorkspaceWorkspace1>;
 

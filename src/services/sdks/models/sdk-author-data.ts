@@ -14,9 +14,9 @@ export const sdkAuthorData = z.lazy(() => {
 
 /**
  * Information about the author of the generated SDK.
- * @typedef  {SdkAuthorData} sdkAuthorData - Information about the author of the generated SDK. - Information about the author of the generated SDK.
- * @property {string} - The author's name.
- * @property {string} - The author's email address.
+ * @typedef {SdkAuthorData} sdkAuthorData
+ * @property {string} name - The author's name.
+ * @property {string} email - The author's email address.
  */
 export type SdkAuthorData = z.infer<typeof sdkAuthorData>;
 

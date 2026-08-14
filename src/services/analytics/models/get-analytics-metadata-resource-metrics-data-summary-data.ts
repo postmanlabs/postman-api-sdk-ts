@@ -19,8 +19,8 @@ export const getAnalyticsMetadataResourceMetricsDataSummaryData = z.lazy(() => {
 
 /**
  * Information about the metric's `summary` parameter.
- * @typedef  {GetAnalyticsMetadataResourceMetricsDataSummaryData} getAnalyticsMetadataResourceMetricsDataSummaryData - Information about the metric's `summary` parameter. - Information about the metric's `summary` parameter.
- * @property {GetAnalyticsMetadataResourceMetricsDataSummaryDataSchema} - The response schema for the `summary` view.
+ * @typedef {GetAnalyticsMetadataResourceMetricsDataSummaryData} getAnalyticsMetadataResourceMetricsDataSummaryData
+ * @property {GetAnalyticsMetadataResourceMetricsDataSummaryDataSchema} schema - The response schema for the `summary` view.
  */
 export type GetAnalyticsMetadataResourceMetricsDataSummaryData = z.infer<
   typeof getAnalyticsMetadataResourceMetricsDataSummaryData

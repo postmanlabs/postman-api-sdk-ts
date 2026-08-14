@@ -18,9 +18,8 @@ export const analyticsDataSummary = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {AnalyticsDataSummary} analyticsDataSummary
- * @property {AnalyticsDataObject} - Data analytics information.
+ * @typedef {AnalyticsDataSummary} analyticsDataSummary
+ * @property {AnalyticsDataObject} summary - Data analytics information.
  */
 export type AnalyticsDataSummary = z.infer<typeof analyticsDataSummary>;
 

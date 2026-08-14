@@ -26,9 +26,9 @@ export const documentationCustomizationSettings = z.lazy(() => {
 
 /**
  * Information about the documentation's customization.
- * @typedef  {DocumentationCustomizationSettings} documentationCustomizationSettings - Information about the documentation's customization. - Information about the documentation's customization.
- * @property {DocumentationMetaTags[]} - The key-pair values that contain the documentation's `title` and `description` metadata information.
- * @property {DocumentationApperanceSettings} - Information about the documentation appearance, such as colors and theme.
+ * @typedef {DocumentationCustomizationSettings} documentationCustomizationSettings
+ * @property {DocumentationMetaTags[]} metaTags - The key-pair values that contain the documentation's `title` and `description` metadata information.
+ * @property {DocumentationApperanceSettings} appearance - Information about the documentation appearance, such as colors and theme.
  */
 export type DocumentationCustomizationSettings = z.infer<typeof documentationCustomizationSettings>;
 

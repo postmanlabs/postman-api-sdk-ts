@@ -16,11 +16,11 @@ export const searchFilterCollectionId = z.lazy(() => {
 
 /**
  * Filters by collection ID. Supported for `requests` and `collections` only.
- * @typedef  {SearchFilterCollectionId} searchFilterCollectionId - Filters by collection ID. Supported for `requests` and `collections` only. - Filters by collection ID. Supported for `requests` and `collections` only.
- * @property {string} - The collection ID to match.
- * @property {string} - The collection ID to exclude.
- * @property {string[]} - A list of collection IDs to match.
- * @property {string[]} - A list of collection IDs to exclude.
+ * @typedef {SearchFilterCollectionId} searchFilterCollectionId
+ * @property {string} _eq - The collection ID to match.
+ * @property {string} _ne - The collection ID to exclude.
+ * @property {string[]} _in - A list of collection IDs to match.
+ * @property {string[]} _nin - A list of collection IDs to exclude.
  */
 export type SearchFilterCollectionId = z.infer<typeof searchFilterCollectionId>;
 

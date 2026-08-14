@@ -14,8 +14,8 @@ export const errorNameMessageError2 = z.lazy(() => {
 
 /**
  * Information about the error.
- * @typedef  {ErrorNameMessageError2} errorNameMessageError2 - Information about the error. - Information about the error.
- * @property {ErrorName}
+ * @typedef {ErrorNameMessageError2} errorNameMessageError2
+ * @property {ErrorName} name
  */
 export type ErrorNameMessageError2 = z.infer<typeof errorNameMessageError2>;
 

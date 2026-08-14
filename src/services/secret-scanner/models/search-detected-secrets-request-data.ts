@@ -22,24 +22,23 @@ export const searchDetectedSecretsRequestData = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {SearchDetectedSecretsRequestData} searchDetectedSecretsRequestData   
- * @property {string} - The date and time at which the secret was first detected.
- * @property {string} - The type of the secret.
- * @property {DataWorkspaceVisibility} - The workspace's [visibility setting](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility).
- * @property {string} - The SHA-256 hash of the detected secret.
- * @property {string} - The ID of the workspace that contains the secret.
- * @property {string} - If querying by resource, the resource type.
- * @property {string} - If querying by resource, the resource's ID.
- * @property {string} - The detected secret's ID.
- * @property {string} - The secret's obfuscated value.
- * @property {DataResolution} - The secret's current status:
+ * @typedef {SearchDetectedSecretsRequestData} searchDetectedSecretsRequestData
+ * @property {string} detectedAt - The date and time at which the secret was first detected.
+ * @property {string} secretType - The type of the secret.
+ * @property {DataWorkspaceVisibility} workspaceVisibility - The workspace's [visibility setting](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility).
+ * @property {string} secretHash - The SHA-256 hash of the detected secret.
+ * @property {string} workspaceId - The ID of the workspace that contains the secret.
+ * @property {string} resourceType - If querying by resource, the resource type.
+ * @property {string} resourceId - If querying by resource, the resource's ID.
+ * @property {string} secretId - The detected secret's ID.
+ * @property {string} obfuscatedSecret - The secret's obfuscated value.
+ * @property {DataResolution} resolution - The secret's current status:
 - `ACTIVE` — The secret is active.
 - `FALSE_POSITIVE` — The discovered secret is not an actual secret.
 - `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue.
 - `ACCEPTED_RISK` — The Secret Scanner found the secret, but user accepts the risk of publishing it.
 
- * @property {number} - The number of times the secret was found in the workspace.
+ * @property {number} occurrences - The number of times the secret was found in the workspace.
  */
 export type SearchDetectedSecretsRequestData = z.infer<typeof searchDetectedSecretsRequestData>;
 

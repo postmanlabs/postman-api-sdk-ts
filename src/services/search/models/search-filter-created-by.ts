@@ -16,11 +16,11 @@ export const searchFilterCreatedBy = z.lazy(() => {
 
 /**
  * Filters by the resource creator's user ID. Supported for all element types.
- * @typedef  {SearchFilterCreatedBy} searchFilterCreatedBy - Filters by the resource creator's user ID. Supported for all element types. - Filters by the resource creator's user ID. Supported for all element types.
- * @property {string} - The creator ID to match.
- * @property {string} - The creator ID to exclude.
- * @property {string[]} - A list of creator IDs to match.
- * @property {string[]} - A list of creator IDs to exclude.
+ * @typedef {SearchFilterCreatedBy} searchFilterCreatedBy
+ * @property {string} _eq - The creator ID to match.
+ * @property {string} _ne - The creator ID to exclude.
+ * @property {string[]} _in - A list of creator IDs to match.
+ * @property {string[]} _nin - A list of creator IDs to exclude.
  */
 export type SearchFilterCreatedBy = z.infer<typeof searchFilterCreatedBy>;
 

@@ -10,8 +10,9 @@ import { ContentType } from '../types';
 export function getContentTypeDefinition(contentType: string): ContentType {
   const ct = contentType.toLowerCase();
 
+  // XML is handled as text
   if (ct.startsWith('application/') && ct.includes('xml')) {
-    return ContentType.Xml;
+    return ContentType.Text;
   }
 
   if (ct === 'application/x-www-form-urlencoded') {

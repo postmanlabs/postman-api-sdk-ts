@@ -25,10 +25,9 @@ export const searchDetectedSecretsRequest = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SearchDetectedSecretsRequest} searchDetectedSecretsRequest
- * @property {SearchDetectedSecretsRequestMeta} - The response's meta information for paginated results.
- * @property {SearchDetectedSecretsRequestData[]}
+ * @typedef {SearchDetectedSecretsRequest} searchDetectedSecretsRequest
+ * @property {SearchDetectedSecretsRequestMeta} meta - The response's meta information for paginated results.
+ * @property {SearchDetectedSecretsRequestData[]} data
  */
 export type SearchDetectedSecretsRequest = z.infer<typeof searchDetectedSecretsRequest>;
 

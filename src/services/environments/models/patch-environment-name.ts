@@ -15,10 +15,10 @@ export const patchEnvironmentName = z.lazy(() => {
 
 /**
  * Information about the environment.
- * @typedef  {PatchEnvironmentName} patchEnvironmentName - Information about the environment. - Information about the environment.
- * @property {string} - The `replace` operation.
- * @property {string} - The `/name` value.
- * @property {string} - The environment's updated name.
+ * @typedef {PatchEnvironmentName} patchEnvironmentName
+ * @property {string} op - The `replace` operation.
+ * @property {string} path - The `/name` value.
+ * @property {string} value - The environment's updated name.
  */
 export type PatchEnvironmentName = z.infer<typeof patchEnvironmentName>;
 

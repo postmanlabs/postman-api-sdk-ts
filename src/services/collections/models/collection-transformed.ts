@@ -12,9 +12,8 @@ export const collectionTransformed = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionTransformed} collectionTransformed
- * @property {string} - The collection's transformed output, in a stringified OpenAPI JSON or YAML format.
+ * @typedef {CollectionTransformed} collectionTransformed
+ * @property {string} output - The collection's transformed output, in a stringified OpenAPI JSON or YAML format.
  */
 export type CollectionTransformed = z.infer<typeof collectionTransformed>;
 

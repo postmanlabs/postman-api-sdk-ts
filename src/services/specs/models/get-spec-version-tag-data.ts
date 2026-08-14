@@ -23,24 +23,24 @@ export const getSpecVersionTagData = z.lazy(() => {
 
 /**
  * Information about the element.
- * @typedef  {GetSpecVersionTagData} getSpecVersionTagData - Information about the element. - Information about the element.
- * @property {string} - The file's ID.
- * @property {string} - The file's name.
- * @property {string} - The ID of the user who updated the file.
- * @property {string} - The date and time at which the file was created.
- * @property {string} - The date and time at which the file was updated.
- * @property {string} - The user ID of the user that created the file.
- * @property {GetSpecVersionTagDataType} - The file's type.
- * @property {string} - The file's path.
- * @property {FileType} - The type of file:
+ * @typedef {GetSpecVersionTagData} getSpecVersionTagData
+ * @property {string} id - The file's ID.
+ * @property {string} name - The file's name.
+ * @property {string} updatedBy - The ID of the user who updated the file.
+ * @property {string} createdAt - The date and time at which the file was created.
+ * @property {string} updatedAt - The date and time at which the file was updated.
+ * @property {string} createdBy - The user ID of the user that created the file.
+ * @property {GetSpecVersionTagDataType} type - The file's type.
+ * @property {string} path - The file's path.
+ * @property {FileType} fileType - The type of file:
 
 - `ROOT` — The file containing the full OpenAPI structure. This serves as the entry point for the API spec and references other (`DEFAULT`) spec files. Multi-file specs can only have one root file.
 - `DEFAULT` — A file referenced by the `ROOT` file. This file contains a subset of the OpenAPI structure, such as specific components or paths.
 
 This value doesn't return for folders.
 
- * @property {string} - The file's content. Folders don't return this property.
- * @property {string} - The file's parent folder ID. This property is absent for ROOT-level files.
+ * @property {string} content - The file's content. Folders don't return this property.
+ * @property {string} parentId - The file's parent folder ID. This property is absent for ROOT-level files.
  */
 export type GetSpecVersionTagData = z.infer<typeof getSpecVersionTagData>;
 

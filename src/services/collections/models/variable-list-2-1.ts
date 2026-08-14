@@ -24,13 +24,13 @@ export const variableList2_1 = z.lazy(() => {
 
 /**
  * Information about the variable.
- * @typedef  {VariableList2_1} variableList2_1 - Information about the variable. - Information about the variable.
- * @property {string} - The variable's ID. Doesn't apply to collection-level variables.
- * @property {string} - The variable's key (name).
- * @property {string} - The variable's description.
- * @property {VariableInfoValue2} - The key's value.
- * @property {boolean} - If true, the variable is enabled.
- * @property {boolean} - If true, the variable is not enabled. Doesn't apply to path parameter variables.
+ * @typedef {VariableList2_1} variableList2_1
+ * @property {string} id - The variable's ID. Doesn't apply to collection-level variables.
+ * @property {string} key - The variable's key (name).
+ * @property {string} description - The variable's description.
+ * @property {VariableInfoValue2} value - The key's value.
+ * @property {boolean} enabled - If true, the variable is enabled.
+ * @property {boolean} disabled - If true, the variable is not enabled. Doesn't apply to path parameter variables.
  */
 export type VariableList2_1 = z.infer<typeof variableList2_1>;
 

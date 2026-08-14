@@ -11,9 +11,7 @@ export const dataCreatedBy = z.lazy(() => {
 
 /**
  * The user ID of the user who created the access request.
- * @typedef  {DataCreatedBy} dataCreatedBy - The user ID of the user who created the access request. - The user ID of the user who created the access request.
- * @property {number}
- * @property {string}
+ * @typedef {DataCreatedBy} dataCreatedBy
  */
 export type DataCreatedBy = z.infer<typeof dataCreatedBy>;
 

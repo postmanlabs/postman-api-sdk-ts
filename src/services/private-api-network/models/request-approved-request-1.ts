@@ -19,13 +19,13 @@ export const requestApprovedRequest1 = z.lazy(() => {
 
 /**
  * Information about the Private API Network request.
- * @typedef  {RequestApprovedRequest1} requestApprovedRequest1 - Information about the Private API Network request. - Information about the Private API Network request.
- * @property {number} - The request's ID.
- * @property {string} - The date and time at which the request was created.
- * @property {number} - The ID of the user who created the request.
- * @property {string} - The user's optional message included in the request.
- * @property {RequestApprovedRequestStatus} - The request's status.
- * @property {Element} - Information about the requested element.
+ * @typedef {RequestApprovedRequest1} requestApprovedRequest1
+ * @property {number} id - The request's ID.
+ * @property {string} createdAt - The date and time at which the request was created.
+ * @property {number} createdBy - The ID of the user who created the request.
+ * @property {string} message - The user's optional message included in the request.
+ * @property {RequestApprovedRequestStatus} status - The request's status.
+ * @property {Element} element - Information about the requested element.
  */
 export type RequestApprovedRequest1 = z.infer<typeof requestApprovedRequest1>;
 

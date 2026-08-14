@@ -19,8 +19,8 @@ export const getAnalyticsMetadataResourceMetricsDataDetailedDataSchema = z.lazy(
 
 /**
  * The response schema for the `detailed` view.
- * @typedef  {GetAnalyticsMetadataResourceMetricsDataDetailedDataSchema} getAnalyticsMetadataResourceMetricsDataDetailedDataSchema - The response schema for the `detailed` view. - The response schema for the `detailed` view.
- * @property {GetAnalyticsDataColumnsData[]} - A list of column entries.
+ * @typedef {GetAnalyticsMetadataResourceMetricsDataDetailedDataSchema} getAnalyticsMetadataResourceMetricsDataDetailedDataSchema
+ * @property {GetAnalyticsDataColumnsData[]} columns - A list of column entries.
  */
 export type GetAnalyticsMetadataResourceMetricsDataDetailedDataSchema = z.infer<
   typeof getAnalyticsMetadataResourceMetricsDataDetailedDataSchema

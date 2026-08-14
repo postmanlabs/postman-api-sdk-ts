@@ -15,10 +15,10 @@ export const workspaceRoleData = z.lazy(() => {
 
 /**
  * Information about the role.
- * @typedef  {WorkspaceRoleData} workspaceRoleData - Information about the role. - Information about the role.
- * @property {string} - The role's ID.
- * @property {string} - The role's description.
- * @property {string} - The role's display name.
+ * @typedef {WorkspaceRoleData} workspaceRoleData
+ * @property {string} id - The role's ID.
+ * @property {string} description - The role's description.
+ * @property {string} displayName - The role's display name.
  */
 export type WorkspaceRoleData = z.infer<typeof workspaceRoleData>;
 

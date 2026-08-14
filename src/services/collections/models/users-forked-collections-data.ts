@@ -16,11 +16,11 @@ export const usersForkedCollectionsData = z.lazy(() => {
 
 /**
  * Information about the forked collection.
- * @typedef  {UsersForkedCollectionsData} usersForkedCollectionsData - Information about the forked collection. - Information about the forked collection.
- * @property {string} - The forked collection's label.
- * @property {string} - The forked collection's ID.
- * @property {string} - The ID of the forked collection's source collection.
- * @property {string} - The date and time at which the fork was created.
+ * @typedef {UsersForkedCollectionsData} usersForkedCollectionsData
+ * @property {string} forkName - The forked collection's label.
+ * @property {string} forkId - The forked collection's ID.
+ * @property {string} sourceId - The ID of the forked collection's source collection.
+ * @property {string} createdAt - The date and time at which the fork was created.
  */
 export type UsersForkedCollectionsData = z.infer<typeof usersForkedCollectionsData>;
 

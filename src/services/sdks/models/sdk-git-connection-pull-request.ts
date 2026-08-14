@@ -19,13 +19,13 @@ export const sdkGitConnectionPullRequest = z.lazy(() => {
 
 /**
  * Information about a pull request that shipped the SDK update.
- * @typedef  {SdkGitConnectionPullRequest} sdkGitConnectionPullRequest - Information about a pull request that shipped the SDK update. - Information about a pull request that shipped the SDK update.
- * @property {number} - The pull request's ID.
- * @property {string} - The pull request's URL.
- * @property {SdkGitConnectionPrStatus} - The lifecycle status of a pull request.
- * @property {Sdk} - Information about the generated SDK.
- * @property {string} - The date and time at which the pull request was created.
- * @property {string} - The date and time at which the pull request was last updated.
+ * @typedef {SdkGitConnectionPullRequest} sdkGitConnectionPullRequest
+ * @property {number} number - The pull request's ID.
+ * @property {string} url - The pull request's URL.
+ * @property {SdkGitConnectionPrStatus} status - The lifecycle status of a pull request.
+ * @property {Sdk} sdk - Information about the generated SDK.
+ * @property {string} createdAt - The date and time at which the pull request was created.
+ * @property {string} updatedAt - The date and time at which the pull request was last updated.
  */
 export type SdkGitConnectionPullRequest = z.infer<typeof sdkGitConnectionPullRequest>;
 

@@ -23,18 +23,18 @@ export const collectionAccessKeysData = z.lazy(() => {
 
 /**
  * Information about the collection access key.
- * @typedef  {CollectionAccessKeysData} collectionAccessKeysData - Information about the collection access key. - Information about the collection access key.
- * @property {string} - The collection access key's ID.
- * @property {string} - The masked collection access key.
- * @property {CollectionAccessKeysDataStatus} - The token's active status.
- * @property {number} - The team ID of the collection access key's owner.
- * @property {number} - The user ID of the collection access key's owner.
- * @property {string} - The collection access key's associated collection ID.
- * @property {string} - The date and time at which the collection access key expires. Collection access keys are valid for 60 days. If unused, the access key expires after 60 days. If someone uses the access key, then its expiration date increases by another 60 days.
- * @property {string} - The date and time at which the collection access key was used. If the collection key is unused, this returns an empty string value.
- * @property {string} - The date and time at which the collection access key was created.
- * @property {string} - The date and time at which the collection access key was updated.
- * @property {string} - The date and time at which the collection access key was revoked.
+ * @typedef {CollectionAccessKeysData} collectionAccessKeysData
+ * @property {string} id - The collection access key's ID.
+ * @property {string} token - The masked collection access key.
+ * @property {CollectionAccessKeysDataStatus} status - The token's active status.
+ * @property {number} teamId - The team ID of the collection access key's owner.
+ * @property {number} userId - The user ID of the collection access key's owner.
+ * @property {string} collectionId - The collection access key's associated collection ID.
+ * @property {string} expiresAfter - The date and time at which the collection access key expires. Collection access keys are valid for 60 days. If unused, the access key expires after 60 days. If someone uses the access key, then its expiration date increases by another 60 days.
+ * @property {string} lastUsedAt - The date and time at which the collection access key was used. If the collection key is unused, this returns an empty string value.
+ * @property {string} createdAt - The date and time at which the collection access key was created.
+ * @property {string} updatedAt - The date and time at which the collection access key was updated.
+ * @property {string} deletedAt - The date and time at which the collection access key was revoked.
  */
 export type CollectionAccessKeysData = z.infer<typeof collectionAccessKeysData>;
 

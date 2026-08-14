@@ -15,10 +15,10 @@ export const successfulResponseEnvironment1 = z.lazy(() => {
 
 /**
  * Information about the forked environment.
- * @typedef  {SuccessfulResponseEnvironment1} successfulResponseEnvironment1 - Information about the forked environment. - Information about the forked environment.
- * @property {string} - The forked environment's ID.
- * @property {string} - The name of the forked environment.
- * @property {string} - The forked environment's label.
+ * @typedef {SuccessfulResponseEnvironment1} successfulResponseEnvironment1
+ * @property {string} uid - The forked environment's ID.
+ * @property {string} name - The name of the forked environment.
+ * @property {string} forkName - The forked environment's label.
  */
 export type SuccessfulResponseEnvironment1 = z.infer<typeof successfulResponseEnvironment1>;
 

@@ -25,10 +25,9 @@ export const workspaceActivityFeed = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {WorkspaceActivityFeed} workspaceActivityFeed
- * @property {WorkspaceActivityFeedData[]}
- * @property {GetSpecVersionTagsMeta}
+ * @typedef {WorkspaceActivityFeed} workspaceActivityFeed
+ * @property {WorkspaceActivityFeedData[]} data
+ * @property {GetSpecVersionTagsMeta} meta
  */
 export type WorkspaceActivityFeed = z.infer<typeof workspaceActivityFeed>;
 

@@ -16,11 +16,11 @@ export const searchFilterOrgId = z.lazy(() => {
 
 /**
  * Filters by organization ID. Supported for all element types.
- * @typedef  {SearchFilterOrgId} searchFilterOrgId - Filters by organization ID. Supported for all element types. - Filters by organization ID. Supported for all element types.
- * @property {string} - The organization ID to match.
- * @property {string} - The organization ID to exclude.
- * @property {string[]} - A list of organization IDs to match.
- * @property {string[]} - A list of organization IDs to exclude.
+ * @typedef {SearchFilterOrgId} searchFilterOrgId
+ * @property {string} _eq - The organization ID to match.
+ * @property {string} _ne - The organization ID to exclude.
+ * @property {string[]} _in - A list of organization IDs to match.
+ * @property {string[]} _nin - A list of organization IDs to exclude.
  */
 export type SearchFilterOrgId = z.infer<typeof searchFilterOrgId>;
 

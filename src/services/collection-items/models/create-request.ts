@@ -63,30 +63,20 @@ export const createRequest = z.lazy(() => {
 
 It is recommended that you pass the `name` property in the request body. If you do not, the system uses a null value. As a result, this creates a request with a blank name.
 
- * @typedef  {CreateRequest} createRequest - Information about the request. For a complete list of properties, refer to the **Request** property in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
-
-**Note:**
-
-It is recommended that you pass the `name` property in the request body. If you do not, the system uses a null value. As a result, this creates a request with a blank name.
- - Information about the request. For a complete list of properties, refer to the **Request** property in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v1.0.0/draft-07/collection.json).
-
-**Note:**
-
-It is recommended that you pass the `name` property in the request body. If you do not, the system uses a null value. As a result, this creates a request with a blank name.
-
- * @property {string} - The request's name. It is recommended that you pass the `name` property in the request body. If you do not, the system uses a null value. As a result, this creates a request with a blank name.
- * @property {string} - The request's description.
- * @property {RequestMethod} - The request's HTTP method.
- * @property {string} - The request's URL.
- * @property {RequestHeaderData[]} - The request's headers.
- * @property {RequestQueryParams[]} - The request's query parameters.
- * @property {CreateRequestDataMode} - The request body's data mode.
- * @property {RequestData[]} - The request body's form data.
- * @property {string} - The request body's raw mode data.
- * @property {RequestGraphqlModeData} - The request body's GraphQL mode data.
- * @property {RequestDataOptions} - Additional configurations and options set for the request body's various data modes.
- * @property {RequestAuth} - The request's authentication information.
- * @property {RequestEvents[]} - A list of scripts configured to run when specific events occur.
+ * @typedef {CreateRequest} createRequest
+ * @property {string} name - The request's name. It is recommended that you pass the `name` property in the request body. If you do not, the system uses a null value. As a result, this creates a request with a blank name.
+ * @property {string} description - The request's description.
+ * @property {RequestMethod} method - The request's HTTP method.
+ * @property {string} url - The request's URL.
+ * @property {RequestHeaderData[]} headerData - The request's headers.
+ * @property {RequestQueryParams[]} queryParams - The request's query parameters.
+ * @property {CreateRequestDataMode} dataMode - The request body's data mode.
+ * @property {RequestData[]} data - The request body's form data.
+ * @property {string} rawModeData - The request body's raw mode data.
+ * @property {RequestGraphqlModeData} graphqlModeData - The request body's GraphQL mode data.
+ * @property {RequestDataOptions} dataOptions - Additional configurations and options set for the request body's various data modes.
+ * @property {RequestAuth} auth - The request's authentication information.
+ * @property {RequestEvents[]} events - A list of scripts configured to run when specific events occur.
  */
 export type CreateRequest = z.infer<typeof createRequest>;
 

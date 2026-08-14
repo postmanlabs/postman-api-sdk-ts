@@ -15,12 +15,11 @@ export const sdkDownload = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SdkDownload} sdkDownload
- * @property {string} - The SDK's ID.
- * @property {SdkLanguage} - The target output language for the generated SDK.
- * @property {string} - A short-lived signed URL to the generated SDK archive (zip).
- * @property {string} - The date and time at which the signed URL expires.
+ * @typedef {SdkDownload} sdkDownload
+ * @property {string} id - The SDK's ID.
+ * @property {SdkLanguage} language - The target output language for the generated SDK.
+ * @property {string} url - A short-lived signed URL to the generated SDK archive (zip).
+ * @property {string} expiresAt - The date and time at which the signed URL expires.
  */
 export type SdkDownload = z.infer<typeof sdkDownload>;
 

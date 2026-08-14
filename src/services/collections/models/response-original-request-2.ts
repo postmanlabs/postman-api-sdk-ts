@@ -37,13 +37,13 @@ export const responseOriginalRequest2 = z.lazy(() => {
 
 /**
  * Information about the collection request.
- * @typedef  {ResponseOriginalRequest2} responseOriginalRequest2 - Information about the collection request. - Information about the collection request.
- * @property {Url} - Information about the URL.
- * @property {CollectionAuth} - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
- * @property {string} - The request's standard HTTP method.
- * @property {string} - The request's description.
- * @property {ResponseHeader2_2[]} - A list of headers.
- * @property {CollectionRequestBody2} - Information about the collection's request body.
+ * @typedef {ResponseOriginalRequest2} responseOriginalRequest2
+ * @property {Url} url - Information about the URL.
+ * @property {CollectionAuth} auth - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
+ * @property {string} method - The request's standard HTTP method.
+ * @property {string} description - The request's description.
+ * @property {ResponseHeader2_2[]} header - A list of headers.
+ * @property {CollectionRequestBody2} body - Information about the collection's request body.
  */
 export type ResponseOriginalRequest2 = z.infer<typeof responseOriginalRequest2>;
 

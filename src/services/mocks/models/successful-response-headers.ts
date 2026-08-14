@@ -13,10 +13,9 @@ export const successfulResponseHeaders = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SuccessfulResponseHeaders} successfulResponseHeaders
- * @property {string} - The request header's key value.
- * @property {string} - The request header's value.
+ * @typedef {SuccessfulResponseHeaders} successfulResponseHeaders
+ * @property {string} key - The request header's key value.
+ * @property {string} value - The request header's value.
  */
 export type SuccessfulResponseHeaders = z.infer<typeof successfulResponseHeaders>;
 

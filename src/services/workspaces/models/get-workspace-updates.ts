@@ -25,10 +25,9 @@ export const getWorkspaceUpdates = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetWorkspaceUpdates} getWorkspaceUpdates
- * @property {WorkspaceUpdateData[]} - A list of workspace updates.
- * @property {GetSpecVersionTagsMeta}
+ * @typedef {GetWorkspaceUpdates} getWorkspaceUpdates
+ * @property {WorkspaceUpdateData[]} data - A list of workspace updates.
+ * @property {GetSpecVersionTagsMeta} meta
  */
 export type GetWorkspaceUpdates = z.infer<typeof getWorkspaceUpdates>;
 

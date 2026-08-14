@@ -22,13 +22,12 @@ export const invalidEntriesForManageTeamMemberRolesResult = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {InvalidEntriesForManageTeamMemberRolesResult} invalidEntriesForManageTeamMemberRolesResult
- * @property {string} - The entity type.
- * @property {InvalidEntriesForManageTeamMemberRolesResultEntityId} - The entity ID.
- * @property {string} - The assigned role.
- * @property {string} - The `Invalid` response status.
- * @property {string} - The reason for the error.
+ * @typedef {InvalidEntriesForManageTeamMemberRolesResult} invalidEntriesForManageTeamMemberRolesResult
+ * @property {string} entityType - The entity type.
+ * @property {InvalidEntriesForManageTeamMemberRolesResultEntityId} entityId - The entity ID.
+ * @property {string} role - The assigned role.
+ * @property {string} status - The `Invalid` response status.
+ * @property {string} reason - The reason for the error.
  */
 export type InvalidEntriesForManageTeamMemberRolesResult = z.infer<
   typeof invalidEntriesForManageTeamMemberRolesResult

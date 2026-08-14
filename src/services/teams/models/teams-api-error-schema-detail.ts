@@ -16,10 +16,7 @@ export const teamsApiErrorSchemaDetail = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {TeamsApiErrorSchemaDetail} teamsApiErrorSchemaDetail
- * @property {ErrorDetails} - An explanation about the problem.
- * @property {InvalidEntriesForManageTeamMemberRoles} - An explanation about the problem.
+ * @typedef {TeamsApiErrorSchemaDetail} teamsApiErrorSchemaDetail
  */
 export type TeamsApiErrorSchemaDetail = z.infer<typeof teamsApiErrorSchemaDetail>;
 

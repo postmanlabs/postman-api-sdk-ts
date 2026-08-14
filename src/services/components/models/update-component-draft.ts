@@ -14,9 +14,9 @@ export const updateComponentDraft = z.lazy(() => {
 
 /**
  * Information about the component draft.
- * @typedef  {UpdateComponentDraft} updateComponentDraft - Information about the component draft. - Information about the component draft.
- * @property {string} - The component's contents, up to a maximum of 500 KB (UTF-8).
- * @property {ComponentContentFormat} - The component's content format.
+ * @typedef {UpdateComponentDraft} updateComponentDraft
+ * @property {string} content - The component's contents, up to a maximum of 500 KB (UTF-8).
+ * @property {ComponentContentFormat} format - The component's content format.
  */
 export type UpdateComponentDraft = z.infer<typeof updateComponentDraft>;
 

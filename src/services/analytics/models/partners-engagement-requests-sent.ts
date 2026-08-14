@@ -33,10 +33,10 @@ export const partnersEngagementRequestsSent = z.lazy(() => {
 
 /**
  * Information about requests sent by partner users.
- * @typedef  {PartnersEngagementRequestsSent} partnersEngagementRequestsSent - Information about requests sent by partner users. - Information about requests sent by partner users.
- * @property {PartnersEngagementRequestsSentSchema}
- * @property {GetAnalyticsDataRowsData[][]} - A list of data row entries. Each row is an array of values that correspond to the columns defined in the schema.
- * @property {PaginationData} - Information about the response pagination.
+ * @typedef {PartnersEngagementRequestsSent} partnersEngagementRequestsSent
+ * @property {PartnersEngagementRequestsSentSchema} schema
+ * @property {GetAnalyticsDataRowsData[][]} rows - A list of data row entries. Each row is an array of values that correspond to the columns defined in the schema.
+ * @property {PaginationData} pagination - Information about the response pagination.
  */
 export type PartnersEngagementRequestsSent = z.infer<typeof partnersEngagementRequestsSent>;
 

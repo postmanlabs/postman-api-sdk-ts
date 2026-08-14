@@ -18,9 +18,8 @@ export const getAnalyticsDataSchema = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAnalyticsDataSchema} getAnalyticsDataSchema
- * @property {GetAnalyticsDataColumnsData[]} - A list of column entries.
+ * @typedef {GetAnalyticsDataSchema} getAnalyticsDataSchema
+ * @property {GetAnalyticsDataColumnsData[]} columns - A list of column entries.
  */
 export type GetAnalyticsDataSchema = z.infer<typeof getAnalyticsDataSchema>;
 

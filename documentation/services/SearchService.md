@@ -49,6 +49,7 @@ import {
   SearchFilterTags,
   SearchFilterTeamId,
   SearchFilterVisibility,
+  SearchFilterWorkspaceDocuments,
   SearchFilterWorkspaceId,
   SearchFilters,
   SearchPostmanResources,
@@ -132,6 +133,13 @@ import {
     _nin: ['66e05eb68905ca003d6f57d4'],
   };
 
+  const searchFilterWorkspaceDocuments: SearchFilterWorkspaceDocuments = {
+    _eq: '1',
+    _ne: '1',
+    _in: ['28d729e0-67f6-4551-9667-c3cc4e7b920f'],
+    _nin: ['28d729e0-67f6-4551-9667-c3cc4e7b920f'],
+  };
+
   const searchFilterEnvironmentId: SearchFilterEnvironmentId = {
     _eq: '5daabc50-8451-43f6-922d-96b403b4f28e',
     _ne: '5daabc50-8451-43f6-922d-96b403b4f28e',
@@ -183,6 +191,7 @@ import {
     requestId: searchFilterRequestId,
     specificationId: searchFilterSpecId,
     flowId: searchFilterFlowId,
+    documentId: searchFilterWorkspaceDocuments,
     environmentId: searchFilterEnvironmentId,
     createdBy: searchFilterCreatedBy,
     organizationId: searchFilterOrgId,

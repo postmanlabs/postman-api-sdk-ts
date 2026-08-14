@@ -34,11 +34,11 @@ export const auditLogData = z.lazy(() => {
 
 /**
  * Information about the audit log.
- * @typedef  {AuditLogData} auditLogData - Information about the audit log. - Information about the audit log.
- * @property {AuditLogActor} - Information about the user who preformed the audit event.
- * @property {AuditLogUser} - Information about the user.
- * @property {AuditLogTeam} - The user's team information.
- * @property {any} - Additional information about the performed action.
+ * @typedef {AuditLogData} auditLogData
+ * @property {AuditLogActor} actor - Information about the user who preformed the audit event.
+ * @property {AuditLogUser} user - Information about the user.
+ * @property {AuditLogTeam} team - The user's team information.
+ * @property {any} variables - Additional information about the performed action.
  */
 export type AuditLogData = z.infer<typeof auditLogData>;
 

@@ -12,9 +12,8 @@ export const onFailure = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {OnFailure} onFailure
- * @property {string} - The email address of the user to notify on monitor failure.
+ * @typedef {OnFailure} onFailure
+ * @property {string} email - The email address of the user to notify on monitor failure.
  */
 export type OnFailure = z.infer<typeof onFailure>;
 

@@ -27,16 +27,16 @@ export const createGetTeamResponseTeam = z.lazy(() => {
 
 /**
  * Information about the team.
- * @typedef  {CreateGetTeamResponseTeam} createGetTeamResponseTeam - Information about the team. - Information about the team.
- * @property {string} - The date and time at which the team was created.
- * @property {string} - The date and time at which the team was last updated.
- * @property {number} - The team's ID.
- * @property {string} - The team's name.
- * @property {string} - The team's handle.
- * @property {string} - A description about the team.
- * @property {number} - The team's organization ID.
- * @property {TeamCreatedBy} - The user ID of the user who created the team.
- * @property {boolean} - If true, the team is active.
+ * @typedef {CreateGetTeamResponseTeam} createGetTeamResponseTeam
+ * @property {string} createdAt - The date and time at which the team was created.
+ * @property {string} updatedAt - The date and time at which the team was last updated.
+ * @property {number} id - The team's ID.
+ * @property {string} name - The team's name.
+ * @property {string} handle - The team's handle.
+ * @property {string} description - A description about the team.
+ * @property {number} organizationId - The team's organization ID.
+ * @property {TeamCreatedBy} createdBy - The user ID of the user who created the team.
+ * @property {boolean} enabled - If true, the team is active.
  */
 export type CreateGetTeamResponseTeam = z.infer<typeof createGetTeamResponseTeam>;
 

@@ -152,7 +152,7 @@ import { PostmanApi } from '@postman/api-sdk';
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     name: 'Test Collection',
     limit: 3,
-    offset: 9,
+    offset: 3,
   });
 
   console.log(data);
@@ -186,6 +186,8 @@ import {
   AuthMethodType1,
   CollectionRequestBody1,
   CollectionRequestBodyFile1,
+  CollectionRequestBodyFormdata1Type1,
+  CollectionRequestBodyFormdata1_1,
   CollectionRequestBodyGraphql1,
   CollectionRequestBodyUrlencoded1,
   CreateCollection,
@@ -221,7 +223,7 @@ import {
     schema: informationSchema1,
   };
 
-  const variableInfoValue1 = 'ipsum';
+  const variableInfoValue1 = 'voluptat';
 
   const variable: Variable = {
     key: 'username',
@@ -246,7 +248,7 @@ import {
 
   const authMethodType1 = AuthMethodType1.NOAUTH;
 
-  const authAttributesValue = 'aliqua';
+  const authAttributesValue = 'Lorem ali';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -284,6 +286,16 @@ import {
     description: 'This is a custom key.',
   };
 
+  const collectionRequestBodyFormdata1Type1 = CollectionRequestBodyFormdata1Type1.TEXT;
+
+  const collectionRequestBodyFormdata1_1: CollectionRequestBodyFormdata1_1 = {
+    key: 'userId',
+    value: '123',
+    type: collectionRequestBodyFormdata1Type1,
+    contentType: 'application/json',
+    description: 'This is a custom key.',
+  };
+
   const collectionRequestBodyFile1: CollectionRequestBodyFile1 = {
     src: 'postman-cloud:///2g041r86-4dfc-4e50-82b4-c756d83a5bec',
   };
@@ -298,7 +310,7 @@ import {
     mode: [],
     raw: 'Test',
     urlencoded: [collectionRequestBodyUrlencoded1],
-    formdata: [{}],
+    formdata: [collectionRequestBodyFormdata1_1],
     file: collectionRequestBodyFile1,
     graphql: collectionRequestBodyGraphql1,
     options: {},
@@ -313,11 +325,11 @@ import {
     body: collectionRequestBody1,
   };
 
-  const responseHeader1 = 'proident';
+  const responseHeader1 = 'officia culpa ';
 
   const itemResponse1: ItemResponse1 = {
     originalRequest: responseOriginalRequest1,
-    responseTime: 8.21,
+    responseTime: 4.11,
     header: responseHeader1,
     body: '{\n    "field": {}\n}',
     status: 'OK',
@@ -339,7 +351,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 3.94,
+    maxRedirects: 3.52,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -582,6 +594,8 @@ import {
   CollectionItem,
   CollectionRequestBody2,
   CollectionRequestBodyFile2,
+  CollectionRequestBodyFormdata1Type2,
+  CollectionRequestBodyFormdata1_2,
   CollectionRequestBodyGraphql2,
   CollectionRequestBodyUrlencoded2,
   CollectionVariableInfo,
@@ -623,7 +637,7 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const variableInfoValue2 = 'aliqua irure in';
+  const variableInfoValue2 = 'cupidatat eiu';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -652,7 +666,7 @@ import {
 
   const authMethodType2 = AuthMethodType2.BASIC;
 
-  const authAttributesValue = 'aliqua';
+  const authAttributesValue = 'Lorem ali';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -690,6 +704,16 @@ import {
     description: 'This is a custom key.',
   };
 
+  const collectionRequestBodyFormdata1Type2 = CollectionRequestBodyFormdata1Type2.TEXT;
+
+  const collectionRequestBodyFormdata1_2: CollectionRequestBodyFormdata1_2 = {
+    key: 'userId',
+    value: '123',
+    type: collectionRequestBodyFormdata1Type2,
+    contentType: 'application/json',
+    description: 'This is a custom key.',
+  };
+
   const collectionRequestBodyFile2: CollectionRequestBodyFile2 = {
     src: 'postman-cloud:///2g041r86-4dfc-4e50-82b4-c756d83a5bec',
   };
@@ -704,7 +728,7 @@ import {
     mode: [],
     raw: 'Test',
     urlencoded: [collectionRequestBodyUrlencoded2],
-    formdata: [{}],
+    formdata: [collectionRequestBodyFormdata1_2],
     file: collectionRequestBodyFile2,
     graphql: collectionRequestBodyGraphql2,
     options: {},
@@ -719,12 +743,12 @@ import {
     body: collectionRequestBody2,
   };
 
-  const responseHeader2_3 = 'reprehenderit E';
+  const responseHeader2_3 = 'tempor in';
 
   const itemResponse2: ItemResponse2 = {
     id: '33ffd2e3-59a8-4dfe-84fa-0a571984487b',
     originalRequest: responseOriginalRequest2,
-    responseTime: 0.11,
+    responseTime: 6.41,
     header: responseHeader2_3,
     body: 'body',
     status: 'OK',
@@ -749,7 +773,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 3.94,
+    maxRedirects: 3.52,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -777,7 +801,7 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const collectionVariableInfoValue = 'Ut exe';
+  const collectionVariableInfoValue = 'commod';
 
   const collectionVariableInfo: CollectionVariableInfo = {
     key: 'userId',
@@ -838,8 +862,10 @@ import { PostmanApi, UpdateCollection } from '@postman/api-sdk';
     apiKey: 'YOUR_API_KEY',
   });
 
+  const updateCollectionCollection = [];
+
   const updateCollection: UpdateCollection = {
-    collection: {},
+    collection: updateCollectionCollection,
   };
 
   const data = await postmanApi.collections.patchCollection(

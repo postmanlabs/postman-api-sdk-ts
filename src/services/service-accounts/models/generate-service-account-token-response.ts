@@ -12,9 +12,8 @@ export const generateServiceAccountTokenResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GenerateServiceAccountTokenResponse} generateServiceAccountTokenResponse
- * @property {string} - The JWT access token to use to authenticate downstream service-to-service requests.
+ * @typedef {GenerateServiceAccountTokenResponse} generateServiceAccountTokenResponse
+ * @property {string} accessToken - The JWT access token to use to authenticate downstream service-to-service requests.
  */
 export type GenerateServiceAccountTokenResponse = z.infer<
   typeof generateServiceAccountTokenResponse

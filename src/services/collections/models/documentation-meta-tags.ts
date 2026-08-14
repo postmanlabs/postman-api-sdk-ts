@@ -13,13 +13,12 @@ export const documentationMetaTags = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {DocumentationMetaTags} documentationMetaTags   
- * @property {string} - The key's name:
+ * @typedef {DocumentationMetaTags} documentationMetaTags
+ * @property {string} name - The key's name:
   - `title` — The title of your documentation. This value appears in relevant search queries and browser tabs. By default, the system uses the collection's name for the documentation title.
   - `description` — The documentation's description. This provides brief information about your document and lets users know what it contains. By default, the system uses the collection's description content.
 
- * @property {string} - The `name` key's value.
+ * @property {string} value - The `name` key's value.
  */
 export type DocumentationMetaTags = z.infer<typeof documentationMetaTags>;
 

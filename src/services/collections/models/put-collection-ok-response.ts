@@ -18,9 +18,8 @@ export const putCollectionOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PutCollectionOkResponse} putCollectionOkResponse
- * @property {CollectionUpdatedCollection1}
+ * @typedef {PutCollectionOkResponse} putCollectionOkResponse
+ * @property {CollectionUpdatedCollection1} collection
  */
 export type PutCollectionOkResponse = z.infer<typeof putCollectionOkResponse>;
 

@@ -17,12 +17,12 @@ export const auditLogActor = z.lazy(() => {
 
 /**
  * Information about the user who preformed the audit event.
- * @typedef  {AuditLogActor} auditLogActor - Information about the user who preformed the audit event. - Information about the user who preformed the audit event.
- * @property {string} - The user's name.
- * @property {string} - The user's username.
- * @property {string} - The user's email address.
- * @property {number} - The user's ID.
- * @property {boolean} - If true, the user is active. If false, the user is deactivated.
+ * @typedef {AuditLogActor} auditLogActor
+ * @property {string} name - The user's name.
+ * @property {string} username - The user's username.
+ * @property {string} email - The user's email address.
+ * @property {number} id - The user's ID.
+ * @property {boolean} active - If true, the user is active. If false, the user is deactivated.
  */
 export type AuditLogActor = z.infer<typeof auditLogActor>;
 

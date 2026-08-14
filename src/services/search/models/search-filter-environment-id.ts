@@ -16,11 +16,11 @@ export const searchFilterEnvironmentId = z.lazy(() => {
 
 /**
  * Filters by environment ID. Supported for `environments` only.
- * @typedef  {SearchFilterEnvironmentId} searchFilterEnvironmentId - Filters by environment ID. Supported for `environments` only. - Filters by environment ID. Supported for `environments` only.
- * @property {string} - The environment ID to match.
- * @property {string} - The environment ID to exclude.
- * @property {string[]} - A list of environment IDs to match.
- * @property {string[]} - A list of environment IDs to exclude.
+ * @typedef {SearchFilterEnvironmentId} searchFilterEnvironmentId
+ * @property {string} _eq - The environment ID to match.
+ * @property {string} _ne - The environment ID to exclude.
+ * @property {string[]} _in - A list of environment IDs to match.
+ * @property {string[]} _nin - A list of environment IDs to exclude.
  */
 export type SearchFilterEnvironmentId = z.infer<typeof searchFilterEnvironmentId>;
 

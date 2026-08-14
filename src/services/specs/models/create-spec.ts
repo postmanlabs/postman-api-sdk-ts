@@ -20,11 +20,10 @@ export const createSpec = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateSpec} createSpec
- * @property {string} - The specification's name.
- * @property {SpecType} - The type of API specification.
- * @property {CreateSpecFiles[]} - A list of the specification's files and their contents.
+ * @typedef {CreateSpec} createSpec
+ * @property {string} name - The specification's name.
+ * @property {SpecType} type - The type of API specification.
+ * @property {CreateSpecFiles[]} files - A list of the specification's files and their contents.
  */
 export type CreateSpec = z.infer<typeof createSpec>;
 

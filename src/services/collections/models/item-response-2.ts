@@ -34,17 +34,17 @@ export const itemResponse2 = z.lazy(() => {
 
 /**
  * Information about the request's response.
- * @typedef  {ItemResponse2} itemResponse2 - Information about the request's response. - Information about the request's response.
- * @property {string} - The response's ID.
- * @property {ResponseOriginalRequest2} - Information about the collection request.
- * @property {number} - The time taken by the request to complete. The unit is milliseconds.
- * @property {ResponseHeader2_3}
- * @property {string} - The raw text of the response.
- * @property {string} - The response's status.
- * @property {number} - The response status code.
- * @property {string} - The date and time at which the response was created.
- * @property {string} - The date and time at which the response was updated.
- * @property {string} - The item's unique ID.
+ * @typedef {ItemResponse2} itemResponse2
+ * @property {string} id - The response's ID.
+ * @property {ResponseOriginalRequest2} originalRequest - Information about the collection request.
+ * @property {number} responseTime - The time taken by the request to complete. The unit is milliseconds.
+ * @property {ResponseHeader2_3} header
+ * @property {string} body - The raw text of the response.
+ * @property {string} status - The response's status.
+ * @property {number} code - The response status code.
+ * @property {string} createdAt - The date and time at which the response was created.
+ * @property {string} updatedAt - The date and time at which the response was updated.
+ * @property {string} uid - The item's unique ID.
  */
 export type ItemResponse2 = z.infer<typeof itemResponse2>;
 

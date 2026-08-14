@@ -16,13 +16,12 @@ export const workspaceRolesData = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {WorkspaceRolesData} workspaceRolesData
- * @property {string} - The role's ID.
- * @property {string[]} - A list of user IDs assigned to the role.
- * @property {string[]} - A list of user group IDs assigned to the role.
- * @property {string[]} - A list of partner IDs assigned to the role.
- * @property {string} - The role's display name.
+ * @typedef {WorkspaceRolesData} workspaceRolesData
+ * @property {string} id - The role's ID.
+ * @property {string[]} user - A list of user IDs assigned to the role.
+ * @property {string[]} usergroup - A list of user group IDs assigned to the role.
+ * @property {string[]} partner - A list of partner IDs assigned to the role.
+ * @property {string} displayName - The role's display name.
  */
 export type WorkspaceRolesData = z.infer<typeof workspaceRolesData>;
 

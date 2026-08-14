@@ -1,5 +1,5 @@
 import { WorkspaceTypeQuery } from './models/workspace-type-query';
-import { WorkspaceIncludeQuery } from './models/workspace-include-query';
+import { WorkspacesIncludeQuery } from './models/workspaces-include-query';
 import { WorkspaceElementTypeQuery } from './models/workspace-element-type-query';
 import { ElementType3 } from './models/element-type-3';
 import { WorkspaceIncludeScimQuery } from './models/workspace-include-scim-query';
@@ -7,7 +7,7 @@ import { WorkspaceIncludeScimQuery } from './models/workspace-include-scim-query
 export interface GetWorkspacesParams {
   type?: WorkspaceTypeQuery;
   createdBy?: number;
-  include?: WorkspaceIncludeQuery;
+  include?: WorkspacesIncludeQuery;
   elementType?: WorkspaceElementTypeQuery;
   elementId?: string;
   cursor?: string;
@@ -15,7 +15,7 @@ export interface GetWorkspacesParams {
 }
 
 export interface GetWorkspaceParams {
-  include?: WorkspaceIncludeQuery;
+  include?: string;
 }
 
 export interface GetWorkspaceActivityFeedParams {

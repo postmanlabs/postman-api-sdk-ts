@@ -13,10 +13,9 @@ export const transferWorkspaceToTeam = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {TransferWorkspaceToTeam} transferWorkspaceToTeam
- * @property {string} - The ID of the team to transfer the workspace to.
- * @property {string} - The ID of the team to transfer the workspace from.
+ * @typedef {TransferWorkspaceToTeam} transferWorkspaceToTeam
+ * @property {string} destination - The ID of the team to transfer the workspace to.
+ * @property {string} source - The ID of the team to transfer the workspace from.
  */
 export type TransferWorkspaceToTeam = z.infer<typeof transferWorkspaceToTeam>;
 

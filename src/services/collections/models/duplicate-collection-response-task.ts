@@ -14,11 +14,10 @@ export const duplicateCollectionResponseTask = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {DuplicateCollectionResponseTask} duplicateCollectionResponseTask
- * @property {string} - The duplication task's ID.
- * @property {TaskStatus} - The status of the collection duplication task.
- * @property {string} - If the task failed, the reason why it failed to complete.
+ * @typedef {DuplicateCollectionResponseTask} duplicateCollectionResponseTask
+ * @property {string} id - The duplication task's ID.
+ * @property {TaskStatus} status - The status of the collection duplication task.
+ * @property {string} reason - If the task failed, the reason why it failed to complete.
  */
 export type DuplicateCollectionResponseTask = z.infer<typeof duplicateCollectionResponseTask>;
 

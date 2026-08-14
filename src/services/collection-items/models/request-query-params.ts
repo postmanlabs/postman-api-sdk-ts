@@ -15,12 +15,11 @@ export const requestQueryParams = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RequestQueryParams} requestQueryParams
- * @property {string} - The query parameter's key.
- * @property {string} - The query parameter's value.
- * @property {string} - The query parameter's description.
- * @property {boolean} - If true, the query parameter is enabled.
+ * @typedef {RequestQueryParams} requestQueryParams
+ * @property {string} key - The query parameter's key.
+ * @property {string} value - The query parameter's value.
+ * @property {string} description - The query parameter's description.
+ * @property {boolean} enabled - If true, the query parameter is enabled.
  */
 export type RequestQueryParams = z.infer<typeof requestQueryParams>;
 

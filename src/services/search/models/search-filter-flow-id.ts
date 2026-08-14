@@ -16,11 +16,11 @@ export const searchFilterFlowId = z.lazy(() => {
 
 /**
  * Filters by flow ID. Supported for `flows` only.
- * @typedef  {SearchFilterFlowId} searchFilterFlowId - Filters by flow ID. Supported for `flows` only. - Filters by flow ID. Supported for `flows` only.
- * @property {string} - The flow ID to match.
- * @property {string} - The flow ID to exclude.
- * @property {string[]} - A list of flow IDs to match.
- * @property {string[]} - A list of flow IDs to exclude.
+ * @typedef {SearchFilterFlowId} searchFilterFlowId
+ * @property {string} _eq - The flow ID to match.
+ * @property {string} _ne - The flow ID to exclude.
+ * @property {string[]} _in - A list of flow IDs to match.
+ * @property {string[]} _nin - A list of flow IDs to exclude.
  */
 export type SearchFilterFlowId = z.infer<typeof searchFilterFlowId>;
 

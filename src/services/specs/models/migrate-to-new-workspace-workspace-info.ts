@@ -13,8 +13,8 @@ export const migrateToNewWorkspaceWorkspaceInfo = z.lazy(() => {
 
 /**
  * Information about the new workspace.
- * @typedef  {MigrateToNewWorkspaceWorkspaceInfo} migrateToNewWorkspaceWorkspaceInfo - Information about the new workspace. - Information about the new workspace.
- * @property {string} - The name of the workspace to create and migrate the definition to.
+ * @typedef {MigrateToNewWorkspaceWorkspaceInfo} migrateToNewWorkspaceWorkspaceInfo
+ * @property {string} name - The name of the workspace to create and migrate the definition to.
  */
 export type MigrateToNewWorkspaceWorkspaceInfo = z.infer<typeof migrateToNewWorkspaceWorkspaceInfo>;
 

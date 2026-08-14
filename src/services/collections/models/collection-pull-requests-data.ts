@@ -24,19 +24,19 @@ export const collectionPullRequestsData = z.lazy(() => {
 
 /**
  * Information about the pull request.
- * @typedef  {CollectionPullRequestsData} collectionPullRequestsData - Information about the pull request. - Information about the pull request.
- * @property {string} - The date and time at which the pull request was created.
- * @property {string} - The ID of the user who created the pull request.
- * @property {string} - The pull request's description.
- * @property {string} - The pull request's merge destination ID.
- * @property {string} - A URL where you can view the pull request's details.
- * @property {string} - The pull request's ID.
- * @property {string} - The pull request's source (parent) ID.
- * @property {CollectionPullRequestsDataStatus} - The pull request's current status.
- * @property {string} - If the pull request is declined, a comment about why the pull request was declined.
- * @property {string} - The pull request's title.
- * @property {string} - The ID of the user who updated the pull request.
- * @property {string} - The date and time at which the pull request was updated.
+ * @typedef {CollectionPullRequestsData} collectionPullRequestsData
+ * @property {string} createdAt - The date and time at which the pull request was created.
+ * @property {string} createdBy - The ID of the user who created the pull request.
+ * @property {string} description - The pull request's description.
+ * @property {string} destinationId - The pull request's merge destination ID.
+ * @property {string} href - A URL where you can view the pull request's details.
+ * @property {string} id - The pull request's ID.
+ * @property {string} sourceId - The pull request's source (parent) ID.
+ * @property {CollectionPullRequestsDataStatus} status - The pull request's current status.
+ * @property {string} comment - If the pull request is declined, a comment about why the pull request was declined.
+ * @property {string} title - The pull request's title.
+ * @property {string} updatedBy - The ID of the user who updated the pull request.
+ * @property {string} updatedAt - The date and time at which the pull request was updated.
  */
 export type CollectionPullRequestsData = z.infer<typeof collectionPullRequestsData>;
 

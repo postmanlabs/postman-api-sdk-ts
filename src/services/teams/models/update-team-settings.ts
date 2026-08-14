@@ -18,9 +18,8 @@ export const updateTeamSettings = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdateTeamSettings} updateTeamSettings
- * @property {UpdateTeamSettingsSettings} - Information about the team settings.
+ * @typedef {UpdateTeamSettings} updateTeamSettings
+ * @property {UpdateTeamSettingsSettings} settings - Information about the team settings.
  */
 export type UpdateTeamSettings = z.infer<typeof updateTeamSettings>;
 

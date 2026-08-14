@@ -16,10 +16,7 @@ export const patchEnvironmentAddValue = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PatchEnvironmentAddValue} patchEnvironmentAddValue
- * @property {AddVariable} - Information about the variable.
- * @property {AddSecretVariable} - Information about the variable stored in the Postman Vault. This property only returns when a variable is defined as secret.
+ * @typedef {PatchEnvironmentAddValue} patchEnvironmentAddValue
  */
 export type PatchEnvironmentAddValue = z.infer<typeof patchEnvironmentAddValue>;
 

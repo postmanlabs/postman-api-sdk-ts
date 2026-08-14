@@ -14,9 +14,9 @@ export const requestGraphqlModeData = z.lazy(() => {
 
 /**
  * The request body's GraphQL mode data.
- * @typedef  {RequestGraphqlModeData} requestGraphqlModeData - The request body's GraphQL mode data. - The request body's GraphQL mode data.
- * @property {string} - The GraphQL query.
- * @property {string} - The GraphQL query variables, in JSON format.
+ * @typedef {RequestGraphqlModeData} requestGraphqlModeData
+ * @property {string} query - The GraphQL query.
+ * @property {string} variables - The GraphQL query variables, in JSON format.
  */
 export type RequestGraphqlModeData = z.infer<typeof requestGraphqlModeData>;
 

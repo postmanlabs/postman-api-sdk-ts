@@ -14,9 +14,9 @@ export const invoicesTotal = z.lazy(() => {
 
 /**
  * Information about the invoice's total billed amount.
- * @typedef  {InvoicesTotal} invoicesTotal - Information about the invoice's total billed amount. - Information about the invoice's total billed amount.
- * @property {number} - The amount billed.
- * @property {string} - The currency of the billed amount. Currently only supports the `USD` value.
+ * @typedef {InvoicesTotal} invoicesTotal
+ * @property {number} value - The amount billed.
+ * @property {string} currency - The currency of the billed amount. Currently only supports the `USD` value.
  */
 export type InvoicesTotal = z.infer<typeof invoicesTotal>;
 

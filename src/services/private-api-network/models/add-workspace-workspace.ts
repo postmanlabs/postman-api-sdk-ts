@@ -13,10 +13,9 @@ export const addWorkspaceWorkspace = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {AddWorkspaceWorkspace} addWorkspaceWorkspace
- * @property {string} - The workspace's ID.
- * @property {number} - The `0` value.
+ * @typedef {AddWorkspaceWorkspace} addWorkspaceWorkspace
+ * @property {string} id - The workspace's ID.
+ * @property {number} parentFolderId - The `0` value.
  */
 export type AddWorkspaceWorkspace = z.infer<typeof addWorkspaceWorkspace>;
 

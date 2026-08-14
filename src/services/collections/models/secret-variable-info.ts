@@ -24,13 +24,13 @@ export const secretVariableInfo = z.lazy(() => {
 
 /**
  * Information about the secret variable.
- * @typedef  {SecretVariableInfo} secretVariableInfo - Information about the secret variable. - Information about the secret variable.
- * @property {boolean} - If true, the variable is enabled.
- * @property {string} - The variable's key (name).
- * @property {boolean} - If true, the variable is marked as secret and its value is retrieved from the mentioned provider in the source field.
- * @property {EnvironmentVariableSource} - Information about the source of the variable's value.
- * @property {string} - The variable's ID. Doesn't apply to collection-level variables.
- * @property {string} - The variable's description.
+ * @typedef {SecretVariableInfo} secretVariableInfo
+ * @property {boolean} enabled - If true, the variable is enabled.
+ * @property {string} key - The variable's key (name).
+ * @property {boolean} secret - If true, the variable is marked as secret and its value is retrieved from the mentioned provider in the source field.
+ * @property {EnvironmentVariableSource} source - Information about the source of the variable's value.
+ * @property {string} id - The variable's ID. Doesn't apply to collection-level variables.
+ * @property {string} description - The variable's description.
  */
 export type SecretVariableInfo = z.infer<typeof secretVariableInfo>;
 

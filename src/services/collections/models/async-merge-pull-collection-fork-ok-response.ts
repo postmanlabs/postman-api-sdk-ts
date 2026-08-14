@@ -18,9 +18,8 @@ export const asyncMergePullCollectionForkOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {AsyncMergePullCollectionForkOkResponse} asyncMergePullCollectionForkOkResponse
- * @property {SuccessfulResponseTask} - Information about the merge task.
+ * @typedef {AsyncMergePullCollectionForkOkResponse} asyncMergePullCollectionForkOkResponse
+ * @property {SuccessfulResponseTask} task - Information about the merge task.
  */
 export type AsyncMergePullCollectionForkOkResponse = z.infer<
   typeof asyncMergePullCollectionForkOkResponse

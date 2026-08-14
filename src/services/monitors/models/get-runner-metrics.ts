@@ -15,10 +15,10 @@ export const getRunnerMetrics = z.lazy(() => {
 
 /**
  * The runner instance's metrics information.
- * @typedef  {GetRunnerMetrics} getRunnerMetrics - The runner instance's metrics information. - The runner instance's metrics information.
- * @property {string} - The last date and time the runner sent results to the Postman cloud.
- * @property {number} - The age of the monitor, in seconds, that has been waiting the longest to run in the runner.
- * @property {number} - The number of pending Postman monitor runs in the runner's queue.
+ * @typedef {GetRunnerMetrics} getRunnerMetrics
+ * @property {string} lastPingAt - The last date and time the runner sent results to the Postman cloud.
+ * @property {number} oldestQueuedRunAgeSeconds - The age of the monitor, in seconds, that has been waiting the longest to run in the runner.
+ * @property {number} queueDepth - The number of pending Postman monitor runs in the runner's queue.
  */
 export type GetRunnerMetrics = z.infer<typeof getRunnerMetrics>;
 

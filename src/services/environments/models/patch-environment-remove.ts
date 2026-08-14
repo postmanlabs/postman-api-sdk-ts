@@ -13,10 +13,9 @@ export const patchEnvironmentRemove = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PatchEnvironmentRemove} patchEnvironmentRemove
- * @property {string} - The `remove` operation.
- * @property {string} - The [JSON Pointer syntax](https://datatracker.ietf.org/doc/html/rfc6901) that indicates the entry to update, in `/values/#` format, where `#` is the entry ID. The first record begins at the `0` value.
+ * @typedef {PatchEnvironmentRemove} patchEnvironmentRemove
+ * @property {string} op - The `remove` operation.
+ * @property {string} path - The [JSON Pointer syntax](https://datatracker.ietf.org/doc/html/rfc6901) that indicates the entry to update, in `/values/#` format, where `#` is the entry ID. The first record begins at the `0` value.
  */
 export type PatchEnvironmentRemove = z.infer<typeof patchEnvironmentRemove>;
 

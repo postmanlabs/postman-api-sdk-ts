@@ -14,8 +14,8 @@ export const successfulResponseData1 = z.lazy(() => {
 
 /**
  * An object containing the paginated elements.
- * @typedef  {SuccessfulResponseData1} successfulResponseData1 - An object containing the paginated elements. - An object containing the paginated elements.
- * @property {Entities[]} - A list of the Postman elements that contain the given tag.
+ * @typedef {SuccessfulResponseData1} successfulResponseData1
+ * @property {Entities[]} entities - A list of the Postman elements that contain the given tag.
  */
 export type SuccessfulResponseData1 = z.infer<typeof successfulResponseData1>;
 

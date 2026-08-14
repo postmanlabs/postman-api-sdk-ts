@@ -25,20 +25,20 @@ export const elementCreated = z.lazy(() => {
 
 /**
  * Information about the Private API Network element.
- * @typedef  {ElementCreated} elementCreated - Information about the Private API Network element. - Information about the Private API Network element.
- * @property {string} - The date and time at which the element was added.
- * @property {number} - The user who added the element.
- * @property {number} - The user who created the element.
- * @property {string} - The date and time at which the element was created.
- * @property {number} - The user who last updated the element.
- * @property {string} - The date and time at which the element was last updated.
- * @property {ElementCreatedType} - The `workspace` element.
- * @property {string} - The element's ID
- * @property {string} - The element's name.
- * @property {string} - The element's summary.
- * @property {string} - The element's description.
- * @property {string} - The element's Postman URL.
- * @property {number} - This property is deprecated.
+ * @typedef {ElementCreated} elementCreated
+ * @property {string} addedAt - The date and time at which the element was added.
+ * @property {number} addedBy - The user who added the element.
+ * @property {number} createdBy - The user who created the element.
+ * @property {string} createdAt - The date and time at which the element was created.
+ * @property {number} updatedBy - The user who last updated the element.
+ * @property {string} updatedAt - The date and time at which the element was last updated.
+ * @property {ElementCreatedType} type - The `workspace` element.
+ * @property {string} id - The element's ID
+ * @property {string} name - The element's name.
+ * @property {string} summary - The element's summary.
+ * @property {string} description - The element's description.
+ * @property {string} href - The element's Postman URL.
+ * @property {number} parentFolderId - This property is deprecated.
  */
 export type ElementCreated = z.infer<typeof elementCreated>;
 

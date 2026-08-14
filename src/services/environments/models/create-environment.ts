@@ -18,9 +18,8 @@ export const createEnvironment = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateEnvironment} createEnvironment
- * @property {CreateEnvironmentEnvironment} - Information about the environment.
+ * @typedef {CreateEnvironment} createEnvironment
+ * @property {CreateEnvironmentEnvironment} environment - Information about the environment.
  */
 export type CreateEnvironment = z.infer<typeof createEnvironment>;
 

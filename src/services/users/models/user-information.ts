@@ -18,13 +18,13 @@ export const userInformation = z.lazy(() => {
 
 /**
  * Information about the user.
- * @typedef  {UserInformation} userInformation - Information about the user. - Information about the user.
- * @property {number} - The user's ID.
- * @property {string} - The user's name.
- * @property {string} - The user's username.
- * @property {string} - The user's email address.
- * @property {string[]} - The user's roles.
- * @property {string} - The user's join date.
+ * @typedef {UserInformation} userInformation
+ * @property {number} id - The user's ID.
+ * @property {string} name - The user's name.
+ * @property {string} username - The user's username.
+ * @property {string} email - The user's email address.
+ * @property {string[]} roles - The user's roles.
+ * @property {string} joinedAt - The user's join date.
  */
 export type UserInformation = z.infer<typeof userInformation>;
 

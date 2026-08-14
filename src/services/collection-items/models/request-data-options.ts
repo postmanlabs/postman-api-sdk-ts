@@ -18,12 +18,12 @@ export const requestDataOptions = z.lazy(() => {
 
 /**
  * Additional configurations and options set for the request body's various data modes.
- * @typedef  {RequestDataOptions} requestDataOptions - Additional configurations and options set for the request body's various data modes. - Additional configurations and options set for the request body's various data modes.
- * @property {Raw} - Options for the `raw` data mode.
- * @property {any} - Options for the `urlencoded` data mode.
- * @property {any} - Options for the `params` data mode.
- * @property {any} - Options for the `binary` data mode.
- * @property {any} - Options for the `graphql` data mode.
+ * @typedef {RequestDataOptions} requestDataOptions
+ * @property {Raw} raw - Options for the `raw` data mode.
+ * @property {any} urlencoded - Options for the `urlencoded` data mode.
+ * @property {any} params - Options for the `params` data mode.
+ * @property {any} binary - Options for the `binary` data mode.
+ * @property {any} graphql - Options for the `graphql` data mode.
  */
 export type RequestDataOptions = z.infer<typeof requestDataOptions>;
 

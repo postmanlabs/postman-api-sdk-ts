@@ -14,9 +14,9 @@ export const collectionRequestBodyGraphql1 = z.lazy(() => {
 
 /**
  * If the `mode` value is `graphql`, an object containing the GraphQL request information.
- * @typedef  {CollectionRequestBodyGraphql1} collectionRequestBodyGraphql1 - If the `mode` value is `graphql`, an object containing the GraphQL request information. - If the `mode` value is `graphql`, an object containing the GraphQL request information.
- * @property {string} - The GraphQL query.
- * @property {string} - The GraphQL query variables, in JSON format.
+ * @typedef {CollectionRequestBodyGraphql1} collectionRequestBodyGraphql1
+ * @property {string} query - The GraphQL query.
+ * @property {string} variables - The GraphQL query variables, in JSON format.
  */
 export type CollectionRequestBodyGraphql1 = z.infer<typeof collectionRequestBodyGraphql1>;
 

@@ -15,10 +15,10 @@ export const panRequestResponse = z.lazy(() => {
 
 /**
  * Information about the response to the element's request. This object only returns when the request is denied with a message.
- * @typedef  {PanRequestResponse} panRequestResponse - Information about the response to the element's request. This object only returns when the request is denied with a message. - Information about the response to the element's request. This object only returns when the request is denied with a message.
- * @property {string} - The date and time at which request was denied.
- * @property {number} - The ID of the user who denied the request.
- * @property {string} - The request's response message.
+ * @typedef {PanRequestResponse} panRequestResponse
+ * @property {string} createdAt - The date and time at which request was denied.
+ * @property {number} createdBy - The ID of the user who denied the request.
+ * @property {string} message - The request's response message.
  */
 export type PanRequestResponse = z.infer<typeof panRequestResponse>;
 

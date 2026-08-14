@@ -17,12 +17,12 @@ export const globalVariableInfo = z.lazy(() => {
 
 /**
  * Information about the global variable.
- * @typedef  {GlobalVariableInfo} globalVariableInfo - Information about the global variable. - Information about the global variable.
- * @property {string} - The variable's name.
- * @property {GlobalVariableInfoType} - The [type](https://learning.postman.com/docs/sending-requests/variables/#variable-types) of variable.
- * @property {string} - The variable's value.
- * @property {boolean} - If true, the variable is enabled.
- * @property {string} - The variable's description.
+ * @typedef {GlobalVariableInfo} globalVariableInfo
+ * @property {string} key - The variable's name.
+ * @property {GlobalVariableInfoType} type - The [type](https://learning.postman.com/docs/sending-requests/variables/#variable-types) of variable.
+ * @property {string} value - The variable's value.
+ * @property {boolean} enabled - If true, the variable is enabled.
+ * @property {string} description - The variable's description.
  */
 export type GlobalVariableInfo = z.infer<typeof globalVariableInfo>;
 

@@ -18,14 +18,13 @@ export const url2 = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {Url2} url2
- * @property {string} - The request's raw URL.
- * @property {string} - The request protocol.
- * @property {string[]} - The host's URL.
- * @property {string[]} - A list of the URL's path components.
- * @property {string} - The URL's port number. An empty value indicates port `80` (http) or `443` (https).
- * @property {Query[]} - A list of query parameters. These are the query string parts of the URL, parsed as separate variables.
+ * @typedef {Url2} url2
+ * @property {string} raw - The request's raw URL.
+ * @property {string} protocol - The request protocol.
+ * @property {string[]} host - The host's URL.
+ * @property {string[]} path - A list of the URL's path components.
+ * @property {string} port - The URL's port number. An empty value indicates port `80` (http) or `443` (https).
+ * @property {Query[]} query - A list of query parameters. These are the query string parts of the URL, parsed as separate variables.
  */
 export type Url2 = z.infer<typeof url2>;
 

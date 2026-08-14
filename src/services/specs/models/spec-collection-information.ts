@@ -18,13 +18,13 @@ export const specCollectionInformation = z.lazy(() => {
 
 /**
  * Information about the API specification's collection.
- * @typedef  {SpecCollectionInformation} specCollectionInformation - Information about the API specification's collection. - Information about the API specification's collection.
- * @property {string} - The collection's ID.
- * @property {string} - The collection's name.
- * @property {SpecCollectionInformationState} - The sync state of the collection and its API specification.
- * @property {string} - The date and time at which the collection was generated.
- * @property {string} - The date and time at which the collection was updated.
- * @property {number} - The user ID of the user that generated the collection.
+ * @typedef {SpecCollectionInformation} specCollectionInformation
+ * @property {string} id - The collection's ID.
+ * @property {string} name - The collection's name.
+ * @property {SpecCollectionInformationState} state - The sync state of the collection and its API specification.
+ * @property {string} createdAt - The date and time at which the collection was generated.
+ * @property {string} updatedAt - The date and time at which the collection was updated.
+ * @property {number} createdBy - The user ID of the user that generated the collection.
  */
 export type SpecCollectionInformation = z.infer<typeof specCollectionInformation>;
 

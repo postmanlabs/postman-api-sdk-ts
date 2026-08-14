@@ -20,11 +20,10 @@ export const updateWorkspaceRolesRoles = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdateWorkspaceRolesRoles} updateWorkspaceRolesRoles
- * @property {string} - The operation to perform on the path.
- * @property {UpdateWorkspaceRolesRolesPath} - The resource to perform the action on.
- * @property {UpdateWorkspaceRolesRolesValue[]} - Information about the updated workspace role.
+ * @typedef {UpdateWorkspaceRolesRoles} updateWorkspaceRolesRoles
+ * @property {string} op - The operation to perform on the path.
+ * @property {UpdateWorkspaceRolesRolesPath} path - The resource to perform the action on.
+ * @property {UpdateWorkspaceRolesRolesValue[]} value - Information about the updated workspace role.
  */
 export type UpdateWorkspaceRolesRoles = z.infer<typeof updateWorkspaceRolesRoles>;
 

@@ -19,14 +19,14 @@ export const getMockServerResponses = z.lazy(() => {
 
 /**
  * Information about the server response.
- * @typedef  {GetMockServerResponses} getMockServerResponses - Information about the server response. - Information about the server response.
- * @property {string} - The server response's ID.
- * @property {string} - The server response's name.
- * @property {number} - The server response's 5xx HTTP response code.
- * @property {string} - The date and time at which the server response was created.
- * @property {string} - The date and time at which the server response was last updated.
- * @property {string} - The user ID of the user who created the server response.
- * @property {string} - The user ID of the user who last updated the server response.
+ * @typedef {GetMockServerResponses} getMockServerResponses
+ * @property {string} id - The server response's ID.
+ * @property {string} name - The server response's name.
+ * @property {number} statusCode - The server response's 5xx HTTP response code.
+ * @property {string} createdAt - The date and time at which the server response was created.
+ * @property {string} updatedAt - The date and time at which the server response was last updated.
+ * @property {string} createdBy - The user ID of the user who created the server response.
+ * @property {string} updatedBy - The user ID of the user who last updated the server response.
  */
 export type GetMockServerResponses = z.infer<typeof getMockServerResponses>;
 

@@ -11,9 +11,7 @@ export const authAttributesValue = z.lazy(() => {
 
 /**
  * The key's value.
- * @typedef  {AuthAttributesValue} authAttributesValue - The key's value. - The key's value.
- * @property {string}
- * @property {any[]}
+ * @typedef {AuthAttributesValue} authAttributesValue
  */
 export type AuthAttributesValue = z.infer<typeof authAttributesValue>;
 

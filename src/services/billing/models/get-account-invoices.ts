@@ -18,9 +18,8 @@ export const getAccountInvoices = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAccountInvoices} getAccountInvoices
- * @property {AccountInvoice[]} - A list of account invoices.
+ * @typedef {GetAccountInvoices} getAccountInvoices
+ * @property {AccountInvoice[]} data - A list of account invoices.
  */
 export type GetAccountInvoices = z.infer<typeof getAccountInvoices>;
 

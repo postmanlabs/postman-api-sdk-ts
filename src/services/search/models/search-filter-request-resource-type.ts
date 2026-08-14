@@ -16,11 +16,11 @@ export const searchFilterRequestResourceType = z.lazy(() => {
 
 /**
  * Filters by resource type variant (for example, `http` or `grpc`). Supported for `requests` only.
- * @typedef  {SearchFilterRequestResourceType} searchFilterRequestResourceType - Filters by resource type variant (for example, `http` or `grpc`). Supported for `requests` only. - Filters by resource type variant (for example, `http` or `grpc`). Supported for `requests` only.
- * @property {string} - The resource type to match.
- * @property {string} - The resource type to exclude.
- * @property {string[]} - A list of resource types to match.
- * @property {string[]} - A list of resource types to exclude.
+ * @typedef {SearchFilterRequestResourceType} searchFilterRequestResourceType
+ * @property {string} _eq - The resource type to match.
+ * @property {string} _ne - The resource type to exclude.
+ * @property {string[]} _in - A list of resource types to match.
+ * @property {string[]} _nin - A list of resource types to exclude.
  */
 export type SearchFilterRequestResourceType = z.infer<typeof searchFilterRequestResourceType>;
 

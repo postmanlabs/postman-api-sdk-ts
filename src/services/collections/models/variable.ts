@@ -22,11 +22,11 @@ export const variable = z.lazy(() => {
 
 /**
  * Information about the variable.
- * @typedef  {Variable} variable - Information about the variable. - Information about the variable.
- * @property {string} - The variable's key (name).
- * @property {VariableInfoValue1} - The key's value.
- * @property {string} - The variable's description.
- * @property {boolean} - If true, the variable is not enabled. Doesn't apply to path parameter variables.
+ * @typedef {Variable} variable
+ * @property {string} key - The variable's key (name).
+ * @property {VariableInfoValue1} value - The key's value.
+ * @property {string} description - The variable's description.
+ * @property {boolean} disabled - If true, the variable is not enabled. Doesn't apply to path parameter variables.
  */
 export type Variable = z.infer<typeof variable>;
 

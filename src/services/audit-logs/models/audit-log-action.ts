@@ -14,9 +14,9 @@ export const auditLogAction = z.lazy(() => {
 
 /**
  * Information about the audit log event action.
- * @typedef  {AuditLogAction} auditLogAction - Information about the audit log event action. - Information about the audit log event action.
- * @property {string} - The audit log event action's name.
- * @property {string} - The audit log event's display name as it appears in Postman's Audit Logs dashboard.
+ * @typedef {AuditLogAction} auditLogAction
+ * @property {string} name - The audit log event action's name.
+ * @property {string} displayName - The audit log event's display name as it appears in Postman's Audit Logs dashboard.
  */
 export type AuditLogAction = z.infer<typeof auditLogAction>;
 

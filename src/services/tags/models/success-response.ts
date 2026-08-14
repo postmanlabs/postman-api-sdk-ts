@@ -18,9 +18,8 @@ export const successResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SuccessResponse} successResponse
- * @property {SuccessResponseTags[]} - A list of associated tags.
+ * @typedef {SuccessResponse} successResponse
+ * @property {SuccessResponseTags[]} tags - A list of associated tags.
  */
 export type SuccessResponse = z.infer<typeof successResponse>;
 

@@ -25,16 +25,15 @@ export const successfulResponseMeta2 = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SuccessfulResponseMeta2} successfulResponseMeta2
- * @property {ActivityFeed[]} - The history of the secret's resolution status changes.
- * @property {string} - The pointer to the first record of the set of paginated results.
- * @property {number} - The maximum number of rows to return in the response.
- * @property {string} - The Base64-encoded value that points to the next record in the results set.
- * @property {string} - The secret's obfuscated value.
- * @property {string} - The secret's SHA-256 hash.
- * @property {string} - The type of thesecret.
- * @property {number} - The total number of discovered secret locations.
+ * @typedef {SuccessfulResponseMeta2} successfulResponseMeta2
+ * @property {ActivityFeed[]} activityFeed - The history of the secret's resolution status changes.
+ * @property {string} cursor - The pointer to the first record of the set of paginated results.
+ * @property {number} limit - The maximum number of rows to return in the response.
+ * @property {string} nextCursor - The Base64-encoded value that points to the next record in the results set.
+ * @property {string} obfuscatedSecret - The secret's obfuscated value.
+ * @property {string} secretHash - The secret's SHA-256 hash.
+ * @property {string} secretType - The type of thesecret.
+ * @property {number} total - The total number of discovered secret locations.
  */
 export type SuccessfulResponseMeta2 = z.infer<typeof successfulResponseMeta2>;
 

@@ -20,11 +20,10 @@ export const jsonStringified = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {JsonStringified} jsonStringified
- * @property {JsonStringifiedType} - The `string` type value.
- * @property {string} - The stringified OpenAPI definition.
- * @property {GenerateCollectionOptions} - The advanced creation options and their values. For more details, see Postman's [OpenAPI to Postman Collection Converter OPTIONS documentation](https://github.com/postmanlabs/openapi-to-postman/blob/develop/OPTIONS.md). These properties are case-sensitive.
+ * @typedef {JsonStringified} jsonStringified
+ * @property {JsonStringifiedType} type - The `string` type value.
+ * @property {string} input - The stringified OpenAPI definition.
+ * @property {GenerateCollectionOptions} options - The advanced creation options and their values. For more details, see Postman's [OpenAPI to Postman Collection Converter OPTIONS documentation](https://github.com/postmanlabs/openapi-to-postman/blob/develop/OPTIONS.md). These properties are case-sensitive.
  */
 export type JsonStringified = z.infer<typeof jsonStringified>;
 

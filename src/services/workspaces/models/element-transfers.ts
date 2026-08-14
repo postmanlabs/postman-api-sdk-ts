@@ -16,11 +16,11 @@ export const elementTransfers = z.lazy(() => {
 
 /**
  * Information about the element transfer.
- * @typedef  {ElementTransfers} elementTransfers - Information about the element transfer. - Information about the element transfer.
- * @property {string} - The type of element transferred.
- * @property {string} - The ID of the workspace the element was transferred from.
- * @property {string} - The element's ID.
- * @property {string} - The ID of the workspace the element was transferred to.
+ * @typedef {ElementTransfers} elementTransfers
+ * @property {string} type - The type of element transferred.
+ * @property {string} from - The ID of the workspace the element was transferred from.
+ * @property {string} id - The element's ID.
+ * @property {string} to - The ID of the workspace the element was transferred to.
  */
 export type ElementTransfers = z.infer<typeof elementTransfers>;
 

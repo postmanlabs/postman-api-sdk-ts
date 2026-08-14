@@ -20,10 +20,7 @@ export const managePartnerWorkspaceInvitesResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ManagePartnerWorkspaceInvitesResponse} managePartnerWorkspaceInvitesResponse
- * @property {InvitePartnerResponse}
- * @property {RemovePartnerResponse}
+ * @typedef {ManagePartnerWorkspaceInvitesResponse} managePartnerWorkspaceInvitesResponse
  */
 export type ManagePartnerWorkspaceInvitesResponse = z.infer<
   typeof managePartnerWorkspaceInvitesResponse

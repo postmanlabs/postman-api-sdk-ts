@@ -12,9 +12,8 @@ export const revokeOauthTokenResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RevokeOauthTokenResponse} revokeOauthTokenResponse
- * @property {string} - The `true` value.
+ * @typedef {RevokeOauthTokenResponse} revokeOauthTokenResponse
+ * @property {string} success - The `true` value.
  */
 export type RevokeOauthTokenResponse = z.infer<typeof revokeOauthTokenResponse>;
 

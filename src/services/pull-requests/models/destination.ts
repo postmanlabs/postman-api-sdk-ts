@@ -15,10 +15,10 @@ export const destination = z.lazy(() => {
 
 /**
  * Information about the pull request destination element.
- * @typedef  {Destination} destination - Information about the pull request destination element. - Information about the pull request destination element.
- * @property {string} - The destination element's ID.
- * @property {string} - The destination element's name.
- * @property {boolean} - If true, whether the element is present and not deleted.
+ * @typedef {Destination} destination
+ * @property {string} id - The destination element's ID.
+ * @property {string} name - The destination element's name.
+ * @property {boolean} exists - If true, whether the element is present and not deleted.
  */
 export type Destination = z.infer<typeof destination>;
 

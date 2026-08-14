@@ -29,11 +29,7 @@ export const migrateApiToSpecHub = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MigrateApiToSpecHub} migrateApiToSpecHub
- * @property {MigrateToExistingWorkspace}
- * @property {MigrateToNewWorkspace}
- * @property {MigrateGitConnectedMonoRepoToNewWorkspace}
+ * @typedef {MigrateApiToSpecHub} migrateApiToSpecHub
  */
 export type MigrateApiToSpecHub = z.infer<typeof migrateApiToSpecHub>;
 

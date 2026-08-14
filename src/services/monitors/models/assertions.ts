@@ -14,9 +14,9 @@ export const assertions = z.lazy(() => {
 
 /**
  * Information about the monitor's tests.
- * @typedef  {Assertions} assertions - Information about the monitor's tests. - Information about the monitor's tests.
- * @property {number} - The total number of tests performed.
- * @property {number} - The total number of test failures.
+ * @typedef {Assertions} assertions
+ * @property {number} total - The total number of tests performed.
+ * @property {number} failed - The total number of test failures.
  */
 export type Assertions = z.infer<typeof assertions>;
 

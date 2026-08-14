@@ -14,9 +14,9 @@ export const collectionFolderDeletedData = z.lazy(() => {
 
 /**
  * The folder's information.
- * @typedef  {CollectionFolderDeletedData} collectionFolderDeletedData - The folder's information. - The folder's information.
- * @property {string} - The folder's ID.
- * @property {string} - The user ID of the folder's owner.
+ * @typedef {CollectionFolderDeletedData} collectionFolderDeletedData
+ * @property {string} id - The folder's ID.
+ * @property {string} owner - The user ID of the folder's owner.
  */
 export type CollectionFolderDeletedData = z.infer<typeof collectionFolderDeletedData>;
 

@@ -17,12 +17,11 @@ export const transferCollectionItems = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {TransferCollectionItems} transferCollectionItems   
- * @property {string[]} - A list of collection request, response, or folder UIDs to transfer.
- * @property {Mode} - The transfer operation to perform.
- * @property {Target} - Information about the item transfer's destination location.
- * @property {Location} - The transferred items' placement in the target destination:
+ * @typedef {TransferCollectionItems} transferCollectionItems
+ * @property {string[]} ids - A list of collection request, response, or folder UIDs to transfer.
+ * @property {Mode} mode - The transfer operation to perform.
+ * @property {Target} target - Information about the item transfer's destination location.
+ * @property {Location} location - The transferred items' placement in the target destination:
 - For `start` or `end` — Do not include the `model` and `id` values.
 - For `before` or `after` — Include the `model` and `id` properties.
 

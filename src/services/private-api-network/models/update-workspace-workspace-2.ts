@@ -12,9 +12,8 @@ export const updateWorkspaceWorkspace2 = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdateWorkspaceWorkspace2} updateWorkspaceWorkspace2
- * @property {number} - The workspace's new parent folder ID.
+ * @typedef {UpdateWorkspaceWorkspace2} updateWorkspaceWorkspace2
+ * @property {number} parentFolderId - The workspace's new parent folder ID.
  */
 export type UpdateWorkspaceWorkspace2 = z.infer<typeof updateWorkspaceWorkspace2>;
 

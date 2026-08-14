@@ -14,11 +14,10 @@ export const activityFeed = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {ActivityFeed} activityFeed   
- * @property {string} - The date and time at which the resolution status was last updated.
- * @property {number} - The ID of the user that updated the secret's resolution status.
- * @property {ActivityFeedStatus} - The secret's current resolution status:
+ * @typedef {ActivityFeed} activityFeed
+ * @property {string} resolvedAt - The date and time at which the resolution status was last updated.
+ * @property {number} resolvedBy - The ID of the user that updated the secret's resolution status.
+ * @property {ActivityFeedStatus} status - The secret's current resolution status:
 - `ACTIVE` — The secret is active.
 - `FALSE_POSITIVE` — The discovered secret is not an actual secret.
 - `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue.

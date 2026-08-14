@@ -13,8 +13,8 @@ export const csharpOptions = z.lazy(() => {
 
 /**
  * C#-specific SDK generation options.
- * @typedef  {CsharpOptions} csharpOptions - C#-specific SDK generation options. - C#-specific SDK generation options.
- * @property {string} - The NuGet package's ID.
+ * @typedef {CsharpOptions} csharpOptions
+ * @property {string} packageId - The NuGet package's ID.
  */
 export type CsharpOptions = z.infer<typeof csharpOptions>;
 

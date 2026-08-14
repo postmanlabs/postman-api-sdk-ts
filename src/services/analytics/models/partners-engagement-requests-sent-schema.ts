@@ -18,9 +18,8 @@ export const partnersEngagementRequestsSentSchema = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PartnersEngagementRequestsSentSchema} partnersEngagementRequestsSentSchema
- * @property {GetAnalyticsDataColumnsData[]} - A list of column entries.
+ * @typedef {PartnersEngagementRequestsSentSchema} partnersEngagementRequestsSentSchema
+ * @property {GetAnalyticsDataColumnsData[]} columns - A list of column entries.
  */
 export type PartnersEngagementRequestsSentSchema = z.infer<
   typeof partnersEngagementRequestsSentSchema

@@ -17,14 +17,13 @@ export const requestData = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RequestData} requestData
- * @property {string} - The form data's key.
- * @property {string} - The form data's value.
- * @property {string} - The form data's description.
- * @property {boolean} - If true, the form data entry is enabled.
- * @property {RequestDataType} - The form data's type.
- * @property {string} - The form data entry's unique identifier.
+ * @typedef {RequestData} requestData
+ * @property {string} key - The form data's key.
+ * @property {string} value - The form data's value.
+ * @property {string} description - The form data's description.
+ * @property {boolean} enabled - If true, the form data entry is enabled.
+ * @property {RequestDataType} type - The form data's type.
+ * @property {string} uuid - The form data entry's unique identifier.
  */
 export type RequestData = z.infer<typeof requestData>;
 

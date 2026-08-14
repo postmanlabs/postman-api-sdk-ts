@@ -18,9 +18,8 @@ export const postmanGroupsInformation = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PostmanGroupsInformation} postmanGroupsInformation
- * @property {PostmanGroupsInformationData[]} - A list of Postman groups.
+ * @typedef {PostmanGroupsInformation} postmanGroupsInformation
+ * @property {PostmanGroupsInformationData[]} data - A list of Postman groups.
  */
 export type PostmanGroupsInformation = z.infer<typeof postmanGroupsInformation>;
 

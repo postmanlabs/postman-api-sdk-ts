@@ -16,11 +16,11 @@ export const searchFilterSpecId = z.lazy(() => {
 
 /**
  * Filters by specification ID. Supported for `specs` only.
- * @typedef  {SearchFilterSpecId} searchFilterSpecId - Filters by specification ID. Supported for `specs` only. - Filters by specification ID. Supported for `specs` only.
- * @property {string} - The specification ID to match.
- * @property {string} - The specification ID to exclude.
- * @property {string[]} - A list of specification IDs to match.
- * @property {string[]} - A list of specification IDs to exclude.
+ * @typedef {SearchFilterSpecId} searchFilterSpecId
+ * @property {string} _eq - The specification ID to match.
+ * @property {string} _ne - The specification ID to exclude.
+ * @property {string[]} _in - A list of specification IDs to match.
+ * @property {string[]} _nin - A list of specification IDs to exclude.
  */
 export type SearchFilterSpecId = z.infer<typeof searchFilterSpecId>;
 

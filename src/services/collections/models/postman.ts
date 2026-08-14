@@ -15,12 +15,12 @@ export const postman = z.lazy(() => {
 
 /**
  * Information about the Postman-specific source of the variable's value.
- * @typedef  {Postman} postman - Information about the Postman-specific source of the variable's value. - Information about the Postman-specific source of the variable's value.
- * @property {string} - The variable's secret ID.
- * @property {PostmanType} - The variable's type:
+ * @typedef {Postman} postman
+ * @property {string} secretId - The variable's secret ID.
+ * @property {PostmanType} type - The variable's type:
 - `cloud` — The variable value is synced and stored in the Postman Cloud.
 
- * @property {string} - The variable's ID in the Postman Vault.
+ * @property {string} vaultId - The variable's ID in the Postman Vault.
  */
 export type Postman = z.infer<typeof postman>;
 

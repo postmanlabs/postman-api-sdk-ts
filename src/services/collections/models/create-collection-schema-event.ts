@@ -15,9 +15,9 @@ export const createCollectionSchemaEvent = z.lazy(() => {
 
 /**
  * Information about the collection's events.
- * @typedef  {CreateCollectionSchemaEvent} createCollectionSchemaEvent - Information about the collection's events. - Information about the collection's events.
- * @property {EventListen1} - Can be set to `test` or `prerequest` for test scripts or pre-request scripts respectively.
- * @property {EventScript} - Information about the Javascript code that can be used to to perform setup or teardown operations in a response.
+ * @typedef {CreateCollectionSchemaEvent} createCollectionSchemaEvent
+ * @property {EventListen1} listen - Can be set to `test` or `prerequest` for test scripts or pre-request scripts respectively.
+ * @property {EventScript} script - Information about the Javascript code that can be used to to perform setup or teardown operations in a response.
  */
 export type CreateCollectionSchemaEvent = z.infer<typeof createCollectionSchemaEvent>;
 

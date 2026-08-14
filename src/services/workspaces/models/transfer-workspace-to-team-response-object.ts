@@ -15,10 +15,10 @@ export const transferWorkspaceToTeamResponseObject = z.lazy(() => {
 
 /**
  * Information about the workspace transfer.
- * @typedef  {TransferWorkspaceToTeamResponseObject} transferWorkspaceToTeamResponseObject - Information about the workspace transfer. - Information about the workspace transfer.
- * @property {string} - The ID of the transferred workspace.
- * @property {string} - The ID of the team the workspace was transferred away from.
- * @property {string} - The ID of the team that the workspace was transferred to.
+ * @typedef {TransferWorkspaceToTeamResponseObject} transferWorkspaceToTeamResponseObject
+ * @property {string} id - The ID of the transferred workspace.
+ * @property {string} source - The ID of the team the workspace was transferred away from.
+ * @property {string} destination - The ID of the team that the workspace was transferred to.
  */
 export type TransferWorkspaceToTeamResponseObject = z.infer<
   typeof transferWorkspaceToTeamResponseObject

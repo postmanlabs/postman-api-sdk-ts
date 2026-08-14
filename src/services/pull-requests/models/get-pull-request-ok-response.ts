@@ -34,26 +34,25 @@ export const getPullRequestOkResponse = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {GetPullRequestOkResponse} getPullRequestOkResponse   
- * @property {string} - The date and time at which the pull request was created.
- * @property {string} - The date and time at which the pull request was updated.
- * @property {string} - The pull request's ID.
- * @property {string} - The pull request's title.
- * @property {string} - The pull request's description.
- * @property {string} - The ID of the user who created the pull request.
- * @property {string} - The ID of the user who last updated the pull request.
- * @property {string} - If the pull request is a `decline` status, an optional comment about why the pull request was declined.
- * @property {string} - The type of element the pull request was forked from.
- * @property {SuccessfulResponseSource} - Information about the pull request's source (parent) element.
- * @property {Destination} - Information about the pull request destination element.
- * @property {string} - The pull request's current review status:
+ * @typedef {GetPullRequestOkResponse} getPullRequestOkResponse
+ * @property {string} createdAt - The date and time at which the pull request was created.
+ * @property {string} updatedAt - The date and time at which the pull request was updated.
+ * @property {string} id - The pull request's ID.
+ * @property {string} title - The pull request's title.
+ * @property {string} description - The pull request's description.
+ * @property {string} createdBy - The ID of the user who created the pull request.
+ * @property {string} updatedBy - The ID of the user who last updated the pull request.
+ * @property {string} comment - If the pull request is a `decline` status, an optional comment about why the pull request was declined.
+ * @property {string} fortkType - The type of element the pull request was forked from.
+ * @property {SuccessfulResponseSource} source - Information about the pull request's source (parent) element.
+ * @property {Destination} destination - Information about the pull request destination element.
+ * @property {string} status - The pull request's current review status:
 - `open` — The pull request is still open.
 - `approved` — The pull request was approved by its reviewers.
 - `declined` — The pull request was not approved by its reviewers.
 
- * @property {Merge} - Information about the current progress of the pull request's merge.
- * @property {Reviewers[]} - Information about the reviewers assigned to the pull request.
+ * @property {Merge} merge - Information about the current progress of the pull request's merge.
+ * @property {Reviewers[]} reviewers - Information about the reviewers assigned to the pull request.
  */
 export type GetPullRequestOkResponse = z.infer<typeof getPullRequestOkResponse>;
 

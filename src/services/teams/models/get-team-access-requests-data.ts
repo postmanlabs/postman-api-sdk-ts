@@ -36,19 +36,19 @@ export const getTeamAccessRequestsData = z.lazy(() => {
 
 /**
  * Information about the access request.
- * @typedef  {GetTeamAccessRequestsData} getTeamAccessRequestsData - Information about the access request. - Information about the access request.
- * @property {string} - The date and time the access request was created.
- * @property {string} - The date and time the access request was last updated.
- * @property {number} - The access request's ID.
- * @property {DataRole} - The requested team role.
- * @property {string} - The access request type.
- * @property {string} - The reason the access request was created.
- * @property {string} - The access request's status.
- * @property {string} - The entity type.
- * @property {DataEntityId} - The entity's ID.
- * @property {string} - The entity type.
- * @property {number} - The entity's ID.
- * @property {DataCreatedBy} - The user ID of the user who created the access request.
+ * @typedef {GetTeamAccessRequestsData} getTeamAccessRequestsData
+ * @property {string} createdAt - The date and time the access request was created.
+ * @property {string} updatedAt - The date and time the access request was last updated.
+ * @property {number} id - The access request's ID.
+ * @property {DataRole} role - The requested team role.
+ * @property {string} requestType - The access request type.
+ * @property {string} reason - The reason the access request was created.
+ * @property {string} status - The access request's status.
+ * @property {string} entityType - The entity type.
+ * @property {DataEntityId} entityId - The entity's ID.
+ * @property {string} objectType - The entity type.
+ * @property {number} objectId - The entity's ID.
+ * @property {DataCreatedBy} createdBy - The user ID of the user who created the access request.
  */
 export type GetTeamAccessRequestsData = z.infer<typeof getTeamAccessRequestsData>;
 

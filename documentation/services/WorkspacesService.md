@@ -97,7 +97,7 @@ Gets all [workspaces](https://learning.postman.com/docs/collaborating-in-postman
 | :---------- | :------------------------------------------------------------------ | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type        | [WorkspaceTypeQuery](../models/WorkspaceTypeQuery.md)               | ❌       | The type of workspace to filter the response by.                                                                                                                                                                                                                       |
 | createdBy   | number                                                              | ❌       | Return only workspaces created by a specific user ID. For multiple users, pass this value as a comma-separated list of user IDs. The response only returns workspaces that you have access to.                                                                         |
-| include     | [WorkspaceIncludeQuery](../models/WorkspaceIncludeQuery.md)         | ❌       | Include the following information in the endpoint's response: - `mocks:deactivated` — Include all deactivated mock servers in the response. - `scim` — Return the SCIM user IDs of the workspace creator and who last modified it.                                     |
+| include     | [WorkspacesIncludeQuery](../models/WorkspacesIncludeQuery.md)       | ❌       | Include the following information in the endpoint's response: - `mocks:deactivated` — Include all deactivated mock servers in the response. - `scim` — Return the SCIM user IDs of the workspace creator and who last modified it.                                     |
 | elementType | [WorkspaceElementTypeQuery](../models/WorkspaceElementTypeQuery.md) | ❌       | Filter results to return the workspace where the given element type is located. If you pass this query parameter, you must also pass the `elementId` query parameter.                                                                                                  |
 | elementId   | string                                                              | ❌       | Filter results to return the workspace where the given element's ID is located. When filtering by collection, you must use the collection's unique ID (`userId`-`collection`). If you pass this query parameter, you must also pass the `elementType` query parameter. |
 | cursor      | string                                                              | ❌       | The pointer to the first record of the set of paginated results. To view the next response, use the `nextCursor` value for this parameter.                                                                                                                             |
@@ -113,8 +113,8 @@ Gets all [workspaces](https://learning.postman.com/docs/collaborating-in-postman
 import {
   PostmanApi,
   WorkspaceElementTypeQuery,
-  WorkspaceIncludeQuery,
   WorkspaceTypeQuery,
+  WorkspacesIncludeQuery,
 } from '@postman/api-sdk';
 
 (async () => {
@@ -123,13 +123,13 @@ import {
   });
 
   const workspaceTypeQuery = WorkspaceTypeQuery.PERSONAL;
-  const workspaceIncludeQuery = WorkspaceIncludeQuery.MOCKS_DEACTIVATED;
+  const workspacesIncludeQuery = WorkspacesIncludeQuery.MOCKS_DEACTIVATED;
   const workspaceElementTypeQuery = WorkspaceElementTypeQuery.COLLECTION;
 
   const data = await postmanApi.workspaces.getWorkspaces({
     type: workspaceTypeQuery,
     createdBy: 12345678,
-    include: workspaceIncludeQuery,
+    include: workspacesIncludeQuery,
     elementType: workspaceElementTypeQuery,
     elementId: '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     cursor: 'RnJpIEZlYiAyNCAyMDIzIDEzOjI0OjA5IEdNVCswMDAwIChDb29yZGluYXRlZCBVbml2ZXJzYWwgVGltZSk=',
@@ -228,10 +228,10 @@ Gets information about a workspace. **Note:** This endpoint's response contains 
 
 **Parameters**
 
-| Name        | Type                                                        | Required | Description                                                                                                                                                                                                                        |
-| :---------- | :---------------------------------------------------------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| workspaceId | string                                                      | ✅       | The workspace's ID.                                                                                                                                                                                                                |
-| include     | [WorkspaceIncludeQuery](../models/WorkspaceIncludeQuery.md) | ❌       | Include the following information in the endpoint's response: - `mocks:deactivated` — Include all deactivated mock servers in the response. - `scim` — Return the SCIM user IDs of the workspace creator and who last modified it. |
+| Name        | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                                 |
+| :---------- | :----- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| workspaceId | string | ✅       | The workspace's ID.                                                                                                                                                                                                                                                                                                                                         |
+| include     | string | ❌       | A comma-separated list of values to include in the endpoint's response: - `scim` — Return the SCIM user IDs of the workspace creator and who last modified it. - `team` — Return the workspace's team ID. Returns a null value if the workspace isn't associated with a team. - `mocks:deactivated` — Include all deactivated mock servers in the response. |
 
 **Return Type**
 
@@ -240,17 +240,15 @@ Gets information about a workspace. **Note:** This endpoint's response contains 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApi, WorkspaceIncludeQuery } from '@postman/api-sdk';
+import { PostmanApi } from '@postman/api-sdk';
 
 (async () => {
   const postmanApi = new PostmanApi({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const workspaceIncludeQuery = WorkspaceIncludeQuery.MOCKS_DEACTIVATED;
-
   const data = await postmanApi.workspaces.getWorkspace('1f0df51a-8658-4ee8-a2a1-d2567dfa09a9', {
-    include: workspaceIncludeQuery,
+    include: 'team,scim',
   });
 
   console.log(data);
@@ -425,7 +423,7 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const id = 'adipis';
+  const id = 'sit do dolor co';
 
   const transferWorkspaceElementType = TransferWorkspaceElementType.COLLECTION;
 

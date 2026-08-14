@@ -5,6 +5,7 @@ export enum SearchPostmanResourcesElementType {
   COLLECTIONS = 'collections',
   WORKSPACES = 'workspaces',
   ENVIRONMENTS = 'environments',
+  DOCUMENTS = 'documents',
   FLOWS = 'flows',
   SPECS = 'specs',
 }

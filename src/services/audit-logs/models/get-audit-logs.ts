@@ -18,9 +18,8 @@ export const getAuditLogs = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAuditLogs} getAuditLogs
- * @property {AuditLogEvent[]} - A list of audit log events.
+ * @typedef {GetAuditLogs} getAuditLogs
+ * @property {AuditLogEvent[]} trails - A list of audit log events.
  */
 export type GetAuditLogs = z.infer<typeof getAuditLogs>;
 

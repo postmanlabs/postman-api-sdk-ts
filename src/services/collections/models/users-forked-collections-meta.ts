@@ -15,10 +15,10 @@ export const usersForkedCollectionsMeta = z.lazy(() => {
 
 /**
  * The response's meta information for paginated results.
- * @typedef  {UsersForkedCollectionsMeta} usersForkedCollectionsMeta - The response's meta information for paginated results. - The response's meta information for paginated results.
- * @property {number} - The total number of forked collections.
- * @property {string} - The pagination cursor that points to the next record in the results set.
- * @property {number} - The total number of forked collections that the user cannot access.
+ * @typedef {UsersForkedCollectionsMeta} usersForkedCollectionsMeta
+ * @property {number} total - The total number of forked collections.
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
+ * @property {number} inaccessibleFork - The total number of forked collections that the user cannot access.
  */
 export type UsersForkedCollectionsMeta = z.infer<typeof usersForkedCollectionsMeta>;
 

@@ -14,9 +14,9 @@ export const monitorRunStatsRequests = z.lazy(() => {
 
 /**
  * Information about the monitor's requests.
- * @typedef  {MonitorRunStatsRequests} monitorRunStatsRequests - Information about the monitor's requests. - Information about the monitor's requests.
- * @property {number} - The total number of requests.
- * @property {number} - The number of request failures.
+ * @typedef {MonitorRunStatsRequests} monitorRunStatsRequests
+ * @property {number} total - The total number of requests.
+ * @property {number} failed - The number of request failures.
  */
 export type MonitorRunStatsRequests = z.infer<typeof monitorRunStatsRequests>;
 

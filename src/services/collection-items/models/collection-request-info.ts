@@ -20,11 +20,10 @@ export const collectionRequestInfo = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionRequestInfo} collectionRequestInfo
- * @property {string} - The request's ID.
- * @property {any} - A Postman-specific response that contains information about the internal performed operation.
- * @property {CollectionRequestInfoData} - Information about the request. For a complete list of properties, refer to the ``Request`` entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
+ * @typedef {CollectionRequestInfo} collectionRequestInfo
+ * @property {string} modelId - The request's ID.
+ * @property {any} meta - A Postman-specific response that contains information about the internal performed operation.
+ * @property {CollectionRequestInfoData} data - Information about the request. For a complete list of properties, refer to the ``Request`` entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
  */
 export type CollectionRequestInfo = z.infer<typeof collectionRequestInfo>;
 

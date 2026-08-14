@@ -26,9 +26,9 @@ export const manageTeamMemberRoles = z.lazy(() => {
 
 /**
  * Information about the bulk add and bulk remove operations.
- * @typedef  {ManageTeamMemberRoles} manageTeamMemberRoles - Information about the bulk add and bulk remove operations. - Information about the bulk add and bulk remove operations.
- * @property {ManageTeamMemberRolesAdd} - Information about the bulk `add` operation.
- * @property {ManageTeamMemberRolesRemove} - Information about the bulk `remove` operation.
+ * @typedef {ManageTeamMemberRoles} manageTeamMemberRoles
+ * @property {ManageTeamMemberRolesAdd} add - Information about the bulk `add` operation.
+ * @property {ManageTeamMemberRolesRemove} remove - Information about the bulk `remove` operation.
  */
 export type ManageTeamMemberRoles = z.infer<typeof manageTeamMemberRoles>;
 

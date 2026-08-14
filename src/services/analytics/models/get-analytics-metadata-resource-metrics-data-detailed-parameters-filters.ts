@@ -11,10 +11,7 @@ export const getAnalyticsMetadataResourceMetricsDataDetailedParametersFilters = 
 });
 
 /**
- *
- * @typedef  {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFilters} getAnalyticsMetadataResourceMetricsDataDetailedParametersFilters
- * @property {string[]}
- * @property {Object} - Information about the filter parameters.
+ * @typedef {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFilters} getAnalyticsMetadataResourceMetricsDataDetailedParametersFilters
  */
 export type GetAnalyticsMetadataResourceMetricsDataDetailedParametersFilters = z.infer<
   typeof getAnalyticsMetadataResourceMetricsDataDetailedParametersFilters

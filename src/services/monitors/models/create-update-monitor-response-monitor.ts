@@ -16,11 +16,11 @@ export const createUpdateMonitorResponseMonitor = z.lazy(() => {
 
 /**
  * Information about the monitor.
- * @typedef  {CreateUpdateMonitorResponseMonitor} createUpdateMonitorResponseMonitor - Information about the monitor. - Information about the monitor.
- * @property {string} - The monitor's ID.
- * @property {string} - The monitor's name.
- * @property {boolean} - If true, the monitor is active and makes calls to the specified URL.
- * @property {string} - The monitor's unique ID.
+ * @typedef {CreateUpdateMonitorResponseMonitor} createUpdateMonitorResponseMonitor
+ * @property {string} id - The monitor's ID.
+ * @property {string} name - The monitor's name.
+ * @property {boolean} active - If true, the monitor is active and makes calls to the specified URL.
+ * @property {string} uid - The monitor's unique ID.
  */
 export type CreateUpdateMonitorResponseMonitor = z.infer<typeof createUpdateMonitorResponseMonitor>;
 

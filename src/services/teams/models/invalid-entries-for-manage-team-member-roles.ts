@@ -20,9 +20,9 @@ export const invalidEntriesForManageTeamMemberRoles = z.lazy(() => {
 
 /**
  * An explanation about the problem.
- * @typedef  {InvalidEntriesForManageTeamMemberRoles} invalidEntriesForManageTeamMemberRoles - An explanation about the problem. - An explanation about the problem.
- * @property {string} - The error message.
- * @property {InvalidEntriesForManageTeamMemberRolesResult[]} - A list of invalid entities.
+ * @typedef {InvalidEntriesForManageTeamMemberRoles} invalidEntriesForManageTeamMemberRoles
+ * @property {string} error - The error message.
+ * @property {InvalidEntriesForManageTeamMemberRolesResult[]} result - A list of invalid entities.
  */
 export type InvalidEntriesForManageTeamMemberRoles = z.infer<
   typeof invalidEntriesForManageTeamMemberRoles

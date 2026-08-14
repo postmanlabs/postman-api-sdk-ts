@@ -13,10 +13,9 @@ export const migrateToSpecHubResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MigrateToSpecHubResponse} migrateToSpecHubResponse
- * @property {string} - The operation's message.
- * @property {boolean} - If true, the migration succeeded.
+ * @typedef {MigrateToSpecHubResponse} migrateToSpecHubResponse
+ * @property {string} message - The operation's message.
+ * @property {boolean} success - If true, the migration succeeded.
  */
 export type MigrateToSpecHubResponse = z.infer<typeof migrateToSpecHubResponse>;
 

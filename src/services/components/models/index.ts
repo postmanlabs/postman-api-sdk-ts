@@ -9,6 +9,7 @@ export type { CreateComponent } from './create-component';
 export { ComponentContentFormat } from './component-content-format';
 export type { GetComponent } from './get-component';
 export type { UpdateComponentResponse } from './update-component-response';
+export type { UpdateComponent } from './update-component';
 export type { GetComponentDraft } from './get-component-draft';
 export type { UpdateComponentDraftResponse } from './update-component-draft-response';
 export type { UpdateComponentDraft } from './update-component-draft';

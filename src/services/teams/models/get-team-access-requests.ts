@@ -25,10 +25,9 @@ export const getTeamAccessRequests = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetTeamAccessRequests} getTeamAccessRequests
- * @property {GetTeamAccessRequestsData[]} - A list of access requests.
- * @property {GetTeamsMetadata} - The response's meta information for paginated results.
+ * @typedef {GetTeamAccessRequests} getTeamAccessRequests
+ * @property {GetTeamAccessRequestsData[]} data - A list of access requests.
+ * @property {GetTeamsMetadata} metadata - The response's meta information for paginated results.
  */
 export type GetTeamAccessRequests = z.infer<typeof getTeamAccessRequests>;
 

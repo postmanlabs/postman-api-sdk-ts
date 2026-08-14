@@ -18,9 +18,8 @@ export const getSpecVersionTag = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetSpecVersionTag} getSpecVersionTag
- * @property {GetSpecVersionTagData[]} - A list of the version tag's files and folders.
+ * @typedef {GetSpecVersionTag} getSpecVersionTag
+ * @property {GetSpecVersionTagData[]} data - A list of the version tag's files and folders.
  */
 export type GetSpecVersionTag = z.infer<typeof getSpecVersionTag>;
 

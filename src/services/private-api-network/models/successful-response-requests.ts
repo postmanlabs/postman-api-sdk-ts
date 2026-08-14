@@ -31,14 +31,14 @@ export const successfulResponseRequests = z.lazy(() => {
 
 /**
  * Information about the request.
- * @typedef  {SuccessfulResponseRequests} successfulResponseRequests - Information about the request. - Information about the request.
- * @property {number} - The request's ID.
- * @property {string} - The date and time at which the request was created.
- * @property {number} - The ID of the user who created the request.
- * @property {string} - The user's optional message included in the request.
- * @property {RequestsStatus} - The request's status.
- * @property {PanRequestElement} - Information about the requested element.
- * @property {PanRequestResponse} - Information about the response to the element's request. This object only returns when the request is denied with a message.
+ * @typedef {SuccessfulResponseRequests} successfulResponseRequests
+ * @property {number} id - The request's ID.
+ * @property {string} createdAt - The date and time at which the request was created.
+ * @property {number} createdBy - The ID of the user who created the request.
+ * @property {string} message - The user's optional message included in the request.
+ * @property {RequestsStatus} status - The request's status.
+ * @property {PanRequestElement} element - Information about the requested element.
+ * @property {PanRequestResponse} response - Information about the response to the element's request. This object only returns when the request is denied with a message.
  */
 export type SuccessfulResponseRequests = z.infer<typeof successfulResponseRequests>;
 

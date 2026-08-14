@@ -16,10 +16,10 @@ export const responseHeaders = z.lazy(() => {
 
 /**
  * The response's headers.
- * @typedef  {ResponseHeaders} responseHeaders - The response's headers. - The response's headers.
- * @property {Description} - The response header's description information.
- * @property {string} - The response header's name.
- * @property {string} - The response header's value.
+ * @typedef {ResponseHeaders} responseHeaders
+ * @property {Description} description - The response header's description information.
+ * @property {string} key - The response header's name.
+ * @property {string} value - The response header's value.
  */
 export type ResponseHeaders = z.infer<typeof responseHeaders>;
 

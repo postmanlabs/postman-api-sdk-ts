@@ -13,10 +13,9 @@ export const getComponentDraft = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetComponentDraft} getComponentDraft
- * @property {string} - The component's draft content.
- * @property {string} - The component draft's content format.
+ * @typedef {GetComponentDraft} getComponentDraft
+ * @property {string} content - The component's draft content.
+ * @property {string} format - The component draft's content format.
  */
 export type GetComponentDraft = z.infer<typeof getComponentDraft>;
 

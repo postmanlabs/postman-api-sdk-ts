@@ -13,10 +13,9 @@ export const duplicateCollection = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {DuplicateCollection} duplicateCollection
- * @property {string} - The workspace ID in which to duplicate the collection.
- * @property {string} - An optional suffix to append to the duplicated collection's name.
+ * @typedef {DuplicateCollection} duplicateCollection
+ * @property {string} workspace - The workspace ID in which to duplicate the collection.
+ * @property {string} suffix - An optional suffix to append to the duplicated collection's name.
  */
 export type DuplicateCollection = z.infer<typeof duplicateCollection>;
 

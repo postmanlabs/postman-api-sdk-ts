@@ -14,9 +14,9 @@ export const eventScript = z.lazy(() => {
 
 /**
  * Information about the Javascript code that can be used to to perform setup or teardown operations in a response.
- * @typedef  {EventScript} eventScript - Information about the Javascript code that can be used to to perform setup or teardown operations in a response. - Information about the Javascript code that can be used to to perform setup or teardown operations in a response.
- * @property {string} - The type of script. For example, `text/javascript`.
- * @property {string[]} - A list of script strings, where each line represents a line of code. Separate lines makes it easy to track script changes.
+ * @typedef {EventScript} eventScript
+ * @property {string} type - The type of script. For example, `text/javascript`.
+ * @property {string[]} exec - A list of script strings, where each line represents a line of code. Separate lines makes it easy to track script changes.
  */
 export type EventScript = z.infer<typeof eventScript>;
 

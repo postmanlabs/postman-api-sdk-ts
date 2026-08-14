@@ -19,14 +19,14 @@ export const successfulResponseMonitors = z.lazy(() => {
 
 /**
  * Information about the monitor.
- * @typedef  {SuccessfulResponseMonitors} successfulResponseMonitors - Information about the monitor. - Information about the monitor.
- * @property {string} - The monitor's ID.
- * @property {string} - The monitor's name.
- * @property {boolean} - Whether the monitor is active (`true`) or inactive (`false`).
- * @property {string} - The monitor's unique ID.
- * @property {number} - The ID of the user that created the monitor.
- * @property {string} - The unique ID of the monitor's associated collection.
- * @property {string} - The unique ID of the monitor's associated environment.
+ * @typedef {SuccessfulResponseMonitors} successfulResponseMonitors
+ * @property {string} id - The monitor's ID.
+ * @property {string} name - The monitor's name.
+ * @property {boolean} active - Whether the monitor is active (`true`) or inactive (`false`).
+ * @property {string} uid - The monitor's unique ID.
+ * @property {number} owner - The ID of the user that created the monitor.
+ * @property {string} collectionUid - The unique ID of the monitor's associated collection.
+ * @property {string} environmentUid - The unique ID of the monitor's associated environment.
  */
 export type SuccessfulResponseMonitors = z.infer<typeof successfulResponseMonitors>;
 

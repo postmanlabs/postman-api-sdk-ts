@@ -14,9 +14,9 @@ export const collectionDeletedCollection = z.lazy(() => {
 
 /**
  * Information about the deleted collection.
- * @typedef  {CollectionDeletedCollection} collectionDeletedCollection - Information about the deleted collection. - Information about the deleted collection.
- * @property {string} - The deleted collection's ID.
- * @property {string} - The deleted collection's unique ID.
+ * @typedef {CollectionDeletedCollection} collectionDeletedCollection
+ * @property {string} id - The deleted collection's ID.
+ * @property {string} uid - The deleted collection's unique ID.
  */
 export type CollectionDeletedCollection = z.infer<typeof collectionDeletedCollection>;
 

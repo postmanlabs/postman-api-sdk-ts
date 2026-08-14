@@ -14,9 +14,9 @@ export const requestBody = z.lazy(() => {
 
 /**
  * The request's body information.
- * @typedef  {RequestBody} requestBody - The request's body information. - The request's body information.
- * @property {string} - The request body's media type (mode).
- * @property {string} - The request body's contents.
+ * @typedef {RequestBody} requestBody
+ * @property {string} mode - The request body's media type (mode).
+ * @property {string} data - The request body's contents.
  */
 export type RequestBody = z.infer<typeof requestBody>;
 

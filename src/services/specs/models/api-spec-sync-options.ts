@@ -13,9 +13,8 @@ export const apiSpecSyncOptions = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ApiSpecSyncOptions} apiSpecSyncOptions
- * @property {SyncOptions} - Information about the specification sync options.
+ * @typedef {ApiSpecSyncOptions} apiSpecSyncOptions
+ * @property {SyncOptions} syncOptions - Information about the specification sync options.
  */
 export type ApiSpecSyncOptions = z.infer<typeof apiSpecSyncOptions>;
 

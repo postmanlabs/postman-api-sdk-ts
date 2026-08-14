@@ -25,14 +25,14 @@ export const patchEnvironmentInfo = z.lazy(() => {
 
 /**
  * Information about the environment.
- * @typedef  {PatchEnvironmentInfo} patchEnvironmentInfo - Information about the environment. - Information about the environment.
- * @property {string} - The environment's ID.
- * @property {string} - The environment's name.
- * @property {string} - The ID of environment's owner.
- * @property {string} - The date and time at which the environment was created.
- * @property {string} - The date and time at which the environment was last updated.
- * @property {PatchEnvironmentInfoValues[]} - Information about the environment's variables.
- * @property {string} - The environment's unique ID.
+ * @typedef {PatchEnvironmentInfo} patchEnvironmentInfo
+ * @property {string} id - The environment's ID.
+ * @property {string} name - The environment's name.
+ * @property {string} owner - The ID of environment's owner.
+ * @property {string} createdAt - The date and time at which the environment was created.
+ * @property {string} updatedAt - The date and time at which the environment was last updated.
+ * @property {PatchEnvironmentInfoValues[]} values - Information about the environment's variables.
+ * @property {string} uid - The environment's unique ID.
  */
 export type PatchEnvironmentInfo = z.infer<typeof patchEnvironmentInfo>;
 

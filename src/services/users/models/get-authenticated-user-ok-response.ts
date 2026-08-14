@@ -25,10 +25,9 @@ export const getAuthenticatedUserOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetAuthenticatedUserOkResponse} getAuthenticatedUserOkResponse
- * @property {SuccessfulResponseUser} - Information about the authenticated user.
- * @property {SuccessfulResponseOperations[]} - Information about operations and their usage limits. This object does not return for users with the [Guest and Partner role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
+ * @typedef {GetAuthenticatedUserOkResponse} getAuthenticatedUserOkResponse
+ * @property {SuccessfulResponseUser} user - Information about the authenticated user.
+ * @property {SuccessfulResponseOperations[]} operations - Information about operations and their usage limits. This object does not return for users with the [Guest and Partner role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
  */
 export type GetAuthenticatedUserOkResponse = z.infer<typeof getAuthenticatedUserOkResponse>;
 

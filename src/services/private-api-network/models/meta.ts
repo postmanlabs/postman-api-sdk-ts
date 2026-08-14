@@ -15,10 +15,10 @@ export const meta = z.lazy(() => {
 
 /**
  * The response's non-standard meta information.
- * @typedef  {Meta} meta - The response's non-standard meta information. - The response's non-standard meta information.
- * @property {number} - The maximum number of elements returned. If the value exceeds the maximum value of `1000`, then the system uses the `1000` value.
- * @property {number} - The zero-based offset of the first item returned.
- * @property {number} - The total number of elements.
+ * @typedef {Meta} meta
+ * @property {number} limit - The maximum number of elements returned. If the value exceeds the maximum value of `1000`, then the system uses the `1000` value.
+ * @property {number} offset - The zero-based offset of the first item returned.
+ * @property {number} totalCount - The total number of elements.
  */
 export type Meta = z.infer<typeof meta>;
 

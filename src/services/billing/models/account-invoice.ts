@@ -29,12 +29,12 @@ export const accountInvoice = z.lazy(() => {
 
 /**
  * Information about the invoice.
- * @typedef  {AccountInvoice} accountInvoice - Information about the invoice. - Information about the invoice.
- * @property {string} - The invoice's ID.
- * @property {string} - The invoice's status.
- * @property {string} - The date on which the invoice was issued.
- * @property {InvoicesTotal} - Information about the invoice's total billed amount.
- * @property {InvoicesLinks} - A [JSON API spec](https://jsonapi.org/format/#document-links) object containing hypermedia links.
+ * @typedef {AccountInvoice} accountInvoice
+ * @property {string} id - The invoice's ID.
+ * @property {string} status - The invoice's status.
+ * @property {string} issuedAt - The date on which the invoice was issued.
+ * @property {InvoicesTotal} totalAmount - Information about the invoice's total billed amount.
+ * @property {InvoicesLinks} links - A [JSON API spec](https://jsonapi.org/format/#document-links) object containing hypermedia links.
  */
 export type AccountInvoice = z.infer<typeof accountInvoice>;
 

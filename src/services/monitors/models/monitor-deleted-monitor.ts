@@ -14,9 +14,9 @@ export const monitorDeletedMonitor = z.lazy(() => {
 
 /**
  * Information about the monitor.
- * @typedef  {MonitorDeletedMonitor} monitorDeletedMonitor - Information about the monitor. - Information about the monitor.
- * @property {string} - The monitor's ID.
- * @property {string} - The monitor's unique ID.
+ * @typedef {MonitorDeletedMonitor} monitorDeletedMonitor
+ * @property {string} id - The monitor's ID.
+ * @property {string} uid - The monitor's unique ID.
  */
 export type MonitorDeletedMonitor = z.infer<typeof monitorDeletedMonitor>;
 

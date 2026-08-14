@@ -15,10 +15,10 @@ export const createCollectionSchemaInfo = z.lazy(() => {
 
 /**
  * Information about the collection.
- * @typedef  {CreateCollectionSchemaInfo} createCollectionSchemaInfo - Information about the collection. - Information about the collection.
- * @property {string} - The collection's name.
- * @property {string} - The collection's description.
- * @property {InformationSchema1} - The "https://schema.postman.com/json/collection/v2.1.0/collection.json" Postman Collection Format v2.1.0 schema.
+ * @typedef {CreateCollectionSchemaInfo} createCollectionSchemaInfo
+ * @property {string} name - The collection's name.
+ * @property {string} description - The collection's description.
+ * @property {InformationSchema1} schema - The "https://schema.postman.com/json/collection/v2.1.0/collection.json" Postman Collection Format v2.1.0 schema.
  */
 export type CreateCollectionSchemaInfo = z.infer<typeof createCollectionSchemaInfo>;
 

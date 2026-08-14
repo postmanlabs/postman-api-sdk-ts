@@ -35,12 +35,7 @@ export const patchEnvironment = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PatchEnvironment} patchEnvironment
- * @property {PatchEnvironmentAdd[]}
- * @property {PatchEnvironmentName[]}
- * @property {PatchEnvironmentReplace[]}
- * @property {PatchEnvironmentRemove[]}
+ * @typedef {PatchEnvironment} patchEnvironment
  */
 export type PatchEnvironment = z.infer<typeof patchEnvironment>;
 

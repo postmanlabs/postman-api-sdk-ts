@@ -31,14 +31,14 @@ export const requestDeniedRequest1 = z.lazy(() => {
 
 /**
  * Information about the Private API Network request.
- * @typedef  {RequestDeniedRequest1} requestDeniedRequest1 - Information about the Private API Network request. - Information about the Private API Network request.
- * @property {number} - The request's ID.
- * @property {string} - The date and time at which the request was created.
- * @property {number} - The ID of the user who created the request.
- * @property {string} - The user's optional message included in the request.
- * @property {RequestDeniedRequestStatus} - The request's status.
- * @property {PanRequestElement} - Information about the requested element.
- * @property {PanRequestResponse} - Information about the response to the element's request. This object only returns when the request is denied with a message.
+ * @typedef {RequestDeniedRequest1} requestDeniedRequest1
+ * @property {number} id - The request's ID.
+ * @property {string} createdAt - The date and time at which the request was created.
+ * @property {number} createdBy - The ID of the user who created the request.
+ * @property {string} message - The user's optional message included in the request.
+ * @property {RequestDeniedRequestStatus} status - The request's status.
+ * @property {PanRequestElement} element - Information about the requested element.
+ * @property {PanRequestResponse} response - Information about the response to the element's request. This object only returns when the request is denied with a message.
  */
 export type RequestDeniedRequest1 = z.infer<typeof requestDeniedRequest1>;
 

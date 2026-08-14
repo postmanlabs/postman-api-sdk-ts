@@ -16,10 +16,7 @@ export const respondPanElementAddRequest = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RespondPanElementAddRequest} respondPanElementAddRequest
- * @property {RequestApproved}
- * @property {RequestDenied}
+ * @typedef {RespondPanElementAddRequest} respondPanElementAddRequest
  */
 export type RespondPanElementAddRequest = z.infer<typeof respondPanElementAddRequest>;
 

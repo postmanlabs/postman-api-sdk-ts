@@ -18,9 +18,8 @@ export const updateWorkspaceRequest = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdateWorkspaceRequest} updateWorkspaceRequest
- * @property {UpdateWorkspaceWorkspace1}
+ * @typedef {UpdateWorkspaceRequest} updateWorkspaceRequest
+ * @property {UpdateWorkspaceWorkspace1} workspace
  */
 export type UpdateWorkspaceRequest = z.infer<typeof updateWorkspaceRequest>;
 

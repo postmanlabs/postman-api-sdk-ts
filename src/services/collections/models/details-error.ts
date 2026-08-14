@@ -12,9 +12,8 @@ export const detailsError = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {DetailsError} detailsError
- * @property {string} - The error message.
+ * @typedef {DetailsError} detailsError
+ * @property {string} message - The error message.
  */
 export type DetailsError = z.infer<typeof detailsError>;
 

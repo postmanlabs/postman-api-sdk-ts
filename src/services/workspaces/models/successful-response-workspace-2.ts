@@ -48,6 +48,7 @@ export const successfulResponseWorkspace2 = z.lazy(() => {
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
     about: z.string().optional(),
+    team: z.string().optional(),
     collections: z.array(workspaceCollections).optional(),
     environments: z.array(environments).optional(),
     mocks: z.array(workspaceMocks).optional(),
@@ -59,29 +60,30 @@ export const successfulResponseWorkspace2 = z.lazy(() => {
 
 /**
  * Information about the workspace.
- * @typedef  {SuccessfulResponseWorkspace2} successfulResponseWorkspace2 - Information about the workspace. - Information about the workspace.
- * @property {string} - The workspace's ID.
- * @property {string} - The workspace's name.
- * @property {SuccessfulResponseWorkspaceType} - The type of workspace.
- * @property {string} - The workspace's description.
- * @property {SuccessfulResponseWorkspaceVisibility} - The workspace's visibility. [Visibility](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) determines who can access the workspace:
+ * @typedef {SuccessfulResponseWorkspace2} successfulResponseWorkspace2
+ * @property {string} id - The workspace's ID.
+ * @property {string} name - The workspace's name.
+ * @property {SuccessfulResponseWorkspaceType} type - The type of workspace.
+ * @property {string} description - The workspace's description.
+ * @property {SuccessfulResponseWorkspaceVisibility} visibility - The workspace's visibility. [Visibility](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) determines who can access the workspace:
 - `personal` — Only you can access the workspace.
 - `team` — All team members can access the workspace.
 - `private` — Only invited team members can access the workspace ([``Team`` and ``Enterprise`` plans only](https://www.postman.com/pricing)).
 - `public` — Everyone can access the workspace.
 - `partner` — Only invited team members and [partners](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/partner-workspaces/) can access the workspace ([``Team`` and ``Enterprise`` plans only](https://www.postman.com/pricing)).
 
- * @property {string} - The user ID of the user who created the workspace.
- * @property {string} - The user ID of the user who last updated the workspace.
- * @property {string} - The date and time at which the workspace was created.
- * @property {string} - The date and time at which the workspace was last updated.
- * @property {string} - A brief summary about the workspace.
- * @property {WorkspaceCollections[]} - The workspace's collections.
- * @property {Environments[]} - The workspace's environments.
- * @property {WorkspaceMocks[]} - The workspace's mock servers.
- * @property {WorkspaceMonitors[]} - The workspace's monitors.
- * @property {WorkspaceSpecs[]} - The workspace's API specifications.
- * @property {Scim} - An object containing SCIM user IDs. This object only returns if you pass the `include=scim` query parameter.
+ * @property {string} createdBy - The user ID of the user who created the workspace.
+ * @property {string} updatedBy - The user ID of the user who last updated the workspace.
+ * @property {string} createdAt - The date and time at which the workspace was created.
+ * @property {string} updatedAt - The date and time at which the workspace was last updated.
+ * @property {string} about - A brief summary about the workspace.
+ * @property {string} team - The workspace's team ID.
+ * @property {WorkspaceCollections[]} collections - The workspace's collections.
+ * @property {Environments[]} environments - The workspace's environments.
+ * @property {WorkspaceMocks[]} mocks - The workspace's mock servers.
+ * @property {WorkspaceMonitors[]} monitors - The workspace's monitors.
+ * @property {WorkspaceSpecs[]} specs - The workspace's API specifications.
+ * @property {Scim} scim - An object containing SCIM user IDs. This object only returns if you pass the `include=scim` query parameter.
  */
 export type SuccessfulResponseWorkspace2 = z.infer<typeof successfulResponseWorkspace2>;
 
@@ -103,6 +105,7 @@ export const successfulResponseWorkspace2Response = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       about: z.string().optional(),
+      team: z.string().optional(),
       collections: z.array(workspaceCollectionsResponse).optional(),
       environments: z.array(environmentsResponse).optional(),
       mocks: z.array(workspaceMocksResponse).optional(),
@@ -121,6 +124,7 @@ export const successfulResponseWorkspace2Response = z.lazy(() => {
       createdAt: data['createdAt'],
       updatedAt: data['updatedAt'],
       about: data['about'],
+      team: data['team'],
       collections: data['collections'],
       environments: data['environments'],
       mocks: data['mocks'],
@@ -148,6 +152,7 @@ export const successfulResponseWorkspace2Request = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       about: z.string().optional(),
+      team: z.string().optional(),
       collections: z.array(workspaceCollectionsRequest).optional(),
       environments: z.array(environmentsRequest).optional(),
       mocks: z.array(workspaceMocksRequest).optional(),
@@ -166,6 +171,7 @@ export const successfulResponseWorkspace2Request = z.lazy(() => {
       createdAt: data['createdAt'],
       updatedAt: data['updatedAt'],
       about: data['about'],
+      team: data['team'],
       collections: data['collections'],
       environments: data['environments'],
       mocks: data['mocks'],

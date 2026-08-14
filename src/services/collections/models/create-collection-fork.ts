@@ -12,9 +12,8 @@ export const createCollectionFork = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateCollectionFork} createCollectionFork
- * @property {string} - The fork's label.
+ * @typedef {CreateCollectionFork} createCollectionFork
+ * @property {string} label - The fork's label.
  */
 export type CreateCollectionFork = z.infer<typeof createCollectionFork>;
 

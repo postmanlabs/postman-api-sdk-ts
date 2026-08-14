@@ -20,14 +20,14 @@ export const collectionResponseUpdatedData = z.lazy(() => {
 
 /**
  * Information about the updated response. For a complete list of response properties, refer to the **Response** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @typedef  {CollectionResponseUpdatedData} collectionResponseUpdatedData - Information about the updated response. For a complete list of response properties, refer to the **Response** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html). - Information about the updated response. For a complete list of response properties, refer to the **Response** entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
- * @property {string} - The response's ID.
- * @property {string} - The response's name.
- * @property {string} - The user ID of the response's owner.
- * @property {string} - The response's creation date and time.
- * @property {string} - The date and time at which the response was last updated.
- * @property {number} - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
- * @property {string} - The user ID of the user that last updated the response.
+ * @typedef {CollectionResponseUpdatedData} collectionResponseUpdatedData
+ * @property {string} id - The response's ID.
+ * @property {string} name - The response's name.
+ * @property {string} owner - The user ID of the response's owner.
+ * @property {string} createdAt - The response's creation date and time.
+ * @property {string} updatedAt - The date and time at which the response was last updated.
+ * @property {number} lastRevision - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.
+ * @property {string} lastUpdatedBy - The user ID of the user that last updated the response.
  */
 export type CollectionResponseUpdatedData = z.infer<typeof collectionResponseUpdatedData>;
 

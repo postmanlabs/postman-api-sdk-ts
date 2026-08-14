@@ -13,8 +13,8 @@ export const migrationFailed = z.lazy(() => {
 
 /**
  * Information about the migration.
- * @typedef  {MigrationFailed} migrationFailed - Information about the migration. - Information about the migration.
- * @property {string} - The reason the migration failed.
+ * @typedef {MigrationFailed} migrationFailed
+ * @property {string} reason - The reason the migration failed.
  */
 export type MigrationFailed = z.infer<typeof migrationFailed>;
 

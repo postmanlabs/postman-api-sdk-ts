@@ -19,14 +19,14 @@ export const element = z.lazy(() => {
 
 /**
  * Information about the requested element.
- * @typedef  {Element} element - Information about the requested element. - Information about the requested element.
- * @property {string} - The element's ID.
- * @property {string} - The element's name.
- * @property {string} - The element's short summary.
- * @property {string} - The element's description.
- * @property {RequestElementType} - The `workspace` element type.
- * @property {number} - The ID of the user who added the element to the Private API Network.
- * @property {string} - The date and time the element was added to the Private API Network.
+ * @typedef {Element} element
+ * @property {string} id - The element's ID.
+ * @property {string} name - The element's name.
+ * @property {string} summary - The element's short summary.
+ * @property {string} description - The element's description.
+ * @property {RequestElementType} type - The `workspace` element type.
+ * @property {number} createdBy - The ID of the user who added the element to the Private API Network.
+ * @property {string} createdAt - The date and time the element was added to the Private API Network.
  */
 export type Element = z.infer<typeof element>;
 

@@ -18,15 +18,14 @@ export const updateSpecPropertiesResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdateSpecPropertiesResponse} updateSpecPropertiesResponse
- * @property {string} - The specification's ID.
- * @property {SpecType} - The type of API specification.
- * @property {number} - The ID of the user that created the specification.
- * @property {number} - The ID of the user that last updated the specification.
- * @property {string} - The date and time at which the specification was created.
- * @property {string} - The date and time at which the specification was last updated.
- * @property {string} - The API specification's name.
+ * @typedef {UpdateSpecPropertiesResponse} updateSpecPropertiesResponse
+ * @property {string} id - The specification's ID.
+ * @property {SpecType} type - The type of API specification.
+ * @property {number} createdBy - The ID of the user that created the specification.
+ * @property {number} updatedBy - The ID of the user that last updated the specification.
+ * @property {string} createdAt - The date and time at which the specification was created.
+ * @property {string} updatedAt - The date and time at which the specification was last updated.
+ * @property {string} name - The API specification's name.
  */
 export type UpdateSpecPropertiesResponse = z.infer<typeof updateSpecPropertiesResponse>;
 

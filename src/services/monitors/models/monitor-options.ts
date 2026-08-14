@@ -16,11 +16,11 @@ export const monitorOptions = z.lazy(() => {
 
 /**
  * Information about the monitor's option settings.
- * @typedef  {MonitorOptions} monitorOptions - Information about the monitor's option settings. - Information about the monitor's option settings.
- * @property {boolean} - If true, follow redirects enabled.
- * @property {number} - The monitor's request delay value, in milliseconds.
- * @property {number} - The monitor's request timeout value, in milliseconds.
- * @property {boolean} - If true, strict SSL enabled.
+ * @typedef {MonitorOptions} monitorOptions
+ * @property {boolean} followRedirects - If true, follow redirects enabled.
+ * @property {number} requestDelay - The monitor's request delay value, in milliseconds.
+ * @property {number} requestTimeout - The monitor's request timeout value, in milliseconds.
+ * @property {boolean} strictSsl - If true, strict SSL enabled.
  */
 export type MonitorOptions = z.infer<typeof monitorOptions>;
 

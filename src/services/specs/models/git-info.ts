@@ -13,8 +13,8 @@ export const gitInfo = z.lazy(() => {
 
 /**
  * Information about the connected remote Git mono-repo.
- * @typedef  {GitInfo} gitInfo - Information about the connected remote Git mono-repo. - Information about the connected remote Git mono-repo.
- * @property {string} - The directory path in the remote mono-repo containing the API's collections and definitions. This property expects an absolute path and only contains alphanumeric characters, slashes, hyphens, underscores, and periods. It cannot contain  path traversal sequences (\..\).
+ * @typedef {GitInfo} gitInfo
+ * @property {string} path - The directory path in the remote mono-repo containing the API's collections and definitions. This property expects an absolute path and only contains alphanumeric characters, slashes, hyphens, underscores, and periods. It cannot contain  path traversal sequences (\..\).
  */
 export type GitInfo = z.infer<typeof gitInfo>;
 

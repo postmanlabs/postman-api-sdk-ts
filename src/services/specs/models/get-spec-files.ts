@@ -26,9 +26,9 @@ export const getSpecFiles = z.lazy(() => {
 
 /**
  * Information about the specification's files.
- * @typedef  {GetSpecFiles} getSpecFiles - Information about the specification's files. - Information about the specification's files.
- * @property {SpecFileInformation[]} - A list of the API specification's files.
- * @property {GetGeneratedCollectionSpecsMeta} - The response's meta information for paginated results.
+ * @typedef {GetSpecFiles} getSpecFiles
+ * @property {SpecFileInformation[]} files - A list of the API specification's files.
+ * @property {GetGeneratedCollectionSpecsMeta} meta - The response's meta information for paginated results.
  */
 export type GetSpecFiles = z.infer<typeof getSpecFiles>;
 

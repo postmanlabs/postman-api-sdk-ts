@@ -15,11 +15,10 @@ export const transferWorkspaceElement = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {TransferWorkspaceElement} transferWorkspaceElement
- * @property {Id} - The workspace element's ID.
- * @property {TransferWorkspaceElementType} - The type of element to transfer.
- * @property {string} - The workspace ID to transfer the element into.
+ * @typedef {TransferWorkspaceElement} transferWorkspaceElement
+ * @property {Id} id - The workspace element's ID.
+ * @property {TransferWorkspaceElementType} type - The type of element to transfer.
+ * @property {string} to - The workspace ID to transfer the element into.
  */
 export type TransferWorkspaceElement = z.infer<typeof transferWorkspaceElement>;
 

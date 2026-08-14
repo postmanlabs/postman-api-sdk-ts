@@ -12,9 +12,8 @@ export const revokeOauthToken = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RevokeOauthToken} revokeOauthToken
- * @property {string} - The Postman OAuth 2.0 access token to revoke.
+ * @typedef {RevokeOauthToken} revokeOauthToken
+ * @property {string} token - The Postman OAuth 2.0 access token to revoke.
  */
 export type RevokeOauthToken = z.infer<typeof revokeOauthToken>;
 

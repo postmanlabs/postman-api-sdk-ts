@@ -20,17 +20,16 @@ export const pullRequestCreated = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {PullRequestCreated} pullRequestCreated
- * @property {string} - The date and time at which the pull request was created.
- * @property {string} - The ID of the user who created the pull request.
- * @property {string} - The pull request's description.
- * @property {string} - The pull request's merge destination ID.
- * @property {string} - The pull request's ID.
- * @property {string} - The pull request's source (parent) ID.
- * @property {string} - The pull request's current status.
- * @property {string} - The pull request's title.
- * @property {string} - The date and time at which the pull request was updated.
+ * @typedef {PullRequestCreated} pullRequestCreated
+ * @property {string} createdAt - The date and time at which the pull request was created.
+ * @property {string} createdBy - The ID of the user who created the pull request.
+ * @property {string} description - The pull request's description.
+ * @property {string} destinationId - The pull request's merge destination ID.
+ * @property {string} id - The pull request's ID.
+ * @property {string} sourceId - The pull request's source (parent) ID.
+ * @property {string} status - The pull request's current status.
+ * @property {string} title - The pull request's title.
+ * @property {string} updatedAt - The date and time at which the pull request was updated.
  */
 export type PullRequestCreated = z.infer<typeof pullRequestCreated>;
 

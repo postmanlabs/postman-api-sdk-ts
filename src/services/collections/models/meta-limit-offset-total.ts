@@ -15,10 +15,10 @@ export const metaLimitOffsetTotal = z.lazy(() => {
 
 /**
  * The response's meta information for paginated results.
- * @typedef  {MetaLimitOffsetTotal} metaLimitOffsetTotal - The response's meta information for paginated results. - The response's meta information for paginated results.
- * @property {number} - The number of records found.
- * @property {number} - The zero-based offset of the first item returned.
- * @property {number} - The maximum number of records in the paginated response.
+ * @typedef {MetaLimitOffsetTotal} metaLimitOffsetTotal
+ * @property {number} total - The number of records found.
+ * @property {number} offset - The zero-based offset of the first item returned.
+ * @property {number} limit - The maximum number of records in the paginated response.
  */
 export type MetaLimitOffsetTotal = z.infer<typeof metaLimitOffsetTotal>;
 

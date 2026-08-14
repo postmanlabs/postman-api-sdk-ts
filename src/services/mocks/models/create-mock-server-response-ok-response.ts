@@ -30,18 +30,18 @@ export const createMockServerResponseOkResponse = z.lazy(() => {
 
 /**
  * Information about the mock server's response.
- * @typedef  {CreateMockServerResponseOkResponse} createMockServerResponseOkResponse - Information about the mock server's response. - Information about the mock server's response.
- * @property {string} - The date and time at which the server response was created.
- * @property {string} - The date and time at which the server response was last updated.
- * @property {string} - The server response's ID.
- * @property {string} - The server response's name.
- * @property {number} - The server response's 5xx HTTP response code.
- * @property {SuccessfulResponseHeaders[]} - The server response's request headers key-value pairs, such as Content-Type, Accept, encoding, and other information.
- * @property {string} - The server response's body language type.
- * @property {string} - The server response's body that returns when calling the mock server.
- * @property {string} - The user ID of the user who created the server response.
- * @property {string} - The user ID of the user who last updated the server response.
- * @property {string} - The associated mock server's ID.
+ * @typedef {CreateMockServerResponseOkResponse} createMockServerResponseOkResponse
+ * @property {string} createdAt - The date and time at which the server response was created.
+ * @property {string} updatedAt - The date and time at which the server response was last updated.
+ * @property {string} id - The server response's ID.
+ * @property {string} name - The server response's name.
+ * @property {number} statusCode - The server response's 5xx HTTP response code.
+ * @property {SuccessfulResponseHeaders[]} headers - The server response's request headers key-value pairs, such as Content-Type, Accept, encoding, and other information.
+ * @property {string} language - The server response's body language type.
+ * @property {string} body - The server response's body that returns when calling the mock server.
+ * @property {string} createdBy - The user ID of the user who created the server response.
+ * @property {string} updatedBy - The user ID of the user who last updated the server response.
+ * @property {string} mock - The associated mock server's ID.
  */
 export type CreateMockServerResponseOkResponse = z.infer<typeof createMockServerResponseOkResponse>;
 

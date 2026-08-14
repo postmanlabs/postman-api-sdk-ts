@@ -14,11 +14,10 @@ export const generateOauthToken = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GenerateOauthToken} generateOauthToken
- * @property {string} - The `client_credentials` OAuth grant type.
- * @property {string} - The client's installation authentication ID.
- * @property {string} - A signed JWT token. The token must include `iss` (issuer), `aud` (audience), `iat` (issued at), `exp` (expiration timestamp), and `jti` (JWT ID).
+ * @typedef {GenerateOauthToken} generateOauthToken
+ * @property {string} grantType - The `client_credentials` OAuth grant type.
+ * @property {string} installationAuthId - The client's installation authentication ID.
+ * @property {string} jwt - A signed JWT token. The token must include `iss` (issuer), `aud` (audience), `iat` (issued at), `exp` (expiration timestamp), and `jti` (JWT ID).
  */
 export type GenerateOauthToken = z.infer<typeof generateOauthToken>;
 

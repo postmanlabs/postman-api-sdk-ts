@@ -25,10 +25,9 @@ export const getMonitorsOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetMonitorsOkResponse} getMonitorsOkResponse
- * @property {SuccessfulResponseMonitors[]} - A list of monitors.
- * @property {SuccessfulResponseMeta5} - The response's meta information for paginated results.
+ * @typedef {GetMonitorsOkResponse} getMonitorsOkResponse
+ * @property {SuccessfulResponseMonitors[]} monitors - A list of monitors.
+ * @property {SuccessfulResponseMeta5} meta - The response's meta information for paginated results.
  */
 export type GetMonitorsOkResponse = z.infer<typeof getMonitorsOkResponse>;
 

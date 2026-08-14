@@ -20,10 +20,9 @@ export const sdkList = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SdkList} sdkList
- * @property {Sdk[]} - A list of SDKs.
- * @property {MetaNextCursorTotal} - The response's meta information for paginated results.
+ * @typedef {SdkList} sdkList
+ * @property {Sdk[]} data - A list of SDKs.
+ * @property {MetaNextCursorTotal} meta - The response's meta information for paginated results.
  */
 export type SdkList = z.infer<typeof sdkList>;
 

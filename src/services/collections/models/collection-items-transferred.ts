@@ -12,9 +12,8 @@ export const collectionItemsTransferred = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionItemsTransferred} collectionItemsTransferred
- * @property {string[]} - A list of the transferred collection request, response, or folder UIDs.
+ * @typedef {CollectionItemsTransferred} collectionItemsTransferred
+ * @property {string[]} ids - A list of the transferred collection request, response, or folder UIDs.
  */
 export type CollectionItemsTransferred = z.infer<typeof collectionItemsTransferred>;
 

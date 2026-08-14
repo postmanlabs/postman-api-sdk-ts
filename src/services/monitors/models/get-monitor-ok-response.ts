@@ -18,9 +18,8 @@ export const getMonitorOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetMonitorOkResponse} getMonitorOkResponse
- * @property {SuccessfulResponseMonitor} - Information about the monitor.
+ * @typedef {GetMonitorOkResponse} getMonitorOkResponse
+ * @property {SuccessfulResponseMonitor} monitor - Information about the monitor.
  */
 export type GetMonitorOkResponse = z.infer<typeof getMonitorOkResponse>;
 

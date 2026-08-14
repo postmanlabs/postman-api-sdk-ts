@@ -15,13 +15,13 @@ export const updateSpecFile = z.lazy(() => {
 
 /**
  * You must pass one of the accepted values in this request body. Also, this request body does not accept multiple properties in a single call. For example, you cannot pass both the `content` and `type` property at the same time.
- * @typedef  {UpdateSpecFile} updateSpecFile - You must pass one of the accepted values in this request body. Also, this request body does not accept multiple properties in a single call. For example, you cannot pass both the `content` and `type` property at the same time. - You must pass one of the accepted values in this request body. Also, this request body does not accept multiple properties in a single call. For example, you cannot pass both the `content` and `type` property at the same time.
- * @property {string} - The file's name.
- * @property {UpdateSpecFileType} - The type of file:
+ * @typedef {UpdateSpecFile} updateSpecFile
+ * @property {string} name - The file's name.
+ * @property {UpdateSpecFileType} type - The type of file:
 - `ROOT` — The file containing the full OpenAPI structure. This serves as the entry point for the API spec and references other (`DEFAULT`) spec files. Multi-file specs can only have one root file.
 - `DEFAULT` — A file referenced by the `ROOT` file.
 
- * @property {string} - The specification's stringified contents.
+ * @property {string} content - The specification's stringified contents.
  */
 export type UpdateSpecFile = z.infer<typeof updateSpecFile>;
 

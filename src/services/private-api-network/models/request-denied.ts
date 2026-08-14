@@ -18,9 +18,8 @@ export const requestDenied = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RequestDenied} requestDenied
- * @property {RequestDeniedRequest1[]} - A list of Private API Network requests.
+ * @typedef {RequestDenied} requestDenied
+ * @property {RequestDeniedRequest1[]} request - A list of Private API Network requests.
  */
 export type RequestDenied = z.infer<typeof requestDenied>;
 

@@ -16,11 +16,11 @@ export const searchFilterWorkspaceId = z.lazy(() => {
 
 /**
  * Filters by workspace ID. Supported for all element types.
- * @typedef  {SearchFilterWorkspaceId} searchFilterWorkspaceId - Filters by workspace ID. Supported for all element types. - Filters by workspace ID. Supported for all element types.
- * @property {string} - The workspace ID to match.
- * @property {string} - The workspace ID to exclude.
- * @property {string[]} - A list of workspace IDs to match.
- * @property {string[]} - A list of workspace IDs to exclude.
+ * @typedef {SearchFilterWorkspaceId} searchFilterWorkspaceId
+ * @property {string} _eq - The workspace ID to match.
+ * @property {string} _ne - The workspace ID to exclude.
+ * @property {string[]} _in - A list of workspace IDs to match.
+ * @property {string[]} _nin - A list of workspace IDs to exclude.
  */
 export type SearchFilterWorkspaceId = z.infer<typeof searchFilterWorkspaceId>;
 

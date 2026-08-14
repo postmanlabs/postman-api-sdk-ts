@@ -18,9 +18,8 @@ export const removeWorkspaceFromPrivateNetworkOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RemoveWorkspaceFromPrivateNetworkOkResponse} removeWorkspaceFromPrivateNetworkOkResponse
- * @property {SuccessfulResponseWorkspace3} - The Private API Network `workspace` element type.
+ * @typedef {RemoveWorkspaceFromPrivateNetworkOkResponse} removeWorkspaceFromPrivateNetworkOkResponse
+ * @property {SuccessfulResponseWorkspace3} workspace - The Private API Network `workspace` element type.
  */
 export type RemoveWorkspaceFromPrivateNetworkOkResponse = z.infer<
   typeof removeWorkspaceFromPrivateNetworkOkResponse

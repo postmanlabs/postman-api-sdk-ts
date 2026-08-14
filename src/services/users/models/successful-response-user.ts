@@ -24,19 +24,19 @@ export const successfulResponseUser = z.lazy(() => {
 
 /**
  * Information about the authenticated user.
- * @typedef  {SuccessfulResponseUser} successfulResponseUser - Information about the authenticated user. - Information about the authenticated user.
- * @property {number} - The user's Postman ID.
- * @property {string} - The authenticated user's ID. This ID is unique to the user and isn't associated with any Postman teams. Can return in UUID or ID format.
- * @property {string} - The user's username.
- * @property {string} - The user's email address.
- * @property {string} - The user's full name.
- * @property {string} - The user's avatar image URL.
- * @property {boolean} - If true, the user's information is public and visible to all users.
- * @property {boolean} - If true, the user email address is verified by Postman.
- * @property {number} - The team ID the user is assigned to. This returns a `0` value if the user is not assigned to a team.
- * @property {string} - The name of the team the user is assigned to.
- * @property {string} - The team's Postman domain ID.
- * @property {string[]} - A list of the user's assigned [roles](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
+ * @typedef {SuccessfulResponseUser} successfulResponseUser
+ * @property {number} id - The user's Postman ID.
+ * @property {string} sub - The authenticated user's ID. This ID is unique to the user and isn't associated with any Postman teams. Can return in UUID or ID format.
+ * @property {string} username - The user's username.
+ * @property {string} email - The user's email address.
+ * @property {string} fullName - The user's full name.
+ * @property {string} avatar - The user's avatar image URL.
+ * @property {boolean} isPublic - If true, the user's information is public and visible to all users.
+ * @property {boolean} emailVerified - If true, the user email address is verified by Postman.
+ * @property {number} teamId - The team ID the user is assigned to. This returns a `0` value if the user is not assigned to a team.
+ * @property {string} teamName - The name of the team the user is assigned to.
+ * @property {string} teamDomain - The team's Postman domain ID.
+ * @property {string[]} roles - A list of the user's assigned [roles](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
  */
 export type SuccessfulResponseUser = z.infer<typeof successfulResponseUser>;
 

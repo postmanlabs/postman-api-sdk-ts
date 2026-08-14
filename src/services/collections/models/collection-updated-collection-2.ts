@@ -14,11 +14,10 @@ export const collectionUpdatedCollection2 = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionUpdatedCollection2} collectionUpdatedCollection2
- * @property {string} - The collection's ID.
- * @property {string} - The collection's updated name.
- * @property {string} - The collection's updated description.
+ * @typedef {CollectionUpdatedCollection2} collectionUpdatedCollection2
+ * @property {string} id - The collection's ID.
+ * @property {string} name - The collection's updated name.
+ * @property {string} description - The collection's updated description.
  */
 export type CollectionUpdatedCollection2 = z.infer<typeof collectionUpdatedCollection2>;
 

@@ -14,11 +14,10 @@ export const collectionRequestBodyUrlencoded1 = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CollectionRequestBodyUrlencoded1} collectionRequestBodyUrlencoded1
- * @property {string} - The key value.
- * @property {string} - The key's value.
- * @property {string} - The key's description.
+ * @typedef {CollectionRequestBodyUrlencoded1} collectionRequestBodyUrlencoded1
+ * @property {string} key - The key value.
+ * @property {string} value - The key's value.
+ * @property {string} description - The key's description.
  */
 export type CollectionRequestBodyUrlencoded1 = z.infer<typeof collectionRequestBodyUrlencoded1>;
 

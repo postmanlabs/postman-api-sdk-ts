@@ -14,9 +14,9 @@ export const environmentForksMeta = z.lazy(() => {
 
 /**
  * The response's meta information for paginated results.
- * @typedef  {EnvironmentForksMeta} environmentForksMeta - The response's meta information for paginated results. - The response's meta information for paginated results.
- * @property {number} - The total number of forked environments.
- * @property {string} - The pagination cursor that points to the next record in the results set.
+ * @typedef {EnvironmentForksMeta} environmentForksMeta
+ * @property {number} total - The total number of forked environments.
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
  */
 export type EnvironmentForksMeta = z.infer<typeof environmentForksMeta>;
 

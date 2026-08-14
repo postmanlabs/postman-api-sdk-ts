@@ -16,10 +16,7 @@ export const replaceEnvironmentDataEnvironmentValues = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ReplaceEnvironmentDataEnvironmentValues} replaceEnvironmentDataEnvironmentValues
- * @property {AddVariable} - Information about the variable.
- * @property {AddSecretVariable} - Information about the variable stored in the Postman Vault. This property only returns when a variable is defined as secret.
+ * @typedef {ReplaceEnvironmentDataEnvironmentValues} replaceEnvironmentDataEnvironmentValues
  */
 export type ReplaceEnvironmentDataEnvironmentValues = z.infer<
   typeof replaceEnvironmentDataEnvironmentValues

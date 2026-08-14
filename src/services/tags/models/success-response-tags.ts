@@ -18,8 +18,8 @@ export const successResponseTags = z.lazy(() => {
 
 /**
  * Information about the tag.
- * @typedef  {SuccessResponseTags} successResponseTags - Information about the tag. - Information about the tag.
- * @property {string} - The tag's ID within a team or individual (non-team) user scope.
+ * @typedef {SuccessResponseTags} successResponseTags
+ * @property {string} slug - The tag's ID within a team or individual (non-team) user scope.
  */
 export type SuccessResponseTags = z.infer<typeof successResponseTags>;
 

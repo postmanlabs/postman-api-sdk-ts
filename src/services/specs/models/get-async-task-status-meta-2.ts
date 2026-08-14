@@ -14,9 +14,9 @@ export const getAsyncTaskStatusMeta2 = z.lazy(() => {
 
 /**
  * The response's non-standard meta information.
- * @typedef  {GetAsyncTaskStatusMeta2} getAsyncTaskStatusMeta2 - The response's non-standard meta information. - The response's non-standard meta information.
- * @property {string} - The task's action.
- * @property {GetAsyncTaskStatusMetaModel2} - The model for which the task is performing the operation.
+ * @typedef {GetAsyncTaskStatusMeta2} getAsyncTaskStatusMeta2
+ * @property {string} action - The task's action.
+ * @property {GetAsyncTaskStatusMetaModel2} model - The model for which the task is performing the operation.
  */
 export type GetAsyncTaskStatusMeta2 = z.infer<typeof getAsyncTaskStatusMeta2>;
 

@@ -19,14 +19,14 @@ export const disabledSystemHeaders = z.lazy(() => {
 
 /**
  * Disable the system headers which are added implicitly.
- * @typedef  {DisabledSystemHeaders} disabledSystemHeaders - Disable the system headers which are added implicitly. - Disable the system headers which are added implicitly.
- * @property {boolean}
- * @property {boolean}
- * @property {boolean}
- * @property {boolean}
- * @property {boolean}
- * @property {boolean}
- * @property {boolean}
+ * @typedef {DisabledSystemHeaders} disabledSystemHeaders
+ * @property {boolean} cacheControl
+ * @property {boolean} postmanToken
+ * @property {boolean} contentType
+ * @property {boolean} contentLength
+ * @property {boolean} acceptEncoding
+ * @property {boolean} connection
+ * @property {boolean} host
  */
 export type DisabledSystemHeaders = z.infer<typeof disabledSystemHeaders>;
 

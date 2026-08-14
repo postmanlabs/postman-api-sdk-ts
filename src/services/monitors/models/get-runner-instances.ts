@@ -20,10 +20,9 @@ export const getRunnerInstances = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetRunnerInstances} getRunnerInstances
- * @property {RunnerMeta} - The response's meta information for paginated results.
- * @property {RunnerInstanceData[]} - A list of all runner instances.
+ * @typedef {GetRunnerInstances} getRunnerInstances
+ * @property {RunnerMeta} meta - The response's meta information for paginated results.
+ * @property {RunnerInstanceData[]} data - A list of all runner instances.
  */
 export type GetRunnerInstances = z.infer<typeof getRunnerInstances>;
 

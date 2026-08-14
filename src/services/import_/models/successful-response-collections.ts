@@ -14,11 +14,10 @@ export const successfulResponseCollections = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SuccessfulResponseCollections} successfulResponseCollections
- * @property {string} - The collection's ID.
- * @property {string} - The collection's name.
- * @property {string} - The collection's unique ID.
+ * @typedef {SuccessfulResponseCollections} successfulResponseCollections
+ * @property {string} id - The collection's ID.
+ * @property {string} name - The collection's name.
+ * @property {string} uid - The collection's unique ID.
  */
 export type SuccessfulResponseCollections = z.infer<typeof successfulResponseCollections>;
 

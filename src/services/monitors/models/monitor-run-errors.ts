@@ -14,10 +14,9 @@ export const monitorRunErrors = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MonitorRunErrors} monitorRunErrors
- * @property {string} - The error name.
- * @property {string} - The error message.
+ * @typedef {MonitorRunErrors} monitorRunErrors
+ * @property {string} name - The error name.
+ * @property {string} message - The error message.
  */
 export type MonitorRunErrors = z.infer<typeof monitorRunErrors>;
 

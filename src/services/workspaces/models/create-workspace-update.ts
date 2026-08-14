@@ -21,12 +21,11 @@ export const createWorkspaceUpdate = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateWorkspaceUpdate} createWorkspaceUpdate
- * @property {string} - The content of the workspace update.
- * @property {string} - The title of the workspace update.
- * @property {WorkspaceUpdateCategoryData} - The update's assigned category.
- * @property {WorkspaceUpdateRelatedResourcesData[]} - A list containing the update's related elements. Related elements include links to collections, requests, folders, and saved examples in the update.
+ * @typedef {CreateWorkspaceUpdate} createWorkspaceUpdate
+ * @property {string} description - The content of the workspace update.
+ * @property {string} topic - The title of the workspace update.
+ * @property {WorkspaceUpdateCategoryData} category - The update's assigned category.
+ * @property {WorkspaceUpdateRelatedResourcesData[]} relatedResources - A list containing the update's related elements. Related elements include links to collections, requests, folders, and saved examples in the update.
  */
 export type CreateWorkspaceUpdate = z.infer<typeof createWorkspaceUpdate>;
 

@@ -13,8 +13,8 @@ export const successfulResponseWorkspace3 = z.lazy(() => {
 
 /**
  * The Private API Network `workspace` element type.
- * @typedef  {SuccessfulResponseWorkspace3} successfulResponseWorkspace3 - The Private API Network `workspace` element type. - The Private API Network `workspace` element type.
- * @property {string} - The element's ID.
+ * @typedef {SuccessfulResponseWorkspace3} successfulResponseWorkspace3
+ * @property {string} id - The element's ID.
  */
 export type SuccessfulResponseWorkspace3 = z.infer<typeof successfulResponseWorkspace3>;
 

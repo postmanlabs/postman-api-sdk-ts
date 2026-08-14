@@ -28,20 +28,20 @@ export const componentData = z.lazy(() => {
 
 /**
  * Information about the component.
- * @typedef  {ComponentData} componentData - Information about the component. - Information about the component.
- * @property {string} - The component's ID.
- * @property {string} - The component's name.
- * @property {ComponentType} - The component's type. Corresponds to the specification that the component's content adheres to.
- * @property {ComponentStatus} - The component's lifecycle state:
+ * @typedef {ComponentData} componentData
+ * @property {string} id - The component's ID.
+ * @property {string} name - The component's name.
+ * @property {ComponentType} type - The component's type. Corresponds to the specification that the component's content adheres to.
+ * @property {ComponentStatus} status - The component's lifecycle state:
 - `active` — The component is active and can be edited and published.
 - `archived` — The component is archived and read-only. Archived components can't be edited or published, but their existing versions remain accessible.
 
- * @property {string} - The date and time at which the component was created.
- * @property {string} - The date and time at which the component was last updated.
- * @property {string} - The ID of the user who created the component.
- * @property {string} - The ID of the user who last updated the component.
- * @property {boolean} - Whether the component has versions. Returns only when you pass the `hasVersions` value for the `include` parameter.
- * @property {LatestVersion} - Information about the component's latest version. This property only returns only when you pass the `latestVersion` value for the `include` parameter.
+ * @property {string} createdAt - The date and time at which the component was created.
+ * @property {string} updatedAt - The date and time at which the component was last updated.
+ * @property {string} createdBy - The ID of the user who created the component.
+ * @property {string} updatedBy - The ID of the user who last updated the component.
+ * @property {boolean} hasVersions - Whether the component has versions. Returns only when you pass the `hasVersions` value for the `include` parameter.
+ * @property {LatestVersion} latestVersion - Information about the component's latest version. This property only returns only when you pass the `latestVersion` value for the `include` parameter.
 
 To return detailed information about the component's latest version, pass the `latestVersion` value for the `expand` parameter.
 

@@ -18,9 +18,8 @@ export const requestApproved = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RequestApproved} requestApproved
- * @property {RequestApprovedRequest1[]} - A list of Private API Network requests.
+ * @typedef {RequestApproved} requestApproved
+ * @property {RequestApprovedRequest1[]} request - A list of Private API Network requests.
  */
 export type RequestApproved = z.infer<typeof requestApproved>;
 

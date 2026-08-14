@@ -16,16 +16,15 @@ export const searchPostmanResources = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {SearchPostmanResources} searchPostmanResources   
- * @property {string} - The search query text. This is case-insensitive.
- * @property {SearchPostmanResourcesElementType} - The type of Postman resource to search for.
- * @property {Ownership} - The ownership scope for search results. One of:
+ * @typedef {SearchPostmanResources} searchPostmanResources
+ * @property {string} q - The search query text. This is case-insensitive.
+ * @property {SearchPostmanResourcesElementType} elementType - The type of Postman resource to search for.
+ * @property {Ownership} ownership - The ownership scope for search results. One of:
 - `organization` (default) — Resources owned by the user's team.
 - `external` — Resources not owned by the user's team.
 - `all` — All resources regardless of ownership.
 
- * @property {Filters} - The search filters to narrow results.
+ * @property {Filters} filters - The search filters to narrow results.
  */
 export type SearchPostmanResources = z.infer<typeof searchPostmanResources>;
 

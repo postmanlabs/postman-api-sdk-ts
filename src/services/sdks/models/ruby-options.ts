@@ -13,8 +13,8 @@ export const rubyOptions = z.lazy(() => {
 
 /**
  * Ruby-specific generation options.
- * @typedef  {RubyOptions} rubyOptions - Ruby-specific generation options. - Ruby-specific generation options.
- * @property {string} - The RubyGems gem's name.
+ * @typedef {RubyOptions} rubyOptions
+ * @property {string} gemName - The RubyGems gem's name.
  */
 export type RubyOptions = z.infer<typeof rubyOptions>;
 

@@ -24,10 +24,10 @@ export const accountInformation = z.lazy(() => {
 
 /**
  * Information about the account.
- * @typedef  {AccountInformation} accountInformation - Information about the account. - Information about the account.
- * @property {string} - The email address to which invoices are sent.
- * @property {number} - The account's ID.
- * @property {string} - The account's current state:
+ * @typedef {AccountInformation} accountInformation
+ * @property {string} billingEmail - The email address to which invoices are sent.
+ * @property {number} id - The account's ID.
+ * @property {string} state - The account's current state:
 - `FREE`
 - `PAID`
 - `EXPIRED_TRIAL`
@@ -36,12 +36,12 @@ export const accountInformation = z.lazy(() => {
 - `BLOCKED`
 - `PAYMENT_DISPUTED`
 
- * @property {number} - The team's ID associated with the account.
- * @property {SalesChannel} - The sales channel from which the account was created:
+ * @property {number} teamId - The team's ID associated with the account.
+ * @property {SalesChannel} salesChannel - The sales channel from which the account was created:
 - `SELF_SERVE` — The user purchased the account plan.
 - `SALES_SERVE` — The account was purchased through the Postman sales team process.
 
- * @property {InvoicesSlots} - Information about the team's slots.
+ * @property {InvoicesSlots} slots - Information about the team's slots.
  */
 export type AccountInformation = z.infer<typeof accountInformation>;
 

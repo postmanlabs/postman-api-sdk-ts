@@ -13,10 +13,9 @@ export const singleFileSpec = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SingleFileSpec} singleFileSpec
- * @property {string} - The file's path. Accepts .json, .yaml, .proto, .graphql, and .smithy file types.
- * @property {string} - The file's stringified contents.
+ * @typedef {SingleFileSpec} singleFileSpec
+ * @property {string} path - The file's path. Accepts .json, .yaml, .proto, .graphql, and .smithy file types.
+ * @property {string} content - The file's stringified contents.
  */
 export type SingleFileSpec = z.infer<typeof singleFileSpec>;
 

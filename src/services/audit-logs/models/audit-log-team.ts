@@ -14,9 +14,9 @@ export const auditLogTeam = z.lazy(() => {
 
 /**
  * The user's team information.
- * @typedef  {AuditLogTeam} auditLogTeam - The user's team information. - The user's team information.
- * @property {string} - The team's name.
- * @property {number} - The team's ID.
+ * @typedef {AuditLogTeam} auditLogTeam
+ * @property {string} name - The team's name.
+ * @property {number} id - The team's ID.
  */
 export type AuditLogTeam = z.infer<typeof auditLogTeam>;
 

@@ -16,11 +16,11 @@ export const workspaceMonitors = z.lazy(() => {
 
 /**
  * Information about the monitor.
- * @typedef  {WorkspaceMonitors} workspaceMonitors - Information about the monitor. - Information about the monitor.
- * @property {string} - The monitor's ID.
- * @property {string} - The monitor's name.
- * @property {string} - The monitor's unique ID.
- * @property {boolean} - If true, the monitor is not active.
+ * @typedef {WorkspaceMonitors} workspaceMonitors
+ * @property {string} id - The monitor's ID.
+ * @property {string} name - The monitor's name.
+ * @property {string} uid - The monitor's unique ID.
+ * @property {boolean} deactivated - If true, the monitor is not active.
  */
 export type WorkspaceMonitors = z.infer<typeof workspaceMonitors>;
 

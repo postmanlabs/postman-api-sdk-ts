@@ -21,10 +21,10 @@ export const collectionEvent = z.lazy(() => {
 
 /**
  * Information about the collection's events.
- * @typedef  {CollectionEvent} collectionEvent - Information about the collection's events. - Information about the collection's events.
- * @property {string} - The event's ID.
- * @property {EventListen2} - The `prerequest` (pre-request) or `test` (post-response) value.
- * @property {RequestEventsScript} - Information about the Javascript code that can be used to to perform setup or teardown operations in a response.
+ * @typedef {CollectionEvent} collectionEvent
+ * @property {string} id - The event's ID.
+ * @property {EventListen2} listen - The `prerequest` (pre-request) or `test` (post-response) value.
+ * @property {RequestEventsScript} script - Information about the Javascript code that can be used to to perform setup or teardown operations in a response.
  */
 export type CollectionEvent = z.infer<typeof collectionEvent>;
 

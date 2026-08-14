@@ -25,10 +25,9 @@ export const getWorkspacesOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetWorkspacesOkResponse} getWorkspacesOkResponse
- * @property {GetWorkspacesWorkspaceData[]} - A list of workspaces.
- * @property {SuccessfulResponseMeta4} - The response's meta information for paginated results. This object only returns if you pass the `limit` query parameter.
+ * @typedef {GetWorkspacesOkResponse} getWorkspacesOkResponse
+ * @property {GetWorkspacesWorkspaceData[]} workspaces - A list of workspaces.
+ * @property {SuccessfulResponseMeta4} meta - The response's meta information for paginated results. This object only returns if you pass the `limit` query parameter.
  */
 export type GetWorkspacesOkResponse = z.infer<typeof getWorkspacesOkResponse>;
 

@@ -14,9 +14,9 @@ export const successfulResponseMeta1 = z.lazy(() => {
 
 /**
  * The response's pagination information.
- * @typedef  {SuccessfulResponseMeta1} successfulResponseMeta1 - The response's pagination information. - The response's pagination information.
- * @property {number} - The number of tagged elements returned in the response.
- * @property {string} - The pagination cursor that points to the next record in the results set.
+ * @typedef {SuccessfulResponseMeta1} successfulResponseMeta1
+ * @property {number} count - The number of tagged elements returned in the response.
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
  */
 export type SuccessfulResponseMeta1 = z.infer<typeof successfulResponseMeta1>;
 

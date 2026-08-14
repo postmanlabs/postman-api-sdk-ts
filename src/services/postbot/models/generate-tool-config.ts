@@ -14,9 +14,9 @@ export const generateToolConfig = z.lazy(() => {
 
 /**
  * Information about the request.
- * @typedef  {GenerateToolConfig} generateToolConfig - Information about the request. - Information about the request.
- * @property {ConfigLanguage} - The programming language to use.
- * @property {AgentFramework} - The AI agent framework to use. Note that the `autogen` framework only supports the `python` language.
+ * @typedef {GenerateToolConfig} generateToolConfig
+ * @property {ConfigLanguage} language - The programming language to use.
+ * @property {AgentFramework} agentFramework - The AI agent framework to use. Note that the `autogen` framework only supports the `python` language.
  */
 export type GenerateToolConfig = z.infer<typeof generateToolConfig>;
 

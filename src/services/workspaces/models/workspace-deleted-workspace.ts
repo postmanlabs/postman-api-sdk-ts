@@ -13,8 +13,8 @@ export const workspaceDeletedWorkspace = z.lazy(() => {
 
 /**
  * Information about the deleted workspace.
- * @typedef  {WorkspaceDeletedWorkspace} workspaceDeletedWorkspace - Information about the deleted workspace. - Information about the deleted workspace.
- * @property {string} - The workspace's ID.
+ * @typedef {WorkspaceDeletedWorkspace} workspaceDeletedWorkspace
+ * @property {string} id - The workspace's ID.
  */
 export type WorkspaceDeletedWorkspace = z.infer<typeof workspaceDeletedWorkspace>;
 

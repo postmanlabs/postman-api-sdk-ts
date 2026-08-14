@@ -11,10 +11,7 @@ export const collectionVariableInfoValue = z.lazy(() => {
 
 /**
  * The key's value.
- * @typedef  {CollectionVariableInfoValue} collectionVariableInfoValue - The key's value. - The key's value.
- * @property {string}
- * @property {boolean}
- * @property {number}
+ * @typedef {CollectionVariableInfoValue} collectionVariableInfoValue
  */
 export type CollectionVariableInfoValue = z.infer<typeof collectionVariableInfoValue>;
 

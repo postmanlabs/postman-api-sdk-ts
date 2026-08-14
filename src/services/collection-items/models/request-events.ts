@@ -19,10 +19,9 @@ export const requestEvents = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RequestEvents} requestEvents
- * @property {RequestEventsListen} - The event type.
- * @property {RequestEventsScript} - Information about the Javascript code that can be used to to perform setup or teardown operations in a response.
+ * @typedef {RequestEvents} requestEvents
+ * @property {RequestEventsListen} listen - The event type.
+ * @property {RequestEventsScript} script - Information about the Javascript code that can be used to to perform setup or teardown operations in a response.
  */
 export type RequestEvents = z.infer<typeof requestEvents>;
 

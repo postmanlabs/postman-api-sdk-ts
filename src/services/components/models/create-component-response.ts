@@ -13,8 +13,8 @@ export const createComponentResponse = z.lazy(() => {
 
 /**
  * Information about the component.
- * @typedef  {CreateComponentResponse} createComponentResponse - Information about the component. - Information about the component.
- * @property {string} - The component's ID.
+ * @typedef {CreateComponentResponse} createComponentResponse
+ * @property {string} id - The component's ID.
  */
 export type CreateComponentResponse = z.infer<typeof createComponentResponse>;
 

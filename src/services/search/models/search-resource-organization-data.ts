@@ -15,10 +15,10 @@ export const searchResourceOrganizationData = z.lazy(() => {
 
 /**
  * Information about the organization that published the resource. This returns a null value for the `user` publisher type.
- * @typedef  {SearchResourceOrganizationData} searchResourceOrganizationData - Information about the organization that published the resource. This returns a null value for the `user` publisher type. - Information about the organization that published the resource. This returns a null value for the `user` publisher type.
- * @property {string} - The organization's ID.
- * @property {string} - The organization's name.
- * @property {boolean} - If true, the organization is verified by Postman.
+ * @typedef {SearchResourceOrganizationData} searchResourceOrganizationData
+ * @property {string} id - The organization's ID.
+ * @property {string} name - The organization's name.
+ * @property {boolean} isVerified - If true, the organization is verified by Postman.
  */
 export type SearchResourceOrganizationData = z.infer<typeof searchResourceOrganizationData>;
 

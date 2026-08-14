@@ -16,11 +16,11 @@ export const paginationData = z.lazy(() => {
 
 /**
  * Information about the response pagination.
- * @typedef  {PaginationData} paginationData - Information about the response pagination. - Information about the response pagination.
- * @property {number} - The total number of records available.
- * @property {number} - The maximum number of records returned in the response.
- * @property {number} - The number of records skipped.
- * @property {boolean} - Indicates whether more are records available.
+ * @typedef {PaginationData} paginationData
+ * @property {number} total - The total number of records available.
+ * @property {number} limit - The maximum number of records returned in the response.
+ * @property {number} offset - The number of records skipped.
+ * @property {boolean} hasMore - Indicates whether more are records available.
  */
 export type PaginationData = z.infer<typeof paginationData>;
 

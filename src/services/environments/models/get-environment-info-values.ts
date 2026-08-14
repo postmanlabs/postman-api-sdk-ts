@@ -16,10 +16,7 @@ export const getEnvironmentInfoValues = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetEnvironmentInfoValues} getEnvironmentInfoValues
- * @property {AddVariable} - Information about the variable.
- * @property {AddSecretVariable} - Information about the variable stored in the Postman Vault. This property only returns when a variable is defined as secret.
+ * @typedef {GetEnvironmentInfoValues} getEnvironmentInfoValues
  */
 export type GetEnvironmentInfoValues = z.infer<typeof getEnvironmentInfoValues>;
 

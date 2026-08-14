@@ -14,9 +14,9 @@ export const getAnalticsMetadataPaginationData = z.lazy(() => {
 
 /**
  * Information about the metric's pagination parameters.
- * @typedef  {GetAnalticsMetadataPaginationData} getAnalticsMetadataPaginationData - Information about the metric's pagination parameters. - Information about the metric's pagination parameters.
- * @property {boolean} - If true, pagination is supported for this metric.
- * @property {string[]} - A list of the supported pagination parameters.
+ * @typedef {GetAnalticsMetadataPaginationData} getAnalticsMetadataPaginationData
+ * @property {boolean} supported - If true, pagination is supported for this metric.
+ * @property {string[]} allowedValues - A list of the supported pagination parameters.
  */
 export type GetAnalticsMetadataPaginationData = z.infer<typeof getAnalticsMetadataPaginationData>;
 

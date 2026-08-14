@@ -13,8 +13,8 @@ export const searchResourceLinksSelfData = z.lazy(() => {
 
 /**
  * The link to the resource through the Postman API.
- * @typedef  {SearchResourceLinksSelfData} searchResourceLinksSelfData - The link to the resource through the Postman API. - The link to the resource through the Postman API.
- * @property {string} - The URL to access the resource through the Postman API.
+ * @typedef {SearchResourceLinksSelfData} searchResourceLinksSelfData
+ * @property {string} href - The URL to access the resource through the Postman API.
  */
 export type SearchResourceLinksSelfData = z.infer<typeof searchResourceLinksSelfData>;
 

@@ -18,13 +18,13 @@ export const componentVersionData = z.lazy(() => {
 
 /**
  * Information about a component's version.
- * @typedef  {ComponentVersionData} componentVersionData - Information about a component's version. - Information about a component's version.
- * @property {string} - The component version's ID.
- * @property {string} - The component version's label.
- * @property {string} - The URL where the component version can be accessed.
- * @property {string} - The component version's content format.
- * @property {string} - The date and time at which the component version was published.
- * @property {string} - The version's content. This returns when you include the `include` parameter.
+ * @typedef {ComponentVersionData} componentVersionData
+ * @property {string} id - The component version's ID.
+ * @property {string} label - The component version's label.
+ * @property {string} url - The URL where the component version can be accessed.
+ * @property {string} format - The component version's content format.
+ * @property {string} publishedAt - The date and time at which the component version was published.
+ * @property {string} content - The version's content. This returns when you include the `include` parameter.
  */
 export type ComponentVersionData = z.infer<typeof componentVersionData>;
 

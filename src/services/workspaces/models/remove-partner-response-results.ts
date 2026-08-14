@@ -15,15 +15,14 @@ export const removePartnerResponseResults = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {RemovePartnerResponseResults} removePartnerResponseResults   
- * @property {string} - If the endpoint returns the `FAILED` status, the error message detailing the error.
- * @property {string} - A response message.
- * @property {RemovePartnerResponseResultsStatus} - The removal status:
+ * @typedef {RemovePartnerResponseResults} removePartnerResponseResults
+ * @property {string} error - If the endpoint returns the `FAILED` status, the error message detailing the error.
+ * @property {string} message - A response message.
+ * @property {RemovePartnerResponseResultsStatus} status - The removal status:
 - `REMOVED` — The partner was successfully removed.
 - `FAILED` — The partner's removal failed.
 
- * @property {string} - The user ID.
+ * @property {string} userId - The user ID.
  */
 export type RemovePartnerResponseResults = z.infer<typeof removePartnerResponseResults>;
 

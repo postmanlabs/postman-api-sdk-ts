@@ -13,8 +13,8 @@ export const createComponentVersionSource = z.lazy(() => {
 
 /**
  * The source to publish the version from. Defaults to the component's current draft.
- * @typedef  {CreateComponentVersionSource} createComponentVersionSource - The source to publish the version from. Defaults to the component's current draft. - The source to publish the version from. Defaults to the component's current draft.
- * @property {SourceType} - The `draft` value.
+ * @typedef {CreateComponentVersionSource} createComponentVersionSource
+ * @property {SourceType} type - The `draft` value.
  */
 export type CreateComponentVersionSource = z.infer<typeof createComponentVersionSource>;
 

@@ -18,9 +18,8 @@ export const runExceeds300Seconds = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {RunExceeds300Seconds} runExceeds300Seconds
- * @property {RunExceeds300SecondsRun} - The response if the monitor's run exceeds 300 seconds. To get information about the monitor's run, call the GET `/monitors/{id}` endpoint.
+ * @typedef {RunExceeds300Seconds} runExceeds300Seconds
+ * @property {RunExceeds300SecondsRun} run - The response if the monitor's run exceeds 300 seconds. To get information about the monitor's run, call the GET `/monitors/{id}` endpoint.
  */
 export type RunExceeds300Seconds = z.infer<typeof runExceeds300Seconds>;
 

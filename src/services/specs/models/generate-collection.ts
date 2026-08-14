@@ -19,10 +19,9 @@ export const generateCollection = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GenerateCollection} generateCollection
- * @property {string} - The generated collection's name.
- * @property {GenerateCollectionOptions} - The advanced creation options and their values. For more details, see Postman's [OpenAPI to Postman Collection Converter OPTIONS documentation](https://github.com/postmanlabs/openapi-to-postman/blob/develop/OPTIONS.md). These properties are case-sensitive.
+ * @typedef {GenerateCollection} generateCollection
+ * @property {string} name - The generated collection's name.
+ * @property {GenerateCollectionOptions} options - The advanced creation options and their values. For more details, see Postman's [OpenAPI to Postman Collection Converter OPTIONS documentation](https://github.com/postmanlabs/openapi-to-postman/blob/develop/OPTIONS.md). These properties are case-sensitive.
  */
 export type GenerateCollection = z.infer<typeof generateCollection>;
 

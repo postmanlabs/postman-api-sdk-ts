@@ -15,10 +15,7 @@ export const responseHeader1 = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ResponseHeader1} responseHeader1
- * @property {string}
- * @property {ResponseHeader2_1[]}
+ * @typedef {ResponseHeader1} responseHeader1
  */
 export type ResponseHeader1 = z.infer<typeof responseHeader1>;
 

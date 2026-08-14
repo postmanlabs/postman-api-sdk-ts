@@ -109,8 +109,11 @@ export interface RequestHandler {
 export enum ContentType {
   /** JSON format (application/json) */
   Json = 'json',
-  /** XML format (application/xml, text/xml) */
-  Xml = 'xml',
+  /**
+   * @deprecated XML is handled as text. Use {@link ContentType.Text} instead.
+   * Kept as an alias for backward compatibility; will be removed in a future major version.
+   */
+  Xml = 'text',
   /** PDF document (application/pdf) */
   Pdf = 'pdf',
   /** Image file (image/*) */

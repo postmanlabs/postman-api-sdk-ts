@@ -12,9 +12,8 @@ export const successfulResponseMeta3 = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SuccessfulResponseMeta3} successfulResponseMeta3
- * @property {number} - The total number of supported secrets.
+ * @typedef {SuccessfulResponseMeta3} successfulResponseMeta3
+ * @property {number} total - The total number of supported secrets.
  */
 export type SuccessfulResponseMeta3 = z.infer<typeof successfulResponseMeta3>;
 

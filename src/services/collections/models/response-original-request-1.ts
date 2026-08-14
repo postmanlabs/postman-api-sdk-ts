@@ -37,13 +37,13 @@ export const responseOriginalRequest1 = z.lazy(() => {
 
 /**
  * Information about the collection request.
- * @typedef  {ResponseOriginalRequest1} responseOriginalRequest1 - Information about the collection request. - Information about the collection request.
- * @property {Url} - Information about the URL.
- * @property {CreateCollectionSchemaAuth} - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
- * @property {string} - The request's standard HTTP method.
- * @property {string} - The request's description.
- * @property {ResponseHeader2_1[]} - A list of headers.
- * @property {CollectionRequestBody1} - Information about the collection's request body. To set this to "none", pass an empty object.
+ * @typedef {ResponseOriginalRequest1} responseOriginalRequest1
+ * @property {Url} url - Information about the URL.
+ * @property {CreateCollectionSchemaAuth} auth - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
+ * @property {string} method - The request's standard HTTP method.
+ * @property {string} description - The request's description.
+ * @property {ResponseHeader2_1[]} header - A list of headers.
+ * @property {CollectionRequestBody1} body - Information about the collection's request body. To set this to "none", pass an empty object.
  */
 export type ResponseOriginalRequest1 = z.infer<typeof responseOriginalRequest1>;
 

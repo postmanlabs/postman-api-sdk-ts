@@ -18,9 +18,8 @@ export const addWorkspace = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {AddWorkspace} addWorkspace
- * @property {AddWorkspaceWorkspace}
+ * @typedef {AddWorkspace} addWorkspace
+ * @property {AddWorkspaceWorkspace} workspace
  */
 export type AddWorkspace = z.infer<typeof addWorkspace>;
 

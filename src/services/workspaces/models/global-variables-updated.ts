@@ -19,8 +19,8 @@ export const globalVariablesUpdated = z.lazy(() => {
 
 /**
  * Information about the workspace's updated global variables.
- * @typedef  {GlobalVariablesUpdated} globalVariablesUpdated - Information about the workspace's updated global variables. - Information about the workspace's updated global variables.
- * @property {GlobalVariableInfo[]} - A list of the workspace's global variables.
+ * @typedef {GlobalVariablesUpdated} globalVariablesUpdated
+ * @property {GlobalVariableInfo[]} values - A list of the workspace's global variables.
  */
 export type GlobalVariablesUpdated = z.infer<typeof globalVariablesUpdated>;
 

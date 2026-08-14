@@ -46,13 +46,12 @@ export const analyticsDataPartnerEngagementFunnel = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {AnalyticsDataPartnerEngagementFunnel} analyticsDataPartnerEngagementFunnel
- * @property {PartnersEngagementPartnersData} - Information about partner users and their activity.
- * @property {PartnersEngagementWorkspaceVisits} - Information about partner users' workspace visits.
- * @property {PartnersEngagementCollectionViews} - Information about partner users' views of collections in a workspace.
- * @property {PartnersEngagementRequestsSent} - Information about requests sent by partner users.
- * @property {PartnersEngagementSuccessfulRequestsSent} - Information about partner users' successful request calls in a workspace.
+ * @typedef {AnalyticsDataPartnerEngagementFunnel} analyticsDataPartnerEngagementFunnel
+ * @property {PartnersEngagementPartnersData} allPartners - Information about partner users and their activity.
+ * @property {PartnersEngagementWorkspaceVisits} workspaceVisited - Information about partner users' workspace visits.
+ * @property {PartnersEngagementCollectionViews} viewedCollection - Information about partner users' views of collections in a workspace.
+ * @property {PartnersEngagementRequestsSent} requestSent - Information about requests sent by partner users.
+ * @property {PartnersEngagementSuccessfulRequestsSent} successfulRequests200Ok - Information about partner users' successful request calls in a workspace.
  */
 export type AnalyticsDataPartnerEngagementFunnel = z.infer<
   typeof analyticsDataPartnerEngagementFunnel

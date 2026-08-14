@@ -20,10 +20,9 @@ export const listPrivateNetworkAddRequestsOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ListPrivateNetworkAddRequestsOkResponse} listPrivateNetworkAddRequestsOkResponse
- * @property {SuccessfulResponseRequests[]} - A list of requests to add elements to the Private API Network.
- * @property {Meta} - The response's non-standard meta information.
+ * @typedef {ListPrivateNetworkAddRequestsOkResponse} listPrivateNetworkAddRequestsOkResponse
+ * @property {SuccessfulResponseRequests[]} requests - A list of requests to add elements to the Private API Network.
+ * @property {Meta} meta - The response's non-standard meta information.
  */
 export type ListPrivateNetworkAddRequestsOkResponse = z.infer<
   typeof listPrivateNetworkAddRequestsOkResponse

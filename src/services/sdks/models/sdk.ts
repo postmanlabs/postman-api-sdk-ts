@@ -35,22 +35,22 @@ export const sdk = z.lazy(() => {
 
 /**
  * Information about the generated SDK.
- * @typedef  {Sdk} sdk - Information about the generated SDK. - Information about the generated SDK.
- * @property {string} - The SDK's ID.
- * @property {SdkLanguage} - The target output language for the generated SDK.
- * @property {SdkSource} - The collection or specification that the SDK is generated from.
- * @property {string} - The ID of the workspace that owns the SDK, derived from the source entity.
- * @property {string} - The generated SDK's semantic version ID. This value is automatically assigned by the release/changelog pipeline.
- * @property {SdkBuildStatus} - The SDK's build lifecycle:
+ * @typedef {Sdk} sdk
+ * @property {string} id - The SDK's ID.
+ * @property {SdkLanguage} language - The target output language for the generated SDK.
+ * @property {SdkSource} source - The collection or specification that the SDK is generated from.
+ * @property {string} workspaceId - The ID of the workspace that owns the SDK, derived from the source entity.
+ * @property {string} version - The generated SDK's semantic version ID. This value is automatically assigned by the release/changelog pipeline.
+ * @property {SdkBuildStatus} buildStatus - The SDK's build lifecycle:
 - `queued` — Accepted but not yet started.
 - `in_progress` — The SDK generation is running and in progress.
 - `succeeded` — The archive is built and available for download.
 - `failed` — The SDK generation failed. For information, check the `error` response.
 
- * @property {SdkErrorBuildStatusFailure} - Information about the SDK build's status when `buildStatus` is `failed`.
- * @property {SimpleSdkGitConnectionPullRequest} 
- * @property {string} - The date and time at which the SDK was created.
- * @property {string} - The date and time at which the SDK was last updated.
+ * @property {SdkErrorBuildStatusFailure} error - Information about the SDK build's status when `buildStatus` is `failed`.
+ * @property {SimpleSdkGitConnectionPullRequest} pullRequest
+ * @property {string} createdAt - The date and time at which the SDK was created.
+ * @property {string} updatedAt - The date and time at which the SDK was last updated.
  */
 export type Sdk = z.infer<typeof sdk>;
 

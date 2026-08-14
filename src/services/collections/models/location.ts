@@ -18,17 +18,11 @@ export const location = z.lazy(() => {
 - For `start` or `end` — Do not include the `model` and `id` values.
 - For `before` or `after` — Include the `model` and `id` properties.
 
- * @typedef  {Location} location - The transferred items' placement in the target destination:
-- For `start` or `end` — Do not include the `model` and `id` values.
-- For `before` or `after` — Include the `model` and `id` properties.
- - The transferred items' placement in the target destination:
-- For `start` or `end` — Do not include the `model` and `id` values.
-- For `before` or `after` — Include the `model` and `id` properties.
+ * @typedef {Location} location
+ * @property {string} id - For `before` or `after` positions, the model's UID.
+ * @property {string} model - For `before` or `after` positions, the type of item (model) that the transferred item will be positioned by. One of: `folder`, `request`, or `response.`
 
- * @property {string} - For `before` or `after` positions, the model's UID.
- * @property {string} - For `before` or `after` positions, the type of item (model) that the transferred item will be positioned by. One of: `folder`, `request`, or `response.`
-
- * @property {Position} - The transferred item's position within the destination object.
+ * @property {Position} position - The transferred item's position within the destination object.
  */
 export type Location = z.infer<typeof location>;
 

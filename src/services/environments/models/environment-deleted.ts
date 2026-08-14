@@ -18,9 +18,8 @@ export const environmentDeleted = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {EnvironmentDeleted} environmentDeleted
- * @property {EnvironmentDeletedEnvironment} - Information about the environment.
+ * @typedef {EnvironmentDeleted} environmentDeleted
+ * @property {EnvironmentDeletedEnvironment} environment - Information about the environment.
  */
 export type EnvironmentDeleted = z.infer<typeof environmentDeleted>;
 

@@ -22,16 +22,16 @@ export const collectionInfo = z.lazy(() => {
 
 /**
  * Information about the collection.
- * @typedef  {CollectionInfo} collectionInfo - Information about the collection. - Information about the collection.
- * @property {string} - The collection's Postman ID.
- * @property {string} - The collection's name.
- * @property {string} - The collection's description.
- * @property {string} - A URL to the collection's schema.
- * @property {InfoFork} - If the collection was forked from another collection, this object contains information about the fork.
- * @property {string} - The date and time at which the collection was last updated.
- * @property {string} - The collection's unique ID.
- * @property {string} - The date and time at which the collection was created.
- * @property {string} - The user ID of the user who last updated the collection.
+ * @typedef {CollectionInfo} collectionInfo
+ * @property {string} _postmanId - The collection's Postman ID.
+ * @property {string} name - The collection's name.
+ * @property {string} description - The collection's description.
+ * @property {string} schema - A URL to the collection's schema.
+ * @property {InfoFork} fork - If the collection was forked from another collection, this object contains information about the fork.
+ * @property {string} updatedAt - The date and time at which the collection was last updated.
+ * @property {string} uid - The collection's unique ID.
+ * @property {string} createdAt - The date and time at which the collection was created.
+ * @property {string} lastUpdatedBy - The user ID of the user who last updated the collection.
  */
 export type CollectionInfo = z.infer<typeof collectionInfo>;
 

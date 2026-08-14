@@ -25,10 +25,9 @@ export const sdkGitConnectionList = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {SdkGitConnectionList} sdkGitConnectionList
- * @property {SdkGitConnection[]} - A list of SDK Git connections.
- * @property {MetaNextCursorTotal} - The response's meta information for paginated results.
+ * @typedef {SdkGitConnectionList} sdkGitConnectionList
+ * @property {SdkGitConnection[]} data - A list of SDK Git connections.
+ * @property {MetaNextCursorTotal} meta - The response's meta information for paginated results.
  */
 export type SdkGitConnectionList = z.infer<typeof sdkGitConnectionList>;
 

@@ -52,17 +52,17 @@ export const createMonitorMonitor = z.lazy(() => {
 
 /**
  * Information about the monitor.
- * @typedef  {CreateMonitorMonitor} createMonitorMonitor - Information about the monitor. - Information about the monitor.
- * @property {string} - The monitor's name.
- * @property {boolean} - If true, the monitor is active and makes calls to the specified URL.
- * @property {number} - Stop email notifications after the given number consecutive failures.
- * @property {string} - The unique ID of the monitor's associated collection.
- * @property {string} - The unique ID of the monitor's associated environment.
- * @property {MonitorRetrySettings} - Information about the monitor's retry settings.
- * @property {MonitorOptions} - Information about the monitor's option settings.
- * @property {MonitorSchedule} - Information about the monitor's schedule.
- * @property {MonitorDistribution[]} - A list of the monitor's [geographic regions](https://learning.postman.com/docs/monitoring-your-api/setting-up-monitor/#add-regions).
- * @property {MonitorNotifications} - Information about the monitor's notification settings.
+ * @typedef {CreateMonitorMonitor} createMonitorMonitor
+ * @property {string} name - The monitor's name.
+ * @property {boolean} active - If true, the monitor is active and makes calls to the specified URL.
+ * @property {number} notificationLimit - Stop email notifications after the given number consecutive failures.
+ * @property {string} collection - The unique ID of the monitor's associated collection.
+ * @property {string} environment - The unique ID of the monitor's associated environment.
+ * @property {MonitorRetrySettings} retry - Information about the monitor's retry settings.
+ * @property {MonitorOptions} options - Information about the monitor's option settings.
+ * @property {MonitorSchedule} schedule - Information about the monitor's schedule.
+ * @property {MonitorDistribution[]} distribution - A list of the monitor's [geographic regions](https://learning.postman.com/docs/monitoring-your-api/setting-up-monitor/#add-regions).
+ * @property {MonitorNotifications} notifications - Information about the monitor's notification settings.
  */
 export type CreateMonitorMonitor = z.infer<typeof createMonitorMonitor>;
 

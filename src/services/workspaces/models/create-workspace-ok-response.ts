@@ -18,9 +18,8 @@ export const createWorkspaceOkResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {CreateWorkspaceOkResponse} createWorkspaceOkResponse
- * @property {SuccessfulResponseWorkspace1} - Information about the created workspace.
+ * @typedef {CreateWorkspaceOkResponse} createWorkspaceOkResponse
+ * @property {SuccessfulResponseWorkspace1} workspace - Information about the created workspace.
  */
 export type CreateWorkspaceOkResponse = z.infer<typeof createWorkspaceOkResponse>;
 

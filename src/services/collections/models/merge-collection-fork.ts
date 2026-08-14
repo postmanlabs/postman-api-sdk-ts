@@ -14,11 +14,10 @@ export const mergeCollectionFork = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {MergeCollectionFork} mergeCollectionFork   
- * @property {string} - The destination (parent) collection's unique ID.
- * @property {string} - The source collection's unique ID.
- * @property {MergeCollectionForkStrategy} - The fork's merge strategy:
+ * @typedef {MergeCollectionFork} mergeCollectionFork
+ * @property {string} destination - The destination (parent) collection's unique ID.
+ * @property {string} source - The source collection's unique ID.
+ * @property {MergeCollectionForkStrategy} strategy - The fork's merge strategy:
 - `deleteSource` — Merge the changes into the parent collection. After the merge process is complete, Postman deletes the fork. You must have Editor access to both the parent and forked collections.
 - `updateSourceWithDestination` — Merge the changes into the parent collection. Any differences in the parent collection are also made to the fork.
 

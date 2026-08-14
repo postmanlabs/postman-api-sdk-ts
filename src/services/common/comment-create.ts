@@ -21,10 +21,10 @@ export const commentCreate = z.lazy(() => {
 
 /**
  * Information about the comment.
- * @typedef  {CommentCreate} commentCreate - Information about the comment. - Information about the comment.
- * @property {string} - The contents of the comment.
- * @property {number} - The comment's thread ID. To create a reply on an existing comment, include this property.
- * @property {TaggedUsers} - Information about users tagged in the `body` comment.
+ * @typedef {CommentCreate} commentCreate
+ * @property {string} body - The contents of the comment.
+ * @property {number} threadId - The comment's thread ID. To create a reply on an existing comment, include this property.
+ * @property {TaggedUsers} tags - Information about users tagged in the `body` comment.
  */
 export type CommentCreate = z.infer<typeof commentCreate>;
 

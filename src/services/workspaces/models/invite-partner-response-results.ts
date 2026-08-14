@@ -16,18 +16,17 @@ export const invitePartnerResponseResults = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {InvitePartnerResponseResults} invitePartnerResponseResults   
- * @property {string} - The invited user's email address.
- * @property {InvitePartnerResponseResultsStatus} - The invitation status:
+ * @typedef {InvitePartnerResponseResults} invitePartnerResponseResults
+ * @property {string} email - The invited user's email address.
+ * @property {InvitePartnerResponseResultsStatus} status - The invitation status:
 - `EMAIL_SENT` — An invitation email was sent.
 - `ALREADY_INVITED` — The user already has a pending invitation.
 - `PARTNER_ADDED` — The existing user was added to the workspace directly.
 - `FAILED` — The invitation failed.
 
- * @property {string} - The user ID. This only returns for the `PARTNER_ADDED` status.
- * @property {string} - A response message.
- * @property {string} - An invitation link. This only returns for the `EMAIL_SENT` and `ALREADY_INVITED` statuses.
+ * @property {string} userId - The user ID. This only returns for the `PARTNER_ADDED` status.
+ * @property {string} message - A response message.
+ * @property {string} invitationLink - An invitation link. This only returns for the `EMAIL_SENT` and `ALREADY_INVITED` statuses.
  */
 export type InvitePartnerResponseResults = z.infer<typeof invitePartnerResponseResults>;
 

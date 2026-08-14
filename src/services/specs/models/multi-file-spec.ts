@@ -14,11 +14,10 @@ export const multiFileSpec = z.lazy(() => {
 });
 
 /**
- * 
- * @typedef  {MultiFileSpec} multiFileSpec   
- * @property {string} - The file's path. Accepts .json, .yaml, and .proto types.
- * @property {string} - The file's stringified contents.
- * @property {MultiFileSpecType} - The type of file. This property is required when creating multi-file specifications:
+ * @typedef {MultiFileSpec} multiFileSpec
+ * @property {string} path - The file's path. Accepts .json, .yaml, and .proto types.
+ * @property {string} content - The file's stringified contents.
+ * @property {MultiFileSpecType} type - The type of file. This property is required when creating multi-file specifications:
 - `ROOT` — The file containing the full OpenAPI structure. This serves as the entry point for the API spec and references other (`DEFAULT`) spec files. Multi-file specs can only have one root file.
 - `DEFAULT` — A file referenced by the `ROOT` file.
 

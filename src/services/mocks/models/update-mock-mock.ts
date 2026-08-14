@@ -24,15 +24,14 @@ export const updateMockMock = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdateMockMock} updateMockMock
- * @property {string} - The mock server's name.
- * @property {string} - The associated environment's unique ID.
- * @property {string} - The mock server's description.
- * @property {boolean} - If true, the mock server is set private. By default, mock servers are public and can receive requests from anyone and anywhere.
- * @property {string} - The API's version tag ID.
- * @property {string} - The ID of the collection associated with the mock server.
- * @property {UpdateMockMockConfig} - The mock server's configuration settings.
+ * @typedef {UpdateMockMock} updateMockMock
+ * @property {string} name - The mock server's name.
+ * @property {string} environment - The associated environment's unique ID.
+ * @property {string} description - The mock server's description.
+ * @property {boolean} private - If true, the mock server is set private. By default, mock servers are public and can receive requests from anyone and anywhere.
+ * @property {string} versionTag - The API's version tag ID.
+ * @property {string} collection - The ID of the collection associated with the mock server.
+ * @property {UpdateMockMockConfig} config - The mock server's configuration settings.
  */
 export type UpdateMockMock = z.infer<typeof updateMockMock>;
 

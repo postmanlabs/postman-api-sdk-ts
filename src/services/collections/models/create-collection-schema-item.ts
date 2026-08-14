@@ -44,14 +44,14 @@ export const createCollectionSchemaItem = z.lazy(() => {
 
 /**
  * Information about the collection request or folder.
- * @typedef  {CreateCollectionSchemaItem} createCollectionSchemaItem - Information about the collection request or folder. - Information about the collection request or folder.
- * @property {string} - The item's name.
- * @property {string} - The item's description.
- * @property {Variable[]} - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
- * @property {CreateCollectionSchemaEvent[]} - A list of scripts configured to run when specific events occur.
- * @property {ResponseOriginalRequest1} - Information about the collection request.
- * @property {ItemResponse1[]} - A list of the collection's responses.
- * @property {ProtocolProfileBehavior} - The [settings](https://learning.postman.com/docs/sending-requests/create-requests/request-settings/) used to alter the [Protocol Profile Behavior](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md) of sending a request.
+ * @typedef {CreateCollectionSchemaItem} createCollectionSchemaItem
+ * @property {string} name - The item's name.
+ * @property {string} description - The item's description.
+ * @property {Variable[]} variable - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.
+ * @property {CreateCollectionSchemaEvent[]} event - A list of scripts configured to run when specific events occur.
+ * @property {ResponseOriginalRequest1} request - Information about the collection request.
+ * @property {ItemResponse1[]} response - A list of the collection's responses.
+ * @property {ProtocolProfileBehavior} protocolProfileBehavior - The [settings](https://learning.postman.com/docs/sending-requests/create-requests/request-settings/) used to alter the [Protocol Profile Behavior](https://github.com/postmanlabs/postman-runtime/blob/develop/docs/protocol-profile-behavior.md) of sending a request.
  */
 export type CreateCollectionSchemaItem = z.infer<typeof createCollectionSchemaItem>;
 

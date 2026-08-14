@@ -20,10 +20,9 @@ export const getCallLogs = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {GetCallLogs} getCallLogs
- * @property {CallLogs[]} - A list of call logs.
- * @property {GetCallLogsMeta} - The response's non-standard meta information.
+ * @typedef {GetCallLogs} getCallLogs
+ * @property {CallLogs[]} callLogs - A list of call logs.
+ * @property {GetCallLogsMeta} meta - The response's non-standard meta information.
  */
 export type GetCallLogs = z.infer<typeof getCallLogs>;
 

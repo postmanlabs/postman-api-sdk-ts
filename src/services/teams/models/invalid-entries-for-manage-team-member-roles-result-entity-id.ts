@@ -11,9 +11,7 @@ export const invalidEntriesForManageTeamMemberRolesResultEntityId = z.lazy(() =>
 
 /**
  * The entity ID.
- * @typedef  {InvalidEntriesForManageTeamMemberRolesResultEntityId} invalidEntriesForManageTeamMemberRolesResultEntityId - The entity ID. - The entity ID.
- * @property {number}
- * @property {string}
+ * @typedef {InvalidEntriesForManageTeamMemberRolesResultEntityId} invalidEntriesForManageTeamMemberRolesResultEntityId
  */
 export type InvalidEntriesForManageTeamMemberRolesResultEntityId = z.infer<
   typeof invalidEntriesForManageTeamMemberRolesResultEntityId

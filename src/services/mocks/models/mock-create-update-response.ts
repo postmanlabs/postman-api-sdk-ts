@@ -18,9 +18,8 @@ export const mockCreateUpdateResponse = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MockCreateUpdateResponse} mockCreateUpdateResponse
- * @property {MockCreateUpdateResponseMock} - Information about the mock server.
+ * @typedef {MockCreateUpdateResponse} mockCreateUpdateResponse
+ * @property {MockCreateUpdateResponseMock} mock - Information about the mock server.
  */
 export type MockCreateUpdateResponse = z.infer<typeof mockCreateUpdateResponse>;
 

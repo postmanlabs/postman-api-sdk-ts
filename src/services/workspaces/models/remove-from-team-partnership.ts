@@ -18,8 +18,8 @@ export const removeFromTeamPartnership = z.lazy(() => {
 
 /**
  * The target on which to perform the action.
- * @typedef  {RemoveFromTeamPartnership} removeFromTeamPartnership - The target on which to perform the action. - The target on which to perform the action.
- * @property {string[]} - A list of partner publishers' team IDs.
+ * @typedef {RemoveFromTeamPartnership} removeFromTeamPartnership
+ * @property {string[]} userIds - A list of partner publishers' team IDs.
  */
 export type RemoveFromTeamPartnership = z.infer<typeof removeFromTeamPartnership>;
 

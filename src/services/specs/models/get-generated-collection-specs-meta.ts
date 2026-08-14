@@ -13,8 +13,8 @@ export const getGeneratedCollectionSpecsMeta = z.lazy(() => {
 
 /**
  * The response's meta information for paginated results.
- * @typedef  {GetGeneratedCollectionSpecsMeta} getGeneratedCollectionSpecsMeta - The response's meta information for paginated results. - The response's meta information for paginated results.
- * @property {string} - The pagination cursor that points to the next record in the results set.
+ * @typedef {GetGeneratedCollectionSpecsMeta} getGeneratedCollectionSpecsMeta
+ * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
  */
 export type GetGeneratedCollectionSpecsMeta = z.infer<typeof getGeneratedCollectionSpecsMeta>;
 

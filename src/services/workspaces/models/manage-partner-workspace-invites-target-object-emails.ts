@@ -18,8 +18,8 @@ export const managePartnerWorkspaceInvitesTargetObjectEmails = z.lazy(() => {
 
 /**
  * The target on which to perform the action.
- * @typedef  {ManagePartnerWorkspaceInvitesTargetObjectEmails} managePartnerWorkspaceInvitesTargetObjectEmails - The target on which to perform the action. - The target on which to perform the action.
- * @property {string[]} - A list of the partners' email addresses.
+ * @typedef {ManagePartnerWorkspaceInvitesTargetObjectEmails} managePartnerWorkspaceInvitesTargetObjectEmails
+ * @property {string[]} emails - A list of the partners' email addresses.
  */
 export type ManagePartnerWorkspaceInvitesTargetObjectEmails = z.infer<
   typeof managePartnerWorkspaceInvitesTargetObjectEmails

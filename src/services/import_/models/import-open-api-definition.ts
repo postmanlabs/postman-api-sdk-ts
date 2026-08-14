@@ -16,10 +16,7 @@ export const importOpenApiDefinition = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {ImportOpenApiDefinition} importOpenApiDefinition
- * @property {JsonSchema}
- * @property {JsonStringified}
+ * @typedef {ImportOpenApiDefinition} importOpenApiDefinition
  */
 export type ImportOpenApiDefinition = z.infer<typeof importOpenApiDefinition>;
 

@@ -28,11 +28,11 @@ export const callLogsResponse1 = z.lazy(() => {
 
 /**
  * The server response's response information.
- * @typedef  {CallLogsResponse1} callLogsResponse1 - The server response's response information. - The server response's response information.
- * @property {string} - The type of response.
- * @property {number} - The response's status code.
- * @property {ResponseHeaders} - The response's headers.
- * @property {ResponseBody} - The response's body information.
+ * @typedef {CallLogsResponse1} callLogsResponse1
+ * @property {string} type - The type of response.
+ * @property {number} statusCode - The response's status code.
+ * @property {ResponseHeaders} headers - The response's headers.
+ * @property {ResponseBody} body - The response's body information.
  */
 export type CallLogsResponse1 = z.infer<typeof callLogsResponse1>;
 

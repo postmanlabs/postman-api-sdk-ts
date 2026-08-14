@@ -23,12 +23,12 @@ export const collectionSecretVariableInfo = z.lazy(() => {
 
 /**
  * Information about a collection-level secret variable. Collection variables don't have an `id` field.
- * @typedef  {CollectionSecretVariableInfo} collectionSecretVariableInfo - Information about a collection-level secret variable. Collection variables don't have an `id` field. - Information about a collection-level secret variable. Collection variables don't have an `id` field.
- * @property {boolean} - If true, the variable is enabled.
- * @property {string} - The variable's key (name).
- * @property {boolean} - If true, the variable is marked as secret and its value is retrieved from the mentioned provider in the source field.
- * @property {EnvironmentVariableSource} - Information about the source of the variable's value.
- * @property {string} - The variable's description.
+ * @typedef {CollectionSecretVariableInfo} collectionSecretVariableInfo
+ * @property {boolean} enabled - If true, the variable is enabled.
+ * @property {string} key - The variable's key (name).
+ * @property {boolean} secret - If true, the variable is marked as secret and its value is retrieved from the mentioned provider in the source field.
+ * @property {EnvironmentVariableSource} source - Information about the source of the variable's value.
+ * @property {string} description - The variable's description.
  */
 export type CollectionSecretVariableInfo = z.infer<typeof collectionSecretVariableInfo>;
 

@@ -18,9 +18,8 @@ export const migrateToNewWorkspace = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MigrateToNewWorkspace} migrateToNewWorkspace
- * @property {MigrateToNewWorkspaceWorkspaceInfo} - Information about the new workspace.
+ * @typedef {MigrateToNewWorkspace} migrateToNewWorkspace
+ * @property {MigrateToNewWorkspaceWorkspaceInfo} workspaceInfo - Information about the new workspace.
  */
 export type MigrateToNewWorkspace = z.infer<typeof migrateToNewWorkspace>;
 

@@ -18,9 +18,8 @@ export const updateTags = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {UpdateTags} updateTags
- * @property {UpdateTagsTags[]} - A list of the associated tags as slugs.
+ * @typedef {UpdateTags} updateTags
+ * @property {UpdateTagsTags[]} tags - A list of the associated tags as slugs.
  */
 export type UpdateTags = z.infer<typeof updateTags>;
 

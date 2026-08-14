@@ -18,9 +18,8 @@ export const mockPublishedUnpublished = z.lazy(() => {
 });
 
 /**
- *
- * @typedef  {MockPublishedUnpublished} mockPublishedUnpublished
- * @property {MockPublishedUnpublishedMock} - Information about the mock server.
+ * @typedef {MockPublishedUnpublished} mockPublishedUnpublished
+ * @property {MockPublishedUnpublishedMock} mock - Information about the mock server.
  */
 export type MockPublishedUnpublished = z.infer<typeof mockPublishedUnpublished>;
 
