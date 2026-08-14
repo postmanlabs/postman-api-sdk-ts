@@ -3,6 +3,9 @@ name: Publish to GitHub Packages
 on:
   push:
     branches: ['main']
+  # Lets a publish that failed for a non-code reason (registry auth, a dist-tag
+  # conflict) be retried without an empty commit on `main`.
+  workflow_dispatch:
 
 jobs:
   publish:
