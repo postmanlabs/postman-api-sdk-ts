@@ -16,7 +16,7 @@ export const callLogsRequest1 = z.lazy(() => {
   return z.object({
     method: z.string().optional(),
     path: z.string().optional(),
-    headers: requestHeaders.optional(),
+    headers: z.array(requestHeaders).optional(),
     body: requestBody.optional(),
   });
 });
@@ -26,7 +26,7 @@ export const callLogsRequest1 = z.lazy(() => {
  * @typedef {CallLogsRequest1} callLogsRequest1
  * @property {string} method - The request method.
  * @property {string} path - The request's path.
- * @property {RequestHeaders} headers - The request's headers.
+ * @property {RequestHeaders[]} headers - The request's headers.
  * @property {RequestBody} body - The request's body information.
  */
 export type CallLogsRequest1 = z.infer<typeof callLogsRequest1>;
@@ -41,7 +41,7 @@ export const callLogsRequest1Response = z.lazy(() => {
     .object({
       method: z.string().optional(),
       path: z.string().optional(),
-      headers: requestHeadersResponse.optional(),
+      headers: z.array(requestHeadersResponse).optional(),
       body: requestBodyResponse.optional(),
     })
     .transform((data) => ({
@@ -62,7 +62,7 @@ export const callLogsRequest1Request = z.lazy(() => {
     .object({
       method: z.string().optional(),
       path: z.string().optional(),
-      headers: requestHeadersRequest.optional(),
+      headers: z.array(requestHeadersRequest).optional(),
       body: requestBodyRequest.optional(),
     })
     .transform((data) => ({

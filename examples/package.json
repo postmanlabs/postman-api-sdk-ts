@@ -1,6 +1,6 @@
 {
   "name": "Postman_API",
-  "version": "1.45.0",
+  "version": "1.46.1",
   "private": true,
   "dependencies": {
     "@postman/api-sdk": "file:../",

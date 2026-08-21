@@ -672,6 +672,11 @@ After a merge's success or failure, the task's status is only available for a pe
         status: 401,
       })
       .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 429,
+      })
+      .addError({
         error: Common500Error,
         contentType: ContentType.Json,
         status: 500,
@@ -735,6 +740,11 @@ If you do not include the `workspace` query parameter, the system creates the co
         error: Common401Error,
         contentType: ContentType.Json,
         status: 401,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 429,
       })
       .addError({
         error: Common500Error,
@@ -855,6 +865,11 @@ If you do not include the `workspace` query parameter, the system creates the co
         status: 404,
       })
       .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 429,
+      })
+      .addError({
         error: Common500Error,
         contentType: ContentType.Json,
         status: 500,
@@ -965,6 +980,11 @@ Merges a forked collection back into its parent collection. You must have the [E
         status: 401,
       })
       .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 429,
+      })
+      .addError({
         error: Common500Error,
         contentType: ContentType.Json,
         status: 500,
@@ -1055,6 +1075,11 @@ Merges a forked collection back into its parent collection. You must have the [E
         status: 409,
       })
       .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 429,
+      })
+      .addError({
         error: Common500Error,
         contentType: ContentType.Json,
         status: 500,
@@ -1119,6 +1144,11 @@ Merges a forked collection back into its parent collection. You must have the [E
         status: 404,
       })
       .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 429,
+      })
+      .addError({
         error: Common500Error,
         contentType: ContentType.Json,
         status: 500,
@@ -1166,6 +1196,11 @@ Merges a forked collection back into its parent collection. You must have the [E
         error: ErrorNameMessageDetails,
         contentType: ContentType.Json,
         status: 404,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 429,
       })
       .addError({
         error: Common500Error,

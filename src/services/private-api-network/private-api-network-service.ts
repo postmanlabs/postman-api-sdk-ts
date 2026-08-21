@@ -11,6 +11,7 @@ import {
 } from './models/list-private-network-workspaces-ok-response';
 import { Common401Error } from '../common/common401-error';
 import { Common403Error } from '../common/common403-error';
+import { ErrorTypeTitleDetailStatus } from '../common/error-type-title-detail-status';
 import { Common500Error } from '../common/common500-error';
 import {
   ListPrivateNetworkAddRequestsParams,
@@ -184,6 +185,11 @@ export class PrivateApiNetworkService extends BaseService {
         status: 403,
       })
       .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 429,
+      })
+      .addError({
         error: Common500Error,
         contentType: ContentType.Json,
         status: 500,
@@ -284,6 +290,11 @@ export class PrivateApiNetworkService extends BaseService {
         error: AddWorkspaceToPrivateNetworkNotFoundResponse,
         contentType: ContentType.Json,
         status: 404,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 429,
       })
       .addError({
         error: Common500Error,
@@ -404,6 +415,11 @@ Removing a workspace does not delete it. It only removes it from the Private API
         error: AddWorkspaceToPrivateNetworkNotFoundResponse,
         contentType: ContentType.Json,
         status: 404,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 429,
       })
       .addError({
         error: Common500Error,
