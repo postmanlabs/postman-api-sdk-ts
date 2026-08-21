@@ -21,7 +21,7 @@ export const callLogsResponse1 = z.lazy(() => {
   return z.object({
     type: z.string().optional(),
     statusCode: z.number().optional(),
-    headers: responseHeaders.optional(),
+    headers: z.array(responseHeaders).optional(),
     body: responseBody.optional(),
   });
 });
@@ -31,7 +31,7 @@ export const callLogsResponse1 = z.lazy(() => {
  * @typedef {CallLogsResponse1} callLogsResponse1
  * @property {string} type - The type of response.
  * @property {number} statusCode - The response's status code.
- * @property {ResponseHeaders} headers - The response's headers.
+ * @property {ResponseHeaders[]} headers - The response's headers.
  * @property {ResponseBody} body - The response's body information.
  */
 export type CallLogsResponse1 = z.infer<typeof callLogsResponse1>;
@@ -46,7 +46,7 @@ export const callLogsResponse1Response = z.lazy(() => {
     .object({
       type: z.string().optional(),
       statusCode: z.number().optional(),
-      headers: responseHeadersResponse.optional(),
+      headers: z.array(responseHeadersResponse).optional(),
       body: responseBodyResponse.optional(),
     })
     .transform((data) => ({
@@ -67,7 +67,7 @@ export const callLogsResponse1Request = z.lazy(() => {
     .object({
       type: z.string().optional(),
       statusCode: z.number().optional(),
-      headers: responseHeadersRequest.optional(),
+      headers: z.array(responseHeadersRequest).optional(),
       body: responseBodyRequest.optional(),
     })
     .transform((data) => ({

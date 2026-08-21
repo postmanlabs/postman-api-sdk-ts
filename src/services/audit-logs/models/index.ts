@@ -4,4 +4,5 @@ export type { AuditLogData } from './audit-log-data';
 export type { AuditLogActor } from './audit-log-actor';
 export type { AuditLogUser } from './audit-log-user';
 export type { AuditLogTeam } from './audit-log-team';
+export type { AuditLogEvents } from './audit-log-events';
 export type { AuditLogAction } from './audit-log-action';

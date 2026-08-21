@@ -288,7 +288,7 @@ It is recommended that you pass the `name` property in the request body. If you 
 It is recommended that you pass the `name` property in the request body. If you do not, the system uses a null value. As a result, this creates a request with a blank name.
 
  * @param {string} collectionId - The collection's ID.
- * @param {string} [params.folderId] - The folder ID in which to create the request. By default, the system will create the request at the collection level.
+ * @param {string} [params.folder] - The folder ID in which to create the request. By default, the system creates the request at the collection level.
  * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
  * @returns {Promise<HttpResponse<CollectionRequestCreated>>} - Successful Response
  */
@@ -302,7 +302,7 @@ It is recommended that you pass the `name` property in the request body. If you 
       this.createCollectionRequestConfig,
       requestConfig,
     );
-    z.object({ folderId: z.string().optional() }).parse(params ?? {});
+    z.object({ folder: z.string().optional() }).parse(params ?? {});
     const request = new RequestBuilder()
       .setConfig(resolvedConfig)
       .setBaseUrl(resolvedConfig)
@@ -336,8 +336,8 @@ It is recommended that you pass the `name` property in the request body. If you 
         value: collectionId,
       })
       .addQueryParam({
-        key: 'folderId',
-        value: params?.folderId,
+        key: 'folder',
+        value: params?.folder,
       })
       .addHeaderParam({ key: 'Content-Type', value: 'application/json' })
       .addBody(body)

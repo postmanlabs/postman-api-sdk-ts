@@ -21,6 +21,7 @@ import {
 } from './models/get-workspaces-ok-response';
 import { Workspaces400Error } from './models/workspaces400-error';
 import { Common401Error } from '../common/common401-error';
+import { ErrorErrorMessage } from './models/error-error-message';
 import {
   GetWorkspaceActivityFeedParams,
   GetWorkspaceParams,
@@ -472,6 +473,11 @@ This endpoint's response contains the visibility field. Visibility determines wh
         status: 401,
       })
       .addError({
+        error: ErrorErrorMessage,
+        contentType: ContentType.Json,
+        status: 429,
+      })
+      .addError({
         error: Common500Error,
         contentType: ContentType.Json,
         status: 500,
@@ -553,6 +559,11 @@ This endpoint's response contains the visibility field. Visibility determines wh
         error: Forbidden,
         contentType: ContentType.Json,
         status: 403,
+      })
+      .addError({
+        error: ErrorErrorMessage,
+        contentType: ContentType.Json,
+        status: 429,
       })
       .addError({
         error: Common500Error,
@@ -657,6 +668,11 @@ This endpoint's response contains the `visibility` field. [Visibility](https://l
         status: 404,
       })
       .addError({
+        error: ErrorErrorMessage,
+        contentType: ContentType.Json,
+        status: 429,
+      })
+      .addError({
         error: Common500Error,
         contentType: ContentType.Json,
         status: 500,
@@ -722,6 +738,11 @@ This endpoint's response contains the `visibility` field. [Visibility](https://l
         status: 404,
       })
       .addError({
+        error: ErrorErrorMessage,
+        contentType: ContentType.Json,
+        status: 429,
+      })
+      .addError({
         error: Common500Error,
         contentType: ContentType.Json,
         status: 500,
@@ -769,6 +790,11 @@ This endpoint's response contains the `visibility` field. [Visibility](https://l
         error: Common401Error,
         contentType: ContentType.Json,
         status: 401,
+      })
+      .addError({
+        error: ErrorErrorMessage,
+        contentType: ContentType.Json,
+        status: 429,
       })
       .addError({
         error: Common500Error,
@@ -1477,6 +1503,11 @@ This endpoint requires the `application/merge-patch+json` Content-Type header.
         error: ErrorTypeTitleDetailStatus,
         contentType: ContentType.Json,
         status: 404,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 415,
       })
       .addError({
         error: ErrorTypeTitleDetailStatus,

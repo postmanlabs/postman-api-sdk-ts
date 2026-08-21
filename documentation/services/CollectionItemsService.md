@@ -68,11 +68,11 @@ Creates a request in a collection. For a complete list of properties, refer to t
 
 **Parameters**
 
-| Name         | Type                                        | Required | Description                                                                                                           |
-| :----------- | :------------------------------------------ | :------- | :-------------------------------------------------------------------------------------------------------------------- |
-| body         | [CreateRequest](../models/CreateRequest.md) | ❌       | The request body.                                                                                                     |
-| collectionId | string                                      | ✅       | The collection's ID.                                                                                                  |
-| folderId     | string                                      | ❌       | The folder ID in which to create the request. By default, the system will create the request at the collection level. |
+| Name         | Type                                        | Required | Description                                                                                                       |
+| :----------- | :------------------------------------------ | :------- | :---------------------------------------------------------------------------------------------------------------- |
+| body         | [CreateRequest](../models/CreateRequest.md) | ❌       | The request body.                                                                                                 |
+| collectionId | string                                      | ✅       | The collection's ID.                                                                                              |
+| folder       | string                                      | ❌       | The folder ID in which to create the request. By default, the system creates the request at the collection level. |
 
 **Return Type**
 
@@ -154,7 +154,7 @@ import {
 
   const requestAuthType = RequestAuthType.BASIC;
 
-  const authAttributesValue = 'Lorem adi';
+  const authAttributesValue = 'eu elit ex';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -213,7 +213,7 @@ import {
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
     createRequest,
     {
-      folderId: '65a99e60-8e0a-4b6e-b79c-7d8264cc5caa',
+      folder: '65a99e60-8e0a-4b6e-b79c-7d8264cc5caa',
     },
   );
 
@@ -584,7 +584,7 @@ import {
 
   const requestAuthType = RequestAuthType.BASIC;
 
-  const authAttributesValue = 'Lorem adi';
+  const authAttributesValue = 'eu elit ex';
 
   const authAttributesType = AuthAttributesType.STRING_;
 

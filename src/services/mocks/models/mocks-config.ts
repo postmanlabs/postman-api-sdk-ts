@@ -18,7 +18,7 @@ export const mocksConfig = z.lazy(() => {
     matchBody: z.boolean().optional(),
     matchQueryParams: z.boolean().optional(),
     matchWildcards: z.boolean().optional(),
-    serverResponseId: z.string().optional(),
+    serverResponseId: z.string().optional().nullable(),
   });
 });
 
@@ -47,7 +47,7 @@ export const mocksConfigResponse = z.lazy(() => {
       matchBody: z.boolean().optional(),
       matchQueryParams: z.boolean().optional(),
       matchWildcards: z.boolean().optional(),
-      serverResponseId: z.string().optional(),
+      serverResponseId: z.string().optional().nullable(),
     })
     .transform((data) => ({
       delay: data['delay'],
@@ -72,7 +72,7 @@ export const mocksConfigRequest = z.lazy(() => {
       matchBody: z.boolean().optional(),
       matchQueryParams: z.boolean().optional(),
       matchWildcards: z.boolean().optional(),
-      serverResponseId: z.string().optional(),
+      serverResponseId: z.string().optional().nullable(),
     })
     .transform((data) => ({
       delay: data['delay'],

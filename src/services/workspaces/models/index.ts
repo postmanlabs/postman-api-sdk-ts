@@ -99,6 +99,7 @@ export type { UpdateWorkspaceUpdate } from './update-workspace-update';
 export type { Workspaces400Error1 } from './workspaces400-error-1';
 export type { Workspaces400Error2 } from './workspaces400-error-2';
 export type { Workspaces400Error } from './workspaces400-error';
+export type { ErrorErrorMessage } from './error-error-message';
 export type { Forbidden } from './forbidden';
 export type { GetWorkspaceNotFoundResponse } from './get-workspace-not-found-response';
 export type { PartnerAndPersonalWorkspaceRolesUnsupported } from './partner-and-personal-workspace-roles-unsupported';

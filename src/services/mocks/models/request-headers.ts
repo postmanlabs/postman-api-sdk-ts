@@ -13,7 +13,6 @@ export const requestHeaders = z.lazy(() => {
 });
 
 /**
- * The request's headers.
  * @typedef {RequestHeaders} requestHeaders
  * @property {string} key - The request header's name.
  * @property {string} value - The request header's value.
