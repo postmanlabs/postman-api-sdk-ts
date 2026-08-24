@@ -15,7 +15,6 @@ export const responseHeaders = z.lazy(() => {
 });
 
 /**
- * The response's headers.
  * @typedef {ResponseHeaders} responseHeaders
  * @property {Description} description - The response header's description information.
  * @property {string} key - The response header's name.

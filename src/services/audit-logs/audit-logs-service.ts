@@ -8,9 +8,10 @@ import { Environment } from '../../http/environment';
 import { GetAuditLogs, getAuditLogsResponse } from './models/get-audit-logs';
 import { GetAuditLogEventActionsClientErrorResponse } from '../common/get-audit-log-event-actions-client-error-response';
 import { Common401Error } from '../common/common401-error';
+import { ErrorTypeTitleDetailStatus } from '../common/error-type-title-detail-status';
 import { Common500Error } from '../common/common500-error';
 import { GetAuditLogsParams } from './request-params';
-import { AuditLogAction, auditLogActionResponse } from './models/audit-log-action';
+import { AuditLogEvents, auditLogEventsResponse } from './models/audit-log-events';
 
 /**
  * Service class for AuditLogsService operations.
@@ -94,6 +95,11 @@ export class AuditLogsService extends BaseService {
         status: 401,
       })
       .addError({
+        error: ErrorTypeTitleDetailStatus,
+        contentType: ContentType.Json,
+        status: 429,
+      })
+      .addError({
         error: Common500Error,
         contentType: ContentType.Json,
         status: 500,
@@ -137,9 +143,9 @@ export class AuditLogsService extends BaseService {
   /**
    * Gets a complete list of all available audit log event actions.
    * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
-   * @returns {Promise<HttpResponse<AuditLogAction[]>>} - Successful Response
+   * @returns {Promise<HttpResponse<AuditLogEvents>>} - Successful Response
    */
-  async getAuditLogEventActions(requestConfig?: Partial<SdkConfig>): Promise<AuditLogAction[]> {
+  async getAuditLogEventActions(requestConfig?: Partial<SdkConfig>): Promise<AuditLogEvents> {
     const resolvedConfig = this.getResolvedConfig(
       this.getAuditLogEventActionsConfig,
       requestConfig,
@@ -153,7 +159,7 @@ export class AuditLogsService extends BaseService {
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
-        schema: z.array(auditLogActionResponse),
+        schema: auditLogEventsResponse,
         contentType: ContentType.Json,
         status: 200,
       })
@@ -173,6 +179,6 @@ export class AuditLogsService extends BaseService {
         status: 500,
       })
       .build();
-    return this.client.callDirect<AuditLogAction[]>(request);
+    return this.client.callDirect<AuditLogEvents>(request);
   }
 }

@@ -11,12 +11,12 @@ import { ErrorTypeTitleDetailStatus } from '../common/error-type-title-detail-st
 import { ErrorTypeTitleDetailStatusInstance } from '../common/error-type-title-detail-status-instance';
 import { UpdateTags, updateTagsRequest } from './models/update-tags';
 import { ApiTag400Error } from './models/api-tag400-error';
-import { ApiTag400Error1 } from './models/api-tag400-error-1';
+import { Tag400Error } from './models/tag400-error';
 import {
   GetTaggedEntitiesOkResponse,
   getTaggedEntitiesOkResponseResponse,
 } from './models/get-tagged-entities-ok-response';
-import { GetTaggedEntitiesBadRequestResponse } from './models/get-tagged-entities-bad-request-response';
+import { Tag400Error2 } from './models/tag400-error-2';
 import { GetTaggedEntitiesParams } from './request-params';
 
 /**
@@ -182,7 +182,7 @@ export class TagsService extends BaseService {
         status: 200,
       })
       .addError({
-        error: ApiTag400Error1,
+        error: Tag400Error,
         contentType: ContentType.Json,
         status: 400,
       })
@@ -256,7 +256,7 @@ Tagging is available on Postman [**Solo**, **Team**, and **Enterprise** plans](h
         status: 200,
       })
       .addError({
-        error: GetTaggedEntitiesBadRequestResponse,
+        error: Tag400Error2,
         contentType: ContentType.Json,
         status: 400,
       })
@@ -382,7 +382,7 @@ Tagging is available on Postman [**Solo**, **Team**, and **Enterprise** plans](h
         status: 200,
       })
       .addError({
-        error: ApiTag400Error1,
+        error: Tag400Error,
         contentType: ContentType.Json,
         status: 400,
       })

@@ -7,16 +7,16 @@ import { z } from 'zod';
  */
 export const auditLogAction = z.lazy(() => {
   return z.object({
+    code: z.string().optional(),
     name: z.string().optional(),
-    displayName: z.string().optional(),
   });
 });
 
 /**
  * Information about the audit log event action.
  * @typedef {AuditLogAction} auditLogAction
- * @property {string} name - The audit log event action's name.
- * @property {string} displayName - The audit log event's display name as it appears in Postman's Audit Logs dashboard.
+ * @property {string} code - The audit log event action's code.
+ * @property {string} name - The audit log event action's display name as it appears in Postman's Audit Logs dashboard.
  */
 export type AuditLogAction = z.infer<typeof auditLogAction>;
 
@@ -28,12 +28,12 @@ export type AuditLogAction = z.infer<typeof auditLogAction>;
 export const auditLogActionResponse = z.lazy(() => {
   return z
     .object({
+      code: z.string().optional(),
       name: z.string().optional(),
-      displayName: z.string().optional(),
     })
     .transform((data) => ({
+      code: data['code'],
       name: data['name'],
-      displayName: data['displayName'],
     }));
 });
 
@@ -45,11 +45,11 @@ export const auditLogActionResponse = z.lazy(() => {
 export const auditLogActionRequest = z.lazy(() => {
   return z
     .object({
+      code: z.string().optional(),
       name: z.string().optional(),
-      displayName: z.string().optional(),
     })
     .transform((data) => ({
+      code: data['code'],
       name: data['name'],
-      displayName: data['displayName'],
     }));
 });
