@@ -29,7 +29,6 @@ import {
   workspaceSpecsRequest,
   workspaceSpecsResponse,
 } from './workspace-specs';
-import { Scim, scim, scimRequest, scimResponse } from './scim';
 
 /**
  * Zod schema for the SuccessfulResponseWorkspace2 model.
@@ -54,7 +53,6 @@ export const successfulResponseWorkspace2 = z.lazy(() => {
     mocks: z.array(workspaceMocks).optional(),
     monitors: z.array(workspaceMonitors).optional(),
     specs: z.array(workspaceSpecs).optional(),
-    scim: scim.optional(),
   });
 });
 
@@ -83,7 +81,6 @@ export const successfulResponseWorkspace2 = z.lazy(() => {
  * @property {WorkspaceMocks[]} mocks - The workspace's mock servers.
  * @property {WorkspaceMonitors[]} monitors - The workspace's monitors.
  * @property {WorkspaceSpecs[]} specs - The workspace's API specifications.
- * @property {Scim} scim - An object containing SCIM user IDs. This object only returns if you pass the `include=scim` query parameter.
  */
 export type SuccessfulResponseWorkspace2 = z.infer<typeof successfulResponseWorkspace2>;
 
@@ -111,7 +108,6 @@ export const successfulResponseWorkspace2Response = z.lazy(() => {
       mocks: z.array(workspaceMocksResponse).optional(),
       monitors: z.array(workspaceMonitorsResponse).optional(),
       specs: z.array(workspaceSpecsResponse).optional(),
-      scim: scimResponse.optional(),
     })
     .transform((data) => ({
       id: data['id'],
@@ -130,7 +126,6 @@ export const successfulResponseWorkspace2Response = z.lazy(() => {
       mocks: data['mocks'],
       monitors: data['monitors'],
       specs: data['specs'],
-      scim: data['scim'],
     }));
 });
 
@@ -158,7 +153,6 @@ export const successfulResponseWorkspace2Request = z.lazy(() => {
       mocks: z.array(workspaceMocksRequest).optional(),
       monitors: z.array(workspaceMonitorsRequest).optional(),
       specs: z.array(workspaceSpecsRequest).optional(),
-      scim: scimRequest.optional(),
     })
     .transform((data) => ({
       id: data['id'],
@@ -177,6 +171,5 @@ export const successfulResponseWorkspace2Request = z.lazy(() => {
       mocks: data['mocks'],
       monitors: data['monitors'],
       specs: data['specs'],
-      scim: data['scim'],
     }));
 });
