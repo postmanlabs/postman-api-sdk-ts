@@ -14,8 +14,8 @@ import {
 export const auditLogEvent = z.lazy(() => {
   return z.object({
     id: z.number().optional(),
-    ip: z.string().optional(),
-    userAgent: z.string().optional(),
+    ip: z.string().optional().nullable(),
+    userAgent: z.string().optional().nullable(),
     action: z.string().optional(),
     timestamp: z.string().optional(),
     message: z.string().optional(),
@@ -45,8 +45,8 @@ export const auditLogEventResponse = z.lazy(() => {
   return z
     .object({
       id: z.number().optional(),
-      ip: z.string().optional(),
-      userAgent: z.string().optional(),
+      ip: z.string().optional().nullable(),
+      userAgent: z.string().optional().nullable(),
       action: z.string().optional(),
       timestamp: z.string().optional(),
       message: z.string().optional(),
@@ -72,8 +72,8 @@ export const auditLogEventRequest = z.lazy(() => {
   return z
     .object({
       id: z.number().optional(),
-      ip: z.string().optional(),
-      userAgent: z.string().optional(),
+      ip: z.string().optional().nullable(),
+      userAgent: z.string().optional().nullable(),
       action: z.string().optional(),
       timestamp: z.string().optional(),
       message: z.string().optional(),

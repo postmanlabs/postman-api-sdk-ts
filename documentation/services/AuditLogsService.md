@@ -66,7 +66,7 @@ Gets a complete list of all available audit log event actions.
 
 **Return Type**
 
-`AuditLogAction[]`
+`AuditLogEvents`
 
 **Example Usage Code Snippet**
 

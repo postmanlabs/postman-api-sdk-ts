@@ -1,5 +1,5 @@
 export interface CreateCollectionRequestParams {
-  folderId?: string;
+  folder?: string;
 }
 
 export interface CreateCollectionResponseParams {
