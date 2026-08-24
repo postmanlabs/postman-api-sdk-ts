@@ -1,10 +1,4 @@
 import { z } from 'zod';
-import {
-  GetWorkspacesScimObject,
-  getWorkspacesScimObject,
-  getWorkspacesScimObjectRequest,
-  getWorkspacesScimObjectResponse,
-} from './get-workspaces-scim-object';
 
 /**
  * Zod schema for the GetWorkspacesWorkspaceData model.
@@ -21,7 +15,6 @@ export const getWorkspacesWorkspaceData = z.lazy(() => {
     about: z.string().optional(),
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
-    scim: getWorkspacesScimObject.optional(),
   });
 });
 
@@ -42,7 +35,6 @@ export const getWorkspacesWorkspaceData = z.lazy(() => {
  * @property {string} about - A brief summary about the workspace.
  * @property {string} createdAt - The date and time at which the workspace was created.
  * @property {string} updatedAt - The date and time at which the workspace was last updated.
- * @property {GetWorkspacesScimObject} scim - An object containing SCIM user IDs. This object only returns if you pass the `include=scim` query parameter.
  */
 export type GetWorkspacesWorkspaceData = z.infer<typeof getWorkspacesWorkspaceData>;
 
@@ -62,7 +54,6 @@ export const getWorkspacesWorkspaceDataResponse = z.lazy(() => {
       about: z.string().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      scim: getWorkspacesScimObjectResponse.optional(),
     })
     .transform((data) => ({
       id: data['id'],
@@ -73,7 +64,6 @@ export const getWorkspacesWorkspaceDataResponse = z.lazy(() => {
       about: data['about'],
       createdAt: data['createdAt'],
       updatedAt: data['updatedAt'],
-      scim: data['scim'],
     }));
 });
 
@@ -93,7 +83,6 @@ export const getWorkspacesWorkspaceDataRequest = z.lazy(() => {
       about: z.string().optional(),
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
-      scim: getWorkspacesScimObjectRequest.optional(),
     })
     .transform((data) => ({
       id: data['id'],
@@ -104,6 +93,5 @@ export const getWorkspacesWorkspaceDataRequest = z.lazy(() => {
       about: data['about'],
       createdAt: data['createdAt'],
       updatedAt: data['updatedAt'],
-      scim: data['scim'],
     }));
 });

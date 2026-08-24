@@ -545,7 +545,7 @@ Gets the roles of users, user groups, and partners in a workspace. **Note:** Par
 | Name        | Type                                                                | Required | Description                                                                                                     |
 | :---------- | :------------------------------------------------------------------ | :------- | :-------------------------------------------------------------------------------------------------------------- |
 | workspaceId | string                                                              | ✅       | The workspace's ID.                                                                                             |
-| include     | [WorkspaceIncludeScimQuery](../models/WorkspaceIncludeScimQuery.md) | ❌       | Include the following information in the endpoint's response: - `scim` — Return IDs as SCIM user and group IDs. |
+| include     | string                                                              | ❌       | Include the following information in the endpoint's response: - `scim` — Return IDs as SCIM user and group IDs. |
 
 **Return Type**
 
@@ -554,19 +554,17 @@ Gets the roles of users, user groups, and partners in a workspace. **Note:** Par
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApi, WorkspaceIncludeScimQuery } from '@postman/api-sdk';
+import { PostmanApi } from '@postman/api-sdk';
 
 (async () => {
   const postmanApi = new PostmanApi({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const workspaceIncludeScimQuery = WorkspaceIncludeScimQuery.SCIM;
-
   const data = await postmanApi.workspaces.getWorkspaceRoles(
     '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     {
-      include: workspaceIncludeScimQuery,
+      include: 'scim',
     },
   );
 

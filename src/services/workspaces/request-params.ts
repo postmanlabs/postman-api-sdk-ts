@@ -2,7 +2,6 @@ import { WorkspaceTypeQuery } from './models/workspace-type-query';
 import { WorkspacesIncludeQuery } from './models/workspaces-include-query';
 import { WorkspaceElementTypeQuery } from './models/workspace-element-type-query';
 import { ElementType3 } from './models/element-type-3';
-import { WorkspaceIncludeScimQuery } from './models/workspace-include-scim-query';
 
 export interface GetWorkspacesParams {
   type?: WorkspaceTypeQuery;
@@ -26,7 +25,7 @@ export interface GetWorkspaceActivityFeedParams {
 }
 
 export interface GetWorkspaceRolesParams {
-  include?: WorkspaceIncludeScimQuery;
+  include?: string;
 }
 
 export interface UpdateWorkspaceRolesParams {

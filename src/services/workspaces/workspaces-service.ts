@@ -1050,7 +1050,7 @@ This endpoint does not support transferring elements from team workspaces to per
 Partner roles don't support SCIM IDs.
 
  * @param {string} workspaceId - The workspace's ID.
- * @param {WorkspaceIncludeScimQuery} [params.include] - Include the following information in the endpoint's response:
+ * @param {string} [params.include] - Include the following information in the endpoint's response:
 - `scim` — Return IDs as SCIM user and group IDs.
 
  * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
