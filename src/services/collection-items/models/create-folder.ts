@@ -9,7 +9,7 @@ export const createFolder = z.lazy(() => {
   return z.object({
     name: z.string().optional(),
     folder: z.string().optional(),
-    additionalProperties: z.record(z.unknown()).optional(),
+    additionalProperties: z.record(z.string(), z.unknown()).optional(),
   });
 });
 
@@ -64,7 +64,7 @@ export const createFolderRequest = z.lazy(() => {
     .object({
       name: z.string().optional(),
       folder: z.string().optional(),
-      additionalProperties: z.record(z.unknown()).optional(),
+      additionalProperties: z.record(z.string(), z.unknown()).optional(),
     })
     .transform((data) => ({
       ...(data['additionalProperties'] ?? {}),

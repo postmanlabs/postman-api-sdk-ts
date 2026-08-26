@@ -152,7 +152,7 @@ import { PostmanApi } from '@postman/api-sdk';
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     name: 'Test Collection',
     limit: 3,
-    offset: 2,
+    offset: 5,
   });
 
   console.log(data);
@@ -223,7 +223,7 @@ import {
     schema: informationSchema1,
   };
 
-  const variableInfoValue1 = 'qui est ea';
+  const variableInfoValue1 = 'ut laboris';
 
   const variable: Variable = {
     key: 'username',
@@ -248,7 +248,7 @@ import {
 
   const authMethodType1 = AuthMethodType1.NOAUTH;
 
-  const authAttributesValue = 'deserunt';
+  const authAttributesValue = 'eu elit ex';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -325,11 +325,11 @@ import {
     body: collectionRequestBody1,
   };
 
-  const responseHeader1 = 'nisi eiusmo';
+  const responseHeader1 = 'Ut elit c';
 
   const itemResponse1: ItemResponse1 = {
     originalRequest: responseOriginalRequest1,
-    responseTime: 0.96,
+    responseTime: 0.8,
     header: responseHeader1,
     body: '{\n    "field": {}\n}',
     status: 'OK',
@@ -351,7 +351,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 5.14,
+    maxRedirects: 7.36,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -637,7 +637,7 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const variableInfoValue2 = 'id in';
+  const variableInfoValue2 = 'ipsum eu nos';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -666,7 +666,7 @@ import {
 
   const authMethodType2 = AuthMethodType2.BASIC;
 
-  const authAttributesValue = 'deserunt';
+  const authAttributesValue = 'eu elit ex';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -743,12 +743,12 @@ import {
     body: collectionRequestBody2,
   };
 
-  const responseHeader2_3 = 'consequat su';
+  const responseHeader2_3 = 'pariatur dolore';
 
   const itemResponse2: ItemResponse2 = {
     id: '33ffd2e3-59a8-4dfe-84fa-0a571984487b',
     originalRequest: responseOriginalRequest2,
-    responseTime: 2.93,
+    responseTime: 6.45,
     header: responseHeader2_3,
     body: 'body',
     status: 'OK',
@@ -773,7 +773,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 5.14,
+    maxRedirects: 7.36,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -801,7 +801,7 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const collectionVariableInfoValue = 'exercitatio';
+  const collectionVariableInfoValue = 'Duis fugiat';
 
   const collectionVariableInfo: CollectionVariableInfo = {
     key: 'userId',

@@ -47,7 +47,7 @@ import { ComponentHasVersions, ComponentStatus, ComponentType, PostmanApi } from
 
   const componentType = ComponentType.OAS2;
   const componentStatus = ComponentStatus.ACTIVE;
-  const componentHasVersions = ComponentHasVersions.TRUE_;
+  const componentHasVersions = true;
 
   const data = await postmanApi.components.getAllComponents({
     type: componentType,

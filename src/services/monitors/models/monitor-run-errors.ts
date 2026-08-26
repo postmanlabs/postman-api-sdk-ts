@@ -9,7 +9,7 @@ export const monitorRunErrors = z.lazy(() => {
   return z.object({
     name: z.string().optional(),
     message: z.string().optional(),
-    additionalProperties: z.record(z.unknown()).optional(),
+    additionalProperties: z.record(z.string(), z.unknown()).optional(),
   });
 });
 
@@ -58,7 +58,7 @@ export const monitorRunErrorsRequest = z.lazy(() => {
     .object({
       name: z.string().optional(),
       message: z.string().optional(),
-      additionalProperties: z.record(z.unknown()).optional(),
+      additionalProperties: z.record(z.string(), z.unknown()).optional(),
     })
     .transform((data) => ({
       ...(data['additionalProperties'] ?? {}),

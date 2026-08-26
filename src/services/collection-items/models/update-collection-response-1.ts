@@ -42,7 +42,7 @@ export const updateCollectionResponse1 = z.lazy(() => {
     language: z.string().optional(),
     rawDataType: z.string().optional().nullable(),
     requestObject: z.string().optional(),
-    additionalProperties: z.record(z.unknown()).optional(),
+    additionalProperties: z.record(z.string(), z.unknown()).optional(),
   });
 });
 
@@ -170,7 +170,7 @@ export const updateCollectionResponse1Request = z.lazy(() => {
       language: z.string().optional(),
       rawDataType: z.string().optional().nullable(),
       requestObject: z.string().optional(),
-      additionalProperties: z.record(z.unknown()).optional(),
+      additionalProperties: z.record(z.string(), z.unknown()).optional(),
     })
     .transform((data) => ({
       ...(data['additionalProperties'] ?? {}),

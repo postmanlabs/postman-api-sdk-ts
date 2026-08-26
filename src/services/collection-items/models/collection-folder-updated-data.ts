@@ -17,7 +17,7 @@ export const collectionFolderUpdatedData = z.lazy(() => {
     lastRevision: z.number().optional(),
     collection: z.string().optional(),
     folder: z.string().optional().nullable(),
-    additionalProperties: z.record(z.unknown()).optional(),
+    additionalProperties: z.record(z.string(), z.unknown()).optional(),
   });
 });
 
@@ -110,7 +110,7 @@ export const collectionFolderUpdatedDataRequest = z.lazy(() => {
       lastRevision: z.number().optional(),
       collection: z.string().optional(),
       folder: z.string().optional().nullable(),
-      additionalProperties: z.record(z.unknown()).optional(),
+      additionalProperties: z.record(z.string(), z.unknown()).optional(),
     })
     .transform((data) => ({
       ...(data['additionalProperties'] ?? {}),

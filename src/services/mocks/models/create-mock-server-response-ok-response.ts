@@ -24,7 +24,7 @@ export const createMockServerResponseOkResponse = z.lazy(() => {
     createdBy: z.string().optional(),
     updatedBy: z.string().optional(),
     mock: z.string().optional(),
-    additionalProperties: z.record(z.unknown()).optional(),
+    additionalProperties: z.record(z.string(), z.unknown()).optional(),
   });
 });
 
@@ -122,7 +122,7 @@ export const createMockServerResponseOkResponseRequest = z.lazy(() => {
       createdBy: z.string().optional(),
       updatedBy: z.string().optional(),
       mock: z.string().optional(),
-      additionalProperties: z.record(z.unknown()).optional(),
+      additionalProperties: z.record(z.string(), z.unknown()).optional(),
     })
     .transform((data) => ({
       ...(data['additionalProperties'] ?? {}),

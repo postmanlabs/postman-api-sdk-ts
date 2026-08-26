@@ -20,7 +20,7 @@ export const mockCreateUpdateResponseMockConfig = z.lazy(() => {
     matchWildcards: z.boolean().optional(),
     delay: mockCreateUpdateResponseMockConfigDelay.optional().nullable(),
     serverResponseId: z.string().optional().nullable(),
-    additionalProperties: z.record(z.unknown()).optional(),
+    additionalProperties: z.record(z.string(), z.unknown()).optional(),
   });
 });
 
@@ -98,7 +98,7 @@ export const mockCreateUpdateResponseMockConfigRequest = z.lazy(() => {
       matchWildcards: z.boolean().optional(),
       delay: mockCreateUpdateResponseMockConfigDelayRequest.optional().nullable(),
       serverResponseId: z.string().optional().nullable(),
-      additionalProperties: z.record(z.unknown()).optional(),
+      additionalProperties: z.record(z.string(), z.unknown()).optional(),
     })
     .transform((data) => ({
       ...(data['additionalProperties'] ?? {}),
