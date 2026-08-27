@@ -13,7 +13,7 @@ export const collectionResponseCreatedData = z.lazy(() => {
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
     lastUpdatedBy: z.string().optional(),
-    additionalProperties: z.record(z.unknown()).optional(),
+    additionalProperties: z.record(z.string(), z.unknown()).optional(),
   });
 });
 
@@ -86,7 +86,7 @@ export const collectionResponseCreatedDataRequest = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       lastUpdatedBy: z.string().optional(),
-      additionalProperties: z.record(z.unknown()).optional(),
+      additionalProperties: z.record(z.string(), z.unknown()).optional(),
     })
     .transform((data) => ({
       ...(data['additionalProperties'] ?? {}),

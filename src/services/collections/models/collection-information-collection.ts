@@ -42,7 +42,7 @@ export const collectionInformationCollection = z.lazy(() => {
     auth: collectionAuth.optional(),
     event: z.array(collectionEvent).optional(),
     variable: z.array(collectionVariableList).optional(),
-    additionalProperties: z.record(z.unknown()).optional(),
+    additionalProperties: z.record(z.string(), z.unknown()).optional(),
   });
 });
 
@@ -104,7 +104,7 @@ export const collectionInformationCollectionRequest = z.lazy(() => {
       auth: collectionAuthRequest.optional(),
       event: z.array(collectionEventRequest).optional(),
       variable: z.array(collectionVariableListRequest).optional(),
-      additionalProperties: z.record(z.unknown()).optional(),
+      additionalProperties: z.record(z.string(), z.unknown()).optional(),
     })
     .transform((data) => ({
       ...(data['additionalProperties'] ?? {}),

@@ -16,7 +16,7 @@ export const collectionFolderInfoData = z.lazy(() => {
     lastUpdatedBy: z.string().optional(),
     lastRevision: z.number().optional(),
     collection: z.string().optional(),
-    additionalProperties: z.record(z.unknown()).optional(),
+    additionalProperties: z.record(z.string(), z.unknown()).optional(),
   });
 });
 
@@ -104,7 +104,7 @@ export const collectionFolderInfoDataRequest = z.lazy(() => {
       lastUpdatedBy: z.string().optional(),
       lastRevision: z.number().optional(),
       collection: z.string().optional(),
-      additionalProperties: z.record(z.unknown()).optional(),
+      additionalProperties: z.record(z.string(), z.unknown()).optional(),
     })
     .transform((data) => ({
       ...(data['additionalProperties'] ?? {}),

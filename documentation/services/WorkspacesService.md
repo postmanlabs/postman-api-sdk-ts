@@ -423,7 +423,7 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const id = 'cillum irure a';
+  const id = 'Duis ea paria';
 
   const transferWorkspaceElementType = TransferWorkspaceElementType.COLLECTION;
 

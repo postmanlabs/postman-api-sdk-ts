@@ -52,7 +52,7 @@ export const updateRequest = z.lazy(() => {
     dataOptions: requestDataOptions.optional().nullable(),
     auth: requestAuth.optional().nullable(),
     events: z.array(requestEvents).optional().nullable(),
-    additionalProperties: z.record(z.unknown()).optional(),
+    additionalProperties: z.record(z.string(), z.unknown()).optional(),
   });
 });
 
@@ -160,7 +160,7 @@ export const updateRequestRequest = z.lazy(() => {
       dataOptions: requestDataOptionsRequest.optional().nullable(),
       auth: requestAuthRequest.optional().nullable(),
       events: z.array(requestEventsRequest).optional().nullable(),
-      additionalProperties: z.record(z.unknown()).optional(),
+      additionalProperties: z.record(z.string(), z.unknown()).optional(),
     })
     .transform((data) => ({
       ...(data['additionalProperties'] ?? {}),
