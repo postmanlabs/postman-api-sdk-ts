@@ -27,9 +27,9 @@ import {
   mockPublishedUnpublishedResponse,
 } from './models/mock-published-unpublished';
 import {
-  GetMockServerResponses,
-  getMockServerResponsesResponse,
-} from './models/get-mock-server-responses';
+  GetMockServerResponsesData,
+  getMockServerResponsesDataResponse,
+} from './models/get-mock-server-responses-data';
 import { GetMockServerResponsesNotFoundResponse } from './models/get-mock-server-responses-not-found-response';
 import {
   CreateMockServerResponse,
@@ -698,12 +698,12 @@ Call logs have a retention period based on your [Postman plan](https://www.postm
    * Gets all of a mock server's server responses.
    * @param {string} mockId - The mock's ID.
    * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
-   * @returns {Promise<HttpResponse<GetMockServerResponses[]>>} - Successful Response
+   * @returns {Promise<HttpResponse<GetMockServerResponsesData[]>>} - Successful Response
    */
   async getMockServerResponses(
     mockId: string,
     requestConfig?: Partial<SdkConfig>,
-  ): Promise<GetMockServerResponses[]> {
+  ): Promise<GetMockServerResponsesData[]> {
     const resolvedConfig = this.getResolvedConfig(this.getMockServerResponsesConfig, requestConfig);
     const request = new RequestBuilder()
       .setConfig(resolvedConfig)
@@ -714,7 +714,7 @@ Call logs have a retention period based on your [Postman plan](https://www.postm
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
-        schema: z.array(getMockServerResponsesResponse),
+        schema: z.array(getMockServerResponsesDataResponse),
         contentType: ContentType.Json,
         status: 200,
       })
@@ -738,7 +738,7 @@ Call logs have a retention period based on your [Postman plan](https://www.postm
         value: mockId,
       })
       .build();
-    return this.client.callDirect<GetMockServerResponses[]>(request);
+    return this.client.callDirect<GetMockServerResponsesData[]>(request);
   }
 
   /**

@@ -1,13 +1,28 @@
 import { z } from 'zod';
 import {
-  SuccessfulResponseSource,
-  successfulResponseSource,
-  successfulResponseSourceRequest,
-  successfulResponseSourceResponse,
-} from './successful-response-source';
-import { Destination, destination, destinationRequest, destinationResponse } from './destination';
-import { Merge, merge, mergeRequest, mergeResponse } from './merge';
-import { Reviewers, reviewers, reviewersRequest, reviewersResponse } from './reviewers';
+  PullRequestSourceData,
+  pullRequestSourceData,
+  pullRequestSourceDataRequest,
+  pullRequestSourceDataResponse,
+} from './pull-request-source-data';
+import {
+  PullRequestDestinationData,
+  pullRequestDestinationData,
+  pullRequestDestinationDataRequest,
+  pullRequestDestinationDataResponse,
+} from './pull-request-destination-data';
+import {
+  PullRequestMergeData,
+  pullRequestMergeData,
+  pullRequestMergeDataRequest,
+  pullRequestMergeDataResponse,
+} from './pull-request-merge-data';
+import {
+  PullRequestReviewersData,
+  pullRequestReviewersData,
+  pullRequestReviewersDataRequest,
+  pullRequestReviewersDataResponse,
+} from './pull-request-reviewers-data';
 
 /**
  * Zod schema for the GetPullRequestOkResponse model.
@@ -25,11 +40,11 @@ export const getPullRequestOkResponse = z.lazy(() => {
     updatedBy: z.string().optional(),
     comment: z.string().optional(),
     fortkType: z.string().optional(),
-    source: successfulResponseSource.optional(),
-    destination: destination.optional(),
+    source: pullRequestSourceData.optional(),
+    destination: pullRequestDestinationData.optional(),
     status: z.string().optional(),
-    merge: merge.optional(),
-    reviewers: z.array(reviewers).optional(),
+    merge: pullRequestMergeData.optional(),
+    reviewers: z.array(pullRequestReviewersData).optional(),
   });
 });
 
@@ -44,15 +59,15 @@ export const getPullRequestOkResponse = z.lazy(() => {
  * @property {string} updatedBy - The ID of the user who last updated the pull request.
  * @property {string} comment - If the pull request is a `decline` status, an optional comment about why the pull request was declined.
  * @property {string} fortkType - The type of element the pull request was forked from.
- * @property {SuccessfulResponseSource} source - Information about the pull request's source (parent) element.
- * @property {Destination} destination - Information about the pull request destination element.
+ * @property {PullRequestSourceData} source - Information about the pull request's source (parent) element.
+ * @property {PullRequestDestinationData} destination - Information about the pull request destination element.
  * @property {string} status - The pull request's current review status:
 - `open` — The pull request is still open.
 - `approved` — The pull request was approved by its reviewers.
 - `declined` — The pull request was not approved by its reviewers.
 
- * @property {Merge} merge - Information about the current progress of the pull request's merge.
- * @property {Reviewers[]} reviewers - Information about the reviewers assigned to the pull request.
+ * @property {PullRequestMergeData} merge - Information about the current progress of the pull request's merge.
+ * @property {PullRequestReviewersData[]} reviewers - Information about the reviewers assigned to the pull request.
  */
 export type GetPullRequestOkResponse = z.infer<typeof getPullRequestOkResponse>;
 
@@ -73,11 +88,11 @@ export const getPullRequestOkResponseResponse = z.lazy(() => {
       updatedBy: z.string().optional(),
       comment: z.string().optional(),
       fortkType: z.string().optional(),
-      source: successfulResponseSourceResponse.optional(),
-      destination: destinationResponse.optional(),
+      source: pullRequestSourceDataResponse.optional(),
+      destination: pullRequestDestinationDataResponse.optional(),
       status: z.string().optional(),
-      merge: mergeResponse.optional(),
-      reviewers: z.array(reviewersResponse).optional(),
+      merge: pullRequestMergeDataResponse.optional(),
+      reviewers: z.array(pullRequestReviewersDataResponse).optional(),
     })
     .transform((data) => ({
       createdAt: data['createdAt'],
@@ -114,11 +129,11 @@ export const getPullRequestOkResponseRequest = z.lazy(() => {
       updatedBy: z.string().optional(),
       comment: z.string().optional(),
       fortkType: z.string().optional(),
-      source: successfulResponseSourceRequest.optional(),
-      destination: destinationRequest.optional(),
+      source: pullRequestSourceDataRequest.optional(),
+      destination: pullRequestDestinationDataRequest.optional(),
       status: z.string().optional(),
-      merge: mergeRequest.optional(),
-      reviewers: z.array(reviewersRequest).optional(),
+      merge: pullRequestMergeDataRequest.optional(),
+      reviewers: z.array(pullRequestReviewersDataRequest).optional(),
     })
     .transform((data) => ({
       createdAt: data['createdAt'],

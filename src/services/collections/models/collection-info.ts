@@ -1,5 +1,10 @@
 import { z } from 'zod';
-import { InfoFork, infoFork, infoForkRequest, infoForkResponse } from './info-fork';
+import {
+  CollectionForkData,
+  collectionForkData,
+  collectionForkDataRequest,
+  collectionForkDataResponse,
+} from './collection-fork-data';
 
 /**
  * Zod schema for the CollectionInfo model.
@@ -12,7 +17,7 @@ export const collectionInfo = z.lazy(() => {
     name: z.string().optional(),
     description: z.string().optional(),
     schema: z.string().optional(),
-    fork: infoFork.optional(),
+    fork: collectionForkData.optional(),
     updatedAt: z.string().optional(),
     uid: z.string().optional(),
     createdAt: z.string().optional(),
@@ -27,7 +32,7 @@ export const collectionInfo = z.lazy(() => {
  * @property {string} name - The collection's name.
  * @property {string} description - The collection's description.
  * @property {string} schema - A URL to the collection's schema.
- * @property {InfoFork} fork - If the collection was forked from another collection, this object contains information about the fork.
+ * @property {CollectionForkData} fork - If the collection is [forked](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities) from another collection, the fork's information.
  * @property {string} updatedAt - The date and time at which the collection was last updated.
  * @property {string} uid - The collection's unique ID.
  * @property {string} createdAt - The date and time at which the collection was created.
@@ -47,7 +52,7 @@ export const collectionInfoResponse = z.lazy(() => {
       name: z.string().optional(),
       description: z.string().optional(),
       schema: z.string().optional(),
-      fork: infoForkResponse.optional(),
+      fork: collectionForkDataResponse.optional(),
       updatedAt: z.string().optional(),
       uid: z.string().optional(),
       createdAt: z.string().optional(),
@@ -78,7 +83,7 @@ export const collectionInfoRequest = z.lazy(() => {
       name: z.string().optional(),
       description: z.string().optional(),
       schema: z.string().optional(),
-      fork: infoForkRequest.optional(),
+      fork: collectionForkDataRequest.optional(),
       updatedAt: z.string().optional(),
       uid: z.string().optional(),
       createdAt: z.string().optional(),

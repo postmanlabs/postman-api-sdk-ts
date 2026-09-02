@@ -152,7 +152,7 @@ import { PostmanApi } from '@postman/api-sdk';
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     name: 'Test Collection',
     limit: 3,
-    offset: 5,
+    offset: 6,
   });
 
   console.log(data);
@@ -223,7 +223,7 @@ import {
     schema: informationSchema1,
   };
 
-  const variableInfoValue1 = 'ut laboris';
+  const variableInfoValue1 = 'velit sint';
 
   const variable: Variable = {
     key: 'username',
@@ -248,7 +248,7 @@ import {
 
   const authMethodType1 = AuthMethodType1.NOAUTH;
 
-  const authAttributesValue = 'eu elit ex';
+  const authAttributesValue = 'aliquip';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -325,11 +325,11 @@ import {
     body: collectionRequestBody1,
   };
 
-  const responseHeader1 = 'Ut elit c';
+  const responseHeader1 = 'nisi sunt pr';
 
   const itemResponse1: ItemResponse1 = {
     originalRequest: responseOriginalRequest1,
-    responseTime: 0.8,
+    responseTime: 0.84,
     header: responseHeader1,
     body: '{\n    "field": {}\n}',
     status: 'OK',
@@ -351,7 +351,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 7.36,
+    maxRedirects: 9.01,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -632,12 +632,12 @@ import {
     description: 'This is a test collection.',
     schema: informationSchema2,
     updatedAt: '2025-05-28T08:56:07.000Z',
-    createdat: '2025-05-28T08:56:07.000Z',
+    createdAt: '2025-05-28T08:56:07.000Z',
     lastUpdatedBy: '12345678',
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const variableInfoValue2 = 'ipsum eu nos';
+  const variableInfoValue2 = 'commodo';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -666,7 +666,7 @@ import {
 
   const authMethodType2 = AuthMethodType2.BASIC;
 
-  const authAttributesValue = 'eu elit ex';
+  const authAttributesValue = 'aliquip';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -743,12 +743,12 @@ import {
     body: collectionRequestBody2,
   };
 
-  const responseHeader2_3 = 'pariatur dolore';
+  const responseHeader2_3 = 'nisi dolor labo';
 
   const itemResponse2: ItemResponse2 = {
     id: '33ffd2e3-59a8-4dfe-84fa-0a571984487b',
     originalRequest: responseOriginalRequest2,
-    responseTime: 6.45,
+    responseTime: 2.53,
     header: responseHeader2_3,
     body: 'body',
     status: 'OK',
@@ -773,7 +773,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 7.36,
+    maxRedirects: 9.01,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -801,7 +801,7 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const collectionVariableInfoValue = 'Duis fugiat';
+  const collectionVariableInfoValue = 'commodo con';
 
   const collectionVariableInfo: CollectionVariableInfo = {
     key: 'userId',

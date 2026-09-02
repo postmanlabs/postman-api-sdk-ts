@@ -162,8 +162,8 @@ Creates a new [workspace](https://learning.postman.com/docs/collaborating-in-pos
 ```typescript
 import {
   CreateWorkspace,
-  CreateWorkspaceWorkspace,
-  CreateWorkspaceWorkspaceType,
+  CreateWorkspaceData,
+  CreateWorkspaceDataType,
   PostmanApi,
 } from '@postman/api-sdk';
 
@@ -172,18 +172,18 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const createWorkspaceWorkspaceType = CreateWorkspaceWorkspaceType.PERSONAL;
+  const createWorkspaceDataType = CreateWorkspaceDataType.PERSONAL;
 
-  const createWorkspaceWorkspace: CreateWorkspaceWorkspace = {
+  const createWorkspaceData: CreateWorkspaceData = {
     name: 'Team Workspace',
-    type: createWorkspaceWorkspaceType,
+    type: createWorkspaceDataType,
     description: 'This is a team workspace.',
     about: 'This is a team workspace.',
     teamId: '123',
   };
 
   const createWorkspace: CreateWorkspace = {
-    workspace: createWorkspaceWorkspace,
+    workspace: createWorkspaceData,
   };
 
   const data = await postmanApi.workspaces.createWorkspace(createWorkspace);
@@ -278,9 +278,9 @@ Updates a workspace's property, such as its name or visibility. **Note:** - This
 ```typescript
 import {
   PostmanApi,
+  UpdateWorkspaceData,
+  UpdateWorkspaceDataType,
   UpdateWorkspaceRequest,
-  UpdateWorkspaceWorkspace1,
-  UpdateWorkspaceWorkspaceType,
 } from '@postman/api-sdk';
 
 (async () => {
@@ -288,17 +288,17 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const updateWorkspaceWorkspaceType = UpdateWorkspaceWorkspaceType.PRIVATE_;
+  const updateWorkspaceDataType = UpdateWorkspaceDataType.PRIVATE_;
 
-  const updateWorkspaceWorkspace1: UpdateWorkspaceWorkspace1 = {
+  const updateWorkspaceData: UpdateWorkspaceData = {
     name: 'Test Workspace',
-    type: updateWorkspaceWorkspaceType,
+    type: updateWorkspaceDataType,
     description: 'This is a test team workspace.',
     about: 'This is a team workspace.',
   };
 
   const updateWorkspaceRequest: UpdateWorkspaceRequest = {
-    workspace: updateWorkspaceWorkspace1,
+    workspace: updateWorkspaceData,
   };
 
   const data = await postmanApi.workspaces.updateWorkspace(
@@ -423,7 +423,7 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const id = 'Duis ea paria';
+  const id = 'et nulla';
 
   const transferWorkspaceElementType = TransferWorkspaceElementType.COLLECTION;
 

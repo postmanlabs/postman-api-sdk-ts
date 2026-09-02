@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  CreateWorkspaceWorkspace,
-  createWorkspaceWorkspace,
-  createWorkspaceWorkspaceRequest,
-  createWorkspaceWorkspaceResponse,
-} from './create-workspace-workspace';
+  CreateWorkspaceData,
+  createWorkspaceData,
+  createWorkspaceDataRequest,
+  createWorkspaceDataResponse,
+} from './create-workspace-data';
 
 /**
  * Zod schema for the CreateWorkspace model.
@@ -13,13 +13,13 @@ import {
  */
 export const createWorkspace = z.lazy(() => {
   return z.object({
-    workspace: createWorkspaceWorkspace.optional(),
+    workspace: createWorkspaceData.optional(),
   });
 });
 
 /**
  * @typedef {CreateWorkspace} createWorkspace
- * @property {CreateWorkspaceWorkspace} workspace - Information about the workspace.
+ * @property {CreateWorkspaceData} workspace - Information about the workspace.
  */
 export type CreateWorkspace = z.infer<typeof createWorkspace>;
 
@@ -31,7 +31,7 @@ export type CreateWorkspace = z.infer<typeof createWorkspace>;
 export const createWorkspaceResponse = z.lazy(() => {
   return z
     .object({
-      workspace: createWorkspaceWorkspaceResponse.optional(),
+      workspace: createWorkspaceDataResponse.optional(),
     })
     .transform((data) => ({
       workspace: data['workspace'],
@@ -46,7 +46,7 @@ export const createWorkspaceResponse = z.lazy(() => {
 export const createWorkspaceRequest = z.lazy(() => {
   return z
     .object({
-      workspace: createWorkspaceWorkspaceRequest.optional(),
+      workspace: createWorkspaceDataRequest.optional(),
     })
     .transform((data) => ({
       workspace: data['workspace'],

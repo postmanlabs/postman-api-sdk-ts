@@ -2,10 +2,10 @@
 
 **Properties**
 
-| Name       | Type                                                              | Required | Description                                                                                                                                                                                                                 |
-| :--------- | :---------------------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user       | SuccessfulResponseUser                                            | ❌       | Information about the authenticated user.                                                                                                                                                                                   |
-| operations | [SuccessfulResponseOperations](SuccessfulResponseOperations.md)[] | ❌       | Information about operations and their usage limits. This object does not return for users with the [Guest and Partner role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles). |
+| Name       | Type                          | Required | Description                                                                                                                                                                                                                 |
+| :--------- | :---------------------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| user       | SuccessfulResponseUser        | ❌       | Information about the authenticated user.                                                                                                                                                                                   |
+| operations | [Operations](Operations.md)[] | ❌       | Information about operations and their usage limits. This object does not return for users with the [Guest and Partner role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles). |
 
 # SuccessfulResponseUser
 

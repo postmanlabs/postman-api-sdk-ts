@@ -20,6 +20,7 @@ export const errorNameMessageDetailsError = z.lazy(() => {
 });
 
 /**
+ * Information about the error.
  * @typedef {ErrorNameMessageDetailsError} errorNameMessageDetailsError
  * @property {string} name - The error name.
  * @property {string} message - The error message.

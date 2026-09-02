@@ -12,6 +12,7 @@ export const orgsInfo = z.lazy(() => {
 });
 
 /**
+ * The role assignments keyed by organization ID.
  * @typedef {OrgsInfo} orgsInfo
  * @property {TeamRoles[]} _orgId_ - A list of the organization's roles. The array's name is the organization's ID.
  */

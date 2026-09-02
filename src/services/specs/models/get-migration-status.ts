@@ -21,7 +21,7 @@ export const getMigrationStatus = z.lazy(() => {
 /**
  * @typedef {GetMigrationStatus} getMigrationStatus
  * @property {GetMigrationStatusStatus} status - The status of the migration.
- * @property {GetMigrationStatusDetails} details
+ * @property {GetMigrationStatusDetails} details - Information about the migration's outcome (either a success payload or a failure reason).
  */
 export type GetMigrationStatus = z.infer<typeof getMigrationStatus>;
 

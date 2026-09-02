@@ -12,9 +12,9 @@ Information about the monitor run. If you pass the `async=true` query parameter,
 
 **Properties**
 
-| Name       | Type                                              | Required | Description                                                      |
-| :--------- | :------------------------------------------------ | :------- | :--------------------------------------------------------------- |
-| info       | [MonitorRunInformation](MonitorRunInformation.md) | ❌       | Information about the monitor.                                   |
-| stats      | [MonitorRunStats](MonitorRunStats.md)             | ❌       | Information about the monitor run's stats.                       |
-| executions | [MonitorRunExecutions](MonitorRunExecutions.md)[] | ❌       | Information about the monitor run's executions.                  |
-| failures   | any[]                                             | ❌       | If the monitor run failed, information about the run's failures. |
+| Name       | Type                                                      | Required | Description                                                      |
+| :--------- | :-------------------------------------------------------- | :------- | :--------------------------------------------------------------- |
+| info       | [MonitorRunInformation](MonitorRunInformation.md)         | ❌       | Information about the monitor.                                   |
+| stats      | [MonitorRunStats](MonitorRunStats.md)                     | ❌       | Information about the monitor run's stats.                       |
+| executions | [MonitorRunExecutionsData](MonitorRunExecutionsData.md)[] | ❌       | Information about the monitor run's executions.                  |
+| failures   | any[]                                                     | ❌       | If the monitor run failed, information about the run's failures. |

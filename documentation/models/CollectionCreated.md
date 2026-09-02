@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name       | Type                        | Required | Description |
-| :--------- | :-------------------------- | :------- | :---------- |
-| collection | CollectionCreatedCollection | ❌       |             |
+| Name       | Type                        | Required | Description                               |
+| :--------- | :-------------------------- | :------- | :---------------------------------------- |
+| collection | CollectionCreatedCollection | ❌       | Information about the created collection. |
 
 # CollectionCreatedCollection
+
+Information about the created collection.
 
 **Properties**
 

@@ -19,7 +19,7 @@ export const collectionPullRequests = z.lazy(() => {
 
 /**
  * @typedef {CollectionPullRequests} collectionPullRequests
- * @property {CollectionPullRequestsData[]} data
+ * @property {CollectionPullRequestsData[]} data - A list of the collection's pull requests.
  */
 export type CollectionPullRequests = z.infer<typeof collectionPullRequests>;
 

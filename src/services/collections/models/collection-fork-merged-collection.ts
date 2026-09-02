@@ -13,6 +13,7 @@ export const collectionForkMergedCollection = z.lazy(() => {
 });
 
 /**
+ * Information about the merged collection.
  * @typedef {CollectionForkMergedCollection} collectionForkMergedCollection
  * @property {string} id - The source collection's ID.
  * @property {string} uid - The source collection's unique ID.

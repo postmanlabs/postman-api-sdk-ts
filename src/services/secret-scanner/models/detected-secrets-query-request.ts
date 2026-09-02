@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  DetectedSecretsQueryRequestResources,
-  detectedSecretsQueryRequestResources,
-  detectedSecretsQueryRequestResourcesRequest,
-  detectedSecretsQueryRequestResourcesResponse,
-} from './detected-secrets-query-request-resources';
+  DetectedSecretsResourcesData,
+  detectedSecretsResourcesData,
+  detectedSecretsResourcesDataRequest,
+  detectedSecretsResourcesDataResponse,
+} from './detected-secrets-resources-data';
 
 /**
  * Zod schema for the DetectedSecretsQueryRequest model.
@@ -16,7 +16,7 @@ export const detectedSecretsQueryRequest = z.lazy(() => {
     resolved: z.boolean().optional(),
     secretTypes: z.array(z.string()).optional(),
     statuses: z.array(z.string()).optional(),
-    resources: z.array(detectedSecretsQueryRequestResources).optional(),
+    resources: z.array(detectedSecretsResourcesData).optional(),
     workspaceIds: z.array(z.string()).optional(),
     workspaceVisibilities: z.array(z.string()).optional(),
   });
@@ -26,10 +26,10 @@ export const detectedSecretsQueryRequest = z.lazy(() => {
  * @typedef {DetectedSecretsQueryRequest} detectedSecretsQueryRequest
  * @property {boolean} resolved - If true, return secrets with a `resolved` status.
  * @property {string[]} secretTypes - A list of secrets types to query. For a list of valid IDs, use the GET `/secret-types` endpoint.
- * @property {Statuses[]} statuses - A list of the types of resolution statuses to query.
- * @property {DetectedSecretsQueryRequestResources[]} resources - A list of resources to query. If you use this query, you cannot also pass the `workspaceIds` query.
+ * @property {SecretResolutionStatus[]} statuses - A list of the types of resolution statuses to query.
+ * @property {DetectedSecretsResourcesData[]} resources - A list of resources to query. If you use this query, you cannot also pass the `workspaceIds` query.
  * @property {string[]} workspaceIds - A list of workspaces IDs to query. If you use this query, you cannot also pass the `resources` query.
- * @property {WorkspaceVisibilities[]} workspaceVisibilities - A list of workspace [visibility settings](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) to query. This currently supports the `team` and `public` settings.
+ * @property {WorkspaceVisibilitiesData[]} workspaceVisibilities - A list of workspace [visibility settings](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/managing-workspaces/#changing-workspace-visibility) to query. This currently supports the `team` and `public` settings.
  */
 export type DetectedSecretsQueryRequest = z.infer<typeof detectedSecretsQueryRequest>;
 
@@ -44,7 +44,7 @@ export const detectedSecretsQueryRequestResponse = z.lazy(() => {
       resolved: z.boolean().optional(),
       secretTypes: z.array(z.string()).optional(),
       statuses: z.array(z.string()).optional(),
-      resources: z.array(detectedSecretsQueryRequestResourcesResponse).optional(),
+      resources: z.array(detectedSecretsResourcesDataResponse).optional(),
       workspaceIds: z.array(z.string()).optional(),
       workspaceVisibilities: z.array(z.string()).optional(),
     })
@@ -69,7 +69,7 @@ export const detectedSecretsQueryRequestRequest = z.lazy(() => {
       resolved: z.boolean().optional(),
       secretTypes: z.array(z.string()).optional(),
       statuses: z.array(z.string()).optional(),
-      resources: z.array(detectedSecretsQueryRequestResourcesRequest).optional(),
+      resources: z.array(detectedSecretsResourcesDataRequest).optional(),
       workspaceIds: z.array(z.string()).optional(),
       workspaceVisibilities: z.array(z.string()).optional(),
     })

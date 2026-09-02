@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name | Type                                                  | Required | Description                                 |
-| :--- | :---------------------------------------------------- | :------- | :------------------------------------------ |
-| data | [GetSpecVersionTagsData](GetSpecVersionTagsData.md)[] | ❌       | A list of the specification's version tags. |
-| meta | [GetSpecVersionTagsMeta](GetSpecVersionTagsMeta.md)   | ❌       |                                             |
+| Name | Type                                                  | Required | Description                                            |
+| :--- | :---------------------------------------------------- | :------- | :----------------------------------------------------- |
+| data | [GetSpecVersionTagsData](GetSpecVersionTagsData.md)[] | ❌       | A list of the specification's version tags.            |
+| meta | [GetSpecVersionTagsMeta](GetSpecVersionTagsMeta.md)   | ❌       | The response's meta information for paginated results. |

@@ -20,7 +20,7 @@ export const details = z.lazy(() => {
 /**
  * Information about the task's resources.
  * @typedef {Details} details
- * @property {TaskResourcesResources2[]} resources
+ * @property {TaskResourcesResources2[]} resources - A list of the resources the task produced.
  */
 export type Details = z.infer<typeof details>;
 
