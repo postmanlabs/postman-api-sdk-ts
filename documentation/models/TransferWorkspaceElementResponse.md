@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name      | Type                                      | Required | Description |
-| :-------- | :---------------------------------------- | :------- | :---------- |
-| workspace | TransferWorkspaceElementResponseWorkspace | ❌       |             |
+| Name      | Type                                      | Required | Description                                                            |
+| :-------- | :---------------------------------------- | :------- | :--------------------------------------------------------------------- |
+| workspace | TransferWorkspaceElementResponseWorkspace | ❌       | Information about the workspace that received the transferred element. |
 
 # TransferWorkspaceElementResponseWorkspace
+
+Information about the workspace that received the transferred element.
 
 **Properties**
 

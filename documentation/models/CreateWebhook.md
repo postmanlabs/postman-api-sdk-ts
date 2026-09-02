@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name    | Type                 | Required | Description |
-| :------ | :------------------- | :------- | :---------- |
-| webhook | CreateWebhookWebhook | ❌       |             |
+| Name    | Type                 | Required | Description                              |
+| :------ | :------------------- | :------- | :--------------------------------------- |
+| webhook | CreateWebhookWebhook | ❌       | Information about the webhook to create. |
 
 # CreateWebhookWebhook
+
+Information about the webhook to create.
 
 **Properties**
 

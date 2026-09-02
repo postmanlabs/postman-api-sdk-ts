@@ -35,7 +35,7 @@ export const getAnalyticsMetadataResourceMetricsDataDetailedParameters = z.lazy(
  * Information about the metric's parameters.
  * @typedef {GetAnalyticsMetadataResourceMetricsDataDetailedParameters} getAnalyticsMetadataResourceMetricsDataDetailedParameters
  * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParametersView} view - Information about the `view` parameter.
- * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFilters} filters
+ * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFilters} filters - The filters supported for the metric.
  * @property {GetAnalticsMetadataPaginationData} pagination - Information about the metric's pagination parameters.
  */
 export type GetAnalyticsMetadataResourceMetricsDataDetailedParameters = z.infer<

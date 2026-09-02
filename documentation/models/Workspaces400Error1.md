@@ -4,10 +4,12 @@
 
 | Name       | Type             | Required | Description                   |
 | :--------- | :--------------- | :------- | :---------------------------- |
-| error      | BadRequestError2 | ❌       |                               |
+| error      | BadRequestError2 | ❌       | Information about the error.  |
 | statusCode | number           | ❌       | The error's HTTP status code. |
 
 # BadRequestError2
+
+Information about the error.
 
 **Properties**
 

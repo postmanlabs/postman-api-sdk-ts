@@ -1,10 +1,5 @@
 import { z } from 'zod';
-import {
-  SuccessResponseTags,
-  successResponseTags,
-  successResponseTagsRequest,
-  successResponseTagsResponse,
-} from './success-response-tags';
+import { TagData, tagData, tagDataRequest, tagDataResponse } from './tag-data';
 
 /**
  * Zod schema for the SuccessResponse model.
@@ -13,13 +8,13 @@ import {
  */
 export const successResponse = z.lazy(() => {
   return z.object({
-    tags: z.array(successResponseTags).max(5).optional(),
+    tags: z.array(tagData).max(5).optional(),
   });
 });
 
 /**
  * @typedef {SuccessResponse} successResponse
- * @property {SuccessResponseTags[]} tags - A list of associated tags.
+ * @property {TagData[]} tags - A list of associated tags.
  */
 export type SuccessResponse = z.infer<typeof successResponse>;
 
@@ -31,7 +26,7 @@ export type SuccessResponse = z.infer<typeof successResponse>;
 export const successResponseResponse = z.lazy(() => {
   return z
     .object({
-      tags: z.array(successResponseTagsResponse).max(5).optional(),
+      tags: z.array(tagDataResponse).max(5).optional(),
     })
     .transform((data) => ({
       tags: data['tags'],
@@ -46,7 +41,7 @@ export const successResponseResponse = z.lazy(() => {
 export const successResponseRequest = z.lazy(() => {
   return z
     .object({
-      tags: z.array(successResponseTagsRequest).max(5).optional(),
+      tags: z.array(tagDataRequest).max(5).optional(),
     })
     .transform((data) => ({
       tags: data['tags'],

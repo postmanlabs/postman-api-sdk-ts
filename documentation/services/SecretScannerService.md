@@ -36,11 +36,11 @@ Returns all secrets detected by Postman's [Secret Scanner](https://learning.post
 ```typescript
 import {
   DetectedSecretsQueryRequest,
-  DetectedSecretsQueryRequestResources,
+  DetectedSecretsResourcesData,
+  DetectedSecretsResourcesDataType,
   PostmanApi,
-  ResourcesType,
-  Statuses,
-  WorkspaceVisibilities,
+  SecretResolutionStatus,
+  WorkspaceVisibilitiesData,
 } from '@postman/api-sdk';
 
 (async () => {
@@ -48,24 +48,24 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const statuses = Statuses.FALSE_POSITIVE;
+  const secretResolutionStatus = SecretResolutionStatus.FALSE_POSITIVE;
 
-  const resourcesType = ResourcesType.COLLECTION;
+  const detectedSecretsResourcesDataType = DetectedSecretsResourcesDataType.COLLECTION;
 
-  const detectedSecretsQueryRequestResources: DetectedSecretsQueryRequestResources = {
-    type: resourcesType,
+  const detectedSecretsResourcesData: DetectedSecretsResourcesData = {
+    type: detectedSecretsResourcesDataType,
     ids: ['12345678-94720289-b9f3-4572-b34d-ecdfb9225b07'],
   };
 
-  const workspaceVisibilities = WorkspaceVisibilities.TEAM;
+  const workspaceVisibilitiesData = WorkspaceVisibilitiesData.TEAM;
 
   const detectedSecretsQueryRequest: DetectedSecretsQueryRequest = {
     resolved: true,
     secretTypes: ['1a7ec5d1-dcba-4ec7-8220-3c1ee490416b'],
-    statuses: [statuses],
-    resources: [detectedSecretsQueryRequestResources],
+    statuses: [secretResolutionStatus],
+    resources: [detectedSecretsResourcesData],
     workspaceIds: ['0fe6c2f2-022d-48f7-8e7e-3244369445b0'],
-    workspaceVisibilities: [workspaceVisibilities],
+    workspaceVisibilities: [workspaceVisibilitiesData],
   };
 
   const data = await postmanApi.secretScanner.detectedSecretsQueries(detectedSecretsQueryRequest, {
@@ -103,8 +103,8 @@ Updates the resolution status of a secret detected in a workspace.
 ```typescript
 import {
   PostmanApi,
+  SecretResolutionStatus,
   UpdateSecretResolutionRequest,
-  UpdateSecretResolutionRequestResolution,
 } from '@postman/api-sdk';
 
 (async () => {
@@ -112,11 +112,10 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const updateSecretResolutionRequestResolution =
-    UpdateSecretResolutionRequestResolution.FALSE_POSITIVE;
+  const secretResolutionStatus = SecretResolutionStatus.FALSE_POSITIVE;
 
   const updateSecretResolutionRequest: UpdateSecretResolutionRequest = {
-    resolution: updateSecretResolutionRequestResolution,
+    resolution: secretResolutionStatus,
     workspaceId: 'e361eeb4-00dd-4225-9774-6146a2555999',
   };
 

@@ -13,6 +13,7 @@ export const badRequestError2 = z.lazy(() => {
 });
 
 /**
+ * Information about the error.
  * @typedef {BadRequestError2} badRequestError2
  * @property {string} name - The error name.
  * @property {string} message - The error message.

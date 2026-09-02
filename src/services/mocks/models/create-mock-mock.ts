@@ -15,6 +15,7 @@ export const createMockMock = z.lazy(() => {
 });
 
 /**
+ * Information about the mock server to create.
  * @typedef {CreateMockMock} createMockMock
  * @property {string} collection - The unique ID of the mock's associated collection.
  * @property {string} environment - The unique ID of the mock's associated environment.

@@ -34,7 +34,7 @@ export const partnersEngagementSuccessfulRequestsSent = z.lazy(() => {
 /**
  * Information about partner users' successful request calls in a workspace.
  * @typedef {PartnersEngagementSuccessfulRequestsSent} partnersEngagementSuccessfulRequestsSent
- * @property {PartnersEngagementSuccessfulRequestsSentSchema} schema
+ * @property {PartnersEngagementSuccessfulRequestsSentSchema} schema - The shape of the analytics data (column definitions).
  * @property {GetAnalyticsDataRowsData[][]} rows - A list of data row entries. Each row is an array of values that correspond to the columns defined in the schema.
  * @property {PaginationData} pagination - Information about the response pagination.
  */

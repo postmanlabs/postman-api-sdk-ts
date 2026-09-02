@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name | Type                            | Required | Description |
-| :--- | :------------------------------ | :------- | :---------- |
-| task | DuplicateCollectionResponseTask | ❌       |             |
+| Name | Type                            | Required | Description                             |
+| :--- | :------------------------------ | :------- | :-------------------------------------- |
+| task | DuplicateCollectionResponseTask | ❌       | Information about the duplication task. |
 
 # DuplicateCollectionResponseTask
+
+Information about the duplication task.
 
 **Properties**
 

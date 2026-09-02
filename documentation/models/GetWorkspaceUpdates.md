@@ -2,7 +2,7 @@
 
 **Properties**
 
-| Name | Type                                                | Required | Description                  |
-| :--- | :-------------------------------------------------- | :------- | :--------------------------- |
-| data | [WorkspaceUpdateData](WorkspaceUpdateData.md)[]     | ❌       | A list of workspace updates. |
-| meta | [GetSpecVersionTagsMeta](GetSpecVersionTagsMeta.md) | ❌       |                              |
+| Name | Type                                                | Required | Description                                            |
+| :--- | :-------------------------------------------------- | :------- | :----------------------------------------------------- |
+| data | [WorkspaceUpdateData](WorkspaceUpdateData.md)[]     | ❌       | A list of workspace updates.                           |
+| meta | [GetSpecVersionTagsMeta](GetSpecVersionTagsMeta.md) | ❌       | The response's meta information for paginated results. |

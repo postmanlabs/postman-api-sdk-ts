@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  GetMockServerMock,
-  getMockServerMock,
-  getMockServerMockRequest,
-  getMockServerMockResponse,
-} from './get-mock-server-mock';
+  MockServerData,
+  mockServerData,
+  mockServerDataRequest,
+  mockServerDataResponse,
+} from './mock-server-data';
 
 /**
  * Zod schema for the GetMockServer model.
@@ -13,13 +13,13 @@ import {
  */
 export const getMockServer = z.lazy(() => {
   return z.object({
-    mock: getMockServerMock.optional(),
+    mock: mockServerData.optional(),
   });
 });
 
 /**
  * @typedef {GetMockServer} getMockServer
- * @property {GetMockServerMock} mock - Information about the mock server.
+ * @property {MockServerData} mock - Information about the mock server.
  */
 export type GetMockServer = z.infer<typeof getMockServer>;
 
@@ -31,7 +31,7 @@ export type GetMockServer = z.infer<typeof getMockServer>;
 export const getMockServerResponse = z.lazy(() => {
   return z
     .object({
-      mock: getMockServerMockResponse.optional(),
+      mock: mockServerDataResponse.optional(),
     })
     .transform((data) => ({
       mock: data['mock'],
@@ -46,7 +46,7 @@ export const getMockServerResponse = z.lazy(() => {
 export const getMockServerRequest = z.lazy(() => {
   return z
     .object({
-      mock: getMockServerMockRequest.optional(),
+      mock: mockServerDataRequest.optional(),
     })
     .transform((data) => ({
       mock: data['mock'],

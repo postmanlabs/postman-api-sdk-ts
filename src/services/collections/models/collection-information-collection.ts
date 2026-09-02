@@ -50,7 +50,7 @@ export const collectionInformationCollection = z.lazy(() => {
  * For a complete list of this endpoint's possible values, use the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
  * @typedef {CollectionInformationCollection} collectionInformationCollection
  * @property {CollectionInfo} info - Information about the collection.
- * @property {CollectionItem[]} item
+ * @property {CollectionItem[]} item - A list of the collection's requests and folders.
  * @property {CollectionAuth} auth - The [authorization type supported by Postman](https://learning.postman.com/docs/sending-requests/authorization/authorization-types/).
  * @property {CollectionEvent[]} event - A list of scripts configured to run when specific events occur. These scripts can be referenced in the collection by their ID.
  * @property {CollectionVariableList[]} variable - A list of the collection's [variables](https://learning.postman.com/docs/sending-requests/variables/variables/). Make certain not to include sensitive information in variables.

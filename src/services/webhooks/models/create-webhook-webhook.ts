@@ -14,6 +14,7 @@ export const createWebhookWebhook = z.lazy(() => {
 });
 
 /**
+ * Information about the webhook to create.
  * @typedef {CreateWebhookWebhook} createWebhookWebhook
  * @property {string} collection - The unique ID of the collection to trigger when calling this webhook.
  * @property {string} environment - The unique ID of the environment to trigger when calling this webhook.
