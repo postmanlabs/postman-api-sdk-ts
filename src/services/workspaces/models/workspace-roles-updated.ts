@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  WorkspaceRolesUpdatedRoles,
-  workspaceRolesUpdatedRoles,
-  workspaceRolesUpdatedRolesRequest,
-  workspaceRolesUpdatedRolesResponse,
-} from './workspace-roles-updated-roles';
+  UpdateWorkspaceRolesData,
+  updateWorkspaceRolesData,
+  updateWorkspaceRolesDataRequest,
+  updateWorkspaceRolesDataResponse,
+} from './update-workspace-roles-data';
 
 /**
  * Zod schema for the WorkspaceRolesUpdated model.
@@ -13,13 +13,13 @@ import {
  */
 export const workspaceRolesUpdated = z.lazy(() => {
   return z.object({
-    roles: z.array(workspaceRolesUpdatedRoles).optional(),
+    roles: z.array(updateWorkspaceRolesData).optional(),
   });
 });
 
 /**
  * @typedef {WorkspaceRolesUpdated} workspaceRolesUpdated
- * @property {WorkspaceRolesUpdatedRoles[]} roles
+ * @property {UpdateWorkspaceRolesData[]} roles - A list of the role update operations that were applied to the workspace.
  */
 export type WorkspaceRolesUpdated = z.infer<typeof workspaceRolesUpdated>;
 
@@ -31,7 +31,7 @@ export type WorkspaceRolesUpdated = z.infer<typeof workspaceRolesUpdated>;
 export const workspaceRolesUpdatedResponse = z.lazy(() => {
   return z
     .object({
-      roles: z.array(workspaceRolesUpdatedRolesResponse).optional(),
+      roles: z.array(updateWorkspaceRolesDataResponse).optional(),
     })
     .transform((data) => ({
       roles: data['roles'],
@@ -46,7 +46,7 @@ export const workspaceRolesUpdatedResponse = z.lazy(() => {
 export const workspaceRolesUpdatedRequest = z.lazy(() => {
   return z
     .object({
-      roles: z.array(workspaceRolesUpdatedRolesRequest).optional(),
+      roles: z.array(updateWorkspaceRolesDataRequest).optional(),
     })
     .transform((data) => ({
       roles: data['roles'],

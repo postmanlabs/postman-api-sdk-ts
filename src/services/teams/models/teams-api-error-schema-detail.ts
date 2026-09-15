@@ -16,6 +16,7 @@ export const teamsApiErrorSchemaDetail = z.lazy(() => {
 });
 
 /**
+ * Information about the error.
  * @typedef {TeamsApiErrorSchemaDetail} teamsApiErrorSchemaDetail
  */
 export type TeamsApiErrorSchemaDetail = z.infer<typeof teamsApiErrorSchemaDetail>;

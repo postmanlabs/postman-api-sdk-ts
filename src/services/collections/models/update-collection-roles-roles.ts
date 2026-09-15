@@ -23,7 +23,7 @@ export const updateCollectionRolesRoles = z.lazy(() => {
  * @typedef {UpdateCollectionRolesRoles} updateCollectionRolesRoles
  * @property {RolesOp} op - The operation to perform on the path.
  * @property {UpdateCollectionRolesRolesPath} path - The resource to perform the action on.
- * @property {UpdateCollectionRolesRolesValue[]} value
+ * @property {UpdateCollectionRolesRolesValue[]} value - A list of the roles to assign to the resource.
  */
 export type UpdateCollectionRolesRoles = z.infer<typeof updateCollectionRolesRoles>;
 

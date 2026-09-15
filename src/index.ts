@@ -29,7 +29,6 @@ import { PullRequestsService } from './services/pull-requests';
 import { ApiSecurityService } from './services/api-security';
 import { SdksService } from './services/sdks';
 import { SearchService } from './services/search';
-import { ServiceAccountsService } from './services/service-accounts';
 import { TeamsService } from './services/teams';
 import { WebhooksService } from './services/webhooks';
 
@@ -62,7 +61,6 @@ export * from './services/pull-requests';
 export * from './services/api-security';
 export * from './services/sdks';
 export * from './services/search';
-export * from './services/service-accounts';
 export * from './services/teams';
 export * from './services/webhooks';
 export * from './services/common';
@@ -129,8 +127,6 @@ export class PostmanApi {
 
   public readonly search: SearchService;
 
-  public readonly serviceAccounts: ServiceAccountsService;
-
   public readonly teams: TeamsService;
 
   public readonly webhooks: WebhooksService;
@@ -194,8 +190,6 @@ export class PostmanApi {
 
     this.search = new SearchService(this.config);
 
-    this.serviceAccounts = new ServiceAccountsService(this.config);
-
     this.teams = new TeamsService(this.config);
 
     this.webhooks = new WebhooksService(this.config);
@@ -231,7 +225,6 @@ export class PostmanApi {
     this.apiSecurity.baseUrl = baseUrl;
     this.sdks.baseUrl = baseUrl;
     this.search.baseUrl = baseUrl;
-    this.serviceAccounts.baseUrl = baseUrl;
     this.teams.baseUrl = baseUrl;
     this.webhooks.baseUrl = baseUrl;
   }
@@ -266,7 +259,6 @@ export class PostmanApi {
     this.apiSecurity.baseUrl = environment;
     this.sdks.baseUrl = environment;
     this.search.baseUrl = environment;
-    this.serviceAccounts.baseUrl = environment;
     this.teams.baseUrl = environment;
     this.webhooks.baseUrl = environment;
   }
@@ -301,7 +293,6 @@ export class PostmanApi {
     this.apiSecurity.timeoutMs = timeoutMs;
     this.sdks.timeoutMs = timeoutMs;
     this.search.timeoutMs = timeoutMs;
-    this.serviceAccounts.timeoutMs = timeoutMs;
     this.teams.timeoutMs = timeoutMs;
     this.webhooks.timeoutMs = timeoutMs;
   }
@@ -336,7 +327,6 @@ export class PostmanApi {
     this.apiSecurity.username = username;
     this.sdks.username = username;
     this.search.username = username;
-    this.serviceAccounts.username = username;
     this.teams.username = username;
     this.webhooks.username = username;
   }
@@ -371,7 +361,6 @@ export class PostmanApi {
     this.apiSecurity.password = password;
     this.sdks.password = password;
     this.search.password = password;
-    this.serviceAccounts.password = password;
     this.teams.password = password;
     this.webhooks.password = password;
   }
@@ -406,7 +395,6 @@ export class PostmanApi {
     this.apiSecurity.apiKey = apiKey;
     this.sdks.apiKey = apiKey;
     this.search.apiKey = apiKey;
-    this.serviceAccounts.apiKey = apiKey;
     this.teams.apiKey = apiKey;
     this.webhooks.apiKey = apiKey;
   }
@@ -441,7 +429,6 @@ export class PostmanApi {
     this.apiSecurity.apiKeyHeader = apiKeyHeader;
     this.sdks.apiKeyHeader = apiKeyHeader;
     this.search.apiKeyHeader = apiKeyHeader;
-    this.serviceAccounts.apiKeyHeader = apiKeyHeader;
     this.teams.apiKeyHeader = apiKeyHeader;
     this.webhooks.apiKeyHeader = apiKeyHeader;
   }

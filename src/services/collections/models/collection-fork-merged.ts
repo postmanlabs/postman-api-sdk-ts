@@ -19,7 +19,7 @@ export const collectionForkMerged = z.lazy(() => {
 
 /**
  * @typedef {CollectionForkMerged} collectionForkMerged
- * @property {CollectionForkMergedCollection} collection
+ * @property {CollectionForkMergedCollection} collection - Information about the merged collection.
  */
 export type CollectionForkMerged = z.infer<typeof collectionForkMerged>;
 

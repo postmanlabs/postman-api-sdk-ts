@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  ServerResponseDeletedHeaders,
-  serverResponseDeletedHeaders,
-  serverResponseDeletedHeadersRequest,
-  serverResponseDeletedHeadersResponse,
-} from './server-response-deleted-headers';
+  MockServerResponseHeadersData,
+  mockServerResponseHeadersData,
+  mockServerResponseHeadersDataRequest,
+  mockServerResponseHeadersDataResponse,
+} from './mock-server-response-headers-data';
 
 /**
  * Zod schema for the ServerResponseDeleted model.
@@ -16,7 +16,7 @@ export const serverResponseDeleted = z.lazy(() => {
     id: z.string().optional(),
     name: z.string().optional(),
     statusCode: z.number().optional(),
-    headers: z.array(serverResponseDeletedHeaders).optional(),
+    headers: z.array(mockServerResponseHeadersData).optional(),
     language: z.string().optional().nullable(),
     body: z.string().optional(),
     createdBy: z.string().optional(),
@@ -31,8 +31,8 @@ export const serverResponseDeleted = z.lazy(() => {
  * @property {string} id - The server response's ID.
  * @property {string} name - The server response's name.
  * @property {number} statusCode - The server response's 5xx HTTP response code.
- * @property {ServerResponseDeletedHeaders[]} headers - The server response's request headers, such as Content-Type, Accept, encoding, and other information.
- * @property {ServerResponseDeletedLanguage} language - The server response's body language type.
+ * @property {MockServerResponseHeadersData[]} headers - The server response's request headers, such as Content-Type, Accept, encoding, and other information.
+ * @property {MockServerResponseLanguage} language - The server response's body language type.
  * @property {string} body - The server response's body that returns when calling the mock server.
  * @property {string} createdBy - The user ID of the user who created the server response.
  * @property {string} updatedBy - The user ID of the user who last updated the server response.
@@ -51,7 +51,7 @@ export const serverResponseDeletedResponse = z.lazy(() => {
       id: z.string().optional(),
       name: z.string().optional(),
       statusCode: z.number().optional(),
-      headers: z.array(serverResponseDeletedHeadersResponse).optional(),
+      headers: z.array(mockServerResponseHeadersDataResponse).optional(),
       language: z.string().optional().nullable(),
       body: z.string().optional(),
       createdBy: z.string().optional(),
@@ -82,7 +82,7 @@ export const serverResponseDeletedRequest = z.lazy(() => {
       id: z.string().optional(),
       name: z.string().optional(),
       statusCode: z.number().optional(),
-      headers: z.array(serverResponseDeletedHeadersRequest).optional(),
+      headers: z.array(mockServerResponseHeadersDataRequest).optional(),
       language: z.string().optional().nullable(),
       body: z.string().optional(),
       createdBy: z.string().optional(),

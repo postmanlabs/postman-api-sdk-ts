@@ -1,5 +1,7 @@
 # OrgsInfo
 
+The role assignments keyed by organization ID.
+
 **Properties**
 
 | Name    | Type                        | Required | Description                                                                    |

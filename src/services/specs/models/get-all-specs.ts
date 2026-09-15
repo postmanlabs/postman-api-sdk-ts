@@ -5,12 +5,7 @@ import {
   getGeneratedCollectionSpecsMetaRequest,
   getGeneratedCollectionSpecsMetaResponse,
 } from './get-generated-collection-specs-meta';
-import {
-  GetAllSpecsSpecs,
-  getAllSpecsSpecs,
-  getAllSpecsSpecsRequest,
-  getAllSpecsSpecsResponse,
-} from './get-all-specs-specs';
+import { Specs, specs, specsRequest, specsResponse } from './specs';
 
 /**
  * Zod schema for the GetAllSpecs model.
@@ -20,14 +15,14 @@ import {
 export const getAllSpecs = z.lazy(() => {
   return z.object({
     meta: getGeneratedCollectionSpecsMeta.optional(),
-    specs: z.array(getAllSpecsSpecs).optional(),
+    specs: z.array(specs).optional(),
   });
 });
 
 /**
  * @typedef {GetAllSpecs} getAllSpecs
  * @property {GetGeneratedCollectionSpecsMeta} meta - The response's meta information for paginated results.
- * @property {GetAllSpecsSpecs[]} specs - A list of API specifications.
+ * @property {Specs[]} specs - A list of API specifications.
  */
 export type GetAllSpecs = z.infer<typeof getAllSpecs>;
 
@@ -40,7 +35,7 @@ export const getAllSpecsResponse = z.lazy(() => {
   return z
     .object({
       meta: getGeneratedCollectionSpecsMetaResponse.optional(),
-      specs: z.array(getAllSpecsSpecsResponse).optional(),
+      specs: z.array(specsResponse).optional(),
     })
     .transform((data) => ({
       meta: data['meta'],
@@ -57,7 +52,7 @@ export const getAllSpecsRequest = z.lazy(() => {
   return z
     .object({
       meta: getGeneratedCollectionSpecsMetaRequest.optional(),
-      specs: z.array(getAllSpecsSpecsRequest).optional(),
+      specs: z.array(specsRequest).optional(),
     })
     .transform((data) => ({
       meta: data['meta'],

@@ -1,10 +1,5 @@
 import { z } from 'zod';
-import {
-  GenerateToolConfig,
-  generateToolConfig,
-  generateToolConfigRequest,
-  generateToolConfigResponse,
-} from './generate-tool-config';
+import { Config, config, configRequest, configResponse } from './config';
 
 /**
  * Zod schema for the GenerateTool model.
@@ -15,7 +10,7 @@ export const generateTool = z.lazy(() => {
   return z.object({
     requestId: z.string(),
     collectionId: z.string(),
-    config: generateToolConfig,
+    config: config,
   });
 });
 
@@ -23,7 +18,7 @@ export const generateTool = z.lazy(() => {
  * @typedef {GenerateTool} generateTool
  * @property {string} requestId - The public collection's request ID.
  * @property {string} collectionId - The Public API Network collection's ID.
- * @property {GenerateToolConfig} config - Information about the request.
+ * @property {Config} config - Information about the request.
  */
 export type GenerateTool = z.infer<typeof generateTool>;
 
@@ -37,7 +32,7 @@ export const generateToolResponse1 = z.lazy(() => {
     .object({
       requestId: z.string(),
       collectionId: z.string(),
-      config: generateToolConfigResponse,
+      config: configResponse,
     })
     .transform((data) => ({
       requestId: data['requestId'],
@@ -56,7 +51,7 @@ export const generateToolRequest = z.lazy(() => {
     .object({
       requestId: z.string(),
       collectionId: z.string(),
-      config: generateToolConfigRequest,
+      config: configRequest,
     })
     .transform((data) => ({
       requestId: data['requestId'],

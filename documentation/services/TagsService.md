@@ -10,6 +10,83 @@ A list of all methods in the `TagsService` service. Click on the method name to 
 | [getWorkspaceTags](#getworkspacetags)         | Gets all the tags associated with a workspace.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | [updateWorkspaceTags](#updateworkspacetags)   | Updates a workspace's associated tags. This endpoint replaces all existing tags with those you pass in the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
+<<<<<<< user
+=======
+## getApiTags
+
+Gets all the tags associated with an API.
+
+- HTTP Method: `GET`
+- Endpoint: `/apis/{apiId}/tags`
+
+**Parameters**
+
+| Name  | Type   | Required | Description   |
+| :---- | :----- | :------- | :------------ |
+| apiId | string | ✅       | The API's ID. |
+
+**Return Type**
+
+`SuccessResponse`
+
+**Example Usage Code Snippet**
+
+```typescript
+import { PostmanApi } from '@postman/api-sdk';
+
+(async () => {
+  const postmanApi = new PostmanApi({
+    apiKey: 'YOUR_API_KEY',
+  });
+
+  const data = await postmanApi.tags.getApiTags('90ca9f5a-c4c4-11ed-afa1-0242ac120002');
+
+  console.log(data);
+})();
+```
+
+## updateApiTags
+
+Updates an API's associated tags. This endpoint replaces all existing tags with those you pass in the request body.
+
+- HTTP Method: `PUT`
+- Endpoint: `/apis/{apiId}/tags`
+
+**Parameters**
+
+| Name  | Type                                  | Required | Description       |
+| :---- | :------------------------------------ | :------- | :---------------- |
+| body  | [UpdateTags](../models/UpdateTags.md) | ❌       | The request body. |
+| apiId | string                                | ✅       | The API's ID.     |
+
+**Return Type**
+
+`SuccessResponse`
+
+**Example Usage Code Snippet**
+
+```typescript
+import { PostmanApi, UpdateTags } from '@postman/api-sdk';
+
+(async () => {
+  const postmanApi = new PostmanApi({
+    apiKey: 'YOUR_API_KEY',
+  });
+
+  const updateTags: UpdateTags = {
+    tags: ['needs-review'],
+  };
+
+  const data = await postmanApi.tags.updateApiTags(
+    '90ca9f5a-c4c4-11ed-afa1-0242ac120002',
+    updateTags,
+  );
+
+  console.log(data);
+})();
+```
+
+>>>>>>> generated
 ## getCollectionTags
 
 Gets all the tags associated with a collection.
@@ -66,19 +143,15 @@ Updates a collection's associated tags. This endpoint replaces all existing tags
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApi, UpdateTags, UpdateTagsTags } from '@postman/api-sdk';
+import { PostmanApi, UpdateTags } from '@postman/api-sdk';
 
 (async () => {
   const postmanApi = new PostmanApi({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const updateTagsTags: UpdateTagsTags = {
-    slug: 'needs-review',
-  };
-
   const updateTags: UpdateTags = {
-    tags: [updateTagsTags],
+    tags: ['needs-review'],
   };
 
   const data = await postmanApi.tags.updateCollectionTags(
@@ -189,19 +262,15 @@ Updates a workspace's associated tags. This endpoint replaces all existing tags 
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApi, UpdateTags, UpdateTagsTags } from '@postman/api-sdk';
+import { PostmanApi, UpdateTags } from '@postman/api-sdk';
 
 (async () => {
   const postmanApi = new PostmanApi({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const updateTagsTags: UpdateTagsTags = {
-    slug: 'needs-review',
-  };
-
   const updateTags: UpdateTags = {
-    tags: [updateTagsTags],
+    tags: ['needs-review'],
   };
 
   const data = await postmanApi.tags.updateWorkspaceTags(
