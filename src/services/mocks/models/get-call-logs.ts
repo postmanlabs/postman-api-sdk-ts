@@ -1,11 +1,16 @@
 import { z } from 'zod';
-import { CallLogs, callLogs, callLogsRequest, callLogsResponse } from './call-logs';
 import {
-  GetCallLogsMeta,
-  getCallLogsMeta,
-  getCallLogsMetaRequest,
-  getCallLogsMetaResponse,
-} from './get-call-logs-meta';
+  MockCallLogData,
+  mockCallLogData,
+  mockCallLogDataRequest,
+  mockCallLogDataResponse,
+} from './mock-call-log-data';
+import {
+  GetSpecVersionTagsMeta,
+  getSpecVersionTagsMeta,
+  getSpecVersionTagsMetaRequest,
+  getSpecVersionTagsMetaResponse,
+} from '../../common/get-spec-version-tags-meta';
 
 /**
  * Zod schema for the GetCallLogs model.
@@ -14,15 +19,15 @@ import {
  */
 export const getCallLogs = z.lazy(() => {
   return z.object({
-    callLogs: z.array(callLogs).optional(),
-    meta: getCallLogsMeta.optional(),
+    callLogs: z.array(mockCallLogData).optional(),
+    meta: getSpecVersionTagsMeta.optional(),
   });
 });
 
 /**
  * @typedef {GetCallLogs} getCallLogs
- * @property {CallLogs[]} callLogs - A list of call logs.
- * @property {GetCallLogsMeta} meta - The response's non-standard meta information.
+ * @property {MockCallLogData[]} callLogs - A list of call logs.
+ * @property {GetSpecVersionTagsMeta} meta - The response's meta information for paginated results.
  */
 export type GetCallLogs = z.infer<typeof getCallLogs>;
 
@@ -34,8 +39,8 @@ export type GetCallLogs = z.infer<typeof getCallLogs>;
 export const getCallLogsResponse = z.lazy(() => {
   return z
     .object({
-      'call-logs': z.array(callLogsResponse).optional(),
-      meta: getCallLogsMetaResponse.optional(),
+      'call-logs': z.array(mockCallLogDataResponse).optional(),
+      meta: getSpecVersionTagsMetaResponse.optional(),
     })
     .transform((data) => ({
       callLogs: data['call-logs'],
@@ -51,8 +56,8 @@ export const getCallLogsResponse = z.lazy(() => {
 export const getCallLogsRequest = z.lazy(() => {
   return z
     .object({
-      callLogs: z.array(callLogsRequest).optional(),
-      meta: getCallLogsMetaRequest.optional(),
+      callLogs: z.array(mockCallLogDataRequest).optional(),
+      meta: getSpecVersionTagsMetaRequest.optional(),
     })
     .transform((data) => ({
       'call-logs': data['callLogs'],

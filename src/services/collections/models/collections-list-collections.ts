@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  CollectionsFork,
-  collectionsFork,
-  collectionsForkRequest,
-  collectionsForkResponse,
-} from './collections-fork';
+  CollectionForkData,
+  collectionForkData,
+  collectionForkDataRequest,
+  collectionForkDataResponse,
+} from './collection-fork-data';
 
 /**
  * Zod schema for the CollectionsListCollections model.
@@ -19,7 +19,7 @@ export const collectionsListCollections = z.lazy(() => {
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
     uid: z.string().optional(),
-    fork: collectionsFork.optional(),
+    fork: collectionForkData.optional(),
     isPublic: z.boolean().optional(),
   });
 });
@@ -33,7 +33,7 @@ export const collectionsListCollections = z.lazy(() => {
  * @property {string} createdAt - The collection's creation date and time.
  * @property {string} updatedAt - The date and time at which the collection was last updated.
  * @property {string} uid - The collection's unique ID.
- * @property {CollectionsFork} fork - If the collection is [forked](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities), the fork's information.
+ * @property {CollectionForkData} fork - If the collection is [forked](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities) from another collection, the fork's information.
  * @property {boolean} isPublic - If true, the collection is public and visible to all users.
  */
 export type CollectionsListCollections = z.infer<typeof collectionsListCollections>;
@@ -52,7 +52,7 @@ export const collectionsListCollectionsResponse = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       uid: z.string().optional(),
-      fork: collectionsForkResponse.optional(),
+      fork: collectionForkDataResponse.optional(),
       isPublic: z.boolean().optional(),
     })
     .transform((data) => ({
@@ -81,7 +81,7 @@ export const collectionsListCollectionsRequest = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       uid: z.string().optional(),
-      fork: collectionsForkRequest.optional(),
+      fork: collectionForkDataRequest.optional(),
       isPublic: z.boolean().optional(),
     })
     .transform((data) => ({

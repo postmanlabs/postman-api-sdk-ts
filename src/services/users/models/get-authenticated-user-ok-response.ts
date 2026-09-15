@@ -5,12 +5,7 @@ import {
   successfulResponseUserRequest,
   successfulResponseUserResponse,
 } from './successful-response-user';
-import {
-  SuccessfulResponseOperations,
-  successfulResponseOperations,
-  successfulResponseOperationsRequest,
-  successfulResponseOperationsResponse,
-} from './successful-response-operations';
+import { Operations, operations, operationsRequest, operationsResponse } from './operations';
 
 /**
  * Zod schema for the GetAuthenticatedUserOkResponse model.
@@ -20,14 +15,14 @@ import {
 export const getAuthenticatedUserOkResponse = z.lazy(() => {
   return z.object({
     user: successfulResponseUser.optional(),
-    operations: z.array(successfulResponseOperations).optional(),
+    operations: z.array(operations).optional(),
   });
 });
 
 /**
  * @typedef {GetAuthenticatedUserOkResponse} getAuthenticatedUserOkResponse
  * @property {SuccessfulResponseUser} user - Information about the authenticated user.
- * @property {SuccessfulResponseOperations[]} operations - Information about operations and their usage limits. This object does not return for users with the [Guest and Partner role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
+ * @property {Operations[]} operations - Information about operations and their usage limits. This object does not return for users with the [Guest and Partner role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).
  */
 export type GetAuthenticatedUserOkResponse = z.infer<typeof getAuthenticatedUserOkResponse>;
 
@@ -40,7 +35,7 @@ export const getAuthenticatedUserOkResponseResponse = z.lazy(() => {
   return z
     .object({
       user: successfulResponseUserResponse.optional(),
-      operations: z.array(successfulResponseOperationsResponse).optional(),
+      operations: z.array(operationsResponse).optional(),
     })
     .transform((data) => ({
       user: data['user'],
@@ -57,7 +52,7 @@ export const getAuthenticatedUserOkResponseRequest = z.lazy(() => {
   return z
     .object({
       user: successfulResponseUserRequest.optional(),
-      operations: z.array(successfulResponseOperationsRequest).optional(),
+      operations: z.array(operationsRequest).optional(),
     })
     .transform((data) => ({
       user: data['user'],

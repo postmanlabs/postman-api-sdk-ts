@@ -12,11 +12,11 @@ import {
   monitorRunStatsResponse,
 } from './monitor-run-stats';
 import {
-  MonitorRunExecutions,
-  monitorRunExecutions,
-  monitorRunExecutionsRequest,
-  monitorRunExecutionsResponse,
-} from './monitor-run-executions';
+  MonitorRunExecutionsData,
+  monitorRunExecutionsData,
+  monitorRunExecutionsDataRequest,
+  monitorRunExecutionsDataResponse,
+} from './monitor-run-executions-data';
 
 /**
  * Zod schema for the SuccessfulResponseRun model.
@@ -27,7 +27,7 @@ export const successfulResponseRun = z.lazy(() => {
   return z.object({
     info: monitorRunInformation.optional(),
     stats: monitorRunStats.optional(),
-    executions: z.array(monitorRunExecutions).optional(),
+    executions: z.array(monitorRunExecutionsData).optional(),
     failures: z.array(z.any()).optional(),
   });
 });
@@ -37,7 +37,7 @@ export const successfulResponseRun = z.lazy(() => {
  * @typedef {SuccessfulResponseRun} successfulResponseRun
  * @property {MonitorRunInformation} info - Information about the monitor.
  * @property {MonitorRunStats} stats - Information about the monitor run's stats.
- * @property {MonitorRunExecutions[]} executions - Information about the monitor run's executions.
+ * @property {MonitorRunExecutionsData[]} executions - Information about the monitor run's executions.
  * @property {any[]} failures - If the monitor run failed, information about the run's failures.
  */
 export type SuccessfulResponseRun = z.infer<typeof successfulResponseRun>;
@@ -52,7 +52,7 @@ export const successfulResponseRunResponse = z.lazy(() => {
     .object({
       info: monitorRunInformationResponse.optional(),
       stats: monitorRunStatsResponse.optional(),
-      executions: z.array(monitorRunExecutionsResponse).optional(),
+      executions: z.array(monitorRunExecutionsDataResponse).optional(),
       failures: z.array(z.any()).optional(),
     })
     .transform((data) => ({
@@ -73,7 +73,7 @@ export const successfulResponseRunRequest = z.lazy(() => {
     .object({
       info: monitorRunInformationRequest.optional(),
       stats: monitorRunStatsRequest.optional(),
-      executions: z.array(monitorRunExecutionsRequest).optional(),
+      executions: z.array(monitorRunExecutionsDataRequest).optional(),
       failures: z.array(z.any()).optional(),
     })
     .transform((data) => ({

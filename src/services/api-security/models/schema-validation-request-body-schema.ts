@@ -14,6 +14,7 @@ export const schemaValidationRequestBodySchema = z.lazy(() => {
 });
 
 /**
+ * The API definition to validate.
  * @typedef {SchemaValidationRequestBodySchema} schemaValidationRequestBodySchema
  * @property {SchemaLanguage} language - The definition format.
  * @property {string} schema - The stringified API definition.

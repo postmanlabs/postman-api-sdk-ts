@@ -26,11 +26,13 @@ If the task failed, an object containing information about the error.
 
 **Properties**
 
-| Name  | Type         | Required | Description |
-| :---- | :----------- | :------- | :---------- |
-| error | DetailsError | ❌       |             |
+| Name  | Type         | Required | Description                  |
+| :---- | :----------- | :------- | :--------------------------- |
+| error | DetailsError | ❌       | Information about the error. |
 
 # DetailsError
+
+Information about the error.
 
 **Properties**
 

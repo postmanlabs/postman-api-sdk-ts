@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name  | Type                     | Required | Description |
-| :---- | :----------------------- | :------- | :---------- |
-| error | InternalServerErrorError | ❌       |             |
+| Name  | Type                     | Required | Description                  |
+| :---- | :----------------------- | :------- | :--------------------------- |
+| error | InternalServerErrorError | ❌       | Information about the error. |
 
 # InternalServerErrorError
+
+Information about the error.
 
 **Properties**
 

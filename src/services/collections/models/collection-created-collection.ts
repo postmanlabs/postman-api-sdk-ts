@@ -14,6 +14,7 @@ export const collectionCreatedCollection = z.lazy(() => {
 });
 
 /**
+ * Information about the created collection.
  * @typedef {CollectionCreatedCollection} collectionCreatedCollection
  * @property {string} id - The collection's ID.
  * @property {string} name - The collection's name.

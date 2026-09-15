@@ -29,7 +29,7 @@ A list of all methods in the `CollectionsService` service. Click on the method n
 | [getCollectionRoles](#getcollectionroles)                                 | Gets information about all roles in a collection. The response returns the IDs of all users, teams, and groups with access to view or edit the collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | [updateCollectionRoles](#updatecollectionroles)                           | Updates the roles of users, groups, or teams in a collection. On success, this returns an HTTP `204 No Content` response. **Note:** - Only users assigned the Editor [role](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#collection-roles) in the collection can use this endpoint. - This endpoint does not support the external [Partner or Guest roles](https://learning.postman.com/docs/collaborating-in-postman/roles-and-permissions/#team-roles).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | [getSourceCollectionStatus](#getsourcecollectionstatus)                   | Checks whether there is a change between the forked collection and its parent (source) collection. If the value of the `isSourceAhead` property is `true` in the response, then there is a difference between the forked collection and its source collection. **Note:** This endpoint may take a few minutes to return an updated `isSourceAhead` status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| [transformCollectionToOpenApi](#transformcollectiontoopenapi)             | Transforms an existing Postman Collection into a stringified OpenAPI definition. **Note:** This does not create an API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| [transformCollectionToOpenApi](#transformcollectiontoopenapi)             | **This endpoint is deprecated.** Use the POST `/collections/{collectionUid}/generations/{elementType}` endpoint to generate an OpenAPI specification from a collection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | [transferCollectionFolders](#transfercollectionfolders)                   | Copies or moves folders into a collection or folder.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | [transferCollectionRequests](#transfercollectionrequests)                 | Copies or moves requests into a collection or folder.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | [transferCollectionResponses](#transfercollectionresponses)               | Copies or moves responses into a request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -152,7 +152,7 @@ import { PostmanApi } from '@postman/api-sdk';
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
     name: 'Test Collection',
     limit: 3,
-    offset: 5,
+    offset: 9,
   });
 
   console.log(data);
@@ -223,7 +223,7 @@ import {
     schema: informationSchema1,
   };
 
-  const variableInfoValue1 = 'ut laboris';
+  const variableInfoValue1 = 'cillum';
 
   const variable: Variable = {
     key: 'username',
@@ -248,7 +248,7 @@ import {
 
   const authMethodType1 = AuthMethodType1.NOAUTH;
 
-  const authAttributesValue = 'eu elit ex';
+  const authAttributesValue = 'tempor ';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -325,11 +325,11 @@ import {
     body: collectionRequestBody1,
   };
 
-  const responseHeader1 = 'Ut elit c';
+  const responseHeader1 = 'irure do';
 
   const itemResponse1: ItemResponse1 = {
     originalRequest: responseOriginalRequest1,
-    responseTime: 0.8,
+    responseTime: 4.67,
     header: responseHeader1,
     body: '{\n    "field": {}\n}',
     status: 'OK',
@@ -351,7 +351,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 7.36,
+    maxRedirects: 2.84,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -632,12 +632,12 @@ import {
     description: 'This is a test collection.',
     schema: informationSchema2,
     updatedAt: '2025-05-28T08:56:07.000Z',
-    createdat: '2025-05-28T08:56:07.000Z',
+    createdAt: '2025-05-28T08:56:07.000Z',
     lastUpdatedBy: '12345678',
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const variableInfoValue2 = 'ipsum eu nos';
+  const variableInfoValue2 = 'cillum dolo';
 
   const variableList2_1: VariableList2_1 = {
     id: '1561db76-bc21-48d1-a9f3-5d70c07b9d87',
@@ -666,7 +666,7 @@ import {
 
   const authMethodType2 = AuthMethodType2.BASIC;
 
-  const authAttributesValue = 'eu elit ex';
+  const authAttributesValue = 'tempor ';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -743,12 +743,12 @@ import {
     body: collectionRequestBody2,
   };
 
-  const responseHeader2_3 = 'pariatur dolore';
+  const responseHeader2_3 = 'Duis la';
 
   const itemResponse2: ItemResponse2 = {
     id: '33ffd2e3-59a8-4dfe-84fa-0a571984487b',
     originalRequest: responseOriginalRequest2,
-    responseTime: 6.45,
+    responseTime: 9.62,
     header: responseHeader2_3,
     body: 'body',
     status: 'OK',
@@ -773,7 +773,7 @@ import {
   const protocolProfileBehavior: ProtocolProfileBehavior = {
     strictSsl: true,
     followRedirects: true,
-    maxRedirects: 7.36,
+    maxRedirects: 2.84,
     disableBodyPruning: true,
     disableUrlEncoding: true,
     disabledSystemHeaders: disabledSystemHeaders,
@@ -801,7 +801,7 @@ import {
     uid: '12345678-eb0c6a21-2625-4860-ace2-64d6ad91c551',
   };
 
-  const collectionVariableInfoValue = 'Duis fugiat';
+  const collectionVariableInfoValue = 'autequis c';
 
   const collectionVariableInfo: CollectionVariableInfo = {
     key: 'userId',
@@ -1544,7 +1544,7 @@ import { PostmanApi } from '@postman/api-sdk';
 
 ## transformCollectionToOpenApi
 
-Transforms an existing Postman Collection into a stringified OpenAPI definition. **Note:** This does not create an API.
+**This endpoint is deprecated.** Use the POST `/collections/{collectionUid}/generations/{elementType}` endpoint to generate an OpenAPI specification from a collection.
 
 - HTTP Method: `GET`
 - Endpoint: `/collections/{collectionId}/transformations`
