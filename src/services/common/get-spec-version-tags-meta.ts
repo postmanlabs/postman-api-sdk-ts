@@ -12,6 +12,7 @@ export const getSpecVersionTagsMeta = z.lazy(() => {
 });
 
 /**
+ * The response's meta information for paginated results.
  * @typedef {GetSpecVersionTagsMeta} getSpecVersionTagsMeta
  * @property {string} nextCursor - The pagination cursor that points to the next record in the results set.
  */

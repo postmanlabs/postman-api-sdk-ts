@@ -13,6 +13,7 @@ import { CollectionRequestsService } from './services/collection-requests';
 import { CollectionResponsesService } from './services/collection-responses';
 import { CommentsService } from './services/comments';
 import { ComponentsService } from './services/components';
+import { ContextGraphService } from './services/context-graph';
 import { SecretScannerService } from './services/secret-scanner';
 import { EnvironmentsService } from './services/environments';
 import { GroupsService } from './services/groups';
@@ -29,7 +30,6 @@ import { PullRequestsService } from './services/pull-requests';
 import { ApiSecurityService } from './services/api-security';
 import { SdksService } from './services/sdks';
 import { SearchService } from './services/search';
-import { ServiceAccountsService } from './services/service-accounts';
 import { TeamsService } from './services/teams';
 import { WebhooksService } from './services/webhooks';
 
@@ -46,6 +46,7 @@ export * from './services/collection-requests';
 export * from './services/collection-responses';
 export * from './services/comments';
 export * from './services/components';
+export * from './services/context-graph';
 export * from './services/secret-scanner';
 export * from './services/environments';
 export * from './services/groups';
@@ -62,7 +63,6 @@ export * from './services/pull-requests';
 export * from './services/api-security';
 export * from './services/sdks';
 export * from './services/search';
-export * from './services/service-accounts';
 export * from './services/teams';
 export * from './services/webhooks';
 export * from './services/common';
@@ -97,6 +97,8 @@ export class PostmanApi {
 
   public readonly components: ComponentsService;
 
+  public readonly contextGraph: ContextGraphService;
+
   public readonly secretScanner: SecretScannerService;
 
   public readonly environments: EnvironmentsService;
@@ -129,8 +131,6 @@ export class PostmanApi {
 
   public readonly search: SearchService;
 
-  public readonly serviceAccounts: ServiceAccountsService;
-
   public readonly teams: TeamsService;
 
   public readonly webhooks: WebhooksService;
@@ -161,6 +161,8 @@ export class PostmanApi {
     this.comments = new CommentsService(this.config);
 
     this.components = new ComponentsService(this.config);
+
+    this.contextGraph = new ContextGraphService(this.config);
 
     this.secretScanner = new SecretScannerService(this.config);
 
@@ -194,8 +196,6 @@ export class PostmanApi {
 
     this.search = new SearchService(this.config);
 
-    this.serviceAccounts = new ServiceAccountsService(this.config);
-
     this.teams = new TeamsService(this.config);
 
     this.webhooks = new WebhooksService(this.config);
@@ -215,6 +215,7 @@ export class PostmanApi {
     this.collectionResponses.baseUrl = baseUrl;
     this.comments.baseUrl = baseUrl;
     this.components.baseUrl = baseUrl;
+    this.contextGraph.baseUrl = baseUrl;
     this.secretScanner.baseUrl = baseUrl;
     this.environments.baseUrl = baseUrl;
     this.groups.baseUrl = baseUrl;
@@ -231,7 +232,6 @@ export class PostmanApi {
     this.apiSecurity.baseUrl = baseUrl;
     this.sdks.baseUrl = baseUrl;
     this.search.baseUrl = baseUrl;
-    this.serviceAccounts.baseUrl = baseUrl;
     this.teams.baseUrl = baseUrl;
     this.webhooks.baseUrl = baseUrl;
   }
@@ -250,6 +250,7 @@ export class PostmanApi {
     this.collectionResponses.baseUrl = environment;
     this.comments.baseUrl = environment;
     this.components.baseUrl = environment;
+    this.contextGraph.baseUrl = environment;
     this.secretScanner.baseUrl = environment;
     this.environments.baseUrl = environment;
     this.groups.baseUrl = environment;
@@ -266,7 +267,6 @@ export class PostmanApi {
     this.apiSecurity.baseUrl = environment;
     this.sdks.baseUrl = environment;
     this.search.baseUrl = environment;
-    this.serviceAccounts.baseUrl = environment;
     this.teams.baseUrl = environment;
     this.webhooks.baseUrl = environment;
   }
@@ -285,6 +285,7 @@ export class PostmanApi {
     this.collectionResponses.timeoutMs = timeoutMs;
     this.comments.timeoutMs = timeoutMs;
     this.components.timeoutMs = timeoutMs;
+    this.contextGraph.timeoutMs = timeoutMs;
     this.secretScanner.timeoutMs = timeoutMs;
     this.environments.timeoutMs = timeoutMs;
     this.groups.timeoutMs = timeoutMs;
@@ -301,7 +302,6 @@ export class PostmanApi {
     this.apiSecurity.timeoutMs = timeoutMs;
     this.sdks.timeoutMs = timeoutMs;
     this.search.timeoutMs = timeoutMs;
-    this.serviceAccounts.timeoutMs = timeoutMs;
     this.teams.timeoutMs = timeoutMs;
     this.webhooks.timeoutMs = timeoutMs;
   }
@@ -320,6 +320,7 @@ export class PostmanApi {
     this.collectionResponses.username = username;
     this.comments.username = username;
     this.components.username = username;
+    this.contextGraph.username = username;
     this.secretScanner.username = username;
     this.environments.username = username;
     this.groups.username = username;
@@ -336,7 +337,6 @@ export class PostmanApi {
     this.apiSecurity.username = username;
     this.sdks.username = username;
     this.search.username = username;
-    this.serviceAccounts.username = username;
     this.teams.username = username;
     this.webhooks.username = username;
   }
@@ -355,6 +355,7 @@ export class PostmanApi {
     this.collectionResponses.password = password;
     this.comments.password = password;
     this.components.password = password;
+    this.contextGraph.password = password;
     this.secretScanner.password = password;
     this.environments.password = password;
     this.groups.password = password;
@@ -371,7 +372,6 @@ export class PostmanApi {
     this.apiSecurity.password = password;
     this.sdks.password = password;
     this.search.password = password;
-    this.serviceAccounts.password = password;
     this.teams.password = password;
     this.webhooks.password = password;
   }
@@ -390,6 +390,7 @@ export class PostmanApi {
     this.collectionResponses.apiKey = apiKey;
     this.comments.apiKey = apiKey;
     this.components.apiKey = apiKey;
+    this.contextGraph.apiKey = apiKey;
     this.secretScanner.apiKey = apiKey;
     this.environments.apiKey = apiKey;
     this.groups.apiKey = apiKey;
@@ -406,7 +407,6 @@ export class PostmanApi {
     this.apiSecurity.apiKey = apiKey;
     this.sdks.apiKey = apiKey;
     this.search.apiKey = apiKey;
-    this.serviceAccounts.apiKey = apiKey;
     this.teams.apiKey = apiKey;
     this.webhooks.apiKey = apiKey;
   }
@@ -425,6 +425,7 @@ export class PostmanApi {
     this.collectionResponses.apiKeyHeader = apiKeyHeader;
     this.comments.apiKeyHeader = apiKeyHeader;
     this.components.apiKeyHeader = apiKeyHeader;
+    this.contextGraph.apiKeyHeader = apiKeyHeader;
     this.secretScanner.apiKeyHeader = apiKeyHeader;
     this.environments.apiKeyHeader = apiKeyHeader;
     this.groups.apiKeyHeader = apiKeyHeader;
@@ -441,7 +442,6 @@ export class PostmanApi {
     this.apiSecurity.apiKeyHeader = apiKeyHeader;
     this.sdks.apiKeyHeader = apiKeyHeader;
     this.search.apiKeyHeader = apiKeyHeader;
-    this.serviceAccounts.apiKeyHeader = apiKeyHeader;
     this.teams.apiKeyHeader = apiKeyHeader;
     this.webhooks.apiKeyHeader = apiKeyHeader;
   }

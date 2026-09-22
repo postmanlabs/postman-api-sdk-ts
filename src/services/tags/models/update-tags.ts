@@ -1,10 +1,4 @@
 import { z } from 'zod';
-import {
-  UpdateTagsTags,
-  updateTagsTags,
-  updateTagsTagsRequest,
-  updateTagsTagsResponse,
-} from './update-tags-tags';
 
 /**
  * Zod schema for the UpdateTags model.
@@ -13,13 +7,13 @@ import {
  */
 export const updateTags = z.lazy(() => {
   return z.object({
-    tags: z.array(updateTagsTags).max(5),
+    tags: z.array(z.string()).max(5),
   });
 });
 
 /**
  * @typedef {UpdateTags} updateTags
- * @property {UpdateTagsTags[]} tags - A list of the associated tags as slugs.
+ * @property {string[]} tags - A list of the associated tags as slugs.
  */
 export type UpdateTags = z.infer<typeof updateTags>;
 
@@ -31,7 +25,7 @@ export type UpdateTags = z.infer<typeof updateTags>;
 export const updateTagsResponse = z.lazy(() => {
   return z
     .object({
-      tags: z.array(updateTagsTagsResponse).max(5),
+      tags: z.array(z.string()).max(5),
     })
     .transform((data) => ({
       tags: data['tags'],
@@ -46,7 +40,7 @@ export const updateTagsResponse = z.lazy(() => {
 export const updateTagsRequest = z.lazy(() => {
   return z
     .object({
-      tags: z.array(updateTagsTagsRequest).max(5),
+      tags: z.array(z.string()).max(5),
     })
     .transform((data) => ({
       tags: data['tags'],

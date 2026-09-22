@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name  | Type                          | Required | Description |
-| :---- | :---------------------------- | :------- | :---------- |
-| error | ErrorTitleDetailsMessageError | ❌       |             |
+| Name  | Type                          | Required | Description                  |
+| :---- | :---------------------------- | :------- | :--------------------------- |
+| error | ErrorTitleDetailsMessageError | ❌       | Information about the error. |
 
 # ErrorTitleDetailsMessageError
+
+Information about the error.
 
 **Properties**
 

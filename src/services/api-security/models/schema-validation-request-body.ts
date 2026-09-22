@@ -19,7 +19,7 @@ export const schemaValidationRequestBody = z.lazy(() => {
 
 /**
  * @typedef {SchemaValidationRequestBody} schemaValidationRequestBody
- * @property {SchemaValidationRequestBodySchema} schema
+ * @property {SchemaValidationRequestBodySchema} schema - The API definition to validate.
  */
 export type SchemaValidationRequestBody = z.infer<typeof schemaValidationRequestBody>;
 
