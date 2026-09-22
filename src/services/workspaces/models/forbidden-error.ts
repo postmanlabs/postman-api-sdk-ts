@@ -16,6 +16,7 @@ export const forbiddenError = z.lazy(() => {
 });
 
 /**
+ * Information about the error.
  * @typedef {ForbiddenError} forbiddenError
  * @property {number} status - The error's HTTP status code.
  * @property {string} name - The error name.

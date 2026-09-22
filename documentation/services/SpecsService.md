@@ -192,7 +192,7 @@ import { ElementId, ElementType, PostmanApi } from '@postman/api-sdk';
   });
 
   const elementType = ElementType.COLLECTIONS;
-  const elementId = 'reprehenderi';
+  const elementId = 'in ea sun';
 
   const data = await postmanApi.specs.getAsyncSpecTaskStatus(
     elementType,

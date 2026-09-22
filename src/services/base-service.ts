@@ -84,6 +84,14 @@ export class BaseService {
     return merged;
   }
 
+  protected toBase64(str: string): string {
+    if (typeof window === 'undefined') {
+      return Buffer.from(str, 'utf-8').toString('base64');
+    } else {
+      return btoa(unescape(encodeURIComponent(str)));
+    }
+  }
+
   set baseUrl(baseUrl: string) {
     this.config.baseUrl = baseUrl;
   }

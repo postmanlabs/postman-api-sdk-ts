@@ -158,4 +158,5 @@ export interface RetryOptions {
 
 export interface ValidationOptions {
   responseValidation?: boolean;
+  requestValidation?: boolean;
 }

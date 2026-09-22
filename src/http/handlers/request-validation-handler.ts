@@ -51,37 +51,52 @@ export class RequestValidationHandler implements RequestHandler {
    * @throws ValidationError if Zod schema validation fails
    */
   validateRequest(request: Request): void {
-    if (request.requestContentType === ContentType.Json) {
-      try {
-        const parsedBody = request.requestSchema?.parse(request.body);
-        request.body = JSON.stringify(parsedBody);
-      } catch (error) {
-        if (error instanceof ZodError) {
-          throw new ValidationError(error, request.body);
-        }
-        throw error;
-      }
-    } else if (
+    const requestValidationEnabled = request.config.validation?.requestValidation ?? true;
+
+    if (
       request.requestContentType === ContentType.Text ||
       request.requestContentType === ContentType.Image ||
       request.requestContentType === ContentType.Binary
     ) {
       request.body = request.body;
     } else if (request.requestContentType === ContentType.FormUrlEncoded) {
-      request.body = this.toFormUrlEncoded(request);
+      request.body = this.toFormUrlEncoded(request, requestValidationEnabled);
     } else if (request.requestContentType === ContentType.MultipartFormData) {
       request.body = this.toFormData(request.body, request.filename, request.filenames);
     } else {
-      request.body = JSON.stringify(request.requestSchema?.parse(request.body));
+      // ContentType.Json and everything else (arbitrary/unrecognized content types) serialize the
+      // same way: validate-then-stringify, or stringify as-is when validation is disabled.
+      request.body = requestValidationEnabled
+        ? JSON.stringify(this.validateBody(request, request.body))
+        : JSON.stringify(request.body);
+    }
+  }
+
+  /**
+   * Validates a request body against its schema.
+   * @throws ValidationError if Zod schema validation fails
+   */
+  private validateBody(request: Request, body: unknown): unknown {
+    if (!request.requestSchema) {
+      return body;
+    }
+    try {
+      return request.requestSchema.parse(body);
+    } catch (error) {
+      if (error instanceof ZodError) {
+        throw new ValidationError(error, body);
+      }
+      throw error;
     }
   }
 
   /**
    * Converts request body to URL-encoded form data format.
    * @param request - The HTTP request with body to convert
+   * @param requestValidationEnabled - Whether to validate the body against its schema first
    * @returns URL-encoded string representation of the body
    */
-  toFormUrlEncoded(request: Request): string {
+  toFormUrlEncoded(request: Request, requestValidationEnabled: boolean): string {
     if (request.body === undefined) {
       return '';
     }
@@ -94,7 +109,9 @@ export class RequestValidationHandler implements RequestHandler {
       return request.body.toString();
     }
 
-    const validatedBody = request.requestSchema?.parse(request.body);
+    const validatedBody = requestValidationEnabled
+      ? this.validateBody(request, request.body)
+      : request.body;
 
     if (validatedBody instanceof FormData) {
       const params = new URLSearchParams();

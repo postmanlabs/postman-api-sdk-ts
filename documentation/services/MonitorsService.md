@@ -83,7 +83,7 @@ Creates a monitor. **Note:** - You cannot create monitors for collections added 
 ```typescript
 import {
   CreateMonitor,
-  CreateMonitorMonitor,
+  CreateMonitorPayload,
   MonitorDistribution,
   MonitorNotifications,
   MonitorOptions,
@@ -135,7 +135,7 @@ import {
     onFailure: [onFailure],
   };
 
-  const createMonitorMonitor: CreateMonitorMonitor = {
+  const createMonitorPayload: CreateMonitorPayload = {
     name: 'Test Monitor',
     active: true,
     notificationLimit: 1,
@@ -149,7 +149,7 @@ import {
   };
 
   const createMonitor: CreateMonitor = {
-    monitor: createMonitorMonitor,
+    monitor: createMonitorPayload,
   };
 
   const data = await postmanApi.monitors.createMonitor(createMonitor, {
@@ -225,7 +225,7 @@ import {
   PostmanApi,
   Region,
   UpdateMonitor,
-  UpdateMonitorMonitor,
+  UpdateMonitorPayload,
 } from '@postman/api-sdk';
 
 (async () => {
@@ -268,7 +268,7 @@ import {
     onFailure: [onFailure],
   };
 
-  const updateMonitorMonitor: UpdateMonitorMonitor = {
+  const updateMonitorPayload: UpdateMonitorPayload = {
     name: 'Test Monitor',
     active: true,
     notificationLimit: 1,
@@ -280,7 +280,7 @@ import {
   };
 
   const updateMonitor: UpdateMonitor = {
-    monitor: updateMonitorMonitor,
+    monitor: updateMonitorPayload,
   };
 
   const data = await postmanApi.monitors.updateMonitor(

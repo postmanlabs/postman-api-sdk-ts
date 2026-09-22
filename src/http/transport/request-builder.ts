@@ -32,14 +32,13 @@ export class RequestBuilder<Page extends unknown[] = unknown[]> {
       path: '',
       config: {
         retry: {
-          attempts: 3,
           delayMs: 150,
           maxDelayMs: 5000,
           backoffFactor: 2,
           jitterMs: 50,
           httpMethodsToRetry: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
         },
-        validation: { responseValidation: true },
+        validation: { responseValidation: true, requestValidation: true },
       } as SdkConfig,
       responses: [],
       errors: [],
@@ -52,7 +51,7 @@ export class RequestBuilder<Page extends unknown[] = unknown[]> {
     };
     this.addHeaderParam({
       key: 'User-Agent',
-      value: 'postman-codegen/2.4.0 @postman/api-sdk/1.46.0 (typescript)',
+      value: 'postman-codegen/2.7.0 @postman/api-sdk/1.46.0 (typescript)',
     });
   }
 

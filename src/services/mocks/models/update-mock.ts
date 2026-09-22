@@ -19,7 +19,7 @@ export const updateMock = z.lazy(() => {
 
 /**
  * @typedef {UpdateMock} updateMock
- * @property {UpdateMockMock} mock
+ * @property {UpdateMockMock} mock - The mock server fields to update.
  */
 export type UpdateMock = z.infer<typeof updateMock>;
 

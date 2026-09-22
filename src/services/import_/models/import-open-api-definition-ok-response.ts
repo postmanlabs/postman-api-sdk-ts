@@ -19,7 +19,7 @@ export const importOpenApiDefinitionOkResponse = z.lazy(() => {
 
 /**
  * @typedef {ImportOpenApiDefinitionOkResponse} importOpenApiDefinitionOkResponse
- * @property {SuccessfulResponseCollections[]} collections
+ * @property {SuccessfulResponseCollections[]} collections - A list of the collections created from the imported OpenAPI definition.
  */
 export type ImportOpenApiDefinitionOkResponse = z.infer<typeof importOpenApiDefinitionOkResponse>;
 

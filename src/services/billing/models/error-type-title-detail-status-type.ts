@@ -10,6 +10,7 @@ export const errorTypeTitleDetailStatusType = z.lazy(() => {
 });
 
 /**
+ * The type of error.
  * @typedef {ErrorTypeTitleDetailStatusType} errorTypeTitleDetailStatusType
  */
 export type ErrorTypeTitleDetailStatusType = z.infer<typeof errorTypeTitleDetailStatusType>;
