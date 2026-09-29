@@ -1,5 +1,7 @@
 # GetSpecVersionTagsMeta
 
+The response's meta information for paginated results.
+
 **Properties**
 
 | Name       | Type   | Required | Description                                                              |

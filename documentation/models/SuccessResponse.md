@@ -2,6 +2,6 @@
 
 **Properties**
 
-| Name | Type                                            | Required | Description                |
-| :--- | :---------------------------------------------- | :------- | :------------------------- |
-| tags | [SuccessResponseTags](SuccessResponseTags.md)[] | ❌       | A list of associated tags. |
+| Name | Type                    | Required | Description                |
+| :--- | :---------------------- | :------- | :------------------------- |
+| tags | [TagData](TagData.md)[] | ❌       | A list of associated tags. |

@@ -13,7 +13,7 @@ export class BaseService {
   /** Service-level configuration overrides */
   protected serviceConfig?: Partial<SdkConfig>;
 
-  constructor(public config: SdkConfig) {
+  constructor(public config: SdkConfig = {}) {
     this.client = new HttpClient(this.config);
   }
 
@@ -82,6 +82,14 @@ export class BaseService {
       merged = BaseService.deepMerge(merged, requestConfig);
     }
     return merged;
+  }
+
+  protected toBase64(str: string): string {
+    if (typeof window === 'undefined') {
+      return Buffer.from(str, 'utf-8').toString('base64');
+    } else {
+      return btoa(unescape(encodeURIComponent(str)));
+    }
   }
 
   set baseUrl(baseUrl: string) {

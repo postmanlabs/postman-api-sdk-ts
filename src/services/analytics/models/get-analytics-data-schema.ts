@@ -18,6 +18,7 @@ export const getAnalyticsDataSchema = z.lazy(() => {
 });
 
 /**
+ * The shape of the analytics data (column definitions).
  * @typedef {GetAnalyticsDataSchema} getAnalyticsDataSchema
  * @property {GetAnalyticsDataColumnsData[]} columns - A list of column entries.
  */

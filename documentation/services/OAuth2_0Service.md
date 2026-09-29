@@ -70,7 +70,11 @@ Revokes an active OAuth 2.0 access token and prevents further use of it for auth
 import { PostmanApi, RevokeOauthToken } from '@postman/api-sdk';
 
 (async () => {
-  const postmanApi = new PostmanApi({});
+  const postmanApi = new PostmanApi({
+    username: 'YOUR_USERNAME',
+    password: 'YOUR_PASSWORD',
+    apiKey: 'YOUR_API_KEY',
+  });
 
   const revokeOauthToken: RevokeOauthToken = {
     token: 'PMAK-XXX',

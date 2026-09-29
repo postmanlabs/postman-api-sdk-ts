@@ -90,8 +90,8 @@ Generates an OpenAPI 2.0, 3.0, or 3.1 specification for the given collection. Th
 ```typescript
 import {
   ElementTypeSpec,
-  Format,
   GenerateSpecFromCollection,
+  GenerateSpecFromCollectionFormat,
   GenerateSpecFromCollectionType,
   PostmanApi,
 } from '@postman/api-sdk';
@@ -105,12 +105,12 @@ import {
 
   const generateSpecFromCollectionType = GenerateSpecFromCollectionType.OPENAPI_2_0;
 
-  const format = Format.JSON;
+  const generateSpecFromCollectionFormat = GenerateSpecFromCollectionFormat.JSON;
 
   const generateSpecFromCollection: GenerateSpecFromCollection = {
     name: 'Sample API',
     type: generateSpecFromCollectionType,
-    format: format,
+    format: generateSpecFromCollectionFormat,
   };
 
   const data = await postmanApi.specs.generateSpecFromCollection(
@@ -192,7 +192,7 @@ import { ElementId, ElementType, PostmanApi } from '@postman/api-sdk';
   });
 
   const elementType = ElementType.COLLECTIONS;
-  const elementId = 'reprehenderi';
+  const elementId = 'est Ut';
 
   const data = await postmanApi.specs.getAsyncSpecTaskStatus(
     elementType,

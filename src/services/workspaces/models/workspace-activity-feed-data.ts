@@ -1,5 +1,10 @@
 import { z } from 'zod';
-import { DataUser, dataUser, dataUserRequest, dataUserResponse } from './data-user';
+import {
+  GetWorkspaceActivityFeedUserData,
+  getWorkspaceActivityFeedUserData,
+  getWorkspaceActivityFeedUserDataRequest,
+  getWorkspaceActivityFeedUserDataResponse,
+} from './get-workspace-activity-feed-user-data';
 
 /**
  * Zod schema for the WorkspaceActivityFeedData model.
@@ -12,7 +17,7 @@ export const workspaceActivityFeedData = z.lazy(() => {
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
     id: z.number().optional(),
-    user: dataUser.optional(),
+    user: getWorkspaceActivityFeedUserData.optional(),
     action: z.string().optional(),
     elementType: z.string().optional(),
     trigger: z.string().optional(),
@@ -28,7 +33,7 @@ export const workspaceActivityFeedData = z.lazy(() => {
  * @property {string} createdAt - The date and time at which the element was created.
  * @property {string} updatedAt - The date and time at which the element was updated.
  * @property {number} id - The activity feed's ID.
- * @property {DataUser} user - Information about the user that performed the activity.
+ * @property {GetWorkspaceActivityFeedUserData} user - Information about the user that performed the activity.
  * @property {DataAction} action - The action that occurred in the workspace.
  * @property {string} elementType - The element type.
  * @property {string} trigger - The trigger that caused the workspace action (`create`, `update`, or `destroy`).
@@ -49,7 +54,7 @@ export const workspaceActivityFeedDataResponse = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       id: z.number().optional(),
-      user: dataUserResponse.optional(),
+      user: getWorkspaceActivityFeedUserDataResponse.optional(),
       action: z.string().optional(),
       elementType: z.string().optional(),
       trigger: z.string().optional(),
@@ -82,7 +87,7 @@ export const workspaceActivityFeedDataRequest = z.lazy(() => {
       createdAt: z.string().optional(),
       updatedAt: z.string().optional(),
       id: z.number().optional(),
-      user: dataUserRequest.optional(),
+      user: getWorkspaceActivityFeedUserDataRequest.optional(),
       action: z.string().optional(),
       elementType: z.string().optional(),
       trigger: z.string().optional(),

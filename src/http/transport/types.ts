@@ -108,7 +108,7 @@ export interface RequestCursorPagination<Page> {
   /** JSON path to extract next cursor from response */
   cursorPath: string[];
   /** Zod schema for validating cursor value */
-  cursorSchema?: ZodType<string | null | undefined>;
+  cursorSchema?: ZodType<any, any, any>;
 }
 
 /**
