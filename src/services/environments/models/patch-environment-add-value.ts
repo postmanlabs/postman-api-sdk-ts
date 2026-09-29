@@ -16,6 +16,7 @@ export const patchEnvironmentAddValue = z.lazy(() => {
 });
 
 /**
+ * The environment variable to add.
  * @typedef {PatchEnvironmentAddValue} patchEnvironmentAddValue
  */
 export type PatchEnvironmentAddValue = z.infer<typeof patchEnvironmentAddValue>;

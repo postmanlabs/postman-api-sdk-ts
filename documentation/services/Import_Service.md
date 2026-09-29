@@ -2,13 +2,13 @@
 
 A list of all methods in the `Import_Service` service. Click on the method name to view detailed information about that method.
 
-| Methods                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| :-------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [importOpenApiDefinition](#importopenapidefinition) | Imports an OpenAPI definition into Postman as a new [Postman Collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/). **Note:** - This endpoint has a rate limit of **10 requests per 10 seconds**. - The Postman web app does not support the `file` input method type. - If you do not include the `workspace` query parameter, the system imports the definition into the oldest personal Internal workspace you own. - For an example of importing a file, see the [Postman API collection](https://www.postman.com/postman/postman-public-workspace/example/12959542-08d74ce2-8150-4f72-99a7-11e60492eb47). |
+| Methods                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| :------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [createImportOpenapi](#createimportopenapi) | Imports an OpenAPI definition into Postman as a new [Postman Collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/). **Note:** - This endpoint has a rate limit of **10 requests per 10 seconds**. - The Postman web app does not support the `file` input method type. - If you do not include the `workspace` query parameter, the system imports the definition into the oldest personal Internal workspace you own. |
 
-## importOpenApiDefinition
+## createImportOpenapi
 
-Imports an OpenAPI definition into Postman as a new [Postman Collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/). **Note:** - This endpoint has a rate limit of **10 requests per 10 seconds**. - The Postman web app does not support the `file` input method type. - If you do not include the `workspace` query parameter, the system imports the definition into the oldest personal Internal workspace you own. - For an example of importing a file, see the [Postman API collection](https://www.postman.com/postman/postman-public-workspace/example/12959542-08d74ce2-8150-4f72-99a7-11e60492eb47).
+Imports an OpenAPI definition into Postman as a new [Postman Collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/). **Note:** - This endpoint has a rate limit of **10 requests per 10 seconds**. - The Postman web app does not support the `file` input method type. - If you do not include the `workspace` query parameter, the system imports the definition into the oldest personal Internal workspace you own.
 
 - HTTP Method: `POST`
 - Endpoint: `/import/openapi`
@@ -22,7 +22,7 @@ Imports an OpenAPI definition into Postman as a new [Postman Collection](https:/
 
 **Return Type**
 
-`ImportOpenApiDefinitionOkResponse`
+`CreateImportOpenapiOkResponse`
 
 **Example Usage Code Snippet**
 
@@ -69,7 +69,7 @@ import {
     options: generateCollectionOptions,
   };
 
-  const data = await postmanApi.import_.importOpenApiDefinition(jsonSchema, {
+  const data = await postmanApi.import_.createImportOpenapi(jsonSchema, {
     workspace: '1f0df51a-8658-4ee8-a2a1-d2567dfa09a9',
   });
 

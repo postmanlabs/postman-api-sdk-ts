@@ -154,7 +154,7 @@ import {
 
   const requestAuthType = RequestAuthType.BASIC;
 
-  const authAttributesValue = 'eu elit ex';
+  const authAttributesValue = 'consequat Ut';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -584,7 +584,7 @@ import {
 
   const requestAuthType = RequestAuthType.BASIC;
 
-  const authAttributesValue = 'eu elit ex';
+  const authAttributesValue = 'consequat Ut';
 
   const authAttributesType = AuthAttributesType.STRING_;
 
@@ -740,11 +740,11 @@ Updates a response in a collection. For a complete list of properties, see the [
 
 **Parameters**
 
-| Name         | Type                                                                | Required | Description          |
-| :----------- | :------------------------------------------------------------------ | :------- | :------------------- |
-| body         | [UpdateCollectionResponse1](../models/UpdateCollectionResponse1.md) | ❌       | The request body.    |
-| responseId   | string                                                              | ✅       | The response's ID.   |
-| collectionId | string                                                              | ✅       | The collection's ID. |
+| Name         | Type                                                              | Required | Description          |
+| :----------- | :---------------------------------------------------------------- | :------- | :------------------- |
+| body         | [UpdateCollectionResponse](../models/UpdateCollectionResponse.md) | ❌       | The request body.    |
+| responseId   | string                                                            | ✅       | The response's ID.   |
+| collectionId | string                                                            | ✅       | The collection's ID. |
 
 **Return Type**
 
@@ -759,7 +759,7 @@ import {
   RequestDataOptions,
   RequestMethod,
   ResponseHeader2_2,
-  UpdateCollectionResponse1,
+  UpdateCollectionResponse,
   UpdateCollectionResponseDataMode,
   UpdateCollectionResponseResponseCode,
 } from '@postman/api-sdk';
@@ -796,7 +796,7 @@ import {
     name: 'Bad Request',
   };
 
-  const updateCollectionResponse1: UpdateCollectionResponse1 = {
+  const updateCollectionResponse_3: UpdateCollectionResponse = {
     name: 'Bad Request',
     description: 'description',
     url: 'url',
@@ -819,7 +819,7 @@ import {
   const data = await postmanApi.collectionItems.updateCollectionResponse(
     'cc364734-7dfd-4bfc-897d-be763dcdbb07',
     '12ece9e1-2abf-4edc-8e34-de66e74114d2',
-    updateCollectionResponse1,
+    updateCollectionResponse_3,
   );
 
   console.log(data);

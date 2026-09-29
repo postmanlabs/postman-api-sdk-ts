@@ -1,11 +1,16 @@
 import { z } from 'zod';
-import { Assertions, assertions, assertionsRequest, assertionsResponse } from './assertions';
 import {
-  MonitorRunStatsRequests,
-  monitorRunStatsRequests,
-  monitorRunStatsRequestsRequest,
-  monitorRunStatsRequestsResponse,
-} from './monitor-run-stats-requests';
+  MonitorRunAssertionStats,
+  monitorRunAssertionStats,
+  monitorRunAssertionStatsRequest,
+  monitorRunAssertionStatsResponse,
+} from './monitor-run-assertion-stats';
+import {
+  MonitorRunRequestsStats,
+  monitorRunRequestsStats,
+  monitorRunRequestsStatsRequest,
+  monitorRunRequestsStatsResponse,
+} from './monitor-run-requests-stats';
 
 /**
  * Zod schema for the MonitorRunStats model.
@@ -14,8 +19,8 @@ import {
  */
 export const monitorRunStats = z.lazy(() => {
   return z.object({
-    assertions: assertions.optional(),
-    requests: monitorRunStatsRequests.optional(),
+    assertions: monitorRunAssertionStats.optional(),
+    requests: monitorRunRequestsStats.optional(),
     runCount: z.number().optional(),
     errorCount: z.number().optional(),
     abortedCount: z.number().optional(),
@@ -27,8 +32,8 @@ export const monitorRunStats = z.lazy(() => {
 /**
  * Information about the monitor run's stats.
  * @typedef {MonitorRunStats} monitorRunStats
- * @property {Assertions} assertions - Information about the monitor's tests.
- * @property {MonitorRunStatsRequests} requests - Information about the monitor's requests.
+ * @property {MonitorRunAssertionStats} assertions - Information about the monitor's tests.
+ * @property {MonitorRunRequestsStats} requests - Information about the monitor's requests.
  * @property {number} runCount - The number of monitor runs across the selected monitor regions.
  * @property {number} errorCount - The number of errors encountered during the monitor's run.
  * @property {number} abortedCount - The number of runs terminated.
@@ -45,8 +50,8 @@ export type MonitorRunStats = z.infer<typeof monitorRunStats>;
 export const monitorRunStatsResponse = z.lazy(() => {
   return z
     .object({
-      assertions: assertionsResponse.optional(),
-      requests: monitorRunStatsRequestsResponse.optional(),
+      assertions: monitorRunAssertionStatsResponse.optional(),
+      requests: monitorRunRequestsStatsResponse.optional(),
       runCount: z.number().optional(),
       errorCount: z.number().optional(),
       abortedCount: z.number().optional(),
@@ -72,8 +77,8 @@ export const monitorRunStatsResponse = z.lazy(() => {
 export const monitorRunStatsRequest = z.lazy(() => {
   return z
     .object({
-      assertions: assertionsRequest.optional(),
-      requests: monitorRunStatsRequestsRequest.optional(),
+      assertions: monitorRunAssertionStatsRequest.optional(),
+      requests: monitorRunRequestsStatsRequest.optional(),
       runCount: z.number().optional(),
       errorCount: z.number().optional(),
       abortedCount: z.number().optional(),

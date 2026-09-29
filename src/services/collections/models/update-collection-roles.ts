@@ -19,7 +19,7 @@ export const updateCollectionRoles = z.lazy(() => {
 
 /**
  * @typedef {UpdateCollectionRoles} updateCollectionRoles
- * @property {UpdateCollectionRolesRoles[]} roles
+ * @property {UpdateCollectionRolesRoles[]} roles - A list of role update operations to apply to the collection.
  */
 export type UpdateCollectionRoles = z.infer<typeof updateCollectionRoles>;
 

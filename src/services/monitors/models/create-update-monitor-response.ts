@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  CreateUpdateMonitorResponseMonitor,
-  createUpdateMonitorResponseMonitor,
-  createUpdateMonitorResponseMonitorRequest,
-  createUpdateMonitorResponseMonitorResponse,
-} from './create-update-monitor-response-monitor';
+  CreateUpdateMonitorResponseData,
+  createUpdateMonitorResponseData,
+  createUpdateMonitorResponseDataRequest,
+  createUpdateMonitorResponseDataResponse,
+} from './create-update-monitor-response-data';
 
 /**
  * Zod schema for the CreateUpdateMonitorResponse model.
@@ -13,13 +13,13 @@ import {
  */
 export const createUpdateMonitorResponse = z.lazy(() => {
   return z.object({
-    monitor: createUpdateMonitorResponseMonitor.optional(),
+    monitor: createUpdateMonitorResponseData.optional(),
   });
 });
 
 /**
  * @typedef {CreateUpdateMonitorResponse} createUpdateMonitorResponse
- * @property {CreateUpdateMonitorResponseMonitor} monitor - Information about the monitor.
+ * @property {CreateUpdateMonitorResponseData} monitor - Information about the monitor.
  */
 export type CreateUpdateMonitorResponse = z.infer<typeof createUpdateMonitorResponse>;
 
@@ -31,7 +31,7 @@ export type CreateUpdateMonitorResponse = z.infer<typeof createUpdateMonitorResp
 export const createUpdateMonitorResponseResponse = z.lazy(() => {
   return z
     .object({
-      monitor: createUpdateMonitorResponseMonitorResponse.optional(),
+      monitor: createUpdateMonitorResponseDataResponse.optional(),
     })
     .transform((data) => ({
       monitor: data['monitor'],
@@ -46,7 +46,7 @@ export const createUpdateMonitorResponseResponse = z.lazy(() => {
 export const createUpdateMonitorResponseRequest = z.lazy(() => {
   return z
     .object({
-      monitor: createUpdateMonitorResponseMonitorRequest.optional(),
+      monitor: createUpdateMonitorResponseDataRequest.optional(),
     })
     .transform((data) => ({
       monitor: data['monitor'],

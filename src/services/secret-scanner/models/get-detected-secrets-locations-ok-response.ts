@@ -1,16 +1,16 @@
 import { z } from 'zod';
 import {
-  SuccessfulResponseData2,
-  successfulResponseData2,
-  successfulResponseData2Request,
-  successfulResponseData2Response,
-} from './successful-response-data-2';
+  SecretsLocationsData,
+  secretsLocationsData,
+  secretsLocationsDataRequest,
+  secretsLocationsDataResponse,
+} from './secrets-locations-data';
 import {
-  SuccessfulResponseMeta2,
-  successfulResponseMeta2,
-  successfulResponseMeta2Request,
-  successfulResponseMeta2Response,
-} from './successful-response-meta-2';
+  SecretScannerMetaData,
+  secretScannerMetaData,
+  secretScannerMetaDataRequest,
+  secretScannerMetaDataResponse,
+} from './secret-scanner-meta-data';
 
 /**
  * Zod schema for the GetDetectedSecretsLocationsOkResponse model.
@@ -19,15 +19,15 @@ import {
  */
 export const getDetectedSecretsLocationsOkResponse = z.lazy(() => {
   return z.object({
-    data: z.array(successfulResponseData2).optional(),
-    meta: successfulResponseMeta2.optional(),
+    data: z.array(secretsLocationsData).optional(),
+    meta: secretScannerMetaData.optional(),
   });
 });
 
 /**
  * @typedef {GetDetectedSecretsLocationsOkResponse} getDetectedSecretsLocationsOkResponse
- * @property {SuccessfulResponseData2[]} data
- * @property {SuccessfulResponseMeta2} meta
+ * @property {SecretsLocationsData[]} data - A list of the locations where the detected secret was found.
+ * @property {SecretScannerMetaData} meta - The response's meta information for paginated results.
  */
 export type GetDetectedSecretsLocationsOkResponse = z.infer<
   typeof getDetectedSecretsLocationsOkResponse
@@ -41,8 +41,8 @@ export type GetDetectedSecretsLocationsOkResponse = z.infer<
 export const getDetectedSecretsLocationsOkResponseResponse = z.lazy(() => {
   return z
     .object({
-      data: z.array(successfulResponseData2Response).optional(),
-      meta: successfulResponseMeta2Response.optional(),
+      data: z.array(secretsLocationsDataResponse).optional(),
+      meta: secretScannerMetaDataResponse.optional(),
     })
     .transform((data) => ({
       data: data['data'],
@@ -58,8 +58,8 @@ export const getDetectedSecretsLocationsOkResponseResponse = z.lazy(() => {
 export const getDetectedSecretsLocationsOkResponseRequest = z.lazy(() => {
   return z
     .object({
-      data: z.array(successfulResponseData2Request).optional(),
-      meta: successfulResponseMeta2Request.optional(),
+      data: z.array(secretsLocationsDataRequest).optional(),
+      meta: secretScannerMetaDataRequest.optional(),
     })
     .transform((data) => ({
       data: data['data'],

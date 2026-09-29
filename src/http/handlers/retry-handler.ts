@@ -155,21 +155,23 @@ export class RetryHandler implements RequestHandler {
     if (!headers || maxRetryAfterDelayMs <= 0) {
       return null;
     }
+    // `headers` is a plain `Record<string, string>` from `HttpMetadata`.
+    const getHeader = (name: string): string | undefined => headers[name];
 
     // retry-after-ms (milliseconds) is a non-standard but finer-grained hint some APIs send
     // (e.g. OpenAI); it takes precedence over the whole-second Retry-After.
-    const retryAfterMs = headers['retry-after-ms'];
+    const retryAfterMs = getHeader('retry-after-ms');
     if (retryAfterMs !== undefined && /^\d+(\.\d+)?$/.test(retryAfterMs.trim())) {
       return Math.min(Number(retryAfterMs.trim()), maxRetryAfterDelayMs);
     }
 
-    const seconds = this.parseRetryAfter(headers['retry-after']);
+    const seconds = this.parseRetryAfter(getHeader('retry-after'));
     if (seconds !== null) {
       return Math.min(Math.max(seconds * 1000, 0), maxRetryAfterDelayMs);
     }
 
     // X-RateLimit-Reset is interpreted as epoch seconds (the common convention).
-    const reset = headers['x-ratelimit-reset'];
+    const reset = getHeader('x-ratelimit-reset');
     if (reset !== undefined && reset.trim() !== '') {
       const epoch = Number(reset);
       if (Number.isFinite(epoch)) {

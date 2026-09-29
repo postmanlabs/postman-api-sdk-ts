@@ -17,8 +17,8 @@ export const monitorNotifications = z.lazy(() => {
 /**
  * Information about the monitor's notification settings.
  * @typedef {MonitorNotifications} monitorNotifications
- * @property {OnError[]} onError
- * @property {OnFailure[]} onFailure
+ * @property {OnError[]} onError - A list of recipients to notify when the monitor errors.
+ * @property {OnFailure[]} onFailure - A list of recipients to notify when the monitor fails.
  */
 export type MonitorNotifications = z.infer<typeof monitorNotifications>;
 

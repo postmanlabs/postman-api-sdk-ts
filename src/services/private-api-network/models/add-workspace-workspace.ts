@@ -13,6 +13,7 @@ export const addWorkspaceWorkspace = z.lazy(() => {
 });
 
 /**
+ * Information about the workspace to add to the Private API Network.
  * @typedef {AddWorkspaceWorkspace} addWorkspaceWorkspace
  * @property {string} id - The workspace's ID.
  * @property {number} parentFolderId - The `0` value.

@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name      | Type                      | Required | Description |
-| :-------- | :------------------------ | :------- | :---------- |
-| workspace | UpdateWorkspaceWorkspace2 | ❌       |             |
+| Name      | Type                     | Required | Description                                       |
+| :-------- | :----------------------- | :------- | :------------------------------------------------ |
+| workspace | UpdateWorkspaceWorkspace | ❌       | Information about the workspace fields to update. |
 
-# UpdateWorkspaceWorkspace2
+# UpdateWorkspaceWorkspace
+
+Information about the workspace fields to update.
 
 **Properties**
 
