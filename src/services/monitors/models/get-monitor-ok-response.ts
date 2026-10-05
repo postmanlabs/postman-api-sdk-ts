@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  SuccessfulResponseMonitor,
-  successfulResponseMonitor,
-  successfulResponseMonitorRequest,
-  successfulResponseMonitorResponse,
-} from './successful-response-monitor';
+  GetMonitorData,
+  getMonitorData,
+  getMonitorDataRequest,
+  getMonitorDataResponse,
+} from './get-monitor-data';
 
 /**
  * Zod schema for the GetMonitorOkResponse model.
@@ -13,13 +13,13 @@ import {
  */
 export const getMonitorOkResponse = z.lazy(() => {
   return z.object({
-    monitor: successfulResponseMonitor.optional(),
+    monitor: getMonitorData.optional(),
   });
 });
 
 /**
  * @typedef {GetMonitorOkResponse} getMonitorOkResponse
- * @property {SuccessfulResponseMonitor} monitor - Information about the monitor.
+ * @property {GetMonitorData} monitor - Information about the monitor.
  */
 export type GetMonitorOkResponse = z.infer<typeof getMonitorOkResponse>;
 
@@ -31,7 +31,7 @@ export type GetMonitorOkResponse = z.infer<typeof getMonitorOkResponse>;
 export const getMonitorOkResponseResponse = z.lazy(() => {
   return z
     .object({
-      monitor: successfulResponseMonitorResponse.optional(),
+      monitor: getMonitorDataResponse.optional(),
     })
     .transform((data) => ({
       monitor: data['monitor'],
@@ -46,7 +46,7 @@ export const getMonitorOkResponseResponse = z.lazy(() => {
 export const getMonitorOkResponseRequest = z.lazy(() => {
   return z
     .object({
-      monitor: successfulResponseMonitorRequest.optional(),
+      monitor: getMonitorDataRequest.optional(),
     })
     .transform((data) => ({
       monitor: data['monitor'],

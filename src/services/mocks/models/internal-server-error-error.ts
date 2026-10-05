@@ -13,6 +13,7 @@ export const internalServerErrorError = z.lazy(() => {
 });
 
 /**
+ * Information about the error.
  * @typedef {InternalServerErrorError} internalServerErrorError
  * @property {string} type - The error name.
  * @property {string} message - The error message.

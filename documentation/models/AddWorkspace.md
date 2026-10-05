@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name      | Type                  | Required | Description |
-| :-------- | :-------------------- | :------- | :---------- |
-| workspace | AddWorkspaceWorkspace | ✅       |             |
+| Name      | Type                  | Required | Description                                                        |
+| :-------- | :-------------------- | :------- | :----------------------------------------------------------------- |
+| workspace | AddWorkspaceWorkspace | ✅       | Information about the workspace to add to the Private API Network. |
 
 # AddWorkspaceWorkspace
+
+Information about the workspace to add to the Private API Network.
 
 **Properties**
 
