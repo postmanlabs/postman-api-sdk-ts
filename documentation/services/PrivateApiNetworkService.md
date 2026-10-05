@@ -272,7 +272,7 @@ Responds to a user's request to add a workspace to your team's [Private API Netw
 import {
   PostmanApi,
   RespondPanElementAddRequestBody,
-  RespondPanElementAddRequestBodyResponse1,
+  RespondPanElementAddRequestBodyResponse,
   RespondPanElementAddRequestBodyStatus,
 } from '@postman/api-sdk';
 
@@ -283,13 +283,13 @@ import {
 
   const respondPanElementAddRequestBodyStatus = RespondPanElementAddRequestBodyStatus.DENIED;
 
-  const respondPanElementAddRequestBodyResponse1: RespondPanElementAddRequestBodyResponse1 = {
+  const respondPanElementAddRequestBodyResponse_3: RespondPanElementAddRequestBodyResponse = {
     message: 'The requested collection has a lot of governance violations. Please fix them.',
   };
 
   const respondPanElementAddRequestBody: RespondPanElementAddRequestBody = {
     status: respondPanElementAddRequestBodyStatus,
-    response: respondPanElementAddRequestBodyResponse1,
+    response: respondPanElementAddRequestBodyResponse_3,
   };
 
   const data = await postmanApi.privateApiNetwork.respondPrivateNetworkAddRequest(

@@ -1,10 +1,5 @@
 import { z } from 'zod';
-import {
-  SuccessfulResponseRequests,
-  successfulResponseRequests,
-  successfulResponseRequestsRequest,
-  successfulResponseRequestsResponse,
-} from './successful-response-requests';
+import { Requests, requests, requestsRequest, requestsResponse } from './requests';
 import { Meta, meta, metaRequest, metaResponse } from './meta';
 
 /**
@@ -14,14 +9,14 @@ import { Meta, meta, metaRequest, metaResponse } from './meta';
  */
 export const listPrivateNetworkAddRequestsOkResponse = z.lazy(() => {
   return z.object({
-    requests: z.array(successfulResponseRequests).optional(),
+    requests: z.array(requests).optional(),
     meta: meta.optional(),
   });
 });
 
 /**
  * @typedef {ListPrivateNetworkAddRequestsOkResponse} listPrivateNetworkAddRequestsOkResponse
- * @property {SuccessfulResponseRequests[]} requests - A list of requests to add elements to the Private API Network.
+ * @property {Requests[]} requests - A list of requests to add elements to the Private API Network.
  * @property {Meta} meta - The response's non-standard meta information.
  */
 export type ListPrivateNetworkAddRequestsOkResponse = z.infer<
@@ -36,7 +31,7 @@ export type ListPrivateNetworkAddRequestsOkResponse = z.infer<
 export const listPrivateNetworkAddRequestsOkResponseResponse = z.lazy(() => {
   return z
     .object({
-      requests: z.array(successfulResponseRequestsResponse).optional(),
+      requests: z.array(requestsResponse).optional(),
       meta: metaResponse.optional(),
     })
     .transform((data) => ({
@@ -53,7 +48,7 @@ export const listPrivateNetworkAddRequestsOkResponseResponse = z.lazy(() => {
 export const listPrivateNetworkAddRequestsOkResponseRequest = z.lazy(() => {
   return z
     .object({
-      requests: z.array(successfulResponseRequestsRequest).optional(),
+      requests: z.array(requestsRequest).optional(),
       meta: metaRequest.optional(),
     })
     .transform((data) => ({

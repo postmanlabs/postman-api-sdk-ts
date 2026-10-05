@@ -35,7 +35,7 @@ export type { GetAnalyticsMetadataResourceMetricsDataDetailedParametersFilters }
 export type { Object } from './object';
 export type { GetAnalyticsMetadataResourceMetricsDataDetailedParametersFiltersData } from './get-analytics-metadata-resource-metrics-data-detailed-parameters-filters-data';
 export type { GetAnalticsMetadataPaginationData } from './get-analtics-metadata-pagination-data';
-export type { GetAnalyticsMetadataResourceMetricsDataDetailedResponse1 } from './get-analytics-metadata-resource-metrics-data-detailed-response-1';
+export type { GetAnalyticsMetadataResourceMetricsDataDetailedResponse } from './get-analytics-metadata-resource-metrics-data-detailed-response';
 export type { GetAnalyticsMetadataResourceMetricsDataDetailedData } from './get-analytics-metadata-resource-metrics-data-detailed-data';
 export type { GetAnalyticsMetadataResourceMetricsDataDetailedDataSchema } from './get-analytics-metadata-resource-metrics-data-detailed-data-schema';
 export type { GetAnalyticsMetadataResourceMetricsDataSummaryData } from './get-analytics-metadata-resource-metrics-data-summary-data';

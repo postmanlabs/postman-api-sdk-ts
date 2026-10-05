@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  UpdateMonitorMonitor,
-  updateMonitorMonitor,
-  updateMonitorMonitorRequest,
-  updateMonitorMonitorResponse,
-} from './update-monitor-monitor';
+  UpdateMonitorPayload,
+  updateMonitorPayload,
+  updateMonitorPayloadRequest,
+  updateMonitorPayloadResponse,
+} from './update-monitor-payload';
 
 /**
  * Zod schema for the UpdateMonitor model.
@@ -13,13 +13,13 @@ import {
  */
 export const updateMonitor = z.lazy(() => {
   return z.object({
-    monitor: updateMonitorMonitor.optional(),
+    monitor: updateMonitorPayload.optional(),
   });
 });
 
 /**
  * @typedef {UpdateMonitor} updateMonitor
- * @property {UpdateMonitorMonitor} monitor - Information about the monitor.
+ * @property {UpdateMonitorPayload} monitor - Information about the monitor.
  */
 export type UpdateMonitor = z.infer<typeof updateMonitor>;
 
@@ -31,7 +31,7 @@ export type UpdateMonitor = z.infer<typeof updateMonitor>;
 export const updateMonitorResponse = z.lazy(() => {
   return z
     .object({
-      monitor: updateMonitorMonitorResponse.optional(),
+      monitor: updateMonitorPayloadResponse.optional(),
     })
     .transform((data) => ({
       monitor: data['monitor'],
@@ -46,7 +46,7 @@ export const updateMonitorResponse = z.lazy(() => {
 export const updateMonitorRequest = z.lazy(() => {
   return z
     .object({
-      monitor: updateMonitorMonitorRequest.optional(),
+      monitor: updateMonitorPayloadRequest.optional(),
     })
     .transform((data) => ({
       monitor: data['monitor'],

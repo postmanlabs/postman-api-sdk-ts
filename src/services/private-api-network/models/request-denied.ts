@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  RequestDeniedRequest1,
-  requestDeniedRequest1,
-  requestDeniedRequest1Request,
-  requestDeniedRequest1Response,
-} from './request-denied-request-1';
+  RequestDeniedRequest,
+  requestDeniedRequestRequest,
+  requestDeniedRequestResponse,
+  requestDeniedRequest_3,
+} from './request-denied-request';
 
 /**
  * Zod schema for the RequestDenied model.
@@ -13,13 +13,13 @@ import {
  */
 export const requestDenied = z.lazy(() => {
   return z.object({
-    request: z.array(requestDeniedRequest1).optional(),
+    request: z.array(requestDeniedRequest_3).optional(),
   });
 });
 
 /**
  * @typedef {RequestDenied} requestDenied
- * @property {RequestDeniedRequest1[]} request - A list of Private API Network requests.
+ * @property {RequestDeniedRequest[]} request - A list of Private API Network requests.
  */
 export type RequestDenied = z.infer<typeof requestDenied>;
 
@@ -31,7 +31,7 @@ export type RequestDenied = z.infer<typeof requestDenied>;
 export const requestDeniedResponse = z.lazy(() => {
   return z
     .object({
-      request: z.array(requestDeniedRequest1Response).optional(),
+      request: z.array(requestDeniedRequestResponse).optional(),
     })
     .transform((data) => ({
       request: data['request'],
@@ -46,7 +46,7 @@ export const requestDeniedResponse = z.lazy(() => {
 export const requestDeniedRequest = z.lazy(() => {
   return z
     .object({
-      request: z.array(requestDeniedRequest1Request).optional(),
+      request: z.array(requestDeniedRequestRequest).optional(),
     })
     .transform((data) => ({
       request: data['request'],

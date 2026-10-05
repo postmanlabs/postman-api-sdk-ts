@@ -12,6 +12,7 @@ export const teamsInfo = z.lazy(() => {
 });
 
 /**
+ * The role assignments keyed by team ID.
  * @typedef {TeamsInfo} teamsInfo
  * @property {TeamRoles[]} _teamId_ - A list of the team's roles. The array's name is the team's ID.
  */

@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  RequestApprovedRequest1,
-  requestApprovedRequest1,
-  requestApprovedRequest1Request,
-  requestApprovedRequest1Response,
-} from './request-approved-request-1';
+  RequestApprovedRequest,
+  requestApprovedRequestRequest,
+  requestApprovedRequestResponse,
+  requestApprovedRequest_3,
+} from './request-approved-request';
 
 /**
  * Zod schema for the RequestApproved model.
@@ -13,13 +13,13 @@ import {
  */
 export const requestApproved = z.lazy(() => {
   return z.object({
-    request: z.array(requestApprovedRequest1).optional(),
+    request: z.array(requestApprovedRequest_3).optional(),
   });
 });
 
 /**
  * @typedef {RequestApproved} requestApproved
- * @property {RequestApprovedRequest1[]} request - A list of Private API Network requests.
+ * @property {RequestApprovedRequest[]} request - A list of Private API Network requests.
  */
 export type RequestApproved = z.infer<typeof requestApproved>;
 
@@ -31,7 +31,7 @@ export type RequestApproved = z.infer<typeof requestApproved>;
 export const requestApprovedResponse = z.lazy(() => {
   return z
     .object({
-      request: z.array(requestApprovedRequest1Response).optional(),
+      request: z.array(requestApprovedRequestResponse).optional(),
     })
     .transform((data) => ({
       request: data['request'],
@@ -46,7 +46,7 @@ export const requestApprovedResponse = z.lazy(() => {
 export const requestApprovedRequest = z.lazy(() => {
   return z
     .object({
-      request: z.array(requestApprovedRequest1Request).optional(),
+      request: z.array(requestApprovedRequestRequest).optional(),
     })
     .transform((data) => ({
       request: data['request'],

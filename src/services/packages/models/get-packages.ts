@@ -26,7 +26,7 @@ export const getPackages = z.lazy(() => {
 
 /**
  * @typedef {GetPackages} getPackages
- * @property {GetSpecVersionTagsMeta} meta
+ * @property {GetSpecVersionTagsMeta} meta - The response's meta information for paginated results.
  * @property {PackageListData[]} data - A list of active packages.
  */
 export type GetPackages = z.infer<typeof getPackages>;

@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  SuccessfulResponseData1,
-  successfulResponseData1,
-  successfulResponseData1Request,
-  successfulResponseData1Response,
-} from './successful-response-data-1';
+  SuccessfulResponseData,
+  successfulResponseData,
+  successfulResponseDataRequest,
+  successfulResponseDataResponse,
+} from './successful-response-data';
 import {
   SuccessfulResponseMeta1,
   successfulResponseMeta1,
@@ -19,14 +19,14 @@ import {
  */
 export const getTaggedEntitiesOkResponse = z.lazy(() => {
   return z.object({
-    data: successfulResponseData1.optional(),
+    data: successfulResponseData.optional(),
     meta: successfulResponseMeta1.optional(),
   });
 });
 
 /**
  * @typedef {GetTaggedEntitiesOkResponse} getTaggedEntitiesOkResponse
- * @property {SuccessfulResponseData1} data - An object containing the paginated elements.
+ * @property {SuccessfulResponseData} data - An object containing the paginated elements.
  * @property {SuccessfulResponseMeta1} meta - The response's pagination information.
  */
 export type GetTaggedEntitiesOkResponse = z.infer<typeof getTaggedEntitiesOkResponse>;
@@ -39,7 +39,7 @@ export type GetTaggedEntitiesOkResponse = z.infer<typeof getTaggedEntitiesOkResp
 export const getTaggedEntitiesOkResponseResponse = z.lazy(() => {
   return z
     .object({
-      data: successfulResponseData1Response.optional(),
+      data: successfulResponseDataResponse.optional(),
       meta: successfulResponseMeta1Response.optional(),
     })
     .transform((data) => ({
@@ -56,7 +56,7 @@ export const getTaggedEntitiesOkResponseResponse = z.lazy(() => {
 export const getTaggedEntitiesOkResponseRequest = z.lazy(() => {
   return z
     .object({
-      data: successfulResponseData1Request.optional(),
+      data: successfulResponseDataRequest.optional(),
       meta: successfulResponseMeta1Request.optional(),
     })
     .transform((data) => ({

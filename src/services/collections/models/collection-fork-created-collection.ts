@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  CollectionFork,
-  collectionFork,
-  collectionForkRequest,
-  collectionForkResponse,
-} from './collection-fork';
+  CollectionForkData,
+  collectionForkData,
+  collectionForkDataRequest,
+  collectionForkDataResponse,
+} from './collection-fork-data';
 
 /**
  * Zod schema for the CollectionForkCreatedCollection model.
@@ -15,7 +15,7 @@ export const collectionForkCreatedCollection = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
     name: z.string().optional(),
-    fork: collectionFork.optional(),
+    fork: collectionForkData.optional(),
     uid: z.string().optional(),
   });
 });
@@ -25,7 +25,7 @@ export const collectionForkCreatedCollection = z.lazy(() => {
  * @typedef {CollectionForkCreatedCollection} collectionForkCreatedCollection
  * @property {string} id - The forked collection's ID.
  * @property {string} name - The collection's name.
- * @property {CollectionFork} fork - Information about the collection's fork.
+ * @property {CollectionForkData} fork - If the collection is [forked](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities) from another collection, the fork's information.
  * @property {string} uid - The forked collection's unique ID.
  */
 export type CollectionForkCreatedCollection = z.infer<typeof collectionForkCreatedCollection>;
@@ -40,7 +40,7 @@ export const collectionForkCreatedCollectionResponse = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      fork: collectionForkResponse.optional(),
+      fork: collectionForkDataResponse.optional(),
       uid: z.string().optional(),
     })
     .transform((data) => ({
@@ -61,7 +61,7 @@ export const collectionForkCreatedCollectionRequest = z.lazy(() => {
     .object({
       id: z.string().optional(),
       name: z.string().optional(),
-      fork: collectionForkRequest.optional(),
+      fork: collectionForkDataRequest.optional(),
       uid: z.string().optional(),
     })
     .transform((data) => ({

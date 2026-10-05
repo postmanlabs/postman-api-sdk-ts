@@ -2,10 +2,10 @@
 
 **Properties**
 
-| Name     | Type                                     | Required | Description                                                   |
-| :------- | :--------------------------------------- | :------- | :------------------------------------------------------------ |
-| status   | RespondPanElementAddRequestBodyStatus    | ✅       | The request's approval status.                                |
-| response | RespondPanElementAddRequestBodyResponse1 | ❌       | If the request is denied, the response to the user's request. |
+| Name     | Type                                    | Required | Description                                                   |
+| :------- | :-------------------------------------- | :------- | :------------------------------------------------------------ |
+| status   | RespondPanElementAddRequestBodyStatus   | ✅       | The request's approval status.                                |
+| response | RespondPanElementAddRequestBodyResponse | ❌       | If the request is denied, the response to the user's request. |
 
 # RespondPanElementAddRequestBodyStatus
 
@@ -18,7 +18,7 @@ The request's approval status.
 | DENIED   | string | ✅       | "denied"    |
 | APPROVED | string | ✅       | "approved"  |
 
-# RespondPanElementAddRequestBodyResponse1
+# RespondPanElementAddRequestBodyResponse
 
 If the request is denied, the response to the user's request.
 

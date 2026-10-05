@@ -19,7 +19,7 @@ export const createAccessRequestResponse = z.lazy(() => {
 
 /**
  * @typedef {CreateAccessRequestResponse} createAccessRequestResponse
- * @property {TeamsAccessRequestData[]} result
+ * @property {TeamsAccessRequestData[]} result - A list of the created access requests.
  */
 export type CreateAccessRequestResponse = z.infer<typeof createAccessRequestResponse>;
 

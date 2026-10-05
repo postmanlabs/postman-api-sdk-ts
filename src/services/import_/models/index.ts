@@ -1,4 +1,4 @@
-export type { ImportOpenApiDefinitionOkResponse } from './import-open-api-definition-ok-response';
+export type { CreateImportOpenapiOkResponse } from './create-import-openapi-ok-response';
 export type { SuccessfulResponseCollections } from './successful-response-collections';
 export type { ImportOpenApiDefinition } from './import-open-api-definition';
 export type { JsonSchema } from './json-schema';
@@ -7,4 +7,4 @@ export type { JsonStringified } from './json-stringified';
 export { JsonStringifiedType } from './json-stringified-type';
 export type { ImportExportFile } from './import-export-file';
 export { ImportExportFileType } from './import-export-file-type';
-export type { ImportOpenApiDefinitionBadRequestResponse } from './import-open-api-definition-bad-request-response';
+export type { CreateImportOpenapiBadRequestResponse } from './create-import-openapi-bad-request-response';

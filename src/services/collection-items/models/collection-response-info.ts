@@ -21,7 +21,7 @@ export const collectionResponseInfo = z.lazy(() => {
 
 /**
  * @typedef {CollectionResponseInfo} collectionResponseInfo
- * @property {CollectionResponseInfoData} data - Information about the response. For a complete list of properties, refer to the ``Response`` entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
+ * @property {CollectionResponseInfoData} data - Information about the response. For a complete list of properties, refer to the `Response` entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
  * @property {any} meta - A Postman-specific response that contains information about the internal performed operation.
  * @property {string} modelId - The response's ID.
  */

@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  CreateMonitorMonitor,
-  createMonitorMonitor,
-  createMonitorMonitorRequest,
-  createMonitorMonitorResponse,
-} from './create-monitor-monitor';
+  CreateMonitorPayload,
+  createMonitorPayload,
+  createMonitorPayloadRequest,
+  createMonitorPayloadResponse,
+} from './create-monitor-payload';
 
 /**
  * Zod schema for the CreateMonitor model.
@@ -13,13 +13,13 @@ import {
  */
 export const createMonitor = z.lazy(() => {
   return z.object({
-    monitor: createMonitorMonitor.optional(),
+    monitor: createMonitorPayload.optional(),
   });
 });
 
 /**
  * @typedef {CreateMonitor} createMonitor
- * @property {CreateMonitorMonitor} monitor - Information about the monitor.
+ * @property {CreateMonitorPayload} monitor - Information about the monitor.
  */
 export type CreateMonitor = z.infer<typeof createMonitor>;
 
@@ -31,7 +31,7 @@ export type CreateMonitor = z.infer<typeof createMonitor>;
 export const createMonitorResponse = z.lazy(() => {
   return z
     .object({
-      monitor: createMonitorMonitorResponse.optional(),
+      monitor: createMonitorPayloadResponse.optional(),
     })
     .transform((data) => ({
       monitor: data['monitor'],
@@ -46,7 +46,7 @@ export const createMonitorResponse = z.lazy(() => {
 export const createMonitorRequest = z.lazy(() => {
   return z
     .object({
-      monitor: createMonitorMonitorRequest.optional(),
+      monitor: createMonitorPayloadRequest.optional(),
     })
     .transform((data) => ({
       monitor: data['monitor'],
