@@ -1,16 +1,16 @@
 import { z } from 'zod';
 import {
-  SearchDetectedSecretsRequestMeta,
-  searchDetectedSecretsRequestMeta,
-  searchDetectedSecretsRequestMetaRequest,
-  searchDetectedSecretsRequestMetaResponse,
-} from './search-detected-secrets-request-meta';
+  MetaLimitNextCursorTotalIncludeParam,
+  metaLimitNextCursorTotalIncludeParam,
+  metaLimitNextCursorTotalIncludeParamRequest,
+  metaLimitNextCursorTotalIncludeParamResponse,
+} from './meta-limit-next-cursor-total-include-param';
 import {
-  SearchDetectedSecretsRequestData,
-  searchDetectedSecretsRequestData,
-  searchDetectedSecretsRequestDataRequest,
-  searchDetectedSecretsRequestDataResponse,
-} from './search-detected-secrets-request-data';
+  DetectedSecretsData,
+  detectedSecretsData,
+  detectedSecretsDataRequest,
+  detectedSecretsDataResponse,
+} from './detected-secrets-data';
 
 /**
  * Zod schema for the SearchDetectedSecretsRequest model.
@@ -19,15 +19,15 @@ import {
  */
 export const searchDetectedSecretsRequest = z.lazy(() => {
   return z.object({
-    meta: searchDetectedSecretsRequestMeta.optional(),
-    data: z.array(searchDetectedSecretsRequestData).optional(),
+    meta: metaLimitNextCursorTotalIncludeParam.optional(),
+    data: z.array(detectedSecretsData).optional(),
   });
 });
 
 /**
  * @typedef {SearchDetectedSecretsRequest} searchDetectedSecretsRequest
- * @property {SearchDetectedSecretsRequestMeta} meta - The response's meta information for paginated results.
- * @property {SearchDetectedSecretsRequestData[]} data
+ * @property {MetaLimitNextCursorTotalIncludeParam} meta - The response's meta information for paginated results.
+ * @property {DetectedSecretsData[]} data - A list of detected secrets that match the search criteria.
  */
 export type SearchDetectedSecretsRequest = z.infer<typeof searchDetectedSecretsRequest>;
 
@@ -39,8 +39,8 @@ export type SearchDetectedSecretsRequest = z.infer<typeof searchDetectedSecretsR
 export const searchDetectedSecretsRequestResponse = z.lazy(() => {
   return z
     .object({
-      meta: searchDetectedSecretsRequestMetaResponse.optional(),
-      data: z.array(searchDetectedSecretsRequestDataResponse).optional(),
+      meta: metaLimitNextCursorTotalIncludeParamResponse.optional(),
+      data: z.array(detectedSecretsDataResponse).optional(),
     })
     .transform((data) => ({
       meta: data['meta'],
@@ -56,8 +56,8 @@ export const searchDetectedSecretsRequestResponse = z.lazy(() => {
 export const searchDetectedSecretsRequestRequest = z.lazy(() => {
   return z
     .object({
-      meta: searchDetectedSecretsRequestMetaRequest.optional(),
-      data: z.array(searchDetectedSecretsRequestDataRequest).optional(),
+      meta: metaLimitNextCursorTotalIncludeParamRequest.optional(),
+      data: z.array(detectedSecretsDataRequest).optional(),
     })
     .transform((data) => ({
       meta: data['meta'],

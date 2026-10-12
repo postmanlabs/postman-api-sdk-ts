@@ -14,6 +14,7 @@ export const collectionUpdatedCollection1 = z.lazy(() => {
 });
 
 /**
+ * Information about the updated collection.
  * @typedef {CollectionUpdatedCollection1} collectionUpdatedCollection1
  * @property {string} id - The collection's ID.
  * @property {string} name - The collection's name.

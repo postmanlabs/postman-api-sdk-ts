@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name | Type           | Required | Description |
-| :--- | :------------- | :------- | :---------- |
-| mock | CreateMockMock | ❌       |             |
+| Name | Type           | Required | Description                                  |
+| :--- | :------------- | :------- | :------------------------------------------- |
+| mock | CreateMockMock | ❌       | Information about the mock server to create. |
 
 # CreateMockMock
+
+Information about the mock server to create.
 
 **Properties**
 

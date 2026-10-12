@@ -1,3 +1,3 @@
-export interface ImportOpenApiDefinitionParams {
+export interface CreateImportOpenapiParams {
   workspace: string;
 }

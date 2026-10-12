@@ -1,5 +1,10 @@
 import { z } from 'zod';
-import { History, history, historyRequest, historyResponse } from './history';
+import {
+  SecretResolutionsHistoryData,
+  secretResolutionsHistoryData,
+  secretResolutionsHistoryDataRequest,
+  secretResolutionsHistoryDataResponse,
+} from './secret-resolutions-history-data';
 
 /**
  * Zod schema for the UpdateDetectedSecretResolutionsOkResponse model.
@@ -11,7 +16,7 @@ export const updateDetectedSecretResolutionsOkResponse = z.lazy(() => {
     secretHash: z.string().optional(),
     workspaceId: z.string().optional(),
     resolution: z.string().optional(),
-    history: z.array(history).optional(),
+    history: z.array(secretResolutionsHistoryData).optional(),
   });
 });
 
@@ -19,13 +24,13 @@ export const updateDetectedSecretResolutionsOkResponse = z.lazy(() => {
  * @typedef {UpdateDetectedSecretResolutionsOkResponse} updateDetectedSecretResolutionsOkResponse
  * @property {string} secretHash - The SHA-256 hash of the detected secret.
  * @property {string} workspaceId - The ID of the workspace that contains the secret.
- * @property {SuccessfulResponseResolution} resolution - The secret's current resolution status:
+ * @property {SecretResolutionStatus} resolution - The secret's resolution status:
 - `ACTIVE` — The secret is active.
 - `FALSE_POSITIVE` — The discovered secret is not an actual secret.
 - `REVOKED` — The secret is valid, but the user rotated their key to resolve the issue.
 - `ACCEPTED_RISK` — The Secret Scanner found the secret, but user accepts the risk of publishing it.
 
- * @property {History[]} history - The history of the secret's resolution status changes.
+ * @property {SecretResolutionsHistoryData[]} history - The history of the secret's resolution status changes.
  */
 export type UpdateDetectedSecretResolutionsOkResponse = z.infer<
   typeof updateDetectedSecretResolutionsOkResponse
@@ -42,7 +47,7 @@ export const updateDetectedSecretResolutionsOkResponseResponse = z.lazy(() => {
       secretHash: z.string().optional(),
       workspaceId: z.string().optional(),
       resolution: z.string().optional(),
-      history: z.array(historyResponse).optional(),
+      history: z.array(secretResolutionsHistoryDataResponse).optional(),
     })
     .transform((data) => ({
       secretHash: data['secretHash'],
@@ -63,7 +68,7 @@ export const updateDetectedSecretResolutionsOkResponseRequest = z.lazy(() => {
       secretHash: z.string().optional(),
       workspaceId: z.string().optional(),
       resolution: z.string().optional(),
-      history: z.array(historyRequest).optional(),
+      history: z.array(secretResolutionsHistoryDataRequest).optional(),
     })
     .transform((data) => ({
       secretHash: data['secretHash'],

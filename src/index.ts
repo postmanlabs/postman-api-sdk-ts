@@ -13,6 +13,8 @@ import { CollectionRequestsService } from './services/collection-requests';
 import { CollectionResponsesService } from './services/collection-responses';
 import { CommentsService } from './services/comments';
 import { ComponentsService } from './services/components';
+import { ContextGraphService } from './services/context-graph';
+import { ApiGovernanceService } from './services/api-governance';
 import { SecretScannerService } from './services/secret-scanner';
 import { EnvironmentsService } from './services/environments';
 import { GroupsService } from './services/groups';
@@ -26,10 +28,13 @@ import { OAuth2_0Service } from './services/o-auth-2-0';
 import { PackagesService } from './services/packages';
 import { PostbotService } from './services/postbot';
 import { PullRequestsService } from './services/pull-requests';
+<<<<<<< user
 import { ApiSecurityService } from './services/api-security';
+=======
+import { ScimService } from './services/scim';
+>>>>>>> generated
 import { SdksService } from './services/sdks';
 import { SearchService } from './services/search';
-import { ServiceAccountsService } from './services/service-accounts';
 import { TeamsService } from './services/teams';
 import { WebhooksService } from './services/webhooks';
 
@@ -46,6 +51,8 @@ export * from './services/collection-requests';
 export * from './services/collection-responses';
 export * from './services/comments';
 export * from './services/components';
+export * from './services/context-graph';
+export * from './services/api-governance';
 export * from './services/secret-scanner';
 export * from './services/environments';
 export * from './services/groups';
@@ -59,10 +66,13 @@ export * from './services/o-auth-2-0';
 export * from './services/packages';
 export * from './services/postbot';
 export * from './services/pull-requests';
+<<<<<<< user
 export * from './services/api-security';
+=======
+export * from './services/scim';
+>>>>>>> generated
 export * from './services/sdks';
 export * from './services/search';
-export * from './services/service-accounts';
 export * from './services/teams';
 export * from './services/webhooks';
 export * from './services/common';
@@ -97,6 +107,10 @@ export class PostmanApi {
 
   public readonly components: ComponentsService;
 
+  public readonly contextGraph: ContextGraphService;
+
+  public readonly apiGovernance: ApiGovernanceService;
+
   public readonly secretScanner: SecretScannerService;
 
   public readonly environments: EnvironmentsService;
@@ -123,19 +137,22 @@ export class PostmanApi {
 
   public readonly pullRequests: PullRequestsService;
 
+<<<<<<< user
   public readonly apiSecurity: ApiSecurityService;
 
+=======
+  public readonly scim: ScimService;
+
+>>>>>>> generated
   public readonly sdks: SdksService;
 
   public readonly search: SearchService;
-
-  public readonly serviceAccounts: ServiceAccountsService;
 
   public readonly teams: TeamsService;
 
   public readonly webhooks: WebhooksService;
 
-  constructor(public config: SdkConfig) {
+  constructor(public config: SdkConfig = {}) {
     this.billing = new BillingService(this.config);
 
     this.analytics = new AnalyticsService(this.config);
@@ -161,6 +178,10 @@ export class PostmanApi {
     this.comments = new CommentsService(this.config);
 
     this.components = new ComponentsService(this.config);
+
+    this.contextGraph = new ContextGraphService(this.config);
+
+    this.apiGovernance = new ApiGovernanceService(this.config);
 
     this.secretScanner = new SecretScannerService(this.config);
 
@@ -188,13 +209,16 @@ export class PostmanApi {
 
     this.pullRequests = new PullRequestsService(this.config);
 
+<<<<<<< user
     this.apiSecurity = new ApiSecurityService(this.config);
 
+=======
+    this.scim = new ScimService(this.config);
+
+>>>>>>> generated
     this.sdks = new SdksService(this.config);
 
     this.search = new SearchService(this.config);
-
-    this.serviceAccounts = new ServiceAccountsService(this.config);
 
     this.teams = new TeamsService(this.config);
 
@@ -215,6 +239,8 @@ export class PostmanApi {
     this.collectionResponses.baseUrl = baseUrl;
     this.comments.baseUrl = baseUrl;
     this.components.baseUrl = baseUrl;
+    this.contextGraph.baseUrl = baseUrl;
+    this.apiGovernance.baseUrl = baseUrl;
     this.secretScanner.baseUrl = baseUrl;
     this.environments.baseUrl = baseUrl;
     this.groups.baseUrl = baseUrl;
@@ -228,10 +254,13 @@ export class PostmanApi {
     this.packages.baseUrl = baseUrl;
     this.postbot.baseUrl = baseUrl;
     this.pullRequests.baseUrl = baseUrl;
+<<<<<<< user
     this.apiSecurity.baseUrl = baseUrl;
+=======
+    this.scim.baseUrl = baseUrl;
+>>>>>>> generated
     this.sdks.baseUrl = baseUrl;
     this.search.baseUrl = baseUrl;
-    this.serviceAccounts.baseUrl = baseUrl;
     this.teams.baseUrl = baseUrl;
     this.webhooks.baseUrl = baseUrl;
   }
@@ -250,6 +279,8 @@ export class PostmanApi {
     this.collectionResponses.baseUrl = environment;
     this.comments.baseUrl = environment;
     this.components.baseUrl = environment;
+    this.contextGraph.baseUrl = environment;
+    this.apiGovernance.baseUrl = environment;
     this.secretScanner.baseUrl = environment;
     this.environments.baseUrl = environment;
     this.groups.baseUrl = environment;
@@ -263,10 +294,13 @@ export class PostmanApi {
     this.packages.baseUrl = environment;
     this.postbot.baseUrl = environment;
     this.pullRequests.baseUrl = environment;
+<<<<<<< user
     this.apiSecurity.baseUrl = environment;
+=======
+    this.scim.baseUrl = environment;
+>>>>>>> generated
     this.sdks.baseUrl = environment;
     this.search.baseUrl = environment;
-    this.serviceAccounts.baseUrl = environment;
     this.teams.baseUrl = environment;
     this.webhooks.baseUrl = environment;
   }
@@ -285,6 +319,8 @@ export class PostmanApi {
     this.collectionResponses.timeoutMs = timeoutMs;
     this.comments.timeoutMs = timeoutMs;
     this.components.timeoutMs = timeoutMs;
+    this.contextGraph.timeoutMs = timeoutMs;
+    this.apiGovernance.timeoutMs = timeoutMs;
     this.secretScanner.timeoutMs = timeoutMs;
     this.environments.timeoutMs = timeoutMs;
     this.groups.timeoutMs = timeoutMs;
@@ -298,10 +334,13 @@ export class PostmanApi {
     this.packages.timeoutMs = timeoutMs;
     this.postbot.timeoutMs = timeoutMs;
     this.pullRequests.timeoutMs = timeoutMs;
+<<<<<<< user
     this.apiSecurity.timeoutMs = timeoutMs;
+=======
+    this.scim.timeoutMs = timeoutMs;
+>>>>>>> generated
     this.sdks.timeoutMs = timeoutMs;
     this.search.timeoutMs = timeoutMs;
-    this.serviceAccounts.timeoutMs = timeoutMs;
     this.teams.timeoutMs = timeoutMs;
     this.webhooks.timeoutMs = timeoutMs;
   }
@@ -320,6 +359,8 @@ export class PostmanApi {
     this.collectionResponses.username = username;
     this.comments.username = username;
     this.components.username = username;
+    this.contextGraph.username = username;
+    this.apiGovernance.username = username;
     this.secretScanner.username = username;
     this.environments.username = username;
     this.groups.username = username;
@@ -333,10 +374,13 @@ export class PostmanApi {
     this.packages.username = username;
     this.postbot.username = username;
     this.pullRequests.username = username;
+<<<<<<< user
     this.apiSecurity.username = username;
+=======
+    this.scim.username = username;
+>>>>>>> generated
     this.sdks.username = username;
     this.search.username = username;
-    this.serviceAccounts.username = username;
     this.teams.username = username;
     this.webhooks.username = username;
   }
@@ -355,6 +399,8 @@ export class PostmanApi {
     this.collectionResponses.password = password;
     this.comments.password = password;
     this.components.password = password;
+    this.contextGraph.password = password;
+    this.apiGovernance.password = password;
     this.secretScanner.password = password;
     this.environments.password = password;
     this.groups.password = password;
@@ -368,10 +414,13 @@ export class PostmanApi {
     this.packages.password = password;
     this.postbot.password = password;
     this.pullRequests.password = password;
+<<<<<<< user
     this.apiSecurity.password = password;
+=======
+    this.scim.password = password;
+>>>>>>> generated
     this.sdks.password = password;
     this.search.password = password;
-    this.serviceAccounts.password = password;
     this.teams.password = password;
     this.webhooks.password = password;
   }
@@ -390,6 +439,8 @@ export class PostmanApi {
     this.collectionResponses.apiKey = apiKey;
     this.comments.apiKey = apiKey;
     this.components.apiKey = apiKey;
+    this.contextGraph.apiKey = apiKey;
+    this.apiGovernance.apiKey = apiKey;
     this.secretScanner.apiKey = apiKey;
     this.environments.apiKey = apiKey;
     this.groups.apiKey = apiKey;
@@ -403,10 +454,13 @@ export class PostmanApi {
     this.packages.apiKey = apiKey;
     this.postbot.apiKey = apiKey;
     this.pullRequests.apiKey = apiKey;
+<<<<<<< user
     this.apiSecurity.apiKey = apiKey;
+=======
+    this.scim.apiKey = apiKey;
+>>>>>>> generated
     this.sdks.apiKey = apiKey;
     this.search.apiKey = apiKey;
-    this.serviceAccounts.apiKey = apiKey;
     this.teams.apiKey = apiKey;
     this.webhooks.apiKey = apiKey;
   }
@@ -425,6 +479,8 @@ export class PostmanApi {
     this.collectionResponses.apiKeyHeader = apiKeyHeader;
     this.comments.apiKeyHeader = apiKeyHeader;
     this.components.apiKeyHeader = apiKeyHeader;
+    this.contextGraph.apiKeyHeader = apiKeyHeader;
+    this.apiGovernance.apiKeyHeader = apiKeyHeader;
     this.secretScanner.apiKeyHeader = apiKeyHeader;
     this.environments.apiKeyHeader = apiKeyHeader;
     this.groups.apiKeyHeader = apiKeyHeader;
@@ -438,10 +494,13 @@ export class PostmanApi {
     this.packages.apiKeyHeader = apiKeyHeader;
     this.postbot.apiKeyHeader = apiKeyHeader;
     this.pullRequests.apiKeyHeader = apiKeyHeader;
+<<<<<<< user
     this.apiSecurity.apiKeyHeader = apiKeyHeader;
+=======
+    this.scim.apiKeyHeader = apiKeyHeader;
+>>>>>>> generated
     this.sdks.apiKeyHeader = apiKeyHeader;
     this.search.apiKeyHeader = apiKeyHeader;
-    this.serviceAccounts.apiKeyHeader = apiKeyHeader;
     this.teams.apiKeyHeader = apiKeyHeader;
     this.webhooks.apiKeyHeader = apiKeyHeader;
   }

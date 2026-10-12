@@ -13,6 +13,7 @@ export const notFoundError1 = z.lazy(() => {
 });
 
 /**
+ * Information about the error.
  * @typedef {NotFoundError1} notFoundError1
  * @property {string} name - The error name.
  * @property {string} message - The error message.

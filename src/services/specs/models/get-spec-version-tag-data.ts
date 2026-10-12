@@ -30,7 +30,7 @@ export const getSpecVersionTagData = z.lazy(() => {
  * @property {string} createdAt - The date and time at which the file was created.
  * @property {string} updatedAt - The date and time at which the file was updated.
  * @property {string} createdBy - The user ID of the user that created the file.
- * @property {GetSpecVersionTagDataType} type - The file's type.
+ * @property {DataType} type - The file's type.
  * @property {string} path - The file's path.
  * @property {FileType} fileType - The type of file:
 

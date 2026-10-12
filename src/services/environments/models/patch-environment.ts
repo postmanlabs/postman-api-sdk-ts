@@ -1,20 +1,24 @@
 import { z } from 'zod';
 import {
+  PatchEnvironmentAdd,
   patchEnvironmentAdd,
   patchEnvironmentAddRequest,
   patchEnvironmentAddResponse,
 } from './patch-environment-add';
 import {
+  PatchEnvironmentName,
   patchEnvironmentName,
   patchEnvironmentNameRequest,
   patchEnvironmentNameResponse,
 } from './patch-environment-name';
 import {
+  PatchEnvironmentReplace,
   patchEnvironmentReplace,
   patchEnvironmentReplaceRequest,
   patchEnvironmentReplaceResponse,
 } from './patch-environment-replace';
 import {
+  PatchEnvironmentRemove,
   patchEnvironmentRemove,
   patchEnvironmentRemoveRequest,
   patchEnvironmentRemoveResponse,
