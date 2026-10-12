@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name   | Type                              | Required | Description |
-| :----- | :-------------------------------- | :------- | :---------- |
-| schema | SchemaValidationRequestBodySchema | ❌       |             |
+| Name   | Type                              | Required | Description                     |
+| :----- | :-------------------------------- | :------- | :------------------------------ |
+| schema | SchemaValidationRequestBodySchema | ❌       | The API definition to validate. |
 
 # SchemaValidationRequestBodySchema
+
+The API definition to validate.
 
 **Properties**
 

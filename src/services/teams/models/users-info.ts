@@ -12,6 +12,7 @@ export const usersInfo = z.lazy(() => {
 });
 
 /**
+ * The role assignments keyed by user ID.
  * @typedef {UsersInfo} usersInfo
  * @property {TeamRoles[]} _userId_ - A list of the user's roles. The array's name is the user's ID.
  */

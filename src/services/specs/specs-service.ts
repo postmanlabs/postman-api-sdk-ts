@@ -380,6 +380,67 @@ export class SpecsService extends BaseService {
 - This returns an HTTP `200 OK` response if the given API ID isn't an API Builder definition.
 - To migrate a Git-linked API Builder definition to Spec Hub, you must create a new workspace. Migration to an existing workspace isn't supported.
 
+<<<<<<< user
+=======
+ * @param {string} apiId - The API's ID.
+ * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
+ * @returns {Promise<HttpResponse<MigrateToSpecHubResponse>>} - Empty API Migration
+ */
+  async migrateApiToSpecHub(
+    apiId: string,
+    body: MigrateApiToSpecHub,
+    requestConfig?: Partial<SdkConfig>,
+  ): Promise<MigrateToSpecHubResponse> {
+    const resolvedConfig = this.getResolvedConfig(this.migrateApiToSpecHubConfig, requestConfig);
+    const request = new RequestBuilder()
+      .setConfig(resolvedConfig)
+      .setBaseUrl(resolvedConfig)
+      .setMethod('POST')
+      .setPath('/apis/{apiId}/spec-migrations')
+      .setRequestSchema(migrateApiToSpecHubRequest)
+      .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
+      .setRequestContentType(ContentType.Json)
+      .addResponse({
+        schema: migrateToSpecHubResponseResponse,
+        contentType: ContentType.Json,
+        status: 200,
+      })
+      .addResponse({
+        schema: migrateToSpecHubResponseResponse,
+        contentType: ContentType.Json,
+        status: 202,
+      })
+      .addError({
+        error: MigrateApiToSpecHub400Error,
+        contentType: ContentType.Json,
+        status: 400,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 401,
+      })
+      .addError({
+        error: ApiSpec403Error,
+        contentType: ContentType.Json,
+        status: 403,
+      })
+      .addError({
+        error: Common500Error,
+        contentType: ContentType.Json,
+        status: 500,
+      })
+      .addPathParam({
+        key: 'apiId',
+        value: apiId,
+      })
+      .addHeaderParam({ key: 'Content-Type', value: 'application/json' })
+      .addBody(body)
+      .build();
+    return this.client.callDirect<MigrateToSpecHubResponse>(request);
+  }
+
+>>>>>>> generated
   /**
    * Gets the API specification generated for the given collection.
    * @param {string} collectionUid - The collection's unique ID.
@@ -987,7 +1048,7 @@ export class SpecsService extends BaseService {
    * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
    * @returns {Promise<HttpResponse<any>>} - Successful Response
    */
-  async getSpecDefinition(specId: string, requestConfig?: Partial<SdkConfig>): Promise<any | any> {
+  async getSpecDefinition(specId: string, requestConfig?: Partial<SdkConfig>): Promise<any> {
     const resolvedConfig = this.getResolvedConfig(this.getSpecDefinitionConfig, requestConfig);
     const request = new RequestBuilder()
       .setConfig(resolvedConfig)
@@ -1037,7 +1098,7 @@ export class SpecsService extends BaseService {
         value: specId,
       })
       .build();
-    return this.client.callDirect<any | any>(request);
+    return this.client.callDirect<any>(request);
   }
 
   /**

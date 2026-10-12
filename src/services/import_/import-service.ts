@@ -10,13 +10,13 @@ import {
   importOpenApiDefinitionRequest,
 } from './models/import-open-api-definition';
 import {
-  ImportOpenApiDefinitionOkResponse,
-  importOpenApiDefinitionOkResponseResponse,
-} from './models/import-open-api-definition-ok-response';
-import { ImportOpenApiDefinitionBadRequestResponse } from './models/import-open-api-definition-bad-request-response';
+  CreateImportOpenapiOkResponse,
+  createImportOpenapiOkResponseResponse,
+} from './models/create-import-openapi-ok-response';
+import { CreateImportOpenapiBadRequestResponse } from './models/create-import-openapi-bad-request-response';
 import { Common401Error } from '../common/common401-error';
 import { Common500Error } from '../common/common500-error';
-import { ImportOpenApiDefinitionParams } from './request-params';
+import { CreateImportOpenapiParams } from './request-params';
 
 /**
  * Service class for Import_Service operations.
@@ -24,15 +24,15 @@ import { ImportOpenApiDefinitionParams } from './request-params';
  * All methods return promises and handle request/response serialization automatically.
  */
 export class Import_Service extends BaseService {
-  protected importOpenApiDefinitionConfig?: Partial<SdkConfig>;
+  protected createImportOpenapiConfig?: Partial<SdkConfig>;
 
   /**
-   * Sets method-level configuration for importOpenApiDefinition.
+   * Sets method-level configuration for createImportOpenapi.
    * @param config - Partial configuration to override service-level defaults
    * @returns This service instance for method chaining
    */
-  setImportOpenApiDefinitionConfig(config: Partial<SdkConfig>): this {
-    this.importOpenApiDefinitionConfig = config;
+  setCreateImportOpenapiConfig(config: Partial<SdkConfig>): this {
+    this.createImportOpenapiConfig = config;
     return this;
   }
 
@@ -43,21 +43,17 @@ export class Import_Service extends BaseService {
 - This endpoint has a rate limit of **10 requests per 10 seconds**.
 - The Postman web app does not support the `file` input method type.
 - If you do not include the `workspace` query parameter, the system imports the definition into the oldest personal Internal workspace you own.
-- For an example of importing a file, see the [Postman API collection](https://www.postman.com/postman/postman-public-workspace/example/12959542-08d74ce2-8150-4f72-99a7-11e60492eb47).
 
  * @param {string} params.workspace - The workspace's ID.
  * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
- * @returns {Promise<HttpResponse<ImportOpenApiDefinitionOkResponse>>} - Successful Response
+ * @returns {Promise<HttpResponse<CreateImportOpenapiOkResponse>>} - Successful Response
  */
-  async importOpenApiDefinition(
+  async createImportOpenapi(
     body: ImportOpenApiDefinition,
-    params: ImportOpenApiDefinitionParams,
+    params: CreateImportOpenapiParams,
     requestConfig?: Partial<SdkConfig>,
-  ): Promise<ImportOpenApiDefinitionOkResponse> {
-    const resolvedConfig = this.getResolvedConfig(
-      this.importOpenApiDefinitionConfig,
-      requestConfig,
-    );
+  ): Promise<CreateImportOpenapiOkResponse> {
+    const resolvedConfig = this.getResolvedConfig(this.createImportOpenapiConfig, requestConfig);
     z.object({ workspace: z.string() }).parse(params ?? {});
     const request = new RequestBuilder()
       .setConfig(resolvedConfig)
@@ -68,12 +64,12 @@ export class Import_Service extends BaseService {
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({
-        schema: importOpenApiDefinitionOkResponseResponse,
+        schema: createImportOpenapiOkResponseResponse,
         contentType: ContentType.Json,
         status: 200,
       })
       .addError({
-        error: ImportOpenApiDefinitionBadRequestResponse,
+        error: CreateImportOpenapiBadRequestResponse,
         contentType: ContentType.Json,
         status: 400,
       })
@@ -94,6 +90,6 @@ export class Import_Service extends BaseService {
       .addHeaderParam({ key: 'Content-Type', value: 'application/json' })
       .addBody(body)
       .build();
-    return this.client.callDirect<ImportOpenApiDefinitionOkResponse>(request);
+    return this.client.callDirect<CreateImportOpenapiOkResponse>(request);
   }
 }
