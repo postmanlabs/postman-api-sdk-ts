@@ -16,7 +16,7 @@ export class LineDecoder {
    * @returns An array of complete lines as Uint8Array
    */
   public splitLines(chunk: Uint8Array): Uint8Array[] {
-    this.lineBuffer += this.decoder.decode(chunk);
+    this.lineBuffer += this.decoder.decode(chunk, { stream: true });
 
     let lineEndIndex;
     const lines: Uint8Array[] = [];

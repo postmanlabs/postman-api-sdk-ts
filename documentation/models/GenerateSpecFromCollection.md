@@ -2,11 +2,11 @@
 
 **Properties**
 
-| Name   | Type                           | Required | Description                          |
-| :----- | :----------------------------- | :------- | :----------------------------------- |
-| name   | string                         | ✅       | The API specification's name.        |
-| type   | GenerateSpecFromCollectionType | ❌       | The specification's type.            |
-| format | Format                         | ❌       | The format of the API specification. |
+| Name   | Type                             | Required | Description                          |
+| :----- | :------------------------------- | :------- | :----------------------------------- |
+| name   | string                           | ✅       | The API specification's name.        |
+| type   | GenerateSpecFromCollectionType   | ❌       | The specification's type.            |
+| format | GenerateSpecFromCollectionFormat | ❌       | The format of the API specification. |
 
 # GenerateSpecFromCollectionType
 
@@ -20,7 +20,7 @@ The specification's type.
 | OPENAPI_3_0 | string | ✅       | "OPENAPI:3.0" |
 | OPENAPI_3_1 | string | ✅       | "OPENAPI:3.1" |
 
-# Format
+# GenerateSpecFromCollectionFormat
 
 The format of the API specification.
 
