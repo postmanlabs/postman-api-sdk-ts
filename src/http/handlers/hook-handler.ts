@@ -19,7 +19,7 @@ export class HookHandler implements RequestHandler {
 
   /**
    * Handles a standard HTTP request with hook invocation.
-   * Calls beforeRequest hook, processes the request, and calls afterResponse or onError hooks.
+   * Calls beforeRequest hook, processes the request, and calls the afterResponse hook.
    * @template T - The expected response data type
    * @param request - The HTTP request to process
    * @returns A promise that resolves to the HTTP response
@@ -42,6 +42,14 @@ export class HookHandler implements RequestHandler {
       return await hook.afterResponse(nextRequest, response, hookParams);
     }
 
+    return await this.throwErrorResponse<T>(request, response);
+  }
+
+  private async throwErrorResponse<T>(
+    request: Request,
+    response: HttpResponse<T>,
+    resolveUndeclaredError?: () => Promise<unknown>,
+  ): Promise<never> {
     // Handle error responses
     const arrayBuffer = response.raw;
 
@@ -68,6 +76,10 @@ export class HookHandler implements RequestHandler {
       // Attach metadata to custom error for analytics tracking
       customError.metadata = response.metadata;
       customError.throw();
+    }
+
+    if (resolveUndeclaredError) {
+      throw await resolveUndeclaredError();
     }
 
     const decodedBody = new TextDecoder().decode(arrayBuffer);
@@ -103,7 +115,9 @@ export class HookHandler implements RequestHandler {
       if (response.metadata.status < 400) {
         yield await hook.afterResponse(nextRequest, response, hookParams);
       } else {
-        throw await hook.onError(nextRequest, response, hookParams);
+        return await this.throwErrorResponse<T>(request, response, () =>
+          hook.onError(nextRequest, response, hookParams),
+        );
       }
     }
   }

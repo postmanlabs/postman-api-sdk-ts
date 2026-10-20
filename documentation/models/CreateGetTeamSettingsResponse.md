@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name     | Type                                  | Required | Description |
-| :------- | :------------------------------------ | :------- | :---------- |
-| settings | CreateGetTeamSettingsResponseSettings | ❌       |             |
+| Name     | Type                                  | Required | Description                            |
+| :------- | :------------------------------------ | :------- | :------------------------------------- |
+| settings | CreateGetTeamSettingsResponseSettings | ❌       | Information about the team's settings. |
 
 # CreateGetTeamSettingsResponseSettings
+
+Information about the team's settings.
 
 **Properties**
 

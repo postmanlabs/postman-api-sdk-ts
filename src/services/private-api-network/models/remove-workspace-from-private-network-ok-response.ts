@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  SuccessfulResponseWorkspace3,
-  successfulResponseWorkspace3,
-  successfulResponseWorkspace3Request,
-  successfulResponseWorkspace3Response,
-} from './successful-response-workspace-3';
+  SuccessfulResponseWorkspace2,
+  successfulResponseWorkspace2,
+  successfulResponseWorkspace2Request,
+  successfulResponseWorkspace2Response,
+} from './successful-response-workspace-2';
 
 /**
  * Zod schema for the RemoveWorkspaceFromPrivateNetworkOkResponse model.
@@ -13,13 +13,13 @@ import {
  */
 export const removeWorkspaceFromPrivateNetworkOkResponse = z.lazy(() => {
   return z.object({
-    workspace: successfulResponseWorkspace3.optional(),
+    workspace: successfulResponseWorkspace2.optional(),
   });
 });
 
 /**
  * @typedef {RemoveWorkspaceFromPrivateNetworkOkResponse} removeWorkspaceFromPrivateNetworkOkResponse
- * @property {SuccessfulResponseWorkspace3} workspace - The Private API Network `workspace` element type.
+ * @property {SuccessfulResponseWorkspace2} workspace - The Private API Network `workspace` element type.
  */
 export type RemoveWorkspaceFromPrivateNetworkOkResponse = z.infer<
   typeof removeWorkspaceFromPrivateNetworkOkResponse
@@ -33,7 +33,7 @@ export type RemoveWorkspaceFromPrivateNetworkOkResponse = z.infer<
 export const removeWorkspaceFromPrivateNetworkOkResponseResponse = z.lazy(() => {
   return z
     .object({
-      workspace: successfulResponseWorkspace3Response.optional(),
+      workspace: successfulResponseWorkspace2Response.optional(),
     })
     .transform((data) => ({
       workspace: data['workspace'],
@@ -48,7 +48,7 @@ export const removeWorkspaceFromPrivateNetworkOkResponseResponse = z.lazy(() => 
 export const removeWorkspaceFromPrivateNetworkOkResponseRequest = z.lazy(() => {
   return z
     .object({
-      workspace: successfulResponseWorkspace3Request.optional(),
+      workspace: successfulResponseWorkspace2Request.optional(),
     })
     .transform((data) => ({
       workspace: data['workspace'],

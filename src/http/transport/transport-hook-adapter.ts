@@ -39,7 +39,11 @@ export class TransportHookAdapter<T> {
         true,
       ),
       headers: this.hookParamsToTransportParams(newRequest.headers, request.headers, false),
-      pathParams: this.hookParamsToTransportParams(newRequest.pathParams, request.headers, false),
+      pathParams: this.hookParamsToTransportParams(
+        newRequest.pathParams,
+        request.pathParams,
+        false,
+      ),
     });
 
     return newTransportRequest;

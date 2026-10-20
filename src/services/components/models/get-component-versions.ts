@@ -26,7 +26,7 @@ export const getComponentVersions = z.lazy(() => {
 
 /**
  * @typedef {GetComponentVersions} getComponentVersions
- * @property {GetSpecVersionTagsMeta} meta
+ * @property {GetSpecVersionTagsMeta} meta - The response's meta information for paginated results.
  * @property {ComponentVersionData[]} data - A list of the component's versions.
  */
 export type GetComponentVersions = z.infer<typeof getComponentVersions>;

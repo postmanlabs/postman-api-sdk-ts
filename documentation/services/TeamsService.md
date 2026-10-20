@@ -2,18 +2,19 @@
 
 A list of all methods in the `TeamsService` service. Click on the method name to view detailed information about that method.
 
-| Methods                                               | Description                                                                                                                                                                                                                                                                                    |
-| :---------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [getTeams](#getteams)                                 | Gets all Postman teams in your organization.                                                                                                                                                                                                                                                   |
-| [createTeam](#createteam)                             | [Creates](https://learning.postman.com/docs/administration/managing-your-team/create-teams/) a Postman team in your organization.                                                                                                                                                              |
-| [getTeam](#getteam)                                   | Gets information about a Postman team.                                                                                                                                                                                                                                                         |
-| [getTeamAccessRequests](#getteamaccessrequests)       | Gets a team's pending access requests.                                                                                                                                                                                                                                                         |
-| [createAccessRequest](#createaccessrequest)           | Creates an access request for a team. Access requests include actions such as request to join a team, upgrading a user's role, adding members, and requesting team role access to another team. **Note:** If a team discovery is enabled, the team's access request is automatically approved. |
-| [approveDenyAccessRequest](#approvedenyaccessrequest) | Approve or deny a team's access request.                                                                                                                                                                                                                                                       |
-| [manageTeamMemberRoles](#manageteammemberroles)       | Adds or removes member roles in groups, teams, organizations, as well as individual users' roles. **Note:** If you remove a role from a group or team, then all members lose the that role's permissions.                                                                                      |
-| [removeTeamMembers](#removeteammembers)               | Removes entities, such as users or organizations, from your Postman team. On success, this returns an HTTP `204 No Content` response.                                                                                                                                                          |
-| [getTeamSettings](#getteamsettings)                   | Gets a team's settings.                                                                                                                                                                                                                                                                        |
-| [updateTeamSettings](#updateteamsettings)             | Updates a team's settings.                                                                                                                                                                                                                                                                     |
+| Methods                                               | Description                                                                                                                                                                                                                                                                                                |
+| :---------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [getTeams](#getteams)                                 | Gets all Postman teams in your organization.                                                                                                                                                                                                                                                               |
+| [createTeam](#createteam)                             | [Creates](https://learning.postman.com/docs/administration/managing-your-team/create-teams/) a Postman team in your organization.                                                                                                                                                                          |
+| [getTeam](#getteam)                                   | Gets information about a Postman team.                                                                                                                                                                                                                                                                     |
+| [updateTeam](#updateteam)                             | Updates a Postman team's name in your organization. **Note:** You can only update the team's `name`. The name must be unique in the organization. This endpoint is only available to organizations that have teams enabled. This endpoint requires the `application/merge-patch+json` Content-Type header. |
+| [getTeamAccessRequests](#getteamaccessrequests)       | Gets a team's pending access requests.                                                                                                                                                                                                                                                                     |
+| [createAccessRequest](#createaccessrequest)           | Creates an access request for a team. Access requests include actions such as request to join a team, upgrading a user's role, adding members, and requesting team role access to another team. **Note:** If a team discovery is enabled, the team's access request is automatically approved.             |
+| [approveDenyAccessRequest](#approvedenyaccessrequest) | Approve or deny a team's access request.                                                                                                                                                                                                                                                                   |
+| [manageTeamMemberRoles](#manageteammemberroles)       | Adds or removes member roles in groups, teams, organizations, as well as individual users' roles. **Note:** If you remove a role from a group or team, then all members lose the that role's permissions.                                                                                                  |
+| [removeTeamMembers](#removeteammembers)               | Removes entities, such as users or organizations, from your Postman team. On success, this returns an HTTP `204 No Content` response.                                                                                                                                                                      |
+| [getTeamSettings](#getteamsettings)                   | Gets a team's settings.                                                                                                                                                                                                                                                                                    |
+| [updateTeamSettings](#updateteamsettings)             | Updates a team's settings.                                                                                                                                                                                                                                                                                 |
 
 ## getTeams
 
@@ -139,6 +140,47 @@ import { PostmanApi, TeamsInclude } from '@postman/api-sdk';
 })();
 ```
 
+## updateTeam
+
+Updates a Postman team's name in your organization. **Note:** You can only update the team's `name`. The name must be unique in the organization. This endpoint is only available to organizations that have teams enabled. This endpoint requires the `application/merge-patch+json` Content-Type header.
+
+- HTTP Method: `PATCH`
+- Endpoint: `/teams/{teamId}`
+
+**Parameters**
+
+| Name           | Type                                  | Required | Description                                              |
+| :------------- | :------------------------------------ | :------- | :------------------------------------------------------- |
+| body           | [UpdateTeam](../models/UpdateTeam.md) | ❌       | The request body.                                        |
+| teamId         | number                                | ✅       | The team's ID.                                           |
+| identifierType | string                                | ❌       | Use SCIM user and group IDs instead of Postman user IDs. |
+
+**Return Type**
+
+`CreateGetTeamResponse`
+
+**Example Usage Code Snippet**
+
+```typescript
+import { PostmanApi, UpdateTeam } from '@postman/api-sdk';
+
+(async () => {
+  const postmanApi = new PostmanApi({
+    apiKey: 'YOUR_API_KEY',
+  });
+
+  const updateTeam: UpdateTeam = {
+    name: 'Testing Team',
+  };
+
+  const data = await postmanApi.teams.updateTeam(123, updateTeam, {
+    identifierType: 'scim',
+  });
+
+  console.log(data);
+})();
+```
+
 ## getTeamAccessRequests
 
 Gets a team's pending access requests.
@@ -217,7 +259,7 @@ import {
 
   const teamEntityInfoEntityType = TeamEntityInfoEntityType.USER;
 
-  const teamEntityInfoEntityId = 2;
+  const teamEntityInfoEntityId = 5;
 
   const teamEntityInfo: TeamEntityInfo = {
     entityType: teamEntityInfoEntityType,
@@ -412,7 +454,7 @@ import {
 
   const teamEntityInfoEntityType = TeamEntityInfoEntityType.USER;
 
-  const teamEntityInfoEntityId = 2;
+  const teamEntityInfoEntityId = 5;
 
   const teamEntityInfo: TeamEntityInfo = {
     entityType: teamEntityInfoEntityType,
