@@ -1,5 +1,6 @@
 import z, { ZodType } from 'zod';
 import { Request } from './request';
+import { toBase64 as encodeBase64 } from '../utils/runtime';
 import {
   CreateRequestParameters,
   RequestParameter,
@@ -32,14 +33,13 @@ export class RequestBuilder<Page extends unknown[] = unknown[]> {
       path: '',
       config: {
         retry: {
-          attempts: 3,
           delayMs: 150,
           maxDelayMs: 5000,
           backoffFactor: 2,
           jitterMs: 50,
-          httpMethodsToRetry: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+          httpMethodsToRetry: ['GET', 'PUT', 'DELETE', 'HEAD', 'OPTIONS'],
         },
-        validation: { responseValidation: true },
+        validation: { responseValidation: true, requestValidation: true },
       } as SdkConfig,
       responses: [],
       errors: [],
@@ -52,7 +52,7 @@ export class RequestBuilder<Page extends unknown[] = unknown[]> {
     };
     this.addHeaderParam({
       key: 'User-Agent',
-      value: 'postman-codegen/2.4.0 @postman/api-sdk/1.46.0 (typescript)',
+      value: 'postman-codegen/3.12.0 @postman/api-sdk/1.47.1 (typescript)',
     });
   }
 
@@ -161,7 +161,8 @@ export class RequestBuilder<Page extends unknown[] = unknown[]> {
       value: `${prefix ?? 'Bearer'} ${accessToken}`,
       explode: false,
       style: SerializationStyle.SIMPLE,
-      encode: true,
+      // Header values are not URL-encoded; `encode` only means something for path/query params.
+      encode: false,
       isLimit: false,
       isOffset: false,
       isCursor: false,
@@ -179,7 +180,8 @@ export class RequestBuilder<Page extends unknown[] = unknown[]> {
       value: `Basic ${this.toBase64(`${username}:${password}`)}`,
       explode: false,
       style: SerializationStyle.SIMPLE,
-      encode: true,
+      // Header values are not URL-encoded; `encode` only means something for path/query params.
+      encode: false,
       isLimit: false,
       isOffset: false,
       isCursor: false,
@@ -206,7 +208,9 @@ export class RequestBuilder<Page extends unknown[] = unknown[]> {
       value: apiKey,
       explode: isQuery,
       style: isQuery ? SerializationStyle.FORM : SerializationStyle.SIMPLE,
-      encode: true,
+      // Query values go through the FORM branch, which always URL-encodes regardless of this flag.
+      // Header/cookie values are not URL-encoded, so `encode` must be false for those locations.
+      encode: isQuery,
       isLimit: false,
       isOffset: false,
       isCursor: false,
@@ -324,17 +328,7 @@ export class RequestBuilder<Page extends unknown[] = unknown[]> {
     return new Request<Page>(this.params);
   }
 
-  /**
-   * Converts a string to Base64 encoding.
-   * Works in both Node.js and browser environments.
-   * @param str - The string to encode
-   * @returns The Base64-encoded string
-   */
   private toBase64(str: string): string {
-    if (typeof window === 'undefined') {
-      return Buffer.from(str, 'utf-8').toString('base64');
-    } else {
-      return btoa(unescape(encodeURIComponent(str)));
-    }
+    return encodeBase64(str);
   }
 }

@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  MonitorDeletedMonitor,
-  monitorDeletedMonitor,
-  monitorDeletedMonitorRequest,
-  monitorDeletedMonitorResponse,
-} from './monitor-deleted-monitor';
+  DeleteMonitorData,
+  deleteMonitorData,
+  deleteMonitorDataRequest,
+  deleteMonitorDataResponse,
+} from './delete-monitor-data';
 
 /**
  * Zod schema for the MonitorDeleted model.
@@ -13,13 +13,13 @@ import {
  */
 export const monitorDeleted = z.lazy(() => {
   return z.object({
-    monitor: monitorDeletedMonitor.optional(),
+    monitor: deleteMonitorData.optional(),
   });
 });
 
 /**
  * @typedef {MonitorDeleted} monitorDeleted
- * @property {MonitorDeletedMonitor} monitor - Information about the monitor.
+ * @property {DeleteMonitorData} monitor - Information about the monitor.
  */
 export type MonitorDeleted = z.infer<typeof monitorDeleted>;
 
@@ -31,7 +31,7 @@ export type MonitorDeleted = z.infer<typeof monitorDeleted>;
 export const monitorDeletedResponse = z.lazy(() => {
   return z
     .object({
-      monitor: monitorDeletedMonitorResponse.optional(),
+      monitor: deleteMonitorDataResponse.optional(),
     })
     .transform((data) => ({
       monitor: data['monitor'],
@@ -46,7 +46,7 @@ export const monitorDeletedResponse = z.lazy(() => {
 export const monitorDeletedRequest = z.lazy(() => {
   return z
     .object({
-      monitor: monitorDeletedMonitorRequest.optional(),
+      monitor: deleteMonitorDataRequest.optional(),
     })
     .transform((data) => ({
       monitor: data['monitor'],

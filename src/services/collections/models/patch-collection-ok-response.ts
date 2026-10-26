@@ -19,7 +19,7 @@ export const patchCollectionOkResponse = z.lazy(() => {
 
 /**
  * @typedef {PatchCollectionOkResponse} patchCollectionOkResponse
- * @property {CollectionUpdatedCollection2} collection
+ * @property {CollectionUpdatedCollection2} collection - Information about the updated collection.
  */
 export type PatchCollectionOkResponse = z.infer<typeof patchCollectionOkResponse>;
 

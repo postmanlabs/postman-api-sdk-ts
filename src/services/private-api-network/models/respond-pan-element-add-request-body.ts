@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  RespondPanElementAddRequestBodyResponse1,
-  respondPanElementAddRequestBodyResponse1,
-  respondPanElementAddRequestBodyResponse1Request,
-  respondPanElementAddRequestBodyResponse1Response,
-} from './respond-pan-element-add-request-body-response-1';
+  RespondPanElementAddRequestBodyResponse,
+  respondPanElementAddRequestBodyResponseRequest,
+  respondPanElementAddRequestBodyResponseResponse,
+  respondPanElementAddRequestBodyResponse_3,
+} from './respond-pan-element-add-request-body-response';
 
 /**
  * Zod schema for the RespondPanElementAddRequestBody model.
@@ -14,14 +14,14 @@ import {
 export const respondPanElementAddRequestBody = z.lazy(() => {
   return z.object({
     status: z.string(),
-    response: respondPanElementAddRequestBodyResponse1.optional(),
+    response: respondPanElementAddRequestBodyResponse_3.optional(),
   });
 });
 
 /**
  * @typedef {RespondPanElementAddRequestBody} respondPanElementAddRequestBody
  * @property {RespondPanElementAddRequestBodyStatus} status - The request's approval status.
- * @property {RespondPanElementAddRequestBodyResponse1} response - If the request is denied, the response to the user's request.
+ * @property {RespondPanElementAddRequestBodyResponse} response - If the request is denied, the response to the user's request.
  */
 export type RespondPanElementAddRequestBody = z.infer<typeof respondPanElementAddRequestBody>;
 
@@ -34,7 +34,7 @@ export const respondPanElementAddRequestBodyResponse = z.lazy(() => {
   return z
     .object({
       status: z.string(),
-      response: respondPanElementAddRequestBodyResponse1Response.optional(),
+      response: respondPanElementAddRequestBodyResponseResponse.optional(),
     })
     .transform((data) => ({
       status: data['status'],
@@ -51,7 +51,7 @@ export const respondPanElementAddRequestBodyRequest = z.lazy(() => {
   return z
     .object({
       status: z.string(),
-      response: respondPanElementAddRequestBodyResponse1Request.optional(),
+      response: respondPanElementAddRequestBodyResponseRequest.optional(),
     })
     .transform((data) => ({
       status: data['status'],

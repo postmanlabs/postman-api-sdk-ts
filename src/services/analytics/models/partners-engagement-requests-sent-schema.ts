@@ -18,6 +18,7 @@ export const partnersEngagementRequestsSentSchema = z.lazy(() => {
 });
 
 /**
+ * The shape of the analytics data (column definitions).
  * @typedef {PartnersEngagementRequestsSentSchema} partnersEngagementRequestsSentSchema
  * @property {GetAnalyticsDataColumnsData[]} columns - A list of column entries.
  */

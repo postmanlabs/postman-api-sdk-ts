@@ -1,5 +1,7 @@
 # TeamsInfo
 
+The role assignments keyed by team ID.
+
 **Properties**
 
 | Name     | Type                        | Required | Description                                                    |

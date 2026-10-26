@@ -13,6 +13,7 @@ export const errorTitleMessageError = z.lazy(() => {
 });
 
 /**
+ * Information about the error.
  * @typedef {ErrorTitleMessageError} errorTitleMessageError
  * @property {string} title - A short summary of the problem.
  * @property {string} message - The error message.

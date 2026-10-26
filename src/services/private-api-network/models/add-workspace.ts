@@ -19,7 +19,7 @@ export const addWorkspace = z.lazy(() => {
 
 /**
  * @typedef {AddWorkspace} addWorkspace
- * @property {AddWorkspaceWorkspace} workspace
+ * @property {AddWorkspaceWorkspace} workspace - Information about the workspace to add to the Private API Network.
  */
 export type AddWorkspace = z.infer<typeof addWorkspace>;
 

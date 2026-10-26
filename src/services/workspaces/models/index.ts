@@ -23,9 +23,16 @@ export { RemovePartnerFromPartnershipTargetEntity } from './remove-partner-from-
 export { RemovePartnerFromPartnershipAction } from './remove-partner-from-partnership-action';
 export type { GetWorkspacesOkResponse } from './get-workspaces-ok-response';
 export type { GetWorkspacesWorkspaceData } from './get-workspaces-workspace-data';
+<<<<<<< user
 export { GetWorkspacesWorkspaceDataType } from './get-workspaces-workspace-data-type';
 export { GetWorkspacesWorkspaceDataVisibility } from './get-workspaces-workspace-data-visibility';
 export type { SuccessfulResponseMeta4 } from './successful-response-meta-4';
+=======
+export { WorkspaceType } from './workspace-type';
+export { WorkspaceVisibility } from './workspace-visibility';
+export type { GetWorkspacesScimObject } from './get-workspaces-scim-object';
+export type { SuccessfulResponseMeta2 } from './successful-response-meta-2';
+>>>>>>> generated
 export { WorkspaceTypeQuery } from './workspace-type-query';
 export { WorkspacesIncludeQuery } from './workspaces-include-query';
 export { WorkspaceElementTypeQuery } from './workspace-element-type-query';
@@ -33,13 +40,14 @@ export type { BadRequestError2 } from './bad-request-error-2';
 export type { CreateWorkspaceOkResponse } from './create-workspace-ok-response';
 export type { SuccessfulResponseWorkspace1 } from './successful-response-workspace-1';
 export type { CreateWorkspace } from './create-workspace';
-export type { CreateWorkspaceWorkspace } from './create-workspace-workspace';
-export { CreateWorkspaceWorkspaceType } from './create-workspace-workspace-type';
+export type { CreateWorkspaceData } from './create-workspace-data';
+export { CreateWorkspaceDataType } from './create-workspace-data-type';
 export type { ForbiddenError } from './forbidden-error';
 export type { GetAllWorkspaceRolesOkResponse } from './get-all-workspace-roles-ok-response';
 export type { SuccessfulResponseRoles } from './successful-response-roles';
 export type { WorkspaceRoleData } from './workspace-role-data';
 export type { GetWorkspaceOkResponse } from './get-workspace-ok-response';
+<<<<<<< user
 export type { SuccessfulResponseWorkspace2 } from './successful-response-workspace-2';
 export { SuccessfulResponseWorkspaceType } from './successful-response-workspace-type';
 export { SuccessfulResponseWorkspaceVisibility } from './successful-response-workspace-visibility';
@@ -48,17 +56,26 @@ export type { Environments } from './environments';
 export type { WorkspaceMocks } from './workspace-mocks';
 export type { WorkspaceMonitors } from './workspace-monitors';
 export type { WorkspaceSpecs } from './workspace-specs';
+=======
+export type { GetWorkspaceData } from './get-workspace-data';
+export type { WorkspaceCollectionsData } from './workspace-collections-data';
+export type { WorkspaceEnvironmentsData } from './workspace-environments-data';
+export type { WorkspaceMocksData } from './workspace-mocks-data';
+export type { WorkspaceMonitorsData } from './workspace-monitors-data';
+export type { WorkspaceSpecsData } from './workspace-specs-data';
+export type { WorkspaceScimData } from './workspace-scim-data';
+>>>>>>> generated
 export type { NotFoundError2 } from './not-found-error-2';
 export type { WorkspaceUpdated } from './workspace-updated';
 export type { WorkspaceUpdatedWorkspace } from './workspace-updated-workspace';
 export type { UpdateWorkspaceRequest } from './update-workspace-request';
-export type { UpdateWorkspaceWorkspace1 } from './update-workspace-workspace-1';
-export { UpdateWorkspaceWorkspaceType } from './update-workspace-workspace-type';
+export type { UpdateWorkspaceData } from './update-workspace-data';
+export { UpdateWorkspaceDataType } from './update-workspace-data-type';
 export type { WorkspaceDeleted } from './workspace-deleted';
 export type { WorkspaceDeletedWorkspace } from './workspace-deleted-workspace';
 export type { WorkspaceActivityFeed } from './workspace-activity-feed';
 export type { WorkspaceActivityFeedData } from './workspace-activity-feed-data';
-export type { DataUser } from './data-user';
+export type { GetWorkspaceActivityFeedUserData } from './get-workspace-activity-feed-user-data';
 export { DataAction } from './data-action';
 export { ElementType3 } from './element-type-3';
 export type { TransferWorkspaceElementResponse } from './transfer-workspace-element-response';
@@ -75,7 +92,7 @@ export type { UpdateGlobalVariables } from './update-global-variables';
 export type { WorkspaceRoles } from './workspace-roles';
 export type { WorkspaceRolesData } from './workspace-roles-data';
 export type { WorkspaceRolesUpdated } from './workspace-roles-updated';
-export type { WorkspaceRolesUpdatedRoles } from './workspace-roles-updated-roles';
+export type { UpdateWorkspaceRolesData } from './update-workspace-roles-data';
 export type { UpdateWorkspaceRoles } from './update-workspace-roles';
 export type { UpdateWorkspaceRolesRoles } from './update-workspace-roles-roles';
 export { UpdateWorkspaceRolesRolesPath } from './update-workspace-roles-roles-path';
