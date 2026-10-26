@@ -8,14 +8,19 @@ import { z } from 'zod';
 export const importExportFile = z.lazy(() => {
   return z.object({
     type: z.string(),
-    input: z.instanceof(ArrayBuffer),
+    input: z.union([
+      z.instanceof(ArrayBuffer),
+      z.instanceof(Uint8Array),
+      z.instanceof(Buffer),
+      z.instanceof(Blob),
+    ]),
   });
 });
 
 /**
  * @typedef {ImportExportFile} importExportFile
  * @property {ImportExportFileType} type - The `file` type value.
- * @property {ArrayBuffer} input - A .zip file containing the definition file.
+ * @property {ArrayBuffer | Uint8Array | Buffer | Blob} input - A .zip file containing the definition file.
  */
 export type ImportExportFile = z.infer<typeof importExportFile>;
 
@@ -28,7 +33,12 @@ export const importExportFileResponse = z.lazy(() => {
   return z
     .object({
       type: z.string(),
-      input: z.instanceof(ArrayBuffer),
+      input: z.union([
+        z.instanceof(ArrayBuffer),
+        z.instanceof(Uint8Array),
+        z.instanceof(Buffer),
+        z.instanceof(Blob),
+      ]),
     })
     .transform((data) => ({
       type: data['type'],
@@ -45,7 +55,12 @@ export const importExportFileRequest = z.lazy(() => {
   return z
     .object({
       type: z.string(),
-      input: z.instanceof(ArrayBuffer),
+      input: z.union([
+        z.instanceof(ArrayBuffer),
+        z.instanceof(Uint8Array),
+        z.instanceof(Buffer),
+        z.instanceof(Blob),
+      ]),
     })
     .transform((data) => ({
       type: data['type'],

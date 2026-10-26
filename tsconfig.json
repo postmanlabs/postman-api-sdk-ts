@@ -7,16 +7,16 @@
     "strict": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./",
+    "noEmit": true,
     "noImplicitAny": true,
     "baseUrl": "./",
     "declaration": true,
-    "moduleResolution": "Node16",
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "declarationMap": true,
     "lib": ["es2018", "dom", "DOM.Iterable"],
     "sourceMap": true
   },
-  "include": ["src/"]
+  "include": ["src/", "tests/"]
 }

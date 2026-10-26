@@ -19,7 +19,7 @@ export const collectionUpdatedAsync = z.lazy(() => {
 
 /**
  * @typedef {CollectionUpdatedAsync} collectionUpdatedAsync
- * @property {CollectionUpdatedAsyncTask} task
+ * @property {CollectionUpdatedAsyncTask} task - Information about the async update task.
  */
 export type CollectionUpdatedAsync = z.infer<typeof collectionUpdatedAsync>;
 

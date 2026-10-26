@@ -34,7 +34,7 @@ export const partnersEngagementWorkspaceVisits = z.lazy(() => {
 /**
  * Information about partner users' workspace visits.
  * @typedef {PartnersEngagementWorkspaceVisits} partnersEngagementWorkspaceVisits
- * @property {GetAnalyticsDataSchema} schema
+ * @property {GetAnalyticsDataSchema} schema - The shape of the analytics data (column definitions).
  * @property {GetAnalyticsDataRowsData[][]} rows - A list of data row entries. Each row is an array of values that correspond to the columns defined in the schema.
  * @property {PaginationData} pagination - Information about the response pagination.
  */

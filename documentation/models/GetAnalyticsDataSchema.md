@@ -1,5 +1,7 @@
 # GetAnalyticsDataSchema
 
+The shape of the analytics data (column definitions).
+
 **Properties**
 
 | Name    | Type                                                            | Required | Description               |

@@ -18,6 +18,7 @@ export const transferWorkspaceElementResponseWorkspace = z.lazy(() => {
 });
 
 /**
+ * Information about the workspace that received the transferred element.
  * @typedef {TransferWorkspaceElementResponseWorkspace} transferWorkspaceElementResponseWorkspace
  * @property {ElementTransfers} elementTransfers - Information about the element transfer.
  */

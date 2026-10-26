@@ -2,13 +2,13 @@
 
 **Properties**
 
-| Name         | Type               | Required | Description                             |
-| :----------- | :----------------- | :------- | :-------------------------------------- |
-| requestId    | string             | ✅       | The public collection's request ID.     |
-| collectionId | string             | ✅       | The Public API Network collection's ID. |
-| config       | GenerateToolConfig | ✅       | Information about the request.          |
+| Name         | Type   | Required | Description                             |
+| :----------- | :----- | :------- | :-------------------------------------- |
+| requestId    | string | ✅       | The public collection's request ID.     |
+| collectionId | string | ✅       | The Public API Network collection's ID. |
+| config       | Config | ✅       | Information about the request.          |
 
-# GenerateToolConfig
+# Config
 
 Information about the request.
 

@@ -4,10 +4,10 @@
 
 | Name | Type                    | Required | Description                                  |
 | :--- | :---------------------- | :------- | :------------------------------------------- |
-| data | SuccessfulResponseData1 | ❌       | An object containing the paginated elements. |
+| data | SuccessfulResponseData  | ❌       | An object containing the paginated elements. |
 | meta | SuccessfulResponseMeta1 | ❌       | The response's pagination information.       |
 
-# SuccessfulResponseData1
+# SuccessfulResponseData
 
 An object containing the paginated elements.
 

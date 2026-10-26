@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name       | Type                         | Required | Description |
-| :--------- | :--------------------------- | :------- | :---------- |
-| collection | CollectionUpdatedCollection2 | ❌       |             |
+| Name       | Type                         | Required | Description                               |
+| :--------- | :--------------------------- | :------- | :---------------------------------------- |
+| collection | CollectionUpdatedCollection2 | ❌       | Information about the updated collection. |
 
 # CollectionUpdatedCollection2
+
+Information about the updated collection.
 
 **Properties**
 
