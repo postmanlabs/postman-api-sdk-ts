@@ -11,6 +11,7 @@ export const getAnalyticsMetadataResourceMetricsDataDetailedParametersFilters = 
 });
 
 /**
+ * The filters supported for the metric.
  * @typedef {GetAnalyticsMetadataResourceMetricsDataDetailedParametersFilters} getAnalyticsMetadataResourceMetricsDataDetailedParametersFilters
  */
 export type GetAnalyticsMetadataResourceMetricsDataDetailedParametersFilters = z.infer<

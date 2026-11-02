@@ -34,7 +34,7 @@ export const partnersEngagementCollectionViews = z.lazy(() => {
 /**
  * Information about partner users' views of collections in a workspace.
  * @typedef {PartnersEngagementCollectionViews} partnersEngagementCollectionViews
- * @property {PartnersEngagementCollectionViewsSchema} schema
+ * @property {PartnersEngagementCollectionViewsSchema} schema - The shape of the analytics data (column definitions).
  * @property {GetAnalyticsDataRowsData[][]} rows - A list of data row entries. Each row is an array of values that correspond to the columns defined in the schema.
  * @property {PaginationData} pagination - Information about the response pagination.
  */

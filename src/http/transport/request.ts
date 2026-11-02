@@ -258,8 +258,11 @@ export class Request<PageSchema = unknown[]> {
    * Handles both cursor-based and limit-offset pagination strategies.
    *
    * @param cursor - The cursor value for cursor-based pagination (optional for limit-offset)
+   * @param offsetIncrement - Fallback increment for offset pagination with no declared `pageSize`
+   * (stepless offset — gap doc row 200), where the caller only learns the increment after fetching
+   * a page (its item count). Ignored whenever `pageSize` is set, which always wins.
    */
-  public nextPage(cursor?: string): void {
+  public nextPage(cursor?: string, offsetIncrement?: number): void {
     if (!this.pagination) {
       return;
     }
@@ -276,10 +279,11 @@ export class Request<PageSchema = unknown[]> {
     // Handle limit-offset pagination
     const offsetParam = this.getOffsetParam();
     if (offsetParam) {
-      if (this.pagination.pageSize === undefined) {
+      const increment = this.pagination.pageSize ?? offsetIncrement;
+      if (increment === undefined) {
         throw new Error('pageSize is required for limit-offset pagination');
       }
-      offsetParam.value = Number(offsetParam.value) + this.pagination.pageSize;
+      offsetParam.value = Number(offsetParam.value) + increment;
     }
   }
 

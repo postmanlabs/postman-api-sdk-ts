@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name | Type                            | Required | Description |
-| :--- | :------------------------------ | :------- | :---------- |
-| data | CommentUpdatedCreatedObjectData | ❌       |             |
+| Name | Type                            | Required | Description                                       |
+| :--- | :------------------------------ | :------- | :------------------------------------------------ |
+| data | CommentUpdatedCreatedObjectData | ❌       | Information about the created or updated comment. |
 
 # CommentUpdatedCreatedObjectData
+
+Information about the created or updated comment.
 
 **Properties**
 

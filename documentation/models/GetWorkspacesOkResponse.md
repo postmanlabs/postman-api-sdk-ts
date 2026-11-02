@@ -5,9 +5,9 @@
 | Name       | Type                                                          | Required | Description                                                                                                              |
 | :--------- | :------------------------------------------------------------ | :------- | :----------------------------------------------------------------------------------------------------------------------- |
 | workspaces | [GetWorkspacesWorkspaceData](GetWorkspacesWorkspaceData.md)[] | ❌       | A list of workspaces.                                                                                                    |
-| meta       | SuccessfulResponseMeta4                                       | ❌       | The response's meta information for paginated results. This object only returns if you pass the `limit` query parameter. |
+| meta       | SuccessfulResponseMeta2                                       | ❌       | The response's meta information for paginated results. This object only returns if you pass the `limit` query parameter. |
 
-# SuccessfulResponseMeta4
+# SuccessfulResponseMeta2
 
 The response's meta information for paginated results. This object only returns if you pass the `limit` query parameter.
 

@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  UpdateMockMockConfig,
-  updateMockMockConfig,
-  updateMockMockConfigRequest,
-  updateMockMockConfigResponse,
-} from './update-mock-mock-config';
+  UpdateMockConfigData,
+  updateMockConfigData,
+  updateMockConfigDataRequest,
+  updateMockConfigDataResponse,
+} from './update-mock-config-data';
 
 /**
  * Zod schema for the UpdateMockMock model.
@@ -19,11 +19,12 @@ export const updateMockMock = z.lazy(() => {
     private: z.boolean().optional(),
     versionTag: z.string().optional(),
     collection: z.string().optional(),
-    config: updateMockMockConfig.optional(),
+    config: updateMockConfigData.optional(),
   });
 });
 
 /**
+ * The mock server fields to update.
  * @typedef {UpdateMockMock} updateMockMock
  * @property {string} name - The mock server's name.
  * @property {string} environment - The associated environment's unique ID.
@@ -31,7 +32,7 @@ export const updateMockMock = z.lazy(() => {
  * @property {boolean} private - If true, the mock server is set private. By default, mock servers are public and can receive requests from anyone and anywhere.
  * @property {string} versionTag - The API's version tag ID.
  * @property {string} collection - The ID of the collection associated with the mock server.
- * @property {UpdateMockMockConfig} config - The mock server's configuration settings.
+ * @property {UpdateMockConfigData} config - The mock server's configuration settings.
  */
 export type UpdateMockMock = z.infer<typeof updateMockMock>;
 
@@ -49,7 +50,7 @@ export const updateMockMockResponse = z.lazy(() => {
       private: z.boolean().optional(),
       versionTag: z.string().optional(),
       collection: z.string().optional(),
-      config: updateMockMockConfigResponse.optional(),
+      config: updateMockConfigDataResponse.optional(),
     })
     .transform((data) => ({
       name: data['name'],
@@ -76,7 +77,7 @@ export const updateMockMockRequest = z.lazy(() => {
       private: z.boolean().optional(),
       versionTag: z.string().optional(),
       collection: z.string().optional(),
-      config: updateMockMockConfigRequest.optional(),
+      config: updateMockConfigDataRequest.optional(),
     })
     .transform((data) => ({
       name: data['name'],

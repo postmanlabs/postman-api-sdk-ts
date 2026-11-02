@@ -26,13 +26,7 @@ A list of all methods in the `PostbotService` service. Click on the method name 
 **Example Usage Code Snippet**
 
 ```typescript
-import {
-  AgentFramework,
-  ConfigLanguage,
-  GenerateTool,
-  GenerateToolConfig,
-  PostmanApi,
-} from '@postman/api-sdk';
+import { AgentFramework, Config, ConfigLanguage, GenerateTool, PostmanApi } from '@postman/api-sdk';
 
 (async () => {
   const postmanApi = new PostmanApi({
@@ -43,7 +37,7 @@ import {
 
   const agentFramework = AgentFramework.OPENAI;
 
-  const generateToolConfig: GenerateToolConfig = {
+  const config: Config = {
     language: configLanguage,
     agentFramework: agentFramework,
   };
@@ -51,7 +45,7 @@ import {
   const generateTool: GenerateTool = {
     requestId: 'c82dd02c-4870-4907-8fcb-593a876cf05b',
     collectionId: '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
-    config: generateToolConfig,
+    config: config,
   };
 
   const data = await postmanApi.postbot.generateTool(generateTool);

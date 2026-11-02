@@ -19,7 +19,7 @@ export const manageTeamMemberRolesResponse = z.lazy(() => {
 
 /**
  * @typedef {ManageTeamMemberRolesResponse} manageTeamMemberRolesResponse
- * @property {ManageTeamMemberRolesResponseResult[]} result
+ * @property {ManageTeamMemberRolesResponseResult[]} result - A list of the role changes that were applied.
  */
 export type ManageTeamMemberRolesResponse = z.infer<typeof manageTeamMemberRolesResponse>;
 
