@@ -19,7 +19,7 @@ export const transferWorkspaceElementResponse = z.lazy(() => {
 
 /**
  * @typedef {TransferWorkspaceElementResponse} transferWorkspaceElementResponse
- * @property {TransferWorkspaceElementResponseWorkspace} workspace
+ * @property {TransferWorkspaceElementResponseWorkspace} workspace - Information about the workspace that received the transferred element.
  */
 export type TransferWorkspaceElementResponse = z.infer<typeof transferWorkspaceElementResponse>;
 

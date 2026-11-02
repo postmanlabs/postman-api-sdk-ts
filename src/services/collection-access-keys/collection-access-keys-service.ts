@@ -14,7 +14,7 @@ import { Common401Error } from '../common/common401-error';
 import { Common403Error } from '../common/common403-error';
 import { Common500Error } from '../common/common500-error';
 import { GetCollectionAccessKeysParams } from './request-params';
-import { DeleteCollectionAccessKeyNotFoundResponse } from './models/delete-collection-access-key-not-found-response';
+import { ErrorTypeTitleDetailStatus } from '../common/error-type-title-detail-status';
 
 /**
  * Service class for CollectionAccessKeysService operations.
@@ -154,7 +154,7 @@ On success, this returns an HTTP `204 No Content` response.
         status: 403,
       })
       .addError({
-        error: DeleteCollectionAccessKeyNotFoundResponse,
+        error: ErrorTypeTitleDetailStatus,
         contentType: ContentType.Json,
         status: 404,
       })

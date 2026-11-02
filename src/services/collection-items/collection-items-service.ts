@@ -63,9 +63,9 @@ import {
   collectionResponseInfoResponse,
 } from './models/collection-response-info';
 import {
-  UpdateCollectionResponse1,
-  updateCollectionResponse1Request,
-} from './models/update-collection-response-1';
+  UpdateCollectionResponse,
+  updateCollectionResponseRequest,
+} from './models/update-collection-response';
 import {
   CollectionResponseUpdated,
   collectionResponseUpdatedResponse,
@@ -889,7 +889,7 @@ This endpoint acts like a PATCH method. It only updates the values that you pass
   async updateCollectionResponse(
     responseId: string,
     collectionId: string,
-    body: UpdateCollectionResponse1,
+    body: UpdateCollectionResponse,
     requestConfig?: Partial<SdkConfig>,
   ): Promise<CollectionResponseUpdated> {
     const resolvedConfig = this.getResolvedConfig(
@@ -901,7 +901,7 @@ This endpoint acts like a PATCH method. It only updates the values that you pass
       .setBaseUrl(resolvedConfig)
       .setMethod('PUT')
       .setPath('/collections/{collectionId}/responses/{responseId}')
-      .setRequestSchema(updateCollectionResponse1Request)
+      .setRequestSchema(updateCollectionResponseRequest)
       .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
       .setRequestContentType(ContentType.Json)
       .addResponse({

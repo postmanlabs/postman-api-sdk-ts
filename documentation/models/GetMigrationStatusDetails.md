@@ -1,5 +1,7 @@
 # GetMigrationStatusDetails
 
+Information about the migration's outcome (either a success payload or a failure reason).
+
 # SuccessfulMigration
 
 Information about the migration.

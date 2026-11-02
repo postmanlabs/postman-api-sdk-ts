@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name       | Type                           | Required | Description |
-| :--------- | :----------------------------- | :------- | :---------- |
-| collection | CollectionForkMergedCollection | ❌       |             |
+| Name       | Type                           | Required | Description                              |
+| :--------- | :----------------------------- | :------- | :--------------------------------------- |
+| collection | CollectionForkMergedCollection | ❌       | Information about the merged collection. |
 
 # CollectionForkMergedCollection
+
+Information about the merged collection.
 
 **Properties**
 

@@ -1,5 +1,7 @@
 # UsersInfo
 
+The role assignments keyed by user ID.
+
 **Properties**
 
 | Name     | Type                        | Required | Description                                                    |

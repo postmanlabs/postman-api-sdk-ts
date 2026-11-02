@@ -18,12 +18,14 @@ import {
   GetTeamsParams,
   ManageTeamMemberRolesParams,
   RemoveTeamMembersParams,
+  UpdateTeamParams,
 } from './request-params';
 import { CreateTeam, createTeamRequest } from './models/create-team';
 import {
   CreateGetTeamResponse,
   createGetTeamResponseResponse,
 } from './models/create-get-team-response';
+import { UpdateTeam, updateTeamRequest } from './models/update-team';
 import {
   GetTeamAccessRequests,
   getTeamAccessRequestsResponse,
@@ -68,6 +70,8 @@ export class TeamsService extends BaseService {
 
   protected getTeamConfig?: Partial<SdkConfig>;
 
+  protected updateTeamConfig?: Partial<SdkConfig>;
+
   protected getTeamAccessRequestsConfig?: Partial<SdkConfig>;
 
   protected createAccessRequestConfig?: Partial<SdkConfig>;
@@ -109,6 +113,16 @@ export class TeamsService extends BaseService {
    */
   setGetTeamConfig(config: Partial<SdkConfig>): this {
     this.getTeamConfig = config;
+    return this;
+  }
+
+  /**
+   * Sets method-level configuration for updateTeam.
+   * @param config - Partial configuration to override service-level defaults
+   * @returns This service instance for method chaining
+   */
+  setUpdateTeamConfig(config: Partial<SdkConfig>): this {
+    this.updateTeamConfig = config;
     return this;
   }
 
@@ -369,6 +383,79 @@ export class TeamsService extends BaseService {
         key: 'identifierType',
         value: params?.identifierType,
       })
+      .build();
+    return this.client.callDirect<CreateGetTeamResponse>(request);
+  }
+
+  /**
+ * Updates a Postman team's name in your organization.
+**Note:**
+
+You can only update the team's `name`. The name must be unique in the organization. This endpoint is only available to organizations that have teams enabled.
+
+This endpoint requires the `application/merge-patch+json` Content-Type header.
+
+ * @param {number} teamId - The team's ID.
+ * @param {string} [params.identifierType] - Use SCIM user and group IDs instead of Postman user IDs.
+ * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.
+ * @returns {Promise<HttpResponse<CreateGetTeamResponse>>} - Successful Response
+ */
+  async updateTeam(
+    teamId: number,
+    body: UpdateTeam,
+    params?: UpdateTeamParams,
+    requestConfig?: Partial<SdkConfig>,
+  ): Promise<CreateGetTeamResponse> {
+    const resolvedConfig = this.getResolvedConfig(this.updateTeamConfig, requestConfig);
+    z.object({ identifierType: z.string().optional() }).parse(params ?? {});
+    const request = new RequestBuilder()
+      .setConfig(resolvedConfig)
+      .setBaseUrl(resolvedConfig)
+      .setMethod('PATCH')
+      .setPath('/teams/{teamId}')
+      .setRequestSchema(updateTeamRequest)
+      .addApiKeyAuth(resolvedConfig?.apiKey, 'x-api-key', 'header')
+      .setRequestContentType(ContentType.Json)
+      .addResponse({
+        schema: createGetTeamResponseResponse,
+        contentType: ContentType.Json,
+        status: 200,
+      })
+      .addError({
+        error: Teams400Error,
+        contentType: ContentType.Json,
+        status: 400,
+      })
+      .addError({
+        error: ErrorTypeTitleDetailStatusInstance,
+        contentType: ContentType.Json,
+        status: 401,
+      })
+      .addError({
+        error: TeamsApiErrorSchema,
+        contentType: ContentType.Json,
+        status: 403,
+      })
+      .addError({
+        error: TeamsApiErrorSchema,
+        contentType: ContentType.Json,
+        status: 404,
+      })
+      .addError({
+        error: TeamsApiErrorSchema,
+        contentType: ContentType.Json,
+        status: 500,
+      })
+      .addPathParam({
+        key: 'teamId',
+        value: teamId,
+      })
+      .addHeaderParam({
+        key: 'identifierType',
+        value: params?.identifierType,
+      })
+      .addHeaderParam({ key: 'Content-Type', value: 'application/merge-patch+json' })
+      .addBody(body)
       .build();
     return this.client.callDirect<CreateGetTeamResponse>(request);
   }

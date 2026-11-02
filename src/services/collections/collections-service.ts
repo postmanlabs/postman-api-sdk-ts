@@ -2024,10 +2024,8 @@ This endpoint may take a few minutes to return an updated `isSourceAhead` status
   }
 
   /**
- * Transforms an existing Postman Collection into a stringified OpenAPI definition.
-**Note:**
-
-This does not create an API.
+ * **This endpoint is deprecated.**
+Use the POST `/collections/{collectionUid}/generations/{elementType}` endpoint to generate an OpenAPI specification from a collection.
 
  * @param {string} collectionId - The collection's ID.
  * @param {CollectionTransformFormat} [params.format] - Return the OpenAPI definition in the given format.

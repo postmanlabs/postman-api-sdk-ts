@@ -16,6 +16,7 @@ export const webhookCreatedWebhook = z.lazy(() => {
 });
 
 /**
+ * Information about the created webhook.
  * @typedef {WebhookCreatedWebhook} webhookCreatedWebhook
  * @property {string} id - The webhook's ID.
  * @property {string} name - The webhook's name.

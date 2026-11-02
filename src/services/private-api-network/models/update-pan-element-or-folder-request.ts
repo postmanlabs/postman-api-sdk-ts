@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  UpdateWorkspaceWorkspace2,
-  updateWorkspaceWorkspace2,
-  updateWorkspaceWorkspace2Request,
-  updateWorkspaceWorkspace2Response,
-} from './update-workspace-workspace-2';
+  UpdateWorkspaceWorkspace,
+  updateWorkspaceWorkspace,
+  updateWorkspaceWorkspaceRequest,
+  updateWorkspaceWorkspaceResponse,
+} from './update-workspace-workspace';
 
 /**
  * Zod schema for the UpdatePanElementOrFolderRequest model.
@@ -13,13 +13,13 @@ import {
  */
 export const updatePanElementOrFolderRequest = z.lazy(() => {
   return z.object({
-    workspace: updateWorkspaceWorkspace2.optional(),
+    workspace: updateWorkspaceWorkspace.optional(),
   });
 });
 
 /**
  * @typedef {UpdatePanElementOrFolderRequest} updatePanElementOrFolderRequest
- * @property {UpdateWorkspaceWorkspace2} workspace
+ * @property {UpdateWorkspaceWorkspace} workspace - Information about the workspace fields to update.
  */
 export type UpdatePanElementOrFolderRequest = z.infer<typeof updatePanElementOrFolderRequest>;
 
@@ -31,7 +31,7 @@ export type UpdatePanElementOrFolderRequest = z.infer<typeof updatePanElementOrF
 export const updatePanElementOrFolderRequestResponse = z.lazy(() => {
   return z
     .object({
-      workspace: updateWorkspaceWorkspace2Response.optional(),
+      workspace: updateWorkspaceWorkspaceResponse.optional(),
     })
     .transform((data) => ({
       workspace: data['workspace'],
@@ -46,7 +46,7 @@ export const updatePanElementOrFolderRequestResponse = z.lazy(() => {
 export const updatePanElementOrFolderRequestRequest = z.lazy(() => {
   return z
     .object({
-      workspace: updateWorkspaceWorkspace2Request.optional(),
+      workspace: updateWorkspaceWorkspaceRequest.optional(),
     })
     .transform((data) => ({
       workspace: data['workspace'],

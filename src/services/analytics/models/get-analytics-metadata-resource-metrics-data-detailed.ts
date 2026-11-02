@@ -6,11 +6,11 @@ import {
   getAnalyticsMetadataResourceMetricsDataDetailedParametersResponse,
 } from './get-analytics-metadata-resource-metrics-data-detailed-parameters';
 import {
-  GetAnalyticsMetadataResourceMetricsDataDetailedResponse1,
-  getAnalyticsMetadataResourceMetricsDataDetailedResponse1,
-  getAnalyticsMetadataResourceMetricsDataDetailedResponse1Request,
-  getAnalyticsMetadataResourceMetricsDataDetailedResponse1Response,
-} from './get-analytics-metadata-resource-metrics-data-detailed-response-1';
+  GetAnalyticsMetadataResourceMetricsDataDetailedResponse,
+  getAnalyticsMetadataResourceMetricsDataDetailedResponseRequest,
+  getAnalyticsMetadataResourceMetricsDataDetailedResponseResponse,
+  getAnalyticsMetadataResourceMetricsDataDetailedResponse_3,
+} from './get-analytics-metadata-resource-metrics-data-detailed-response';
 
 /**
  * Zod schema for the GetAnalyticsMetadataResourceMetricsDataDetailed model.
@@ -24,7 +24,7 @@ export const getAnalyticsMetadataResourceMetricsDataDetailed = z.lazy(() => {
     type: z.string().optional(),
     isRequired: z.boolean().optional(),
     parameters: getAnalyticsMetadataResourceMetricsDataDetailedParameters.optional(),
-    response: getAnalyticsMetadataResourceMetricsDataDetailedResponse1.optional(),
+    response: getAnalyticsMetadataResourceMetricsDataDetailedResponse_3.optional(),
   });
 });
 
@@ -36,7 +36,7 @@ export const getAnalyticsMetadataResourceMetricsDataDetailed = z.lazy(() => {
  * @property {string} type - The metric's data type.
  * @property {boolean} isRequired - If true, the metric is required.
  * @property {GetAnalyticsMetadataResourceMetricsDataDetailedParameters} parameters - Information about the metric's parameters.
- * @property {GetAnalyticsMetadataResourceMetricsDataDetailedResponse1} response - Information about the metric's `response` parameters.
+ * @property {GetAnalyticsMetadataResourceMetricsDataDetailedResponse} response - Information about the metric's `response` parameters.
  */
 export type GetAnalyticsMetadataResourceMetricsDataDetailed = z.infer<
   typeof getAnalyticsMetadataResourceMetricsDataDetailed
@@ -55,7 +55,7 @@ export const getAnalyticsMetadataResourceMetricsDataDetailedResponse = z.lazy(()
       type: z.string().optional(),
       isRequired: z.boolean().optional(),
       parameters: getAnalyticsMetadataResourceMetricsDataDetailedParametersResponse.optional(),
-      response: getAnalyticsMetadataResourceMetricsDataDetailedResponse1Response.optional(),
+      response: getAnalyticsMetadataResourceMetricsDataDetailedResponseResponse.optional(),
     })
     .transform((data) => ({
       metric: data['metric'],
@@ -80,7 +80,7 @@ export const getAnalyticsMetadataResourceMetricsDataDetailedRequest = z.lazy(() 
       type: z.string().optional(),
       isRequired: z.boolean().optional(),
       parameters: getAnalyticsMetadataResourceMetricsDataDetailedParametersRequest.optional(),
-      response: getAnalyticsMetadataResourceMetricsDataDetailedResponse1Request.optional(),
+      response: getAnalyticsMetadataResourceMetricsDataDetailedResponseRequest.optional(),
     })
     .transform((data) => ({
       metric: data['metric'],
