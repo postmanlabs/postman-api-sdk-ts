@@ -1,5 +1,7 @@
 # UserGroupsInfo
 
+The role assignments keyed by user group ID.
+
 **Properties**
 
 | Name          | Type                        | Required | Description                                                           |

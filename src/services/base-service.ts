@@ -1,5 +1,6 @@
 import { Environment } from '../http/environment';
 import { HttpClient } from '../http/client';
+import { toBase64 as encodeBase64 } from '../http/utils/runtime';
 import { SdkConfig } from '../http/types';
 
 /**
@@ -13,7 +14,7 @@ export class BaseService {
   /** Service-level configuration overrides */
   protected serviceConfig?: Partial<SdkConfig>;
 
-  constructor(public config: SdkConfig) {
+  constructor(public config: SdkConfig = {}) {
     this.client = new HttpClient(this.config);
   }
 
@@ -82,6 +83,10 @@ export class BaseService {
       merged = BaseService.deepMerge(merged, requestConfig);
     }
     return merged;
+  }
+
+  protected toBase64(str: string): string {
+    return encodeBase64(str);
   }
 
   set baseUrl(baseUrl: string) {

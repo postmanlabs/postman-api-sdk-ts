@@ -1,5 +1,7 @@
 # ManagePartnerWorkspaceInvitesTargetObjectUserId
 
+The target on which to perform the action.
+
 # RemoveFromWorkspace
 
 The target on which to perform the action.

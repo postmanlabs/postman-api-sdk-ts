@@ -19,7 +19,7 @@ export const createMockServerResponse = z.lazy(() => {
 
 /**
  * @typedef {CreateMockServerResponse} createMockServerResponse
- * @property {CreateMockServerResponseServerResponse} serverResponse
+ * @property {CreateMockServerResponseServerResponse} serverResponse - Information about the server response to create.
  */
 export type CreateMockServerResponse = z.infer<typeof createMockServerResponse>;
 

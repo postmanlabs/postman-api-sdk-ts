@@ -20,7 +20,7 @@ export const taskStatusResponseDetails = z.lazy(() => {
 /**
  * If the task failed, an object containing information about the error.
  * @typedef {TaskStatusResponseDetails} taskStatusResponseDetails
- * @property {DetailsError} error
+ * @property {DetailsError} error - Information about the error.
  */
 export type TaskStatusResponseDetails = z.infer<typeof taskStatusResponseDetails>;
 

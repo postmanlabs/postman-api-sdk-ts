@@ -2,6 +2,6 @@
 
 **Properties**
 
-| Name  | Type                                            | Required | Description             |
-| :---- | :---------------------------------------------- | :------- | :---------------------- |
-| mocks | [GetMockServersMocks](GetMockServersMocks.md)[] | ❌       | A list of mock servers. |
+| Name  | Type                                  | Required | Description             |
+| :---- | :------------------------------------ | :------- | :---------------------- |
+| mocks | [MockServerData](MockServerData.md)[] | ❌       | A list of mock servers. |

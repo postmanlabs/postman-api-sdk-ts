@@ -1,5 +1,10 @@
 import { z } from 'zod';
-import { ReviewedBy, reviewedBy, reviewedByRequest, reviewedByResponse } from './reviewed-by';
+import {
+  PullRequestReviewedByData,
+  pullRequestReviewedByData,
+  pullRequestReviewedByDataRequest,
+  pullRequestReviewedByDataResponse,
+} from './pull-request-reviewed-by-data';
 
 /**
  * Zod schema for the ReviewPullRequestOkResponse model.
@@ -9,7 +14,7 @@ import { ReviewedBy, reviewedBy, reviewedByRequest, reviewedByResponse } from '.
 export const reviewPullRequestOkResponse = z.lazy(() => {
   return z.object({
     id: z.string().optional(),
-    reviewedBy: reviewedBy.optional(),
+    reviewedBy: pullRequestReviewedByData.optional(),
     status: z.string().optional(),
     updatedAt: z.string().optional(),
   });
@@ -18,7 +23,7 @@ export const reviewPullRequestOkResponse = z.lazy(() => {
 /**
  * @typedef {ReviewPullRequestOkResponse} reviewPullRequestOkResponse
  * @property {string} id - The pull request's ID.
- * @property {ReviewedBy} reviewedBy - Information about the user who reviewed the pull request review.
+ * @property {PullRequestReviewedByData} reviewedBy - Information about the user who reviewed the pull request review.
  * @property {string} status - The pull request's current review status:
 - `open` — The pull request is still open.
 - `approved` — The pull request was approved by its reviewers.
@@ -38,7 +43,7 @@ export const reviewPullRequestOkResponseResponse = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      reviewedBy: reviewedByResponse.optional(),
+      reviewedBy: pullRequestReviewedByDataResponse.optional(),
       status: z.string().optional(),
       updatedAt: z.string().optional(),
     })
@@ -59,7 +64,7 @@ export const reviewPullRequestOkResponseRequest = z.lazy(() => {
   return z
     .object({
       id: z.string().optional(),
-      reviewedBy: reviewedByRequest.optional(),
+      reviewedBy: pullRequestReviewedByDataRequest.optional(),
       status: z.string().optional(),
       updatedAt: z.string().optional(),
     })

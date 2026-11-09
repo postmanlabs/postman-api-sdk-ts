@@ -1,9 +1,8 @@
 export type { SuccessResponse } from './success-response';
-export type { SuccessResponseTags } from './success-response-tags';
+export type { TagData } from './tag-data';
 export type { UpdateTags } from './update-tags';
-export type { UpdateTagsTags } from './update-tags-tags';
 export type { GetTaggedEntitiesOkResponse } from './get-tagged-entities-ok-response';
-export type { SuccessfulResponseData1 } from './successful-response-data-1';
+export type { SuccessfulResponseData } from './successful-response-data';
 export type { Entities } from './entities';
 export { EntitiesEntityType } from './entities-entity-type';
 export type { SuccessfulResponseMeta1 } from './successful-response-meta-1';

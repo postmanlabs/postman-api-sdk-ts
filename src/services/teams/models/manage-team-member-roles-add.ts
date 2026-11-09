@@ -26,10 +26,10 @@ export const manageTeamMemberRolesAdd = z.lazy(() => {
 /**
  * Information about the bulk `add` operation.
  * @typedef {ManageTeamMemberRolesAdd} manageTeamMemberRolesAdd
- * @property {UsersInfo} users
- * @property {UserGroupsInfo} groups
- * @property {OrgsInfo} orgs
- * @property {TeamsInfo} teams
+ * @property {UsersInfo} users - The role assignments keyed by user ID.
+ * @property {UserGroupsInfo} groups - The role assignments keyed by user group ID.
+ * @property {OrgsInfo} orgs - The role assignments keyed by organization ID.
+ * @property {TeamsInfo} teams - The role assignments keyed by team ID.
  */
 export type ManageTeamMemberRolesAdd = z.infer<typeof manageTeamMemberRolesAdd>;
 

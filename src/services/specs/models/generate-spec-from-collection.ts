@@ -17,7 +17,7 @@ export const generateSpecFromCollection = z.lazy(() => {
  * @typedef {GenerateSpecFromCollection} generateSpecFromCollection
  * @property {string} name - The API specification's name.
  * @property {GenerateSpecFromCollectionType} type - The specification's type.
- * @property {Format} format - The format of the API specification.
+ * @property {GenerateSpecFromCollectionFormat} format - The format of the API specification.
  */
 export type GenerateSpecFromCollection = z.infer<typeof generateSpecFromCollection>;
 

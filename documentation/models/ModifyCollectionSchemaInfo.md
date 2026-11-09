@@ -11,7 +11,7 @@ Information about the collection.
 | \_postmanId   | string             | ❌       | The collection's Postman ID. This field exists for Postman Collection Format v1 compatibility.                   |
 | description   | string             | ❌       | The collection's description.                                                                                    |
 | updatedAt     | string             | ❌       | The date and time when the collection was last updated.                                                          |
-| createdat     | string             | ❌       | The date and time when the collection was created.                                                               |
+| createdAt     | string             | ❌       | The date and time when the collection was created.                                                               |
 | lastUpdatedBy | string             | ❌       | The user ID of the person who last updated the collection.                                                       |
 | uid           | string             | ❌       | The collection's unique ID.                                                                                      |
 

@@ -20,6 +20,7 @@ export const getAnalyticsDataData = z.lazy(() => {
 });
 
 /**
+ * The analytics data returned for the requested metric.
  * @typedef {GetAnalyticsDataData} getAnalyticsDataData
  */
 export type GetAnalyticsDataData = z.infer<typeof getAnalyticsDataData>;
