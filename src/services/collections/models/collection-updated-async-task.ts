@@ -13,6 +13,7 @@ export const collectionUpdatedAsyncTask = z.lazy(() => {
 });
 
 /**
+ * Information about the async update task.
  * @typedef {CollectionUpdatedAsyncTask} collectionUpdatedAsyncTask
  * @property {string} id - The collection update task's ID. Use this value to get the update's status with the GET `/collection-updates-tasks/{taskId}` endpoint.
  * @property {string} status - The task's current status.

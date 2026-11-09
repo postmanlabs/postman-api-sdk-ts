@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name | Type                       | Required | Description |
-| :--- | :------------------------- | :------- | :---------- |
-| task | CollectionUpdatedAsyncTask | ❌       |             |
+| Name | Type                       | Required | Description                              |
+| :--- | :------------------------- | :------- | :--------------------------------------- |
+| task | CollectionUpdatedAsyncTask | ❌       | Information about the async update task. |
 
 # CollectionUpdatedAsyncTask
+
+Information about the async update task.
 
 **Properties**
 

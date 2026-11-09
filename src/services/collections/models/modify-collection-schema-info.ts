@@ -12,7 +12,7 @@ export const modifyCollectionSchemaInfo = z.lazy(() => {
     description: z.string().optional(),
     schema: z.string(),
     updatedAt: z.string().optional(),
-    createdat: z.string().optional(),
+    createdAt: z.string().optional(),
     lastUpdatedBy: z.string().optional(),
     uid: z.string().optional(),
   });
@@ -26,7 +26,7 @@ export const modifyCollectionSchemaInfo = z.lazy(() => {
  * @property {string} description - The collection's description.
  * @property {InformationSchema2} schema - The "https://schema.postman.com/json/collection/v2.1.0/collection.json" Postman Collection Format v2.1.0 schema.
  * @property {string} updatedAt - The date and time when the collection was last updated.
- * @property {string} createdat - The date and time when the collection was created.
+ * @property {string} createdAt - The date and time when the collection was created.
  * @property {string} lastUpdatedBy - The user ID of the person who last updated the collection.
  * @property {string} uid - The collection's unique ID.
  */
@@ -45,7 +45,7 @@ export const modifyCollectionSchemaInfoResponse = z.lazy(() => {
       description: z.string().optional(),
       schema: z.string(),
       updatedAt: z.string().optional(),
-      createdat: z.string().optional(),
+      createdAt: z.string().optional(),
       lastUpdatedBy: z.string().optional(),
       uid: z.string().optional(),
     })
@@ -55,7 +55,7 @@ export const modifyCollectionSchemaInfoResponse = z.lazy(() => {
       description: data['description'],
       schema: data['schema'],
       updatedAt: data['updatedAt'],
-      createdat: data['createdat'],
+      createdAt: data['createdAt'],
       lastUpdatedBy: data['lastUpdatedBy'],
       uid: data['uid'],
     }));
@@ -74,7 +74,7 @@ export const modifyCollectionSchemaInfoRequest = z.lazy(() => {
       description: z.string().optional(),
       schema: z.string(),
       updatedAt: z.string().optional(),
-      createdat: z.string().optional(),
+      createdAt: z.string().optional(),
       lastUpdatedBy: z.string().optional(),
       uid: z.string().optional(),
     })
@@ -84,7 +84,7 @@ export const modifyCollectionSchemaInfoRequest = z.lazy(() => {
       description: data['description'],
       schema: data['schema'],
       updatedAt: data['updatedAt'],
-      createdat: data['createdat'],
+      createdAt: data['createdAt'],
       lastUpdatedBy: data['lastUpdatedBy'],
       uid: data['uid'],
     }));

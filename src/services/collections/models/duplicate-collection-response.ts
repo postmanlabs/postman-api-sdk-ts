@@ -19,7 +19,7 @@ export const duplicateCollectionResponse = z.lazy(() => {
 
 /**
  * @typedef {DuplicateCollectionResponse} duplicateCollectionResponse
- * @property {DuplicateCollectionResponseTask} task
+ * @property {DuplicateCollectionResponseTask} task - Information about the duplication task.
  */
 export type DuplicateCollectionResponse = z.infer<typeof duplicateCollectionResponse>;
 

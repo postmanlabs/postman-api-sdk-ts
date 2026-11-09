@@ -1,16 +1,16 @@
 import { z } from 'zod';
 import {
-  SuccessfulResponseMonitors,
-  successfulResponseMonitors,
-  successfulResponseMonitorsRequest,
-  successfulResponseMonitorsResponse,
-} from './successful-response-monitors';
+  GetMonitorsData,
+  getMonitorsData,
+  getMonitorsDataRequest,
+  getMonitorsDataResponse,
+} from './get-monitors-data';
 import {
-  SuccessfulResponseMeta5,
-  successfulResponseMeta5,
-  successfulResponseMeta5Request,
-  successfulResponseMeta5Response,
-} from './successful-response-meta-5';
+  MetaNetCursorLimit,
+  metaNetCursorLimit,
+  metaNetCursorLimitRequest,
+  metaNetCursorLimitResponse,
+} from './meta-net-cursor-limit';
 
 /**
  * Zod schema for the GetMonitorsOkResponse model.
@@ -19,15 +19,15 @@ import {
  */
 export const getMonitorsOkResponse = z.lazy(() => {
   return z.object({
-    monitors: z.array(successfulResponseMonitors).optional(),
-    meta: successfulResponseMeta5.optional(),
+    monitors: z.array(getMonitorsData).optional(),
+    meta: metaNetCursorLimit.optional(),
   });
 });
 
 /**
  * @typedef {GetMonitorsOkResponse} getMonitorsOkResponse
- * @property {SuccessfulResponseMonitors[]} monitors - A list of monitors.
- * @property {SuccessfulResponseMeta5} meta - The response's meta information for paginated results.
+ * @property {GetMonitorsData[]} monitors - A list of monitors.
+ * @property {MetaNetCursorLimit} meta - The response's meta information for paginated results.
  */
 export type GetMonitorsOkResponse = z.infer<typeof getMonitorsOkResponse>;
 
@@ -39,8 +39,8 @@ export type GetMonitorsOkResponse = z.infer<typeof getMonitorsOkResponse>;
 export const getMonitorsOkResponseResponse = z.lazy(() => {
   return z
     .object({
-      monitors: z.array(successfulResponseMonitorsResponse).optional(),
-      meta: successfulResponseMeta5Response.optional(),
+      monitors: z.array(getMonitorsDataResponse).optional(),
+      meta: metaNetCursorLimitResponse.optional(),
     })
     .transform((data) => ({
       monitors: data['monitors'],
@@ -56,8 +56,8 @@ export const getMonitorsOkResponseResponse = z.lazy(() => {
 export const getMonitorsOkResponseRequest = z.lazy(() => {
   return z
     .object({
-      monitors: z.array(successfulResponseMonitorsRequest).optional(),
-      meta: successfulResponseMeta5Request.optional(),
+      monitors: z.array(getMonitorsDataRequest).optional(),
+      meta: metaNetCursorLimitRequest.optional(),
     })
     .transform((data) => ({
       monitors: data['monitors'],

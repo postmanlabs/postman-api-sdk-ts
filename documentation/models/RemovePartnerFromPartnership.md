@@ -9,7 +9,7 @@ The request body for removing partners from partnership with a team.
 | targetEntity   | RemovePartnerFromPartnershipTargetEntity                                                              | ✅       | The `team` value.                          |
 | targetEntityId | string                                                                                                | ✅       | The team ID from which to remove partners. |
 | action         | RemovePartnerFromPartnershipAction                                                                    | ✅       | The `remove_partner` action.               |
-| target         | [ManagePartnerWorkspaceInvitesTargetObjectUserId](ManagePartnerWorkspaceInvitesTargetObjectUserId.md) | ✅       |                                            |
+| target         | [ManagePartnerWorkspaceInvitesTargetObjectUserId](ManagePartnerWorkspaceInvitesTargetObjectUserId.md) | ✅       | The target on which to perform the action. |
 
 # RemovePartnerFromPartnershipTargetEntity
 

@@ -12,6 +12,7 @@ export const userGroupsInfo = z.lazy(() => {
 });
 
 /**
+ * The role assignments keyed by user group ID.
  * @typedef {UserGroupsInfo} userGroupsInfo
  * @property {TeamRoles[]} _userGroupId_ - A list of the user group's roles. The array's name is the group's ID.
  */

@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  SuccessfulResponseWorkspace2,
-  successfulResponseWorkspace2,
-  successfulResponseWorkspace2Request,
-  successfulResponseWorkspace2Response,
-} from './successful-response-workspace-2';
+  GetWorkspaceData,
+  getWorkspaceData,
+  getWorkspaceDataRequest,
+  getWorkspaceDataResponse,
+} from './get-workspace-data';
 
 /**
  * Zod schema for the GetWorkspaceOkResponse model.
@@ -13,13 +13,13 @@ import {
  */
 export const getWorkspaceOkResponse = z.lazy(() => {
   return z.object({
-    workspace: successfulResponseWorkspace2.optional(),
+    workspace: getWorkspaceData.optional(),
   });
 });
 
 /**
  * @typedef {GetWorkspaceOkResponse} getWorkspaceOkResponse
- * @property {SuccessfulResponseWorkspace2} workspace - Information about the workspace.
+ * @property {GetWorkspaceData} workspace - Information about the workspace.
  */
 export type GetWorkspaceOkResponse = z.infer<typeof getWorkspaceOkResponse>;
 
@@ -31,7 +31,7 @@ export type GetWorkspaceOkResponse = z.infer<typeof getWorkspaceOkResponse>;
 export const getWorkspaceOkResponseResponse = z.lazy(() => {
   return z
     .object({
-      workspace: successfulResponseWorkspace2Response.optional(),
+      workspace: getWorkspaceDataResponse.optional(),
     })
     .transform((data) => ({
       workspace: data['workspace'],
@@ -46,7 +46,7 @@ export const getWorkspaceOkResponseResponse = z.lazy(() => {
 export const getWorkspaceOkResponseRequest = z.lazy(() => {
   return z
     .object({
-      workspace: successfulResponseWorkspace2Request.optional(),
+      workspace: getWorkspaceDataRequest.optional(),
     })
     .transform((data) => ({
       workspace: data['workspace'],

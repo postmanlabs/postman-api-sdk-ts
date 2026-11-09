@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  MockCreateUpdateResponseMock,
-  mockCreateUpdateResponseMock,
-  mockCreateUpdateResponseMockRequest,
-  mockCreateUpdateResponseMockResponse,
-} from './mock-create-update-response-mock';
+  MockCreateUpdateData,
+  mockCreateUpdateData,
+  mockCreateUpdateDataRequest,
+  mockCreateUpdateDataResponse,
+} from './mock-create-update-data';
 
 /**
  * Zod schema for the MockCreateUpdateResponse model.
@@ -13,13 +13,13 @@ import {
  */
 export const mockCreateUpdateResponse = z.lazy(() => {
   return z.object({
-    mock: mockCreateUpdateResponseMock.optional(),
+    mock: mockCreateUpdateData.optional(),
   });
 });
 
 /**
  * @typedef {MockCreateUpdateResponse} mockCreateUpdateResponse
- * @property {MockCreateUpdateResponseMock} mock - Information about the mock server.
+ * @property {MockCreateUpdateData} mock - Information about the mock server.
  */
 export type MockCreateUpdateResponse = z.infer<typeof mockCreateUpdateResponse>;
 
@@ -31,7 +31,7 @@ export type MockCreateUpdateResponse = z.infer<typeof mockCreateUpdateResponse>;
 export const mockCreateUpdateResponseResponse = z.lazy(() => {
   return z
     .object({
-      mock: mockCreateUpdateResponseMockResponse.optional(),
+      mock: mockCreateUpdateDataResponse.optional(),
     })
     .transform((data) => ({
       mock: data['mock'],
@@ -46,7 +46,7 @@ export const mockCreateUpdateResponseResponse = z.lazy(() => {
 export const mockCreateUpdateResponseRequest = z.lazy(() => {
   return z
     .object({
-      mock: mockCreateUpdateResponseMockRequest.optional(),
+      mock: mockCreateUpdateDataRequest.optional(),
     })
     .transform((data) => ({
       mock: data['mock'],

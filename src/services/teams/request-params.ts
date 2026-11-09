@@ -17,6 +17,10 @@ export interface GetTeamParams {
   identifierType?: string;
 }
 
+export interface UpdateTeamParams {
+  identifierType?: string;
+}
+
 export interface GetTeamAccessRequestsParams {
   cursor?: string;
   limit?: number;
