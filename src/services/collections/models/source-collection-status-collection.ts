@@ -18,6 +18,7 @@ export const sourceCollectionStatusCollection = z.lazy(() => {
 });
 
 /**
+ * Information about the source collection.
  * @typedef {SourceCollectionStatusCollection} sourceCollectionStatusCollection
  * @property {CollectionUid} collectionUid - Information about the forked collection. The object's name is the forked collection's UID (`userId`-`collectionId`).
  */

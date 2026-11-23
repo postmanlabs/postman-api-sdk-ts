@@ -27,7 +27,7 @@ export const getSpecVersionTags = z.lazy(() => {
 /**
  * @typedef {GetSpecVersionTags} getSpecVersionTags
  * @property {GetSpecVersionTagsData[]} data - A list of the specification's version tags.
- * @property {GetSpecVersionTagsMeta} meta
+ * @property {GetSpecVersionTagsMeta} meta - The response's meta information for paginated results.
  */
 export type GetSpecVersionTags = z.infer<typeof getSpecVersionTags>;
 

@@ -156,14 +156,14 @@ Updates a mock server's properties, such as its name or collection.
 **Example Usage Code Snippet**
 
 ```typescript
-import { PostmanApi, UpdateMock, UpdateMockMock, UpdateMockMockConfig } from '@postman/api-sdk';
+import { PostmanApi, UpdateMock, UpdateMockConfigData, UpdateMockMock } from '@postman/api-sdk';
 
 (async () => {
   const postmanApi = new PostmanApi({
     apiKey: 'YOUR_API_KEY',
   });
 
-  const updateMockMockConfig: UpdateMockMockConfig = {
+  const updateMockConfigData: UpdateMockConfigData = {
     serverResponseId: '9a291bbe-dc0a-44ba-a3c8-6dbd06a61460',
   };
 
@@ -174,7 +174,7 @@ import { PostmanApi, UpdateMock, UpdateMockMock, UpdateMockMockConfig } from '@p
     private: true,
     versionTag: 'abf07d3d-f8ec-47d4-8015-9fe83078b4ec',
     collection: '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
-    config: updateMockMockConfig,
+    config: updateMockConfigData,
   };
 
   const updateMock: UpdateMock = {
@@ -363,7 +363,7 @@ Gets all of a mock server's server responses.
 
 **Return Type**
 
-`GetMockServerResponses[]`
+`GetMockServerResponsesData[]`
 
 **Example Usage Code Snippet**
 
@@ -407,8 +407,8 @@ Creates a server response. Server responses let you simulate 5xx server-level re
 import {
   CreateMockServerResponse,
   CreateMockServerResponseServerResponse,
-  CreateMockServerResponseServerResponseHeaders,
-  CreateMockServerResponseServerResponseLanguage,
+  MockServerResponseHeadersData,
+  MockServerResponseLanguage,
   PostmanApi,
 } from '@postman/api-sdk';
 
@@ -417,20 +417,18 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const createMockServerResponseServerResponseHeaders: CreateMockServerResponseServerResponseHeaders =
-    {
-      key: 'Content-Type',
-      value: 'application/json',
-    };
+  const mockServerResponseHeadersData: MockServerResponseHeadersData = {
+    key: 'Content-Type',
+    value: 'application/json',
+  };
 
-  const createMockServerResponseServerResponseLanguage =
-    CreateMockServerResponseServerResponseLanguage.TEXT;
+  const mockServerResponseLanguage = MockServerResponseLanguage.TEXT;
 
   const createMockServerResponseServerResponse: CreateMockServerResponseServerResponse = {
     name: 'Internal Server Error',
     statusCode: 500,
-    headers: [createMockServerResponseServerResponseHeaders],
-    language: createMockServerResponseServerResponseLanguage,
+    headers: [mockServerResponseHeadersData],
+    language: mockServerResponseLanguage,
     body: '{\n    "message": "Something went wrong; try again later."\n}',
   };
 
@@ -507,11 +505,11 @@ Updates a server response.
 
 ```typescript
 import {
+  MockServerResponseHeadersData,
+  MockServerResponseLanguage,
   PostmanApi,
   UpdateMockServerResponse,
   UpdateMockServerResponseServerResponse,
-  UpdateMockServerResponseServerResponseHeaders,
-  UpdateMockServerResponseServerResponseLanguage,
 } from '@postman/api-sdk';
 
 (async () => {
@@ -519,20 +517,18 @@ import {
     apiKey: 'YOUR_API_KEY',
   });
 
-  const updateMockServerResponseServerResponseHeaders: UpdateMockServerResponseServerResponseHeaders =
-    {
-      key: 'Content-Type',
-      value: 'application/json',
-    };
+  const mockServerResponseHeadersData: MockServerResponseHeadersData = {
+    key: 'Content-Type',
+    value: 'application/json',
+  };
 
-  const updateMockServerResponseServerResponseLanguage =
-    UpdateMockServerResponseServerResponseLanguage.TEXT;
+  const mockServerResponseLanguage = MockServerResponseLanguage.TEXT;
 
   const updateMockServerResponseServerResponse: UpdateMockServerResponseServerResponse = {
     name: 'Internal Server Error',
     statusCode: 500,
-    headers: [updateMockServerResponseServerResponseHeaders],
-    language: updateMockServerResponseServerResponseLanguage,
+    headers: [mockServerResponseHeadersData],
+    language: mockServerResponseLanguage,
     body: '{\n    "message": "Something went wrong; try again later."\n}',
   };
 

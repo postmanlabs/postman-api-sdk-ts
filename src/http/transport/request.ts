@@ -52,6 +52,12 @@ export class Request<PageSchema = unknown[]> {
 
   public pagination?: RequestPagination<PageSchema> | RequestCursorPagination<PageSchema>;
 
+  /**
+   * The body as the caller built it, kept for body-property pagination: request validation replaces
+   * `body` with its serialized form before the first send, so each next page is rebuilt from this.
+   */
+  private pageBody?: Record<string, unknown>;
+
   public filename?: string;
 
   public filenames?: string[];
@@ -74,6 +80,10 @@ export class Request<PageSchema = unknown[]> {
     this.requestSchema = params.requestSchema;
     this.requestContentType = params.requestContentType;
     this.pagination = params.pagination;
+    if (params.pagination?.bodyProperty) {
+      // An optional body the caller left out is still paged: the next page sends one.
+      this.pageBody = (params.body ?? {}) as Record<string, unknown>;
+    }
     this.filename = params.filename;
     this.filenames = params.filenames;
   }
@@ -258,9 +268,31 @@ export class Request<PageSchema = unknown[]> {
    * Handles both cursor-based and limit-offset pagination strategies.
    *
    * @param cursor - The cursor value for cursor-based pagination (optional for limit-offset)
+   * @param offsetIncrement - Fallback increment for offset pagination with no declared `pageSize`
+   * (stepless offset — gap doc row 200), where the caller only learns the increment after fetching
+   * a page (its item count). Ignored whenever `pageSize` is set, which always wins.
    */
-  public nextPage(cursor?: string): void {
+  public nextPage(cursor?: string, offsetIncrement?: number): void {
     if (!this.pagination) {
+      return;
+    }
+
+    const bodyProperty = this.pagination.bodyProperty;
+    if (bodyProperty && this.pageBody) {
+      const current = this.pageBody[bodyProperty];
+      // A cursor replaces the property; an offset is a page number, so it moves by one (Fern's
+      // behaviour for an offset with no step) and starts from page 1 when the caller sent none; a
+      // caller-supplied 0 stays 0, so the next page is 1.
+      const currentPage = current === undefined || current === null ? 1 : Number(current);
+      // A page number that is not a number cannot be advanced; failing beats re-fetching one page forever.
+      if (!isRequestCursorPagination(this.pagination) && !Number.isFinite(currentPage)) {
+        throw new Error(`Cannot page: ${bodyProperty} is not a number (${String(current)}).`);
+      }
+      const next = isRequestCursorPagination(this.pagination) ? cursor : currentPage + 1;
+      if (next !== undefined) {
+        this.pageBody = { ...this.pageBody, [bodyProperty]: next };
+        this.body = this.pageBody;
+      }
       return;
     }
 
@@ -276,10 +308,11 @@ export class Request<PageSchema = unknown[]> {
     // Handle limit-offset pagination
     const offsetParam = this.getOffsetParam();
     if (offsetParam) {
-      if (this.pagination.pageSize === undefined) {
+      const increment = this.pagination.pageSize ?? offsetIncrement;
+      if (increment === undefined) {
         throw new Error('pageSize is required for limit-offset pagination');
       }
-      offsetParam.value = Number(offsetParam.value) + this.pagination.pageSize;
+      offsetParam.value = Number(offsetParam.value) + increment;
     }
   }
 

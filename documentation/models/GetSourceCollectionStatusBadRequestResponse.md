@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name       | Type                 | Required | Description |
-| :--------- | :------------------- | :------- | :---------- |
-| collection | BadRequestCollection | ❌       |             |
+| Name       | Type                 | Required | Description                                           |
+| :--------- | :------------------- | :------- | :---------------------------------------------------- |
+| collection | BadRequestCollection | ❌       | Information about the collection that failed to fork. |
 
 # BadRequestCollection
+
+Information about the collection that failed to fork.
 
 **Properties**
 

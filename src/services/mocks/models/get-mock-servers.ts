@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import {
-  GetMockServersMocks,
-  getMockServersMocks,
-  getMockServersMocksRequest,
-  getMockServersMocksResponse,
-} from './get-mock-servers-mocks';
+  MockServerData,
+  mockServerData,
+  mockServerDataRequest,
+  mockServerDataResponse,
+} from './mock-server-data';
 
 /**
  * Zod schema for the GetMockServers model.
@@ -13,13 +13,13 @@ import {
  */
 export const getMockServers = z.lazy(() => {
   return z.object({
-    mocks: z.array(getMockServersMocks).optional(),
+    mocks: z.array(mockServerData).optional(),
   });
 });
 
 /**
  * @typedef {GetMockServers} getMockServers
- * @property {GetMockServersMocks[]} mocks - A list of mock servers.
+ * @property {MockServerData[]} mocks - A list of mock servers.
  */
 export type GetMockServers = z.infer<typeof getMockServers>;
 
@@ -31,7 +31,7 @@ export type GetMockServers = z.infer<typeof getMockServers>;
 export const getMockServersResponse = z.lazy(() => {
   return z
     .object({
-      mocks: z.array(getMockServersMocksResponse).optional(),
+      mocks: z.array(mockServerDataResponse).optional(),
     })
     .transform((data) => ({
       mocks: data['mocks'],
@@ -46,7 +46,7 @@ export const getMockServersResponse = z.lazy(() => {
 export const getMockServersRequest = z.lazy(() => {
   return z
     .object({
-      mocks: z.array(getMockServersMocksRequest).optional(),
+      mocks: z.array(mockServerDataRequest).optional(),
     })
     .transform((data) => ({
       mocks: data['mocks'],

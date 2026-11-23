@@ -12,11 +12,13 @@ Information about the error.
 
 **Properties**
 
-| Name | Type      | Required | Description |
-| :--- | :-------- | :------- | :---------- |
-| name | ErrorName | ❌       |             |
+| Name | Type      | Required | Description                  |
+| :--- | :-------- | :------- | :--------------------------- |
+| name | ErrorName | ❌       | Information about the error. |
 
 # ErrorName
+
+Information about the error.
 
 **Properties**
 

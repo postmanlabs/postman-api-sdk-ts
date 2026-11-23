@@ -16,9 +16,9 @@ export class LineDecoder {
    * @returns An array of complete lines as Uint8Array
    */
   public splitLines(chunk: Uint8Array): Uint8Array[] {
-    this.lineBuffer += this.decoder.decode(chunk);
+    this.lineBuffer += this.decoder.decode(chunk, { stream: true });
 
-    let lineEndIndex;
+    let lineEndIndex: number;
     const lines: Uint8Array[] = [];
     while ((lineEndIndex = this.lineBuffer.indexOf('\n')) >= 0) {
       const line = this.lineBuffer.slice(0, lineEndIndex + 1); // Include the newline character

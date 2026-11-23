@@ -43,7 +43,6 @@ export class Import_Service extends BaseService {
 - This endpoint has a rate limit of **10 requests per 10 seconds**.
 - The Postman web app does not support the `file` input method type.
 - If you do not include the `workspace` query parameter, the system imports the definition into the oldest personal Internal workspace you own.
-- For an example of importing a file, see the [Postman API collection](https://www.postman.com/postman/postman-public-workspace/example/12959542-08d74ce2-8150-4f72-99a7-11e60492eb47).
 
  * @param {string} params.workspace - The workspace's ID.
  * @param {Partial<SdkConfig>} [requestConfig] - The request configuration for retry and validation.

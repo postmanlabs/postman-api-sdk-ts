@@ -83,10 +83,12 @@ Creates a monitor. **Note:** - You cannot create monitors for collections added 
 ```typescript
 import {
   CreateMonitor,
-  CreateMonitorMonitor,
+  CreateMonitorPayload,
   MonitorDistribution,
   MonitorNotifications,
-  MonitorOptions,
+  MonitorOptionsPayload,
+  MonitorRequestSelectionPayload,
+  MonitorRequestSelectionPayloadSelectedItems,
   MonitorRetrySettings,
   MonitorSchedule,
   OnError,
@@ -104,11 +106,20 @@ import {
     attempts: 1,
   };
 
-  const monitorOptions: MonitorOptions = {
+  const monitorRequestSelectionPayloadSelectedItems: MonitorRequestSelectionPayloadSelectedItems = {
+    id: '12345678-5daabc50-8451-45f6-922d-96b403b4f28e',
+  };
+
+  const monitorRequestSelectionPayload: MonitorRequestSelectionPayload = {
+    selectedItems: [monitorRequestSelectionPayloadSelectedItems],
+  };
+
+  const monitorOptionsPayload: MonitorOptionsPayload = {
     followRedirects: true,
     requestDelay: 1,
     requestTimeout: 3000,
     strictSsl: true,
+    requestSelection: monitorRequestSelectionPayload,
   };
 
   const monitorSchedule: MonitorSchedule = {
@@ -135,21 +146,21 @@ import {
     onFailure: [onFailure],
   };
 
-  const createMonitorMonitor: CreateMonitorMonitor = {
+  const createMonitorPayload: CreateMonitorPayload = {
     name: 'Test Monitor',
     active: true,
     notificationLimit: 1,
     collection: '12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2',
     environment: '12345678-5daabc50-8451-43f6-922d-96b403b4f28e',
     retry: monitorRetrySettings,
-    options: monitorOptions,
+    options: monitorOptionsPayload,
     schedule: monitorSchedule,
     distribution: [monitorDistribution],
     notifications: monitorNotifications,
   };
 
   const createMonitor: CreateMonitor = {
-    monitor: createMonitorMonitor,
+    monitor: createMonitorPayload,
   };
 
   const data = await postmanApi.monitors.createMonitor(createMonitor, {
@@ -217,7 +228,9 @@ Updates a monitor's [configurations](https://learning.postman.com/docs/monitorin
 import {
   MonitorDistribution,
   MonitorNotifications,
-  MonitorOptions,
+  MonitorOptionsPayload,
+  MonitorRequestSelectionPayload,
+  MonitorRequestSelectionPayloadSelectedItems,
   MonitorRetrySettings,
   MonitorSchedule,
   OnError,
@@ -225,7 +238,7 @@ import {
   PostmanApi,
   Region,
   UpdateMonitor,
-  UpdateMonitorMonitor,
+  UpdateMonitorPayload,
 } from '@postman/api-sdk';
 
 (async () => {
@@ -237,11 +250,20 @@ import {
     attempts: 1,
   };
 
-  const monitorOptions: MonitorOptions = {
+  const monitorRequestSelectionPayloadSelectedItems: MonitorRequestSelectionPayloadSelectedItems = {
+    id: '12345678-5daabc50-8451-45f6-922d-96b403b4f28e',
+  };
+
+  const monitorRequestSelectionPayload: MonitorRequestSelectionPayload = {
+    selectedItems: [monitorRequestSelectionPayloadSelectedItems],
+  };
+
+  const monitorOptionsPayload: MonitorOptionsPayload = {
     followRedirects: true,
     requestDelay: 1,
     requestTimeout: 3000,
     strictSsl: true,
+    requestSelection: monitorRequestSelectionPayload,
   };
 
   const monitorSchedule: MonitorSchedule = {
@@ -268,19 +290,19 @@ import {
     onFailure: [onFailure],
   };
 
-  const updateMonitorMonitor: UpdateMonitorMonitor = {
+  const updateMonitorPayload: UpdateMonitorPayload = {
     name: 'Test Monitor',
     active: true,
     notificationLimit: 1,
     retry: monitorRetrySettings,
-    options: monitorOptions,
+    options: monitorOptionsPayload,
     schedule: monitorSchedule,
     distribution: [monitorDistribution],
     notifications: monitorNotifications,
   };
 
   const updateMonitor: UpdateMonitor = {
-    monitor: updateMonitorMonitor,
+    monitor: updateMonitorPayload,
   };
 
   const data = await postmanApi.monitors.updateMonitor(

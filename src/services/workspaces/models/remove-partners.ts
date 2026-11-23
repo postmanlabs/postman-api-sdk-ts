@@ -26,7 +26,7 @@ export const removePartners = z.lazy(() => {
  * @property {RemovePartnersTargetEntity} targetEntity - The `workspace` value.
  * @property {string} targetEntityId - The Partner Workspace ID from which to remove partners.
  * @property {RemovePartnersAction} action - The `remove_partner` action.
- * @property {ManagePartnerWorkspaceInvitesTargetObjectUserId} target
+ * @property {ManagePartnerWorkspaceInvitesTargetObjectUserId} target - The target on which to perform the action.
  */
 export type RemovePartners = z.infer<typeof removePartners>;
 

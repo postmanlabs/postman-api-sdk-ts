@@ -8,7 +8,7 @@ import { ThrowableError } from '../errors/throwable-error';
  * Used to match and validate responses based on content type and status code.
  */
 export interface ResponseDefinition {
-  /** Zod schema for validating the response body */
+  /** Schema for validating the response body */
   schema: ZodType;
   /** The content type of this response (e.g., 'application/json') */
   contentType: ContentType;
@@ -88,9 +88,14 @@ export interface RequestParameter {
 export interface RequestPagination<Page> {
   /** The number of items per page */
   pageSize?: number;
+  /**
+   * When set, the offset is this property of the request body (a page number advanced by one)
+   * rather than a query parameter.
+   */
+  bodyProperty?: string;
   /** JSON path to extract page data from response */
   pagePath: string[];
-  /** Zod schema for validating page data */
+  /** Schema for validating page data */
   pageSchema?: ZodType<Page, any, any>;
 }
 
@@ -103,12 +108,14 @@ export interface RequestPagination<Page> {
 export interface RequestCursorPagination<Page> {
   /** JSON path to extract page data from response */
   pagePath: string[];
-  /** Zod schema for validating page data */
+  /** Schema for validating page data */
   pageSchema?: ZodType<Page, any, any>;
   /** JSON path to extract next cursor from response */
   cursorPath: string[];
-  /** Zod schema for validating cursor value */
-  cursorSchema?: ZodType<string | null | undefined>;
+  /** Schema for validating cursor value */
+  cursorSchema?: ZodType<any, any, any>;
+  /** When set, the cursor is this property of the request body rather than a query parameter. */
+  bodyProperty?: string;
 }
 
 /**

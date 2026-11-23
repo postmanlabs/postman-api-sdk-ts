@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name  | Type             | Required | Description |
-| :---- | :--------------- | :------- | :---------- |
-| error | BadRequestError3 | ❌       |             |
+| Name  | Type             | Required | Description                  |
+| :---- | :--------------- | :------- | :--------------------------- |
+| error | BadRequestError3 | ❌       | Information about the error. |
 
 # BadRequestError3
+
+Information about the error.
 
 **Properties**
 

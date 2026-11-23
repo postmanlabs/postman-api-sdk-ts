@@ -19,7 +19,7 @@ export const collectionCreated = z.lazy(() => {
 
 /**
  * @typedef {CollectionCreated} collectionCreated
- * @property {CollectionCreatedCollection} collection
+ * @property {CollectionCreatedCollection} collection - Information about the created collection.
  */
 export type CollectionCreated = z.infer<typeof collectionCreated>;
 

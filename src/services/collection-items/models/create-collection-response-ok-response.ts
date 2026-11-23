@@ -22,7 +22,7 @@ export const createCollectionResponseOkResponse = z.lazy(() => {
 
 /**
  * @typedef {CreateCollectionResponseOkResponse} createCollectionResponseOkResponse
- * @property {CollectionResponseCreatedData} data - Information about the response. For a complete list of properties, refer to the ``Response`` entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
+ * @property {CollectionResponseCreatedData} data - Information about the response. For a complete list of properties, refer to the `Response` entry in the [Postman Collection Format documentation](https://schema.postman.com/collection/json/v2.1.0/draft-07/docs/index.html).
  * @property {any} meta - A Postman-specific response that contains information about the internal performed operation.
  * @property {string} modelId - The response's ID.
  * @property {number} revision - An internal revision ID. Its value increments each time the resource changes. You can use this ID to track whether there were changes since the last time you fetched the resource.

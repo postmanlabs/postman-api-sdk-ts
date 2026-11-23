@@ -18,6 +18,7 @@ export const partnersEngagementSuccessfulRequestsSentSchema = z.lazy(() => {
 });
 
 /**
+ * The shape of the analytics data (column definitions).
  * @typedef {PartnersEngagementSuccessfulRequestsSentSchema} partnersEngagementSuccessfulRequestsSentSchema
  * @property {GetAnalyticsDataColumnsData[]} columns - A list of column entries.
  */

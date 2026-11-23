@@ -1,4 +1,3 @@
-import { HttpError } from '../error';
 import { HttpMetadata, HttpMethod, HttpResponse } from '../types';
 import { LineDecoder } from '../utils/line-decoder';
 import { Request } from './request';
@@ -68,7 +67,10 @@ export class RequestFetchAdapter<T> implements HttpAdapter {
     };
 
     if (response.status >= 400) {
-      throw new HttpError(metadata, await response.clone().arrayBuffer());
+      return yield {
+        metadata,
+        raw: await response.clone().arrayBuffer(),
+      };
     }
 
     if (!response.body) {
