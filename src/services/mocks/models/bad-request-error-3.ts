@@ -14,6 +14,7 @@ export const badRequestError3 = z.lazy(() => {
 });
 
 /**
+ * Information about the error.
  * @typedef {BadRequestError3} badRequestError3
  * @property {string} name - The error name.
  * @property {string} header - Information about the error.

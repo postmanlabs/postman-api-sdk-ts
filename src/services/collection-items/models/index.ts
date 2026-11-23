@@ -41,7 +41,7 @@ export type { CollectionResponseInfo } from './collection-response-info';
 export type { CollectionResponseInfoData } from './collection-response-info-data';
 export type { CollectionResponseUpdated } from './collection-response-updated';
 export type { CollectionResponseUpdatedData } from './collection-response-updated-data';
-export type { UpdateCollectionResponse1 } from './update-collection-response-1';
+export type { UpdateCollectionResponse } from './update-collection-response';
 export { UpdateCollectionResponseDataMode } from './update-collection-response-data-mode';
 export type { UpdateCollectionResponseResponseCode } from './update-collection-response-response-code';
 export type { CollectionResponseDeleted } from './collection-response-deleted';

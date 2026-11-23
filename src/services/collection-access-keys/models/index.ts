@@ -4,4 +4,3 @@ export { CollectionAccessKeysDataStatus } from './collection-access-keys-data-st
 export type { CollectionAccessKeysMeta } from './collection-access-keys-meta';
 export type { ErrorNameMessageDetailsError } from './error-name-message-details-error';
 export type { ErrorNameMessageDetailsErrorDetails } from './error-name-message-details-error-details';
-export type { DeleteCollectionAccessKeyNotFoundResponse } from './delete-collection-access-key-not-found-response';

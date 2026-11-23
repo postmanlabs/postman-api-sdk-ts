@@ -2,15 +2,7 @@
 
 **Properties**
 
-| Name | Type                                                    | Required | Description |
-| :--- | :------------------------------------------------------ | :------- | :---------- |
-| data | [SuccessfulResponseData3](SuccessfulResponseData3.md)[] | ❌       |             |
-| meta | SuccessfulResponseMeta3                                 | ❌       |             |
-
-# SuccessfulResponseMeta3
-
-**Properties**
-
-| Name  | Type   | Required | Description                            |
-| :---- | :----- | :------- | :------------------------------------- |
-| total | number | ❌       | The total number of supported secrets. |
+| Name | Type                                                                      | Required | Description                                    |
+| :--- | :------------------------------------------------------------------------ | :------- | :--------------------------------------------- |
+| data | [SecretTypeData](SecretTypeData.md)[]                                     | ❌       | A list of secret types the scanner can detect. |
+| meta | [SecretScannerMetaTotalSecretsData](SecretScannerMetaTotalSecretsData.md) | ❌       | Aggregate counts across the returned records.  |

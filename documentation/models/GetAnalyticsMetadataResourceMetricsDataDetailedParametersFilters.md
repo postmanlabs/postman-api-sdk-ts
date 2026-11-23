@@ -1,5 +1,7 @@
 # GetAnalyticsMetadataResourceMetricsDataDetailedParametersFilters
 
+The filters supported for the metric.
+
 # Object
 
 Information about the filter parameters.

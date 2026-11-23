@@ -34,7 +34,7 @@ export const componentData = z.lazy(() => {
  * @property {ComponentType} type - The component's type. Corresponds to the specification that the component's content adheres to.
  * @property {ComponentStatus} status - The component's lifecycle state:
 - `active` — The component is active and can be edited and published.
-- `archived` — The component is archived and read-only. Archived components can't be edited or published, but their existing versions remain accessible.
+- `archive` — The component is archived and read-only. Archived components can't be edited or published, but their existing versions remain accessible.
 
  * @property {string} createdAt - The date and time at which the component was created.
  * @property {string} updatedAt - The date and time at which the component was last updated.

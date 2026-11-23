@@ -14,6 +14,7 @@ export const getMigrationStatus400ErrorError = z.lazy(() => {
 });
 
 /**
+ * Information about the error.
  * @typedef {GetMigrationStatus400ErrorError} getMigrationStatus400ErrorError
  * @property {string} name - The error name.
  * @property {string} message - The error message.

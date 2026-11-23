@@ -18,6 +18,7 @@ export const partnersEngagementCollectionViewsSchema = z.lazy(() => {
 });
 
 /**
+ * The shape of the analytics data (column definitions).
  * @typedef {PartnersEngagementCollectionViewsSchema} partnersEngagementCollectionViewsSchema
  * @property {GetAnalyticsDataColumnsData[]} columns - A list of column entries.
  */

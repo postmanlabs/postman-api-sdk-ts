@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name       | Type                             | Required | Description |
-| :--------- | :------------------------------- | :------- | :---------- |
-| collection | SourceCollectionStatusCollection | ❌       |             |
+| Name       | Type                             | Required | Description                              |
+| :--------- | :------------------------------- | :------- | :--------------------------------------- |
+| collection | SourceCollectionStatusCollection | ❌       | Information about the source collection. |
 
 # SourceCollectionStatusCollection
+
+Information about the source collection.
 
 **Properties**
 

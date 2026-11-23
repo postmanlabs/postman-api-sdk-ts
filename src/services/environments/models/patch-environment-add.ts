@@ -23,7 +23,7 @@ export const patchEnvironmentAdd = z.lazy(() => {
  * @typedef {PatchEnvironmentAdd} patchEnvironmentAdd
  * @property {string} op - The `add` operation.
  * @property {string} path - The [JSON Pointer syntax](https://datatracker.ietf.org/doc/html/rfc6901) that indicates the entry to update, in `/values/#` format, where `#` is the entry ID. The first record begins at the `0` value.
- * @property {PatchEnvironmentAddValue} value
+ * @property {PatchEnvironmentAddValue} value - The environment variable to add.
  */
 export type PatchEnvironmentAdd = z.infer<typeof patchEnvironmentAdd>;
 

@@ -13,6 +13,7 @@ export type { CreateGetTeamResponseTeam } from './create-get-team-response-team'
 export type { TeamCreatedBy } from './team-created-by';
 export type { CreateTeam } from './create-team';
 export { TeamsInclude } from './teams-include';
+export type { UpdateTeam } from './update-team';
 export type { GetTeamAccessRequests } from './get-team-access-requests';
 export type { GetTeamAccessRequestsData } from './get-team-access-requests-data';
 export { DataRole } from './data-role';

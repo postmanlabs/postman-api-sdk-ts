@@ -6,11 +6,11 @@ import {
   getWorkspacesWorkspaceDataResponse,
 } from './get-workspaces-workspace-data';
 import {
-  SuccessfulResponseMeta4,
-  successfulResponseMeta4,
-  successfulResponseMeta4Request,
-  successfulResponseMeta4Response,
-} from './successful-response-meta-4';
+  SuccessfulResponseMeta2,
+  successfulResponseMeta2,
+  successfulResponseMeta2Request,
+  successfulResponseMeta2Response,
+} from './successful-response-meta-2';
 
 /**
  * Zod schema for the GetWorkspacesOkResponse model.
@@ -20,14 +20,14 @@ import {
 export const getWorkspacesOkResponse = z.lazy(() => {
   return z.object({
     workspaces: z.array(getWorkspacesWorkspaceData).optional(),
-    meta: successfulResponseMeta4.optional(),
+    meta: successfulResponseMeta2.optional(),
   });
 });
 
 /**
  * @typedef {GetWorkspacesOkResponse} getWorkspacesOkResponse
  * @property {GetWorkspacesWorkspaceData[]} workspaces - A list of workspaces.
- * @property {SuccessfulResponseMeta4} meta - The response's meta information for paginated results. This object only returns if you pass the `limit` query parameter.
+ * @property {SuccessfulResponseMeta2} meta - The response's meta information for paginated results. This object only returns if you pass the `limit` query parameter.
  */
 export type GetWorkspacesOkResponse = z.infer<typeof getWorkspacesOkResponse>;
 
@@ -40,7 +40,7 @@ export const getWorkspacesOkResponseResponse = z.lazy(() => {
   return z
     .object({
       workspaces: z.array(getWorkspacesWorkspaceDataResponse).optional(),
-      meta: successfulResponseMeta4Response.optional(),
+      meta: successfulResponseMeta2Response.optional(),
     })
     .transform((data) => ({
       workspaces: data['workspaces'],
@@ -57,7 +57,7 @@ export const getWorkspacesOkResponseRequest = z.lazy(() => {
   return z
     .object({
       workspaces: z.array(getWorkspacesWorkspaceDataRequest).optional(),
-      meta: successfulResponseMeta4Request.optional(),
+      meta: successfulResponseMeta2Request.optional(),
     })
     .transform((data) => ({
       workspaces: data['workspaces'],

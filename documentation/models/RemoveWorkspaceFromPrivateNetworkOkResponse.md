@@ -4,9 +4,9 @@
 
 | Name      | Type                         | Required | Description                                       |
 | :-------- | :--------------------------- | :------- | :------------------------------------------------ |
-| workspace | SuccessfulResponseWorkspace3 | ❌       | The Private API Network `workspace` element type. |
+| workspace | SuccessfulResponseWorkspace2 | ❌       | The Private API Network `workspace` element type. |
 
-# SuccessfulResponseWorkspace3
+# SuccessfulResponseWorkspace2
 
 The Private API Network `workspace` element type.
 

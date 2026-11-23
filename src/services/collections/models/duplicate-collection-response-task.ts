@@ -14,6 +14,7 @@ export const duplicateCollectionResponseTask = z.lazy(() => {
 });
 
 /**
+ * Information about the duplication task.
  * @typedef {DuplicateCollectionResponseTask} duplicateCollectionResponseTask
  * @property {string} id - The duplication task's ID.
  * @property {TaskStatus} status - The status of the collection duplication task.

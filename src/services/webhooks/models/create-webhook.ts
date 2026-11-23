@@ -19,7 +19,7 @@ export const createWebhook = z.lazy(() => {
 
 /**
  * @typedef {CreateWebhook} createWebhook
- * @property {CreateWebhookWebhook} webhook
+ * @property {CreateWebhookWebhook} webhook - Information about the webhook to create.
  */
 export type CreateWebhook = z.infer<typeof createWebhook>;
 

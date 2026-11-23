@@ -11,4 +11,4 @@ Information about the resource's metric.
 | type        | string                                                                                                                    | ❌       | The metric's data type.                               |
 | isRequired  | boolean                                                                                                                   | ❌       | If true, the metric is required.                      |
 | parameters  | [GetAnalyticsMetadataResourceMetricsDataDetailedParameters](GetAnalyticsMetadataResourceMetricsDataDetailedParameters.md) | ❌       | Information about the metric's parameters.            |
-| response    | [GetAnalyticsMetadataResourceMetricsDataDetailedResponse1](GetAnalyticsMetadataResourceMetricsDataDetailedResponse1.md)   | ❌       | Information about the metric's `response` parameters. |
+| response    | [GetAnalyticsMetadataResourceMetricsDataDetailedResponse](GetAnalyticsMetadataResourceMetricsDataDetailedResponse.md)     | ❌       | Information about the metric's `response` parameters. |

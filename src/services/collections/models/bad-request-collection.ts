@@ -13,6 +13,7 @@ export const badRequestCollection = z.lazy(() => {
 });
 
 /**
+ * Information about the collection that failed to fork.
  * @typedef {BadRequestCollection} badRequestCollection
  * @property {string} name - The error name.
  * @property {string} message - The error message.

@@ -2,11 +2,13 @@
 
 **Properties**
 
-| Name  | Type                            | Required | Description |
-| :---- | :------------------------------ | :------- | :---------- |
-| error | GetMigrationStatus400ErrorError | ❌       |             |
+| Name  | Type                            | Required | Description                  |
+| :---- | :------------------------------ | :------- | :--------------------------- |
+| error | GetMigrationStatus400ErrorError | ❌       | Information about the error. |
 
 # GetMigrationStatus400ErrorError
+
+Information about the error.
 
 **Properties**
 

@@ -1,16 +1,16 @@
 import { z } from 'zod';
 import {
-  SuccessfulResponseData3,
-  successfulResponseData3,
-  successfulResponseData3Request,
-  successfulResponseData3Response,
-} from './successful-response-data-3';
+  SecretTypeData,
+  secretTypeData,
+  secretTypeDataRequest,
+  secretTypeDataResponse,
+} from './secret-type-data';
 import {
-  SuccessfulResponseMeta3,
-  successfulResponseMeta3,
-  successfulResponseMeta3Request,
-  successfulResponseMeta3Response,
-} from './successful-response-meta-3';
+  SecretScannerMetaTotalSecretsData,
+  secretScannerMetaTotalSecretsData,
+  secretScannerMetaTotalSecretsDataRequest,
+  secretScannerMetaTotalSecretsDataResponse,
+} from './secret-scanner-meta-total-secrets-data';
 
 /**
  * Zod schema for the GetSecretTypesOkResponse model.
@@ -19,15 +19,15 @@ import {
  */
 export const getSecretTypesOkResponse = z.lazy(() => {
   return z.object({
-    data: z.array(successfulResponseData3).optional(),
-    meta: successfulResponseMeta3.optional(),
+    data: z.array(secretTypeData).optional(),
+    meta: secretScannerMetaTotalSecretsData.optional(),
   });
 });
 
 /**
  * @typedef {GetSecretTypesOkResponse} getSecretTypesOkResponse
- * @property {SuccessfulResponseData3[]} data
- * @property {SuccessfulResponseMeta3} meta
+ * @property {SecretTypeData[]} data - A list of secret types the scanner can detect.
+ * @property {SecretScannerMetaTotalSecretsData} meta - Aggregate counts across the returned records.
  */
 export type GetSecretTypesOkResponse = z.infer<typeof getSecretTypesOkResponse>;
 
@@ -39,8 +39,8 @@ export type GetSecretTypesOkResponse = z.infer<typeof getSecretTypesOkResponse>;
 export const getSecretTypesOkResponseResponse = z.lazy(() => {
   return z
     .object({
-      data: z.array(successfulResponseData3Response).optional(),
-      meta: successfulResponseMeta3Response.optional(),
+      data: z.array(secretTypeDataResponse).optional(),
+      meta: secretScannerMetaTotalSecretsDataResponse.optional(),
     })
     .transform((data) => ({
       data: data['data'],
@@ -56,8 +56,8 @@ export const getSecretTypesOkResponseResponse = z.lazy(() => {
 export const getSecretTypesOkResponseRequest = z.lazy(() => {
   return z
     .object({
-      data: z.array(successfulResponseData3Request).optional(),
-      meta: successfulResponseMeta3Request.optional(),
+      data: z.array(secretTypeDataRequest).optional(),
+      meta: secretScannerMetaTotalSecretsDataRequest.optional(),
     })
     .transform((data) => ({
       data: data['data'],
